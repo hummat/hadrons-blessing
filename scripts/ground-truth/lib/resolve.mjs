@@ -1,17 +1,11 @@
-import { existsSync } from "node:fs";
 import { buildIndex } from "../../build-ground-truth-index.mjs";
-import { GENERATED_INDEX_PATH, loadJsonFile } from "./load.mjs";
 import { assertAllowedQueryContext, normalizeText } from "./normalize.mjs";
 
 function tokenize(text) {
   return new Set(normalizeText(text).split(" ").filter(Boolean));
 }
 
-function getIndex(options = {}) {
-  if (!options.refresh && existsSync(GENERATED_INDEX_PATH)) {
-    return loadJsonFile(GENERATED_INDEX_PATH);
-  }
-
+function getIndex() {
   return buildIndex({ check: false });
 }
 
@@ -140,7 +134,7 @@ function warningsFor(entity) {
 async function resolveQuery(query, queryContext, options = {}) {
   const safeQueryContext = assertAllowedQueryContext(queryContext);
   const normalizedQuery = normalizeText(query);
-  const index = await getIndex(options);
+  const index = await getIndex();
   const entitiesById = new Map(index.entities.map((entity) => [entity.id, entity]));
 
   if (entitiesById.has(query)) {
