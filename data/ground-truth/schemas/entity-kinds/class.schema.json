@@ -1,0 +1,13 @@
+{
+  "$id": "entity-kinds/class.schema.json",
+  "allOf": [
+    { "$ref": "../entity-base.schema.json" },
+    {
+      "type": "object",
+      "properties": {
+        "kind": { "const": "class" },
+        "internal_name": { "type": "string", "minLength": 1 }
+      }
+    }
+  ]
+}

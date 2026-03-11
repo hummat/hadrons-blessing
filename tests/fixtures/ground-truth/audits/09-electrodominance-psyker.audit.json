@@ -2,6 +2,16 @@
   "build": "09-electrodominance-psyker.json",
   "resolved": [
     {
+      "field": "class",
+      "text": "psyker",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.class.psyker",
+      "proposed_entity_id": null,
+      "match_type": "exact_alias",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
       "field": "curios[0].perks[0]",
       "text": "+15-20% DR vs Gunners",
       "resolution_state": "resolved",
@@ -125,7 +135,38 @@
     }
   ],
   "ambiguous": [],
-  "unresolved": [],
+  "unresolved": [
+    {
+      "field": "curios[0].name",
+      "text": "Blessed Bullet",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": []
+    },
+    {
+      "field": "curios[1].name",
+      "text": "Blessed Bullet",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": []
+    },
+    {
+      "field": "curios[2].name",
+      "text": "Blessed Bullet",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": []
+    }
+  ],
   "warnings": [
     "partially_resolved_entity",
     "resolved_to_name_family"

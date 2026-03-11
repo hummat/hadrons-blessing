@@ -27,6 +27,19 @@ async function auditBuildFile(buildPath) {
     warnings: [],
   };
 
+  const classResult = await resolveField("class", build.class, {
+    kind: "class",
+    class: build.class,
+  });
+
+  if (classResult.resolution_state === "resolved") {
+    audit.resolved.push(classResult);
+  } else if (classResult.resolution_state === "ambiguous") {
+    audit.ambiguous.push(classResult);
+  } else {
+    audit.unresolved.push(classResult);
+  }
+
   for (const [weaponIndex, weapon] of build.weapons.entries()) {
     const slot = weaponIndex === 0 ? "melee" : "ranged";
     const weaponResult = await resolveField(
@@ -86,6 +99,24 @@ async function auditBuildFile(buildPath) {
   }
 
   for (const [curioIndex, curio] of build.curios.entries()) {
+    const curioNameResult = await resolveField(
+      `curios[${curioIndex}].name`,
+      curio.name,
+      {
+        kind: "gadget_item",
+        slot: "curio",
+        class: build.class,
+      },
+    );
+
+    if (curioNameResult.resolution_state === "resolved") {
+      audit.resolved.push(curioNameResult);
+    } else if (curioNameResult.resolution_state === "ambiguous") {
+      audit.ambiguous.push(curioNameResult);
+    } else {
+      audit.unresolved.push(curioNameResult);
+    }
+
     for (const [perkIndex, perk] of curio.perks.entries()) {
       const perkResult = await resolveField(
         `curios[${curioIndex}].perks[${perkIndex}]`,

@@ -217,4 +217,27 @@ describe("auditBuildFile", () => {
       assert.deepEqual(result, expected);
     });
   }
+
+  it("audits the structured class field", async () => {
+    const result = await auditBuildFile("scripts/builds/08-gandalf-melee-wizard.json");
+    assert.equal(
+      result.resolved.some(
+        (entry) =>
+          entry.field === "class" &&
+          entry.resolved_entity_id === "shared.class.psyker",
+      ),
+      true,
+    );
+  });
+
+  it("keeps unsupported curio item labels explicit", async () => {
+    const result = await auditBuildFile("scripts/builds/08-gandalf-melee-wizard.json");
+    assert.equal(
+      result.unresolved.some(
+        (entry) =>
+          entry.field === "curios[0].name" && entry.text === "Blessed Bullet",
+      ),
+      true,
+    );
+  });
 });

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "shared.class.psyker",
+    "kind": "class",
+    "domain": "shared",
+    "internal_name": "psyker",
+    "loc_key": "loc_class_psyker_name",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/archetype/archetypes/psyker_archetype.lua",
+        "line": 17
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "class": "psyker"
+    },
+    "calc": {}
+  }
+]
