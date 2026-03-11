@@ -460,6 +460,69 @@
     "calc": {}
   },
   {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_dual_shivs_p1_stacking_rending_on_weakspot_parent",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_dual_shivs_p1_stacking_rending_on_weakspot_parent",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_dual_shivs_p1.lua",
+        "line": 46
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "dual_shivs",
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_dual_stubpistols_p1_hipfire_while_sprinting",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_dual_stubpistols_p1_hipfire_while_sprinting",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_dual_stubpistols_p1.lua",
+        "line": 358
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "dual_stubpistols",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_dual_stubpistols_p1_reload_speed_on_slide_parent",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_dual_stubpistols_p1_reload_speed_on_slide_parent",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_dual_stubpistols_p1.lua",
+        "line": 46
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "dual_stubpistols",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_parent",
     "kind": "weapon_trait",
     "domain": "shared",
@@ -636,6 +699,48 @@
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {
       "weapon_family": "forcesword_2h"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_plasmagun_p1_crit_chance_scaled_on_heat",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_plasmagun_p1_crit_chance_scaled_on_heat",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_plasmagun_p1.lua",
+        "line": 229
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "plasmagun",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_plasmagun_p1_reduced_overheat_on_critical_strike",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_plasmagun_p1_reduced_overheat_on_critical_strike",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_plasmagun_p1.lua",
+        "line": 319
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "plasmagun",
+      "slot": "ranged"
     },
     "calc": {}
   },

@@ -227,6 +227,20 @@ describe("buildIndex", () => {
       assert.equal(entityIds.has(id), true, `missing weapon perk ${id}`);
     }
   });
+
+  it("fails when shared blessing family coverage is incomplete", async () => {
+    const expected = JSON.parse(
+      readFileSync("tests/fixtures/ground-truth/expected-blessing-family-resolution.json", "utf8"),
+    );
+    const index = await buildIndex({ check: false });
+    const entityIds = new Set(
+      index.entities.filter((entity) => entity.kind === "name_family").map((entity) => entity.id),
+    );
+
+    for (const { expected_entity_id: id } of expected) {
+      assert.equal(entityIds.has(id), true, `missing blessing family ${id}`);
+    }
+  });
 });
 
 describe("resolveQuery", () => {
@@ -329,6 +343,23 @@ describe("resolveQuery", () => {
 
       assert.equal(result.resolution_state, "resolved");
       assert.equal(result.resolved_entity_id, testCase.expected_entity_id);
+    }
+  });
+
+  it("resolves source-backed blessing family labels once they are mapped", async () => {
+    const cases = JSON.parse(
+      readFileSync("tests/fixtures/ground-truth/expected-blessing-family-resolution.json", "utf8"),
+    );
+
+    for (const testCase of cases) {
+      const result = await resolveQuery(testCase.query, testCase.query_context);
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, testCase.expected_entity_id);
+      assert.deepEqual(result.warnings, [
+        "resolved_to_name_family",
+        "partially_resolved_entity",
+      ]);
     }
   });
 });
@@ -487,6 +518,53 @@ describe("auditBuildFile", () => {
         hiveScumResult,
         "weapons[1].perks[0]",
         "shared.weapon_perk.ranged.weapon_trait_ranged_increased_reload_speed",
+      ],
+    ]) {
+      assert.equal(
+        result.resolved.some(
+          (entry) =>
+            entry.field === field && entry.resolved_entity_id === expectedEntityId,
+        ),
+        true,
+        `${field} should resolve to ${expectedEntityId}`,
+      );
+    }
+  });
+
+  it("resolves newly covered blessing families in representative build audits", async () => {
+    const veteranResult = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
+    const hiveScumResult = await auditBuildFile("scripts/builds/17-crackhead-john-wick.json");
+
+    for (const [result, field, expectedEntityId] of [
+      [
+        veteranResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.rising_heat",
+      ],
+      [
+        veteranResult,
+        "weapons[1].blessings[1].name",
+        "shared.name_family.blessing.gets_hot",
+      ],
+      [
+        hiveScumResult,
+        "weapons[0].blessings[0].name",
+        "shared.name_family.blessing.uncanny_strike",
+      ],
+      [
+        hiveScumResult,
+        "weapons[0].blessings[1].name",
+        "shared.name_family.blessing.precognition",
+      ],
+      [
+        hiveScumResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.run_n_gun",
+      ],
+      [
+        hiveScumResult,
+        "weapons[1].blessings[1].name",
+        "shared.name_family.blessing.speedload",
       ],
     ]) {
       assert.equal(

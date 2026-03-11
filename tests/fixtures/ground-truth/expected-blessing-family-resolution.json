@@ -1,0 +1,50 @@
+[
+  {
+    "query": "Uncanny Strike",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.name_family.blessing.uncanny_strike"
+  },
+  {
+    "query": "Precognition",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.name_family.blessing.precognition"
+  },
+  {
+    "query": "Run 'n' Gun",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.run_n_gun"
+  },
+  {
+    "query": "Speedload",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.speedload"
+  },
+  {
+    "query": "Gets Hot!",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.gets_hot"
+  },
+  {
+    "query": "Rising Heat",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.rising_heat"
+  }
+]

@@ -585,6 +585,30 @@
     "notes": ""
   },
   {
+    "text": "Gets Hot!",
+    "normalized_text": "gets hot",
+    "candidate_entity_id": "shared.name_family.blessing.gets_hot",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by bespoke plasmagun trait source."
+  },
+  {
     "text": "Precognition",
     "normalized_text": "precognition",
     "candidate_entity_id": "shared.name_family.blessing.precognition",
@@ -610,6 +634,78 @@
     "notes": ""
   },
   {
+    "text": "Precognition",
+    "normalized_text": "precognition",
+    "candidate_entity_id": "shared.name_family.blessing.precognition",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping broadened beyond forcesword_2h because the same trait family appears on shivs."
+  },
+  {
+    "text": "Rising Heat",
+    "normalized_text": "rising heat",
+    "candidate_entity_id": "shared.name_family.blessing.rising_heat",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by bespoke plasmagun trait source."
+  },
+  {
+    "text": "Run 'n' Gun",
+    "normalized_text": "run n gun",
+    "candidate_entity_id": "shared.name_family.blessing.run_n_gun",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by bespoke ranged trait source."
+  },
+  {
     "text": "Shred",
     "normalized_text": "shred",
     "candidate_entity_id": "shared.name_family.blessing.shred",
@@ -623,6 +719,54 @@
     },
     "rank_weight": 100,
     "notes": ""
+  },
+  {
+    "text": "Speedload",
+    "normalized_text": "speedload",
+    "candidate_entity_id": "shared.name_family.blessing.speedload",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by bespoke ranged trait source."
+  },
+  {
+    "text": "Uncanny Strike",
+    "normalized_text": "uncanny strike",
+    "candidate_entity_id": "shared.name_family.blessing.uncanny_strike",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by bespoke melee trait source."
   },
   {
     "text": "Warp Flurry",
