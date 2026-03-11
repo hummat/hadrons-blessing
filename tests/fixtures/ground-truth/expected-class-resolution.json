@@ -1,0 +1,26 @@
+[
+  {
+    "query": "veteran",
+    "expected_entity_id": "shared.class.veteran"
+  },
+  {
+    "query": "zealot",
+    "expected_entity_id": "shared.class.zealot"
+  },
+  {
+    "query": "psyker",
+    "expected_entity_id": "shared.class.psyker"
+  },
+  {
+    "query": "ogryn",
+    "expected_entity_id": "shared.class.ogryn"
+  },
+  {
+    "query": "arbites",
+    "expected_entity_id": "shared.class.adamant"
+  },
+  {
+    "query": "hive scum",
+    "expected_entity_id": "shared.class.broker"
+  }
+]

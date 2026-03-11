@@ -1,5 +1,77 @@
 [
   {
+    "id": "shared.class.adamant",
+    "kind": "class",
+    "domain": "shared",
+    "internal_name": "adamant",
+    "loc_key": "loc_class_adamant_name",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/archetype/archetype_settings.lua",
+        "line": 3
+      },
+      {
+        "path": "scripts/settings/archetype/archetypes/adamant_archetype.lua",
+        "line": 17
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "class": "adamant"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.class.broker",
+    "kind": "class",
+    "domain": "shared",
+    "internal_name": "broker",
+    "loc_key": "loc_class_broker_name",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/archetype/archetype_settings.lua",
+        "line": 3
+      },
+      {
+        "path": "scripts/settings/archetype/archetypes/broker_archetype.lua",
+        "line": 17
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "class": "broker"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.class.ogryn",
+    "kind": "class",
+    "domain": "shared",
+    "internal_name": "ogryn",
+    "loc_key": "loc_class_ogryn_name",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/archetype/archetype_settings.lua",
+        "line": 3
+      },
+      {
+        "path": "scripts/settings/archetype/archetypes/ogryn_archetype.lua",
+        "line": 17
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "class": "ogryn"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.class.psyker",
     "kind": "class",
     "domain": "shared",
@@ -9,6 +81,10 @@
     "status": "source_backed",
     "refs": [
       {
+        "path": "scripts/settings/archetype/archetype_settings.lua",
+        "line": 3
+      },
+      {
         "path": "scripts/settings/archetype/archetypes/psyker_archetype.lua",
         "line": 17
       }
@@ -16,6 +92,54 @@
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {
       "class": "psyker"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.class.veteran",
+    "kind": "class",
+    "domain": "shared",
+    "internal_name": "veteran",
+    "loc_key": "loc_class_veteran_name",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/archetype/archetype_settings.lua",
+        "line": 3
+      },
+      {
+        "path": "scripts/settings/archetype/archetypes/veteran_archetype.lua",
+        "line": 17
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "class": "veteran"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.class.zealot",
+    "kind": "class",
+    "domain": "shared",
+    "internal_name": "zealot",
+    "loc_key": "loc_class_zealot_name",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/archetype/archetype_settings.lua",
+        "line": 3
+      },
+      {
+        "path": "scripts/settings/archetype/archetypes/zealot_archetype.lua",
+        "line": 17
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "class": "zealot"
     },
     "calc": {}
   }

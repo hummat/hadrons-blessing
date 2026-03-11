@@ -1,0 +1,42 @@
+[
+  {
+    "text": "arbites",
+    "normalized_text": "arbites",
+    "candidate_entity_id": "shared.class.adamant",
+    "alias_kind": "community_name",
+    "match_mode": "exact_only",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "class"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Guide/build name for the adamant archetype."
+  },
+  {
+    "text": "hive scum",
+    "normalized_text": "hive scum",
+    "candidate_entity_id": "shared.class.broker",
+    "alias_kind": "community_name",
+    "match_mode": "exact_only",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "class"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Guide/build name for the broker archetype."
+  }
+]

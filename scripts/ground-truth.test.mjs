@@ -185,6 +185,20 @@ describe("buildIndex", () => {
       assert.equal(evidenceIds.has(id), true, `missing evidence ${id}`);
     }
   });
+
+  it("fails when shared class coverage is incomplete", async () => {
+    const expected = JSON.parse(
+      readFileSync("tests/fixtures/ground-truth/expected-class-resolution.json", "utf8"),
+    );
+    const index = await buildIndex({ check: false });
+    const entityIds = new Set(
+      index.entities.filter((entity) => entity.kind === "class").map((entity) => entity.id),
+    );
+
+    for (const { expected_entity_id: id } of expected) {
+      assert.equal(entityIds.has(id), true, `missing class entity ${id}`);
+    }
+  });
 });
 
 describe("resolveQuery", () => {
@@ -216,6 +230,22 @@ describe("resolveQuery", () => {
       assert.equal(typeof result.refs[0].path, "string");
       assert.equal(typeof result.refs[0].line, "number");
       assert.deepEqual(result.warnings, testCase.expected_warnings);
+    }
+  });
+
+  it("resolves all structured build class names", async () => {
+    const cases = JSON.parse(
+      readFileSync("tests/fixtures/ground-truth/expected-class-resolution.json", "utf8"),
+    );
+
+    for (const testCase of cases) {
+      const result = await resolveQuery(testCase.query, {
+        kind: "class",
+        class: testCase.query,
+      });
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, testCase.expected_entity_id);
     }
   });
 });
@@ -256,5 +286,51 @@ describe("auditBuildFile", () => {
       ),
       true,
     );
+  });
+
+  it("audits structured class fields across all build fixtures", async () => {
+    const cases = JSON.parse(
+      readFileSync("tests/fixtures/ground-truth/expected-class-resolution.json", "utf8"),
+    );
+    const expectedByClass = new Map(
+      cases.map((testCase) => [testCase.query, testCase.expected_entity_id]),
+    );
+
+    for (let index = 1; index <= 20; index += 1) {
+      const buildPath = `scripts/builds/${String(index).padStart(2, "0")}-${[
+        "veteran-squad-leader",
+        "assault-veteran",
+        "slinking-veteran",
+        "spicy-meta-zealot",
+        "fatmangus-zealot-stealth",
+        "holy-gains-zealot",
+        "zealot-infodump",
+        "gandalf-melee-wizard",
+        "electrodominance-psyker",
+        "electro-shriek-psyker",
+        "explodegryn",
+        "ogryn-shield-tank",
+        "shovel-ogryn",
+        "arbites-nuncio-aquila",
+        "arbites-melee-meta",
+        "arbites-busted",
+        "crackhead-john-wick",
+        "reginald-melee",
+        "the-chemist",
+        "stimmtec-blender",
+      ][index - 1]}.json`;
+      const build = JSON.parse(readFileSync(buildPath, "utf8"));
+      const result = await auditBuildFile(buildPath);
+
+      assert.equal(
+        result.resolved.some(
+          (entry) =>
+            entry.field === "class" &&
+            entry.resolved_entity_id === expectedByClass.get(build.class),
+        ),
+        true,
+        `class field did not resolve for ${buildPath}`,
+      );
+    }
   });
 });
