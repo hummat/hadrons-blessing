@@ -1,8 +1,19 @@
 import { buildIndex } from "../../build-ground-truth-index.mjs";
 import { assertAllowedQueryContext, normalizeText } from "./normalize.mjs";
 
-function tokenize(text) {
-  return new Set(normalizeText(text).split(" ").filter(Boolean));
+const FUZZY_STOPWORDS = new Set(["damage"]);
+
+function extractMeaningfulTokens(text) {
+  return new Set(
+    normalizeText(text)
+      .split(" ")
+      .filter(
+        (token) =>
+          /^\p{L}+$/u.test(token) &&
+          token.length >= 4 &&
+          !FUZZY_STOPWORDS.has(token),
+      ),
+  );
 }
 
 function getIndex() {
@@ -75,8 +86,13 @@ function scoreAlias(alias, query, normalizedQuery, queryContext) {
     matchType = "normalized_alias";
     score += 800;
   } else {
-    const queryTokens = tokenize(query);
-    const aliasTokens = tokenize(alias.text);
+    const queryTokens = extractMeaningfulTokens(query);
+    const aliasTokens = extractMeaningfulTokens(alias.text);
+
+    if (queryTokens.size === 0 || aliasTokens.size === 0) {
+      return null;
+    }
+
     const overlap = [...queryTokens].filter((token) => aliasTokens.has(token)).length;
     const union = new Set([...queryTokens, ...aliasTokens]).size;
 

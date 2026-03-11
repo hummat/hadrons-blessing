@@ -248,6 +248,32 @@ describe("resolveQuery", () => {
       assert.equal(result.resolved_entity_id, testCase.expected_entity_id);
     }
   });
+
+  it("keeps unrelated weapon labels unresolved instead of fuzzy-guessing", async () => {
+    const result = await resolveQuery("Lawbringer Mk IIb Power Falchion", {
+      kind: "weapon",
+      slot: "melee",
+    });
+
+    assert.equal(result.resolution_state, "unresolved");
+    assert.equal(result.resolved_entity_id, null);
+    assert.equal(result.proposed_entity_id, null);
+    assert.equal(result.match_type, "none");
+  });
+
+  it("keeps unrelated curio perk labels unresolved instead of fuzzy-guessing", async () => {
+    for (const query of ["+15-20% DR vs Snipers", "+4-5% Health"]) {
+      const result = await resolveQuery(query, {
+        kind: "gadget_trait",
+        slot: "curio",
+      });
+
+      assert.equal(result.resolution_state, "unresolved");
+      assert.equal(result.resolved_entity_id, null);
+      assert.equal(result.proposed_entity_id, null);
+      assert.equal(result.match_type, "none");
+    }
+  });
 });
 
 describe("auditBuildFile", () => {
@@ -330,6 +356,32 @@ describe("auditBuildFile", () => {
         ),
         true,
         `class field did not resolve for ${buildPath}`,
+      );
+    }
+  });
+
+  it("does not surface bogus fuzzy matches in non-Psyker build audits", async () => {
+    const result = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
+
+    for (const field of [
+      "curios[0].perks[0]",
+      "weapons[0].name",
+      "weapons[1].name",
+    ]) {
+      assert.equal(
+        result.unresolved.some((entry) => entry.field === field),
+        true,
+        `${field} should stay unresolved`,
+      );
+      assert.equal(
+        result.resolved.some((entry) => entry.field === field),
+        false,
+        `${field} should not resolve`,
+      );
+      assert.equal(
+        result.ambiguous.some((entry) => entry.field === field),
+        false,
+        `${field} should not be ambiguous`,
       );
     }
   });
