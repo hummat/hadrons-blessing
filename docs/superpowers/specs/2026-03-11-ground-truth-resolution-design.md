@@ -19,7 +19,7 @@ The system needs to answer one narrow question well:
 ## Goals
 
 - Provide a canonical, source-backed registry for game entities used in build analysis.
-- Resolve human input to one best candidate using deterministic ranking.
+- Resolve human input to an explicit `resolved`, `ambiguous`, or `unresolved` outcome using deterministic ranking.
 - Keep alias/inference data separate from canonical facts.
 - Attach exact source references to every canonical claim.
 - Support later calculator work without requiring a schema rewrite.
@@ -51,9 +51,10 @@ The system needs to answer one narrow question well:
 
 1. Canonical facts must be source-backed.
 2. Fuzzy matching is allowed only in the alias layer.
-3. The resolver returns one best candidate, but the system keeps enough evidence and scoring data to audit wrong picks.
+3. The resolver may propose one best candidate, but only `resolved` outcomes are authoritative.
 4. False negatives are better than silently corrupting canonical data.
-5. Shared naming problems are modeled once, not re-solved per class.
+5. Query context is first-class and participates in ranking.
+6. Shared naming problems are modeled once, not re-solved per class.
 
 ## Architecture
 
@@ -64,9 +65,9 @@ The design uses three functional layers over one shared dataset:
    - Contains internal IDs, loc keys, exact source refs, typed attributes, and graph edges.
 2. **Alias registry**
    - Human-facing, community, GamesLantern, guide, shorthand, and stale names.
-   - Each alias points to one canonical entity and carries provenance plus confidence.
+   - One alias text may map to multiple candidates through multiple alias records, each with context constraints and confidence.
 3. **Resolver**
-   - Normalizes input, attempts exact/normalized/fuzzy matching, and returns one best candidate with evidence.
+   - Normalizes input, applies query context, attempts exact/normalized/fuzzy matching against the alias index, and returns an explicit resolution state plus evidence.
 
 Consumers:
 
@@ -83,20 +84,26 @@ Canonical source-of-truth nodes.
 Required fields:
 
 - `id`: stable repo ID, e.g. `psyker.talent.psyker_damage_based_on_warp_charge`
-- `kind`: `talent`, `ability`, `aura`, `keystone`, `weapon`, `weapon_trait`, `buff`, `damage_profile`, `talent_modifier`, `tree_node`
+- `kind`: `talent`, `ability`, `aura`, `keystone`, `weapon`, `weapon_trait`, `buff`, `damage_profile`, `talent_modifier`, `tree_node`, `name_family`
 - `domain`: `psyker`, `veteran`, `shared_weapons`, `shared_buffs`, etc.
-- `internal_name`
-- `loc_key`
+- `internal_name`: nullable for abstract canonical nodes without a unique engine symbol
+- `loc_key`: nullable for structural entities without a display string
 - `ui_name`: nullable if English display text is not source-resolved
-- `status`: `source_backed`, `partially_resolved`, `inferred_ui_name`
+- `status`: `source_backed`, `partially_resolved`
 - `refs`: exact file/line references
-- `attributes`: typed facts relevant to the entity
-- `calc`: reserved object for later calculator-oriented fields
+- `source_snapshot_id`
+- `attributes`: kind-scoped typed query/display fields
+- `calc`: kind-scoped typed calculator fields
 
 Notes:
 
 - `ui_name` is optional in v1. Missing localization is represented honestly instead of guessed.
+- Inferred display text does not belong in canonical entities. If a name is not source-backed, it belongs in alias records with explicit provenance, not in `ui_name`.
 - Canonical entities never depend on alias data.
+- `attributes` is not a free-form dump. Each `kind` gets a schema-defined attribute subset.
+- `calc` is not a generic bag. It is validated by kind-specific schemas.
+- Display-bearing kinds must carry a real `loc_key` when one exists in source. Structural kinds such as `damage_profile` and `tree_node` may set `loc_key = null`.
+- `name_family` is a canonical abstract node used for shared UI concepts such as blessing families. It is backed by source-backed member instances and `instance_of` evidence, not by a unique runtime `internal_name`.
 
 ### 2. Alias Records
 
@@ -106,20 +113,48 @@ Required fields:
 
 - `text`
 - `normalized_text`
-- `target_entity_id`
-- `alias_kind`: `ui_name`, `community_name`, `gameslantern_name`, `guide_name`, `stale_name`, `shorthand`
+- `candidate_entity_id`
+- `alias_kind`: `ui_name`, `internal_name`, `loc_key`, `community_name`, `gameslantern_name`, `guide_name`, `stale_name`, `shorthand`
+- `match_mode`: `exact_only` or `fuzzy_allowed`
 - `provenance`
 - `confidence`
+- `context_constraints`
+- `rank_weight`
 - `notes`
 
 Rules:
 
-- Aliases may be fuzzy or inferred.
+- Every alias record declares whether it participates in fuzzy matching.
+- Synthetic aliases derived from canonical `internal_name`, `loc_key`, or other generator-produced fallback strings are always `exact_only`.
+- Only verified `ui_name` aliases and curated human/community aliases may be `fuzzy_allowed`.
 - Alias bugs are isolated to alias records and do not contaminate canonical data.
+- Multiple alias records may share the same `text`.
+- Context-free aliases are allowed, but context-constrained aliases rank above them when the query context matches.
+- `context_constraints` is not a free-form bag. It uses the exact dimensions defined in the query-context schema below.
+- `normalized_text` is derived by the generator, not trusted as free-form shard input. The build recomputes it and fails on mismatch.
+
+Normalization contract:
+
+1. Unicode casefold
+2. replace `_`, `-`, and `/` with spaces
+3. strip punctuation other than alphanumerics and spaces
+4. collapse repeated whitespace
+5. trim leading and trailing whitespace
 
 ### 3. Edge Records
 
 Typed relationships between entities.
+
+Required fields:
+
+- `id`
+- `type`
+- `from_entity_id`
+- `to_entity_id`
+- `source_snapshot_id`
+- `conditions`
+- `calc`
+- `evidence_ids`
 
 Initial edge types:
 
@@ -136,20 +171,60 @@ Initial edge types:
 
 These edges are required for future calculator work and for non-trivial verification queries.
 
+Condition contract:
+
+- `conditions` is validated against `condition.schema.json`
+- `conditions.predicates` is an array of explicit clauses
+- each predicate has:
+  - `field`
+  - `operator`: `eq`, `neq`, `in`, `gte`, `lte`, `contains`
+  - `value`
+  - `value_type`
+- `conditions.aggregation`: `additive`, `multiplicative`, `override`, `max`, `min`, `exclusive`
+- `conditions.stacking_mode`: `binary`, `per_stack`, `capped`
+- `conditions.exclusive_scope`: nullable string for mutually exclusive effects
+
+This keeps later calculator logic typed and auditable instead of embedding ad-hoc rule text in code.
+
 ### 4. Evidence Records
 
 Explicit claims with supporting source refs.
 
 Required fields:
 
+- `id`
+- `subject_type`: `entity` or `edge`
 - `subject_id`
-- `claim`
-- `claim_type`
+- `predicate`
+- `value`
+- `value_type`
+- `source_snapshot_id`
 - `refs`
 - `confidence`
 - `source_kind`
 
-Use this when the entity record alone does not capture the audit trail cleanly.
+Use this when the entity or edge record alone does not capture the audit trail cleanly.
+
+### 5. Query Context
+
+Resolver inputs may carry optional `query_context`, validated against `query-context.schema.json`.
+
+Allowed keys:
+
+- `domain`
+- `kind`
+- `class`
+- `weapon_family`
+- `slot`
+- `source`
+
+Context semantics:
+
+- `context_constraints.require_all` is a set of exact-match requirements over the allowed keys above. Any mismatch or missing key removes the candidate from consideration.
+- `context_constraints.prefer` is a set of soft preferences over the same keys. Matches do not force selection, but they add deterministic ranking boosts.
+- No other context keys are allowed in v1. New dimensions require a schema change, not ad-hoc JSON.
+
+These fields are optional for lookup, but they are mandatory for high-quality disambiguation and later calculator/query consumers.
 
 ## Repeated Name Handling
 
@@ -162,39 +237,92 @@ Example:
 
 The system models this with `instance_of` edges. This prevents “same UI name, many internal IDs” collisions from collapsing into one unsafe canonical node.
 
+This is not sufficient on its own. Ambiguous human names are handled through multiple alias records plus query context and explicit `ambiguous` outcomes.
+
+Family-resolution rule:
+
+- if a shared-name family entity exists and zero specific instances remain viable after `context_constraints.require_all`, the bare shared name resolves to the family entity
+- if a shared-name family entity exists and more than one specific instance remains viable, the resolver still resolves to the family entity unless one specific instance wins uniquely on the full ranking pass
+- if exactly one specific instance remains viable and wins uniquely with a `resolved` outcome, the resolver prefers the instance alias record
+- if a shared-name family entity exists and no specific instance reaches an authoritative `resolved` outcome, the resolver falls back to the family entity
+- if no family entity exists and multiple specific instances remain viable, the result is `ambiguous`
+
 ## Resolver Behavior
 
-Input resolution order:
+Canonical `internal_name`, `loc_key`, and verified `ui_name` values are materialized into synthetic high-confidence alias records during index generation. This keeps matching logic confined to the alias index instead of matching directly against canonical entity bags.
+
+Synthetic alias rules:
+
+- synthetic aliases for `internal_name` and `loc_key` are `exact_only`
+- synthetic aliases for verified `ui_name` values may be `fuzzy_allowed`
+- no synthetic alias may be created from inferred or guessed display text
+
+Input:
+
+- `query`
+- optional `query_context`
+
+Resolution order:
 
 1. Exact match on canonical ID
-2. Exact match on canonical `ui_name`
-3. Exact match on alias text
-4. Normalized exact match
-5. Fuzzy match over canonical names plus aliases
+2. Exact match on alias text
+3. Normalized exact match
+4. Fuzzy match over alias records with `match_mode = fuzzy_allowed` only
 
 Output fields:
 
 - `query`
-- `resolved_entity_id`
-- `entity`
+- `query_context`
+- `resolution_state`: `resolved`, `ambiguous`, `unresolved`
+- `resolved_entity_id`: nullable, set only for authoritative resolutions
+- `proposed_entity_id`: nullable, set when there is a best candidate but it is not authoritative
+- `entity`: nullable, mirrors `resolved_entity_id` only
+- `proposed_entity`
 - `match_type`
 - `score`
+- `score_margin`
 - `confidence`
 - `why_this_match`
+- `candidate_trace`
 - `refs`
 - `warnings`
 
 Resolver policy:
 
-- Return one best candidate only.
+- Always rank candidates and retain one best candidate internally.
+- Exact canonical-ID matches bypass score thresholds and are always `resolved`.
+- Shared-name family fallback is authoritative when a `name_family` entity exists and no specific instance reaches an authoritative `resolved` outcome.
+- Only `resolved` outcomes expose a non-null `resolved_entity_id`.
+- `ambiguous` outcomes may expose `proposed_entity_id`, but strict consumers must not treat it as authoritative.
+- `unresolved` outcomes expose neither resolved nor proposed entity IDs.
 - Prefer deterministic ranking rules over heuristics hidden in code.
 - Surface warnings for stale/ambiguous/inferred mappings.
 - Do not silently upgrade alias inference into canonical truth.
+- `candidate_trace` must include the top competing candidates, their scores, and the context-match explanation used to rank them.
+
+Deterministic resolution thresholds:
+
+- `resolved`: best score exceeds the resolution threshold and the score margin exceeds the ambiguity threshold
+- `ambiguous`: best score exists but threshold or margin is not sufficient
+- `unresolved`: no candidate clears the minimum proposal threshold
 
 ## Repository Layout
 
 ```text
 data/ground-truth/
+  schemas/
+    entity-base.schema.json
+    alias.schema.json
+    edge.schema.json
+    evidence.schema.json
+    query-context.schema.json
+    condition.schema.json
+    entity-kinds/
+      talent.schema.json
+      ability.schema.json
+      weapon.schema.json
+      weapon-trait.schema.json
+      buff.schema.json
   entities/
     psyker.json
     veteran.json
@@ -208,11 +336,8 @@ data/ground-truth/
     psyker.json
     shared-guides.json
     gameslantern.json
-  generated/
-    index.json
-    entities-by-id.json
-    aliases-by-normalized-text.json
-    graph.json
+  source-snapshots/
+    manifest.json
 scripts/
   build-ground-truth-index.mjs
   resolve-ground-truth.mjs
@@ -227,12 +352,15 @@ scripts/
 Responsibilities:
 
 - validate shard schemas
+- validate source snapshot metadata
 - merge canonical entities and aliases
 - build normalized lookup tables
 - validate graph edges
 - detect duplicate IDs
 - detect alias collisions
 - emit generated artifacts
+- emit synthetic alias records from canonical names
+- support `--check` freshness mode
 
 Strictness rules:
 
@@ -240,6 +368,23 @@ Strictness rules:
 - alias records must have provenance and confidence
 - unsafe collisions fail the build
 - nullable `ui_name` is allowed
+- generated artifacts are build outputs, not committed source files
+- freshness checks compare shard inputs plus `source_snapshot_id` against generated output metadata
+
+Collision safety policy:
+
+- safe: duplicate alias text is split by non-overlapping `context_constraints.require_all`
+- safe: duplicate alias text mixes one or more `exact_only` synthetic aliases with curated aliases, as long as fuzzy ranking cannot select between conflicting synthetic targets
+- unsafe: two or more `fuzzy_allowed` alias records with overlapping `context_constraints.require_all` target different canonical entities
+- unsafe: any duplicate alias set that would require hidden code heuristics instead of declared context/ranking rules
+
+Unsafe sets fail generation and CI.
+
+Generated artifact policy:
+
+- `data/ground-truth/generated/` is ignored by git
+- consumers must build the index before use
+- CI and `make check` must run the freshness/build checks so this does not become a manual step
 
 ### `scripts/resolve-ground-truth.mjs`
 
@@ -247,17 +392,53 @@ Responsibilities:
 
 - load generated artifacts
 - normalize input
+- apply query context
 - run deterministic match/rank pipeline
-- return one best candidate with evidence
+- return `resolved`, `ambiguous`, or `unresolved` plus evidence
 
 ### `scripts/audit-build-names.mjs`
 
 Responsibilities:
 
-- resolve names from build JSONs or free-text guide content
+- resolve names from structured build JSONs and pre-extracted token lists in v1
 - report unresolved or low-confidence mappings
 - flag suspicious canonical/alias mismatches
 - emit machine-readable audit output for later tooling
+
+### Repo Gating
+
+The pilot is not complete until the new checks are wired into the repo’s actual validation path:
+
+- `package.json` gets real test/build scripts for the ground-truth toolchain
+- `make check` includes the ground-truth freshness checks plus frozen resolver/audit fixture tests
+- CI runs that updated check path, including the frozen pilot build-audit fixtures
+
+Without this, the pilot is not considered accepted.
+
+## Source Snapshots And Ref Stability
+
+Line references are only meaningful relative to a pinned source snapshot.
+
+The dataset therefore carries a `source_snapshot_id`, and `data/ground-truth/source-snapshots/manifest.json` records:
+
+- Darktide game version
+- `../Darktide-Source-Code` git revision
+- snapshot creation time
+- optional notes on localization availability
+
+Source provisioning contract:
+
+- tooling must read the decompiled-source root from an explicit input such as `GROUND_TRUTH_SOURCE_ROOT`
+- local developer tooling may default that input to `../Darktide-Source-Code` for convenience
+- repo validation is not allowed to assume an implicit sibling checkout
+- CI must provision the pinned decompiled-source snapshot explicitly, either as a checkout or a cached artifact, before running source-backed freshness checks
+
+Freshness behavior:
+
+- if the current decompiled-source revision differs from the pinned snapshot, `build-ground-truth-index.mjs --check` fails with an explicit stale-state error
+- canonical refs are regenerated only against the pinned snapshot
+- evidence claims must reference the same snapshot ID as their subject
+- if source-backed checks are requested and `GROUND_TRUTH_SOURCE_ROOT` is missing, validation fails with a setup error rather than degrading to warnings or partial success
 
 ## Psyker Pilot
 
@@ -266,22 +447,24 @@ The pilot is intentionally narrow and adversarial. It should validate the design
 ### In Scope
 
 - Psyker talents, keystones, auras, abilities, tree modifiers
-- Psyker-relevant shared weapons and blessings needed to audit current Psyker builds
+- shared entities in the transitive closure of the pilot fixtures and golden terms only
 - alias coverage for known Psyker build JSONs
-- audit coverage for the “Gandalf: Melee Wizard” analysis and similar Psyker builds
+- audit coverage for the exact pilot fixtures defined below
 
 ### Explicitly Out Of Scope
 
 - all-class rollout
 - calculator logic
-- generalized ingestion for every build source
+- generalized free-text extraction/tokenization
+- shared entities not referenced by the pilot fixtures or golden terms
 
 ### Pilot Acceptance Criteria
 
-- known problematic Psyker names resolve to the correct canonical entity or are flagged as inferred/unsafe
-- audit tool can scan a Psyker build JSON or text analysis and report unresolved/suspicious names
+- known problematic Psyker names resolve to the correct canonical entity or explicit `ambiguous` / `unresolved` outcome
+- audit tool can scan pilot build JSONs and produce outputs that match approved fixture snapshots
 - schema supports `calc` fields and graph edges without redesign
-- build/test pipeline catches missing refs and unsafe alias collisions
+- build/test pipeline catches missing refs, stale source snapshots, and unsafe alias collisions
+- repo validation path runs the ground-truth checks in `package.json`, `make check`, and CI
 
 ## Verification Strategy
 
@@ -299,18 +482,26 @@ Add resolver tests for known difficult names:
 
 Each case should assert:
 
-- chosen entity ID
+- resolution state
+- resolved or proposed entity ID as appropriate
+- query-context behavior when relevant
 - match type
 - confidence tier
 - warning state
 
 ### Build Audits
 
-Run audit tests against:
+Pilot fixtures:
 
 - `scripts/builds/08-gandalf-melee-wizard.json`
 - `scripts/builds/09-electrodominance-psyker.json`
 - `scripts/builds/10-electro-shriek-psyker.json`
+
+Pass condition:
+
+- approved frozen audit snapshots for the three fixtures
+- zero unresolved names in structured fixture fields
+- expected ambiguous/proposed outcomes only where explicitly approved in the snapshot
 
 ### Schema/Integrity Tests
 
@@ -319,10 +510,12 @@ Run audit tests against:
 - alias records without provenance
 - unresolved `instance_of` targets
 - unsafe same-name collisions
+- stale source snapshot mismatch
+- generated artifact freshness
 
 ## Future Calculator Support
 
-The registry is not a calculator, but it must support one later.
+The registry is not a calculator, but it must support one later through typed, stable fields.
 
 Reserved `calc` fields may include:
 
@@ -330,7 +523,7 @@ Reserved `calc` fields may include:
 - on traits: `max_stacks`, `cooldown`, `proc_condition`
 - on abilities: `cooldown`, `charge_behavior`, `resource_cost`
 - on tree nodes: `exclusive_group`, `parents`, `children`
-- on edges: typed modifier payloads
+- on edges: typed modifier payloads, conditions, and units
 
 This keeps later calculator work additive instead of requiring a schema migration.
 
@@ -351,20 +544,38 @@ This avoids duplicating cross-cutting logic for shared blessings, weapon-trait i
 
 ### Repo-Wide Rollout
 
-After the pilot proves the model:
+After the pilot proves the model, freeze the base schemas, ranking rules, and shared-family ownership before parallel ingestion starts.
+
+Recommended order:
+
+1. shared families and shared-domain contracts
+2. class-specific canonical shards
+3. alias shards for already-landed canonical IDs
+4. audit fixtures and ranking refinements
+
+Worker ownership:
 
 - one worker per class for class-specific canonical entities
 - one worker for shared weapons
 - one worker for blessing families and weapon-specific trait instances
 - one worker for shared buffs/damage profiles and future calculator edges
-- one worker for alias curation and guide/GamesLantern ingestion
+- one worker for alias curation for already-landed canonical IDs only
 
 The main thread owns:
 
 - schema changes
 - resolver ranking policy
+- shared-family ownership rules
+- source snapshot bumps and `source-snapshots/manifest.json`
 - collision resolution
 - merge discipline
+
+Merge contract:
+
+- class workers cannot invent shared-family entities
+- alias workers cannot create aliases for entities not yet present in canonical shards
+- shared workers land before dependent class/alias shards
+- resolver ranking changes require updated golden tests
 
 ## Risks
 
@@ -374,7 +585,7 @@ The main thread owns:
 
 2. **Alias overreach**
    - Aggressive fuzzy matching can create confident wrong answers.
-   - Mitigation: conservative ranking, warnings, and golden tests for known bad cases.
+   - Mitigation: alias-only fuzzy matching, context-aware ranking, and explicit `ambiguous` / `unresolved` states.
 
 3. **Shared-name collisions**
    - Blessing/UI families can map to many internal IDs.
@@ -393,6 +604,7 @@ Implement the Psyker pilot only:
 3. add Psyker/shared pilot aliases
 4. build generated index
 5. add resolver tests
-6. audit the Psyker build JSONs
+6. freeze fixture snapshots for the three Psyker build audits
+7. wire the new checks into `package.json`, `make check`, and CI
 
 Do not start repo-wide ingestion until the Psyker pilot passes its audit cases cleanly.
