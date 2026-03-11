@@ -1,0 +1,13 @@
+{
+  "$id": "entity-kinds/gadget-trait.schema.json",
+  "allOf": [
+    { "$ref": "../entity-base.schema.json" },
+    {
+      "type": "object",
+      "properties": {
+        "kind": { "const": "gadget_trait" },
+        "internal_name": { "type": "string", "minLength": 1 }
+      }
+    }
+  ]
+}

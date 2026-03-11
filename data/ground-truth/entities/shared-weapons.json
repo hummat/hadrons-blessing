@@ -1,0 +1,546 @@
+[
+  {
+    "id": "shared.gadget_trait.gadget_cooldown_reduction",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_cooldown_reduction",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 705
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.gadget_trait.gadget_corruption_resistance",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_corruption_resistance",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 459
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_damage_reduction_vs_gunners",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 365
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.gadget_trait.gadget_sprint_cost_reduction",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_sprint_cost_reduction",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 748
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.gadget_trait.gadget_stamina_regeneration",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_stamina_regeneration",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 834
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_melee_common_wield_increased_armored_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_melee.lua",
+        "line": 50
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_disgustingly_resilient_damage",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_melee_common_wield_increased_disgustingly_resilient_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_melee.lua",
+        "line": 210
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_melee_common_wield_increased_resistant_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_melee.lua",
+        "line": 90
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_melee_common_wield_increased_super_armor_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_melee.lua",
+        "line": 170
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_unarmored_damage",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_melee_common_wield_increased_unarmored_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_melee.lua",
+        "line": 10
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_ranged_common_wield_increased_armored_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_ranged.lua",
+        "line": 50
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_ranged_common_wield_increased_resistant_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_ranged.lua",
+        "line": 90
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_ranged_common_wield_increased_super_armor_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_ranged.lua",
+        "line": 170
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_parent",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_parent",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcestaff_p3.lua",
+        "line": 355
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcestaff_p3"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p3_warp_charge_critical_strike_chance_bonus",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcestaff_p3_warp_charge_critical_strike_chance_bonus",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcestaff_p3.lua",
+        "line": 126
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcestaff_p3"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_parent",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_parent",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcestaff_p4.lua",
+        "line": 337
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcestaff_p4"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p4_warp_charge_critical_strike_chance_bonus",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcestaff_p4_warp_charge_critical_strike_chance_bonus",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcestaff_p4.lua",
+        "line": 156
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcestaff_p4"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_can_block_ranged",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcesword_2h_p1_can_block_ranged",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_2h_p1.lua",
+        "line": 93
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcesword_2h"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_2h_p1.lua",
+        "line": 538
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcesword_2h"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_2h_p1.lua",
+        "line": 385
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcesword_2h"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_2h_p1.lua",
+        "line": 385
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcesword_2h"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_toughness_recovery_on_multiple_hits",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcesword_2h_p1_toughness_recovery_on_multiple_hits",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_2h_p1.lua",
+        "line": 477
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcesword_2h"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_2h_p1.lua",
+        "line": 136
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcesword_2h"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.forcestaff_p3_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "forcestaff_p3_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/force_staffs/forcestaff_p3_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcestaff_p3",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.forcestaff_p4_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "forcestaff_p4_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/force_staffs/forcestaff_p4_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcestaff_p4",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.forcesword_2h_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "forcesword_2h_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/force_swords_2h/forcesword_2h_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcesword_2h",
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.forcesword_2h_p1_m2",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "forcesword_2h_p1_m2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/force_swords_2h/forcesword_2h_p1_m2.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcesword_2h",
+      "slot": "melee"
+    },
+    "calc": {}
+  }
+]

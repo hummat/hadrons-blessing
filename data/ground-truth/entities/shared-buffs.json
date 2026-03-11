@@ -1,0 +1,110 @@
+[
+  {
+    "id": "shared.buff.can_block_ranged",
+    "kind": "buff",
+    "domain": "shared",
+    "internal_name": "can_block_ranged",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/buff/weapon_traits_buff_templates/base_weapon_trait_buff_templates.lua",
+        "line": 1682
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "shared.buff.warp_fire",
+    "kind": "buff",
+    "domain": "shared",
+    "internal_name": "warp_fire",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/buff/weapon_traits_buff_templates/weapon_traits_bespoke_forcesword_2h_p1_buff_templates.lua",
+        "line": 17
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "shared.buff.weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_child",
+    "kind": "buff",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_child",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/buff/weapon_traits_buff_templates/weapon_traits_bespoke_forcestaff_p3_buff_templates.lua",
+        "line": 46
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "shared.buff.weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_child",
+    "kind": "buff",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_child",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/buff/weapon_traits_buff_templates/weapon_traits_bespoke_forcestaff_p4_buff_templates.lua",
+        "line": 36
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "shared.buff.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_child",
+    "kind": "buff",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_child",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/buff/weapon_traits_buff_templates/weapon_traits_bespoke_forcesword_2h_p1_buff_templates.lua",
+        "line": 48
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "shared.buff.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "kind": "buff",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/buff/weapon_traits_buff_templates/weapon_traits_bespoke_forcesword_2h_p1_buff_templates.lua",
+        "line": 29
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  }
+]

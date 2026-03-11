@@ -1,0 +1,482 @@
+[
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_parent",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_parent",
+    "to_entity_id": "shared.name_family.blessing.warp_flurry",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_forcestaff_p3_warp_charge_critical_strike_chance_bonus",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p3_warp_charge_critical_strike_chance_bonus",
+    "to_entity_id": "shared.name_family.blessing.warp_nexus",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_parent",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_parent",
+    "to_entity_id": "shared.name_family.blessing.warp_flurry",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_forcestaff_p4_warp_charge_critical_strike_chance_bonus",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p4_warp_charge_critical_strike_chance_bonus",
+    "to_entity_id": "shared.name_family.blessing.warp_nexus",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_can_block_ranged",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_can_block_ranged",
+    "to_entity_id": "shared.name_family.blessing.deflector",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+    "to_entity_id": "shared.name_family.blessing.shred",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "to_entity_id": "shared.name_family.blessing.precognition",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits",
+    "to_entity_id": "shared.name_family.blessing.wrath",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_toughness_recovery_on_multiple_hits",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_toughness_recovery_on_multiple_hits",
+    "to_entity_id": "shared.name_family.blessing.momentum",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
+    "to_entity_id": "shared.name_family.blessing.blazing_spirit",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.trait_applies_buff.weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_parent",
+    "type": "trait_applies_buff",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_parent",
+    "to_entity_id": "shared.buff.weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_child",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.trait_applies_buff.weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_parent",
+    "type": "trait_applies_buff",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_parent",
+    "to_entity_id": "shared.buff.weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_child",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.trait_applies_buff.weapon_trait_bespoke_forcesword_2h_p1_can_block_ranged",
+    "type": "trait_applies_buff",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_can_block_ranged",
+    "to_entity_id": "shared.buff.can_block_ranged",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.trait_applies_buff.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+    "type": "trait_applies_buff",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+    "to_entity_id": "shared.buff.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_child",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.trait_applies_buff.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "type": "trait_applies_buff",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "to_entity_id": "shared.buff.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.trait_applies_buff.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
+    "type": "trait_applies_buff",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
+    "to_entity_id": "shared.buff.warp_fire",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcestaff_p3_m1.weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_parent",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcestaff_p3_m1",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_parent",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcestaff_p3_m1.weapon_trait_bespoke_forcestaff_p3_warp_charge_critical_strike_chance_bonus",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcestaff_p3_m1",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p3_warp_charge_critical_strike_chance_bonus",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcestaff_p4_m1.weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_parent",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcestaff_p4_m1",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_parent",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcestaff_p4_m1.weapon_trait_bespoke_forcestaff_p4_warp_charge_critical_strike_chance_bonus",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcestaff_p4_m1",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p4_warp_charge_critical_strike_chance_bonus",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m1.weapon_trait_bespoke_forcesword_2h_p1_can_block_ranged",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcesword_2h_p1_m1",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_can_block_ranged",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m1.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcesword_2h_p1_m1",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m1.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcesword_2h_p1_m1",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m1.weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcesword_2h_p1_m1",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m1.weapon_trait_bespoke_forcesword_2h_p1_toughness_recovery_on_multiple_hits",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcesword_2h_p1_m1",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_toughness_recovery_on_multiple_hits",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m1.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcesword_2h_p1_m1",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m2.weapon_trait_bespoke_forcesword_2h_p1_can_block_ranged",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcesword_2h_p1_m2",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_can_block_ranged",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m2.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcesword_2h_p1_m2",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m2.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcesword_2h_p1_m2",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m2.weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcesword_2h_p1_m2",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m2.weapon_trait_bespoke_forcesword_2h_p1_toughness_recovery_on_multiple_hits",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcesword_2h_p1_m2",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_toughness_recovery_on_multiple_hits",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m2.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
+    "type": "weapon_has_trait_pool",
+    "from_entity_id": "shared.weapon.forcesword_2h_p1_m2",
+    "to_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  }
+]

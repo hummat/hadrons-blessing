@@ -1,0 +1,472 @@
+[
+  {
+    "text": "+10-12% Stamina Regeneration",
+    "normalized_text": "10 12 stamina regeneration",
+    "candidate_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "+12-15% Corruption Resistance",
+    "normalized_text": "12 15 corruption resistance",
+    "candidate_entity_id": "shared.gadget_trait.gadget_corruption_resistance",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "+12-15% Sprint Efficiency",
+    "normalized_text": "12 15 sprint efficiency",
+    "candidate_entity_id": "shared.gadget_trait.gadget_sprint_cost_reduction",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "+15-20% DR vs Gunners",
+    "normalized_text": "15 20 dr vs gunners",
+    "candidate_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "+3-4% Combat Ability Regen",
+    "normalized_text": "3 4 combat ability regen",
+    "candidate_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "20-25% Damage (Carapace)",
+    "normalized_text": "20 25 damage carapace",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "20-25% Damage (Carapace)",
+    "normalized_text": "20 25 damage carapace",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "20-25% Damage (Flak Armoured)",
+    "normalized_text": "20 25 damage flak armoured",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "20-25% Damage (Flak Armoured)",
+    "normalized_text": "20 25 damage flak armoured",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "20-25% Damage (Infested)",
+    "normalized_text": "20 25 damage infested",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_disgustingly_resilient_damage",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "20-25% Damage (Unarmoured)",
+    "normalized_text": "20 25 damage unarmoured",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_unarmored_damage",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "20-25% Damage (Unyielding)",
+    "normalized_text": "20 25 damage unyielding",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "20-25% Damage (Unyielding)",
+    "normalized_text": "20 25 damage unyielding",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "Blazing Spirit",
+    "normalized_text": "blazing spirit",
+    "candidate_entity_id": "shared.name_family.blessing.blazing_spirit",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "Covenant Mk VI Blaze Force Greatsword",
+    "normalized_text": "covenant mk vi blaze force greatsword",
+    "candidate_entity_id": "shared.weapon.forcesword_2h_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "English mark mapping is build-sourced, not decompiled-source localized."
+  },
+  {
+    "text": "Covenant Mk VIII Blaze Force Greatsword",
+    "normalized_text": "covenant mk viii blaze force greatsword",
+    "candidate_entity_id": "shared.weapon.forcesword_2h_p1_m2",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "English mark mapping is build-sourced, not decompiled-source localized."
+  },
+  {
+    "text": "Deflector",
+    "normalized_text": "deflector",
+    "candidate_entity_id": "shared.name_family.blessing.deflector",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": ""
+  },
+  {
+    "text": "Equinox Mk III Voidblast Force Staff",
+    "normalized_text": "equinox mk iii voidblast force staff",
+    "candidate_entity_id": "shared.weapon.forcestaff_p4_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": ""
+  },
+  {
+    "text": "Momentum",
+    "normalized_text": "momentum",
+    "candidate_entity_id": "shared.name_family.blessing.momentum",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Inferred family mapping from build usage; English label not source-exposed in the decompiled clone."
+  },
+  {
+    "text": "Nomanus Mk VI Electrokinetic Force Staff",
+    "normalized_text": "nomanus mk vi electrokinetic force staff",
+    "candidate_entity_id": "shared.weapon.forcestaff_p3_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": ""
+  },
+  {
+    "text": "Precognition",
+    "normalized_text": "precognition",
+    "candidate_entity_id": "shared.name_family.blessing.precognition",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "weapon_family",
+          "value": "forcesword_2h"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "Shred",
+    "normalized_text": "shred",
+    "candidate_entity_id": "shared.name_family.blessing.shred",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "Warp Flurry",
+    "normalized_text": "warp flurry",
+    "candidate_entity_id": "shared.name_family.blessing.warp_flurry",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "Warp Nexus",
+    "normalized_text": "warp nexus",
+    "candidate_entity_id": "shared.name_family.blessing.warp_nexus",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "Wrath",
+    "normalized_text": "wrath",
+    "candidate_entity_id": "shared.name_family.blessing.wrath",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": ""
+  }
+]
