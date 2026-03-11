@@ -1,0 +1,14 @@
+[
+  {
+    "query": "Warp Rider",
+    "query_context": { "class": "psyker", "kind": "talent" },
+    "expected_state": "resolved",
+    "expected_entity_id": "psyker.talent.psyker_damage_based_on_warp_charge"
+  },
+  {
+    "query": "Precognition",
+    "query_context": { "kind": "weapon_trait", "weapon_family": "forcesword_2h" },
+    "expected_state": "resolved",
+    "expected_entity_id": "shared.name_family.blessing.precognition"
+  }
+]
