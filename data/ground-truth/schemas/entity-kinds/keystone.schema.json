@@ -1,0 +1,13 @@
+{
+  "$id": "entity-kinds/keystone.schema.json",
+  "allOf": [
+    { "$ref": "../entity-base.schema.json" },
+    {
+      "type": "object",
+      "properties": {
+        "kind": { "const": "keystone" },
+        "internal_name": { "type": "string", "minLength": 1 }
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "$id": "entity-base.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "domain",
+    "internal_name",
+    "loc_key",
+    "ui_name",
+    "status",
+    "refs",
+    "source_snapshot_id",
+    "attributes",
+    "calc"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "talent",
+        "ability",
+        "aura",
+        "keystone",
+        "weapon",
+        "weapon_trait",
+        "buff",
+        "damage_profile",
+        "talent_modifier",
+        "tree_node",
+        "name_family"
+      ]
+    },
+    "domain": { "type": "string", "minLength": 1 },
+    "internal_name": { "type": ["string", "null"] },
+    "loc_key": { "type": ["string", "null"] },
+    "ui_name": { "type": ["string", "null"] },
+    "status": {
+      "type": "string",
+      "enum": ["source_backed", "partially_resolved"]
+    },
+    "refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "line"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "source_snapshot_id": { "type": "string", "minLength": 1 },
+    "attributes": { "type": "object" },
+    "calc": { "type": "object" }
+  }
+}

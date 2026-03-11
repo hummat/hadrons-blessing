@@ -1,0 +1,97 @@
+{
+  "$id": "alias.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "text",
+    "normalized_text",
+    "candidate_entity_id",
+    "alias_kind",
+    "match_mode",
+    "provenance",
+    "confidence",
+    "context_constraints",
+    "rank_weight",
+    "notes"
+  ],
+  "properties": {
+    "text": { "type": "string", "minLength": 1 },
+    "normalized_text": { "type": "string", "minLength": 1 },
+    "candidate_entity_id": { "type": "string", "minLength": 1 },
+    "alias_kind": {
+      "type": "string",
+      "enum": [
+        "ui_name",
+        "internal_name",
+        "loc_key",
+        "community_name",
+        "gameslantern_name",
+        "guide_name",
+        "stale_name",
+        "shorthand"
+      ]
+    },
+    "match_mode": {
+      "type": "string",
+      "enum": ["exact_only", "fuzzy_allowed"]
+    },
+    "provenance": { "type": "string", "minLength": 1 },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "context_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["require_all", "prefer"],
+      "properties": {
+        "require_all": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["key", "value"],
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": ["domain", "kind", "class", "weapon_family", "slot", "source"]
+              },
+              "value": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "prefer": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["key", "value"],
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": ["domain", "kind", "class", "weapon_family", "slot", "source"]
+              },
+              "value": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    "rank_weight": { "type": "number" },
+    "notes": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "alias_kind": { "enum": ["internal_name", "loc_key"] }
+        }
+      },
+      "then": {
+        "properties": {
+          "match_mode": { "const": "exact_only" }
+        }
+      }
+    }
+  ]
+}

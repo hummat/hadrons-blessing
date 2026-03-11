@@ -1,0 +1,46 @@
+{
+  "$id": "evidence.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "subject_type",
+    "subject_id",
+    "predicate",
+    "value",
+    "value_type",
+    "source_snapshot_id",
+    "refs",
+    "confidence",
+    "source_kind"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "subject_type": {
+      "type": "string",
+      "enum": ["entity", "edge"]
+    },
+    "subject_id": { "type": "string", "minLength": 1 },
+    "predicate": { "type": "string", "minLength": 1 },
+    "value": {},
+    "value_type": { "type": "string", "minLength": 1 },
+    "source_snapshot_id": { "type": "string", "minLength": 1 },
+    "refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "line"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "source_kind": { "type": "string", "minLength": 1 }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$id": "entity-kinds/tree-node.schema.json",
+  "allOf": [
+    { "$ref": "../entity-base.schema.json" },
+    {
+      "type": "object",
+      "properties": {
+        "kind": { "const": "tree_node" },
+        "internal_name": { "type": "string", "minLength": 1 },
+        "loc_key": { "type": ["string", "null"] }
+      }
+    }
+  ]
+}

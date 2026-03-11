@@ -8,6 +8,8 @@ import {
   validateSourceSnapshot,
 } from "./ground-truth/lib/validate.mjs";
 
+const PINNED_SOURCE_ROOT = process.env.GROUND_TRUTH_SOURCE_ROOT ?? null;
+
 describe("normalizeText", () => {
   it("normalizes guide-style text deterministically", () => {
     assert.equal(normalizeText("Warp-Rider / Psyker"), "warp rider psyker");
@@ -61,17 +63,20 @@ describe("schema validation", () => {
 describe("source snapshot validation", () => {
   it("fails when the declared source root is missing", async () => {
     await loadSchemas();
-    await assert.rejects(
+    assert.throws(
       () => validateSourceSnapshot("/definitely/missing"),
       /GROUND_TRUTH_SOURCE_ROOT/,
     );
   });
 
-  it("accepts a matching pinned checkout", async () => {
+  it(
+    "accepts a matching pinned checkout",
+    { skip: PINNED_SOURCE_ROOT == null },
+    async () => {
     await loadSchemas();
-    const sourceRoot = process.env.GROUND_TRUTH_SOURCE_ROOT;
-    const result = await validateSourceSnapshot(sourceRoot);
+    const result = validateSourceSnapshot(PINNED_SOURCE_ROOT);
     assert.equal(typeof result.git_revision, "string");
     assert.equal(result.git_revision.length > 0, true);
-  });
+    },
+  );
 });

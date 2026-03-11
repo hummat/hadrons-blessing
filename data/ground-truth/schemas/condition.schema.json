@@ -1,0 +1,34 @@
+{
+  "$id": "condition.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["predicates", "aggregation", "stacking_mode", "exclusive_scope"],
+  "properties": {
+    "predicates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "operator", "value", "value_type"],
+        "properties": {
+          "field": { "type": "string", "minLength": 1 },
+          "operator": {
+            "type": "string",
+            "enum": ["eq", "neq", "in", "gte", "lte", "contains"]
+          },
+          "value": {},
+          "value_type": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "aggregation": {
+      "type": "string",
+      "enum": ["additive", "multiplicative", "override", "max", "min", "exclusive"]
+    },
+    "stacking_mode": {
+      "type": "string",
+      "enum": ["binary", "per_stack", "capped"]
+    },
+    "exclusive_scope": { "type": ["string", "null"] }
+  }
+}

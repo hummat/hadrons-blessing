@@ -1,0 +1,13 @@
+{
+  "$id": "entity-kinds/buff.schema.json",
+  "allOf": [
+    { "$ref": "../entity-base.schema.json" },
+    {
+      "type": "object",
+      "properties": {
+        "kind": { "const": "buff" },
+        "internal_name": { "type": "string", "minLength": 1 }
+      }
+    }
+  ]
+}

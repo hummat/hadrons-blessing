@@ -1,0 +1,42 @@
+{
+  "$id": "edge.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "from_entity_id",
+    "to_entity_id",
+    "source_snapshot_id",
+    "conditions",
+    "calc",
+    "evidence_ids"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "type": {
+      "type": "string",
+      "enum": [
+        "grants_buff",
+        "modifies",
+        "uses_damage_profile",
+        "belongs_to_tree_node",
+        "exclusive_with",
+        "parent_of",
+        "requires",
+        "instance_of",
+        "weapon_has_trait_pool",
+        "trait_applies_buff"
+      ]
+    },
+    "from_entity_id": { "type": "string", "minLength": 1 },
+    "to_entity_id": { "type": "string", "minLength": 1 },
+    "source_snapshot_id": { "type": "string", "minLength": 1 },
+    "conditions": { "$ref": "condition.schema.json" },
+    "calc": { "type": "object" },
+    "evidence_ids": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

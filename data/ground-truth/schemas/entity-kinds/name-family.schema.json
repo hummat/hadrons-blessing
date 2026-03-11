@@ -1,0 +1,13 @@
+{
+  "$id": "entity-kinds/name-family.schema.json",
+  "allOf": [
+    { "$ref": "../entity-base.schema.json" },
+    {
+      "type": "object",
+      "properties": {
+        "kind": { "const": "name_family" },
+        "internal_name": { "type": "null" }
+      }
+    }
+  ]
+}

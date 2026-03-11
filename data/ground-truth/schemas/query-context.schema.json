@@ -1,0 +1,13 @@
+{
+  "$id": "query-context.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "domain": { "type": "string", "minLength": 1 },
+    "kind": { "type": "string", "minLength": 1 },
+    "class": { "type": "string", "minLength": 1 },
+    "weapon_family": { "type": "string", "minLength": 1 },
+    "slot": { "type": "string", "minLength": 1 },
+    "source": { "type": "string", "minLength": 1 }
+  }
+}

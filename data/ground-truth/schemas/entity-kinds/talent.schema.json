@@ -1,0 +1,13 @@
+{
+  "$id": "entity-kinds/talent.schema.json",
+  "allOf": [
+    { "$ref": "../entity-base.schema.json" },
+    {
+      "type": "object",
+      "properties": {
+        "kind": { "const": "talent" },
+        "internal_name": { "type": "string", "minLength": 1 }
+      }
+    }
+  ]
+}
