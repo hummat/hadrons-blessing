@@ -8,7 +8,11 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test scripts/score-build.test.mjs scripts/ground-truth.test.mjs",
+    "ground-truth:test": "node --test scripts/ground-truth.test.mjs",
+    "ground-truth:build": "node scripts/build-ground-truth-index.mjs",
+    "ground-truth:freshness": "node scripts/build-ground-truth-index.mjs --check",
+    "ground-truth:check": "npm run ground-truth:freshness && npm run ground-truth:test"
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,7 @@
   "homepage": "https://github.com/hummat/BetterBots#readme",
   "devDependencies": {
     "@playwright/mcp": "^0.0.68",
+    "ajv": "^8.18.0",
     "playwright": "^1.59.0-alpha-1771104257000"
   }
 }
