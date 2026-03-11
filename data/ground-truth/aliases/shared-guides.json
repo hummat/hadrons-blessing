@@ -1,5 +1,45 @@
 [
   {
+    "text": "+10-12% Block Efficiency",
+    "normalized_text": "10 12 block efficiency",
+    "candidate_entity_id": "shared.gadget_trait.gadget_block_cost_reduction",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "+10-12% Revive Speed",
+    "normalized_text": "10 12 revive speed",
+    "candidate_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
     "text": "+10-12% Stamina Regeneration",
     "normalized_text": "10 12 stamina regeneration",
     "candidate_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
@@ -60,6 +100,26 @@
     "notes": ""
   },
   {
+    "text": "+15-20% DR vs Flamers",
+    "normalized_text": "15 20 dr vs flamers",
+    "candidate_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_flamers",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
     "text": "+15-20% DR vs Gunners",
     "normalized_text": "15 20 dr vs gunners",
     "candidate_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
@@ -80,9 +140,69 @@
     "notes": ""
   },
   {
+    "text": "+15-20% DR vs Snipers",
+    "normalized_text": "15 20 dr vs snipers",
+    "candidate_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_snipers",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
     "text": "+3-4% Combat Ability Regen",
     "normalized_text": "3 4 combat ability regen",
     "candidate_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "+4-5% Health",
+    "normalized_text": "4 5 health",
+    "candidate_entity_id": "shared.gadget_trait.gadget_health_increase",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "+4-5% Toughness",
+    "normalized_text": "4 5 toughness",
+    "candidate_entity_id": "shared.gadget_trait.gadget_toughness_increase",
     "alias_kind": "guide_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "build-fixture",

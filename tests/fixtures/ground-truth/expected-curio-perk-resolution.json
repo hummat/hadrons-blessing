@@ -1,0 +1,26 @@
+[
+  {
+    "query": "+4-5% Health",
+    "expected_entity_id": "shared.gadget_trait.gadget_health_increase"
+  },
+  {
+    "query": "+4-5% Toughness",
+    "expected_entity_id": "shared.gadget_trait.gadget_toughness_increase"
+  },
+  {
+    "query": "+10-12% Block Efficiency",
+    "expected_entity_id": "shared.gadget_trait.gadget_block_cost_reduction"
+  },
+  {
+    "query": "+10-12% Revive Speed",
+    "expected_entity_id": "shared.gadget_trait.gadget_revive_speed_increase"
+  },
+  {
+    "query": "+15-20% DR vs Flamers",
+    "expected_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_flamers"
+  },
+  {
+    "query": "+15-20% DR vs Snipers",
+    "expected_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_snipers"
+  }
+]

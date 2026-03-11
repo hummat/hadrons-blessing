@@ -199,6 +199,20 @@ describe("buildIndex", () => {
       assert.equal(entityIds.has(id), true, `missing class entity ${id}`);
     }
   });
+
+  it("fails when shared curio perk coverage is incomplete", async () => {
+    const expected = JSON.parse(
+      readFileSync("tests/fixtures/ground-truth/expected-curio-perk-resolution.json", "utf8"),
+    );
+    const index = await buildIndex({ check: false });
+    const entityIds = new Set(
+      index.entities.filter((entity) => entity.kind === "gadget_trait").map((entity) => entity.id),
+    );
+
+    for (const { expected_entity_id: id } of expected) {
+      assert.equal(entityIds.has(id), true, `missing gadget trait ${id}`);
+    }
+  });
 });
 
 describe("resolveQuery", () => {
@@ -262,7 +276,7 @@ describe("resolveQuery", () => {
   });
 
   it("keeps unrelated curio perk labels unresolved instead of fuzzy-guessing", async () => {
-    for (const query of ["+15-20% DR vs Snipers", "+4-5% Health"]) {
+    for (const query of ["+99% DR vs Dreg Ragers", "+7-8% Experience Gain"]) {
       const result = await resolveQuery(query, {
         kind: "gadget_trait",
         slot: "curio",
@@ -272,6 +286,22 @@ describe("resolveQuery", () => {
       assert.equal(result.resolved_entity_id, null);
       assert.equal(result.proposed_entity_id, null);
       assert.equal(result.match_type, "none");
+    }
+  });
+
+  it("resolves source-backed curio perk labels once they are mapped", async () => {
+    const cases = JSON.parse(
+      readFileSync("tests/fixtures/ground-truth/expected-curio-perk-resolution.json", "utf8"),
+    );
+
+    for (const testCase of cases) {
+      const result = await resolveQuery(testCase.query, {
+        kind: "gadget_trait",
+        slot: "curio",
+      });
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, testCase.expected_entity_id);
     }
   });
 });
@@ -364,7 +394,6 @@ describe("auditBuildFile", () => {
     const result = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
 
     for (const field of [
-      "curios[0].perks[0]",
       "weapons[0].name",
       "weapons[1].name",
     ]) {
@@ -382,6 +411,26 @@ describe("auditBuildFile", () => {
         result.ambiguous.some((entry) => entry.field === field),
         false,
         `${field} should not be ambiguous`,
+      );
+    }
+  });
+
+  it("resolves newly covered curio perks in non-Psyker build audits", async () => {
+    const arbitesResult = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
+    const hiveScumResult = await auditBuildFile("scripts/builds/17-crackhead-john-wick.json");
+
+    for (const [result, field, expectedEntityId] of [
+      [arbitesResult, "curios[0].perks[0]", "shared.gadget_trait.gadget_toughness_increase"],
+      [arbitesResult, "curios[1].perks[0]", "shared.gadget_trait.gadget_health_increase"],
+      [hiveScumResult, "curios[0].perks[0]", "shared.gadget_trait.gadget_health_increase"],
+    ]) {
+      assert.equal(
+        result.resolved.some(
+          (entry) =>
+            entry.field === field && entry.resolved_entity_id === expectedEntityId,
+        ),
+        true,
+        `${field} should resolve to ${expectedEntityId}`,
       );
     }
   });

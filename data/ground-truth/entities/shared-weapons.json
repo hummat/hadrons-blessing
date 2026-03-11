@@ -1,5 +1,25 @@
 [
   {
+    "id": "shared.gadget_trait.gadget_block_cost_reduction",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_block_cost_reduction",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 791
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.gadget_trait.gadget_cooldown_reduction",
     "kind": "gadget_trait",
     "domain": "shared",
@@ -40,6 +60,26 @@
     "calc": {}
   },
   {
+    "id": "shared.gadget_trait.gadget_damage_reduction_vs_flamers",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_damage_reduction_vs_flamers",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 130
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
     "kind": "gadget_trait",
     "domain": "shared",
@@ -51,6 +91,66 @@
       {
         "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
         "line": 365
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.gadget_trait.gadget_damage_reduction_vs_snipers",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_damage_reduction_vs_snipers",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 181
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.gadget_trait.gadget_health_increase",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_health_increase",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 50
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.gadget_trait.gadget_revive_speed_increase",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_revive_speed_increase",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 665
       }
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
@@ -91,6 +191,26 @@
       {
         "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
         "line": 834
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.gadget_trait.gadget_toughness_increase",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_toughness_increase",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 10
       }
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
