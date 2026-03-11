@@ -168,6 +168,23 @@ describe("buildIndex", () => {
       assert.equal(aliasTexts.has(text), true, `missing pilot alias ${text}`);
     }
   });
+
+  it("includes evidence records for known bad-case mappings", async () => {
+    const index = await buildIndex({ check: false });
+    const evidenceIds = new Set(index.evidence.map((evidence) => evidence.id));
+
+    for (const id of [
+      "psyker.evidence.entity.psyker_damage_based_on_warp_charge",
+      "psyker.evidence.entity.psyker_brain_burst_improved",
+      "psyker.evidence.entity.psyker_aura_crit_chance_aura",
+      "psyker.evidence.entity.psyker_damage_to_peril_conversion",
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    ]) {
+      assert.equal(evidenceIds.has(id), true, `missing evidence ${id}`);
+    }
+  });
 });
 
 describe("resolveQuery", () => {

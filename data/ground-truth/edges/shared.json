@@ -87,7 +87,9 @@
       "exclusive_scope": null
     },
     "calc": {},
-    "evidence_ids": []
+    "evidence_ids": [
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent"
+    ]
   },
   {
     "id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
@@ -102,7 +104,9 @@
       "exclusive_scope": null
     },
     "calc": {},
-    "evidence_ids": []
+    "evidence_ids": [
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance"
+    ]
   },
   {
     "id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits",
@@ -147,7 +151,9 @@
       "exclusive_scope": null
     },
     "calc": {},
-    "evidence_ids": []
+    "evidence_ids": [
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit"
+    ]
   },
   {
     "id": "shared.edge.trait_applies_buff.weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_parent",

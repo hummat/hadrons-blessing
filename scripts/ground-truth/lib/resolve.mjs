@@ -131,6 +131,28 @@ function warningsFor(entity) {
   return warnings;
 }
 
+function collectRefsForEntity(entity, evidence) {
+  const refs = [...entity.refs];
+
+  for (const record of evidence) {
+    const appliesToEntity =
+      (record.subject_type === "entity" && record.subject_id === entity.id) ||
+      (record.subject_type === "edge" && record.value === entity.id);
+
+    if (!appliesToEntity) {
+      continue;
+    }
+
+    for (const ref of record.refs) {
+      if (!refs.some((existing) => existing.path === ref.path && existing.line === ref.line)) {
+        refs.push(ref);
+      }
+    }
+  }
+
+  return refs;
+}
+
 async function resolveQuery(query, queryContext, options = {}) {
   const safeQueryContext = assertAllowedQueryContext(queryContext);
   const normalizedQuery = normalizeText(query);
@@ -160,7 +182,7 @@ async function resolveQuery(query, queryContext, options = {}) {
           context_match_explanation: "canonical id lookup bypassed alias scoring",
         },
       ],
-      refs: entity.refs,
+      refs: collectRefsForEntity(entity, index.evidence),
       warnings: warningsFor(entity),
     };
   }
@@ -260,7 +282,7 @@ async function resolveQuery(query, queryContext, options = {}) {
       match_type: candidate.match_type,
       context_match_explanation: candidate.context_match_explanation,
     })),
-    refs: best.entity.refs,
+    refs: collectRefsForEntity(best.entity, index.evidence),
     warnings,
   };
 }

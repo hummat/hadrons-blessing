@@ -1,1 +1,53 @@
-[]
+[
+  {
+    "id": "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
+    "subject_type": "edge",
+    "subject_id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
+    "predicate": "maps_trait_to_family",
+    "value": "shared.name_family.blessing.blazing_spirit",
+    "value_type": "entity_id",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_2h_p1.lua",
+        "line": 136
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+    "subject_type": "edge",
+    "subject_id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+    "predicate": "maps_trait_to_family",
+    "value": "shared.name_family.blessing.shred",
+    "value_type": "entity_id",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_2h_p1.lua",
+        "line": 538
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "subject_type": "edge",
+    "subject_id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "predicate": "maps_trait_to_family",
+    "value": "shared.name_family.blessing.precognition",
+    "value_type": "entity_id",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_2h_p1.lua",
+        "line": 385
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  }
+]

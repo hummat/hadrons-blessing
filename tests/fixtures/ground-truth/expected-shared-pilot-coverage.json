@@ -77,5 +77,9 @@
     "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m2.weapon_trait_bespoke_forcesword_2h_p1_toughness_recovery_on_multiple_hits",
     "shared.edge.weapon_has_trait_pool.forcesword_2h_p1_m2.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit"
   ],
-  "evidence": []
+  "evidence": [
+    "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
+    "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit"
+  ]
 }
