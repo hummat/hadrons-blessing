@@ -213,6 +213,20 @@ describe("buildIndex", () => {
       assert.equal(entityIds.has(id), true, `missing gadget trait ${id}`);
     }
   });
+
+  it("fails when shared weapon perk coverage is incomplete", async () => {
+    const expected = JSON.parse(
+      readFileSync("tests/fixtures/ground-truth/expected-weapon-perk-resolution.json", "utf8"),
+    );
+    const index = await buildIndex({ check: false });
+    const entityIds = new Set(
+      index.entities.filter((entity) => entity.kind === "weapon_perk").map((entity) => entity.id),
+    );
+
+    for (const { expected_entity_id: id } of expected) {
+      assert.equal(entityIds.has(id), true, `missing weapon perk ${id}`);
+    }
+  });
 });
 
 describe("resolveQuery", () => {
@@ -299,6 +313,19 @@ describe("resolveQuery", () => {
         kind: "gadget_trait",
         slot: "curio",
       });
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, testCase.expected_entity_id);
+    }
+  });
+
+  it("resolves source-backed weapon perk labels once they are mapped", async () => {
+    const cases = JSON.parse(
+      readFileSync("tests/fixtures/ground-truth/expected-weapon-perk-resolution.json", "utf8"),
+    );
+
+    for (const testCase of cases) {
+      const result = await resolveQuery(testCase.query, testCase.query_context);
 
       assert.equal(result.resolution_state, "resolved");
       assert.equal(result.resolved_entity_id, testCase.expected_entity_id);
@@ -423,6 +450,44 @@ describe("auditBuildFile", () => {
       [arbitesResult, "curios[0].perks[0]", "shared.gadget_trait.gadget_toughness_increase"],
       [arbitesResult, "curios[1].perks[0]", "shared.gadget_trait.gadget_health_increase"],
       [hiveScumResult, "curios[0].perks[0]", "shared.gadget_trait.gadget_health_increase"],
+    ]) {
+      assert.equal(
+        result.resolved.some(
+          (entry) =>
+            entry.field === field && entry.resolved_entity_id === expectedEntityId,
+        ),
+        true,
+        `${field} should resolve to ${expectedEntityId}`,
+      );
+    }
+  });
+
+  it("resolves newly covered weapon perks in representative build audits", async () => {
+    const veteranResult = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
+    const zealotResult = await auditBuildFile("scripts/builds/04-spicy-meta-zealot.json");
+    const hiveScumResult = await auditBuildFile("scripts/builds/20-stimmtec-blender.json");
+
+    for (const [result, field, expectedEntityId] of [
+      [
+        veteranResult,
+        "weapons[0].perks[1]",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
+      ],
+      [
+        veteranResult,
+        "weapons[1].perks[0]",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+      ],
+      [
+        zealotResult,
+        "weapons[0].perks[1]",
+        "shared.weapon_perk.melee.weapon_trait_increase_damage_elites",
+      ],
+      [
+        hiveScumResult,
+        "weapons[1].perks[0]",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_increased_reload_speed",
+      ],
     ]) {
       assert.equal(
         result.resolved.some(

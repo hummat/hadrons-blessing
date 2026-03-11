@@ -1,0 +1,34 @@
+[
+  {
+    "query": "20-25% Damage (Maniacs)",
+    "query_context": {
+      "kind": "weapon_perk",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage"
+  },
+  {
+    "query": "20-25% Damage (Maniacs)",
+    "query_context": {
+      "kind": "weapon_perk",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
+  },
+  {
+    "query": "8-10% Damage (Elites)",
+    "query_context": {
+      "kind": "weapon_perk",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_damage_elites"
+  },
+  {
+    "query": "5-10% Reload Speed",
+    "query_context": {
+      "kind": "weapon_perk",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increased_reload_speed"
+  }
+]

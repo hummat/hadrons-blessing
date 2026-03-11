@@ -240,6 +240,26 @@
     "calc": {}
   },
   {
+    "id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_melee_common_wield_increased_berserker_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_melee.lua",
+        "line": 130
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_disgustingly_resilient_damage",
     "kind": "weapon_perk",
     "domain": "shared",
@@ -320,6 +340,26 @@
     "calc": {}
   },
   {
+    "id": "shared.weapon_perk.melee.weapon_trait_increase_damage_elites",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_increase_damage_elites",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_melee.lua",
+        "line": 613
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
     "kind": "weapon_perk",
     "domain": "shared",
@@ -340,6 +380,26 @@
     "calc": {}
   },
   {
+    "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_ranged_common_wield_increased_berserker_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_ranged.lua",
+        "line": 130
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
     "kind": "weapon_perk",
     "domain": "shared",
@@ -351,6 +411,26 @@
       {
         "path": "scripts/settings/equipment/weapon_traits/weapon_perks_ranged.lua",
         "line": 90
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_perk.ranged.weapon_trait_ranged_increased_reload_speed",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_ranged_increased_reload_speed",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_ranged.lua",
+        "line": 650
       }
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
