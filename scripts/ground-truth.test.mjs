@@ -9,6 +9,8 @@ import {
   validateSourceSnapshot,
 } from "./ground-truth/lib/validate.mjs";
 import { buildIndex } from "./build-ground-truth-index.mjs";
+import { resolveQuery } from "./ground-truth/lib/resolve.mjs";
+import { auditBuildFile } from "./audit-build-names.mjs";
 
 const PINNED_SOURCE_ROOT = process.env.GROUND_TRUTH_SOURCE_ROOT ?? null;
 
@@ -166,4 +168,53 @@ describe("buildIndex", () => {
       assert.equal(aliasTexts.has(text), true, `missing pilot alias ${text}`);
     }
   });
+});
+
+describe("resolveQuery", () => {
+  it("resolves all golden cases", async () => {
+    const cases = JSON.parse(
+      readFileSync("tests/fixtures/ground-truth/resolver-golden.json", "utf8"),
+    );
+
+    for (const testCase of cases) {
+      const result = await resolveQuery(testCase.query, testCase.query_context);
+      assert.equal(result.resolution_state, testCase.expected_state);
+      assert.equal(result.resolved_entity_id ?? null, testCase.expected_entity_id ?? null);
+      assert.equal(
+        result.proposed_entity_id ?? null,
+        testCase.expected_proposed_entity_id ?? null,
+      );
+      assert.equal(result.match_type, testCase.expected_match_type);
+      assert.equal(result.confidence, testCase.expected_confidence);
+      assert.equal(typeof result.score, "number");
+      assert.equal(typeof result.score_margin, "number");
+      assert.equal(typeof result.why_this_match, "string");
+      assert.equal(Array.isArray(result.candidate_trace), true);
+      assert.equal(Array.isArray(result.refs), true);
+      assert.equal(result.candidate_trace.length > 0, true);
+      assert.equal(result.refs.length > 0, true);
+      assert.equal(typeof result.candidate_trace[0].entity_id, "string");
+      assert.equal(typeof result.candidate_trace[0].score, "number");
+      assert.equal(typeof result.candidate_trace[0].context_match_explanation, "string");
+      assert.equal(typeof result.refs[0].path, "string");
+      assert.equal(typeof result.refs[0].line, "number");
+      assert.deepEqual(result.warnings, testCase.expected_warnings);
+    }
+  });
+});
+
+describe("auditBuildFile", () => {
+  for (const fixtureName of [
+    "08-gandalf-melee-wizard",
+    "09-electrodominance-psyker",
+    "10-electro-shriek-psyker",
+  ]) {
+    it(`matches the frozen ${fixtureName} audit snapshot`, async () => {
+      const result = await auditBuildFile(`scripts/builds/${fixtureName}.json`);
+      const expected = JSON.parse(
+        readFileSync(`tests/fixtures/ground-truth/audits/${fixtureName}.audit.json`, "utf8"),
+      );
+      assert.deepEqual(result, expected);
+    });
+  }
 });

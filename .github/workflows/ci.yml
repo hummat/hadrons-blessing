@@ -46,6 +46,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Provision pinned Darktide source snapshot
+        run: git clone --depth 1 https://github.com/Aussiemon/Darktide-Source-Code.git ../Darktide-Source-Code
+
       - name: Install Lua tooling
         run: |
           sudo apt-get update -qq
@@ -71,4 +83,5 @@ jobs:
       - name: Run checks
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GROUND_TRUTH_SOURCE_ROOT: ../Darktide-Source-Code
         run: make check

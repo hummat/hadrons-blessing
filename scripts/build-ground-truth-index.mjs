@@ -20,6 +20,7 @@ import {
 } from "./ground-truth/lib/validate.mjs";
 
 const GENERATED_INDEX_PATH = join(GENERATED_ROOT, "index.json");
+const GENERATED_META_PATH = join(GENERATED_ROOT, "meta.json");
 
 function readShardDirectory(root) {
   const files = listJsonFiles(root);
@@ -260,14 +261,20 @@ async function buildIndex(options = {}) {
 
   if (!check) {
     writeFileSync(GENERATED_INDEX_PATH, `${JSON.stringify(index, null, 2)}\n`);
+    writeFileSync(GENERATED_META_PATH, `${JSON.stringify(index.meta, null, 2)}\n`);
     return index;
   }
 
   const current = JSON.stringify(index, null, 2);
   const existing = readFileSync(GENERATED_INDEX_PATH, "utf8");
+  const existingMeta = readFileSync(GENERATED_META_PATH, "utf8");
 
   if (`${current}\n` !== existing) {
     throw new Error("Generated ground-truth index is stale");
+  }
+
+  if (`${JSON.stringify(index.meta, null, 2)}\n` !== existingMeta) {
+    throw new Error("Generated ground-truth meta is stale");
   }
 
   return index;

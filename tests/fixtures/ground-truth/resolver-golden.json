@@ -3,12 +3,63 @@
     "query": "Warp Rider",
     "query_context": { "class": "psyker", "kind": "talent" },
     "expected_state": "resolved",
-    "expected_entity_id": "psyker.talent.psyker_damage_based_on_warp_charge"
+    "expected_entity_id": "psyker.talent.psyker_damage_based_on_warp_charge",
+    "expected_match_type": "exact_alias",
+    "expected_confidence": "high",
+    "expected_warnings": []
+  },
+  {
+    "query": "Brain Rupture",
+    "query_context": { "class": "psyker", "kind": "ability" },
+    "expected_state": "resolved",
+    "expected_entity_id": "psyker.ability.psyker_brain_burst_improved",
+    "expected_match_type": "exact_alias",
+    "expected_confidence": "high",
+    "expected_warnings": []
+  },
+  {
+    "query": "Prescience",
+    "query_context": { "class": "psyker", "kind": "aura" },
+    "expected_state": "resolved",
+    "expected_entity_id": "psyker.aura.psyker_aura_crit_chance_aura",
+    "expected_match_type": "exact_alias",
+    "expected_confidence": "high",
+    "expected_warnings": []
+  },
+  {
+    "query": "Kinetic Deflection",
+    "query_context": { "class": "psyker", "kind": "talent" },
+    "expected_state": "resolved",
+    "expected_entity_id": "psyker.talent.psyker_damage_to_peril_conversion",
+    "expected_match_type": "exact_alias",
+    "expected_confidence": "high",
+    "expected_warnings": []
+  },
+  {
+    "query": "Blazing Spirit",
+    "query_context": { "kind": "weapon_trait", "weapon_family": "forcesword_2h" },
+    "expected_state": "resolved",
+    "expected_entity_id": "shared.name_family.blessing.blazing_spirit",
+    "expected_match_type": "exact_alias",
+    "expected_confidence": "high",
+    "expected_warnings": ["resolved_to_name_family", "partially_resolved_entity"]
+  },
+  {
+    "query": "Shred",
+    "query_context": { "kind": "weapon_trait", "weapon_family": "forcesword_2h" },
+    "expected_state": "resolved",
+    "expected_entity_id": "shared.name_family.blessing.shred",
+    "expected_match_type": "exact_alias",
+    "expected_confidence": "high",
+    "expected_warnings": ["resolved_to_name_family", "partially_resolved_entity"]
   },
   {
     "query": "Precognition",
     "query_context": { "kind": "weapon_trait", "weapon_family": "forcesword_2h" },
     "expected_state": "resolved",
-    "expected_entity_id": "shared.name_family.blessing.precognition"
+    "expected_entity_id": "shared.name_family.blessing.precognition",
+    "expected_match_type": "exact_alias",
+    "expected_confidence": "medium",
+    "expected_warnings": ["resolved_to_name_family", "partially_resolved_entity"]
   }
 ]

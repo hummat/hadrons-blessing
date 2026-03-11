@@ -1,0 +1,143 @@
+{
+  "build": "10-electro-shriek-psyker.json",
+  "resolved": [
+    {
+      "field": "curios[0].perks[0]",
+      "text": "+3-4% Combat Ability Regen",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+      "proposed_entity_id": null,
+      "match_type": "exact_alias",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[0].perks[1]",
+      "text": "+15-20% DR vs Gunners",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+      "proposed_entity_id": null,
+      "match_type": "exact_alias",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[0].blessings[0].name",
+      "text": "Shred",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.name_family.blessing.shred",
+      "proposed_entity_id": null,
+      "match_type": "exact_alias",
+      "confidence": "high",
+      "warnings": [
+        "resolved_to_name_family",
+        "partially_resolved_entity"
+      ]
+    },
+    {
+      "field": "weapons[0].blessings[1].name",
+      "text": "Wrath",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.name_family.blessing.wrath",
+      "proposed_entity_id": null,
+      "match_type": "exact_alias",
+      "confidence": "medium",
+      "warnings": [
+        "resolved_to_name_family",
+        "partially_resolved_entity"
+      ]
+    },
+    {
+      "field": "weapons[0].name",
+      "text": "Covenant Mk VIII Blaze Force Greatsword",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon.forcesword_2h_p1_m2",
+      "proposed_entity_id": null,
+      "match_type": "exact_alias",
+      "confidence": "medium",
+      "warnings": []
+    },
+    {
+      "field": "weapons[0].perks[0]",
+      "text": "20-25% Damage (Infested)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_disgustingly_resilient_damage",
+      "proposed_entity_id": null,
+      "match_type": "exact_alias",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[0].perks[1]",
+      "text": "20-25% Damage (Unarmoured)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_unarmored_damage",
+      "proposed_entity_id": null,
+      "match_type": "exact_alias",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[1].blessings[0].name",
+      "text": "Warp Nexus",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.name_family.blessing.warp_nexus",
+      "proposed_entity_id": null,
+      "match_type": "exact_alias",
+      "confidence": "high",
+      "warnings": [
+        "resolved_to_name_family",
+        "partially_resolved_entity"
+      ]
+    },
+    {
+      "field": "weapons[1].blessings[1].name",
+      "text": "Warp Flurry",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.name_family.blessing.warp_flurry",
+      "proposed_entity_id": null,
+      "match_type": "exact_alias",
+      "confidence": "high",
+      "warnings": [
+        "resolved_to_name_family",
+        "partially_resolved_entity"
+      ]
+    },
+    {
+      "field": "weapons[1].name",
+      "text": "Nomanus Mk VI Electrokinetic Force Staff",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon.forcestaff_p3_m1",
+      "proposed_entity_id": null,
+      "match_type": "exact_alias",
+      "confidence": "medium",
+      "warnings": []
+    },
+    {
+      "field": "weapons[1].perks[0]",
+      "text": "20-25% Damage (Flak Armoured)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+      "proposed_entity_id": null,
+      "match_type": "exact_alias",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[1].perks[1]",
+      "text": "20-25% Damage (Unyielding)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+      "proposed_entity_id": null,
+      "match_type": "exact_alias",
+      "confidence": "high",
+      "warnings": []
+    }
+  ],
+  "ambiguous": [],
+  "unresolved": [],
+  "warnings": [
+    "partially_resolved_entity",
+    "resolved_to_name_family"
+  ]
+}

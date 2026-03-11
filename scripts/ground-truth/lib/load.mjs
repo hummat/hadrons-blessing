@@ -10,6 +10,8 @@ const ALIASES_ROOT = join(GROUND_TRUTH_ROOT, "aliases");
 const EDGES_ROOT = join(GROUND_TRUTH_ROOT, "edges");
 const EVIDENCE_ROOT = join(GROUND_TRUTH_ROOT, "evidence");
 const GENERATED_ROOT = join(GROUND_TRUTH_ROOT, "generated");
+const GENERATED_INDEX_PATH = join(GENERATED_ROOT, "index.json");
+const GENERATED_META_PATH = join(GENERATED_ROOT, "meta.json");
 const SCHEMAS_ROOT = join(GROUND_TRUTH_ROOT, "schemas");
 const ENTITY_KINDS_ROOT = join(SCHEMAS_ROOT, "entity-kinds");
 const SOURCE_SNAPSHOT_MANIFEST_PATH = join(
@@ -43,6 +45,8 @@ export {
   ENTITY_KINDS_ROOT,
   ENTITIES_ROOT,
   EVIDENCE_ROOT,
+  GENERATED_INDEX_PATH,
+  GENERATED_META_PATH,
   GENERATED_ROOT,
   GROUND_TRUTH_ROOT,
   REPO_ROOT,

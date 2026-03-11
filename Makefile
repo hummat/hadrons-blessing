@@ -1,7 +1,7 @@
 LUA_FILES := $(shell find scripts -name '*.lua')
 BUSTED_BIN := $(shell command -v busted 2>/dev/null || command -v lua-busted 2>/dev/null || echo "")
 
-.PHONY: deps lint format format-check lsp-check check test doc-check release package
+.PHONY: deps lint format format-check lsp-check check test doc-check ground-truth-check release package
 
 deps:
 	git config core.hooksPath scripts/hooks
@@ -21,7 +21,7 @@ lsp-check:
 doc-check:
 	@scripts/doc-check.sh
 
-check: format-check lint lsp-check test doc-check
+check: format-check lint lsp-check test doc-check ground-truth-check
 
 test:
 	@if [ -d tests ]; then \
@@ -36,6 +36,10 @@ test:
 	else \
 		echo "No tests directory; skipping busted."; \
 	fi
+
+ground-truth-check:
+	GROUND_TRUTH_SOURCE_ROOT=$${GROUND_TRUTH_SOURCE_ROOT:-../Darktide-Source-Code} npm run ground-truth:build
+	GROUND_TRUTH_SOURCE_ROOT=$${GROUND_TRUTH_SOURCE_ROOT:-../Darktide-Source-Code} npm run ground-truth:check
 
 package:
 	@rm -f BetterBots.zip
