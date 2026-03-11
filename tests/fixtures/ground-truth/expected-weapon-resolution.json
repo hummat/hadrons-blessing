@@ -1,0 +1,18 @@
+[
+  {
+    "query": "Lawbringer Mk IIb Power Falchion",
+    "query_context": {
+      "kind": "weapon",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.weapon.powersword_p2_m1"
+  },
+  {
+    "query": "M35 Magnacore Mk II Plasma Gun",
+    "query_context": {
+      "kind": "weapon",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.weapon.plasmagun_p1_m1"
+  }
+]

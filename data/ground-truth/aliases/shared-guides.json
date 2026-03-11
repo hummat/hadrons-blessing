@@ -460,6 +460,30 @@
     "notes": ""
   },
   {
+    "text": "Blaze Away",
+    "normalized_text": "blaze away",
+    "candidate_entity_id": "shared.name_family.blessing.blaze_away",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by bespoke plasmagun trait source."
+  },
+  {
     "text": "Blazing Spirit",
     "normalized_text": "blazing spirit",
     "candidate_entity_id": "shared.name_family.blessing.blazing_spirit",
@@ -550,6 +574,46 @@
     "notes": ""
   },
   {
+    "text": "Lawbringer Mk IIb Power Falchion",
+    "normalized_text": "lawbringer mk iib power falchion",
+    "candidate_entity_id": "shared.weapon.powersword_p2_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as powersword_p2_m1, while build-scoring data still carries the stale non-source id powerfalchion_p1_m1."
+  },
+  {
+    "text": "M35 Magnacore Mk II Plasma Gun",
+    "normalized_text": "m35 magnacore mk ii plasma gun",
+    "candidate_entity_id": "shared.weapon.plasmagun_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as plasmagun_p1_m1."
+  },
+  {
     "text": "Momentum",
     "normalized_text": "momentum",
     "candidate_entity_id": "shared.name_family.blessing.momentum",
@@ -607,6 +671,54 @@
     },
     "rank_weight": 100,
     "notes": "Family-level mapping backed by bespoke plasmagun trait source."
+  },
+  {
+    "text": "High Voltage",
+    "normalized_text": "high voltage",
+    "candidate_entity_id": "shared.name_family.blessing.high_voltage",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by bespoke shock maul damage_bonus_vs_electrocuted trait source."
+  },
+  {
+    "text": "Pinning Fire",
+    "normalized_text": "pinning fire",
+    "candidate_entity_id": "shared.name_family.blessing.pinning_fire",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by bespoke bolter stacking_power_bonus_on_staggering_enemies trait source."
   },
   {
     "text": "Precognition",

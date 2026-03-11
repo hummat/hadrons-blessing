@@ -95,12 +95,17 @@ function scoreAlias(alias, query, normalizedQuery, queryContext) {
 
     const overlap = [...queryTokens].filter((token) => aliasTokens.has(token)).length;
     const union = new Set([...queryTokens, ...aliasTokens]).size;
+    const overlapRatio = overlap / union;
 
     if (overlap === 0) {
       return null;
     }
 
-    score += Math.round((overlap / union) * 100);
+    if (overlap < 2 && overlapRatio < 0.6) {
+      return null;
+    }
+
+    score += Math.round(overlapRatio * 100);
   }
 
   score += context.matchedPreferCount * 25;

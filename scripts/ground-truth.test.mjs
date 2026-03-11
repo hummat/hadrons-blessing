@@ -241,6 +241,20 @@ describe("buildIndex", () => {
       assert.equal(entityIds.has(id), true, `missing blessing family ${id}`);
     }
   });
+
+  it("fails when shared weapon coverage is incomplete", async () => {
+    const expected = JSON.parse(
+      readFileSync("tests/fixtures/ground-truth/expected-weapon-resolution.json", "utf8"),
+    );
+    const index = await buildIndex({ check: false });
+    const entityIds = new Set(
+      index.entities.filter((entity) => entity.kind === "weapon").map((entity) => entity.id),
+    );
+
+    for (const { expected_entity_id: id } of expected) {
+      assert.equal(entityIds.has(id), true, `missing weapon ${id}`);
+    }
+  });
 });
 
 describe("resolveQuery", () => {
@@ -292,9 +306,9 @@ describe("resolveQuery", () => {
   });
 
   it("keeps unrelated weapon labels unresolved instead of fuzzy-guessing", async () => {
-    const result = await resolveQuery("Lawbringer Mk IIb Power Falchion", {
+    const result = await resolveQuery("M1000 Completely Fake Lasgun", {
       kind: "weapon",
-      slot: "melee",
+      slot: "ranged",
     });
 
     assert.equal(result.resolution_state, "unresolved");
@@ -309,6 +323,20 @@ describe("resolveQuery", () => {
         kind: "gadget_trait",
         slot: "curio",
       });
+
+      assert.equal(result.resolution_state, "unresolved");
+      assert.equal(result.resolved_entity_id, null);
+      assert.equal(result.proposed_entity_id, null);
+      assert.equal(result.match_type, "none");
+    }
+  });
+
+  it("keeps unrelated blessing labels unresolved instead of fuzzy-guessing", async () => {
+    for (const [query, queryContext] of [
+      ["Confident Strike", { kind: "weapon_trait", slot: "melee" }],
+      ["Fire Frenzy", { kind: "weapon_trait", slot: "ranged" }],
+    ]) {
+      const result = await resolveQuery(query, queryContext);
 
       assert.equal(result.resolution_state, "unresolved");
       assert.equal(result.resolved_entity_id, null);
@@ -360,6 +388,19 @@ describe("resolveQuery", () => {
         "resolved_to_name_family",
         "partially_resolved_entity",
       ]);
+    }
+  });
+
+  it("resolves source-backed weapon labels once they are mapped", async () => {
+    const cases = JSON.parse(
+      readFileSync("tests/fixtures/ground-truth/expected-weapon-resolution.json", "utf8"),
+    );
+
+    for (const testCase of cases) {
+      const result = await resolveQuery(testCase.query, testCase.query_context);
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, testCase.expected_entity_id);
     }
   });
 });
@@ -448,12 +489,30 @@ describe("auditBuildFile", () => {
     }
   });
 
-  it("does not surface bogus fuzzy matches in non-Psyker build audits", async () => {
+  it("resolves newly covered weapon labels in representative build audits", async () => {
     const result = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
 
+    for (const [field, expectedEntityId] of [
+      ["weapons[0].name", "shared.weapon.powersword_p2_m1"],
+      ["weapons[1].name", "shared.weapon.plasmagun_p1_m1"],
+    ]) {
+      assert.equal(
+        result.resolved.some(
+          (entry) =>
+            entry.field === field && entry.resolved_entity_id === expectedEntityId,
+        ),
+        true,
+        `${field} should resolve to ${expectedEntityId}`,
+      );
+    }
+  });
+
+  it("does not surface bogus fuzzy blessing matches in non-Psyker build audits", async () => {
+    const result = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
+
     for (const field of [
-      "weapons[0].name",
-      "weapons[1].name",
+      "weapons[0].blessings[1].name",
+      "weapons[1].blessings[1].name",
     ]) {
       assert.equal(
         result.unresolved.some((entry) => entry.field === field),
@@ -533,9 +592,17 @@ describe("auditBuildFile", () => {
 
   it("resolves newly covered blessing families in representative build audits", async () => {
     const veteranResult = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
+    const zealotResult = await auditBuildFile("scripts/builds/04-spicy-meta-zealot.json");
+    const zealotBoltgunResult = await auditBuildFile("scripts/builds/05-fatmangus-zealot-stealth.json");
+    const arbitesResult = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
     const hiveScumResult = await auditBuildFile("scripts/builds/17-crackhead-john-wick.json");
 
     for (const [result, field, expectedEntityId] of [
+      [
+        zealotResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.blaze_away",
+      ],
       [
         veteranResult,
         "weapons[1].blessings[0].name",
@@ -545,6 +612,16 @@ describe("auditBuildFile", () => {
         veteranResult,
         "weapons[1].blessings[1].name",
         "shared.name_family.blessing.gets_hot",
+      ],
+      [
+        zealotBoltgunResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.pinning_fire",
+      ],
+      [
+        arbitesResult,
+        "weapons[0].blessings[0].name",
+        "shared.name_family.blessing.high_voltage",
       ],
       [
         hiveScumResult,

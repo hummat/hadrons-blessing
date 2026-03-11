@@ -1,5 +1,20 @@
 [
   {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_plasmagun_p1_power_bonus_on_continuous_fire",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_plasmagun_p1_power_bonus_on_continuous_fire",
+    "to_entity_id": "shared.name_family.blessing.blaze_away",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "shared.edge.instance_of.weapon_trait_bespoke_dual_shivs_p1_stacking_rending_on_weakspot_parent",
     "type": "instance_of",
     "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_dual_shivs_p1_stacking_rending_on_weakspot_parent",
@@ -34,6 +49,51 @@
     "type": "instance_of",
     "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_dual_stubpistols_p1_reload_speed_on_slide_parent",
     "to_entity_id": "shared.name_family.blessing.speedload",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_bolter_p1_stacking_power_bonus_on_staggering_enemies",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_bolter_p1_stacking_power_bonus_on_staggering_enemies",
+    "to_entity_id": "shared.name_family.blessing.pinning_fire",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_powermaul_p2_damage_bonus_vs_electrocuted",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_damage_bonus_vs_electrocuted",
+    "to_entity_id": "shared.name_family.blessing.high_voltage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_powermaul_shield_p1_damage_bonus_vs_electrocuted",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_powermaul_shield_p1_damage_bonus_vs_electrocuted",
+    "to_entity_id": "shared.name_family.blessing.high_voltage",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],

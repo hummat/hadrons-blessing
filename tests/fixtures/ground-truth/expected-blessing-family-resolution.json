@@ -1,5 +1,13 @@
 [
   {
+    "query": "Blaze Away",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.blaze_away"
+  },
+  {
     "query": "Uncanny Strike",
     "query_context": {
       "kind": "weapon_trait",
@@ -38,6 +46,22 @@
       "slot": "ranged"
     },
     "expected_entity_id": "shared.name_family.blessing.gets_hot"
+  },
+  {
+    "query": "High Voltage",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.name_family.blessing.high_voltage"
+  },
+  {
+    "query": "Pinning Fire",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.pinning_fire"
   },
   {
     "query": "Rising Heat",
