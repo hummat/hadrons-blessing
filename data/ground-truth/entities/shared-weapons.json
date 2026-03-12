@@ -1059,6 +1059,48 @@
     "calc": {}
   },
   {
+    "id": "shared.weapon.combatsword_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "combatsword_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/combat_swords/combatsword_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "combatsword",
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.flamer_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "flamer_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/flamers/flamer_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "flamer",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.weapon.needlepistol_p1_m1",
     "kind": "weapon",
     "domain": "shared",

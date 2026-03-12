@@ -594,6 +594,26 @@
     "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as powersword_p2_m1, while build-scoring data still carries the stale non-source id powerfalchion_p1_m1."
   },
   {
+    "text": "Maccabian Mk IV Duelling Sword",
+    "normalized_text": "maccabian mk iv duelling sword",
+    "candidate_entity_id": "shared.weapon.combatsword_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Display label comes from structured build data; docs/knowledge/weapon-blessings.md maps combatsword_p1 to Maccabian Mk IV Duelling Sword while the canonical internal template is source-backed as combatsword_p1_m1."
+  },
+  {
     "text": "M35 Magnacore Mk II Plasma Gun",
     "normalized_text": "m35 magnacore mk ii plasma gun",
     "candidate_entity_id": "shared.weapon.plasmagun_p1_m1",
@@ -612,6 +632,26 @@
     },
     "rank_weight": 90,
     "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as plasmagun_p1_m1."
+  },
+  {
+    "text": "Artemia Mk III Purgation Flamer",
+    "normalized_text": "artemia mk iii purgation flamer",
+    "candidate_entity_id": "shared.weapon.flamer_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Display label comes from structured build data; docs/knowledge/weapon-blessings.md maps flamer_p1 to Artemia Mk III Purgation Flamer while the canonical internal template is source-backed as flamer_p1_m1."
   },
   {
     "text": "Momentum",
