@@ -171,7 +171,7 @@ function validateEvidenceRecord(record) {
 function validateSourceSnapshot(sourceRoot) {
   loadSchemas();
 
-  const resolvedSourceRoot = sourceRoot ?? process.env.GROUND_TRUTH_SOURCE_ROOT;
+  const resolvedSourceRoot = resolve(sourceRoot ?? process.env.GROUND_TRUTH_SOURCE_ROOT ?? "");
   if (!resolvedSourceRoot) {
     throw new Error("GROUND_TRUTH_SOURCE_ROOT is required");
   }
