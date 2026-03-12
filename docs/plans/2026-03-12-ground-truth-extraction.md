@@ -106,15 +106,20 @@ These projects aren't competitors (none cover Darktide, none do alias resolution
 | **Wartide.net Breakpoint Calculator** (dt.wartide.net/calc/) | Darktide-specific. Study what damage formula it uses, how it models enemy armor/HP, and what data it baked in. By manshanko (same person who built the decompilation pipeline). | Web tool — inspect data model via browser devtools |
 | **GamesLantern** (darktide.gameslantern.com) | Study the build editor UX, talent tree visualization, and how they present weapon stats. This is what our web tool would complement/compete with. Also study what names they use vs internal names — their naming choices are exactly what our alias layer needs to handle. | Build editor pages, weapon database |
 
-#### Darktide-specific data sources
+#### Darktide-specific data sources and manshanko's toolchain
+
+manshanko is the author of most of the Darktide modding infrastructure (decompiler, mod loader, breakpoint calculator). Relevant tools:
 
 | Resource | What to study | Where to look |
 |---|---|---|
 | **Aussiemon/Darktide-Source-Code** (github.com/Aussiemon/Darktide-Source-Code) | The upstream data source. Study update frequency, what's included/excluded (no English loc strings in current clone), file organization conventions. Our `source-snapshots/manifest.json` pins to specific revisions of this repo. | `scripts/settings/` for templates, `scripts/extension_systems/` for runtime systems |
-| **Simple Buff Filter** (Nexus #682) | Runtime buff name learning. Study how it maps `buff_template_name` → display text at runtime — this is the runtime half of what we do offline. Could inform a future "runtime alias discovery" tool that feeds new aliases back into the registry. | Source for the buff template → display mapping logic |
-| **Power DI** (Nexus #281, github.com/OvenProofMars/Power_DI) | Extensible runtime data collection framework. Study its data source API — if we ever need runtime validation of our canonical data, Power DI's architecture shows how to hook into live game state. | `scripts/mods/Power_DI/modules/` for the data source extension pattern |
-| **Modding Tools** (Nexus #312) | Table inspector + variable watcher. Study what runtime tables it exposes — useful for discovering entity fields not visible in decompiled source (e.g., runtime-computed values, cached lookups). | In-game use for entity field discovery |
-| **Darktide decompilation pipeline** (backup158.github.io/Darktide_Decompiling.html) | Documents how the decompiled source is produced (manshanko's `limn` + LuaJIT decompiler). Important context for understanding the fidelity and limitations of our upstream data source. | The guide itself |
+| **`dtenv`** (github.com/manshanko/dtenv, MIT) | **Critical for calculator work.** Lua polyfill that runs Darktide's `DamageCalculation.calculate` outside the game. Use as a test oracle: feed weapon/enemy data, get exact damage numbers, verify our JS calculator matches the game. | Root-level Lua files, study which globals it polyfills and what decompiled source it requires |
+| **`dtmath-wit`** (github.com/manshanko/dtmath-wit, MIT, archived) | WASM interface definition for Wartide's calculator engine. Documents the calculation API surface (damage matrices, cleave, per-difficulty HP, armor by hitzone, stat buff application). Useful as a spec reference even though the implementation (`dtmath`) is closed source. | `dt-math.wit` interface file, GitHub releases for pre-compiled WASM binaries |
+| **`limn`** (github.com/manshanko/limn, Apache-2.0/MIT) | Bundle extractor / decompiler that produces the decompiled source. Relevant if we need to re-extract after a game update before Aussiemon updates. Rust, 19 stars. | `src/` for extraction logic |
+| **Darktide decompilation pipeline** (backup158.github.io/Darktide_Decompiling.html) | Documents how decompiled source is produced (`limn` + LuaJIT decompiler). Important for understanding fidelity and limitations of our upstream data. | The guide itself |
+| **Simple Buff Filter** (Nexus #682) | Runtime buff name learning. Study how it maps `buff_template_name` → display text at runtime — the runtime half of what we do offline. Could inform a future "runtime alias discovery" tool. | Source for the buff template → display mapping logic |
+| **Power DI** (Nexus #281, github.com/OvenProofMars/Power_DI) | Extensible runtime data collection framework. Study its data source API — if we need runtime validation of canonical data. | `scripts/mods/Power_DI/modules/` for the data source extension pattern |
+| **Modding Tools** (Nexus #312) | Table inspector + variable watcher. Useful for discovering entity fields not visible in decompiled source (runtime-computed values, cached lookups). | In-game use for entity field discovery |
 
 ---
 
@@ -253,7 +258,9 @@ High value, low effort once the entity registry covers all classes — the struc
 ### Calculator layer (v2.0, not v1)
 
 **What Wartide.net does (and doesn't):**
-Wartide is a weapon breakpoint calculator. You pick a weapon, pick a difficulty, and it tells you how many hits each attack takes to kill each enemy type with a given perk/blessing setup. It answers: "can my weapon two-shot a Crusher on Havoc 5?" It covers weapon damage only — no talent interactions, no ability effects, no build-wide buff stacking.
+Wartide is a weapon breakpoint calculator by manshanko (same person behind `limn`, the Darktide decompiler). You pick a weapon, pick a difficulty, and it tells you how many hits each attack takes to kill each enemy type with a given perk/blessing setup. It answers: "can my weapon two-shot a Crusher on Havoc 5?" It covers weapon damage only — no talent interactions, no ability effects, no build-wide buff stacking.
+
+Architecture: Rust core (`dtmath`) compiled to WASM, with all weapon/breed/buff data baked in at compile time from decompiled source. Vanilla JS frontend. The WASM interface is defined via WIT (`dtmath-wit`, MIT, archived). The core `dtmath` engine and web frontend are **closed source** — not available for reuse.
 
 **What the calculator layer would add:**
 The `calc` fields in the entity schema (buff durations, stat modifiers, proc conditions, stacking rules) and the typed edge conditions (additive/multiplicative/override aggregation, stacking modes) are designed to model full build interactions:
@@ -263,6 +270,25 @@ The `calc` fields in the entity schema (buff durations, stat modifiers, proc con
 - "What's the actual DPS difference between Blazing Spirit and Empowered Psionics on this weapon?"
 
 This is the Path of Building equivalent — buff stacking across talents, weapons, curios, and abilities, using the 13-stage damage pipeline from `docs/knowledge/damage-system.md`.
+
+**Implementation approach:**
+We can't reuse Wartide's code (closed source), but we have access to the same upstream data and two open tools from manshanko:
+
+| Resource | What it gives us | License |
+|---|---|---|
+| **Decompiled source** (`../Darktide-Source-Code/`) | `DamageCalculation.calculate` — the game's own damage Lua, plus all weapon templates, breed data, buff values. This is the ground truth for the formulas. | N/A (decompiled) |
+| **`dtenv`** (github.com/manshanko/dtenv) | Lua polyfill that runs Darktide's `DamageCalculation.calculate` outside the game. Can serve as a **test oracle** — feed it weapon/enemy data, get exact damage numbers, verify our implementation matches the game. | MIT |
+| **`dtmath-wit`** (github.com/manshanko/dtmath-wit) | WASM interface definition for dtmath. Documents the calculation API surface: damage matrices (base/weak/crit/crit_weak), cleave, per-difficulty HP, armor-by-hitzone, stat buff application. Useful as a spec for our own API, even though we can't use the implementation. | MIT (archived) |
+| **`limn`** (github.com/manshanko/limn) | Bundle extractor / decompiler. Produces the decompiled source. Relevant if we need to re-extract after a game update before Aussiemon updates. | Apache-2.0 / MIT |
+
+**Recommended calculator architecture:**
+- Reimplement the damage pipeline in JS/TS (simpler build than Rust→WASM, runs natively in the static site, formulas are arithmetic — no performance concern)
+- Source formulas from decompiled Lua (`DamageCalculation.calculate` and surrounding pipeline)
+- Use `dtenv` as a differential test oracle: run the same inputs through both our JS implementation and dtenv's Lua execution, assert matching outputs
+- Consume entity `calc` fields for talent/buff modifiers (stat_buffs, durations, stacking)
+- Consume edge conditions for interaction modeling (additive vs multiplicative, exclusive scopes)
+
+This gives us a wider scope than Wartide (full build interactions, not just weapon damage) while staying grounded in the same decompiled source.
 
 **Why it's v2, not v1:** Populating `calc` fields requires verifying every numeric value against decompiled source — per-talent, per-buff, per-stacking interaction. The entity resolution and build browsing/auditing are useful without the calculator. Ship the useful parts first.
 
