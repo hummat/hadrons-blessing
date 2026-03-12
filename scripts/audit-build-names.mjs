@@ -1,5 +1,6 @@
 import { basename } from "node:path";
 import { loadJsonFile } from "./ground-truth/lib/load.mjs";
+import { classifyKnownUnresolved } from "./ground-truth/lib/non-canonical.mjs";
 import { resolveQuery } from "./ground-truth/lib/resolve.mjs";
 
 async function resolveField(field, text, queryContext) {
@@ -17,12 +18,43 @@ async function resolveField(field, text, queryContext) {
   };
 }
 
+function toNonCanonicalEntry(result, record) {
+  return {
+    ...result,
+    non_canonical_kind: record.non_canonical_kind,
+    provenance: record.provenance,
+    notes: record.notes,
+    warnings: [...new Set([...result.warnings, "known_non_canonical_label"])],
+  };
+}
+
+function appendAuditEntry(audit, result, queryContext) {
+  if (result.resolution_state === "resolved") {
+    audit.resolved.push(result);
+    return;
+  }
+
+  if (result.resolution_state === "ambiguous") {
+    audit.ambiguous.push(result);
+    return;
+  }
+
+  const nonCanonicalRecord = classifyKnownUnresolved(result.text, queryContext);
+  if (nonCanonicalRecord) {
+    audit.non_canonical.push(toNonCanonicalEntry(result, nonCanonicalRecord));
+    return;
+  }
+
+  audit.unresolved.push(result);
+}
+
 async function auditBuildFile(buildPath) {
   const build = loadJsonFile(buildPath);
   const audit = {
     build: basename(buildPath),
     resolved: [],
     ambiguous: [],
+    non_canonical: [],
     unresolved: [],
     warnings: [],
   };
@@ -31,14 +63,10 @@ async function auditBuildFile(buildPath) {
     kind: "class",
     class: build.class,
   });
-
-  if (classResult.resolution_state === "resolved") {
-    audit.resolved.push(classResult);
-  } else if (classResult.resolution_state === "ambiguous") {
-    audit.ambiguous.push(classResult);
-  } else {
-    audit.unresolved.push(classResult);
-  }
+  appendAuditEntry(audit, classResult, {
+    kind: "class",
+    class: build.class,
+  });
 
   for (const [weaponIndex, weapon] of build.weapons.entries()) {
     const slot = weaponIndex === 0 ? "melee" : "ranged";
@@ -47,14 +75,7 @@ async function auditBuildFile(buildPath) {
       weapon.name,
       { kind: "weapon", slot },
     );
-
-    if (weaponResult.resolution_state === "resolved") {
-      audit.resolved.push(weaponResult);
-    } else if (weaponResult.resolution_state === "ambiguous") {
-      audit.ambiguous.push(weaponResult);
-    } else {
-      audit.unresolved.push(weaponResult);
-    }
+    appendAuditEntry(audit, weaponResult, { kind: "weapon", slot });
 
     const weaponFamily = weaponResult.resolved_entity_id?.split(".").pop()?.replace(/_m\\d+$/, "") ?? null;
 
@@ -68,14 +89,11 @@ async function auditBuildFile(buildPath) {
           ...(weaponFamily ? { weapon_family: weaponFamily } : {}),
         },
       );
-
-      if (blessingResult.resolution_state === "resolved") {
-        audit.resolved.push(blessingResult);
-      } else if (blessingResult.resolution_state === "ambiguous") {
-        audit.ambiguous.push(blessingResult);
-      } else {
-        audit.unresolved.push(blessingResult);
-      }
+      appendAuditEntry(audit, blessingResult, {
+        kind: "weapon_trait",
+        slot,
+        ...(weaponFamily ? { weapon_family: weaponFamily } : {}),
+      });
     }
 
     for (const [perkIndex, perk] of weapon.perks.entries()) {
@@ -87,14 +105,10 @@ async function auditBuildFile(buildPath) {
           slot,
         },
       );
-
-      if (perkResult.resolution_state === "resolved") {
-        audit.resolved.push(perkResult);
-      } else if (perkResult.resolution_state === "ambiguous") {
-        audit.ambiguous.push(perkResult);
-      } else {
-        audit.unresolved.push(perkResult);
-      }
+      appendAuditEntry(audit, perkResult, {
+        kind: "weapon_perk",
+        slot,
+      });
     }
   }
 
@@ -108,14 +122,11 @@ async function auditBuildFile(buildPath) {
         class: build.class,
       },
     );
-
-    if (curioNameResult.resolution_state === "resolved") {
-      audit.resolved.push(curioNameResult);
-    } else if (curioNameResult.resolution_state === "ambiguous") {
-      audit.ambiguous.push(curioNameResult);
-    } else {
-      audit.unresolved.push(curioNameResult);
-    }
+    appendAuditEntry(audit, curioNameResult, {
+      kind: "gadget_item",
+      slot: "curio",
+      class: build.class,
+    });
 
     for (const [perkIndex, perk] of curio.perks.entries()) {
       const perkResult = await resolveField(
@@ -126,20 +137,26 @@ async function auditBuildFile(buildPath) {
           slot: "curio",
         },
       );
-
-      if (perkResult.resolution_state === "resolved") {
-        audit.resolved.push(perkResult);
-      } else if (perkResult.resolution_state === "ambiguous") {
-        audit.ambiguous.push(perkResult);
-      } else {
-        audit.unresolved.push(perkResult);
-      }
+      appendAuditEntry(audit, perkResult, {
+        kind: "gadget_trait",
+        slot: "curio",
+      });
     }
   }
 
-  audit.warnings = [...new Set(audit.resolved.flatMap((entry) => entry.warnings))].sort();
+  audit.warnings = [
+    ...new Set(
+      [
+        ...audit.resolved,
+        ...audit.ambiguous,
+        ...audit.non_canonical,
+        ...audit.unresolved,
+      ].flatMap((entry) => entry.warnings),
+    ),
+  ].sort();
   audit.resolved.sort((left, right) => left.field.localeCompare(right.field));
   audit.ambiguous.sort((left, right) => left.field.localeCompare(right.field));
+  audit.non_canonical.sort((left, right) => left.field.localeCompare(right.field));
   audit.unresolved.sort((left, right) => left.field.localeCompare(right.field));
 
   return audit;

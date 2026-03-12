@@ -9,6 +9,7 @@ const ENTITIES_ROOT = join(GROUND_TRUTH_ROOT, "entities");
 const ALIASES_ROOT = join(GROUND_TRUTH_ROOT, "aliases");
 const EDGES_ROOT = join(GROUND_TRUTH_ROOT, "edges");
 const EVIDENCE_ROOT = join(GROUND_TRUTH_ROOT, "evidence");
+const NON_CANONICAL_ROOT = join(GROUND_TRUTH_ROOT, "non-canonical");
 const GENERATED_ROOT = join(GROUND_TRUTH_ROOT, "generated");
 const GENERATED_INDEX_PATH = join(GENERATED_ROOT, "index.json");
 const GENERATED_META_PATH = join(GENERATED_ROOT, "meta.json");
@@ -49,6 +50,7 @@ export {
   GENERATED_META_PATH,
   GENERATED_ROOT,
   GROUND_TRUTH_ROOT,
+  NON_CANONICAL_ROOT,
   REPO_ROOT,
   SCHEMAS_ROOT,
   SOURCE_SNAPSHOT_MANIFEST_PATH,

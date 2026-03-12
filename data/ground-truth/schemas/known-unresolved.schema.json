@@ -1,0 +1,65 @@
+{
+  "$id": "known-unresolved.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "text",
+    "normalized_text",
+    "non_canonical_kind",
+    "provenance",
+    "confidence",
+    "context_constraints",
+    "notes"
+  ],
+  "properties": {
+    "text": { "type": "string", "minLength": 1 },
+    "normalized_text": { "type": "string", "minLength": 1 },
+    "non_canonical_kind": {
+      "type": "string",
+      "enum": ["scraped_label", "display_label", "known_unresolved"]
+    },
+    "provenance": { "type": "string", "minLength": 1 },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "context_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["require_all", "prefer"],
+      "properties": {
+        "require_all": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["key", "value"],
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": ["domain", "kind", "class", "weapon_family", "slot", "source"]
+              },
+              "value": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "prefer": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["key", "value"],
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": ["domain", "kind", "class", "weapon_family", "slot", "source"]
+              },
+              "value": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    "notes": { "type": "string" }
+  }
+}

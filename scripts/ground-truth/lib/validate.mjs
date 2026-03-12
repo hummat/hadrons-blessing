@@ -94,6 +94,7 @@ function loadSchemas() {
     "condition.schema.json",
     "entity-base.schema.json",
     "alias.schema.json",
+    "known-unresolved.schema.json",
     "edge.schema.json",
     "evidence.schema.json",
   ]) {
@@ -118,6 +119,7 @@ function loadSchemas() {
     edge: ajv.getSchema("edge.schema.json"),
     entityBase: ajv.getSchema("entity-base.schema.json"),
     evidence: ajv.getSchema("evidence.schema.json"),
+    knownUnresolved: ajv.getSchema("known-unresolved.schema.json"),
     kindSchemas,
     queryContext: ajv.getSchema("query-context.schema.json"),
   };
@@ -152,6 +154,12 @@ function validateEdgeRecord(record) {
   const { edge } = loadSchemas();
   edge(record);
   return buildResult(edge);
+}
+
+function validateKnownUnresolvedRecord(record) {
+  const { knownUnresolved } = loadSchemas();
+  knownUnresolved(record);
+  return buildResult(knownUnresolved);
 }
 
 function validateEvidenceRecord(record) {
@@ -195,5 +203,6 @@ export {
   validateEdgeRecord,
   validateEntityRecord,
   validateEvidenceRecord,
+  validateKnownUnresolvedRecord,
   validateSourceSnapshot,
 };

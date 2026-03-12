@@ -1,0 +1,65 @@
+[
+  {
+    "text": "Blessed Bullet",
+    "normalized_text": "blessed bullet",
+    "non_canonical_kind": "display_label",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "gadget_item"
+        },
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
+  },
+  {
+    "text": "Gilded Inquisitorial Rosette",
+    "normalized_text": "gilded inquisitorial rosette",
+    "non_canonical_kind": "display_label",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "gadget_item"
+        },
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
+  },
+  {
+    "text": "Scrap of Scripture",
+    "normalized_text": "scrap of scripture",
+    "non_canonical_kind": "display_label",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "gadget_item"
+        },
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
+  }
+]

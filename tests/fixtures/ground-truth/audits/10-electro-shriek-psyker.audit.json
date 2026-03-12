@@ -145,7 +145,7 @@
     }
   ],
   "ambiguous": [],
-  "unresolved": [
+  "non_canonical": [
     {
       "field": "curios[0].name",
       "text": "Blessed Bullet",
@@ -154,7 +154,12 @@
       "proposed_entity_id": null,
       "match_type": "none",
       "confidence": "low",
-      "warnings": []
+      "warnings": [
+        "known_non_canonical_label"
+      ],
+      "non_canonical_kind": "display_label",
+      "provenance": "build-fixture",
+      "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
     },
     {
       "field": "curios[1].name",
@@ -164,7 +169,12 @@
       "proposed_entity_id": null,
       "match_type": "none",
       "confidence": "low",
-      "warnings": []
+      "warnings": [
+        "known_non_canonical_label"
+      ],
+      "non_canonical_kind": "display_label",
+      "provenance": "build-fixture",
+      "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
     },
     {
       "field": "curios[2].name",
@@ -174,10 +184,17 @@
       "proposed_entity_id": null,
       "match_type": "none",
       "confidence": "low",
-      "warnings": []
+      "warnings": [
+        "known_non_canonical_label"
+      ],
+      "non_canonical_kind": "display_label",
+      "provenance": "build-fixture",
+      "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
     }
   ],
+  "unresolved": [],
   "warnings": [
+    "known_non_canonical_label",
     "partially_resolved_entity",
     "resolved_to_name_family"
   ]

@@ -435,12 +435,44 @@ describe("auditBuildFile", () => {
   it("keeps unsupported curio item labels explicit", async () => {
     const result = await auditBuildFile("scripts/builds/08-gandalf-melee-wizard.json");
     assert.equal(
-      result.unresolved.some(
+      result.non_canonical.some(
         (entry) =>
-          entry.field === "curios[0].name" && entry.text === "Blessed Bullet",
+          entry.field === "curios[0].name" &&
+          entry.text === "Blessed Bullet" &&
+          entry.non_canonical_kind === "display_label",
       ),
       true,
     );
+  });
+
+  it("classifies known unsupported curio item labels into a non-canonical bucket", async () => {
+    const psykerResult = await auditBuildFile("scripts/builds/08-gandalf-melee-wizard.json");
+    const arbitesResult = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
+
+    for (const [result, field, text] of [
+      [psykerResult, "curios[0].name", "Blessed Bullet"],
+      [psykerResult, "curios[1].name", "Blessed Bullet"],
+      [psykerResult, "curios[2].name", "Blessed Bullet"],
+      [arbitesResult, "curios[0].name", "Gilded Inquisitorial Rosette"],
+      [arbitesResult, "curios[1].name", "Gilded Inquisitorial Rosette"],
+      [arbitesResult, "curios[2].name", "Scrap of Scripture"],
+    ]) {
+      assert.equal(
+        result.non_canonical.some(
+          (entry) =>
+            entry.field === field &&
+            entry.text === text &&
+            entry.non_canonical_kind === "display_label",
+        ),
+        true,
+        `${field} should be classified as a known non-canonical label`,
+      );
+      assert.equal(
+        result.unresolved.some((entry) => entry.field === field),
+        false,
+        `${field} should not remain unresolved once classified`,
+      );
+    }
   });
 
   it("audits structured class fields across all build fixtures", async () => {

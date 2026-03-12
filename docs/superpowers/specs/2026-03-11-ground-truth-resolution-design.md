@@ -336,6 +336,8 @@ data/ground-truth/
     psyker.json
     shared-guides.json
     gameslantern.json
+  non-canonical/
+    known-unresolved.json
   source-snapshots/
     manifest.json
 scripts/
@@ -402,6 +404,7 @@ Responsibilities:
 
 - resolve names from structured build JSONs and pre-extracted token lists in v1
 - report unresolved or low-confidence mappings
+- classify approved unsupported scraped/display labels into a separate non-canonical audit bucket
 - flag suspicious canonical/alias mismatches
 - emit machine-readable audit output for later tooling
 
@@ -500,7 +503,7 @@ Pilot fixtures:
 Pass condition:
 
 - approved frozen audit snapshots for the three fixtures
-- zero unresolved names in structured fixture fields
+- zero unresolved names in approved structured fixture fields once approved non-canonical labels are separated
 - expected ambiguous/proposed outcomes only where explicitly approved in the snapshot
 
 ### Schema/Integrity Tests
