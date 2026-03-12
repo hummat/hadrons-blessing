@@ -42,8 +42,13 @@ Included in the extraction:
 - `scripts/build-ground-truth-index.mjs`
 - `scripts/audit-build-names.mjs`
 - `scripts/ground-truth/**`
+- `scripts/ground-truth.test.mjs`
 - ground-truth tests and fixtures
-- package/build/test/CI files needed to run the project independently
+- standalone package/build/test/CI files required to run the project independently:
+  - `package.json`
+  - `package-lock.json`
+  - `Makefile`
+  - `.github/workflows/ci.yml`
 - ground-truth documentation needed to understand and maintain the project
 
 Explicitly out of scope for this extraction:
@@ -85,6 +90,10 @@ Rules:
 - no references that assume the project lives inside BetterBots
 - source snapshot handling must stay explicit and externalized
 - machine-readable core remains the source of truth; human-readable reporting is layered on top
+- standalone metadata must be rewritten during extraction:
+  - package name, description, repository URL, bugs URL, and homepage
+  - CI workflow names and badges
+  - README and docs references that still say `BetterBots`
 
 If a file exists only to support BetterBots mod development and is not necessary for general entity resolution, it does not belong in `hadrons-blessing`.
 
