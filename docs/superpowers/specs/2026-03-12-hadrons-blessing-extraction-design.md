@@ -41,9 +41,12 @@ Included in the extraction:
 - `data/ground-truth/**`
 - `scripts/build-ground-truth-index.mjs`
 - `scripts/audit-build-names.mjs`
+- `scripts/resolve-ground-truth.mjs`
 - `scripts/ground-truth/**`
 - `scripts/ground-truth.test.mjs`
-- ground-truth tests and fixtures
+- ground-truth tests and fixtures:
+  - `tests/fixtures/ground-truth/**`
+  - `scripts/builds/**` for retained audit snapshots and audit-test inputs
 - standalone package/build/test/CI files required to run the project independently:
   - `package.json`
   - `package-lock.json`
@@ -94,6 +97,10 @@ Rules:
   - package name, description, repository URL, bugs URL, and homepage
   - CI workflow names and badges
   - README and docs references that still say `BetterBots`
+- standalone automation must be functionally rewritten during extraction:
+  - `package.json` test scripts must stop invoking BetterBots-only tests such as `scripts/score-build.test.mjs`
+  - `Makefile` targets must be reduced to ground-truth build/test/check flows only
+  - `.github/workflows/ci.yml` must stop running BetterBots Lua lint/format/LSP/package gates and instead validate only the standalone project contract
 
 If a file exists only to support BetterBots mod development and is not necessary for general entity resolution, it does not belong in `hadrons-blessing`.
 
@@ -131,7 +138,7 @@ Extraction is complete when all of the following are true:
 
 1. `hadrons-blessing` exists as its own local git repository with preserved ground-truth history.
 2. The extracted repo runs its tests and index checks without depending on BetterBots-specific files.
-3. The public CLI surface is limited to `resolve`, `audit`, and `index`.
+3. The public CLI surface is limited to `resolve`, `audit`, and `index`, with explicit standalone entrypoints present for all three.
 4. The repo is pushed to `github.com/hummat/hadrons-blessing`.
 5. Follow-up work is tracked in the new repo's issue tracker rather than continuing feature growth inside BetterBots.
 
