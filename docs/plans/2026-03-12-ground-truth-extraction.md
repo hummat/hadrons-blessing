@@ -402,7 +402,15 @@ No open-source Darktide build planner exists. GamesLantern is the only real tool
 
 ### Proposed repo name
 
-`darktide-ground-truth` or `darktide-entity-resolution` (shorter: `dt-ground-truth`)
+**Hadron's Blessing** (`hadrons-blessing`)
+
+Named after Hadron Omega-7-7, the Tech-Priest artificer in Darktide who analyzes and optimizes weapons. Triple-layer joke mirroring "Ranald's Gift" (the VT2 build planner): (1) Hadron the NPC — every Darktide player knows her, (2) "blessing" is a crafting term in Darktide (weapon enchantments), (3) "blessing of the Omnissiah" is a Mechanicus religious concept. The irony: Hadron is a cold, condescending adept who would never bless anything organic — getting her blessing means your build survived the harshest scrutiny.
+
+Domain: `hadrons-blessing.gift` (parallel to `ranalds.gift`). Fallback: `hadrons-blessing.com`.
+
+GitHub repo: `hadrons-blessing`
+
+IP risk: negligible. "Hadron" is not a registered GW trademark. Existing mods ("Barter with Hadron", "Better Melk") use Fatshark NPC names without issue. Ranald's Gift was officially acknowledged by Fatshark. See IP research (2026-03-12) for full analysis.
 
 ### What moves to the new repo
 
@@ -507,7 +515,7 @@ The pilot is mostly complete on `feat/ground-truth-psyker-pilot`. Two viable app
 ## 6. New Repo Structure (Proposed)
 
 ```
-darktide-ground-truth/
+hadrons-blessing/
   README.md
   CLAUDE.md
   package.json
@@ -575,8 +583,8 @@ darktide-ground-truth/
 
 ## 7. Open Questions
 
-1. **Repo name:** `darktide-ground-truth` vs `darktide-entity-resolution` vs `darktide-build-tools` vs something else?
-2. **License:** MIT (matching BetterBots) or something else?
-3. **Monorepo vs multi-repo for web tool:** Single repo with `packages/` or separate `darktide-build-tool` repo for the web frontend?
-4. **Game knowledge docs:** Copy to new repo, or extract into a shared submodule?
-5. **When to extract:** After Psyker pilot passes, or now?
+1. **License:** MIT (matching BetterBots) or something else?
+2. **Monorepo vs multi-repo for web tool:** Single repo with `packages/` or separate repo for the web frontend?
+3. **Game knowledge docs:** Copy to new repo, or extract into a shared submodule?
+4. **When to extract:** After Psyker pilot passes, or now?
+5. **Domain:** Register `hadrons-blessing.gift` (or `.com` fallback)?
