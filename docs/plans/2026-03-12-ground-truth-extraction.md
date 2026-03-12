@@ -76,6 +76,46 @@ A source-backed entity resolution system for Warhammer 40,000: Darktide. It maps
 
 The system fills a real gap. Every Darktide modder and community tool either works with raw decompiled Lua (manual grep) or trusts display names (which don't map 1:1 to internal IDs). Blessing families like "Precognition" exist on multiple weapons with different internal IDs. Community names like "Warp Rider" don't match obvious internal names. No existing tool handles this systematically.
 
+### Reference projects: what to study and why
+
+These projects aren't competitors (none cover Darktide, none do alias resolution), but each solves a related sub-problem worth studying for implementation patterns.
+
+#### Data extraction and registry architecture
+
+| Project | What to study | Where to look |
+|---|---|---|
+| **RePoE** (github.com/brather1ng/RePoE) | How to structure JSON exports from game files. Their `stat_translations.json` maps stat IDs → display text with format strings — closest precedent for our alias layer. `mods.json` shows typed entity records with numeric attributes. | `RePoE/data/` for output format, `RePoE/parser/` for extraction pipeline |
+| **RePoE fork** (github.com/repoe-fork/repoe) | Maintained fork — check for schema evolution since the original stalled. Shows how a community maintains game data exports across patches. | Compare `data/` schema changes between original and fork |
+| **WFCD/warframe-items** (github.com/WFCD/warframe-items) | Community-built entity registry with `findItem()` API by internal path. Shows how to expose structured entity lookup programmatically. Category-based organization (weapons, warframes, mods) maps to our kind-based entity shards. | `lib/`, `data/` directory structure, `index.js` API surface |
+| **Warframe Wiki Modules** (wiki.warframe.com `Module:Weapons/data`, `Module:Ability/data`) | Machine-readable Lua/JSON with internal names as keys. Shows the wiki-as-database pattern — structured data maintained by a community, consumed by templates and external tools. | Any `Module:*/data` page on the wiki |
+
+#### Name mapping and localization bridging
+
+| Project | What to study | Where to look |
+|---|---|---|
+| **Bungie Manifest** (github.com/Bungie-net/api) | First-party hash → definition mapping in SQLite. Every entity has a stable hash ID, display name, description, icon, and typed stats. Shows what a "complete" entity definition looks like when you have full localization access. | `DestinyInventoryItemDefinition` table structure |
+| **d2-additional-info** (github.com/DestinyItemManager/d2-additional-info) | Community-curated data layered on top of official manifest — exactly the alias/annotation pattern we use. Shows how to maintain supplementary mappings that the official source doesn't provide. | `data/` for the supplementary data format |
+| **Enhanced Descriptions** (Nexus #210, github.com/cgodwin0/DarktideMods) | Darktide mod that reads internal buff/perk/blessing values and patches them into the UI. Study how it resolves internal template names to displayable numbers — this is the runtime equivalent of our offline resolution. | Source for how it accesses `buff_template_name` → numeric values |
+| **What The Localization** (Nexus #163) | Patches broken Darktide localization. Study what loc keys it fixes — these are exactly the gaps our system needs to handle (missing or wrong `ui_name` for canonical entities). | Source for the specific loc key corrections |
+
+#### Build planning and calculator patterns
+
+| Project | What to study | Where to look |
+|---|---|---|
+| **Path of Building** (github.com/PathOfBuildingCommunity/PathOfBuilding) | The gold standard game build calculator. Study how it consumes RePoE data, models buff stacking, and computes DPS. Our `calc` fields and edge conditions are designed to support a similar pipeline. | `src/Modules/CalcPerform.lua` for the calculation pipeline, `src/Data/` for data consumption |
+| **Wartide.net Breakpoint Calculator** (dt.wartide.net/calc/) | Darktide-specific. Study what damage formula it uses, how it models enemy armor/HP, and what data it baked in. By manshanko (same person who built the decompilation pipeline). | Web tool — inspect data model via browser devtools |
+| **GamesLantern** (darktide.gameslantern.com) | Study the build editor UX, talent tree visualization, and how they present weapon stats. This is what our web tool would complement/compete with. Also study what names they use vs internal names — their naming choices are exactly what our alias layer needs to handle. | Build editor pages, weapon database |
+
+#### Darktide-specific data sources
+
+| Resource | What to study | Where to look |
+|---|---|---|
+| **Aussiemon/Darktide-Source-Code** (github.com/Aussiemon/Darktide-Source-Code) | The upstream data source. Study update frequency, what's included/excluded (no English loc strings in current clone), file organization conventions. Our `source-snapshots/manifest.json` pins to specific revisions of this repo. | `scripts/settings/` for templates, `scripts/extension_systems/` for runtime systems |
+| **Simple Buff Filter** (Nexus #682) | Runtime buff name learning. Study how it maps `buff_template_name` → display text at runtime — this is the runtime half of what we do offline. Could inform a future "runtime alias discovery" tool that feeds new aliases back into the registry. | Source for the buff template → display mapping logic |
+| **Power DI** (Nexus #281, github.com/OvenProofMars/Power_DI) | Extensible runtime data collection framework. Study its data source API — if we ever need runtime validation of our canonical data, Power DI's architecture shows how to hook into live game state. | `scripts/mods/Power_DI/modules/` for the data source extension pattern |
+| **Modding Tools** (Nexus #312) | Table inspector + variable watcher. Study what runtime tables it exposes — useful for discovering entity fields not visible in decompiled source (e.g., runtime-computed values, cached lookups). | In-game use for entity field discovery |
+| **Darktide decompilation pipeline** (backup158.github.io/Darktide_Decompiling.html) | Documents how the decompiled source is produced (manshanko's `limn` + LuaJIT decompiler). Important context for understanding the fidelity and limitations of our upstream data source. | The guide itself |
+
 ---
 
 ## 3. The Case for a Standalone Project
