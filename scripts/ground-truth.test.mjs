@@ -490,11 +490,17 @@ describe("auditBuildFile", () => {
   });
 
   it("resolves newly covered weapon labels in representative build audits", async () => {
-    const result = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
+    const veteranResult = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
+    const arbitesResult = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
+    const hiveScumResult = await auditBuildFile("scripts/builds/17-crackhead-john-wick.json");
+    const surgeonResult = await auditBuildFile("scripts/builds/18-reginald-melee.json");
 
-    for (const [field, expectedEntityId] of [
-      ["weapons[0].name", "shared.weapon.powersword_p2_m1"],
-      ["weapons[1].name", "shared.weapon.plasmagun_p1_m1"],
+    for (const [result, field, expectedEntityId] of [
+      [veteranResult, "weapons[0].name", "shared.weapon.powersword_p2_m1"],
+      [veteranResult, "weapons[1].name", "shared.weapon.plasmagun_p1_m1"],
+      [arbitesResult, "weapons[0].name", "shared.weapon.powermaul_p2_m1"],
+      [hiveScumResult, "weapons[1].name", "shared.weapon.dual_stubpistols_p1_m1"],
+      [surgeonResult, "weapons[0].name", "shared.weapon.saw_p1_m1"],
     ]) {
       assert.equal(
         result.resolved.some(
@@ -594,6 +600,7 @@ describe("auditBuildFile", () => {
     const veteranResult = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
     const zealotResult = await auditBuildFile("scripts/builds/04-spicy-meta-zealot.json");
     const zealotBoltgunResult = await auditBuildFile("scripts/builds/05-fatmangus-zealot-stealth.json");
+    const ogrynResult = await auditBuildFile("scripts/builds/13-shovel-ogryn.json");
     const arbitesResult = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
     const hiveScumResult = await auditBuildFile("scripts/builds/17-crackhead-john-wick.json");
 
@@ -617,6 +624,16 @@ describe("auditBuildFile", () => {
         zealotBoltgunResult,
         "weapons[1].blessings[0].name",
         "shared.name_family.blessing.pinning_fire",
+      ],
+      [
+        ogrynResult,
+        "weapons[0].blessings[0].name",
+        "shared.name_family.blessing.skullcrusher",
+      ],
+      [
+        ogrynResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.inspiring_barrage",
       ],
       [
         arbitesResult,

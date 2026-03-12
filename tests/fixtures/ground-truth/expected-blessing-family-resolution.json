@@ -48,6 +48,14 @@
     "expected_entity_id": "shared.name_family.blessing.gets_hot"
   },
   {
+    "query": "Inspiring Barrage",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.inspiring_barrage"
+  },
+  {
     "query": "High Voltage",
     "query_context": {
       "kind": "weapon_trait",
@@ -62,6 +70,14 @@
       "slot": "ranged"
     },
     "expected_entity_id": "shared.name_family.blessing.pinning_fire"
+  },
+  {
+    "query": "Skullcrusher",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.name_family.blessing.skullcrusher"
   },
   {
     "query": "Rising Heat",

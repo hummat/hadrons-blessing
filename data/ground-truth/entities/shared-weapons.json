@@ -724,6 +724,48 @@
     "calc": {}
   },
   {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_p1_staggered_targets_receive_increased_damage_debuff",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_ogryn_powermaul_p1_staggered_targets_receive_increased_damage_debuff",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_powermaul_p1.lua",
+        "line": 40
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "ogryn_powermaul",
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_rippergun_p1_toughness_on_continuous_fire",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_ogryn_rippergun_p1_toughness_on_continuous_fire",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_rippergun_p1.lua",
+        "line": 274
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "ogryn_rippergun",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_damage_bonus_vs_electrocuted",
     "kind": "weapon_trait",
     "domain": "shared",
@@ -870,6 +912,27 @@
     "calc": {}
   },
   {
+    "id": "shared.weapon.powermaul_p2_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "powermaul_p2_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/power_mauls/powermaul_p2_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "powermaul_p2",
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.weapon.powersword_p2_m1",
     "kind": "weapon",
     "domain": "shared",
@@ -886,6 +949,48 @@
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {
       "weapon_family": "powersword_p2",
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.dual_stubpistols_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "dual_stubpistols_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/dual_stub_pistols/dual_stubpistols_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "dual_stubpistols",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.saw_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "saw_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/saws/saw_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "saw",
       "slot": "melee"
     },
     "calc": {}

@@ -90,6 +90,36 @@
     "evidence_ids": []
   },
   {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_powermaul_p1_staggered_targets_receive_increased_damage_debuff",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_p1_staggered_targets_receive_increased_damage_debuff",
+    "to_entity_id": "shared.name_family.blessing.skullcrusher",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_rippergun_p1_toughness_on_continuous_fire",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_rippergun_p1_toughness_on_continuous_fire",
+    "to_entity_id": "shared.name_family.blessing.inspiring_barrage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "shared.edge.instance_of.weapon_trait_bespoke_powermaul_shield_p1_damage_bonus_vs_electrocuted",
     "type": "instance_of",
     "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_powermaul_shield_p1_damage_bonus_vs_electrocuted",

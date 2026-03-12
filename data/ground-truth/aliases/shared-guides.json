@@ -697,6 +697,90 @@
     "notes": "Family-level mapping backed by bespoke shock maul damage_bonus_vs_electrocuted trait source."
   },
   {
+    "text": "Inspiring Barrage",
+    "normalized_text": "inspiring barrage",
+    "candidate_entity_id": "shared.name_family.blessing.inspiring_barrage",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by bespoke ogryn ripper gun toughness_on_continuous_fire trait source."
+  },
+  {
+    "text": "Branx Mk III Arbites Shock Maul",
+    "normalized_text": "branx mk iii arbites shock maul",
+    "candidate_entity_id": "shared.weapon.powermaul_p2_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as powermaul_p2_m1."
+  },
+  {
+    "text": "Branx Mk VIII Dual Stub Pistols",
+    "normalized_text": "branx mk viii dual stub pistols",
+    "candidate_entity_id": "shared.weapon.dual_stubpistols_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as dual_stubpistols_p1_m1."
+  },
+  {
+    "text": "Chirurgeon's Mk IV Bone Saw",
+    "normalized_text": "chirurgeon s mk iv bone saw",
+    "candidate_entity_id": "shared.weapon.saw_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as saw_p1_m1."
+  },
+  {
     "text": "Pinning Fire",
     "normalized_text": "pinning fire",
     "candidate_entity_id": "shared.name_family.blessing.pinning_fire",
@@ -719,6 +803,30 @@
     },
     "rank_weight": 100,
     "notes": "Family-level mapping backed by bespoke bolter stacking_power_bonus_on_staggering_enemies trait source."
+  },
+  {
+    "text": "Skullcrusher",
+    "normalized_text": "skullcrusher",
+    "candidate_entity_id": "shared.name_family.blessing.skullcrusher",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by bespoke ogryn power maul staggered_targets_receive_increased_damage_debuff trait source."
   },
   {
     "text": "Precognition",

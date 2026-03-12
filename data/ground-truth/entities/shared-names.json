@@ -100,6 +100,26 @@
     "calc": {}
   },
   {
+    "id": "shared.name_family.blessing.inspiring_barrage",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_rippergun_p1.lua",
+        "line": 274
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.name_family.blessing.momentum",
     "kind": "name_family",
     "domain": "shared",
@@ -211,6 +231,26 @@
       {
         "path": "scripts/builds/08-gandalf-melee-wizard.json",
         "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.skullcrusher",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_powermaul_p1.lua",
+        "line": 40
       }
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
