@@ -333,8 +333,8 @@ describe("resolveQuery", () => {
 
   it("keeps unrelated blessing labels unresolved instead of fuzzy-guessing", async () => {
     for (const [query, queryContext] of [
-      ["Confident Strike", { kind: "weapon_trait", slot: "melee" }],
       ["Fire Frenzy", { kind: "weapon_trait", slot: "ranged" }],
+      ["Totally Fake Momentum", { kind: "weapon_trait", slot: "melee" }],
     ]) {
       const result = await resolveQuery(query, queryContext);
 
@@ -631,26 +631,36 @@ describe("auditBuildFile", () => {
   it("does not surface bogus fuzzy blessing matches in non-Psyker build audits", async () => {
     const result = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
 
-    for (const field of [
-      "weapons[0].blessings[1].name",
-      "weapons[1].blessings[1].name",
-    ]) {
-      assert.equal(
-        result.unresolved.some((entry) => entry.field === field),
-        true,
-        `${field} should stay unresolved`,
-      );
-      assert.equal(
-        result.resolved.some((entry) => entry.field === field),
-        false,
-        `${field} should not resolve`,
-      );
-      assert.equal(
-        result.ambiguous.some((entry) => entry.field === field),
-        false,
-        `${field} should not be ambiguous`,
-      );
-    }
+    assert.equal(
+      result.resolved.some(
+        (entry) =>
+          entry.field === "weapons[0].blessings[1].name" &&
+          entry.resolved_entity_id === "shared.name_family.blessing.confident_strike",
+      ),
+      true,
+      "weapons[0].blessings[1].name should resolve to confident_strike",
+    );
+    assert.equal(
+      result.ambiguous.some((entry) => entry.field === "weapons[0].blessings[1].name"),
+      false,
+      "weapons[0].blessings[1].name should not be ambiguous",
+    );
+
+    assert.equal(
+      result.unresolved.some((entry) => entry.field === "weapons[1].blessings[1].name"),
+      true,
+      "weapons[1].blessings[1].name should stay unresolved",
+    );
+    assert.equal(
+      result.resolved.some((entry) => entry.field === "weapons[1].blessings[1].name"),
+      false,
+      "weapons[1].blessings[1].name should not resolve",
+    );
+    assert.equal(
+      result.ambiguous.some((entry) => entry.field === "weapons[1].blessings[1].name"),
+      false,
+      "weapons[1].blessings[1].name should not be ambiguous",
+    );
   });
 
   it("resolves newly covered curio perks in non-Psyker build audits", async () => {

@@ -1,5 +1,35 @@
 [
   {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_chainsword_2h_p1_guaranteed_melee_crit_on_activated_kill",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_chainsword_2h_p1_guaranteed_melee_crit_on_activated_kill",
+    "to_entity_id": "shared.name_family.blessing.bloodthirsty",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_chainsword_2h_p1_increased_melee_damage_on_multiple_hits",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_chainsword_2h_p1_increased_melee_damage_on_multiple_hits",
+    "to_entity_id": "shared.name_family.blessing.rampage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "shared.edge.instance_of.weapon_trait_bespoke_plasmagun_p1_power_bonus_on_continuous_fire",
     "type": "instance_of",
     "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_plasmagun_p1_power_bonus_on_continuous_fire",
@@ -60,10 +90,85 @@
     "evidence_ids": []
   },
   {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_lasgun_p2_crit_chance_based_on_aim_time",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_lasgun_p2_crit_chance_based_on_aim_time",
+    "to_entity_id": "shared.name_family.blessing.surgical",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_lasgun_p2_followup_shots_ranged_damage",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_lasgun_p2_followup_shots_ranged_damage",
+    "to_entity_id": "shared.name_family.blessing.sustained_fire",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_lasgun_p2_target_hit_mass_reduction_on_weakspot_hits",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_lasgun_p2_target_hit_mass_reduction_on_weakspot_hits",
+    "to_entity_id": "shared.name_family.blessing.hot_shot",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "shared.edge.instance_of.weapon_trait_bespoke_needlepistol_p1_increased_sprint_speed",
     "type": "instance_of",
     "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_needlepistol_p1_increased_sprint_speed",
     "to_entity_id": "shared.name_family.blessing.stripped_down",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_powermaul_slabshield_p1_infinite_melee_cleave_on_weakspot_kill",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_slabshield_p1_infinite_melee_cleave_on_weakspot_kill",
+    "to_entity_id": "shared.name_family.blessing.brutal_momentum",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_powermaul_slabshield_p1_toughness_recovery_on_chained_attacks",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_slabshield_p1_toughness_recovery_on_chained_attacks",
+    "to_entity_id": "shared.name_family.blessing.confident_strike",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -169,6 +274,36 @@
     "type": "instance_of",
     "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_rippergun_p1_toughness_on_continuous_fire",
     "to_entity_id": "shared.name_family.blessing.inspiring_barrage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_powersword_p2_explosion_on_overheat_lockout",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_powersword_p2_explosion_on_overheat_lockout",
+    "to_entity_id": "shared.name_family.blessing.overload",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_powersword_p2_slower_heat_buildup_on_perfect_block",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_powersword_p2_slower_heat_buildup_on_perfect_block",
+    "to_entity_id": "shared.name_family.blessing.energy_leakage",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],

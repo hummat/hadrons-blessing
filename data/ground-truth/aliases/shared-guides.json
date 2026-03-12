@@ -484,6 +484,30 @@
     "notes": "Family-level mapping backed by bespoke plasmagun trait source."
   },
   {
+    "text": "Bloodthirsty",
+    "normalized_text": "bloodthirsty",
+    "candidate_entity_id": "shared.name_family.blessing.bloodthirsty",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Tigrus Mk XV Heavy Eviscerator blessing page and the bespoke chainsword_2h guaranteed_melee_crit_on_activated_kill trait source."
+  },
+  {
     "text": "Blazing Spirit",
     "normalized_text": "blazing spirit",
     "candidate_entity_id": "shared.name_family.blessing.blazing_spirit",
@@ -537,6 +561,54 @@
     },
     "rank_weight": 90,
     "notes": "English mark mapping is build-sourced, not decompiled-source localized."
+  },
+  {
+    "text": "Brutal Momentum",
+    "normalized_text": "brutal momentum",
+    "candidate_entity_id": "shared.name_family.blessing.brutal_momentum",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Orox Mk II & Mk III Battle Maul & Slab Shield blessing page and the bespoke ogryn_powermaul_slabshield infinite_melee_cleave_on_weakspot_kill trait source."
+  },
+  {
+    "text": "Confident Strike",
+    "normalized_text": "confident strike",
+    "candidate_entity_id": "shared.name_family.blessing.confident_strike",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Orox Mk II & Mk III Battle Maul & Slab Shield blessing page and the bespoke ogryn_powermaul_slabshield toughness_recovery_on_chained_attacks trait source."
   },
   {
     "text": "Deflector",
@@ -669,6 +741,30 @@
     "notes": ""
   },
   {
+    "text": "Energy Leakage",
+    "normalized_text": "energy leakage",
+    "candidate_entity_id": "shared.name_family.blessing.energy_leakage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Lawbringer Mk IIb Power Falchion blessing page and the bespoke powersword_p2 slower_heat_buildup_on_perfect_block trait source."
+  },
+  {
     "text": "Gets Hot!",
     "normalized_text": "gets hot",
     "candidate_entity_id": "shared.name_family.blessing.gets_hot",
@@ -715,6 +811,30 @@
     },
     "rank_weight": 100,
     "notes": "Family-level mapping backed by bespoke shock maul damage_bonus_vs_electrocuted trait source."
+  },
+  {
+    "text": "Hot-Shot",
+    "normalized_text": "hot shot",
+    "candidate_entity_id": "shared.name_family.blessing.hot_shot",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Lucius Mk IV Helbore Lasgun blessing page and the bespoke lasgun_p2 target_hit_mass_reduction_on_weakspot_hits trait source."
   },
   {
     "text": "Inspiring Barrage",
@@ -859,6 +979,30 @@
     },
     "rank_weight": 90,
     "notes": "Display label comes from structured build data; shotpistol_shield_p1_m1 is the only source-backed shotpistol shield template."
+  },
+  {
+    "text": "Overload",
+    "normalized_text": "overload",
+    "candidate_entity_id": "shared.name_family.blessing.overload",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Lawbringer Mk IIb Power Falchion blessing page and the bespoke powersword_p2 explosion_on_overheat_lockout trait source."
   },
   {
     "text": "Pinning Fire",
@@ -1030,6 +1174,30 @@
     "notes": "Family-level mapping broadened beyond forcesword_2h because the same trait family appears on shivs."
   },
   {
+    "text": "Rampage",
+    "normalized_text": "rampage",
+    "candidate_entity_id": "shared.name_family.blessing.rampage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Tigrus Mk XV Heavy Eviscerator blessing page and the bespoke chainsword_2h increased_melee_damage_on_multiple_hits trait source."
+  },
+  {
     "text": "Rising Heat",
     "normalized_text": "rising heat",
     "candidate_entity_id": "shared.name_family.blessing.rising_heat",
@@ -1135,6 +1303,54 @@
     },
     "rank_weight": 100,
     "notes": "Family-level mapping backed by bespoke ranged trait source."
+  },
+  {
+    "text": "Surgical",
+    "normalized_text": "surgical",
+    "candidate_entity_id": "shared.name_family.blessing.surgical",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Lucius Mk IV Helbore Lasgun blessing page and the bespoke lasgun_p2 crit_chance_based_on_aim_time trait source."
+  },
+  {
+    "text": "Sustained Fire",
+    "normalized_text": "sustained fire",
+    "candidate_entity_id": "shared.name_family.blessing.sustained_fire",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Lucius Mk IV Helbore Lasgun blessing page and the bespoke lasgun_p2 followup_shots_ranged_damage trait source."
   },
   {
     "text": "Stripped Down",
