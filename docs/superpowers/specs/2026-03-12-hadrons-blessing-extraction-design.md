@@ -52,6 +52,8 @@ Included in the extraction:
   - `package-lock.json`
   - `Makefile`
   - `.github/workflows/ci.yml`
+  - `.gitignore`
+  - `LICENSE`
 - ground-truth documentation needed to understand and maintain the project
 
 Explicitly out of scope for this extraction:
@@ -107,12 +109,14 @@ Rules:
 - machine-readable core remains the source of truth; human-readable reporting is layered on top
 - standalone metadata must be rewritten during extraction:
   - package name, description, repository URL, bugs URL, and homepage
+  - package license field must match the retained repository license file
   - CI workflow names and badges
   - README and docs references that still say `BetterBots`
 - standalone automation must be functionally rewritten during extraction:
   - `package.json` test scripts must stop invoking BetterBots-only tests such as `scripts/score-build.test.mjs`
   - `Makefile` targets must be reduced to ground-truth build/test/check flows only
   - `.github/workflows/ci.yml` must stop running BetterBots Lua lint/format/LSP/package gates and instead validate only the standalone project contract
+  - `.gitignore` must ignore standalone build artifacts and dependencies such as `node_modules/` and `data/ground-truth/generated/`
 - the source snapshot contract must be explicit and portable:
   - the repo may not assume a BetterBots-relative checkout or a machine-specific absolute path
   - source-root provisioning must be documented and supported through an explicit input surface such as environment variable or CLI flag
@@ -171,6 +175,7 @@ Extraction is complete when all of the following are true:
 4. The repo is pushed to `github.com/hummat/hadrons-blessing`.
 5. Follow-up work is tracked in the new repo's issue tracker rather than continuing feature growth inside BetterBots.
 6. A clean checkout can run the standalone verification flow with an explicitly provided source root, without any BetterBots-relative assumptions.
+7. The extracted repo carries an explicit license file and matching package metadata, and stays clean after dependency install and index generation.
 
 ## 9. Follow-Up Issues
 
