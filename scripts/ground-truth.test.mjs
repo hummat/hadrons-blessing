@@ -491,16 +491,26 @@ describe("auditBuildFile", () => {
 
   it("resolves newly covered weapon labels in representative build audits", async () => {
     const veteranResult = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
+    const explodegrynResult = await auditBuildFile("scripts/builds/11-explodegryn.json");
     const arbitesResult = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
+    const arbitesShotgunResult = await auditBuildFile("scripts/builds/15-arbites-melee-meta.json");
     const hiveScumResult = await auditBuildFile("scripts/builds/17-crackhead-john-wick.json");
+    const chemistResult = await auditBuildFile("scripts/builds/19-the-chemist.json");
     const surgeonResult = await auditBuildFile("scripts/builds/18-reginald-melee.json");
+    const stimmtecResult = await auditBuildFile("scripts/builds/20-stimmtec-blender.json");
 
     for (const [result, field, expectedEntityId] of [
       [veteranResult, "weapons[0].name", "shared.weapon.powersword_p2_m1"],
       [veteranResult, "weapons[1].name", "shared.weapon.plasmagun_p1_m1"],
+      [explodegrynResult, "weapons[1].name", "shared.weapon.ogryn_thumper_p1_m1"],
       [arbitesResult, "weapons[0].name", "shared.weapon.powermaul_p2_m1"],
+      [arbitesShotgunResult, "weapons[1].name", "shared.weapon.shotgun_p4_m1"],
+      [hiveScumResult, "weapons[0].name", "shared.weapon.dual_shivs_p1_m1"],
       [hiveScumResult, "weapons[1].name", "shared.weapon.dual_stubpistols_p1_m1"],
+      [chemistResult, "weapons[1].name", "shared.weapon.needlepistol_p1_m1"],
       [surgeonResult, "weapons[0].name", "shared.weapon.saw_p1_m1"],
+      [stimmtecResult, "weapons[0].name", "shared.weapon.dual_shivs_p1_m1"],
+      [stimmtecResult, "weapons[1].name", "shared.weapon.needlepistol_p1_m1"],
     ]) {
       assert.equal(
         result.resolved.some(
@@ -603,6 +613,8 @@ describe("auditBuildFile", () => {
     const ogrynResult = await auditBuildFile("scripts/builds/13-shovel-ogryn.json");
     const arbitesResult = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
     const hiveScumResult = await auditBuildFile("scripts/builds/17-crackhead-john-wick.json");
+    const chemistResult = await auditBuildFile("scripts/builds/19-the-chemist.json");
+    const stimmtecResult = await auditBuildFile("scripts/builds/20-stimmtec-blender.json");
 
     for (const [result, field, expectedEntityId] of [
       [
@@ -659,6 +671,16 @@ describe("auditBuildFile", () => {
         hiveScumResult,
         "weapons[1].blessings[1].name",
         "shared.name_family.blessing.speedload",
+      ],
+      [
+        chemistResult,
+        "weapons[1].blessings[1].name",
+        "shared.name_family.blessing.stripped_down",
+      ],
+      [
+        stimmtecResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.stripped_down",
       ],
     ]) {
       assert.equal(

@@ -624,6 +624,27 @@
     "calc": {}
   },
   {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_needlepistol_p1_increased_sprint_speed",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_needlepistol_p1_increased_sprint_speed",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_needlepistol_p1.lua",
+        "line": 459
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "needlepistol",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_can_block_ranged",
     "kind": "weapon_trait",
     "domain": "shared",
@@ -975,6 +996,69 @@
     "calc": {}
   },
   {
+    "id": "shared.weapon.dual_shivs_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "dual_shivs_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/dual_shivs/dual_shivs_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "dual_shivs",
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.needlepistol_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "needlepistol_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/needlepistols/needlepistol_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "needlepistol",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.ogryn_thumper_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "ogryn_thumper_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/thumpers/ogryn_thumper_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "ogryn_thumper",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.weapon.saw_p1_m1",
     "kind": "weapon",
     "domain": "shared",
@@ -992,6 +1076,27 @@
     "attributes": {
       "weapon_family": "saw",
       "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.shotgun_p4_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "shotgun_p4_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/shotguns/shotgun_p4_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "shotgun_p4",
+      "slot": "ranged"
     },
     "calc": {}
   },

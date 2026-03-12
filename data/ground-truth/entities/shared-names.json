@@ -280,6 +280,26 @@
     "calc": {}
   },
   {
+    "id": "shared.name_family.blessing.stripped_down",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_needlepistol_p1.lua",
+        "line": 459
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.name_family.blessing.uncanny_strike",
     "kind": "name_family",
     "domain": "shared",

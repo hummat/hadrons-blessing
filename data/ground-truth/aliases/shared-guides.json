@@ -781,6 +781,46 @@
     "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as saw_p1_m1."
   },
   {
+    "text": "Exaction Mk III Exterminator Shotgun",
+    "normalized_text": "exaction mk iii exterminator shotgun",
+    "candidate_entity_id": "shared.weapon.shotgun_p4_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as shotgun_p4_m1."
+  },
+  {
+    "text": "Improvised Mk I Shivs",
+    "normalized_text": "improvised mk i shivs",
+    "candidate_entity_id": "shared.weapon.dual_shivs_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as dual_shivs_p1_m1."
+  },
+  {
     "text": "Pinning Fire",
     "normalized_text": "pinning fire",
     "candidate_entity_id": "shared.name_family.blessing.pinning_fire",
@@ -902,6 +942,26 @@
     "notes": "Family-level mapping backed by bespoke plasmagun trait source."
   },
   {
+    "text": "Lorenz Mk VI Rumbler",
+    "normalized_text": "lorenz mk vi rumbler",
+    "candidate_entity_id": "shared.weapon.ogryn_thumper_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as ogryn_thumper_p1_m1."
+  },
+  {
     "text": "Run 'n' Gun",
     "normalized_text": "run n gun",
     "candidate_entity_id": "shared.name_family.blessing.run_n_gun",
@@ -965,6 +1025,30 @@
     "notes": "Family-level mapping backed by bespoke ranged trait source."
   },
   {
+    "text": "Stripped Down",
+    "normalized_text": "stripped down",
+    "candidate_entity_id": "shared.name_family.blessing.stripped_down",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by bespoke needlepistol increased_sprint_speed trait source."
+  },
+  {
     "text": "Uncanny Strike",
     "normalized_text": "uncanny strike",
     "candidate_entity_id": "shared.name_family.blessing.uncanny_strike",
@@ -987,6 +1071,26 @@
     },
     "rank_weight": 100,
     "notes": "Family-level mapping backed by bespoke melee trait source."
+  },
+  {
+    "text": "Branx Mk II Needle Pistol",
+    "normalized_text": "branx mk ii needle pistol",
+    "candidate_entity_id": "shared.weapon.needlepistol_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as needlepistol_p1_m1."
   },
   {
     "text": "Warp Flurry",

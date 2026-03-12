@@ -60,6 +60,21 @@
     "evidence_ids": []
   },
   {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_needlepistol_p1_increased_sprint_speed",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_needlepistol_p1_increased_sprint_speed",
+    "to_entity_id": "shared.name_family.blessing.stripped_down",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "shared.edge.instance_of.weapon_trait_bespoke_bolter_p1_stacking_power_bonus_on_staggering_enemies",
     "type": "instance_of",
     "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_bolter_p1_stacking_power_bonus_on_staggering_enemies",
