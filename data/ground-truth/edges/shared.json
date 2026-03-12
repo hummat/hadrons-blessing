@@ -90,6 +90,21 @@
     "evidence_ids": []
   },
   {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_boltpistol_p1_rending_on_crit",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_boltpistol_p1_rending_on_crit",
+    "to_entity_id": "shared.name_family.blessing.puncture",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "shared.edge.instance_of.weapon_trait_bespoke_powermaul_p2_damage_bonus_vs_electrocuted",
     "type": "instance_of",
     "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_damage_bonus_vs_electrocuted",
@@ -199,6 +214,21 @@
     "type": "instance_of",
     "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p4_warp_charge_critical_strike_chance_bonus",
     "to_entity_id": "shared.name_family.blessing.warp_nexus",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_pickaxe_2h_p1_windup_increases_power",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_pickaxe_2h_p1_windup_increases_power",
+    "to_entity_id": "shared.name_family.blessing.thunderous",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],

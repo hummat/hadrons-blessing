@@ -821,6 +821,26 @@
     "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as dual_shivs_p1_m1."
   },
   {
+    "text": "Judgement Mk IV Subductor Shotpistol & Riot Shield",
+    "normalized_text": "judgement mk iv subductor shotpistol riot shield",
+    "candidate_entity_id": "shared.weapon.shotpistol_shield_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Display label comes from structured build data; shotpistol_shield_p1_m1 is the only source-backed shotpistol shield template."
+  },
+  {
     "text": "Pinning Fire",
     "normalized_text": "pinning fire",
     "candidate_entity_id": "shared.name_family.blessing.pinning_fire",
@@ -843,6 +863,30 @@
     },
     "rank_weight": 100,
     "notes": "Family-level mapping backed by bespoke bolter stacking_power_bonus_on_staggering_enemies trait source."
+  },
+  {
+    "text": "Puncture",
+    "normalized_text": "puncture",
+    "candidate_entity_id": "shared.name_family.blessing.puncture",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by bespoke boltpistol rending_on_crit trait source and broadened to structured boltgun usage."
   },
   {
     "text": "Skullcrusher",
@@ -1047,6 +1091,30 @@
     },
     "rank_weight": 100,
     "notes": "Family-level mapping backed by bespoke needlepistol increased_sprint_speed trait source."
+  },
+  {
+    "text": "Thunderous",
+    "normalized_text": "thunderous",
+    "candidate_entity_id": "shared.name_family.blessing.thunderous",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by bespoke ogryn pickaxe windup_increases_power trait source."
   },
   {
     "text": "Uncanny Strike",

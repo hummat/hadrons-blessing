@@ -80,12 +80,28 @@
     "expected_entity_id": "shared.name_family.blessing.skullcrusher"
   },
   {
+    "query": "Thunderous",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.name_family.blessing.thunderous"
+  },
+  {
     "query": "Stripped Down",
     "query_context": {
       "kind": "weapon_trait",
       "slot": "ranged"
     },
     "expected_entity_id": "shared.name_family.blessing.stripped_down"
+  },
+  {
+    "query": "Puncture",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.puncture"
   },
   {
     "query": "Rising Heat",

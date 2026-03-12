@@ -504,6 +504,7 @@ describe("auditBuildFile", () => {
       [veteranResult, "weapons[1].name", "shared.weapon.plasmagun_p1_m1"],
       [explodegrynResult, "weapons[1].name", "shared.weapon.ogryn_thumper_p1_m1"],
       [arbitesResult, "weapons[0].name", "shared.weapon.powermaul_p2_m1"],
+      [arbitesResult, "weapons[1].name", "shared.weapon.shotpistol_shield_p1_m1"],
       [arbitesShotgunResult, "weapons[1].name", "shared.weapon.shotgun_p4_m1"],
       [hiveScumResult, "weapons[0].name", "shared.weapon.dual_shivs_p1_m1"],
       [hiveScumResult, "weapons[1].name", "shared.weapon.dual_stubpistols_p1_m1"],
@@ -610,6 +611,7 @@ describe("auditBuildFile", () => {
     const veteranResult = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
     const zealotResult = await auditBuildFile("scripts/builds/04-spicy-meta-zealot.json");
     const zealotBoltgunResult = await auditBuildFile("scripts/builds/05-fatmangus-zealot-stealth.json");
+    const zealotBoltpistolResult = await auditBuildFile("scripts/builds/06-holy-gains-zealot.json");
     const ogrynResult = await auditBuildFile("scripts/builds/13-shovel-ogryn.json");
     const arbitesResult = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
     const hiveScumResult = await auditBuildFile("scripts/builds/17-crackhead-john-wick.json");
@@ -638,9 +640,24 @@ describe("auditBuildFile", () => {
         "shared.name_family.blessing.pinning_fire",
       ],
       [
+        zealotBoltgunResult,
+        "weapons[1].blessings[1].name",
+        "shared.name_family.blessing.puncture",
+      ],
+      [
+        zealotBoltpistolResult,
+        "weapons[1].blessings[1].name",
+        "shared.name_family.blessing.puncture",
+      ],
+      [
         ogrynResult,
         "weapons[0].blessings[0].name",
         "shared.name_family.blessing.skullcrusher",
+      ],
+      [
+        ogrynResult,
+        "weapons[0].blessings[1].name",
+        "shared.name_family.blessing.thunderous",
       ],
       [
         ogrynResult,
