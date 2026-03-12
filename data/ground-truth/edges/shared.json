@@ -90,10 +90,40 @@
     "evidence_ids": []
   },
   {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_boltpistol_p1_crit_weakspot_finesse",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_boltpistol_p1_crit_weakspot_finesse",
+    "to_entity_id": "shared.name_family.blessing.lethal_proximity",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "shared.edge.instance_of.weapon_trait_bespoke_boltpistol_p1_rending_on_crit",
     "type": "instance_of",
     "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_boltpistol_p1_rending_on_crit",
     "to_entity_id": "shared.name_family.blessing.puncture",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_flamer_p1_burned_targets_receive_rending_debuff",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_flamer_p1_burned_targets_receive_rending_debuff",
+    "to_entity_id": "shared.name_family.blessing.penetrating_flame",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],

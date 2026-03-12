@@ -160,6 +160,46 @@
     "calc": {}
   },
   {
+    "id": "shared.name_family.blessing.lethal_proximity",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_boltpistol_p1.lua",
+        "line": 128
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.penetrating_flame",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_flamer_p1.lua",
+        "line": 309
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.name_family.blessing.puncture",
     "kind": "name_family",
     "domain": "shared",

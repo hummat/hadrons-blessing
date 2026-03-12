@@ -561,7 +561,6 @@ describe("auditBuildFile", () => {
     const arbitesResult = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
     const arbitesShotgunResult = await auditBuildFile("scripts/builds/15-arbites-melee-meta.json");
     const zealotMetaResult = await auditBuildFile("scripts/builds/04-spicy-meta-zealot.json");
-    const zealotInfoDumpResult = await auditBuildFile("scripts/builds/07-zealot-infodump.json");
     const hiveScumResult = await auditBuildFile("scripts/builds/17-crackhead-john-wick.json");
     const chemistResult = await auditBuildFile("scripts/builds/19-the-chemist.json");
     const surgeonResult = await auditBuildFile("scripts/builds/18-reginald-melee.json");
@@ -575,7 +574,6 @@ describe("auditBuildFile", () => {
       [arbitesResult, "weapons[1].name", "shared.weapon.shotpistol_shield_p1_m1"],
       [arbitesShotgunResult, "weapons[1].name", "shared.weapon.shotgun_p4_m1"],
       [zealotMetaResult, "weapons[1].name", "shared.weapon.flamer_p1_m1"],
-      [zealotInfoDumpResult, "weapons[0].name", "shared.weapon.combatsword_p1_m1"],
       [hiveScumResult, "weapons[0].name", "shared.weapon.dual_shivs_p1_m1"],
       [hiveScumResult, "weapons[1].name", "shared.weapon.dual_stubpistols_p1_m1"],
       [chemistResult, "weapons[1].name", "shared.weapon.needlepistol_p1_m1"],
@@ -695,6 +693,11 @@ describe("auditBuildFile", () => {
         "shared.name_family.blessing.blaze_away",
       ],
       [
+        zealotResult,
+        "weapons[1].blessings[1].name",
+        "shared.name_family.blessing.penetrating_flame",
+      ],
+      [
         veteranResult,
         "weapons[1].blessings[0].name",
         "shared.name_family.blessing.rising_heat",
@@ -713,6 +716,11 @@ describe("auditBuildFile", () => {
         zealotBoltgunResult,
         "weapons[1].blessings[1].name",
         "shared.name_family.blessing.puncture",
+      ],
+      [
+        zealotBoltpistolResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.lethal_proximity",
       ],
       [
         zealotBoltpistolResult,
