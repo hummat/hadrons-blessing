@@ -98,13 +98,19 @@ These projects aren't competitors (none cover Darktide, none do alias resolution
 | **Enhanced Descriptions** (Nexus #210, github.com/cgodwin0/DarktideMods) | Darktide mod that reads internal buff/perk/blessing values and patches them into the UI. Study how it resolves internal template names to displayable numbers — this is the runtime equivalent of our offline resolution. | Source for how it accesses `buff_template_name` → numeric values |
 | **What The Localization** (Nexus #163) | Patches broken Darktide localization. Study what loc keys it fixes — these are exactly the gaps our system needs to handle (missing or wrong `ui_name` for canonical entities). | Source for the specific loc key corrections |
 
-#### Build planning and calculator patterns
+#### Build planning, calculator, and frontend patterns
 
 | Project | What to study | Where to look |
 |---|---|---|
-| **Path of Building** (github.com/PathOfBuildingCommunity/PathOfBuilding) | The gold standard game build calculator. Study how it consumes RePoE data, models buff stacking, and computes DPS. Our `calc` fields and edge conditions are designed to support a similar pipeline. | `src/Modules/CalcPerform.lua` for the calculation pipeline, `src/Data/` for data consumption |
-| **Wartide.net Breakpoint Calculator** (dt.wartide.net/calc/) | Darktide-specific. Study what damage formula it uses, how it models enemy armor/HP, and what data it baked in. By manshanko (same person who built the decompilation pipeline). | Web tool — inspect data model via browser devtools |
-| **GamesLantern** (darktide.gameslantern.com) | Study the build editor UX, talent tree visualization, and how they present weapon stats. This is what our web tool would complement/compete with. Also study what names they use vs internal names — their naming choices are exactly what our alias layer needs to handle. | Build editor pages, weapon database |
+| **Ranald's Gift** (ranalds.gift, github.com/ranaldsgift/ranalds.gift2) | **Best architectural precedent.** Open source VT2 build planner by the same game community (same engine, same studio). **Svelte + TypeScript + Vite + Tailwind + Supabase.** Study data model, build encoding, talent tree rendering, and component architecture. Proves SvelteKit works for Fatshark-game build planners. | `ranalds.gift2` repo — full source |
+| **Path of Building** (github.com/PathOfBuildingCommunity/PathOfBuilding) | The gold standard game build calculator (5.2k stars, MIT). Study how it consumes RePoE data, models buff stacking, and computes DPS. Our `calc` fields and edge conditions are designed to support a similar pipeline. | `src/Modules/CalcPerform.lua` for the calculation pipeline, `src/Data/` for data consumption |
+| **D2 Foundry** (github.com/d2foundry/foundry) | Destiny 2 weapon comparison tool. Next.js monorepo (Turborepo), TypeScript, Apache 2.0. Study weapon comparison UX (side-by-side TTK, flinch, ready/ADS/stow speed). Clean monorepo structure. | Repo root for monorepo layout, UI components for comparison views |
+| **DIM d2-additional-info** (github.com/DestinyItemManager/d2-additional-info) | Community-curated data layered on Bungie Manifest — directly analogous to our alias/annotation layer. Study how they process manifest updates and maintain supplementary data. | `data/` for the annotation format, build scripts for manifest processing |
+| **gcsim** (github.com/genshinsim/gcsim) | Genshin Impact Monte Carlo combat simulator (386 stars, MIT). **Go core + TypeScript UI + Protocol Buffers.** Models team rotations, buff uptime, action sequences. Architecture reference for a future Darktide combat simulator that goes beyond static breakpoints. | `pkg/simulation/` for the sim engine, `ui/` for the TS frontend |
+| **xyflow / Svelte Flow** (github.com/xyflow/xyflow) | **35.6k stars**, MIT. Node-based graph UI for React and Svelte. Built-in pan/zoom/minimap/custom nodes. Best fit for talent tree rendering (~80 nodes per class, graph with prerequisites). | `packages/svelte/` for Svelte Flow specifically |
+| **beautiful-skill-tree** (github.com/andrico1234/beautiful-skill-tree) | Purpose-built RPG skill tree component (387 stars, React-only). Has theming, save/load, responsive. More opinionated than xyflow but closer to the use case. Only viable if going React. | Root repo for API and examples |
+| **Wartide.net Breakpoint Calculator** (dt.wartide.net/calc/) | Darktide-specific. Study damage formula, armor/HP model, baked-in data. By manshanko. | Web tool — inspect data model via browser devtools |
+| **GamesLantern** (darktide.gameslantern.com) | Nuxt.js (Vue). Study build editor UX, talent tree rendering, weapon stat presentation. Naming choices are alias layer input. Builds require account (30-day expiry without) — **avoid this pattern**. | Build editor pages, weapon database |
 
 #### Darktide-specific data sources and manshanko's toolchain
 
@@ -120,6 +126,40 @@ manshanko is the author of most of the Darktide modding infrastructure (decompil
 | **Simple Buff Filter** (Nexus #682) | Runtime buff name learning. Study how it maps `buff_template_name` → display text at runtime — the runtime half of what we do offline. Could inform a future "runtime alias discovery" tool. | Source for the buff template → display mapping logic |
 | **Power DI** (Nexus #281, github.com/OvenProofMars/Power_DI) | Extensible runtime data collection framework. Study its data source API — if we need runtime validation of canonical data. | `scripts/mods/Power_DI/modules/` for the data source extension pattern |
 | **Modding Tools** (Nexus #312) | Table inspector + variable watcher. Useful for discovering entity fields not visible in decompiled source (runtime-computed values, cached lookups). | In-game use for entity field discovery |
+
+#### In-game interop and data mods
+
+| Resource | What to study | Where to look |
+|---|---|---|
+| **Share Talents** (Nexus #215) | In-game build code encoding: `/usetalents class n;id|rank,...`. The closest thing to a talent encoding standard in the Darktide community. **Our web tool should read and write this format** for in-game interop. | Source for the encoding/decoding logic |
+| **Datatide Test Spawner** (Nexus #479) | Spawns preset enemy groups, exports structured combat data. Works with Testing Utilities (Nexus #478). Could validate offline calculator output against real in-game combat data. | Companion Google Sheet for data format |
+| **CombatStats** (Nexus #661) | Runtime combat analytics: damage breakdowns, kills, buff uptime percentages. Structured data during missions. | Source for data schema |
+| **Uptime** (Nexus #573) | Measures buff uptime during combat. Key metric for build evaluation that no offline tool computes — a future combat simulator would need to model this. | In-game use (F8 in Mourningstar) |
+| **Blessings Archive** (Nexus #310) | All weapon blessings with title, rarity, description, compatible weapons. Filterable. Same data our ground-truth maps offline. | Source for blessing data structure |
+| **TalentPreview** (Nexus #707) | Renders talent tree visualization in-game using the game's UI framework. Study its data model for consistency with web rendering. | Source for talent tree data access |
+| **DumpStatFinder** (Nexus #368) | Internal weapon family/type/variant classification in `DumpStatRestrictions.lua`. Mirrors some ground-truth entity needs. | `DumpStatRestrictions.lua` for weapon taxonomy |
+
+### Community demand signals
+
+**Research date:** 2026-03-12. Searched Reddit (r/DarkTide, r/DarktideMods), Fatshark Forums, Steam discussions.
+
+**The integration gap (strongest signal):**
+Every existing tool is siloed. GamesLantern for builds, Wartide for breakpoints, Enhanced Descriptions for in-game values, Power DI for runtime stats, Share Talents for build codes. None interoperate. No common data format. This is the biggest opportunity — a unified data layer that all tools can consume.
+
+**Unfilled demand:**
+- No tool combines talent selection + weapon/blessing selection + damage calculation in one place
+- No defensive stat calculator (toughness DR, health gating, coherency effects) — only a community Desmos graph
+- No build comparison tool (side-by-side DPS/EHP for two builds)
+- No buff uptime simulation (only runtime measurement via Uptime mod)
+- GamesLantern's build editor has no calculator (page says "under construction")
+- Wartide has no build planner or talent tree
+- Breakpoint calculator threads are among the most-viewed game tool discussions on Steam/Fatshark forums
+
+**What killed Darkmass.gg:**
+Launched Nov 2022 as an ambitious wiki with planned API, breakpoint calculator, build editor, Discord bot, cosmetics tracker. Now defunct. Community thread: "anyone know another website like darkmass.gg?" — demand existed, execution failed. Likely due to scope creep and operational overhead of running a dynamic site with accounts and database. **Validates our static-site, no-accounts approach.**
+
+**Share Talents is the only interop bridge:**
+The Share Talents mod's encoding format (`/usetalents class n;id|rank,...`) is the only way to move a build between in-game and external tools. Supporting this format gives us the only existing interop channel. It's fragile (breaks on talent tree schema changes), but it's what the community uses.
 
 ---
 
@@ -204,6 +244,7 @@ A static site generated at build time from the entity registry and preset builds
 - Paste a GamesLantern URL → scrape + resolve + display with verified data
 - Scraping requires a lightweight serverless function (GL pages are JS-rendered, no API, no CORS)
 - GL build URLs have stable UUIDs: `darktide.gameslantern.com/builds/{uuid}/{slug}`
+- Paste a Share Talents code (`/usetalents class n;id|rank,...`) → decode + display talent tree. This is the only existing in-game ↔ external tool interop channel.
 - Display audit warnings inline: "this blessing name is ambiguous", "this perk doesn't exist on this weapon"
 
 **3. Build from scratch / modify**
@@ -220,6 +261,7 @@ A static site generated at build time from the entity registry and preset builds
 
 **5. Share / export**
 - URL-encoded build state (no server needed — build encoded in the URL hash/query params)
+- Share Talents code export — paste directly into game chat to apply the build in-game
 - JSON export for tooling consumption
 - Copy-pasteable text summary
 
@@ -297,6 +339,17 @@ This gives us a wider scope than Wartide (full build interactions, not just weap
 - **Not a GamesLantern competitor on UX.** GL has polish, community, and a head start on the build editor. This tool's differentiator is *verified data*, not prettier UI.
 - **Not a tier list or build ranking system.** No opinion model, no "S-tier" labels. Show the numbers, let users decide.
 - **Not a social platform.** No accounts, no comments, no ratings in v1. Static site, zero operational burden.
+
+### Recommended tech stack
+
+| Layer | Choice | Why |
+|---|---|---|
+| **Static site framework** | **SvelteKit** or **Astro** | Ranald's Gift (VT2 build planner, same community) proves SvelteKit works. Astro's island architecture is ideal for data-heavy static pages with interactive components. Both support SSG with zero-JS defaults. |
+| **Talent tree rendering** | **Svelte Flow** (xyflow, 35k stars, MIT) | Node-based graph UI with built-in pan/zoom/minimap/custom nodes. Darktide talent trees are ~80 nodes per class with prerequisites — well within range. |
+| **Styling** | **Tailwind CSS** | Matches Ranald's Gift stack. Fast prototyping. |
+| **CLI** | **Node.js ESM** | Already the stack for the resolver/auditor/index builder. `bin/dt.mjs` as entry point. |
+| **Hosting** | **Netlify / Vercel / GitHub Pages** | Static site, zero ops. Serverless function for GL scraping. |
+| **Build encoding interop** | **Share Talents format** | `/usetalents class n;id|rank,...` — the only existing in-game ↔ external tool bridge. Read and write this format. |
 
 ### GamesLantern integration constraints
 
