@@ -509,6 +509,42 @@ describe("auditBuildFile", () => {
     }
   });
 
+  it("classifies one-off unresolved weapon labels into the non-canonical bucket", async () => {
+    const veteranSniperResult = await auditBuildFile("scripts/builds/03-slinking-veteran.json");
+    const zealotStealthResult = await auditBuildFile("scripts/builds/05-fatmangus-zealot-stealth.json");
+    const zealotInfoDumpResult = await auditBuildFile("scripts/builds/07-zealot-infodump.json");
+    const ogrynTankResult = await auditBuildFile("scripts/builds/12-ogryn-shield-tank.json");
+    const shovelOgrynResult = await auditBuildFile("scripts/builds/13-shovel-ogryn.json");
+
+    for (const [result, field, text] of [
+      [veteranSniperResult, "weapons[0].name", "Catachan Mk VII \"Devil's Claw\" Sword"],
+      [veteranSniperResult, "weapons[1].name", "Lucius Mk IV Helbore Lasgun"],
+      [zealotStealthResult, "weapons[0].name", "Munitorum Mk II Relic Blade"],
+      [zealotStealthResult, "weapons[1].name", "Locke Mk III Spearhead Boltgun"],
+      [zealotInfoDumpResult, "weapons[0].name", "Maccabian Mk IV Duelling Sword"],
+      [zealotInfoDumpResult, "weapons[1].name", "Agripinaa Mk VIII Braced Autogun"],
+      [ogrynTankResult, "weapons[0].name", "Orox Mk II Battle Maul & Slab Shield"],
+      [shovelOgrynResult, "weapons[0].name", "Brute-Brainer Mk III Latrine Shovel"],
+      [shovelOgrynResult, "weapons[1].name", "Foe-Rend Mk V Ripper Gun"],
+    ]) {
+      assert.equal(
+        result.non_canonical.some(
+          (entry) =>
+            entry.field === field &&
+            entry.text === text &&
+            entry.non_canonical_kind === "known_unresolved",
+        ),
+        true,
+        `${field} should be classified as a known-unresolved weapon label`,
+      );
+      assert.equal(
+        result.unresolved.some((entry) => entry.field === field),
+        false,
+        `${field} should not remain unresolved once classified`,
+      );
+    }
+  });
+
   it("audits structured class fields across all build fixtures", async () => {
     const cases = JSON.parse(
       readFileSync("tests/fixtures/ground-truth/expected-class-resolution.json", "utf8"),

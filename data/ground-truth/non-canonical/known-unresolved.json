@@ -229,5 +229,257 @@
       "prefer": []
     },
     "notes": "Repeated build-guide blessing label intentionally kept outside the canonical registry until a source-backed bridge from the English label to an internal ranged weapon-trait family is proven."
+  },
+  {
+    "text": "Achlys Mk I Power Maul",
+    "normalized_text": "achlys mk i power maul",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
+  },
+  {
+    "text": "Agripinaa Mk VIII Braced Autogun",
+    "normalized_text": "agripinaa mk viii braced autogun",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
+  },
+  {
+    "text": "Brute-Brainer Mk III Latrine Shovel",
+    "normalized_text": "brute brainer mk iii latrine shovel",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
+  },
+  {
+    "text": "Catachan Mk VII \"Devil's Claw\" Sword",
+    "normalized_text": "catachan mk vii devil s claw sword",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
+  },
+  {
+    "text": "Foe-Rend Mk V Ripper Gun",
+    "normalized_text": "foe rend mk v ripper gun",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
+  },
+  {
+    "text": "Locke Mk III Spearhead Boltgun",
+    "normalized_text": "locke mk iii spearhead boltgun",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
+  },
+  {
+    "text": "Lucius Mk IV Helbore Lasgun",
+    "normalized_text": "lucius mk iv helbore lasgun",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
+  },
+  {
+    "text": "Maccabian Mk IV Duelling Sword",
+    "normalized_text": "maccabian mk iv duelling sword",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
+  },
+  {
+    "text": "Munitorum Mk II Relic Blade",
+    "normalized_text": "munitorum mk ii relic blade",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
+  },
+  {
+    "text": "Munitorum Mk X Relic Blade",
+    "normalized_text": "munitorum mk x relic blade",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
+  },
+  {
+    "text": "Orox Mk II Battle Maul & Slab Shield",
+    "normalized_text": "orox mk ii battle maul slab shield",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
+  },
+  {
+    "text": "Tigrus Mk XV Heavy Eviscerator",
+    "normalized_text": "tigrus mk xv heavy eviscerator",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
   }
 ]
