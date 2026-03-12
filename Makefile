@@ -1,53 +1,26 @@
-LUA_FILES := $(shell find scripts -name '*.lua')
-BUSTED_BIN := $(shell command -v busted 2>/dev/null || command -v lua-busted 2>/dev/null || echo "")
+.PHONY: require-source-root test resolve audit index-build index-check check
 
-.PHONY: deps lint format format-check lsp-check check test doc-check ground-truth-check release package
-
-deps:
-	git config core.hooksPath scripts/hooks
-
-lint:
-	luacheck $(LUA_FILES)
-
-format:
-	stylua $(LUA_FILES)
-
-format-check:
-	stylua --check $(LUA_FILES)
-
-lsp-check:
-	lua-language-server --configpath=.luarc.json --check=. --check_format=pretty --logpath=/tmp/luals-betterbots
-
-doc-check:
-	@scripts/doc-check.sh
-
-check: format-check lint lsp-check test doc-check ground-truth-check
-
-test:
-	@if [ -d tests ]; then \
-		if [ -n "$(BUSTED_BIN)" ]; then \
-			"$(BUSTED_BIN)"; \
-		elif [ -n "$$(ls /usr/lib/luarocks/rocks-*/busted/*/bin/busted 2>/dev/null | head -n 1)" ]; then \
-			lua "$$(ls /usr/lib/luarocks/rocks-*/busted/*/bin/busted 2>/dev/null | head -n 1)"; \
-		else \
-			echo "No busted runner found on PATH or in /usr/lib/luarocks."; \
-			exit 1; \
-		fi; \
-	else \
-		echo "No tests directory; skipping busted."; \
+require-source-root:
+	@if [ -z "$(GROUND_TRUTH_SOURCE_ROOT)" ]; then \
+		echo "GROUND_TRUTH_SOURCE_ROOT is required."; \
+		echo "Example: GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code make check"; \
+		exit 1; \
 	fi
 
-ground-truth-check:
-	GROUND_TRUTH_SOURCE_ROOT=$${GROUND_TRUTH_SOURCE_ROOT:-../Darktide-Source-Code} npm run ground-truth:build
-	GROUND_TRUTH_SOURCE_ROOT=$${GROUND_TRUTH_SOURCE_ROOT:-../Darktide-Source-Code} npm run ground-truth:check
+test: require-source-root
+	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm test
 
-package:
-	@rm -f BetterBots.zip
-	@cd .. && zip -9 BetterBots/BetterBots.zip \
-		BetterBots/BetterBots.mod \
-		BetterBots/scripts/mods/BetterBots/*.lua
-	@echo "Created BetterBots.zip"
-	@unzip -l BetterBots.zip
+resolve:
+	npm run resolve -- $(ARGS)
 
-release:
-	@scripts/release.sh $(VERSION)
+audit:
+	npm run audit -- $(ARGS)
+
+index-build: require-source-root
+	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run index:build
+
+index-check: require-source-root
+	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run index:check
+
+check: require-source-root
+	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run check
