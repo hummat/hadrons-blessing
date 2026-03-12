@@ -133,13 +133,13 @@ These projects aren't competitors (none cover Darktide, none do alias resolution
 
 ### What the standalone project becomes
 
-A **Darktide build intelligence platform** with three layers:
+A **Darktide build intelligence platform** — the "RePoE + Path of Building" equivalent for Darktide. No such thing exists today.
+
+Three layers, built incrementally:
 
 1. **Entity resolution** (current pilot) — canonical registry + alias resolution + build audit
-2. **Calculator** (planned via `calc` fields, edge conditions) — DPS/EHP/breakpoint computation from source-backed data
-3. **Web tool** — build ideation, creation, optimization, debugging with verified game data
-
-This is the "RePoE + Path of Building" equivalent for Darktide — no such thing exists today.
+2. **Calculator** (future) — DPS/EHP/breakpoint computation from source-backed data
+3. **Web tool + CLI** — build ideation, creation, optimization, debugging with verified game data
 
 ### How BetterBots benefits
 
@@ -152,7 +152,138 @@ BetterBots becomes a *consumer* of the ground-truth data rather than its host:
 
 ---
 
-## 4. Extraction Plan
+## 4. Product Design
+
+Two interaction surfaces, one shared data layer.
+
+### Users
+
+| User | What they want | Surface |
+|---|---|---|
+| **Build theorycrafters** | "Is Warp Rider good on my build?" with real numbers | Web app |
+| **Players optimizing** | "What's the best Psyker build for Havoc 5?" | Web app (browse presets) |
+| **Modders / bot dev** | Stable entity IDs, typed data, build audit | CLI |
+| **Content creators** | Verify claims before publishing guides | Web app (audit) or CLI |
+| **BetterBots mod** | Programmatic entity lookup for bot profiles | CLI / JSON data |
+
+### CLI (developer / modder audience)
+
+The CLI is the primary interface for bot development and modder workflows. It wraps the existing resolver, auditor, and index builder behind a consistent command interface.
+
+```
+dt resolve "Warp Rider"                    # canonical entity + source refs + confidence
+dt resolve "Warp Rider" --class psyker     # with query context for disambiguation
+dt audit build.json                        # flag unresolved/ambiguous names
+dt audit https://darktide.gameslantern.com/builds/<uuid>/...  # scrape + resolve
+dt build list                              # show available preset builds
+dt build show psyker/gandalf-melee         # display a preset build
+dt build diff build1.json build2.json      # compare two builds
+dt index build                             # rebuild generated index
+dt index check                             # freshness check
+```
+
+The CLI is a thin wrapper over library functions — the same code powers the web app's build-time data generation.
+
+### Static web app (casual player audience)
+
+A static site generated at build time from the entity registry and preset builds. No server, no accounts, no database — just HTML/CSS/JS served from a CDN.
+
+#### Core flows
+
+**1. Browse presets**
+- Ship the 20 pre-scraped GL builds plus curated picks, browsable by class
+- Each build shows: talent tree (visual), weapons with blessings/perks, ability, curios
+- Every talent/blessing/perk is clickable → shows source-backed description and internal values
+
+**2. Import a build**
+- Paste a GamesLantern URL → scrape + resolve + display with verified data
+- Scraping requires a lightweight serverless function (GL pages are JS-rendered, no API, no CORS)
+- GL build URLs have stable UUIDs: `darktide.gameslantern.com/builds/{uuid}/{slug}`
+- Display audit warnings inline: "this blessing name is ambiguous", "this perk doesn't exist on this weapon"
+
+**3. Build from scratch / modify**
+- Visual talent tree picker (click nodes to toggle)
+- Weapon selector with blessing/perk slots
+- Curio slots with perk selection
+- Modify an imported or preset build by changing selections
+- All selections resolve against the canonical registry — impossible to pick invalid combinations
+
+**4. Search**
+- Type any name (community, internal, stale, abbreviated) → find the entity
+- This is the alias layer's killer feature for casual users who don't know the "real" name
+- Shows resolution confidence and alternative matches for ambiguous queries
+
+**5. Share / export**
+- URL-encoded build state (no server needed — build encoded in the URL hash/query params)
+- JSON export for tooling consumption
+- Copy-pasteable text summary
+
+#### Per-entity pages (SEO)
+
+Every talent, blessing, weapon, and perk gets its own static page with:
+- Source-backed description and internal values
+- Known aliases (community names, stale names)
+- Which builds use this entity (cross-referenced from presets)
+- Source references (file:line in decompiled source)
+
+These pages are the organic traffic driver. "Warp Rider darktide" → lands on a page with verified stats instead of a Reddit thread with conflicting opinions.
+
+#### Patch impact tracking
+
+When a game patch drops:
+- Diff the decompiled source against the pinned snapshot
+- Identify changed entities (talents, blessings, weapons)
+- Flag which preset builds are affected
+- Display on a "Patch X.Y.Z Impact" page
+
+High value, low effort once the entity registry covers all classes — the structured data makes diffing mechanical.
+
+### Feature roadmap
+
+| Phase | CLI | Web app | Data |
+|---|---|---|---|
+| **v0.1** (Psyker pilot done) | `resolve`, `audit`, `index` | — | Psyker + shared entities |
+| **v0.2** (all classes) | Same commands, full coverage | — | All 6 classes, all shared entities |
+| **v1.0** (web launch) | `build list/show/diff` | Browse presets, search, per-entity pages | Preset builds, full alias coverage |
+| **v1.1** (import) | `audit <url>` | Paste GL URL → audit + display | Serverless scrape endpoint |
+| **v1.2** (builder) | — | Build from scratch / modify | Interactive talent tree |
+| **v1.3** (share) | — | URL-encoded builds, JSON export | — |
+| **v2.0** (calculator) | `calc` commands | Inline DPS/EHP/breakpoint numbers | `calc` fields populated on edges |
+
+### Calculator layer (v2.0, not v1)
+
+**What Wartide.net does (and doesn't):**
+Wartide is a weapon breakpoint calculator. You pick a weapon, pick a difficulty, and it tells you how many hits each attack takes to kill each enemy type with a given perk/blessing setup. It answers: "can my weapon two-shot a Crusher on Havoc 5?" It covers weapon damage only — no talent interactions, no ability effects, no build-wide buff stacking.
+
+**What the calculator layer would add:**
+The `calc` fields in the entity schema (buff durations, stat modifiers, proc conditions, stacking rules) and the typed edge conditions (additive/multiplicative/override aggregation, stacking modes) are designed to model full build interactions:
+
+- "With Warp Rider + Kinetic Deflection + this staff, what's my effective toughness regen during a horde?"
+- "Does this talent combination hit the breakpoint for one-shotting Ragers?"
+- "What's the actual DPS difference between Blazing Spirit and Empowered Psionics on this weapon?"
+
+This is the Path of Building equivalent — buff stacking across talents, weapons, curios, and abilities, using the 13-stage damage pipeline from `docs/knowledge/damage-system.md`.
+
+**Why it's v2, not v1:** Populating `calc` fields requires verifying every numeric value against decompiled source — per-talent, per-buff, per-stacking interaction. The entity resolution and build browsing/auditing are useful without the calculator. Ship the useful parts first.
+
+### What this is NOT
+
+- **Not a GamesLantern competitor on UX.** GL has polish, community, and a head start on the build editor. This tool's differentiator is *verified data*, not prettier UI.
+- **Not a tier list or build ranking system.** No opinion model, no "S-tier" labels. Show the numbers, let users decide.
+- **Not a social platform.** No accounts, no comments, no ratings in v1. Static site, zero operational burden.
+
+### GamesLantern integration constraints
+
+- **No public API.** Build data must be scraped via Playwright (existing `extract-build.mjs`).
+- **JS-rendered pages.** `curl`/`fetch` won't work — need a headless browser.
+- **No CORS.** Client-side scraping is not possible. Import requires a serverless function.
+- **Stable URLs.** Builds have UUID-based URLs (`/builds/{uuid}/{slug}`), so link-paste is reliable.
+- **No direct selection.** Cannot embed GL's build list or search. Users must find the build on GL first, then paste the URL.
+- **Scraper maintenance.** GL can change their DOM at any time. The scraper is inherently fragile and needs monitoring.
+
+---
+
+## 5. Extraction Plan
 
 ### Proposed repo name
 
@@ -258,7 +389,7 @@ The pilot is mostly complete on `feat/ground-truth-psyker-pilot`. Two viable app
 
 ---
 
-## 5. New Repo Structure (Proposed)
+## 6. New Repo Structure (Proposed)
 
 ```
 darktide-ground-truth/
@@ -267,7 +398,24 @@ darktide-ground-truth/
   package.json
   .github/workflows/ci.yml
 
-  # Core data
+  # CLI entry point
+  bin/
+    dt.mjs              # CLI dispatcher (resolve, audit, build, index, calc)
+
+  # Core library (shared by CLI and web build)
+  src/
+    lib/
+      load.mjs          # shard loading and merging
+      normalize.mjs     # name normalization
+      resolve.mjs       # resolver (exact/normalized/fuzzy)
+      validate.mjs      # schema validation
+      non-canonical.mjs # known-unresolved label handling
+    build-index.mjs     # schema validation + index generation
+    audit.mjs           # build audit pipeline
+    scrape.mjs          # GamesLantern scraper (Playwright)
+    score.mjs           # build scorer
+
+  # Entity data (the core asset)
   data/
     entities/           # canonical entity shards by class/domain
     aliases/            # alias shards
@@ -277,52 +425,40 @@ darktide-ground-truth/
     non-canonical/      # known-unresolved labels
     source-snapshots/   # pinned source metadata
 
-  # Core tooling
-  src/
-    lib/
-      load.mjs
-      normalize.mjs
-      resolve.mjs
-      validate.mjs
-      non-canonical.mjs
-    build-index.mjs     # schema validation + index generation
-    resolve.mjs         # CLI resolver
-    audit.mjs           # build audit tool
+  # Preset builds (scraped + curated)
+  builds/
+    presets/             # curated builds shipped with the tool
+    scraped/             # raw GL scraper output (build-time input)
 
-  # Build analysis tooling
-  tools/
-    extract-build.mjs   # GamesLantern scraper
-    score-build.mjs     # build scorer
-
-  # Community build data
-  builds/               # scraped build JSONs
+  # Static web app (v1.0+)
+  web/
+    src/
+      pages/             # per-entity static pages (generated)
+      components/        # talent tree, weapon selector, search
+      build-viewer/      # build display + audit warnings
+      build-editor/      # talent tree picker, weapon/curio slots (v1.2)
+    public/
+    astro.config.mjs     # or equivalent static site generator
+    package.json         # workspace member
 
   # Tests
   tests/
     fixtures/
     ground-truth.test.mjs
-    score-build.test.mjs
+    score.test.mjs
 
   # Documentation
   docs/
     design.md           # resolution design spec
     data-model.md       # entity/alias/edge/evidence schemas explained
+    product.md          # product design (surfaces, flows, roadmap)
     contributing.md     # how to add entities, aliases, evidence
-    game-knowledge/     # copied from BetterBots docs/knowledge/
-```
-
-### Future web tool addition
-
-```
-  web/                  # web UI (added later)
-    src/
-    public/
-    package.json        # or monorepo workspace
+    game-knowledge/     # game system reference (from BetterBots docs/knowledge/)
 ```
 
 ---
 
-## 6. Open Questions
+## 7. Open Questions
 
 1. **Repo name:** `darktide-ground-truth` vs `darktide-entity-resolution` vs `darktide-build-tools` vs something else?
 2. **License:** MIT (matching BetterBots) or something else?
