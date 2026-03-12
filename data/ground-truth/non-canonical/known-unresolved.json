@@ -61,5 +61,173 @@
       "prefer": []
     },
     "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
+  },
+  {
+    "text": "Cranial Grounding",
+    "normalized_text": "cranial grounding",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Repeated build-guide blessing label intentionally kept outside the canonical registry until a source-backed bridge from the English label to an internal melee weapon-trait family is proven."
+  },
+  {
+    "text": "Heatsink",
+    "normalized_text": "heatsink",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Repeated build-guide blessing label intentionally kept outside the canonical registry until a source-backed bridge from the English label to an internal melee weapon-trait family is proven."
+  },
+  {
+    "text": "Adhesive Charge",
+    "normalized_text": "adhesive charge",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Repeated build-guide blessing label intentionally kept outside the canonical registry until a source-backed bridge from the English label to an internal ranged weapon-trait family is proven."
+  },
+  {
+    "text": "Deathspitter",
+    "normalized_text": "deathspitter",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Repeated build-guide blessing label intentionally kept outside the canonical registry until a source-backed bridge from the English label to an internal ranged weapon-trait family is proven."
+  },
+  {
+    "text": "Decimator",
+    "normalized_text": "decimator",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Repeated build-guide blessing label intentionally kept outside the canonical registry until a source-backed bridge from the English label to an internal melee weapon-trait family is proven."
+  },
+  {
+    "text": "Shock & Awe",
+    "normalized_text": "shock awe",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Repeated build-guide blessing label intentionally kept outside the canonical registry until a source-backed bridge from the English label to an internal melee weapon-trait family is proven."
+  },
+  {
+    "text": "Execution",
+    "normalized_text": "execution",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Repeated build-guide blessing label intentionally kept outside the canonical registry until a source-backed bridge from the English label to an internal melee weapon-trait family is proven."
+  },
+  {
+    "text": "Execution",
+    "normalized_text": "execution",
+    "non_canonical_kind": "known_unresolved",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Repeated build-guide blessing label intentionally kept outside the canonical registry until a source-backed bridge from the English label to an internal ranged weapon-trait family is proven."
   }
 ]

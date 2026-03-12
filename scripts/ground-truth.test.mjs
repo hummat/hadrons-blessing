@@ -475,6 +475,40 @@ describe("auditBuildFile", () => {
     }
   });
 
+  it("classifies repeated unresolved blessing labels into the non-canonical bucket", async () => {
+    const veteranResult = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
+    const explodegrynResult = await auditBuildFile("scripts/builds/11-explodegryn.json");
+    const arbitesResult = await auditBuildFile("scripts/builds/16-arbites-busted.json");
+    const hiveScumResult = await auditBuildFile("scripts/builds/18-reginald-melee.json");
+
+    for (const [result, field, text] of [
+      [veteranResult, "weapons[0].blessings[0].name", "Cranial Grounding"],
+      [veteranResult, "weapons[0].blessings[1].name", "Heatsink"],
+      [explodegrynResult, "weapons[1].blessings[1].name", "Adhesive Charge"],
+      [arbitesResult, "weapons[0].blessings[0].name", "Execution"],
+      [arbitesResult, "weapons[1].blessings[0].name", "Deathspitter"],
+      [arbitesResult, "weapons[1].blessings[1].name", "Execution"],
+      [hiveScumResult, "weapons[0].blessings[0].name", "Decimator"],
+      [hiveScumResult, "weapons[0].blessings[1].name", "Shock & Awe"],
+    ]) {
+      assert.equal(
+        result.non_canonical.some(
+          (entry) =>
+            entry.field === field &&
+            entry.text === text &&
+            entry.non_canonical_kind === "known_unresolved",
+        ),
+        true,
+        `${field} should be classified as a repeated known-unresolved blessing label`,
+      );
+      assert.equal(
+        result.unresolved.some((entry) => entry.field === field),
+        false,
+        `${field} should not remain unresolved once classified`,
+      );
+    }
+  });
+
   it("audits structured class fields across all build fixtures", async () => {
     const cases = JSON.parse(
       readFileSync("tests/fixtures/ground-truth/expected-class-resolution.json", "utf8"),
