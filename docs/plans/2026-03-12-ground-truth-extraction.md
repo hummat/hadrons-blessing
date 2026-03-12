@@ -334,6 +334,42 @@ This gives us a wider scope than Wartide (full build interactions, not just weap
 
 **Why it's v2, not v1:** Populating `calc` fields requires verifying every numeric value against decompiled source — per-talent, per-buff, per-stacking interaction. The entity resolution and build browsing/auditing are useful without the calculator. Ship the useful parts first.
 
+### Competitive landscape: build planners
+
+No open-source Darktide build planner exists. GamesLantern is the only real tool (closed source, commercially operated). Ranald's Gift (VT2, open source, MIT) is the closest precedent but a different game. Neither ever shipped an integrated damage calculator — that's the unfilled gap across both games.
+
+| Feature | Ranald's Gift (VT2) | GamesLantern (DT) | Our plan |
+|---|---|---|---|
+| Talent selection | 6-tier linear (1-of-3) | Full graph tree (~80 nodes) | Full graph tree |
+| Weapons + gear | Weapon + properties + trait | Weapon + blessings + perks + rarity | Same as GL |
+| Source-backed data | No | No (manual curation) | **Yes — file:line refs** |
+| Entity resolution | No | No | **Yes — alias layer** |
+| Damage calculator | Planned, never built | "Under construction" | v2 (integrated) |
+| Breakpoints | Planned, never built | N/A (Wartide separate) | v2 (integrated) |
+| Build comparison | No | No | **Yes** |
+| Import | No | No | **GL link + Share Talents code** |
+| Export | URL query params only | UUID URL (needs account) | **URL hash + Share Talents + JSON** |
+| Fuzzy search | No | Basic | **Yes — alias-backed** |
+| Per-entity pages | No | Yes (weapons, enemies) | **Yes + source refs + aliases** |
+| Patch impact | No | No | **Yes** |
+| In-game interop | Pipe dream (never built) | None | **Share Talents read/write** |
+| Open source | Yes (MIT) | No | **Yes** |
+| Server required | Yes (Supabase) | Yes | **No (static site)** |
+| Accounts | Yes | Yes (30-day expiry without) | **No** |
+
+**Key architectural lessons from Ranald's Gift:**
+- v1 was React + Firebase, v2 was rewritten to SvelteKit + Supabase + TypeORM — the rewrite suggests the first stack didn't scale
+- Ambitious roadmap (damage tables, breakpoint summaries, team comp, stream overlay, bestiary, mod integration) — almost none shipped. Scope killed velocity.
+- Data model is thorough: per-weapon dodge/stamina/block stats, property min/max/step ranges, trait categories with DLC variants
+- Build metadata includes roles, difficulty, mission, potion, books, Twitch mode — good UX for filtering/discovery
+- The "in-game mod to load builds" was listed as a "pipe dream" and never attempted
+
+**What we should learn from Ranald's Gift's trajectory:**
+1. Ship the build planner without the calculator. Ranald's Gift is useful despite never building breakpoint integration.
+2. Don't plan a massive roadmap. Ship incrementally. Every unshipped feature on their "planned" list was wasted design time.
+3. Static site avoids the Supabase/Firebase operational overhead that comes with user accounts and persistent storage.
+4. The VT2 talent system (6-tier linear) is much simpler than Darktide's graph tree (~80 nodes, prerequisites, mutual exclusions). The talent tree rendering is our hardest UI challenge.
+
 ### What this is NOT
 
 - **Not a GamesLantern competitor on UX.** GL has polish, community, and a head start on the build editor. This tool's differentiator is *verified data*, not prettier UI.
