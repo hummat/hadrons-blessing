@@ -14,7 +14,9 @@ import { buildIndex } from "./build-ground-truth-index.mjs";
 import { resolveQuery } from "./ground-truth/lib/resolve.mjs";
 import { auditBuildFile } from "./audit-build-names.mjs";
 
-const PINNED_SOURCE_ROOT = process.env.GROUND_TRUTH_SOURCE_ROOT ?? null;
+const PINNED_SOURCE_ROOT = process.env.GROUND_TRUTH_SOURCE_ROOT != null
+  ? resolve(process.env.GROUND_TRUTH_SOURCE_ROOT)
+  : null;
 
 describe("normalizeText", () => {
   it("normalizes guide-style text deterministically", () => {
