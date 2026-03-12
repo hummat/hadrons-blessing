@@ -1,5 +1,13 @@
 [
   {
+    "query": "Achlys Mk I Power Maul",
+    "query_context": {
+      "kind": "weapon",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.weapon.ogryn_powermaul_p1_m1"
+  },
+  {
     "query": "Branx Mk III Arbites Shock Maul",
     "query_context": {
       "kind": "weapon",
@@ -77,6 +85,6 @@
       "kind": "weapon",
       "slot": "ranged"
     },
-    "expected_entity_id": "shared.weapon.ogryn_thumper_p1_m1"
+    "expected_entity_id": "shared.weapon.ogryn_thumper_p1_m2"
   }
 ]

@@ -1,12 +1,13 @@
 import { createHash } from "node:crypto";
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { basename, join } from "node:path";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { basename, join, resolve, sep } from "node:path";
 import {
   ALIASES_ROOT,
   EDGES_ROOT,
   ENTITIES_ROOT,
   EVIDENCE_ROOT,
   GENERATED_ROOT,
+  REPO_ROOT,
   listJsonFiles,
   loadJsonFile,
 } from "./ground-truth/lib/load.mjs";
@@ -60,6 +61,145 @@ function ensureUniqueIds(records, label) {
     }
 
     seen.add(record.id);
+  }
+}
+
+function ensureRecordSnapshotIds(records, label, sourceSnapshotId) {
+  for (const record of records) {
+    if (record.source_snapshot_id !== sourceSnapshotId) {
+      throw new Error(
+        `${label} record has mismatched source snapshot id: ${record.id} -> ${record.source_snapshot_id}`,
+      );
+    }
+  }
+}
+
+function ensurePathInRoot(root, path) {
+  const resolvedPath = resolve(root, path);
+  const normalizedRoot = root.endsWith(sep) ? root : `${root}${sep}`;
+
+  if (resolvedPath !== root && !resolvedPath.startsWith(normalizedRoot)) {
+    throw new Error(`Ref escapes root: ${path}`);
+  }
+
+  return resolvedPath;
+}
+
+function resolveRefPath(path, roots) {
+  for (const root of roots) {
+    const candidate = ensurePathInRoot(root, path);
+    if (existsSync(candidate)) {
+      return candidate;
+    }
+  }
+
+  return null;
+}
+
+function ensureRefsResolve(records, label, roots) {
+  const lineCountCache = new Map();
+
+  function lineCountFor(path) {
+    const cached = lineCountCache.get(path);
+    if (cached != null) {
+      return cached;
+    }
+
+    const lineCount = readFileSync(path, "utf8").split("\n").length;
+    lineCountCache.set(path, lineCount);
+    return lineCount;
+  }
+
+  for (const record of records) {
+    for (const ref of record.refs) {
+      const resolvedPath = resolveRefPath(ref.path, roots);
+      if (resolvedPath == null) {
+        throw new Error(`${label} ref path does not exist: ${record.id} -> ${ref.path}`);
+      }
+
+      const lineCount = lineCountFor(resolvedPath);
+      if (ref.line < 1 || ref.line > lineCount) {
+        throw new Error(
+          `${label} ref line is out of range: ${record.id} -> ${ref.path}:${ref.line}`,
+        );
+      }
+    }
+  }
+}
+
+function ensureReferentialIntegrity({ entities, aliases, edges, evidence }) {
+  const entityIds = new Set(entities.map((record) => record.id));
+  const edgeMap = new Map(edges.map((record) => [record.id, record]));
+  const edgeIds = new Set(edgeMap.keys());
+  const evidenceMap = new Map(evidence.map((record) => [record.id, record]));
+  const evidenceIds = new Set(evidence.map((record) => record.id));
+
+  for (const alias of aliases) {
+    if (!entityIds.has(alias.candidate_entity_id)) {
+      throw new Error(
+        `Alias target does not exist: ${alias.text} -> ${alias.candidate_entity_id}`,
+      );
+    }
+  }
+
+  for (const edge of edges) {
+    if (!entityIds.has(edge.from_entity_id)) {
+      throw new Error(
+        `Edge source does not exist: ${edge.id} -> ${edge.from_entity_id}`,
+      );
+    }
+
+    if (!entityIds.has(edge.to_entity_id)) {
+      throw new Error(
+        `Edge target does not exist: ${edge.id} -> ${edge.to_entity_id}`,
+      );
+    }
+
+    for (const evidenceId of edge.evidence_ids) {
+      if (!evidenceIds.has(evidenceId)) {
+        throw new Error(
+          `Edge evidence id does not exist: ${edge.id} -> ${evidenceId}`,
+        );
+      }
+
+      const evidenceRecord = evidenceMap.get(evidenceId);
+      if (
+        evidenceRecord.subject_type !== "edge" ||
+        evidenceRecord.subject_id !== edge.id
+      ) {
+        throw new Error(
+          `Edge evidence subject mismatch: ${edge.id} -> ${evidenceId}`,
+        );
+      }
+    }
+  }
+
+  for (const record of evidence) {
+    const subjectExists =
+      record.subject_type === "entity"
+        ? entityIds.has(record.subject_id)
+        : edgeIds.has(record.subject_id);
+
+    if (!subjectExists) {
+      throw new Error(
+        `Evidence subject does not exist: ${record.id} -> ${record.subject_type}:${record.subject_id}`,
+      );
+    }
+
+    if (record.value_type === "entity_id" && !entityIds.has(record.value)) {
+      throw new Error(
+        `Evidence value entity does not exist: ${record.id} -> ${record.value}`,
+      );
+    }
+
+    if (record.subject_type === "edge") {
+      const edge = edgeMap.get(record.subject_id);
+      if (!edge.evidence_ids.includes(record.id)) {
+        throw new Error(
+          `Edge evidence is not referenced by its subject edge: ${record.id} -> ${record.subject_id}`,
+        );
+      }
+    }
   }
 }
 
@@ -142,47 +282,195 @@ function detectUnsafeAliasCollisions(aliases) {
 }
 
 function injectBadFixture(index, fixtureName) {
-  if (fixtureName !== "overlapping-fuzzy-collision") {
-    throw new Error(`Unknown bad fixture: ${fixtureName}`);
+  if (fixtureName === "overlapping-fuzzy-collision") {
+    const [firstEntity, secondEntity] = index.entities;
+    if (!firstEntity || !secondEntity) {
+      throw new Error("Need at least two entities to inject a bad alias collision");
+    }
+
+    index.aliases.push(
+      {
+        text: "Collision Alias",
+        normalized_text: normalizeText("Collision Alias"),
+        candidate_entity_id: firstEntity.id,
+        alias_kind: "guide_name",
+        match_mode: "fuzzy_allowed",
+        provenance: "test-fixture",
+        confidence: "medium",
+        context_constraints: {
+          require_all: [],
+          prefer: [],
+        },
+        rank_weight: 50,
+        notes: "",
+      },
+      {
+        text: "Collision Alias",
+        normalized_text: normalizeText("Collision Alias"),
+        candidate_entity_id: secondEntity.id,
+        alias_kind: "guide_name",
+        match_mode: "fuzzy_allowed",
+        provenance: "test-fixture",
+        confidence: "medium",
+        context_constraints: {
+          require_all: [],
+          prefer: [],
+        },
+        rank_weight: 50,
+        notes: "",
+      },
+    );
+    return;
   }
 
-  const [firstEntity, secondEntity] = index.entities;
-  if (!firstEntity || !secondEntity) {
-    throw new Error("Need at least two entities to inject a bad alias collision");
+  if (fixtureName === "dangling-edge-target") {
+    index.edges.push({
+      id: "test.edge.dangling-target",
+      type: "instance_of",
+      from_entity_id: index.entities[0].id,
+      to_entity_id: "missing.entity",
+      source_snapshot_id: index.meta.source_snapshot_id,
+      conditions: {
+        predicates: [],
+        aggregation: "additive",
+        stacking_mode: "binary",
+        exclusive_scope: null,
+      },
+      calc: {},
+      evidence_ids: [],
+    });
+    return;
   }
 
-  index.aliases.push(
-    {
-      text: "Collision Alias",
-      normalized_text: normalizeText("Collision Alias"),
-      candidate_entity_id: firstEntity.id,
-      alias_kind: "guide_name",
-      match_mode: "fuzzy_allowed",
-      provenance: "test-fixture",
-      confidence: "medium",
-      context_constraints: {
-        require_all: [],
-        prefer: [],
+  if (fixtureName === "dangling-evidence-subject") {
+    index.evidence.push({
+      id: "test.evidence.dangling-subject",
+      subject_type: "edge",
+      subject_id: "missing.edge",
+      predicate: "maps_trait_to_family",
+      value: index.entities[0].id,
+      value_type: "entity_id",
+      source_snapshot_id: index.meta.source_snapshot_id,
+      refs: [],
+      confidence: "low",
+      source_kind: "test-fixture",
+    });
+    return;
+  }
+
+  if (fixtureName === "dangling-evidence-value") {
+    index.evidence.push({
+      id: "test.evidence.dangling-value",
+      subject_type: "entity",
+      subject_id: index.entities[0].id,
+      predicate: "maps_to",
+      value: "missing.entity",
+      value_type: "entity_id",
+      source_snapshot_id: index.meta.source_snapshot_id,
+      refs: [],
+      confidence: "low",
+      source_kind: "test-fixture",
+    });
+    return;
+  }
+
+  if (fixtureName === "dangling-edge-evidence-id") {
+    index.edges.push({
+      id: "test.edge.dangling-evidence",
+      type: "instance_of",
+      from_entity_id: index.entities[0].id,
+      to_entity_id: index.entities[1].id,
+      source_snapshot_id: index.meta.source_snapshot_id,
+      conditions: {
+        predicates: [],
+        aggregation: "additive",
+        stacking_mode: "binary",
+        exclusive_scope: null,
       },
-      rank_weight: 50,
-      notes: "",
-    },
-    {
-      text: "Collision Alias",
-      normalized_text: normalizeText("Collision Alias"),
-      candidate_entity_id: secondEntity.id,
-      alias_kind: "guide_name",
-      match_mode: "fuzzy_allowed",
-      provenance: "test-fixture",
-      confidence: "medium",
-      context_constraints: {
-        require_all: [],
-        prefer: [],
-      },
-      rank_weight: 50,
-      notes: "",
-    },
-  );
+      calc: {},
+      evidence_ids: ["missing.evidence"],
+    });
+    return;
+  }
+
+  if (fixtureName === "mismatched-entity-source-snapshot-id") {
+    index.entities[0].source_snapshot_id = "darktide-source.bad-fixture";
+    return;
+  }
+
+  if (fixtureName === "mismatched-edge-source-snapshot-id") {
+    index.edges[0].source_snapshot_id = "darktide-source.bad-fixture";
+    return;
+  }
+
+  if (fixtureName === "mismatched-evidence-source-snapshot-id") {
+    index.evidence[0].source_snapshot_id = "darktide-source.bad-fixture";
+    return;
+  }
+
+  if (fixtureName === "edge-evidence-subject-mismatch") {
+    const edge = index.edges.find((record) => record.evidence_ids.length > 0);
+    if (!edge) {
+      throw new Error("Need an edge with evidence ids to inject an evidence subject mismatch");
+    }
+
+    const evidenceRecord = index.evidence.find((record) => record.id === edge.evidence_ids[0]);
+    evidenceRecord.subject_id = index.edges.find((record) => record.id !== edge.id)?.id ?? edge.id;
+    return;
+  }
+
+  if (fixtureName === "orphaned-edge-subject-evidence") {
+    const evidenceRecord = index.evidence.find((record) => record.subject_type === "edge");
+    if (!evidenceRecord) {
+      throw new Error("Need edge-subject evidence to inject an orphaned edge evidence record");
+    }
+
+    const edge = index.edges.find((record) => record.id === evidenceRecord.subject_id);
+    edge.evidence_ids = edge.evidence_ids.filter((id) => id !== evidenceRecord.id);
+    return;
+  }
+
+  if (fixtureName === "missing-entity-ref-path") {
+    const entity = index.entities.find((record) => record.refs.length > 0);
+    if (!entity) {
+      throw new Error("Need an entity with refs to inject a missing entity ref path");
+    }
+
+    entity.refs = [{ path: "scripts/missing_ground_truth_fixture.lua", line: 1 }];
+    return;
+  }
+
+  if (fixtureName === "missing-evidence-ref-path") {
+    const evidenceRecord = index.evidence.find((record) => record.refs.length > 0);
+    if (!evidenceRecord) {
+      throw new Error("Need evidence with refs to inject a missing evidence ref path");
+    }
+
+    evidenceRecord.refs = [{ path: "scripts/missing_ground_truth_fixture.lua", line: 1 }];
+    return;
+  }
+
+  if (fixtureName === "out-of-range-entity-ref-line") {
+    const entity = index.entities.find((record) => record.refs.length > 0);
+    if (!entity) {
+      throw new Error("Need an entity with refs to inject an out-of-range entity ref line");
+    }
+
+    entity.refs = [{ ...entity.refs[0], line: 999999 }];
+    return;
+  }
+
+  if (fixtureName === "out-of-range-evidence-ref-line") {
+    const evidenceRecord = index.evidence.find((record) => record.refs.length > 0);
+    if (!evidenceRecord) {
+      throw new Error("Need evidence with refs to inject an out-of-range evidence ref line");
+    }
+
+    evidenceRecord.refs = [{ ...evidenceRecord.refs[0], line: 999999 }];
+    return;
+  }
+
+  throw new Error(`Unknown bad fixture: ${fixtureName}`);
 }
 
 function buildMeta({ shardFiles, sourceSnapshot }) {
@@ -255,6 +543,12 @@ async function buildIndex(options = {}) {
     injectBadFixture(index, badFixtureName);
   }
 
+  ensureRecordSnapshotIds(index.entities, "entity", sourceSnapshot.id);
+  ensureRecordSnapshotIds(index.edges, "edge", sourceSnapshot.id);
+  ensureRecordSnapshotIds(index.evidence, "evidence", sourceSnapshot.id);
+  ensureRefsResolve(index.entities, "entity", [REPO_ROOT, sourceSnapshot.source_root]);
+  ensureRefsResolve(index.evidence, "evidence", [REPO_ROOT, sourceSnapshot.source_root]);
+  ensureReferentialIntegrity(index);
   detectUnsafeAliasCollisions(index.aliases);
 
   mkdirSync(GENERATED_ROOT, { recursive: true });

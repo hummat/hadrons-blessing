@@ -77,7 +77,7 @@ async function auditBuildFile(buildPath) {
     );
     appendAuditEntry(audit, weaponResult, { kind: "weapon", slot });
 
-    const weaponFamily = weaponResult.resolved_entity_id?.split(".").pop()?.replace(/_m\\d+$/, "") ?? null;
+    const weaponFamily = weaponResult.resolved_entity_id?.split(".").pop()?.replace(/_m\d+$/, "") ?? null;
 
     for (const [blessingIndex, blessing] of weapon.blessings.entries()) {
       const blessingResult = await resolveField(

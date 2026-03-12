@@ -255,6 +255,55 @@
     "evidence_ids": []
   },
   {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_powermaul_p2_staggered_targets_receive_increased_damage_debuff",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_staggered_targets_receive_increased_damage_debuff",
+    "to_entity_id": "shared.name_family.blessing.execution",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": [
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_powermaul_p2_staggered_targets_receive_increased_damage_debuff"
+    ]
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_powermaul_p2_extra_explosion_on_activated_attacks_on_armor",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_extra_explosion_on_activated_attacks_on_armor",
+    "to_entity_id": "shared.name_family.blessing.power_surge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_powermaul_p2_consecutive_melee_hits_same_target_increases_melee_power_parent",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_consecutive_melee_hits_same_target_increases_melee_power_parent",
+    "to_entity_id": "shared.name_family.blessing.relentless_strikes",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": [
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_powermaul_p2_consecutive_melee_hits_same_target_increases_melee_power_parent"
+    ]
+  },
+  {
     "id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_powermaul_p1_staggered_targets_receive_increased_damage_debuff",
     "type": "instance_of",
     "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_p1_staggered_targets_receive_increased_damage_debuff",
@@ -270,6 +319,23 @@
     "evidence_ids": []
   },
   {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_powermaul_p1_extra_explosion_on_activated_attacks_on_armor",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_p1_extra_explosion_on_activated_attacks_on_armor",
+    "to_entity_id": "shared.name_family.blessing.power_surge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": [
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_ogryn_powermaul_p1_extra_explosion_on_activated_attacks_on_armor"
+    ]
+  },
+  {
     "id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_rippergun_p1_toughness_on_continuous_fire",
     "type": "instance_of",
     "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_rippergun_p1_toughness_on_continuous_fire",
@@ -283,6 +349,57 @@
     },
     "calc": {},
     "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_thumper_p2_targets_receive_rending_debuff",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_thumper_p2_targets_receive_rending_debuff",
+    "to_entity_id": "shared.name_family.blessing.shattering_impact",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": [
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_ogryn_thumper_p2_targets_receive_rending_debuff"
+    ]
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_thumper_p2_close_explosion_applies_bleed",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_thumper_p2_close_explosion_applies_bleed",
+    "to_entity_id": "shared.name_family.blessing.shrapnel",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": [
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_ogryn_thumper_p2_close_explosion_applies_bleed"
+    ]
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_thumper_p2_grenades_stick_to_monsters",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_thumper_p2_grenades_stick_to_monsters",
+    "to_entity_id": "shared.name_family.blessing.adhesive_charge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": [
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_ogryn_thumper_p2_grenades_stick_to_monsters"
+    ]
   },
   {
     "id": "shared.edge.instance_of.weapon_trait_bespoke_powersword_p2_explosion_on_overheat_lockout",
@@ -440,7 +557,7 @@
     "id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
     "type": "instance_of",
     "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
-    "to_entity_id": "shared.name_family.blessing.precognition",
+    "to_entity_id": "shared.name_family.blessing.riposte",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -452,6 +569,21 @@
     "evidence_ids": [
       "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance"
     ]
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_finesse_bonus",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_finesse_bonus",
+    "to_entity_id": "shared.name_family.blessing.precognition",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
   },
   {
     "id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits",
@@ -529,6 +661,117 @@
     "evidence_ids": [
       "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit"
     ]
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_shotgun_p4_increase_power_on_close_kill_parent",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_shotgun_p4_increase_power_on_close_kill_parent",
+    "to_entity_id": "shared.name_family.blessing.deathspitter",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": [
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_shotgun_p4_increase_power_on_close_kill_parent"
+    ]
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_shotgun_p4_increase_close_damage_on_close_kill_parent",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_shotgun_p4_increase_close_damage_on_close_kill_parent",
+    "to_entity_id": "shared.name_family.blessing.fire_frenzy",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": [
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_shotgun_p4_increase_close_damage_on_close_kill_parent"
+    ]
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_shotgun_p4_power_bonus_on_hitting_single_enemy_with_all",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_shotgun_p4_power_bonus_on_hitting_single_enemy_with_all",
+    "to_entity_id": "shared.name_family.blessing.full_bore",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": [
+      "shared.evidence.edge.instance_of.weapon_trait_bespoke_shotgun_p4_power_bonus_on_hitting_single_enemy_with_all"
+    ]
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_shotgun_p4_stagger_bonus_damage",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_shotgun_p4_stagger_bonus_damage",
+    "to_entity_id": "shared.name_family.blessing.execution",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_shotpistol_shield_p1_increase_power_on_close_kill_parent",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_shotpistol_shield_p1_increase_power_on_close_kill_parent",
+    "to_entity_id": "shared.name_family.blessing.deathspitter",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_shotpistol_shield_p1_increase_close_damage_on_close_kill_parent",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_shotpistol_shield_p1_increase_close_damage_on_close_kill_parent",
+    "to_entity_id": "shared.name_family.blessing.fire_frenzy",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_shotpistol_shield_p1_power_bonus_on_hitting_single_enemy_with_all",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_shotpistol_shield_p1_power_bonus_on_hitting_single_enemy_with_all",
+    "to_entity_id": "shared.name_family.blessing.full_bore",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
   },
   {
     "id": "shared.edge.trait_applies_buff.weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_parent",

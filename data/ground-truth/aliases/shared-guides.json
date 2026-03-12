@@ -861,6 +861,26 @@
     "notes": "Family-level mapping backed by bespoke ogryn ripper gun toughness_on_continuous_fire trait source."
   },
   {
+    "text": "Achlys Mk I Power Maul",
+    "normalized_text": "achlys mk i power maul",
+    "candidate_entity_id": "shared.weapon.ogryn_powermaul_p1_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Display label backed by the GamesLantern Achlys Mk I Power Maul page and the source-backed ogryn_powermaul_p1_m1 template."
+  },
+  {
     "text": "Branx Mk III Arbites Shock Maul",
     "normalized_text": "branx mk iii arbites shock maul",
     "candidate_entity_id": "shared.weapon.powermaul_p2_m1",
@@ -1147,7 +1167,7 @@
       ]
     },
     "rank_weight": 100,
-    "notes": ""
+    "notes": "Family-level mapping backed by dodge_grants_finesse_bonus trait source."
   },
   {
     "text": "Precognition",
@@ -1171,7 +1191,31 @@
       "prefer": []
     },
     "rank_weight": 100,
-    "notes": "Family-level mapping broadened beyond forcesword_2h because the same trait family appears on shivs."
+    "notes": "Family-level mapping backed by dodge_grants_finesse_bonus trait source."
+  },
+  {
+    "text": "Riposte",
+    "normalized_text": "riposte",
+    "candidate_entity_id": "shared.name_family.blessing.riposte",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Riposte blessing page and the source-backed dodge_grants_critical_strike_chance trait family."
   },
   {
     "text": "Rampage",
@@ -1224,11 +1268,11 @@
   {
     "text": "Lorenz Mk VI Rumbler",
     "normalized_text": "lorenz mk vi rumbler",
-    "candidate_entity_id": "shared.weapon.ogryn_thumper_p1_m1",
-    "alias_kind": "guide_name",
+    "candidate_entity_id": "shared.weapon.ogryn_thumper_p1_m2",
+    "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "build-fixture",
-    "confidence": "medium",
+    "provenance": "gameslantern",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1239,7 +1283,219 @@
       "prefer": []
     },
     "rank_weight": 90,
-    "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as ogryn_thumper_p1_m1."
+    "notes": "Display label backed by the GamesLantern Lorenz Mk VI Rumbler page; the listed blessing pool matches the source-backed ogryn_thumper_p1_m2 trait family, not ogryn_thumper_p1_m1."
+  },
+  {
+    "text": "Power Surge",
+    "normalized_text": "power surge",
+    "candidate_entity_id": "shared.name_family.blessing.power_surge",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Achlys Mk I Power Maul page and the source-backed extra_explosion_on_activated_attacks_on_armor trait."
+  },
+  {
+    "text": "Relentless Strikes",
+    "normalized_text": "relentless strikes",
+    "candidate_entity_id": "shared.name_family.blessing.relentless_strikes",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Relentless Strikes blessing page and the source-backed consecutive_melee_hits_same_target_increases_melee_power trait family."
+  },
+  {
+    "text": "Shattering Impact",
+    "normalized_text": "shattering impact",
+    "candidate_entity_id": "shared.name_family.blessing.shattering_impact",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Lorenz Mk VI Rumbler page and the source-backed targets_receive_rending_debuff trait."
+  },
+  {
+    "text": "Shrapnel",
+    "normalized_text": "shrapnel",
+    "candidate_entity_id": "shared.name_family.blessing.shrapnel",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Lorenz Mk VI Rumbler page and the source-backed close_explosion_applies_bleed trait."
+  },
+  {
+    "text": "Adhesive Charge",
+    "normalized_text": "adhesive charge",
+    "candidate_entity_id": "shared.name_family.blessing.adhesive_charge",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Lorenz Mk VI Rumbler page and the source-backed grenades_stick_to_monsters trait."
+  },
+  {
+    "text": "Execution",
+    "normalized_text": "execution",
+    "candidate_entity_id": "shared.name_family.blessing.execution",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Execution blessing page plus weapon pages showing the effect on Arbites shock maul and exterminator shotgun."
+  },
+  {
+    "text": "Deathspitter",
+    "normalized_text": "deathspitter",
+    "candidate_entity_id": "shared.name_family.blessing.deathspitter",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Deathspitter blessing page and the source-backed increase_power_on_close_kill trait family."
+  },
+  {
+    "text": "Fire Frenzy",
+    "normalized_text": "fire frenzy",
+    "candidate_entity_id": "shared.name_family.blessing.fire_frenzy",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Fire Frenzy blessing page and the source-backed increase_close_damage_on_close_kill trait family."
+  },
+  {
+    "text": "Full Bore",
+    "normalized_text": "full bore",
+    "candidate_entity_id": "shared.name_family.blessing.full_bore",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level mapping backed by the GamesLantern Full Bore blessing page and the source-backed power_bonus_on_hitting_single_enemy_with_all trait family."
   },
   {
     "text": "Run 'n' Gun",

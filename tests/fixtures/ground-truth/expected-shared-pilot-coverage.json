@@ -16,14 +16,17 @@
     "shared.name_family.blessing.deflector",
     "shared.name_family.blessing.momentum",
     "shared.name_family.blessing.precognition",
+    "shared.name_family.blessing.riposte",
     "shared.name_family.blessing.shred",
     "shared.name_family.blessing.warp_flurry",
     "shared.name_family.blessing.warp_nexus",
     "shared.name_family.blessing.wrath",
+    "shared.weapon.ogryn_thumper_p1_m2",
     "shared.weapon.forcestaff_p3_m1",
     "shared.weapon.forcestaff_p4_m1",
     "shared.weapon.forcesword_2h_p1_m1",
     "shared.weapon.forcesword_2h_p1_m2",
+    "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_finesse_bonus",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_disgustingly_resilient_damage",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
@@ -51,6 +54,7 @@
     "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_can_block_ranged",
     "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
     "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_finesse_bonus",
     "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits",
     "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_toughness_recovery_on_multiple_hits",
     "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
@@ -80,6 +84,9 @@
   "evidence": [
     "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
     "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
+    "shared.evidence.edge.instance_of.weapon_trait_bespoke_ogryn_thumper_p2_grenades_stick_to_monsters",
+    "shared.evidence.entity.shared.weapon.ogryn_powermaul_p1_m1",
+    "shared.evidence.entity.shared.weapon.ogryn_thumper_p1_m2",
     "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit"
   ]
 }

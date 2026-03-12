@@ -1,6 +1,8 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import { resolve, sep } from "node:path";
+import { REPO_ROOT } from "./ground-truth/lib/load.mjs";
 import { normalizeText } from "./ground-truth/lib/normalize.mjs";
 import {
   loadSchemas,
@@ -110,6 +112,97 @@ describe("buildIndex", () => {
     );
   });
 
+  it("fails dangling edge targets", async () => {
+    await assert.rejects(
+      () => buildIndex({ check: false, injectBadFixture: "dangling-edge-target" }),
+      /Edge target does not exist/,
+    );
+  });
+
+  it("fails dangling evidence subjects", async () => {
+    await assert.rejects(
+      () => buildIndex({ check: false, injectBadFixture: "dangling-evidence-subject" }),
+      /Evidence subject does not exist/,
+    );
+  });
+
+  it("fails dangling evidence entity values", async () => {
+    await assert.rejects(
+      () => buildIndex({ check: false, injectBadFixture: "dangling-evidence-value" }),
+      /Evidence value entity does not exist/,
+    );
+  });
+
+  it("fails dangling edge evidence references", async () => {
+    await assert.rejects(
+      () => buildIndex({ check: false, injectBadFixture: "dangling-edge-evidence-id" }),
+      /Edge evidence id does not exist/,
+    );
+  });
+
+  it("fails mismatched entity source snapshot ids", async () => {
+    await assert.rejects(
+      () => buildIndex({ check: false, injectBadFixture: "mismatched-entity-source-snapshot-id" }),
+      /entity record has mismatched source snapshot id/,
+    );
+  });
+
+  it("fails mismatched edge source snapshot ids", async () => {
+    await assert.rejects(
+      () => buildIndex({ check: false, injectBadFixture: "mismatched-edge-source-snapshot-id" }),
+      /edge record has mismatched source snapshot id/,
+    );
+  });
+
+  it("fails mismatched evidence source snapshot ids", async () => {
+    await assert.rejects(
+      () => buildIndex({ check: false, injectBadFixture: "mismatched-evidence-source-snapshot-id" }),
+      /evidence record has mismatched source snapshot id/,
+    );
+  });
+
+  it("fails edge evidence subject mismatches", async () => {
+    await assert.rejects(
+      () => buildIndex({ check: false, injectBadFixture: "edge-evidence-subject-mismatch" }),
+      /Edge evidence subject mismatch/,
+    );
+  });
+
+  it("fails orphaned edge-subject evidence", async () => {
+    await assert.rejects(
+      () => buildIndex({ check: false, injectBadFixture: "orphaned-edge-subject-evidence" }),
+      /Edge evidence is not referenced by its subject edge/,
+    );
+  });
+
+  it("fails missing entity ref paths", async () => {
+    await assert.rejects(
+      () => buildIndex({ check: false, injectBadFixture: "missing-entity-ref-path" }),
+      /entity ref path does not exist/,
+    );
+  });
+
+  it("fails missing evidence ref paths", async () => {
+    await assert.rejects(
+      () => buildIndex({ check: false, injectBadFixture: "missing-evidence-ref-path" }),
+      /evidence ref path does not exist/,
+    );
+  });
+
+  it("fails out-of-range entity ref lines", async () => {
+    await assert.rejects(
+      () => buildIndex({ check: false, injectBadFixture: "out-of-range-entity-ref-line" }),
+      /entity ref line is out of range/,
+    );
+  });
+
+  it("fails out-of-range evidence ref lines", async () => {
+    await assert.rejects(
+      () => buildIndex({ check: false, injectBadFixture: "out-of-range-evidence-ref-line" }),
+      /evidence ref line is out of range/,
+    );
+  });
+
   it("writes generated metadata with the pinned source snapshot id", async () => {
     const index = await buildIndex({ check: false });
 
@@ -117,6 +210,46 @@ describe("buildIndex", () => {
     assert.equal(typeof index.meta.input_fingerprint, "string");
     assert.equal(Array.isArray(index.meta.shard_manifest.entities), true);
   });
+
+  it("keeps all entity, edge, and evidence records on the pinned source snapshot", async () => {
+    const index = await buildIndex({ check: false });
+
+    for (const record of [...index.entities, ...index.edges, ...index.evidence]) {
+      assert.equal(
+        record.source_snapshot_id,
+        index.meta.source_snapshot_id,
+        `record ${record.id} drifted off the pinned snapshot`,
+      );
+    }
+  });
+
+  it(
+    "dereferences every entity and evidence ref against the pinned source root",
+    { skip: PINNED_SOURCE_ROOT == null },
+    async () => {
+      const index = await buildIndex({ check: false });
+      const roots = [REPO_ROOT, PINNED_SOURCE_ROOT];
+
+      for (const record of [...index.entities, ...index.evidence]) {
+        for (const ref of record.refs) {
+          const resolvedPath = roots
+            .map((root) => resolve(root, ref.path))
+            .find((candidate) => existsSync(candidate));
+          assert.notEqual(resolvedPath, undefined, `missing ref path for ${record.id}`);
+          const owningRoot = roots.find((root) => {
+            const normalizedRoot = root.endsWith(sep) ? root : `${root}${sep}`;
+            return resolvedPath === root || resolvedPath.startsWith(normalizedRoot);
+          });
+          assert.equal(
+            owningRoot != null,
+            true,
+            `ref escapes known roots for ${record.id}`,
+          );
+          assert.equal(Number.isInteger(ref.line) && ref.line > 0, true, `invalid ref line for ${record.id}`);
+        }
+      }
+    },
+  );
 
   it("fails when the Psyker shard is incomplete", async () => {
     const expectedIds = JSON.parse(
@@ -278,6 +411,7 @@ describe("resolveQuery", () => {
       assert.equal(typeof result.why_this_match, "string");
       assert.equal(Array.isArray(result.candidate_trace), true);
       assert.equal(Array.isArray(result.refs), true);
+      assert.equal(Array.isArray(result.supporting_evidence), true);
       assert.equal(result.candidate_trace.length > 0, true);
       assert.equal(result.refs.length > 0, true);
       assert.equal(typeof result.candidate_trace[0].entity_id, "string");
@@ -285,6 +419,7 @@ describe("resolveQuery", () => {
       assert.equal(typeof result.candidate_trace[0].context_match_explanation, "string");
       assert.equal(typeof result.refs[0].path, "string");
       assert.equal(typeof result.refs[0].line, "number");
+      assert.equal(result.supporting_evidence.length > 0, true);
       assert.deepEqual(result.warnings, testCase.expected_warnings);
     }
   });
@@ -333,8 +468,8 @@ describe("resolveQuery", () => {
 
   it("keeps unrelated blessing labels unresolved instead of fuzzy-guessing", async () => {
     for (const [query, queryContext] of [
-      ["Fire Frenzy", { kind: "weapon_trait", slot: "ranged" }],
-      ["Totally Fake Momentum", { kind: "weapon_trait", slot: "melee" }],
+      ["Totally Fake Conflagration", { kind: "weapon_trait", slot: "ranged" }],
+      ["Utterly Invented Blessing", { kind: "weapon_trait", slot: "melee" }],
     ]) {
       const result = await resolveQuery(query, queryContext);
 
@@ -477,17 +612,11 @@ describe("auditBuildFile", () => {
 
   it("classifies repeated unresolved blessing labels into the non-canonical bucket", async () => {
     const veteranResult = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
-    const explodegrynResult = await auditBuildFile("scripts/builds/11-explodegryn.json");
-    const arbitesResult = await auditBuildFile("scripts/builds/16-arbites-busted.json");
     const hiveScumResult = await auditBuildFile("scripts/builds/18-reginald-melee.json");
 
     for (const [result, field, text] of [
       [veteranResult, "weapons[0].blessings[0].name", "Cranial Grounding"],
       [veteranResult, "weapons[0].blessings[1].name", "Heatsink"],
-      [explodegrynResult, "weapons[1].blessings[1].name", "Adhesive Charge"],
-      [arbitesResult, "weapons[0].blessings[0].name", "Execution"],
-      [arbitesResult, "weapons[1].blessings[0].name", "Deathspitter"],
-      [arbitesResult, "weapons[1].blessings[1].name", "Execution"],
       [hiveScumResult, "weapons[0].blessings[0].name", "Decimator"],
       [hiveScumResult, "weapons[0].blessings[1].name", "Shock & Awe"],
     ]) {
@@ -605,7 +734,8 @@ describe("auditBuildFile", () => {
     for (const [result, field, expectedEntityId] of [
       [veteranResult, "weapons[0].name", "shared.weapon.powersword_p2_m1"],
       [veteranResult, "weapons[1].name", "shared.weapon.plasmagun_p1_m1"],
-      [explodegrynResult, "weapons[1].name", "shared.weapon.ogryn_thumper_p1_m1"],
+      [explodegrynResult, "weapons[0].name", "shared.weapon.ogryn_powermaul_p1_m1"],
+      [explodegrynResult, "weapons[1].name", "shared.weapon.ogryn_thumper_p1_m2"],
       [arbitesResult, "weapons[0].name", "shared.weapon.powermaul_p2_m1"],
       [arbitesResult, "weapons[1].name", "shared.weapon.shotpistol_shield_p1_m1"],
       [arbitesShotgunResult, "weapons[1].name", "shared.weapon.shotgun_p4_m1"],
@@ -647,14 +777,13 @@ describe("auditBuildFile", () => {
     );
 
     assert.equal(
-      result.unresolved.some((entry) => entry.field === "weapons[1].blessings[1].name"),
+      result.resolved.some(
+        (entry) =>
+          entry.field === "weapons[1].blessings[1].name" &&
+          entry.resolved_entity_id === "shared.name_family.blessing.fire_frenzy",
+      ),
       true,
-      "weapons[1].blessings[1].name should stay unresolved",
-    );
-    assert.equal(
-      result.resolved.some((entry) => entry.field === "weapons[1].blessings[1].name"),
-      false,
-      "weapons[1].blessings[1].name should not resolve",
+      "weapons[1].blessings[1].name should resolve to fire_frenzy",
     );
     assert.equal(
       result.ambiguous.some((entry) => entry.field === "weapons[1].blessings[1].name"),
@@ -727,7 +856,10 @@ describe("auditBuildFile", () => {
     const zealotBoltgunResult = await auditBuildFile("scripts/builds/05-fatmangus-zealot-stealth.json");
     const zealotBoltpistolResult = await auditBuildFile("scripts/builds/06-holy-gains-zealot.json");
     const ogrynResult = await auditBuildFile("scripts/builds/13-shovel-ogryn.json");
+    const explodegrynResult = await auditBuildFile("scripts/builds/11-explodegryn.json");
     const arbitesResult = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
+    const arbitesMetaResult = await auditBuildFile("scripts/builds/15-arbites-melee-meta.json");
+    const arbitesBustedResult = await auditBuildFile("scripts/builds/16-arbites-busted.json");
     const hiveScumResult = await auditBuildFile("scripts/builds/17-crackhead-john-wick.json");
     const chemistResult = await auditBuildFile("scripts/builds/19-the-chemist.json");
     const stimmtecResult = await auditBuildFile("scripts/builds/20-stimmtec-blender.json");
@@ -789,9 +921,59 @@ describe("auditBuildFile", () => {
         "shared.name_family.blessing.inspiring_barrage",
       ],
       [
+        explodegrynResult,
+        "weapons[0].blessings[0].name",
+        "shared.name_family.blessing.power_surge",
+      ],
+      [
+        explodegrynResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.shattering_impact",
+      ],
+      [
+        explodegrynResult,
+        "weapons[1].blessings[1].name",
+        "shared.name_family.blessing.adhesive_charge",
+      ],
+      [
         arbitesResult,
         "weapons[0].blessings[0].name",
         "shared.name_family.blessing.high_voltage",
+      ],
+      [
+        arbitesResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.full_bore",
+      ],
+      [
+        arbitesResult,
+        "weapons[1].blessings[1].name",
+        "shared.name_family.blessing.fire_frenzy",
+      ],
+      [
+        arbitesMetaResult,
+        "weapons[0].blessings[1].name",
+        "shared.name_family.blessing.relentless_strikes",
+      ],
+      [
+        arbitesMetaResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.deathspitter",
+      ],
+      [
+        arbitesBustedResult,
+        "weapons[0].blessings[0].name",
+        "shared.name_family.blessing.execution",
+      ],
+      [
+        arbitesBustedResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.deathspitter",
+      ],
+      [
+        arbitesBustedResult,
+        "weapons[1].blessings[1].name",
+        "shared.name_family.blessing.execution",
       ],
       [
         hiveScumResult,

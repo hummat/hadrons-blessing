@@ -24,6 +24,14 @@
     "expected_entity_id": "shared.name_family.blessing.precognition"
   },
   {
+    "query": "Riposte",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.name_family.blessing.riposte"
+  },
+  {
     "query": "Run 'n' Gun",
     "query_context": {
       "kind": "weapon_trait",
@@ -160,6 +168,14 @@
     "expected_entity_id": "shared.name_family.blessing.overload"
   },
   {
+    "query": "Power Surge",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.name_family.blessing.power_surge"
+  },
+  {
     "query": "Rampage",
     "query_context": {
       "kind": "weapon_trait",
@@ -182,5 +198,69 @@
       "slot": "ranged"
     },
     "expected_entity_id": "shared.name_family.blessing.sustained_fire"
+  },
+  {
+    "query": "Relentless Strikes",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.name_family.blessing.relentless_strikes"
+  },
+  {
+    "query": "Adhesive Charge",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.adhesive_charge"
+  },
+  {
+    "query": "Shattering Impact",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.shattering_impact"
+  },
+  {
+    "query": "Shrapnel",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.shrapnel"
+  },
+  {
+    "query": "Deathspitter",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.deathspitter"
+  },
+  {
+    "query": "Execution",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.execution"
+  },
+  {
+    "query": "Fire Frenzy",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.fire_frenzy"
+  },
+  {
+    "query": "Full Bore",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.name_family.blessing.full_bore"
   }
 ]

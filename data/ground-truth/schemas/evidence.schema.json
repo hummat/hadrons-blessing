@@ -37,10 +37,25 @@
         }
       }
     },
+    "claim_scope": { "type": "string", "minLength": 1 },
     "confidence": {
       "type": "string",
       "enum": ["low", "medium", "high"]
     },
-    "source_kind": { "type": "string", "minLength": 1 }
+    "source_kind": { "type": "string", "minLength": 1 },
+    "external_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "url", "source_kind"],
+        "properties": {
+          "label": { "type": "string", "minLength": 1 },
+          "url": { "type": "string", "minLength": 1 },
+          "source_kind": { "type": "string", "minLength": 1 },
+          "notes": { "type": "string" }
+        }
+      }
+    }
   }
 }

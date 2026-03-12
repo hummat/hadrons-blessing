@@ -194,6 +194,7 @@ function validateSourceSnapshot(sourceRoot) {
   return {
     ...manifest,
     git_revision: gitRevision,
+    source_root: resolvedSourceRoot,
   };
 }
 

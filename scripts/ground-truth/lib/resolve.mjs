@@ -152,6 +152,25 @@ function warningsFor(entity) {
   return warnings;
 }
 
+function collectEvidenceForEntity(entity, index) {
+  return index.evidence.filter((record) => {
+    if (record.subject_type === "entity" && record.subject_id === entity.id) {
+      return true;
+    }
+
+    if (record.value_type === "entity_id" && record.value === entity.id) {
+      return true;
+    }
+
+    if (record.subject_type !== "edge") {
+      return false;
+    }
+
+    const edge = index.edges.find((candidate) => candidate.id === record.subject_id);
+    return edge?.from_entity_id === entity.id || edge?.to_entity_id === entity.id;
+  });
+}
+
 function collectRefsForEntity(entity, evidence) {
   const refs = [...entity.refs];
 
@@ -204,6 +223,7 @@ async function resolveQuery(query, queryContext, options = {}) {
         },
       ],
       refs: collectRefsForEntity(entity, index.evidence),
+      supporting_evidence: collectEvidenceForEntity(entity, index),
       warnings: warningsFor(entity),
     };
   }
@@ -250,6 +270,7 @@ async function resolveQuery(query, queryContext, options = {}) {
       why_this_match: "No canonical id or alias candidate matched the query.",
       candidate_trace: [],
       refs: [],
+      supporting_evidence: [],
       warnings: [],
     };
   }
@@ -304,6 +325,7 @@ async function resolveQuery(query, queryContext, options = {}) {
       context_match_explanation: candidate.context_match_explanation,
     })),
     refs: collectRefsForEntity(best.entity, index.evidence),
+    supporting_evidence: collectEvidenceForEntity(best.entity, index),
     warnings,
   };
 }

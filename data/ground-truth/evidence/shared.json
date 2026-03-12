@@ -38,7 +38,7 @@
     "subject_type": "edge",
     "subject_id": "shared.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
     "predicate": "maps_trait_to_family",
-    "value": "shared.name_family.blessing.precognition",
+    "value": "shared.name_family.blessing.riposte",
     "value_type": "entity_id",
     "source_snapshot_id": "darktide-source.dbe7035",
     "refs": [
@@ -47,7 +47,346 @@
         "line": 385
       }
     ],
+    "claim_scope": "family_level",
     "confidence": "high",
-    "source_kind": "decompiled_source"
+    "source_kind": "decompiled_source_with_external_corroboration",
+    "external_sources": [
+      {
+        "label": "GamesLantern Riposte blessing page",
+        "url": "https://darktide.gameslantern.com/blessings/dodge_grants_critical_strike_chance",
+        "source_kind": "gameslantern"
+      },
+      {
+        "label": "GamesLantern Covenant Mk VI Blaze Force Greatsword page",
+        "url": "https://darktide.gameslantern.com/weapons/blaze-force-greatsword/covenant-mk-vi-blaze-force-greatsword",
+        "source_kind": "gameslantern"
+      }
+    ]
+  },
+  {
+    "id": "shared.evidence.entity.shared.name_family.blessing.precognition",
+    "subject_type": "entity",
+    "subject_id": "shared.name_family.blessing.precognition",
+    "predicate": "maps_family_to_trait_pattern",
+    "value": "weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_finesse_bonus",
+    "value_type": "internal_name",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_2h_p1.lua",
+        "line": 331
+      }
+    ],
+    "claim_scope": "family_level",
+    "confidence": "high",
+    "source_kind": "decompiled_source_with_external_corroboration",
+    "external_sources": [
+      {
+        "label": "GamesLantern Precognition blessing page",
+        "url": "https://darktide.gameslantern.com/blessings/dodge_grants_finesse_bonus",
+        "source_kind": "gameslantern"
+      }
+    ]
+  },
+  {
+    "id": "shared.evidence.entity.shared.weapon.ogryn_powermaul_p1_m1",
+    "subject_type": "entity",
+    "subject_id": "shared.weapon.ogryn_powermaul_p1_m1",
+    "predicate": "external_display_label",
+    "value": "Achlys Mk I Power Maul",
+    "value_type": "display_label",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/ogryn_power_mauls/ogryn_powermaul_p1_m1.lua",
+        "line": 16
+      }
+    ],
+    "claim_scope": "weapon_mark_alias",
+    "confidence": "high",
+    "source_kind": "decompiled_source_with_external_corroboration",
+    "external_sources": [
+      {
+        "label": "GamesLantern Achlys Mk I Power Maul page",
+        "url": "https://darktide.gameslantern.com/weapons/power-maul/achlys-mk-i-power-maul",
+        "source_kind": "gameslantern"
+      }
+    ]
+  },
+  {
+    "id": "shared.evidence.entity.shared.weapon.ogryn_thumper_p1_m2",
+    "subject_type": "entity",
+    "subject_id": "shared.weapon.ogryn_thumper_p1_m2",
+    "predicate": "external_display_label",
+    "value": "Lorenz Mk VI Rumbler",
+    "value_type": "display_label",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/thumpers/ogryn_thumper_p1_m2.lua",
+        "line": 16
+      }
+    ],
+    "claim_scope": "weapon_mark_alias",
+    "confidence": "high",
+    "source_kind": "decompiled_source_with_external_corroboration",
+    "external_sources": [
+      {
+        "label": "GamesLantern Lorenz Mk VI Rumbler page",
+        "url": "https://darktide.gameslantern.com/weapons/rumbler-2/lorenz-mk-vi-rumbler",
+        "source_kind": "gameslantern",
+        "notes": "The listed blessing pool matches the bespoke ogryn_thumper_p2 trait set."
+      }
+    ]
+  },
+  {
+    "id": "shared.evidence.edge.instance_of.weapon_trait_bespoke_ogryn_powermaul_p1_extra_explosion_on_activated_attacks_on_armor",
+    "subject_type": "edge",
+    "subject_id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_powermaul_p1_extra_explosion_on_activated_attacks_on_armor",
+    "predicate": "maps_trait_to_family",
+    "value": "shared.name_family.blessing.power_surge",
+    "value_type": "entity_id",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_powermaul_p1.lua",
+        "line": 353
+      }
+    ],
+    "claim_scope": "family_level",
+    "confidence": "high",
+    "source_kind": "decompiled_source_with_external_corroboration",
+    "external_sources": [
+      {
+        "label": "GamesLantern Achlys Mk I Power Maul page",
+        "url": "https://darktide.gameslantern.com/weapons/power-maul/achlys-mk-i-power-maul",
+        "source_kind": "gameslantern"
+      }
+    ]
+  },
+  {
+    "id": "shared.evidence.edge.instance_of.weapon_trait_bespoke_ogryn_thumper_p2_grenades_stick_to_monsters",
+    "subject_type": "edge",
+    "subject_id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_thumper_p2_grenades_stick_to_monsters",
+    "predicate": "maps_trait_to_family",
+    "value": "shared.name_family.blessing.adhesive_charge",
+    "value_type": "entity_id",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_thumper_p2.lua",
+        "line": 331
+      }
+    ],
+    "claim_scope": "family_level",
+    "confidence": "high",
+    "source_kind": "decompiled_source_with_external_corroboration",
+    "external_sources": [
+      {
+        "label": "GamesLantern Lorenz Mk VI Rumbler page",
+        "url": "https://darktide.gameslantern.com/weapons/rumbler-2/lorenz-mk-vi-rumbler",
+        "source_kind": "gameslantern"
+      }
+    ]
+  },
+  {
+    "id": "shared.evidence.edge.instance_of.weapon_trait_bespoke_ogryn_thumper_p2_targets_receive_rending_debuff",
+    "subject_type": "edge",
+    "subject_id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_thumper_p2_targets_receive_rending_debuff",
+    "predicate": "maps_trait_to_family",
+    "value": "shared.name_family.blessing.shattering_impact",
+    "value_type": "entity_id",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_thumper_p2.lua",
+        "line": 222
+      }
+    ],
+    "claim_scope": "family_level",
+    "confidence": "high",
+    "source_kind": "decompiled_source_with_external_corroboration",
+    "external_sources": [
+      {
+        "label": "GamesLantern Lorenz Mk VI Rumbler page",
+        "url": "https://darktide.gameslantern.com/weapons/rumbler-2/lorenz-mk-vi-rumbler",
+        "source_kind": "gameslantern"
+      }
+    ]
+  },
+  {
+    "id": "shared.evidence.edge.instance_of.weapon_trait_bespoke_ogryn_thumper_p2_close_explosion_applies_bleed",
+    "subject_type": "edge",
+    "subject_id": "shared.edge.instance_of.weapon_trait_bespoke_ogryn_thumper_p2_close_explosion_applies_bleed",
+    "predicate": "maps_trait_to_family",
+    "value": "shared.name_family.blessing.shrapnel",
+    "value_type": "entity_id",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_thumper_p2.lua",
+        "line": 292
+      }
+    ],
+    "claim_scope": "family_level",
+    "confidence": "high",
+    "source_kind": "decompiled_source_with_external_corroboration",
+    "external_sources": [
+      {
+        "label": "GamesLantern Lorenz Mk VI Rumbler page",
+        "url": "https://darktide.gameslantern.com/weapons/rumbler-2/lorenz-mk-vi-rumbler",
+        "source_kind": "gameslantern"
+      }
+    ]
+  },
+  {
+    "id": "shared.evidence.edge.instance_of.weapon_trait_bespoke_powermaul_p2_staggered_targets_receive_increased_damage_debuff",
+    "subject_type": "edge",
+    "subject_id": "shared.edge.instance_of.weapon_trait_bespoke_powermaul_p2_staggered_targets_receive_increased_damage_debuff",
+    "predicate": "maps_trait_to_family",
+    "value": "shared.name_family.blessing.execution",
+    "value_type": "entity_id",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powermaul_p2.lua",
+        "line": 41
+      }
+    ],
+    "claim_scope": "family_level",
+    "confidence": "high",
+    "source_kind": "decompiled_source_with_external_corroboration",
+    "external_sources": [
+      {
+        "label": "GamesLantern Branx Mk III Arbites Shock Maul page",
+        "url": "https://darktide.gameslantern.com/weapons/arbites-shock-maul/branx-mk-iii-arbites-shock-maul",
+        "source_kind": "gameslantern"
+      },
+      {
+        "label": "GamesLantern Execution blessing page",
+        "url": "https://darktide.gameslantern.com/blessings/stagger_bonus_damage",
+        "source_kind": "gameslantern"
+      }
+    ]
+  },
+  {
+    "id": "shared.evidence.edge.instance_of.weapon_trait_bespoke_powermaul_p2_consecutive_melee_hits_same_target_increases_melee_power_parent",
+    "subject_type": "edge",
+    "subject_id": "shared.edge.instance_of.weapon_trait_bespoke_powermaul_p2_consecutive_melee_hits_same_target_increases_melee_power_parent",
+    "predicate": "maps_trait_to_family",
+    "value": "shared.name_family.blessing.relentless_strikes",
+    "value_type": "entity_id",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powermaul_p2.lua",
+        "line": 347
+      }
+    ],
+    "claim_scope": "family_level",
+    "confidence": "high",
+    "source_kind": "decompiled_source_with_external_corroboration",
+    "external_sources": [
+      {
+        "label": "GamesLantern Branx Mk III Arbites Shock Maul page",
+        "url": "https://darktide.gameslantern.com/weapons/arbites-shock-maul/branx-mk-iii-arbites-shock-maul",
+        "source_kind": "gameslantern"
+      },
+      {
+        "label": "GamesLantern Relentless Strikes blessing page",
+        "url": "https://darktide.gameslantern.com/blessings/consecutive_melee_hits_same_target_increases_melee_power",
+        "source_kind": "gameslantern"
+      }
+    ]
+  },
+  {
+    "id": "shared.evidence.edge.instance_of.weapon_trait_bespoke_shotgun_p4_increase_power_on_close_kill_parent",
+    "subject_type": "edge",
+    "subject_id": "shared.edge.instance_of.weapon_trait_bespoke_shotgun_p4_increase_power_on_close_kill_parent",
+    "predicate": "maps_trait_to_family",
+    "value": "shared.name_family.blessing.deathspitter",
+    "value_type": "entity_id",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_shotgun_p4.lua",
+        "line": 10
+      }
+    ],
+    "claim_scope": "family_level",
+    "confidence": "high",
+    "source_kind": "decompiled_source_with_external_corroboration",
+    "external_sources": [
+      {
+        "label": "GamesLantern Deathspitter blessing page",
+        "url": "https://darktide.gameslantern.com/blessings/increase_power_on_close_kill_parent",
+        "source_kind": "gameslantern"
+      },
+      {
+        "label": "GamesLantern Exaction Mk III Exterminator Shotgun page",
+        "url": "https://darktide.gameslantern.com/weapons/exterminator-shotgun/exaction-mk-iii-exterminator-shotgun",
+        "source_kind": "gameslantern"
+      }
+    ]
+  },
+  {
+    "id": "shared.evidence.edge.instance_of.weapon_trait_bespoke_shotgun_p4_increase_close_damage_on_close_kill_parent",
+    "subject_type": "edge",
+    "subject_id": "shared.edge.instance_of.weapon_trait_bespoke_shotgun_p4_increase_close_damage_on_close_kill_parent",
+    "predicate": "maps_trait_to_family",
+    "value": "shared.name_family.blessing.fire_frenzy",
+    "value_type": "entity_id",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_shotgun_p4.lua",
+        "line": 74
+      }
+    ],
+    "claim_scope": "family_level",
+    "confidence": "high",
+    "source_kind": "decompiled_source_with_external_corroboration",
+    "external_sources": [
+      {
+        "label": "GamesLantern Fire Frenzy blessing page",
+        "url": "https://darktide.gameslantern.com/blessings/increase_close_damage_on_close_kill_parent",
+        "source_kind": "gameslantern"
+      },
+      {
+        "label": "GamesLantern Judgement Mk IV Subductor Shotpistol & Riot Shield page",
+        "url": "https://darktide.gameslantern.com/weapons/riot-shield-shotpistol/judgement-mk-iv-subductor-shotpistol-riot-shield",
+        "source_kind": "gameslantern"
+      }
+    ]
+  },
+  {
+    "id": "shared.evidence.edge.instance_of.weapon_trait_bespoke_shotgun_p4_power_bonus_on_hitting_single_enemy_with_all",
+    "subject_type": "edge",
+    "subject_id": "shared.edge.instance_of.weapon_trait_bespoke_shotgun_p4_power_bonus_on_hitting_single_enemy_with_all",
+    "predicate": "maps_trait_to_family",
+    "value": "shared.name_family.blessing.full_bore",
+    "value_type": "entity_id",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_shotgun_p4.lua",
+        "line": 220
+      }
+    ],
+    "claim_scope": "family_level",
+    "confidence": "high",
+    "source_kind": "decompiled_source_with_external_corroboration",
+    "external_sources": [
+      {
+        "label": "GamesLantern Full Bore blessing page",
+        "url": "https://darktide.gameslantern.com/blessings/power_bonus_on_hitting_single_enemy_with_all",
+        "source_kind": "gameslantern"
+      },
+      {
+        "label": "GamesLantern Judgement Mk IV Subductor Shotpistol & Riot Shield page",
+        "url": "https://darktide.gameslantern.com/weapons/riot-shield-shotpistol/judgement-mk-iv-subductor-shotpistol-riot-shield",
+        "source_kind": "gameslantern"
+      }
+    ]
   }
 ]
