@@ -26,6 +26,11 @@
 
 ### Real sample-build recovery
 
+- `scripts/sample-build.json` is now a live raw scrape snapshot of the veteran sample page, not the earlier hand-thinned placeholder.
+- It currently preserves:
+  - `30` active talent nodes
+  - `48` inactive talent nodes
+  - explicit `class_selections` for `Voice of Command`, `Shredder Frag Grenade`, `Survivalist`, and `Focus Target!`
 - `scripts/sample-build.json` canonicalizes to:
   - `ability`: `Voice of Command`
   - `blitz`: `Shredder Frag Grenade`

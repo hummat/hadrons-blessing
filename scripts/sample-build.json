@@ -1,39 +1,560 @@
 {
   "url": "https://darktide.gameslantern.com/builds/9a565016-bd70-4fe0-8c82-1080bc73412e/veteran-squad-leader",
-  "title": "Veteran Squad Leader",
+  "title": "Veteran: Squad Leader",
   "author": "seventhcodex",
   "class": "veteran",
   "weapons": [
     {
       "name": "Lawbringer Mk IIb Power Falchion",
       "rarity": "Transcendant",
-      "perks": ["20-25% Damage (Flak Armoured)", "20-25% Damage (Maniacs)"],
+      "perks": [
+        "10-25% Damage (Flak Armoured Enemies)",
+        "10-25% Damage (Maniacs)"
+      ],
       "blessings": [
-        { "name": "Cranial Grounding", "description": "Targets receive stacks on headshot (melee). At max stacks, target takes increased damage for a duration." },
-        { "name": "Heatsink", "description": "Charged melee attacks generate less heat." }
+        {
+          "name": "Cranial Grounding",
+          "description": "Reduces Heat buildup by -6% and increases weakspot damage by +4% for 3s on chained weakspot hits. Stacks 5 times."
+        },
+        {
+          "name": "Heatsink",
+          "description": "Weakspot Kills and Critical Strike Kills reduces Heat by +10% over 3s."
+        }
       ]
     },
     {
       "name": "M35 Magnacore Mk II Plasma Gun",
       "rarity": "Transcendant",
-      "perks": ["20-25% Damage (Maniacs)", "20-25% Damage (Unyielding)"],
+      "perks": [
+        "10-25% Damage (Maniacs)",
+        "10-25% Damage (Unyielding Enemies)"
+      ],
       "blessings": [
-        { "name": "Rising Heat", "description": "Increased critical chance and critical damage based on current heat." },
-        { "name": "Gets Hot!", "description": "Critical hits reduce heat generated." }
+        {
+          "name": "Rising Heat",
+          "description": "Up to +20% Strength scaling with Heat Level."
+        },
+        {
+          "name": "Gets Hot!",
+          "description": "Critical hit chance scales by your current heat level up to +10%. Also increases critical ranged attacks damage by +10%."
+        }
       ]
     }
   ],
   "curios": [
-    { "name": "Blessed Bullet", "rarity": "", "perks": ["+4-5% Toughness", "+15-20% DR vs Snipers"], "blessings": [] },
-    { "name": "Blessed Bullet", "rarity": "", "perks": ["+4-5% Toughness", "+15-20% DR vs Gunners"], "blessings": [] },
-    { "name": "Blessed Bullet", "rarity": "", "perks": ["+4-5% Health"], "blessings": [] }
+    {
+      "name": "Blessed Bullet",
+      "rarity": "Transcendant",
+      "perks": [
+        "+13-17% Toughness",
+        "+5-20% Damage Resistance (Snipers)",
+        "+2-5% Health",
+        "+2-5% Toughness"
+      ],
+      "blessings": []
+    },
+    {
+      "name": "Blessed Bullet",
+      "rarity": "Transcendant",
+      "perks": [
+        "+13-17% Toughness",
+        "+5-20% Damage Resistance (Gunners)",
+        "+2-5% Health",
+        "+2-5% Toughness"
+      ],
+      "blessings": []
+    },
+    {
+      "name": "Blessed Bullet",
+      "rarity": "Transcendant",
+      "perks": [
+        "+17-21% Max Health",
+        "+5-20% Damage Resistance (Gunners)",
+        "+2-5% Health",
+        "+2-5% Toughness"
+      ],
+      "blessings": []
+    }
   ],
+  "talents": {
+    "active": [
+      {
+        "slug": "exploit-weakness",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Exploit Weakness",
+        "tier": "talent"
+      },
+      {
+        "slug": "skirmisher",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Skirmisher",
+        "tier": "talent"
+      },
+      {
+        "slug": "desperado",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Desperado",
+        "tier": "talent"
+      },
+      {
+        "slug": "reciprocity",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Reciprocity",
+        "tier": "talent"
+      },
+      {
+        "slug": "serrated-blade",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Serrated Blade",
+        "tier": "talent"
+      },
+      {
+        "slug": "trench-fighter-drill",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Trench Fighter Drill",
+        "tier": "talent"
+      },
+      {
+        "slug": "catch-a-breath",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Catch A Breath",
+        "tier": "talent"
+      },
+      {
+        "slug": "exhilarating-takedown",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Exhilarating Takedown",
+        "tier": "talent"
+      },
+      {
+        "slug": "grenade-tinkerer",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Grenade Tinkerer",
+        "tier": "talent"
+      },
+      {
+        "slug": "born-leader",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Born Leader",
+        "tier": "talent"
+      },
+      {
+        "slug": "voice-of-command",
+        "frame": "/images/sites/darktide/talents/frames/hex_frame.webp",
+        "name": "Voice Of Command",
+        "tier": "ability"
+      },
+      {
+        "slug": "demolition-stockpile",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Demolition Stockpile",
+        "tier": "talent"
+      },
+      {
+        "slug": "superiority-complex",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Superiority Complex",
+        "tier": "talent"
+      },
+      {
+        "slug": "tactical-awareness",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Tactical Awareness",
+        "tier": "talent"
+      },
+      {
+        "slug": "confirmed-kill",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Confirmed Kill",
+        "tier": "talent"
+      },
+      {
+        "slug": "duty-and-honour",
+        "frame": "/images/sites/darktide/talents/frames/hex_frame.webp",
+        "name": "Duty And Honour",
+        "tier": "ability"
+      },
+      {
+        "slug": "close-order-drill",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Close Order Drill",
+        "tier": "talent"
+      },
+      {
+        "slug": "longshot",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Longshot",
+        "tier": "talent"
+      },
+      {
+        "slug": "precision-strikes",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Precision Strikes",
+        "tier": "talent"
+      },
+      {
+        "slug": "bring-it-down",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Bring It Down",
+        "tier": "talent"
+      },
+      {
+        "slug": "survivalist",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Survivalist",
+        "tier": "talent"
+      },
+      {
+        "slug": "shredder-frag-grenade",
+        "frame": "/images/sites/darktide/talents/frames/square_frame.webp",
+        "name": "Shredder Frag Grenade",
+        "tier": "notable"
+      },
+      {
+        "slug": "iron-will",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Iron Will",
+        "tier": "talent"
+      },
+      {
+        "slug": "toughness-boost-22",
+        "frame": "/images/sites/darktide/talents/frames/circular_small_frame.webp",
+        "name": "Toughness Boost 22",
+        "tier": "stat"
+      },
+      {
+        "slug": "toughness-boost-24",
+        "frame": "/images/sites/darktide/talents/frames/circular_small_frame.webp",
+        "name": "Toughness Boost 24",
+        "tier": "stat"
+      },
+      {
+        "slug": "stamina-boost-3",
+        "frame": "/images/sites/darktide/talents/frames/circular_small_frame.webp",
+        "name": "Stamina Boost 3",
+        "tier": "stat"
+      },
+      {
+        "slug": "focus-target",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Focus Target",
+        "tier": "keystone"
+      },
+      {
+        "slug": "redirect-fire",
+        "frame": "/images/sites/darktide/talents/frames/circular_frame.webp",
+        "name": "Redirect Fire",
+        "tier": "talent"
+      },
+      {
+        "slug": "melee-damage-boost-9",
+        "frame": "/images/sites/darktide/talents/frames/circular_small_frame.webp",
+        "name": "Melee Damage Boost 9",
+        "tier": "stat"
+      },
+      {
+        "slug": "ranged-damage-boost-2",
+        "frame": "/images/sites/darktide/talents/frames/circular_small_frame.webp",
+        "name": "Ranged Damage Boost 2",
+        "tier": "stat"
+      }
+    ],
+    "inactive": [
+      {
+        "slug": "demolition-team",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_aura_elite_kills_restore_grenade.webp",
+        "name": "Demolition Team",
+        "tier": "unknown"
+      },
+      {
+        "slug": "tactical-reload",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_faster_reload_on_non_empty_clips.webp",
+        "name": "Tactical Reload",
+        "tier": "unknown"
+      },
+      {
+        "slug": "volley-adept",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_reload_speed_on_elite_kill.webp",
+        "name": "Volley Adept",
+        "tier": "unknown"
+      },
+      {
+        "slug": "keep-their-heads-down",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_increase_suppression.webp",
+        "name": "Keep Their Heads Down",
+        "tier": "unknown"
+      },
+      {
+        "slug": "out-for-blood",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_all_kills_replenish_toughness.webp",
+        "name": "Out For Blood",
+        "tier": "unknown"
+      },
+      {
+        "slug": "smoke-grenade",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/tactical/veteran_smoke_grenade.webp",
+        "name": "Smoke Grenade",
+        "tier": "unknown"
+      },
+      {
+        "slug": "infiltrate",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/ability/veteran_invisibility_on_combat_ability.webp",
+        "name": "Infiltrate",
+        "tier": "unknown"
+      },
+      {
+        "slug": "leave-no-one-behind",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_movement_speed_towards_downed.webp",
+        "name": "Leave No One Behind",
+        "tier": "unknown"
+      },
+      {
+        "slug": "grenadier",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_extra_grenade.webp",
+        "name": "Grenadier",
+        "tier": "unknown"
+      },
+      {
+        "slug": "rending-strikes",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_rending_bonus.webp",
+        "name": "Rending Strikes",
+        "tier": "unknown"
+      },
+      {
+        "slug": "close-and-kill",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/aura/veteran_movement_speed_coherency.webp",
+        "name": "Close And Kill",
+        "tier": "unknown"
+      },
+      {
+        "slug": "agile-engagement",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_kill_grants_damage_to_other_slot.webp",
+        "name": "Agile Engagement",
+        "tier": "unknown"
+      },
+      {
+        "slug": "onslaught",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_continous_hits_apply_rending.webp",
+        "name": "Onslaught",
+        "tier": "unknown"
+      },
+      {
+        "slug": "low-profile",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/ability_modifier/veteran_reduced_threat_after_combat_ability.webp",
+        "name": "Low Profile",
+        "tier": "unknown"
+      },
+      {
+        "slug": "opening-salvo",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_bonus_crit_chance_on_ammo.webp",
+        "name": "Opening Salvo",
+        "tier": "unknown"
+      },
+      {
+        "slug": "kill-zone",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_ranged_power_out_of_melee.webp",
+        "name": "Kill Zone",
+        "tier": "unknown"
+      },
+      {
+        "slug": "executioners-stance",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/ability/veteran_combat_ability_elite_and_special_outlines.webp",
+        "name": "Executioners Stance",
+        "tier": "unknown"
+      },
+      {
+        "slug": "shock-trooper",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_no_ammo_consumption_on_lasweapon_crit.webp",
+        "name": "Shock Trooper",
+        "tier": "unknown"
+      },
+      {
+        "slug": "enhanced-target-priority",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/ability_modifier/veteran_combat_ability_coherency_outlines.webp",
+        "name": "Enhanced Target Priority",
+        "tier": "unknown"
+      },
+      {
+        "slug": "get-back-in-the-fight",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_movement_bonuses_on_toughness_broken.webp",
+        "name": "Get Back In The Fight",
+        "tier": "unknown"
+      },
+      {
+        "slug": "counter-fire",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/ability_modifier/veteran_combat_ability_ranged_roamer_outlines.webp",
+        "name": "Counter Fire",
+        "tier": "unknown"
+      },
+      {
+        "slug": "hunters-resolve",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/ability_modifier/veteran_toughness_bonus_leaving_invisibility.webp",
+        "name": "Hunters Resolve",
+        "tier": "unknown"
+      },
+      {
+        "slug": "competitive-urge",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_ally_kills_increase_damage.webp",
+        "name": "Competitive Urge",
+        "tier": "unknown"
+      },
+      {
+        "slug": "krak-grenade",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/tactical/veteran_krak_grenade.webp",
+        "name": "Krak Grenade",
+        "tier": "unknown"
+      },
+      {
+        "slug": "only-in-death-does-duty-end",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/ability_modifier/veteran_combat_ability_revive_nearby_allies.webp",
+        "name": "Only In Death Does Duty End",
+        "tier": "unknown"
+      },
+      {
+        "slug": "field-improvisation",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_better_deployables.webp",
+        "name": "Field Improvisation",
+        "tier": "unknown"
+      },
+      {
+        "slug": "fire-team",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/aura/veteran_increased_damage_coherency.webp",
+        "name": "Fire Team",
+        "tier": "unknown"
+      },
+      {
+        "slug": "covering-fire",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_replenish_toughness_and_boost_allies.webp",
+        "name": "Covering Fire",
+        "tier": "unknown"
+      },
+      {
+        "slug": "overwatch",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/ability_modifier/veteran_combat_ability_extra_charge.webp",
+        "name": "Overwatch",
+        "tier": "unknown"
+      },
+      {
+        "slug": "deadshot",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_ads_drain_stamina.webp",
+        "name": "Deadshot",
+        "tier": "unknown"
+      },
+      {
+        "slug": "fully-loaded",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_ammo_increase.webp",
+        "name": "Fully Loaded",
+        "tier": "unknown"
+      },
+      {
+        "slug": "duck-and-dive",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_dodging_grants_stamina.webp",
+        "name": "Duck And Dive",
+        "tier": "unknown"
+      },
+      {
+        "slug": "close-quarters-killzone",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/ability_modifier/veteran_increased_close_damage_after_combat_ability.webp",
+        "name": "Close Quarters Killzone",
+        "tier": "unknown"
+      },
+      {
+        "slug": "marksman",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/ability_modifier/veteran_increased_weakspot_power_after_combat_ability.webp",
+        "name": "Marksman",
+        "tier": "unknown"
+      },
+      {
+        "slug": "the-bigger-they-are",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/ability_modifier/veteran_combat_ability_ogryn_outlines.webp",
+        "name": "The Bigger They Are",
+        "tier": "unknown"
+      },
+      {
+        "slug": "marksmans-focus",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/keystone/veteran_snipers_focus.webp",
+        "name": "Marksman's Focus",
+        "tier": "unknown"
+      },
+      {
+        "slug": "chink-in-their-armour",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/keystone_modifier/veteran_snipers_focus_rending_bonus.webp",
+        "name": "Chink In Their Armour",
+        "tier": "unknown"
+      },
+      {
+        "slug": "tunnel-vision",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/keystone_modifier/veteran_snipers_focus_toughness_bonus.webp",
+        "name": "Tunnel Vision",
+        "tier": "unknown"
+      },
+      {
+        "slug": "long-range-assassin",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/keystone_modifier/veteran_snipers_focus_increased_stacks.webp",
+        "name": "Long Range Assassin",
+        "tier": "unknown"
+      },
+      {
+        "slug": "weapons-specialist",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/keystone/veteran_weapon_switch_passive.webp",
+        "name": "Weapons Specialist",
+        "tier": "unknown"
+      },
+      {
+        "slug": "on-your-toes",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/keystone_modifier/veteran_weapon_switch_replenish_toughness.webp",
+        "name": "On Your Toes",
+        "tier": "unknown"
+      },
+      {
+        "slug": "always-prepared",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/keystone_modifier/veteran_weapon_switch_replenish_ammo.webp",
+        "name": "Always Prepared",
+        "tier": "unknown"
+      },
+      {
+        "slug": "invigorated",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/keystone_modifier/veteran_weapon_switch_replenish_stamina.webp",
+        "name": "Invigorated",
+        "tier": "unknown"
+      },
+      {
+        "slug": "target-down",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/keystone_modifier/veteran_improved_tag_dead_bonus.webp",
+        "name": "Target Down",
+        "tier": "unknown"
+      },
+      {
+        "slug": "focussed-fire",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/keystone_modifier/veteran_improved_tag_more_damage.webp",
+        "name": "Focussed Fire",
+        "tier": "unknown"
+      },
+      {
+        "slug": "one-motion",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_reduce_swap_time.webp",
+        "name": "One Motion",
+        "tier": "unknown"
+      },
+      {
+        "slug": "lock-and-load",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_clip_size.webp",
+        "name": "Lock And Load",
+        "tier": "unknown"
+      },
+      {
+        "slug": "covert-operative",
+        "frame": "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_increased_damage_when_flanking.webp",
+        "name": "Covert Operative",
+        "tier": "unknown"
+      }
+    ]
+  },
   "class_selections": {
     "ability": "Voice of Command",
     "blitz": "Shredder Frag Grenade",
     "aura": "Survivalist",
     "keystone": "Focus Target!"
   },
-  "talents": { "active": [], "inactive": [] },
-  "description": "Team support through CC and coherency buffs. Voice of Command + Duty and Honour keystone with Survivalist aura."
+  "description": "GUIDE UPDATED: Bound by Duty 23SEP2025\n\nPlease refer to the 'Hammer of the Emperor' guide by path and friends if you want THE definitive guide to all things Veteran build crafting! \n\nLink here: https://1drv.ms/w/c/e2a0a519389b2f30/EciPxKdXTJlPiEj2LUHKr58BbN_LckMOC4bba3qnlO8THg\n\nRather than push this guide and the site's formatting further than is really necessary, I figure it's best I leave you with the folks who have truly done the work in class theory and damage calcs. I'll still update this every now and then, but in scope it will remain as it was always intended: a simple reference for me :^) \n\nMay the Emperor guide your lasguns. o7\n\n-----\nVETERAN SQUAD LEADER\n-----\n\nThis guide will go over the skills and details necessary for playing a 'support' Veteran, which fundamentally, provides you and your team with excellent crowd control options and a metric kark-ton of team coherency buffs: toughness regen, ammo efficiency, and several sources of team damage boosts. With no hard requirements on the weapons you can bring, you are free to engage in frontline horde fights or flex into backline positions for high-threat management as necessary. More than anything, this is a build where playing for your team benefits everyone, enabling you to not only become an effective operative of the warband, but a cornerstone of every high-level auric and havoc team.\n\n** While the following guide will focus on key skills, there is some flexibility depending on the talents. I think this build will serve as an excellent stepping stone for newer players while staying mostly optimal in terms of damage and utility, but once you're more experienced, start tweaking some of these talent picks per your needs and playstyle, further suggestions under the 'Alternative Talents' section. **\n\n-----\nBLITZ: Shredder Frag Grenade \n-----\n\nThis blitz is used less for dealing damage and more as a crowd control tool thanks to it's ~8m AoE bleeds and stagger, which if used properly, can create clutch openings and even prevent damage and deaths in high pressure fights. The closer to the initial blast's epicenter the higher the amount of impact inflicted, which will face-to-floor everything but mutants and monstrosities. As such, the best practice is tossing the shredder nearest the toughest targets in a horde (ragers, maulers, crushers, etc.) to maximize that crowd control potential.\n\nWith a maximum of three Shredders to use at the start of most fights, paired with a boost in damage, radius, and regen from Grenade Tinkerer and Demolition Stockpile, will make for a deadly crowd control weapon with enough uptime to last you throughout a mission. \nThe applied bleed stacks are effective for softening chaff and non-heavy armored targets, but will also synergize with any allied Ogryns and Zealots who utilize bleed talents for extra crit chance and toughness dmg reduction! \nFill in the gaps for every fight: the blitz by itself is a wonderful filler in case of ability downtime or a general lack of hard CC options from your other teammates. It's ease of use, larger effective radius, and respectable damage makes it a tool to be used both offensively and defensively, and is something you can and should abuse for every tough encounter.\n\nP.S. - There is some technique in maximizing the damage of the 'bleeds' applied by a Shredder, which is a touch complicated for a short summary. If you're curious, I have some details about it listed in the 'tips' section at the bottom of this guide.\n\n-----\nABILITY: Voice of Command \n-----\n\nThe core defining ability of this Veteran build, a 'shout' which staggers all enemies within 9m and instantly replenishes your toughness to full, even when toughness is completely empty. Similar to shredder grenades but without the harsh range falloff, and sporting strong enough impact to stagger every Elite unit and Monstrosity, a well timed shout can force an opening for your team to break any and every enemy offensive. \n\nDuty and Honour enables your shout to overheal toughness by +50, while additionally replenishing that same amount to your team, essentially converting the ability into a team 'heal' similar to Zealot's chorus relic.\nUse this reflexively and often: with a short 30s cooldown and further reduction earned from Tactical Awareness, it's the ultimate all-in-one tool to create space, replenish toughness, and buff team damage with very little downtime.\n-----\nKEYSTONE: Focus Target! \n-----\n\nAn amazing keystone that alters the Veteran's default tag function: any specialist/elite/boss enemies that you tag will now be marked by a golden outline, as opposed to the default red. Not only does this help more visually challenged teammates prioritize these threats alongside you, it will also apply a debuff which the entire team benefits from. Higher 'focus' stacks will apply a stronger debuff for even greater damage bonuses.\n\nSecuring a kill on a focused target can grant further coherency bonuses through Target Down! and Redirect Fire! . So long as targets are being marked, even teammates can secure the kill for both bonuses to trigger, allowing for easy and consistent regen/dmg buffs throughout a fight.\nPick your focus targets carefully, but also quickly: the moment a focus mark is applied to a new enemy, a previously marked target will instantly lose their applied debuff. That means it's wasteful to spam tag an entire patrol, but that doesn't mean you want to hold a focus target for too long, either. Prioritize the toughest enemy as your first mark, and be ready to switch to whatever might be the next most immediate threat. The faster you decide what's most important in those moment to moment changes, the better this keystone will serve you.\n-----\nALTERNATIVE TALENTS\n-----\n\nAs you consider following section, just remember that any changes should be picked for what suits you and your loadout the most. Whether that's a Vet who likes to provide more team buffs or one who will min/max personal DPS, every build's damage and utility needs can shift dramatically depending on the weapons you bring. When down to the individual weapon damage stats, a mere 5% difference can bring an enemy who can tank two hits down to a one-shot kill. \n\n \n\nOtherwise, just go for what's fun - that's what this build is for me, with quite a few changes since the class rework update. What I have outlined below are the talents I think can be reasonably adjusted.\n\n \n\nBLITZ: Shredder Frag Grenade -> Krak Grenade \n\nKrak Grenades have some reputation of being 'better' than Shredders, which is a bit of a misleading sentiment; besides direct damage, they fundamentally serve different purposes in a fight, and ultimately it's up to you on whether you prefer single-target damage vs. AoE crowd control.\nI'd recommend loading Kraks if you want extra damage for monstrosities, or you're looking to cover anti-armor options elsewhere in your loadout.\n\nTEAM AURA: Survivalist -> Fire Team \n\nThe Survivalist aura is a priority pick for T5+ difficulties, where Elite & Special unit spawns are frequent enough to proc a consistent ammo return. It's often the difference for an entire team never being too low and hungry for ammo.\nFire Team can be considered if it helps push a particular weapon breakpoint, if you're practicing below T5+, and/or you're playing with another Veteran who can cover Survivalist.\n** As of the Path of Redemption update, the Survivalist aura now requires a 5s cooldown in between each successful proc. This means that the ammo return is less efficient when facing elite/specials in groups, such as during hazard missions with the Shock Troop Gauntlet modifier. Regardless of the nerf, a team's overall ammo economy will still greatly benefit from a Veteran who stays locked in on elite/special kills throughout a mission.\n\nKEYSTONE SUB-TALENT: Target Down! \n\nTarget Down will replenish 5-40% toughness/stamina, and can be a steady supply of regen if marks are managed properly in high density fights, and is invaluable for stubborn randoms who don't know how to dodge.\nA little less important for a premade team that can reliably defend themselves. \n\nKEYSTONE SUB-TALENT: Focused Fire \n\nAs of the Bound by Duty update, this keystone sub-talent was adjusted to have a slightly lower dmg bonus, but much faster uptime. Since the dmg difference is much smaller compared to the original, you can consider this a flex point to help push a breakpoint, or if you'd rather have some utility elsewhere in the tree. \nThis increased dmg maximum (25% -> 30%) might be useful in certain situations, but is only kicking in every 6-9s. In a realistic T5+ scenario where you're more likely to switch focus targets often and as needed, it will be harder to get consistent use of that increase the more a mission staggers elite/special spawns in drawn out fights.\nIf provided with any sort of downtime however, you can effectively view this talent as a buff to the opening shots of a fight, as well as an increase in team dps against monstrosities, where you ought to keep a focus mark for longer anyway.\nOptional if you'd prefer more consistent talent picks.\n\nOTHER TALENTS TO CONSIDER\n\nAny minor talent node (melee damage, crit chance, toughness, etc.)\nAgile Engagement for a flexible dmg buff\nMarksman for extra weakspot dmg on VoC use\nClose Quarters Killzone for extra close dmg on VoC use\nGrenadier for more fun with grenades\nDeadshot + Shock Trooper for crit chance and lasgun ammo efficiency\nOnly In Death Does Duty End ... (Good for challenge modes like hard mode twins and 30+ Havoc missions; otherwise wasted if you're with good players!)\n-----\nGEAR LOADOUT\n-----\n\nFirst and foremost: Nothing wrong in using what you like. \n\n \n\nWhile I am listing the weapons I personally run below, none are hard requirements; because this build boosts so much team damage, virtually every weapon available to the Veteran is viable, and what matters more are the right stats, perks, and blessings to push them to their highest potential. I really only recommend choosing a set of weapons that complements each other. Ex: A melee weapon that can easily sweep through hordes, and a ranged weapon that can quickly kill Elites/Specials. \n\nAlso I'll be honest I'm too lazy to update the rest of the weapon details so maybe one day I'll find the motivation to draft all that up lmao. for now u guys just get ez perks/blessings\n\n-----\nRANGED WEAPONS\n-----\n\nM35 MAGNACORE Mk II PLASMA GUN\n\nGets Hot & Rising Heat/Blaze Away | +Flak +Maniacs +Unyielding +Carapace\n\n \n\nAn iconic piece of tech in the 40k universe and a signature weapon of the Mourningstar's Veterans, few guns are as powerful and versatile as the Plasma Gun, which can fire in charged and non-charged states. \n\n \n\nThe fearsome power of this weapon additionally comes with a unique mechanic: each shot accumulates heat, which if mismanaged at high levels may result in unplanned downtime, or a fatal explosion when overloading the charged state.\n\n \n\nSTATS:\nPriority 80% stats will be Damage and Stopping Power.\n60% on either Charge Rate or Thermal Resistance, or as close to a 70/70 split as possible.*\nImportant Note: As of the Traitor Curse Anniversary update, Charge Rate no longer affects the PG's damage as it used to, i.e. weirdly scaling damage with charge states and very specific charge rate values. Additionally, partial charges are virtually the same as a non-charged shot, so you either commit to a full charge for that high powered shot or don't.\nTo give some context to the above, the pre-fix PG's charge rate stat would technically affect even non-charged shots, where essentially more damage was applied to each shot depending on that particular value - having too low or too high of a Charge Rate stat actually resulted in worse damage per shot, and it was a cursed middle ground of 71% Charge Rate that somehow gave the best damage per shot.\nWith that same principle, 'partial' charging (firing less than halfway into charging the powered shot) had previously added some damage per shot without the heat buildup of a fully charged powered shot. All of this is no longer the case, as per my own testing and several other testimonies, the difference in damage is negligible if non-existent.\n* However, as Charge Rate STILL governs the charge speed of the PG's hip-fired, non-charged shot, the funny 71/69 split on Charge Rate and Thermal Resistance remains the best split for retaining heat efficiency while technically min-maxing the weapon's DPS, if for a very marginal, less than a half second's difference in charge speed. \nBLESSINGS:\nGets Hot is the PG's anchor blessing, as the expanded 'magazine' only encourages you to fire several shots in sequence long before you ever need to reload. With a high base damage, this will only lead to some funny high critical numbers as you stay on the trigger and ramp up the heat.\nIf you tend to pace your shots, Rising Heat is an excellent secondary blessing to synergize with Gets Hot, where both damage and critical rate will increase as your PG accumulates heat. It's the 'easier' and more flexible combo since both charged and non-charged shots will benefit from these blessings, which will help you meet breakpoints on heavier threats while conserving ammo on weaker ones.\nBlaze Away will provide a higher DPS throughput due to the higher damage bonus maximum, but this of course requires you to lay on the trigger and exclusively fire non-charged shots. Because the PG doesn't have 'automatic' functionality like other weapons that roll this blessing, the timing can be finnicky and it's very easy to lose stacks if you hesitate for even a fraction of a second; if you have fast target acquisition and can manage the clicking (or you use the FullAuto mod from Nexus Mods) the results will serve you well in high density fights.\nPERKS & BREAKPOINTS:\nWIP\nMISC:\nIt takes about ~8 seconds to reload.\nManually venting heat to 0%, no matter how much heat is accumulated, takes ~4s total.\nHeat will always manually vent in portions, each by 1/5 of the current heat percentage.\nWith 80% Thermal Resistance, you can fire up to 8 non-charged shots (or 3 charged shots) before needing to vent.\nWith 80% Ammo, you can fire up to 45 non-charged shots (or 15 charged shots) before needing to eat that long reload.\n\n-----\n\nZARONA Mk IIa REVOLVER \n\nSurgical & Hand-Cannon | +Flak +Maniacs\n\nSTATS:\nBLESSINGS:\nPERKS & BREAKPOINTS:\n\n-----\n\nLOCKE Mk IIb BOLTGUN \n\nPinning Fire & Puncture/Surgical/Shattering Impact | +Flak +Unyielding +Carapace +Elites\n\nSTATS:\nBLESSINGS:\nPERKS & BREAKPOINTS:\n\n-----\n\nACCATRAN MG Mk II & KANTRAEL Mk X HEAVY LASPISTOL\n\nInfernus & Reassuringly Accurate/Dumdum | +Flak +Maniacs\n\nSTATS:\nBLESSINGS:\nPERKS & BREAKPOINTS:\n\n-----\n\nGODWYN-BRANX Mk IV BOLT PISTOL\n\nSurgical & Deadly Accurate | +Flak +Manics +Elites\n\nSTATS:\nBLESSINGS:\nPERKS & BREAKPOINTS:\n\n-----\n\nKANTRAEL MG Ia, MG IV, & MG XII INFANTRY LASGUN\n\nHeadhunter & Deadly Accurate | +Flak +Maniacs +Unyielding\n\nSTATS:\nBLESSINGS:\nPERKS & BREAKPOINTS:\n-----\nMELEE "
 }

@@ -517,7 +517,7 @@ describe("end-to-end", () => {
     const card = generateScorecard(build);
     assert.equal(card.class, "veteran");
     assert.ok(card.perk_optimality >= 3, "Veteran Squad Leader should score well on perks");
-    assert.ok(card.curio_efficiency >= 4, "DR stacking curios should score high");
+    assert.ok(card.curio_efficiency >= 3, "Live sample curios should still score above neutral");
     assert.equal(card.weapons.length, 2);
   });
 });
