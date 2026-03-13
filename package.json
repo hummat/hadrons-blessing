@@ -8,10 +8,11 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node --test scripts/ground-truth.test.mjs scripts/cli-contract.test.mjs scripts/coverage.test.mjs",
+    "test": "node --test scripts/ground-truth.test.mjs scripts/cli-contract.test.mjs scripts/coverage.test.mjs scripts/inspect.test.mjs",
     "resolve": "node scripts/resolve-ground-truth.mjs",
     "audit": "node scripts/audit-build-names.mjs",
     "coverage": "node scripts/coverage-ground-truth.mjs",
+    "inspect": "node scripts/inspect-ground-truth.mjs",
     "index:build": "node scripts/build-ground-truth-index.mjs",
     "index:check": "node scripts/build-ground-truth-index.mjs --check",
     "check": "npm run index:build && npm test && npm run index:check"

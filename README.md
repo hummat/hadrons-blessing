@@ -21,7 +21,8 @@ Provisional surface:
 
 Not yet part of the public CLI contract:
 
-- **Inspect** — planned, not implemented
+- **Inspect** — implemented as `npm run inspect -- --id <canonical-entity-id>`,
+  but not part of the stable v1 contract
 - **Coverage** — implemented as `npm run coverage`, but not part of the stable
   v1 contract
 
@@ -101,6 +102,12 @@ Read-only coverage summary:
 
 ```bash
 npm run coverage
+```
+
+Read-only canonical entity inspection:
+
+```bash
+npm run inspect -- --id psyker.talent.psyker_damage_based_on_warp_charge
 ```
 
 ## Status
