@@ -11,25 +11,27 @@
 
 ## Results
 
-### Audit on real build fixtures
+### Audit on canonical build fixtures
 
-- 20/20 build fixtures completed with:
+- 20/20 migrated canonical build fixtures completed with:
   - `252` resolved entries
   - `80` non-canonical entries
   - `0` ambiguous entries
-  - `0` unresolved entries
-- This means the current audit path is already useful for real structured build fixtures as a machine-readable loadout triage tool.
-- The remaining `non_canonical` entries are mostly expected:
+  - `60` unresolved entries
+- The `60` unresolved entries are not fuzzy-match failures. They are the explicit `ability` / `blitz` / `aura` placeholder selections now carried by the migrated fixtures because the checked-in legacy fixture corpus never preserved real class-side talent-tree data.
+- This means the current audit path is useful on real canonical fixtures, but it now honestly surfaces the class-side data gap instead of pretending those selections were present.
+- The remaining `non_canonical` entries are still mostly expected:
   - unsupported curio display labels such as `Blessed Bullet`
   - known unresolved weapon/blessing labels still tracked as non-canonical instead of leaking into `unresolved`
 
-### Scorecard on real build fixtures
+### Scorecard on canonical build fixtures
 
-- Canonical weapon metadata is now materially better but still incomplete on community build display names:
-  - 12 builds: both weapons canonicalized
-  - 3 builds: one weapon canonicalized
-  - 5 builds: zero weapons canonicalized
-- Remaining misses are mainly unmapped display-name variants from scraped builds, not resolver crashes.
+- `score-build` now accepts the migrated canonical build shape directly.
+- Canonical weapon metadata is improved but still incomplete:
+  - `13` builds: both weapons canonicalized
+  - `3` builds: one weapon canonicalized
+  - `4` builds: zero weapons canonicalized
+- Remaining misses are still display-name coverage gaps in the scoring catalog, not resolver crashes.
 
 ### BetterBots profile template ids
 
@@ -66,11 +68,11 @@ The current CLI is useful today for:
 It is still not enough for full BetterBots build/behavior design because:
 
 - class-scoped non-Psyker talent/ability coverage is missing
-- scraped build fixtures do not currently retain structured talent/ability/blitz/aura data in a form that `audit` consumes
-- `score-build` still depends on partial display-name coverage for community build weapon names
+- the migrated fixture corpus still lacks real class-side selections, so `ability` / `blitz` / `aura` remain explicit unresolved placeholders
+- `score-build` still depends on partial display-name coverage for several community build weapon names
 
 ## Next High-Value Work
 
-1. Fix the extraction/build-shaping pipeline so scraped builds preserve structured class decision inputs, not just weapons/curios.
-2. Expand shared weapon display-name alias coverage for the remaining community build misses.
+1. Re-extract builds from source pages so fixtures preserve real selected class-side nodes instead of `Unknown ability` / `Unknown blitz` / `Unknown aura` placeholders.
+2. Expand shared weapon display-name alias coverage for the remaining `score-build` misses.
 3. Add class-scoped coverage beyond Psyker if BetterBots-side heuristic design needs talent/ability evidence for those archetypes.

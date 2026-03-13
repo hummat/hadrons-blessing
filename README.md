@@ -19,9 +19,13 @@ BetterBots-style full content item paths such as
 
 Provisional surface:
 
+- **Canonicalize** — convert a scraped/raw build JSON into the canonical build
+  shape used by this repo
+- **Re-resolve** — batch refresh unresolved or non-canonical selections in
+  canonical build files when resolver coverage expands
 - **Score** — coarse build scoring exists today in `scripts/score-build.mjs`,
-  uses checked-in ground-truth weapon aliases plus scoring data, but is not yet
-  part of the stable CLI contract
+  now accepts canonical build fixtures directly, but is not yet part of the
+  stable CLI contract
 
 Not yet part of the public CLI contract:
 
@@ -55,6 +59,8 @@ Current command requirements:
 
 - `resolve` — requires `GROUND_TRUTH_SOURCE_ROOT`
 - `audit` — requires `GROUND_TRUTH_SOURCE_ROOT`
+- `canonicalize` — requires `GROUND_TRUTH_SOURCE_ROOT`
+- `reresolve` — requires `GROUND_TRUTH_SOURCE_ROOT`
 - `index:build` / `index:check` / `test` / `check` — require `GROUND_TRUTH_SOURCE_ROOT`
 - `scripts/score-build.mjs` — does not require `GROUND_TRUTH_SOURCE_ROOT`
 
@@ -90,6 +96,18 @@ Audit a build file:
 GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run audit -- scripts/builds/08-gandalf-melee-wizard.json
 ```
 
+Canonicalize a scraped/raw build file:
+
+```bash
+GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run canonicalize -- scripts/sample-build.json
+```
+
+Re-resolve canonical build files in place:
+
+```bash
+GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run reresolve -- --write scripts/builds
+```
+
 Build the generated index:
 
 ```bash
@@ -102,7 +120,7 @@ Run the full verification flow (index + tests + freshness check):
 GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code make check
 ```
 
-Experimental scorecard output:
+Experimental scorecard output on canonical build fixtures:
 
 ```bash
 node scripts/score-build.mjs scripts/builds/08-gandalf-melee-wizard.json --json
@@ -129,7 +147,18 @@ Current entity coverage (Psyker pilot + shared):
 | Psyker   | talents, implicit tree nodes | display names, loc keys |
 | Shared   | weapons, weapon perks, curio perks, blessing families, classes, buffs | community names |
 
-20 build fixtures (all 6 classes) are included as audit regression coverage.
+20 build fixtures (all 6 classes) are now stored in canonical build shape and
+used as audit/score regression coverage.
+
+Current fixture limitation:
+
+- the migrated fixture corpus preserves weapon, blessing, perk, curio, class,
+  and provenance decisions
+- it does **not** preserve real selected class-side talent-tree nodes from the
+  original scrape data
+- as a result, current canonical fixtures legitimately carry unresolved
+  placeholder `ability` / `blitz` / `aura` selections until builds are
+  re-extracted from source pages
 
 ## Roadmap
 
