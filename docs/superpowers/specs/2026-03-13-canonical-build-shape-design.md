@@ -585,6 +585,24 @@ Responsible for:
 
 Current `scripts/builds/*.json` files need one-time migration.
 
+Important current limitation:
+
+- the checked-in build fixtures currently carry effectively no class-side
+  decision data in their persisted form: `talents.active = []` and
+  `talents.inactive = []`
+- the extractor can scrape class-side nodes, but the existing fixtures do not
+  preserve that information
+- therefore the first migration of the current checked-in fixtures will not
+  produce meaningful real-data coverage for `ability`, `blitz`, `aura`,
+  `keystone`, or `talents[]`
+- unless the builds are re-extracted from source pages with talent data present,
+  migrated fixtures will legitimately carry unresolved class-side slots and
+  empty `talents[]`
+
+This is acceptable as an intermediate state, but it means the class-side slot
+machinery cannot be validated against real build data until re-extraction
+occurs.
+
 Migration work:
 
 1. replace raw `class` string with a selection object
@@ -602,6 +620,16 @@ Migration work:
 8. remove prose or scrape-only fields from the canonical file
 
 Backward compatibility is intentionally not required.
+
+Blessing coverage dependency:
+
+- canonical build files store blessing family IDs, not concrete weapon-trait
+  instance IDs
+- that means canonicalization depends on the resolver having adequate alias
+  coverage for blessing family display labels
+- where that coverage is absent, blessing selections must persist as
+  `unresolved` or `non_canonical` rather than inventing a concrete trait-level
+  mapping
 
 ## 16. Re-Resolution Workflow
 

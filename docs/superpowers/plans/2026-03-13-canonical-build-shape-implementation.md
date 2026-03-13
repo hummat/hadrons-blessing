@@ -44,6 +44,10 @@
   - Shared build-shape helpers: validation, selection invariants, slot checks.
 - `scripts/ground-truth/lib/build-canonicalize.mjs`
   - Canonicalization logic from extracted scrape result to canonical build JSON.
+- `scripts/canonicalize-build.mjs`
+  - Browser-independent CLI entry point for converting an existing scraped/raw build JSON into the canonical build shape.
+- `scripts/ground-truth/lib/build-classification-registry.mjs`
+  - Maintained source-backed mapping from Games Lantern slugs to canonical class-side slot roles.
 - `scripts/ground-truth/lib/build-audit.mjs`
   - Canonical-build-specific audit helpers if `audit-build-names.mjs` grows too large.
 - `scripts/reresolve-builds.mjs`
@@ -140,6 +144,8 @@ git commit -m "Add canonical build schemas"
 - Modify: `scripts/canonical-build.test.mjs`
 - Create: `scripts/ground-truth/lib/build-canonicalize.mjs`
 - Create: `scripts/ground-truth/lib/build-classification.mjs`
+- Create: `scripts/ground-truth/lib/build-classification-registry.mjs`
+- Create: `scripts/canonicalize-build.mjs`
 - Reference: `scripts/extract-build.mjs`
 
 - [ ] **Step 1: Add failing tests for canonicalizing a scrape-shaped build**
@@ -161,7 +167,13 @@ Add tests for the classification rule:
 - one primary aura becomes `aura`
 - keystone is nullable
 
-- [ ] **Step 3: Run the canonical-build tests and verify failure**
+- [ ] **Step 3: Add failing tests for browser-independent canonicalization**
+
+Add tests that assert:
+- an already-scraped/raw build JSON can be canonicalized without Playwright
+- `extract-build.mjs` is not the only entry point into canonicalization
+
+- [ ] **Step 4: Run the canonical-build tests and verify failure**
 
 Run:
 
@@ -172,7 +184,7 @@ node --test scripts/canonical-build.test.mjs
 Expected:
 - FAIL because canonicalization logic does not exist yet
 
-- [ ] **Step 4: Implement canonicalization helper**
+- [ ] **Step 5: Implement canonicalization helper**
 
 Create `scripts/ground-truth/lib/build-canonicalize.mjs` with small focused functions:
 - `toSelection(rawLabel, queryContext)`
@@ -188,9 +200,11 @@ Implementation requirements:
 - keep raw labels alongside IDs
 - canonicalize blessing selections to blessing family IDs only
 
-- [ ] **Step 5: Create the class-side classification registry**
+- [ ] **Step 6: Create the class-side classification registry**
 
-Create `scripts/ground-truth/lib/build-classification.mjs`.
+Create:
+- `scripts/ground-truth/lib/build-classification.mjs`
+- `scripts/ground-truth/lib/build-classification-registry.mjs`
 
 It must own the maintained mapping from selected scrape nodes to canonical build slots:
 - primary combat ability -> `ability`
@@ -199,16 +213,34 @@ It must own the maintained mapping from selected scrape nodes to canonical build
 - primary keystone -> `keystone`
 - all remaining selected class-side nodes -> `talents[]`
 
-Do not leave this embedded as ad-hoc conditionals inside `extract-build.mjs`.
+Registry contract:
 
-- [ ] **Step 6: Wire canonicalization into `extract-build.mjs`**
+- map from Games Lantern talent-node slug to slot role metadata
+- do not rely on frame shape alone
+- keep the mapping outside `extract-build.mjs` and outside ad-hoc conditionals in the canonicalizer
+
+If a selected slug has no classification entry, canonicalization must fail
+explicitly or produce a deliberately unresolved class-side output according to
+the test cases written above. Do not silently guess.
+
+- [ ] **Step 7: Add a browser-independent canonicalization CLI**
+
+Create `scripts/canonicalize-build.mjs` as a separate entry point that:
+- reads an existing scraped/raw build JSON
+- runs canonicalization without Playwright
+- writes canonical JSON to stdout or file
+
+This CLI is the migration path for existing checked-in fixtures.
+
+- [ ] **Step 8: Wire canonicalization into `extract-build.mjs`**
 
 Change `scripts/extract-build.mjs` so:
 - raw page scraping remains one stage
+- canonicalization is invoked as a separate importable step
 - canonical JSON output becomes the default machine-readable build output
 - markdown mode renders from canonicalized build decisions, not the old scrape shape
 
-- [ ] **Step 7: Re-run targeted tests and verify pass**
+- [ ] **Step 9: Re-run targeted tests and verify pass**
 
 Run:
 
@@ -219,10 +251,10 @@ node --test scripts/canonical-build.test.mjs
 Expected:
 - PASS
 
-- [ ] **Step 8: Commit**
+- [ ] **Step 10: Commit**
 
 ```bash
-git add scripts/extract-build.mjs scripts/ground-truth/lib/build-canonicalize.mjs scripts/ground-truth/lib/build-classification.mjs scripts/canonical-build.test.mjs
+git add scripts/extract-build.mjs scripts/canonicalize-build.mjs scripts/ground-truth/lib/build-canonicalize.mjs scripts/ground-truth/lib/build-classification.mjs scripts/ground-truth/lib/build-classification-registry.mjs scripts/canonical-build.test.mjs
 git commit -m "Canonicalize extracted builds"
 ```
 
@@ -253,6 +285,15 @@ Before rewriting fixtures, define and implement how mandatory provenance is supp
   - recover from existing scrape metadata if available, or
   - set a deterministic migration timestamp / imported-at timestamp and document that it is migration-time provenance rather than original scrape-time provenance
 
+- [ ] **Step 2.5: Acknowledge the current empty-talent-data limitation**
+
+Document in the migration notes and tests:
+- the current checked-in fixtures do not preserve real class-side talent data
+- migrated fixtures may therefore carry unresolved `ability` / `blitz` / `aura`
+  and empty `talents[]`
+- meaningful real-data validation of class-side slot machinery requires
+  re-extraction from source pages with talent data present
+
 - [ ] **Step 3: Run the canonical-build tests and verify failure**
 
 Run:
@@ -268,9 +309,17 @@ Expected:
 
 Prefer a small repo script over manual hand-editing. The helper should:
 - read each existing fixture
-- canonicalize it through the new pipeline
+- canonicalize it through `scripts/canonicalize-build.mjs` or the same importable
+  canonicalization path
 - inject the required provenance block according to the chosen backfill policy
 - rewrite the file in canonical form
+
+Runtime requirement:
+
+- canonical migration requires resolver access
+- executing agents must run it with
+  `GROUND_TRUTH_SOURCE_ROOT=/run/media/matthias/1274B04B74B032F9/git/Darktide-Source-Code`
+  or an equivalent valid source root
 
 - [ ] **Step 5: Migrate all 20 checked-in build fixtures**
 
@@ -352,6 +401,14 @@ Implement:
 - blessing handling at the approved family/UI identity level only (`shared.name_family.blessing.*`)
 - class-side audit coverage for `ability`, `blitz`, `aura`, `keystone`, and `talents[]`
 
+Existence check contract:
+
+- “resolved canonical IDs still exist” means they resolve against the current
+  generated/indexed ground-truth entity set built from checked-in data under the
+  active source snapshot
+- use the same resolver/index path as other ground-truth commands; do not invent
+  a separate ad-hoc file scan
+
 - [ ] **Step 4: Re-run audit-focused tests and verify pass**
 
 Run:
@@ -362,6 +419,16 @@ GROUND_TRUTH_SOURCE_ROOT=/run/media/matthias/1274B04B74B032F9/git/Darktide-Sourc
 
 Expected:
 - PASS
+
+- [ ] **Step 4.5: Re-freeze affected audit snapshots**
+
+Update:
+- `tests/fixtures/ground-truth/audits/08-gandalf-melee-wizard.audit.json`
+- `tests/fixtures/ground-truth/audits/09-electrodominance-psyker.audit.json`
+- `tests/fixtures/ground-truth/audits/10-electro-shriek-psyker.audit.json`
+
+Use the canonical-build-aware audit output and ensure the snapshots match the
+new build shape and audit semantics.
 
 - [ ] **Step 5: Commit**
 
@@ -496,7 +563,9 @@ Document:
 
 - [ ] **Step 2: Update the real-input evaluation doc if the measured outcomes change**
 
-Adjust any statistics or caveats invalidated by the migration.
+Do not treat this as conditional. Re-run the evaluation end-to-end after
+migration and rewrite the metrics/caveats accordingly, because the canonical
+shape adds class-side entries and changes what audit/score are measuring.
 
 - [ ] **Step 3: Fold new tests into the default test workflow**
 
