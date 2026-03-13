@@ -7,7 +7,7 @@
       "resolution_state": "resolved",
       "resolved_entity_id": "shared.class.psyker",
       "proposed_entity_id": null,
-      "match_type": "exact_alias",
+      "match_type": "persisted_canonical_id",
       "confidence": "high",
       "warnings": []
     },
@@ -17,7 +17,7 @@
       "resolution_state": "resolved",
       "resolved_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
       "proposed_entity_id": null,
-      "match_type": "exact_alias",
+      "match_type": "persisted_canonical_id",
       "confidence": "high",
       "warnings": []
     },
@@ -27,7 +27,7 @@
       "resolution_state": "resolved",
       "resolved_entity_id": "shared.gadget_trait.gadget_corruption_resistance",
       "proposed_entity_id": null,
-      "match_type": "exact_alias",
+      "match_type": "persisted_canonical_id",
       "confidence": "high",
       "warnings": []
     },
@@ -37,12 +37,9 @@
       "resolution_state": "resolved",
       "resolved_entity_id": "shared.name_family.blessing.momentum",
       "proposed_entity_id": null,
-      "match_type": "exact_alias",
-      "confidence": "medium",
-      "warnings": [
-        "resolved_to_name_family",
-        "partially_resolved_entity"
-      ]
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
     },
     {
       "field": "weapons[0].blessings[1].name",
@@ -50,12 +47,9 @@
       "resolution_state": "resolved",
       "resolved_entity_id": "shared.name_family.blessing.deflector",
       "proposed_entity_id": null,
-      "match_type": "exact_alias",
-      "confidence": "medium",
-      "warnings": [
-        "resolved_to_name_family",
-        "partially_resolved_entity"
-      ]
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
     },
     {
       "field": "weapons[0].name",
@@ -63,8 +57,8 @@
       "resolution_state": "resolved",
       "resolved_entity_id": "shared.weapon.forcesword_2h_p1_m2",
       "proposed_entity_id": null,
-      "match_type": "exact_alias",
-      "confidence": "medium",
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
       "warnings": []
     },
     {
@@ -73,7 +67,7 @@
       "resolution_state": "resolved",
       "resolved_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
       "proposed_entity_id": null,
-      "match_type": "exact_alias",
+      "match_type": "persisted_canonical_id",
       "confidence": "high",
       "warnings": []
     },
@@ -83,12 +77,9 @@
       "resolution_state": "resolved",
       "resolved_entity_id": "shared.name_family.blessing.warp_flurry",
       "proposed_entity_id": null,
-      "match_type": "exact_alias",
+      "match_type": "persisted_canonical_id",
       "confidence": "high",
-      "warnings": [
-        "resolved_to_name_family",
-        "partially_resolved_entity"
-      ]
+      "warnings": []
     },
     {
       "field": "weapons[1].blessings[1].name",
@@ -96,12 +87,9 @@
       "resolution_state": "resolved",
       "resolved_entity_id": "shared.name_family.blessing.warp_nexus",
       "proposed_entity_id": null,
-      "match_type": "exact_alias",
+      "match_type": "persisted_canonical_id",
       "confidence": "high",
-      "warnings": [
-        "resolved_to_name_family",
-        "partially_resolved_entity"
-      ]
+      "warnings": []
     },
     {
       "field": "weapons[1].name",
@@ -109,8 +97,8 @@
       "resolution_state": "resolved",
       "resolved_entity_id": "shared.weapon.forcestaff_p3_m1",
       "proposed_entity_id": null,
-      "match_type": "exact_alias",
-      "confidence": "medium",
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
       "warnings": []
     },
     {
@@ -119,7 +107,7 @@
       "resolution_state": "resolved",
       "resolved_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
       "proposed_entity_id": null,
-      "match_type": "exact_alias",
+      "match_type": "persisted_canonical_id",
       "confidence": "high",
       "warnings": []
     },
@@ -129,7 +117,7 @@
       "resolution_state": "resolved",
       "resolved_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
       "proposed_entity_id": null,
-      "match_type": "exact_alias",
+      "match_type": "persisted_canonical_id",
       "confidence": "high",
       "warnings": []
     }
@@ -145,6 +133,7 @@
       "match_type": "none",
       "confidence": "low",
       "warnings": [
+        "persisted_non_canonical_selection",
         "known_non_canonical_label"
       ],
       "non_canonical_kind": "display_label",
@@ -160,6 +149,7 @@
       "match_type": "none",
       "confidence": "low",
       "warnings": [
+        "persisted_non_canonical_selection",
         "known_non_canonical_label"
       ],
       "non_canonical_kind": "display_label",
@@ -175,6 +165,7 @@
       "match_type": "none",
       "confidence": "low",
       "warnings": [
+        "persisted_non_canonical_selection",
         "known_non_canonical_label"
       ],
       "non_canonical_kind": "display_label",
@@ -182,10 +173,47 @@
       "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
     }
   ],
-  "unresolved": [],
+  "unresolved": [
+    {
+      "field": "ability",
+      "text": "Unknown ability",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": [
+        "persisted_unresolved_selection"
+      ]
+    },
+    {
+      "field": "aura",
+      "text": "Unknown aura",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": [
+        "persisted_unresolved_selection"
+      ]
+    },
+    {
+      "field": "blitz",
+      "text": "Unknown blitz",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": [
+        "persisted_unresolved_selection"
+      ]
+    }
+  ],
   "warnings": [
     "known_non_canonical_label",
-    "partially_resolved_entity",
-    "resolved_to_name_family"
+    "persisted_non_canonical_selection",
+    "persisted_unresolved_selection"
   ]
 }

@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
-import { mkdtempSync, writeFileSync } from "node:fs";
+import { mkdtempSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { assertValidCanonicalBuild, validateCanonicalBuild } from "./ground-truth/lib/build-shape.mjs";
@@ -194,6 +194,14 @@ function makeStubCanonicalizerDeps(overrides = {}) {
   };
 }
 
+function isSelectionObject(value) {
+  return value != null
+    && typeof value === "object"
+    && typeof value.raw_label === "string"
+    && typeof value.resolution_status === "string"
+    && Object.hasOwn(value, "canonical_entity_id");
+}
+
 describe("validateCanonicalBuild", () => {
   it("accepts a valid canonical build", () => {
     const result = validateCanonicalBuild(makeCanonicalBuild());
@@ -365,4 +373,41 @@ describe("canonicalizeBuildFile", () => {
     assert.equal(build.weapons[1].name.canonical_entity_id, "shared.weapon.bot_lasgun_killshot");
     assert.equal(build.curios[0].perks[0].canonical_entity_id, "shared.gadget_trait.gadget_toughness_increase");
   });
+});
+
+describe("checked-in canonical fixtures", () => {
+  for (const fixtureName of readdirSync("scripts/builds").filter((name) => name.endsWith(".json")).sort()) {
+    it(`${fixtureName} validates as a canonical build fixture`, () => {
+      const build = JSON.parse(readFileSync(join("scripts/builds", fixtureName), "utf8"));
+      const validation = validateCanonicalBuild(build);
+      assert.equal(validation.ok, true, validation.errors.map((error) => error.message).join("; "));
+
+      assert.equal(isSelectionObject(build.class), true);
+      assert.equal(isSelectionObject(build.ability), true);
+      assert.equal(isSelectionObject(build.blitz), true);
+      assert.equal(isSelectionObject(build.aura), true);
+      assert.equal(build.keystone === null || isSelectionObject(build.keystone), true);
+      assert.equal(Array.isArray(build.talents), true);
+
+      for (const weapon of build.weapons) {
+        assert.equal(isSelectionObject(weapon.name), true);
+        for (const perk of weapon.perks) {
+          assert.equal(isSelectionObject(perk), true);
+        }
+        for (const blessing of weapon.blessings) {
+          assert.equal(isSelectionObject(blessing), true);
+          if (blessing.resolution_status === "resolved") {
+            assert.match(blessing.canonical_entity_id, /^shared\.name_family\.blessing\./);
+          }
+        }
+      }
+
+      for (const curio of build.curios) {
+        assert.equal(isSelectionObject(curio.name), true);
+        for (const perk of curio.perks) {
+          assert.equal(isSelectionObject(perk), true);
+        }
+      }
+    });
+  }
 });

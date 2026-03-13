@@ -35,6 +35,26 @@ function writeTempCanonicalBuild(build) {
   return filePath;
 }
 
+function expectedPlaceholderUnresolvedFields(build) {
+  if (build?.schema_version !== 1) {
+    return [];
+  }
+
+  const expected = [];
+  for (const field of ["ability", "blitz", "aura"]) {
+    const selection = build[field];
+    if (
+      selection?.resolution_status === "unresolved"
+      && typeof selection.raw_label === "string"
+      && selection.raw_label.startsWith("Unknown ")
+    ) {
+      expected.push(field);
+    }
+  }
+
+  return expected.sort();
+}
+
 describe("normalizeText", () => {
   it("normalizes guide-style text deterministically", () => {
     assert.equal(normalizeText("Warp-Rider / Psyker"), "warp rider psyker");
@@ -905,16 +925,18 @@ describe("auditBuildFile", () => {
         0,
         `unexpected ambiguous entries in ${buildPath}`,
       );
-      assert.equal(
-        result.unresolved.length,
-        0,
+      assert.deepEqual(
+        result.unresolved.map((entry) => entry.field).sort(),
+        expectedPlaceholderUnresolvedFields(build),
         `unexpected unresolved entries in ${buildPath}`,
       );
       assert.equal(
         result.resolved.some(
           (entry) =>
             entry.field === "class" &&
-            entry.resolved_entity_id === expectedByClass.get(build.class),
+            entry.resolved_entity_id === expectedByClass.get(
+              build?.schema_version === 1 ? build.class.raw_label : build.class,
+            ),
         ),
         true,
         `class field did not resolve for ${buildPath}`,

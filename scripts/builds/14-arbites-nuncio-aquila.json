@@ -1,23 +1,176 @@
 {
+  "schema_version": 1,
   "title": "Execution Order Nuncio-Aquila",
-  "author": "fatherlyfigure",
-  "class": "arbites",
+  "class": {
+    "raw_label": "arbites",
+    "canonical_entity_id": "shared.class.adamant",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "legacy-fixture://scripts/builds/14-arbites-nuncio-aquila.json",
+    "author": "fatherlyfigure",
+    "scraped_at": "2026-03-13T00:00:00Z"
+  },
+  "ability": {
+    "raw_label": "Unknown ability",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "blitz": {
+    "raw_label": "Unknown blitz",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "aura": {
+    "raw_label": "Unknown aura",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "keystone": null,
+  "talents": [],
   "weapons": [
     {
-      "name": "Branx Mk VI Shock Maul & Suppression Shield",
-      "perks": ["20-25% Damage (Maniacs)", "20-25% Damage (Carapace)"],
-      "blessings": [{ "name": "High Voltage" }, { "name": "Confident Strike" }]
+      "slot": "melee",
+      "name": {
+        "raw_label": "Branx Mk VI Shock Maul & Suppression Shield",
+        "canonical_entity_id": "shared.weapon.powermaul_p2_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "20-25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "20-25% Damage (Carapace)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "High Voltage",
+          "canonical_entity_id": "shared.name_family.blessing.high_voltage",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Confident Strike",
+          "canonical_entity_id": "shared.name_family.blessing.confident_strike",
+          "resolution_status": "resolved"
+        }
+      ]
     },
     {
-      "name": "Judgement Mk IV Subductor Shotpistol & Riot Shield",
-      "perks": ["20-25% Damage (Maniacs)", "20-25% Damage (Flak Armoured)"],
-      "blessings": [{ "name": "Full Bore" }, { "name": "Fire Frenzy" }]
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Judgement Mk IV Subductor Shotpistol & Riot Shield",
+        "canonical_entity_id": "shared.weapon.shotpistol_shield_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "20-25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "20-25% Damage (Flak Armoured)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Full Bore",
+          "canonical_entity_id": "shared.name_family.blessing.full_bore",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Fire Frenzy",
+          "canonical_entity_id": "shared.name_family.blessing.fire_frenzy",
+          "resolution_status": "resolved"
+        }
+      ]
     }
   ],
   "curios": [
-    { "name": "Gilded Inquisitorial Rosette", "perks": ["+4-5% Toughness", "+15-20% DR vs Gunners"] },
-    { "name": "Gilded Inquisitorial Rosette", "perks": ["+4-5% Health"] },
-    { "name": "Scrap of Scripture", "perks": [] }
-  ],
-  "talents": { "active": [], "inactive": [] }
+    {
+      "name": {
+        "raw_label": "Gilded Inquisitorial Rosette",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+4-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+15-20% DR vs Gunners",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.15,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Gilded Inquisitorial Rosette",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+4-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Scrap of Scripture",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": []
+    }
+  ]
 }

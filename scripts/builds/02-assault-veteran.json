@@ -1,23 +1,176 @@
 {
+  "schema_version": 1,
   "title": "Assault Veteran",
-  "author": "Graf",
-  "class": "veteran",
+  "class": {
+    "raw_label": "veteran",
+    "canonical_entity_id": "shared.class.veteran",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "legacy-fixture://scripts/builds/02-assault-veteran.json",
+    "author": "Graf",
+    "scraped_at": "2026-03-13T00:00:00Z"
+  },
+  "ability": {
+    "raw_label": "Unknown ability",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "blitz": {
+    "raw_label": "Unknown blitz",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "aura": {
+    "raw_label": "Unknown aura",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "keystone": null,
+  "talents": [],
   "weapons": [
     {
-      "name": "Lawbringer Mk IIb Power Falchion",
-      "perks": ["20-25% Damage (Flak Armoured)", "20-25% Damage (Maniacs)"],
-      "blessings": [{ "name": "Energy Leakage" }, { "name": "Cranial Grounding" }]
+      "slot": "melee",
+      "name": {
+        "raw_label": "Lawbringer Mk IIb Power Falchion",
+        "canonical_entity_id": "shared.weapon.powersword_p2_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "20-25% Damage (Flak Armoured)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "20-25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Energy Leakage",
+          "canonical_entity_id": "shared.name_family.blessing.energy_leakage",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Cranial Grounding",
+          "canonical_entity_id": null,
+          "resolution_status": "non_canonical"
+        }
+      ]
     },
     {
-      "name": "M35 Magnacore Mk II Plasma Gun",
-      "perks": ["20-25% Damage (Carapace)", "20-25% Damage (Unyielding)"],
-      "blessings": [{ "name": "Gets Hot!" }, { "name": "Rising Heat" }]
+      "slot": "ranged",
+      "name": {
+        "raw_label": "M35 Magnacore Mk II Plasma Gun",
+        "canonical_entity_id": "shared.weapon.plasmagun_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "20-25% Damage (Carapace)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "20-25% Damage (Unyielding)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Gets Hot!",
+          "canonical_entity_id": "shared.name_family.blessing.gets_hot",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Rising Heat",
+          "canonical_entity_id": "shared.name_family.blessing.rising_heat",
+          "resolution_status": "resolved"
+        }
+      ]
     }
   ],
   "curios": [
-    { "name": "Blessed Bullet", "perks": ["+3-4% Combat Ability Regen", "+15-20% DR vs Gunners"] },
-    { "name": "Blessed Bullet", "perks": ["+10-12% Stamina Regeneration"] },
-    { "name": "Blessed Bullet", "perks": [] }
-  ],
-  "talents": { "active": [], "inactive": [] }
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+3-4% Combat Ability Regen",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.03,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+15-20% DR vs Gunners",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.15,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+10-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": []
+    }
+  ]
 }

@@ -1,23 +1,145 @@
 {
+  "schema_version": 1,
   "title": "Crackhead John Wick",
-  "author": "Sanloms",
-  "class": "hive scum",
+  "class": {
+    "raw_label": "hive scum",
+    "canonical_entity_id": "shared.class.broker",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "legacy-fixture://scripts/builds/17-crackhead-john-wick.json",
+    "author": "Sanloms",
+    "scraped_at": "2026-03-13T00:00:00Z"
+  },
+  "ability": {
+    "raw_label": "Unknown ability",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "blitz": {
+    "raw_label": "Unknown blitz",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "aura": {
+    "raw_label": "Unknown aura",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "keystone": null,
+  "talents": [],
   "weapons": [
     {
-      "name": "Improvised Mk I Shivs",
-      "perks": ["20-25% Damage (Carapace)"],
-      "blessings": [{ "name": "Uncanny Strike" }, { "name": "Precognition" }]
+      "slot": "melee",
+      "name": {
+        "raw_label": "Improvised Mk I Shivs",
+        "canonical_entity_id": "shared.weapon.dual_shivs_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "20-25% Damage (Carapace)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Uncanny Strike",
+          "canonical_entity_id": "shared.name_family.blessing.uncanny_strike",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Precognition",
+          "canonical_entity_id": "shared.name_family.blessing.precognition",
+          "resolution_status": "resolved"
+        }
+      ]
     },
     {
-      "name": "Branx Mk VIII Dual Stub Pistols",
-      "perks": ["20-25% Damage (Flak Armoured)"],
-      "blessings": [{ "name": "Run 'n' Gun" }, { "name": "Speedload" }]
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Branx Mk VIII Dual Stub Pistols",
+        "canonical_entity_id": "shared.weapon.dual_stubpistols_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "20-25% Damage (Flak Armoured)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Run 'n' Gun",
+          "canonical_entity_id": "shared.name_family.blessing.run_n_gun",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Speedload",
+          "canonical_entity_id": "shared.name_family.blessing.speedload",
+          "resolution_status": "resolved"
+        }
+      ]
     }
   ],
   "curios": [
-    { "name": "Blessed Bullet", "perks": ["+4-5% Health", "+15-20% DR vs Gunners"] },
-    { "name": "Blessed Bullet", "perks": [] },
-    { "name": "Blessed Bullet", "perks": [] }
-  ],
-  "talents": { "active": [], "inactive": [] }
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+4-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+15-20% DR vs Gunners",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.15,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": []
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": []
+    }
+  ]
 }

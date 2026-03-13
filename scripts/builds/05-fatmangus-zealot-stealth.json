@@ -1,23 +1,176 @@
 {
+  "schema_version": 1,
   "title": "Fatmangus Zealot Stealth",
-  "author": "dopeslinker",
-  "class": "zealot",
+  "class": {
+    "raw_label": "zealot",
+    "canonical_entity_id": "shared.class.zealot",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "legacy-fixture://scripts/builds/05-fatmangus-zealot-stealth.json",
+    "author": "dopeslinker",
+    "scraped_at": "2026-03-13T00:00:00Z"
+  },
+  "ability": {
+    "raw_label": "Unknown ability",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "blitz": {
+    "raw_label": "Unknown blitz",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "aura": {
+    "raw_label": "Unknown aura",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "keystone": null,
+  "talents": [],
   "weapons": [
     {
-      "name": "Munitorum Mk II Relic Blade",
-      "perks": ["20-25% Damage (Flak Armoured)", "20-25% Damage (Unyielding)"],
-      "blessings": [{ "name": "Wrath" }, { "name": "Overload" }]
+      "slot": "melee",
+      "name": {
+        "raw_label": "Munitorum Mk II Relic Blade",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "20-25% Damage (Flak Armoured)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "20-25% Damage (Unyielding)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Wrath",
+          "canonical_entity_id": "shared.name_family.blessing.wrath",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Overload",
+          "canonical_entity_id": "shared.name_family.blessing.overload",
+          "resolution_status": "resolved"
+        }
+      ]
     },
     {
-      "name": "Locke Mk III Spearhead Boltgun",
-      "perks": ["20-25% Damage (Maniacs)", "20-25% Damage (Unyielding)"],
-      "blessings": [{ "name": "Pinning Fire" }, { "name": "Puncture" }]
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Locke Mk III Spearhead Boltgun",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "20-25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "20-25% Damage (Unyielding)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Pinning Fire",
+          "canonical_entity_id": "shared.name_family.blessing.pinning_fire",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Puncture",
+          "canonical_entity_id": "shared.name_family.blessing.puncture",
+          "resolution_status": "resolved"
+        }
+      ]
     }
   ],
   "curios": [
-    { "name": "Blessed Bullet", "perks": ["+10-12% Revive Speed", "+15-20% DR vs Gunners"] },
-    { "name": "Blessed Bullet", "perks": ["+10-12% Stamina Regeneration"] },
-    { "name": "Blessed Bullet", "perks": [] }
-  ],
-  "talents": { "active": [], "inactive": [] }
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+10-12% Revive Speed",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+15-20% DR vs Gunners",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.15,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+10-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": []
+    }
+  ]
 }

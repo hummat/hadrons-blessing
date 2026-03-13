@@ -1,23 +1,165 @@
 {
+  "schema_version": 1,
   "title": "Veteran Squad Leader",
-  "author": "seventhcodex",
-  "class": "veteran",
+  "class": {
+    "raw_label": "veteran",
+    "canonical_entity_id": "shared.class.veteran",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "https://darktide.gameslantern.com/builds/9a565016-bd70-4fe0-8c82-1080bc73412e/veteran-squad-leader",
+    "author": "seventhcodex",
+    "scraped_at": "2026-03-13T00:00:00Z"
+  },
+  "ability": {
+    "raw_label": "Unknown ability",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "blitz": {
+    "raw_label": "Unknown blitz",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "aura": {
+    "raw_label": "Unknown aura",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "keystone": null,
+  "talents": [],
   "weapons": [
     {
-      "name": "Lawbringer Mk IIb Power Falchion",
-      "perks": ["20-25% Damage (Flak Armoured)", "20-25% Damage (Maniacs)"],
-      "blessings": [{ "name": "Cranial Grounding" }, { "name": "Heatsink" }]
+      "slot": "melee",
+      "name": {
+        "raw_label": "Lawbringer Mk IIb Power Falchion",
+        "canonical_entity_id": "shared.weapon.powersword_p2_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "20-25% Damage (Flak Armoured)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "20-25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Cranial Grounding",
+          "canonical_entity_id": null,
+          "resolution_status": "non_canonical"
+        },
+        {
+          "raw_label": "Heatsink",
+          "canonical_entity_id": null,
+          "resolution_status": "non_canonical"
+        }
+      ]
     },
     {
-      "name": "M35 Magnacore Mk II Plasma Gun",
-      "perks": ["20-25% Damage (Maniacs)", "20-25% Damage (Unyielding)"],
-      "blessings": [{ "name": "Rising Heat" }, { "name": "Gets Hot!" }]
+      "slot": "ranged",
+      "name": {
+        "raw_label": "M35 Magnacore Mk II Plasma Gun",
+        "canonical_entity_id": "shared.weapon.plasmagun_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "20-25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "20-25% Damage (Unyielding)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.2,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Rising Heat",
+          "canonical_entity_id": "shared.name_family.blessing.rising_heat",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Gets Hot!",
+          "canonical_entity_id": "shared.name_family.blessing.gets_hot",
+          "resolution_status": "resolved"
+        }
+      ]
     }
   ],
   "curios": [
-    { "name": "Blessed Bullet", "perks": ["+15-20% DR vs Snipers", "+15-20% DR vs Gunners"] },
-    { "name": "Blessed Bullet", "perks": [] },
-    { "name": "Blessed Bullet", "perks": [] }
-  ],
-  "talents": { "active": [], "inactive": [] }
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+15-20% DR vs Snipers",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_snipers",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.15,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+15-20% DR vs Gunners",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.15,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": []
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": []
+    }
+  ]
 }
