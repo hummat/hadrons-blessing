@@ -73,7 +73,14 @@ async function canonicalizeBlessings(rawBlessings, queryContext, deps = {}) {
 
   for (const blessing of rawBlessings ?? []) {
     const label = typeof blessing === "string" ? blessing : blessing?.name;
-    selections.push(await toSelection(label, queryContext, deps));
+    const selection = await toSelection(label, queryContext, deps);
+    if (
+      selection.resolution_status === "resolved"
+      && !selection.canonical_entity_id.startsWith("shared.name_family.blessing.")
+    ) {
+      throw new Error(`Blessing ${label} resolved to non-family id ${selection.canonical_entity_id}`);
+    }
+    selections.push(selection);
   }
 
   return selections;
@@ -147,17 +154,18 @@ function classifyBuildNodes(rawBuild, deps = {}) {
 async function canonicalizeScrapedBuild(rawBuild, deps = {}) {
   const classified = classifyBuildNodes(rawBuild, deps);
   const className = String(rawBuild.class ?? "").trim().toLowerCase();
+  const provenance = {
+    source_kind: deps.provenance?.source_kind ?? "gameslantern",
+    source_url: deps.provenance?.source_url ?? String(rawBuild.url ?? "").trim(),
+    author: deps.provenance?.author ?? (String(rawBuild.author ?? "").trim() || "unknown"),
+    scraped_at: deps.provenance?.scraped_at ?? deps.scrapedAt ?? new Date().toISOString(),
+  };
 
   const build = {
     schema_version: 1,
     title: String(rawBuild.title ?? "").trim() || "Untitled Build",
     class: await toSelection(className, { kind: "class", class: className }, deps),
-    provenance: {
-      source_kind: "gameslantern",
-      source_url: String(rawBuild.url ?? "").trim(),
-      author: String(rawBuild.author ?? "").trim() || "unknown",
-      scraped_at: deps.scrapedAt ?? new Date().toISOString(),
-    },
+    provenance,
     ability: classified.ability
       ? await toSelection(classified.ability.name, { kind: "ability", class: className }, deps)
       : placeholderSelection("Unknown ability"),

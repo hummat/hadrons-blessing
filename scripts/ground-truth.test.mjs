@@ -1,7 +1,9 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve, sep } from "node:path";
+import { join } from "node:path";
+import { tmpdir } from "node:os";
 import { REPO_ROOT } from "./ground-truth/lib/load.mjs";
 import { normalizeText } from "./ground-truth/lib/normalize.mjs";
 import {
@@ -17,6 +19,21 @@ import { auditBuildFile } from "./audit-build-names.mjs";
 const PINNED_SOURCE_ROOT = process.env.GROUND_TRUTH_SOURCE_ROOT != null
   ? resolve(process.env.GROUND_TRUTH_SOURCE_ROOT)
   : null;
+
+function makeCanonicalSelection(rawLabel, canonicalEntityId, resolutionStatus = "resolved") {
+  return {
+    raw_label: rawLabel,
+    canonical_entity_id: canonicalEntityId,
+    resolution_status: resolutionStatus,
+  };
+}
+
+function writeTempCanonicalBuild(build) {
+  const tempDir = mkdtempSync(join(tmpdir(), "hb-audit-canonical-"));
+  const filePath = join(tempDir, "build.json");
+  writeFileSync(filePath, JSON.stringify(build, null, 2));
+  return filePath;
+}
 
 describe("normalizeText", () => {
   it("normalizes guide-style text deterministically", () => {
@@ -599,6 +616,136 @@ describe("auditBuildFile", () => {
       assert.deepEqual(result, expected);
     });
   }
+
+  it(
+    "audits canonical build class-side selections and persisted ids",
+    { skip: PINNED_SOURCE_ROOT == null },
+    async () => {
+      const canonicalBuildPath = writeTempCanonicalBuild({
+        schema_version: 1,
+        title: "Canonical Psyker Fixture",
+        class: makeCanonicalSelection("psyker", "shared.class.psyker"),
+        provenance: {
+          source_kind: "gameslantern",
+          source_url: "https://darktide.gameslantern.com/builds/example",
+          author: "tester",
+          scraped_at: "2026-03-13T12:00:00Z",
+        },
+        ability: makeCanonicalSelection("Venting Shriek", "psyker.ability.psyker_shout_vent_warp_charge"),
+        blitz: makeCanonicalSelection("Brain Rupture", "psyker.ability.psyker_brain_burst_improved"),
+        aura: makeCanonicalSelection("Psykinetic's Aura", null, "unresolved"),
+        keystone: makeCanonicalSelection("Warp Siphon", null, "unresolved"),
+        talents: [
+          makeCanonicalSelection("Warp Rider", null, "unresolved"),
+        ],
+        weapons: [
+          {
+            slot: "melee",
+            name: makeCanonicalSelection("Covenant Mk VI Blaze Force Greatsword", "shared.weapon.forcesword_2h_p1_m1"),
+            perks: [
+              {
+                ...makeCanonicalSelection(
+                  "20-25% Damage (Carapace)",
+                  "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_carapace_damage",
+                ),
+                value: { min: 0.2, max: 0.25, unit: "percent" },
+              },
+            ],
+            blessings: [
+              makeCanonicalSelection("Blazing Spirit", "shared.name_family.blessing.blazing_spirit"),
+            ],
+          },
+          {
+            slot: "ranged",
+            name: makeCanonicalSelection("Equinox Mk III Voidblast Force Staff", "shared.weapon.forcestaff_p4_m1"),
+            perks: [],
+            blessings: [],
+          },
+        ],
+        curios: [
+          {
+            name: makeCanonicalSelection("Blessed Bullet", null, "non_canonical"),
+            perks: [
+              {
+                ...makeCanonicalSelection("+4-5% Toughness", "shared.gadget_trait.gadget_toughness_increase"),
+                value: { min: 0.04, max: 0.05, unit: "percent" },
+              },
+            ],
+          },
+        ],
+      });
+
+      const result = await auditBuildFile(canonicalBuildPath);
+
+      assert.equal(
+        result.resolved.some((entry) => entry.field === "ability" && entry.resolved_entity_id === "psyker.ability.psyker_shout_vent_warp_charge"),
+        true,
+      );
+      assert.equal(
+        result.resolved.some((entry) => entry.field === "blitz" && entry.resolved_entity_id === "psyker.ability.psyker_brain_burst_improved"),
+        true,
+      );
+      assert.equal(
+        result.resolved.some((entry) => entry.field === "talents[0]" && entry.resolved_entity_id === "psyker.talent.psyker_damage_based_on_warp_charge"),
+        true,
+      );
+      assert.equal(
+        result.unresolved.some((entry) => entry.field === "aura"),
+        true,
+      );
+      assert.equal(
+        result.non_canonical.some((entry) => entry.field === "curios[0].name" && entry.text === "Blessed Bullet"),
+        true,
+      );
+    },
+  );
+
+  it(
+    "reports stale canonical ids in canonical builds",
+    { skip: PINNED_SOURCE_ROOT == null },
+    async () => {
+      const canonicalBuildPath = writeTempCanonicalBuild({
+        schema_version: 1,
+        title: "Broken Canonical Psyker Fixture",
+        class: makeCanonicalSelection("psyker", "shared.class.psyker"),
+        provenance: {
+          source_kind: "gameslantern",
+          source_url: "https://darktide.gameslantern.com/builds/example",
+          author: "tester",
+          scraped_at: "2026-03-13T12:00:00Z",
+        },
+        ability: makeCanonicalSelection("Venting Shriek", "psyker.ability.definitely_missing"),
+        blitz: makeCanonicalSelection("Brain Rupture", null, "unresolved"),
+        aura: makeCanonicalSelection("Psykinetic's Aura", null, "unresolved"),
+        keystone: null,
+        talents: [],
+        weapons: [
+          {
+            slot: "melee",
+            name: makeCanonicalSelection("Covenant Mk VI Blaze Force Greatsword", "shared.weapon.forcesword_2h_p1_m1"),
+            perks: [],
+            blessings: [],
+          },
+          {
+            slot: "ranged",
+            name: makeCanonicalSelection("Equinox Mk III Voidblast Force Staff", "shared.weapon.forcestaff_p4_m1"),
+            perks: [],
+            blessings: [],
+          },
+        ],
+        curios: [],
+      });
+
+      const result = await auditBuildFile(canonicalBuildPath);
+
+      assert.equal(
+        result.unresolved.some(
+          (entry) => entry.field === "ability" && entry.warnings.includes("stale_canonical_id"),
+        ),
+        true,
+      );
+    },
+  );
 
   it("audits the structured class field", async () => {
     const result = await auditBuildFile("scripts/builds/08-gandalf-melee-wizard.json");

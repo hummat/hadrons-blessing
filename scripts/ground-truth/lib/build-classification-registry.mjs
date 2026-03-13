@@ -1,5 +1,13 @@
 const BUILD_CLASSIFICATION_REGISTRY = {
-  psyker: {},
+  psyker: {
+    "brain-rupture": { slot: "blitz", kind: "blitz" },
+    "empowered-psionics": { slot: "keystone", kind: "keystone" },
+    "psykinetics-aura": { slot: "aura", kind: "aura" },
+    "scriers-gaze": { slot: "ability", kind: "ability" },
+    "venting-shriek": { slot: "ability", kind: "ability" },
+    "warp-rider": { slot: "talents", kind: "talent" },
+    "warp-siphon": { slot: "keystone", kind: "keystone" },
+  },
   veteran: {},
   zealot: {},
   ogryn: {},

@@ -21,6 +21,7 @@
 //     site:darktide.gameslantern.com/builds veteran
 
 import { chromium } from "playwright";
+import { canonicalizeScrapedBuild } from "./ground-truth/lib/build-canonicalize.mjs";
 
 const USAGE = `Usage: node scripts/extract-build.mjs <gameslantern-build-url> [--json|--markdown]`;
 
@@ -294,81 +295,61 @@ async function extractBuild(url) {
   }
 }
 
+function selectionLabel(selection) {
+  if (!selection) {
+    return "None";
+  }
+
+  if (selection.resolution_status === "resolved") {
+    return selection.raw_label;
+  }
+
+  return `${selection.raw_label} [${selection.resolution_status}]`;
+}
+
 function formatMarkdown(build) {
   const lines = [];
   lines.push(`# ${build.title || "Untitled Build"}`);
-  if (build.author) lines.push(`By **${build.author}**`);
-  lines.push(`Class: **${build.class}**`);
-  lines.push(`Source: ${build.url}`);
+  if (build.provenance.author) lines.push(`By **${build.provenance.author}**`);
+  lines.push(`Class: **${selectionLabel(build.class)}**`);
+  lines.push(`Source: ${build.provenance.source_url}`);
   lines.push("");
 
-  // Talents grouped by tier (uses pre-computed t.tier from post-processing)
-  const tiers = { ability: [], keystone: [], notable: [], talent: [], stat: [] };
-  for (const t of build.talents.active) {
-    const tier = t.tier || frameTier(t.frame);
-    tiers[tier] = tiers[tier] || [];
-    tiers[tier].push(t.name || slugToName(t.slug));
-  }
-
-  lines.push("## Talents");
+  lines.push("## Class Decisions");
   lines.push("");
-  if (tiers.ability.length) {
-    const [abilityName, ...modifiers] = tiers.ability;
-    if (modifiers.length) {
-      lines.push(`**Ability:** ${abilityName} (modifiers: ${modifiers.join(", ")})`);
-    } else {
-      lines.push(`**Ability:** ${abilityName}`);
-    }
+  lines.push(`**Ability:** ${selectionLabel(build.ability)}`);
+  lines.push(`**Blitz:** ${selectionLabel(build.blitz)}`);
+  lines.push(`**Aura:** ${selectionLabel(build.aura)}`);
+  lines.push(`**Keystone:** ${selectionLabel(build.keystone)}`);
+  if (build.talents.length) {
+    lines.push(`**Talents:** ${build.talents.map(selectionLabel).join(", ")}`);
   }
-  if (tiers.keystone.length) {
-    lines.push(`**Keystones:** ${tiers.keystone.join(", ")}`);
-  }
-  if (tiers.notable.length) {
-    lines.push(`**Notables:** ${tiers.notable.join(", ")}`);
-  }
-  if (tiers.talent.length) {
-    lines.push(`**Talents:** ${tiers.talent.join(", ")}`);
-  }
-  if (tiers.stat.length) {
-    lines.push(`**Stat nodes:** ${tiers.stat.join(", ")}`);
-  }
-  lines.push(`\nTotal: ${build.talents.active.length}/30`);
   lines.push("");
 
-  // Weapons
   if (build.weapons.length) {
     lines.push("## Weapons");
     for (const w of build.weapons) {
-      lines.push(`\n### ${w.name}${w.rarity ? ` (${w.rarity})` : ""}`);
+      lines.push(`\n### ${selectionLabel(w.name)} (${w.slot})`);
       if (w.perks.length) {
         lines.push("**Perks:**");
-        for (const p of w.perks) lines.push(`- ${p}`);
+        for (const perk of w.perks) lines.push(`- ${selectionLabel(perk)}`);
       }
       if (w.blessings.length) {
         lines.push("**Blessings:**");
-        for (const b of w.blessings) {
-          lines.push(`- **${b.name}**: ${b.description}`);
+        for (const blessing of w.blessings) {
+          lines.push(`- ${selectionLabel(blessing)}`);
         }
       }
     }
     lines.push("");
   }
 
-  // Curios
   if (build.curios.length) {
     lines.push("## Curios");
     for (const c of build.curios) {
-      lines.push(
-        `- **${c.name}**${c.rarity ? ` (${c.rarity})` : ""}: ${c.perks.join(", ")}`
-      );
+      const perkLabels = c.perks.map(selectionLabel).join(", ");
+      lines.push(`- **${selectionLabel(c.name)}**: ${perkLabels}`);
     }
-    lines.push("");
-  }
-
-  // Description
-  if (build.description) {
-    lines.push("## Description");
-    lines.push(build.description.slice(0, 2000));
     lines.push("");
   }
 
@@ -386,19 +367,21 @@ if (!url || !url.includes("gameslantern.com/builds/")) {
 }
 
 console.error("Extracting build from:", url);
-const build = await extractBuild(url);
+const rawBuild = await extractBuild(url);
 
 // Post-process talents: compute tier and promote known keystones
-build.talents.active = build.talents.active.map((t) => {
+rawBuild.talents.active = rawBuild.talents.active.map((t) => {
   const baseTier = frameTier(t.frame);
   const tier = baseTier === "talent" && KEYSTONES.has(t.slug) ? "keystone" : baseTier;
   return { ...t, name: slugToName(t.slug), tier };
 });
-build.talents.inactive = build.talents.inactive.map((t) => {
+rawBuild.talents.inactive = rawBuild.talents.inactive.map((t) => {
   const baseTier = frameTier(t.frame);
   const tier = baseTier === "talent" && KEYSTONES.has(t.slug) ? "keystone" : baseTier;
   return { ...t, name: slugToName(t.slug), tier };
 });
+
+const build = await canonicalizeScrapedBuild(rawBuild);
 
 if (format === "json") {
   console.log(JSON.stringify(build, null, 2));

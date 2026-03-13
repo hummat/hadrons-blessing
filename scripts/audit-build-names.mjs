@@ -1,64 +1,16 @@
-import { basename } from "node:path";
 import { runCliMain } from "./ground-truth/lib/cli.mjs";
 import { loadJsonFile } from "./ground-truth/lib/load.mjs";
-import { classifyKnownUnresolved } from "./ground-truth/lib/non-canonical.mjs";
-import { resolveQuery } from "./ground-truth/lib/resolve.mjs";
+import {
+  appendAuditEntry,
+  auditCanonicalBuild,
+  createAudit,
+  finalizeAudit,
+  isCanonicalBuild,
+  resolveField,
+} from "./ground-truth/lib/build-audit.mjs";
 
-async function resolveField(field, text, queryContext) {
-  const result = await resolveQuery(text, queryContext);
-
-  return {
-    field,
-    text,
-    resolution_state: result.resolution_state,
-    resolved_entity_id: result.resolved_entity_id,
-    proposed_entity_id: result.proposed_entity_id,
-    match_type: result.match_type,
-    confidence: result.confidence,
-    warnings: result.warnings,
-  };
-}
-
-function toNonCanonicalEntry(result, record) {
-  return {
-    ...result,
-    non_canonical_kind: record.non_canonical_kind,
-    provenance: record.provenance,
-    notes: record.notes,
-    warnings: [...new Set([...result.warnings, "known_non_canonical_label"])],
-  };
-}
-
-function appendAuditEntry(audit, result, queryContext) {
-  if (result.resolution_state === "resolved") {
-    audit.resolved.push(result);
-    return;
-  }
-
-  if (result.resolution_state === "ambiguous") {
-    audit.ambiguous.push(result);
-    return;
-  }
-
-  const nonCanonicalRecord = classifyKnownUnresolved(result.text, queryContext);
-  if (nonCanonicalRecord) {
-    audit.non_canonical.push(toNonCanonicalEntry(result, nonCanonicalRecord));
-    return;
-  }
-
-  audit.unresolved.push(result);
-}
-
-async function auditBuildFile(buildPath) {
-  const build = loadJsonFile(buildPath);
-  const audit = {
-    build: basename(buildPath),
-    resolved: [],
-    ambiguous: [],
-    non_canonical: [],
-    unresolved: [],
-    warnings: [],
-  };
+async function auditLegacyBuild(buildPath, build) {
+  const audit = createAudit(buildPath);
 
   const classResult = await resolveField("class", build.class, {
     kind: "class",
@@ -145,22 +97,17 @@ async function auditBuildFile(buildPath) {
     }
   }
 
-  audit.warnings = [
-    ...new Set(
-      [
-        ...audit.resolved,
-        ...audit.ambiguous,
-        ...audit.non_canonical,
-        ...audit.unresolved,
-      ].flatMap((entry) => entry.warnings),
-    ),
-  ].sort();
-  audit.resolved.sort((left, right) => left.field.localeCompare(right.field));
-  audit.ambiguous.sort((left, right) => left.field.localeCompare(right.field));
-  audit.non_canonical.sort((left, right) => left.field.localeCompare(right.field));
-  audit.unresolved.sort((left, right) => left.field.localeCompare(right.field));
+  return finalizeAudit(audit);
+}
 
-  return audit;
+async function auditBuildFile(buildPath) {
+  const build = loadJsonFile(buildPath);
+
+  if (isCanonicalBuild(build)) {
+    return auditCanonicalBuild(buildPath, build);
+  }
+
+  return auditLegacyBuild(buildPath, build);
 }
 
 if (import.meta.main) {
