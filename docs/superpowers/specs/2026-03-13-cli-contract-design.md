@@ -12,9 +12,7 @@ The v1 stable CLI contract is:
 The v1 provisional CLI surface is:
 
 - `score`
-
-The v1 deferred CLI surface is:
-
+- `coverage`
 - `inspect`
 
 This is intentional.
@@ -23,7 +21,7 @@ This is intentional.
 
 `score` is useful, but the current output still mixes mechanical scoring with placeholders for manual qualitative judgment and bot flags. That is not stable enough to freeze as a downstream contract yet.
 
-`inspect` is desirable, but it does not exist today and should not be promised as a stable contract before its query model is designed.
+`coverage` and `inspect` are now implemented as read-only companion commands over checked-in data, but they still should not be treated as stable contract surfaces yet.
 
 ## 2. Problem
 
@@ -35,7 +33,7 @@ Current problems:
 - no documented representation of ambiguity vs unresolved vs unsupported coverage
 - no documented bootstrap behavior when generated index artifacts are absent
 - `score` looks more mature than it is
-- `inspect` is mentioned in scope discussions but has no implemented interface
+- companion commands beyond `resolve` / `audit` are implemented but not yet frozen
 
 If this stays implicit, downstream agents will couple themselves to implementation details and guess at semantics.
 
@@ -68,7 +66,7 @@ Cons:
 
 - dishonest to current repo state
 - freezes weak or placeholder output shapes
-- makes future cleanup of `score` and `inspect` harder
+- makes future cleanup of `score`, `coverage`, and `inspect` harder
 
 Verdict:
 
@@ -125,7 +123,8 @@ Command status in v1:
 - `resolve`: `stable`
 - `audit`: `stable`
 - `score`: `provisional`
-- `inspect`: `deferred`
+- `coverage`: `provisional`
+- `inspect`: `provisional`
 
 ### 5.2 Schema philosophy
 
@@ -336,7 +335,7 @@ Specific reasons not to freeze it yet:
 
 The next contract revision can promote a subset of `score` once the output is cleaned up.
 
-## 9. Deferred v1: `inspect`
+## 9. Provisional v1: `inspect`
 
 ### 9.1 Open design question
 
@@ -355,27 +354,31 @@ Option 2:
 
 Recommendation:
 
-- defer this decision until after the stable `resolve`/`audit` contract is documented and implemented
+- keep the command implemented but non-stable until its query shape is frozen
 - do not promise `inspect` in the v1 stable CLI contract
 
-## 10. Coverage Metadata Contract
+## 10. Provisional v1: `coverage`
 
-This needs its own output shape rather than being smuggled into ad hoc warnings.
+Coverage now exists as a read-only companion command over checked-in shard data.
 
-Recommended v1.1 addition:
+Current role:
 
-- separate `coverage` command or machine-readable metadata file surfaced through CLI
+- expose current domain/kind coverage status
+- distinguish `source_backed`, `partial`, and `unsupported` at a coarse level
+- help downstream agents separate missing coverage from failed lookups
 
-Minimum fields:
+Why still provisional:
+
+- coverage expectations are still partly curated policy, not purely derived fact
+- the output shape may grow once downstream users start relying on it
+- this is new enough that naming and field granularity may still need cleanup
+
+Minimum useful fields remain:
 
 - domain or entity-kind scope
 - status: `source_backed`, `partial`, `unsupported`
 - notes
 - source snapshot identifier where relevant
-
-Reason:
-
-- downstream agents need to distinguish "not found" from "not covered"
 
 This is not required to freeze `resolve` and `audit`, but it should be the next contract addition after the core commands.
 
@@ -462,17 +465,17 @@ This contract design is satisfied when:
 
 1. `resolve` and `audit` have documented stable fields and semantics.
 2. `score` is explicitly documented as provisional rather than silently treated as stable.
-3. `inspect` is explicitly deferred instead of implied.
+3. `coverage` and `inspect` are explicitly documented as implemented but provisional.
 4. Setup/bootstrap behavior is explicit and CLI-first.
 5. Downstream agents can rely on authoritative vs non-authoritative outcomes without coupling to internal scoring details.
 
 ## 14. Follow-Up Work
 
 1. Update docs to mark `resolve` and `audit` as the stable v1 CLI contract.
-2. Update docs to mark `score` as provisional.
+2. Update docs to mark `score`, `coverage`, and `inspect` as provisional.
 3. Document command-by-command environment/setup requirements, especially `GROUND_TRUTH_SOURCE_ROOT`.
 4. Implement the desired read-oriented bootstrap behavior for `resolve` / `audit` instead of relying on implicit in-memory rebuild plus generated-file writes.
 5. Implement or document explicit setup/bootstrap failure behavior in a way that matches the actual command paths.
 6. Document the stable subset of `resolve` output while allowing additional fields to remain additive.
 7. Reconcile `score` name matching with the ground-truth resolver before promoting any part of `score` to stable.
-8. Design a separate follow-up spec for `inspect` and coverage metadata.
+8. Revisit `coverage` / `inspect` output shapes after downstream use clarifies what should actually be frozen.
