@@ -1,0 +1,145 @@
+{
+  "$id": "canonical-build.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "title",
+    "class",
+    "provenance",
+    "ability",
+    "blitz",
+    "aura",
+    "keystone",
+    "talents",
+    "weapons",
+    "curios"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "class": {
+      "$ref": "build-selection.schema.json"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_kind",
+        "source_url",
+        "author",
+        "scraped_at"
+      ],
+      "properties": {
+        "source_kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "author": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scraped_at": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "ability": {
+      "$ref": "build-selection.schema.json"
+    },
+    "blitz": {
+      "$ref": "build-selection.schema.json"
+    },
+    "aura": {
+      "$ref": "build-selection.schema.json"
+    },
+    "keystone": {
+      "anyOf": [
+        {
+          "$ref": "build-selection.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "talents": {
+      "type": "array",
+      "items": {
+        "$ref": "build-selection.schema.json"
+      }
+    },
+    "weapons": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "slot",
+          "name",
+          "perks",
+          "blessings"
+        ],
+        "properties": {
+          "slot": {
+            "type": "string",
+            "enum": [
+              "melee",
+              "ranged"
+            ]
+          },
+          "name": {
+            "$ref": "build-selection.schema.json"
+          },
+          "perks": {
+            "type": "array",
+            "items": {
+              "$ref": "build-selection.schema.json"
+            }
+          },
+          "blessings": {
+            "type": "array",
+            "items": {
+              "$ref": "build-selection.schema.json"
+            }
+          }
+        }
+      }
+    },
+    "curios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "perks"
+        ],
+        "properties": {
+          "name": {
+            "$ref": "build-selection.schema.json"
+          },
+          "perks": {
+            "type": "array",
+            "items": {
+              "$ref": "build-selection.schema.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "$id": "build-selection.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "raw_label",
+    "canonical_entity_id",
+    "resolution_status"
+  ],
+  "properties": {
+    "raw_label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_entity_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "resolution_status": {
+      "type": "string",
+      "enum": [
+        "resolved",
+        "unresolved",
+        "non_canonical"
+      ]
+    },
+    "value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "min",
+        "max",
+        "unit"
+      ],
+      "properties": {
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "resolution_status": {
+            "const": "resolved"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "canonical_entity_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "resolution_status": {
+            "enum": [
+              "unresolved",
+              "non_canonical"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "canonical_entity_id": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}
