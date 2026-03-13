@@ -4,8 +4,9 @@
 //
 // Usage:
 //   node scripts/extract-build.mjs <url>
-//   node scripts/extract-build.mjs <url> --json        # raw JSON output
-//   node scripts/extract-build.mjs <url> --markdown     # markdown table (default)
+//   node scripts/extract-build.mjs <url> --json         # canonical build JSON
+//   node scripts/extract-build.mjs <url> --raw-json     # scrape-shaped JSON before canonicalization
+//   node scripts/extract-build.mjs <url> --markdown     # canonical markdown summary (default)
 //
 // Finding builds:
 //   The main /builds page only shows the top 20 ranked builds (all classes).
@@ -22,8 +23,9 @@
 
 import { chromium } from "playwright";
 import { canonicalizeScrapedBuild } from "./ground-truth/lib/build-canonicalize.mjs";
+import { extractDescriptionSelections } from "./ground-truth/lib/build-classification.mjs";
 
-const USAGE = `Usage: node scripts/extract-build.mjs <gameslantern-build-url> [--json|--markdown]`;
+const USAGE = `Usage: node scripts/extract-build.mjs <gameslantern-build-url> [--json|--raw-json|--markdown]`;
 
 // Slug → display name: "scriers-gaze" → "Scrier's Gaze"
 function slugToName(slug) {
@@ -105,6 +107,7 @@ async function extractBuild(url) {
         weapons: [],
         curios: [],
         talents: { active: [], inactive: [] },
+        class_selections: null,
         description: "",
       };
 
@@ -182,6 +185,27 @@ async function extractBuild(url) {
           if (h.textContent.trim() === name) return h;
         }
         return null;
+      }
+
+      function isSectionHeading(node) {
+        return node?.classList?.contains("mt-8") && node?.classList?.contains("mb-4");
+      }
+
+      function collectSectionText(name) {
+        const heading = getSection(name);
+        if (!heading) return "";
+
+        const parts = [];
+        let node = heading.nextElementSibling;
+        while (node && !isSectionHeading(node)) {
+          const text = node.innerText?.trim();
+          if (text) {
+            parts.push(text);
+          }
+          node = node.nextElementSibling;
+        }
+
+        return parts.join("\n").trim();
       }
 
       // --- Weapons & Curios ---
@@ -283,10 +307,10 @@ async function extractBuild(url) {
       result.curios = parseItemCards("Curios");
 
       // --- Description ---
-      const descEl = document.querySelector(".darktide-description");
-      if (descEl) {
-        result.description = descEl.innerText.trim().slice(0, 5000);
-      }
+      const sectionDescription = collectSectionText("Description");
+      const teaserDescription =
+        document.querySelector(".darktide-description")?.innerText?.trim() ?? "";
+      result.description = (sectionDescription || teaserDescription).slice(0, 15_000);
 
       return result;
     });
@@ -359,7 +383,11 @@ function formatMarkdown(build) {
 // --- Main ---
 const args = process.argv.slice(2);
 const url = args.find((a) => !a.startsWith("--"));
-const format = args.includes("--json") ? "json" : "markdown";
+const format = args.includes("--raw-json")
+  ? "raw-json"
+  : args.includes("--json")
+    ? "json"
+    : "markdown";
 
 if (!url || !url.includes("gameslantern.com/builds/")) {
   console.error(USAGE);
@@ -380,6 +408,16 @@ rawBuild.talents.inactive = rawBuild.talents.inactive.map((t) => {
   const tier = baseTier === "talent" && KEYSTONES.has(t.slug) ? "keystone" : baseTier;
   return { ...t, name: slugToName(t.slug), tier };
 });
+
+const explicitSelections = extractDescriptionSelections(rawBuild.description);
+rawBuild.class_selections = Object.values(explicitSelections).some((value) => value != null)
+  ? explicitSelections
+  : null;
+
+if (format === "raw-json") {
+  console.log(JSON.stringify(rawBuild, null, 2));
+  process.exit(0);
+}
 
 const build = await canonicalizeScrapedBuild(rawBuild);
 

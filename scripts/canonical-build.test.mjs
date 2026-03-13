@@ -145,6 +145,7 @@ function makeRawBuild(overrides = {}) {
       ],
       inactive: [],
     },
+    class_selections: null,
     description: "Long prose that must not survive canonicalization.",
     ...overrides,
   };
@@ -409,6 +410,50 @@ describe("canonicalizeScrapedBuild", () => {
     assert.equal(build.aura.canonical_entity_id, "psyker.aura.quell_on_elite_kill_aura");
     assert.equal(build.keystone?.raw_label, "Warp Siphon");
     assert.equal(build.keystone?.canonical_entity_id, "psyker.keystone.psyker_overcharge_stance");
+  });
+
+  it("prefers explicit scraped class-side selections over prose fallback", async () => {
+    const build = await canonicalizeScrapedBuild(
+      makeRawBuild({
+        class: "veteran",
+        talents: {
+          active: [],
+          inactive: [],
+        },
+        class_selections: {
+          ability: "Voice of Command",
+          blitz: "Frag Grenade",
+          aura: "Survivalist",
+          keystone: "Duty and Honour",
+        },
+        description: "ABILITY: Wrong Ability. BLITZ: Wrong Blitz. TEAM AURA: Wrong Aura. KEYSTONE: Wrong Keystone.",
+      }),
+      makeStubCanonicalizerDeps({
+        resolveQuery: async (query) => {
+          const resolvedIds = new Map([
+            ["veteran", "shared.class.veteran"],
+            ["Voice of Command", "veteran.ability.veteran_combat_ability_shout"],
+            ["Frag Grenade", "veteran.blitz.veteran_frag_grenade"],
+            ["Survivalist", "veteran.aura.veteran_improved_survivalist"],
+            ["Duty and Honour", "veteran.keystone.veteran_tactical_aid"],
+          ]);
+          return resolvedIds.has(query)
+            ? {
+              resolution_state: "resolved",
+              resolved_entity_id: resolvedIds.get(query),
+            }
+            : {
+              resolution_state: "unresolved",
+              resolved_entity_id: null,
+            };
+        },
+      }),
+    );
+
+    assert.equal(build.ability.raw_label, "Voice of Command");
+    assert.equal(build.blitz.raw_label, "Frag Grenade");
+    assert.equal(build.aura.raw_label, "Survivalist");
+    assert.equal(build.keystone?.raw_label, "Duty and Honour");
   });
 });
 

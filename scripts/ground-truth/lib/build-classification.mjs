@@ -81,10 +81,30 @@ function mergeDescriptionSelections(classified, descriptionSelections) {
   return classified;
 }
 
+function mergeExplicitSelections(classified, explicitSelections) {
+  for (const slot of DESCRIPTION_SLOTS) {
+    const label = String(explicitSelections?.[slot] ?? "").trim();
+    if (classified[slot] != null || label.length === 0) {
+      continue;
+    }
+
+    classified[slot] = {
+      slug: null,
+      frame: null,
+      tier: slot,
+      name: label,
+      source: "scrape",
+    };
+  }
+
+  return classified;
+}
+
 function classifySelectedNodes(selectedNodes, options = {}) {
   const {
     className = "",
     description = "",
+    explicitSelections = null,
     classificationRegistry = BUILD_CLASSIFICATION_REGISTRY,
     classifySlugRole = (slug) => defaultClassifySlugRole(className, slug, classificationRegistry),
   } = options;
@@ -123,6 +143,7 @@ function classifySelectedNodes(selectedNodes, options = {}) {
     throw new Error(`Duplicate class-side slot ${slot} for class ${className || "unknown"}`);
   }
 
+  mergeExplicitSelections(classified, explicitSelections);
   return mergeDescriptionSelections(classified, extractDescriptionSelections(description));
 }
 
