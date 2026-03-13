@@ -34,6 +34,21 @@
 - This recovery comes from build description fallback, not the Games Lantern talent-tree node scrape.
 - The checked-in canonical fixture `scripts/builds/01-veteran-squad-leader.json` now preserves those recovered labels instead of placeholder `Unknown ...` values.
 
+### Live extractor verification
+
+- Ran the live extractor against:
+  - `https://darktide.gameslantern.com/builds/9a565016-bd70-4fe0-8c82-1080bc73412e/veteran-squad-leader`
+- `--raw-json` now returns:
+  - the full Description section instead of only the old teaser snippet
+  - clean `class_selections`:
+    - `ability`: `Voice of Command`
+    - `blitz`: `Shredder Frag Grenade`
+    - `aura`: `Survivalist`
+    - `keystone`: `Focus Target!`
+  - the full active talent tree scrape, which was previously missing from the checked-in sample fixture
+- Canonical `--json` no longer crashes on that real veteran page even though `veteran` class-side registry coverage is still empty.
+- The resulting class-side labels remain `unresolved`, but that is now a resolver/coverage limitation rather than an extraction failure.
+
 ### Scorecard on canonical build fixtures
 
 - `score-build` now accepts the migrated canonical build shape directly.

@@ -11,6 +11,7 @@ function normalizeDescriptionText(description) {
 
 function cleanDescriptionLabel(label) {
   return String(label ?? "")
+    .split(/\s*->\s*/)[0]
     .replace(/^["'([{]+/, "")
     .replace(/["')}\].,:;]+$/, "")
     .trim();
@@ -22,7 +23,6 @@ function firstMatch(description, regex) {
 }
 
 function extractDescriptionSelections(description) {
-  const text = normalizeDescriptionText(description);
   const extracted = {
     ability: null,
     blitz: null,
@@ -30,19 +30,47 @@ function extractDescriptionSelections(description) {
     keystone: null,
   };
 
+  const rawText = String(description ?? "");
+  const text = normalizeDescriptionText(rawText);
+
   if (text.length === 0) {
     return extracted;
   }
 
+  const multilinePatterns = [
+    { slot: "ability", regex: /(?:^|\n)\s*ABILITY\s*[:\-]\s*([^\n]+?)(?:\s*-{2,}\s*)?(?:\n|$)/im },
+    { slot: "blitz", regex: /(?:^|\n)\s*BLITZ\s*[:\-]\s*([^\n]+?)(?:\s*-{2,}\s*)?(?:\n|$)/im },
+    { slot: "aura", regex: /(?:^|\n)\s*(?:TEAM\s+)?AURA\s*[:\-]\s*([^\n]+?)(?:\s*-{2,}\s*)?(?:\n|$)/im },
+    { slot: "keystone", regex: /(?:^|\n)\s*KEYSTONE\s*[:\-]\s*([^\n]+?)(?:\s*-{2,}\s*)?(?:\n|$)/im },
+  ];
+
+  if (rawText.includes("\n")) {
+    for (const { slot, regex } of multilinePatterns) {
+      extracted[slot] = firstMatch(rawText, regex);
+    }
+  }
+
   const explicitPatterns = [
-    { slot: "ability", regex: /\bABILITY\s*[:\-]\s*([^.;|]+)/i },
-    { slot: "blitz", regex: /\bBLITZ\s*[:\-]\s*([^.;|]+)/i },
-    { slot: "aura", regex: /\b(?:TEAM\s+)?AURA\s*[:\-]\s*([^.;|]+)/i },
-    { slot: "keystone", regex: /\bKEYSTONE\s*[:\-]\s*([^.;|]+)/i },
+    {
+      slot: "ability",
+      regex: /\bABILITY\s*[:\-]\s*(.+?)(?=\s+\b(?:BLITZ|(?:TEAM\s+)?AURA|KEYSTONE)\b|[.;|\n]|$)/i,
+    },
+    {
+      slot: "blitz",
+      regex: /\bBLITZ\s*[:\-]\s*(.+?)(?=\s+\b(?:ABILITY|(?:TEAM\s+)?AURA|KEYSTONE)\b|[.;|\n]|$)/i,
+    },
+    {
+      slot: "aura",
+      regex: /\b(?:TEAM\s+)?AURA\s*[:\-]\s*(.+?)(?=\s+\b(?:ABILITY|BLITZ|KEYSTONE)\b|[.;|\n]|$)/i,
+    },
+    {
+      slot: "keystone",
+      regex: /\bKEYSTONE\s*[:\-]\s*(.+?)(?=\s+\b(?:ABILITY|BLITZ|(?:TEAM\s+)?AURA)\b|[.;|\n]|$)/i,
+    },
   ];
 
   for (const { slot, regex } of explicitPatterns) {
-    extracted[slot] = firstMatch(text, regex);
+    extracted[slot] ??= firstMatch(text, regex);
   }
 
   const groupedSummary = text.match(

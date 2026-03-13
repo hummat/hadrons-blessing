@@ -412,6 +412,64 @@ describe("canonicalizeScrapedBuild", () => {
     assert.equal(build.keystone?.canonical_entity_id, "psyker.keystone.psyker_overcharge_stance");
   });
 
+  it("parses multiline Games Lantern description headings without swallowing body prose", async () => {
+    const build = await canonicalizeScrapedBuild(
+      makeRawBuild({
+        class: "veteran",
+        talents: {
+          active: [],
+          inactive: [],
+        },
+        description: [
+          "-----",
+          "BLITZ: Shredder Frag Grenade",
+          "-----",
+          "",
+          "This blitz is used less for dealing damage and more as crowd control.",
+          "",
+          "-----",
+          "ABILITY: Voice of Command",
+          "-----",
+          "",
+          "The core defining ability of this Veteran build.",
+          "",
+          "-----",
+          "KEYSTONE: Focus Target!",
+          "-----",
+          "",
+          "An amazing keystone that alters the Veteran's default tag function.",
+          "",
+          "TEAM AURA: Survivalist -> Fire Team",
+        ].join("\n"),
+      }),
+      makeStubCanonicalizerDeps({
+        resolveQuery: async (query) => {
+          const resolvedIds = new Map([
+            ["veteran", "shared.class.veteran"],
+            ["Voice of Command", "veteran.ability.veteran_combat_ability_shout"],
+            ["Shredder Frag Grenade", "veteran.blitz.veteran_frag_grenade"],
+            ["Survivalist", "veteran.aura.veteran_improved_survivalist"],
+            ["Focus Target!", "veteran.keystone.veteran_improved_tag"],
+          ]);
+          return resolvedIds.has(query)
+            ? {
+              resolution_state: "resolved",
+              resolved_entity_id: resolvedIds.get(query),
+            }
+            : {
+              resolution_state: "unresolved",
+              resolved_entity_id: null,
+            };
+        },
+      }),
+    );
+
+    assert.equal(build.ability.raw_label, "Voice of Command");
+    assert.equal(build.blitz.raw_label, "Shredder Frag Grenade");
+    assert.equal(build.aura.raw_label, "Survivalist");
+    assert.equal(build.keystone?.raw_label, "Focus Target!");
+  });
+
   it("prefers explicit scraped class-side selections over prose fallback", async () => {
     const build = await canonicalizeScrapedBuild(
       makeRawBuild({
@@ -454,6 +512,60 @@ describe("canonicalizeScrapedBuild", () => {
     assert.equal(build.blitz.raw_label, "Frag Grenade");
     assert.equal(build.aura.raw_label, "Survivalist");
     assert.equal(build.keystone?.raw_label, "Duty and Honour");
+  });
+
+  it("falls back to explicit scraped class-side selections when class registry coverage is absent", async () => {
+    const build = await canonicalizeScrapedBuild(
+      makeRawBuild({
+        class: "veteran",
+        talents: {
+          active: [
+            { slug: "voice-of-command", frame: "hex_frame", name: "Voice Of Command", tier: "ability" },
+            { slug: "shredder-frag-grenade", frame: "square_frame", name: "Shredder Frag Grenade", tier: "notable" },
+            { slug: "survivalist", frame: "circular_frame", name: "Survivalist", tier: "talent" },
+            { slug: "focus-target", frame: "circular_frame", name: "Focus Target", tier: "keystone" },
+            { slug: "exploit-weakness", frame: "circular_frame", name: "Exploit Weakness", tier: "talent" },
+          ],
+          inactive: [],
+        },
+        class_selections: {
+          ability: "Voice of Command",
+          blitz: "Shredder Frag Grenade",
+          aura: "Survivalist",
+          keystone: "Focus Target",
+        },
+      }),
+      makeStubCanonicalizerDeps({
+        resolveQuery: async (query) => {
+          const resolvedIds = new Map([
+            ["veteran", "shared.class.veteran"],
+            ["Voice of Command", "veteran.ability.veteran_combat_ability_shout"],
+            ["Shredder Frag Grenade", "veteran.blitz.veteran_frag_grenade"],
+            ["Survivalist", "veteran.aura.veteran_improved_survivalist"],
+            ["Focus Target", "veteran.keystone.veteran_improved_tag"],
+          ]);
+          return resolvedIds.has(query)
+            ? {
+              resolution_state: "resolved",
+              resolved_entity_id: resolvedIds.get(query),
+            }
+            : {
+              resolution_state: "unresolved",
+              resolved_entity_id: null,
+            };
+        },
+        classificationRegistry: {
+          psyker: makeStubCanonicalizerDeps().classificationRegistry.psyker,
+          veteran: {},
+        },
+      }),
+    );
+
+    assert.equal(build.ability.raw_label, "Voice of Command");
+    assert.equal(build.blitz.raw_label, "Shredder Frag Grenade");
+    assert.equal(build.aura.raw_label, "Survivalist");
+    assert.equal(build.keystone?.raw_label, "Focus Target");
+    assert.deepEqual(build.talents, []);
   });
 });
 

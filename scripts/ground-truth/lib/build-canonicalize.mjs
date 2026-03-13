@@ -3,7 +3,7 @@ import { classifyKnownUnresolved as defaultClassifyKnownUnresolved } from "./non
 import { resolveQuery as defaultResolveQuery } from "./resolve.mjs";
 import { assertValidCanonicalBuild } from "./build-shape.mjs";
 import { classifySelectedNodes } from "./build-classification.mjs";
-import { BUILD_CLASSIFICATION_REGISTRY } from "./build-classification-registry.mjs";
+import { BUILD_CLASSIFICATION_REGISTRY, registryForClass } from "./build-classification-registry.mjs";
 import { parsePerkString } from "../../score-build.mjs";
 
 function inferredWeaponFamily(entityId) {
@@ -143,8 +143,13 @@ function classifyBuildNodes(rawBuild, deps = {}) {
     classificationRegistry = BUILD_CLASSIFICATION_REGISTRY,
     classifySlugRole = null,
   } = deps;
+  const classRegistry = registryForClass(rawBuild.class, classificationRegistry);
+  const selectedNodes =
+    Object.keys(classRegistry).length === 0 && rawBuild?.class_selections != null
+      ? []
+      : rawBuild?.talents?.active ?? [];
 
-  return classifySelectedNodes(rawBuild?.talents?.active ?? [], {
+  return classifySelectedNodes(selectedNodes, {
     className: rawBuild.class,
     description: rawBuild?.description ?? "",
     explicitSelections: rawBuild?.class_selections ?? null,
