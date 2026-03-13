@@ -15,6 +15,46 @@ const DATA_PATH = join(__dirname, "build-scoring-data.json");
 let _data = null;
 let _weaponLookup = null;
 
+function selectionLabel(value) {
+  if (typeof value === "string") {
+    return value;
+  }
+
+  if (value != null && typeof value === "object" && typeof value.raw_label === "string") {
+    return value.raw_label;
+  }
+
+  return "";
+}
+
+function selectionCanonicalEntityId(value) {
+  if (value != null && typeof value === "object" && typeof value.canonical_entity_id === "string") {
+    return value.canonical_entity_id;
+  }
+
+  return null;
+}
+
+function normalizedWeaponInput(weapon) {
+  return {
+    ...weapon,
+    name: selectionLabel(weapon?.name),
+    perks: (weapon?.perks ?? []).map((perk) => selectionLabel(perk)),
+    blessings: (weapon?.blessings ?? []).map((blessing) => ({
+      name: selectionLabel(blessing?.name ?? blessing),
+      description: typeof blessing?.description === "string" ? blessing.description : "",
+    })),
+  };
+}
+
+function normalizedCurioInput(curio) {
+  return {
+    ...curio,
+    name: selectionLabel(curio?.name),
+    perks: (curio?.perks ?? []).map((perk) => selectionLabel(perk)),
+  };
+}
+
 function extractTemplateBasename(text) {
   if (typeof text !== "string" || !text.includes("/")) {
     return null;
@@ -285,7 +325,7 @@ function resolveGroundTruthWeapon(weaponName) {
  * lowercase, collapse whitespace.
  */
 function normalizeName(name) {
-  return name.toLowerCase().replace(/\s+/g, " ").trim();
+  return selectionLabel(name).toLowerCase().replace(/\s+/g, " ").trim();
 }
 
 /**
@@ -300,7 +340,16 @@ function normalizeName(name) {
  * @returns {{ key: string, entry: object } | null}
  */
 function findWeapon(weaponName) {
-  const groundTruthMatch = resolveGroundTruthWeapon(weaponName);
+  const canonicalEntityId = selectionCanonicalEntityId(weaponName);
+  if (canonicalEntityId) {
+    const directMatch = resolveGroundTruthWeapon(canonicalEntityId);
+    if (directMatch) {
+      return directMatch;
+    }
+  }
+
+  const normalizedName = selectionLabel(weaponName);
+  const groundTruthMatch = resolveGroundTruthWeapon(normalizedName);
   if (groundTruthMatch) {
     return groundTruthMatch;
   }
@@ -310,19 +359,19 @@ function findWeapon(weaponName) {
   if (!weapons) return null;
 
   // Exact match first
-  if (weapons[weaponName]) {
+  if (weapons[normalizedName]) {
     return {
-      key: weaponName,
-      entry: weapons[weaponName],
+      key: normalizedName,
+      entry: weapons[normalizedName],
       canonical_entity_id: null,
-      internal_name: weapons[weaponName].internal ?? null,
+      internal_name: weapons[normalizedName].internal ?? null,
       weapon_family: null,
-      slot: weapons[weaponName].slot ?? null,
+      slot: weapons[normalizedName].slot ?? null,
       resolution_source: "legacy_scoring",
     };
   }
 
-  const normalized = normalizeName(weaponName);
+  const normalized = normalizeName(normalizedName);
   const inputWords = normalized.split(" ");
 
   for (const [key, entry] of Object.entries(weapons)) {
@@ -373,7 +422,8 @@ function findWeapon(weaponName) {
  * @returns {{ valid: boolean|null, blessings: Array<{ name: string, known: boolean, internal: string|null }> }}
  */
 export function scoreBlessings(weapon) {
-  const found = findWeapon(weapon.name);
+  const normalizedWeapon = normalizedWeaponInput(weapon);
+  const found = findWeapon(normalizedWeapon.name);
 
   // Unknown weapon — can't validate
   if (!found) {
@@ -392,7 +442,7 @@ export function scoreBlessings(weapon) {
   }
 
   const results = [];
-  for (const blessing of weapon.blessings) {
+  for (const blessing of normalizedWeapon.blessings) {
     const match = blessingData[blessing.name];
     results.push({
       name: blessing.name,
@@ -420,7 +470,8 @@ export function scoreCurios(curios, className) {
   const ratings = data.curio_ratings;
   if (!ratings) return { score: 1, perks: [] };
 
-  const classRatings = ratings[className] || {};
+  const normalizedClassName = selectionLabel(className);
+  const classRatings = ratings[normalizedClassName] || {};
   const universalOptimal = ratings._universal_optimal || [];
   const universalGood = ratings._universal_good || [];
   const universalAvoid = ratings._universal_avoid || [];
@@ -435,7 +486,7 @@ export function scoreCurios(curios, className) {
 
   const perkResults = [];
 
-  for (const curio of curios) {
+  for (const curio of curios.map(normalizedCurioInput)) {
     if (!curio.perks) continue;
     for (const perkStr of curio.perks) {
       const parsed = parsePerkString(perkStr);
@@ -503,19 +554,21 @@ export function scoreCurios(curios, className) {
 export function generateScorecard(build) {
   const weaponResults = [];
   const perkScores = [];
+  const normalizedClassName = selectionLabel(build.class);
 
   for (const weapon of build.weapons || []) {
+    const normalizedWeapon = normalizedWeaponInput(weapon);
     const found = findWeapon(weapon.name);
     const slot = found ? found.slot : null;
 
     // Score perks — use slot from data, or try both catalogs if unknown
     let perkResult;
     if (slot) {
-      perkResult = scoreWeaponPerks(weapon, slot);
+      perkResult = scoreWeaponPerks(normalizedWeapon, slot);
     } else {
       // Try ranged first, then melee — pick whichever has more resolved perks
-      const rangedResult = scoreWeaponPerks(weapon, "ranged");
-      const meleeResult = scoreWeaponPerks(weapon, "melee");
+      const rangedResult = scoreWeaponPerks(normalizedWeapon, "ranged");
+      const meleeResult = scoreWeaponPerks(normalizedWeapon, "melee");
       const rangedResolved = rangedResult.perks.filter((p) => p !== null).length;
       const meleeResolved = meleeResult.perks.filter((p) => p !== null).length;
       perkResult = rangedResolved >= meleeResolved ? rangedResult : meleeResult;
@@ -523,10 +576,10 @@ export function generateScorecard(build) {
 
     perkScores.push(perkResult.score);
 
-    const blessingResult = scoreBlessings(weapon);
+    const blessingResult = scoreBlessings(normalizedWeapon);
 
     weaponResults.push({
-      name: weapon.name,
+      name: normalizedWeapon.name,
       slot,
       canonical_entity_id: found?.canonical_entity_id ?? null,
       internal_name: found?.internal_name ?? null,
@@ -537,7 +590,7 @@ export function generateScorecard(build) {
     });
   }
 
-  const curioResult = scoreCurios(build.curios || [], build.class);
+  const curioResult = scoreCurios(build.curios || [], normalizedClassName);
 
   // Average perk scores across weapons, or 1 if none
   const perkOptimality =
@@ -547,7 +600,7 @@ export function generateScorecard(build) {
 
   return {
     title: build.title,
-    class: build.class,
+    class: normalizedClassName,
     perk_optimality: perkOptimality,
     curio_efficiency: curioResult.score,
     weapons: weaponResults,

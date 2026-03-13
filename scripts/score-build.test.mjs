@@ -316,6 +316,72 @@ describe("generateScorecard", () => {
     assert.equal(result.weapons[1].internal_name, "bot_lasgun_killshot");
     assert.equal(result.weapons[1].resolution_source, "ground_truth");
   });
+
+  it("scores canonical build fixtures with selection objects", () => {
+    const result = generateScorecard({
+      title: "Canonical fixture sample",
+      class: {
+        raw_label: "psyker",
+        canonical_entity_id: "shared.class.psyker",
+        resolution_status: "resolved",
+      },
+      weapons: [
+        {
+          name: {
+            raw_label: "Covenant Mk VI Blaze Force Greatsword",
+            canonical_entity_id: "shared.weapon.forcesword_2h_p1_m1",
+            resolution_status: "resolved",
+          },
+          perks: [
+            {
+              raw_label: "20-25% Damage (Carapace)",
+              canonical_entity_id: "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+              resolution_status: "resolved",
+            },
+          ],
+          blessings: [
+            {
+              raw_label: "Blazing Spirit",
+              canonical_entity_id: "shared.name_family.blessing.blazing_spirit",
+              resolution_status: "resolved",
+            },
+          ],
+        },
+        {
+          name: {
+            raw_label: "Equinox Mk III Voidblast Force Staff",
+            canonical_entity_id: "shared.weapon.forcestaff_p4_m1",
+            resolution_status: "resolved",
+          },
+          perks: [],
+          blessings: [],
+        },
+      ],
+      curios: [
+        {
+          name: {
+            raw_label: "Blessed Bullet",
+            canonical_entity_id: null,
+            resolution_status: "non_canonical",
+          },
+          perks: [
+            {
+              raw_label: "+4-5% Toughness",
+              canonical_entity_id: "shared.gadget_trait.gadget_toughness_increase",
+              resolution_status: "resolved",
+            },
+          ],
+        },
+      ],
+      talents: [],
+    });
+
+    assert.equal(result.class, "psyker");
+    assert.equal(result.weapons[0].name, "Covenant Mk VI Blaze Force Greatsword");
+    assert.equal(result.weapons[0].canonical_entity_id, "shared.weapon.forcesword_2h_p1_m1");
+    assert.equal(result.weapons[0].blessings.valid, null);
+    assert.equal(result.curios.perks[0].name, "Toughness");
+  });
 });
 
 describe("generateScorecard", () => {
