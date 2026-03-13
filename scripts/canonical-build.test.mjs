@@ -1,6 +1,11 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
+import { mkdtempSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+import { tmpdir } from "node:os";
 import { assertValidCanonicalBuild, validateCanonicalBuild } from "./ground-truth/lib/build-shape.mjs";
+import { canonicalizeScrapedBuild } from "./ground-truth/lib/build-canonicalize.mjs";
+import { canonicalizeBuildFile } from "./canonicalize-build.mjs";
 
 function makeSelection(overrides = {}) {
   return {
@@ -102,6 +107,93 @@ function makeCanonicalBuild(overrides = {}) {
   };
 }
 
+function makeRawBuild(overrides = {}) {
+  return {
+    url: "https://darktide.gameslantern.com/builds/example",
+    title: "Fixture",
+    author: "tester",
+    class: "psyker",
+    weapons: [
+      {
+        name: "chainsword_p1_m1",
+        rarity: "Transcendant",
+        perks: ["20-25% Damage (Carapace)"],
+        blessings: [{ name: "Blazing Spirit", description: "Ignite on soulblaze crit" }],
+      },
+      {
+        name: "bot_lasgun_killshot",
+        rarity: "Transcendant",
+        perks: [],
+        blessings: [],
+      },
+    ],
+    curios: [
+      {
+        name: "Blessed Bullet",
+        rarity: "Transcendant",
+        perks: ["+4-5% Toughness"],
+        blessings: [],
+      },
+    ],
+    talents: {
+      active: [
+        { slug: "venting-shriek", frame: "hex_frame", name: "Venting Shriek", tier: "ability" },
+        { slug: "brain-rupture", frame: "hex_frame", name: "Brain Rupture", tier: "ability" },
+        { slug: "psykinetics-aura", frame: "square_frame", name: "Psykinetic's Aura", tier: "notable" },
+        { slug: "warp-siphon", frame: "circular_frame", name: "Warp Siphon", tier: "keystone" },
+        { slug: "warp-rider", frame: "circular_frame", name: "Warp Rider", tier: "talent" },
+      ],
+      inactive: [],
+    },
+    description: "Long prose that must not survive canonicalization.",
+    ...overrides,
+  };
+}
+
+function makeStubCanonicalizerDeps(overrides = {}) {
+  const resolvedIds = new Map([
+    ["psyker", "shared.class.psyker"],
+    ["chainsword_p1_m1", "shared.weapon.chainsword_p1_m1"],
+    ["bot_lasgun_killshot", "shared.weapon.bot_lasgun_killshot"],
+    ["20-25% Damage (Carapace)", "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_carapace_damage"],
+    ["+4-5% Toughness", "shared.gadget_trait.gadget_toughness_increase"],
+    ["Blazing Spirit", "shared.name_family.blessing.blazing_spirit"],
+    ["Warp Rider", "psyker.talent.psyker_damage_based_on_warp_charge"],
+  ]);
+
+  return {
+    resolveQuery: async (query) => {
+      if (!resolvedIds.has(query)) {
+        return {
+          resolution_state: "unresolved",
+          resolved_entity_id: null,
+        };
+      }
+
+      return {
+        resolution_state: "resolved",
+        resolved_entity_id: resolvedIds.get(query),
+      };
+    },
+    classifyKnownUnresolved: (text) => (
+      text === "Blessed Bullet"
+        ? { text, status: "known_display_only" }
+        : null
+    ),
+    classificationRegistry: {
+      psyker: {
+        "venting-shriek": { slot: "ability", kind: "ability" },
+        "brain-rupture": { slot: "blitz", kind: "blitz" },
+        "psykinetics-aura": { slot: "aura", kind: "aura" },
+        "warp-siphon": { slot: "keystone", kind: "keystone" },
+        "warp-rider": { slot: "talent", kind: "talent" },
+      },
+    },
+    scrapedAt: "2026-03-13T12:00:00Z",
+    ...overrides,
+  };
+}
+
 describe("validateCanonicalBuild", () => {
   it("accepts a valid canonical build", () => {
     const result = validateCanonicalBuild(makeCanonicalBuild());
@@ -196,5 +288,81 @@ describe("assertValidCanonicalBuild", () => {
       () => assertValidCanonicalBuild(makeCanonicalBuild({ ability: null })),
       /Invalid canonical build/,
     );
+  });
+});
+
+describe("canonicalizeScrapedBuild", () => {
+  it("transforms a scrape-shaped build into canonical build JSON", async () => {
+    const build = await canonicalizeScrapedBuild(
+      makeRawBuild(),
+      makeStubCanonicalizerDeps(),
+    );
+
+    assert.equal(build.schema_version, 1);
+    assert.equal(build.class.raw_label, "psyker");
+    assert.equal(build.class.canonical_entity_id, "shared.class.psyker");
+    assert.equal(build.ability.raw_label, "Venting Shriek");
+    assert.equal(build.blitz.raw_label, "Brain Rupture");
+    assert.equal(build.aura.raw_label, "Psykinetic's Aura");
+    assert.equal(build.keystone?.raw_label, "Warp Siphon");
+    assert.equal(build.talents.length, 1);
+    assert.equal(build.talents[0].raw_label, "Warp Rider");
+    assert.equal(build.weapons[0].slot, "melee");
+    assert.equal(
+      build.weapons[0].blessings[0].canonical_entity_id,
+      "shared.name_family.blessing.blazing_spirit",
+    );
+    assert.deepEqual(build.weapons[0].perks[0].value, {
+      min: 0.2,
+      max: 0.25,
+      unit: "percent",
+    });
+    assert.equal(build.curios[0].name.resolution_status, "non_canonical");
+    assert.equal(build.provenance.source_kind, "gameslantern");
+    assert.equal("description" in build, false);
+    assert.equal(validateCanonicalBuild(build).ok, true);
+  });
+
+  it("routes selected class-side nodes by registry-defined slot role", async () => {
+    const build = await canonicalizeScrapedBuild(
+      makeRawBuild({
+        talents: {
+          active: [
+            { slug: "venting-shriek", frame: "hex_frame", name: "Venting Shriek", tier: "ability" },
+            { slug: "brain-rupture", frame: "hex_frame", name: "Brain Rupture", tier: "ability" },
+            { slug: "psykinetics-aura", frame: "square_frame", name: "Psykinetic's Aura", tier: "notable" },
+            { slug: "warp-rider", frame: "circular_frame", name: "Warp Rider", tier: "talent" },
+          ],
+          inactive: [],
+        },
+      }),
+      makeStubCanonicalizerDeps(),
+    );
+
+    assert.equal(build.ability.raw_label, "Venting Shriek");
+    assert.equal(build.blitz.raw_label, "Brain Rupture");
+    assert.equal(build.aura.raw_label, "Psykinetic's Aura");
+    assert.equal(build.keystone, null);
+    assert.deepEqual(
+      build.talents.map((selection) => selection.raw_label),
+      ["Warp Rider"],
+    );
+  });
+});
+
+describe("canonicalizeBuildFile", () => {
+  it("canonicalizes an already-scraped build JSON without Playwright", async () => {
+    const tempDir = mkdtempSync(join(tmpdir(), "hb-canonicalize-"));
+    const inputPath = join(tempDir, "raw-build.json");
+    writeFileSync(inputPath, JSON.stringify(makeRawBuild(), null, 2));
+
+    const build = await canonicalizeBuildFile(
+      inputPath,
+      makeStubCanonicalizerDeps(),
+    );
+
+    assert.equal(build.title, "Fixture");
+    assert.equal(build.weapons[1].name.canonical_entity_id, "shared.weapon.bot_lasgun_killshot");
+    assert.equal(build.curios[0].perks[0].canonical_entity_id, "shared.gadget_trait.gadget_toughness_increase");
   });
 });

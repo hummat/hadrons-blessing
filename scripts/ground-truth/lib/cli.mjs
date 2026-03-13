@@ -3,6 +3,8 @@ const SETUP_HINTS = {
     'GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run resolve -- --query "Warp Rider" --context \'{"kind":"talent","class":"psyker"}\'',
   audit:
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run audit -- scripts/builds/08-gandalf-melee-wizard.json",
+  canonicalize:
+    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run canonicalize -- scripts/builds/08-gandalf-melee-wizard.json",
   "index:build":
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run index:build",
 };
@@ -24,9 +26,10 @@ function formatCliError(commandName, error) {
   const message = errorMessage(error);
 
   if (isSourceSetupError(message)) {
+    const setupHint = SETUP_HINTS[commandName] ?? "See README.md for required setup.";
     return [
       `Setup error: \`${commandName}\` requires GROUND_TRUTH_SOURCE_ROOT to point to the pinned Aussiemon/Darktide-Source-Code checkout.`,
-      `Run: ${SETUP_HINTS[commandName]}`,
+      `Run: ${setupHint}`,
       `Cause: ${message}`,
       "",
     ].join("\n");

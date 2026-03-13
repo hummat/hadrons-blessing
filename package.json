@@ -8,9 +8,10 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node --test scripts/ground-truth.test.mjs scripts/cli-contract.test.mjs scripts/coverage.test.mjs scripts/inspect.test.mjs scripts/score-build.test.mjs",
+    "test": "node --test scripts/canonical-build.test.mjs scripts/ground-truth.test.mjs scripts/cli-contract.test.mjs scripts/coverage.test.mjs scripts/inspect.test.mjs scripts/score-build.test.mjs",
     "resolve": "node scripts/resolve-ground-truth.mjs",
     "audit": "node scripts/audit-build-names.mjs",
+    "canonicalize": "node scripts/canonicalize-build.mjs",
     "coverage": "node scripts/coverage-ground-truth.mjs",
     "inspect": "node scripts/inspect-ground-truth.mjs",
     "index:build": "node scripts/build-ground-truth-index.mjs",
