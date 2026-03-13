@@ -14,23 +14,23 @@
   },
   "ability": {
     "raw_label": "Voice of Command",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "canonical_entity_id": "veteran.ability.veteran_combat_ability_stagger_nearby_enemies",
+    "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Unknown blitz",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Shredder Frag Grenade",
+    "canonical_entity_id": "veteran.ability.veteran_grenade_apply_bleed",
+    "resolution_status": "resolved"
   },
   "aura": {
     "raw_label": "Survivalist",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "canonical_entity_id": "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
+    "resolution_status": "resolved"
   },
   "keystone": {
-    "raw_label": "Duty and Honour",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Focus Target!",
+    "canonical_entity_id": "veteran.keystone.veteran_improved_tag",
+    "resolution_status": "resolved"
   },
   "talents": [],
   "weapons": [

@@ -29,7 +29,7 @@ const DOMAIN_EXPECTATIONS = [
   {
     domain: "veteran",
     expected_kinds: ["ability", "aura", "keystone", "talent", "talent_modifier", "tree_node"],
-    notes: "No class-scoped shard coverage yet.",
+    notes: "Minimal class-side slot coverage landed; broader veteran tree coverage remains incomplete.",
   },
   {
     domain: "zealot",

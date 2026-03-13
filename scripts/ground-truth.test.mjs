@@ -578,6 +578,21 @@ describe("resolveQuery", () => {
     }
   });
 
+  it("resolves minimal source-backed veteran class-side labels from the live sample build", async () => {
+    for (const [query, queryContext, expectedEntityId] of [
+      ["Voice of Command", { kind: "ability", class: "veteran" }, "veteran.ability.veteran_combat_ability_stagger_nearby_enemies"],
+      ["Shredder Frag Grenade", { kind: "blitz", class: "veteran" }, "veteran.ability.veteran_grenade_apply_bleed"],
+      ["Survivalist", { kind: "aura", class: "veteran" }, "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved"],
+      ["Focus Target!", { kind: "keystone", class: "veteran" }, "veteran.keystone.veteran_improved_tag"],
+      ["Focus Target", { kind: "keystone", class: "veteran" }, "veteran.keystone.veteran_improved_tag"],
+    ]) {
+      const result = await resolveQuery(query, queryContext);
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, expectedEntityId);
+    }
+  });
+
   it("resolves representative BetterBots profile weapon template ids", async () => {
     for (const [query, queryContext, expectedEntityId] of [
       ["chainsword_p1_m1", { kind: "weapon", slot: "melee" }, "shared.weapon.chainsword_p1_m1"],

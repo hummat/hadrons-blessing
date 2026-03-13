@@ -1,0 +1,110 @@
+[
+  {
+    "id": "veteran.ability.veteran_combat_ability_stagger_nearby_enemies",
+    "kind": "ability",
+    "domain": "veteran",
+    "internal_name": "veteran_combat_ability_stagger_nearby_enemies",
+    "loc_key": "loc_talent_veteran_combat_ability_stagger_nearby_enemies",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 888
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 543
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability",
+      "group_name": null,
+      "tree_widget_name": "node_73319c64-81e7-4234-8fb7-4e65ebb620f5",
+      "exclusive_group": "combat"
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.ability.veteran_grenade_apply_bleed",
+    "kind": "ability",
+    "domain": "veteran",
+    "internal_name": "veteran_grenade_apply_bleed",
+    "loc_key": "loc_talent_veteran_grenade_apply_bleed",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1279
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1031
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical",
+      "group_name": null,
+      "tree_widget_name": "node_0800a598-65f0-4293-a838-43c21ce1849c",
+      "exclusive_group": "blitz"
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
+    "kind": "aura",
+    "domain": "veteran",
+    "internal_name": "veteran_aura_gain_ammo_on_elite_kill_improved",
+    "loc_key": "loc_talent_veteran_elite_kills_grant_ammo_coop_improved",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1256
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 677
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "aura",
+      "group_name": null,
+      "tree_widget_name": "node_5ae6929c-f9fe-43b2-b2d9-079d6737de23",
+      "exclusive_group": "aura"
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.keystone.veteran_improved_tag",
+    "kind": "keystone",
+    "domain": "veteran",
+    "internal_name": "veteran_improved_tag",
+    "loc_key": "loc_talent_veteran_improved_tag",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1809
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2923
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone",
+      "group_name": null,
+      "tree_widget_name": "node_18f58702-92f4-4084-afc3-934731f36b83",
+      "exclusive_group": "keystone"
+    },
+    "calc": {}
+  }
+]

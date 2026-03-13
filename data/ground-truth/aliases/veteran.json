@@ -1,0 +1,127 @@
+[
+  {
+    "text": "Voice of Command",
+    "normalized_text": "voice of command",
+    "candidate_entity_id": "veteran.ability.veteran_combat_ability_stagger_nearby_enemies",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern label for the selected Voice of Command tree node."
+  },
+  {
+    "text": "Shredder Frag Grenade",
+    "normalized_text": "shredder frag grenade",
+    "candidate_entity_id": "veteran.ability.veteran_grenade_apply_bleed",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "blitz"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern label for the selected frag grenade bleed tree node."
+  },
+  {
+    "text": "Survivalist",
+    "normalized_text": "survivalist",
+    "candidate_entity_id": "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern label for the selected veteran ammo aura."
+  },
+  {
+    "text": "Focus Target!",
+    "normalized_text": "focus target",
+    "candidate_entity_id": "veteran.keystone.veteran_improved_tag",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern label including punctuation for the veteran improved tag keystone."
+  },
+  {
+    "text": "Focus Target",
+    "normalized_text": "focus target",
+    "candidate_entity_id": "veteran.keystone.veteran_improved_tag",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Source-backed keystone name without the Games Lantern punctuation."
+  }
+]

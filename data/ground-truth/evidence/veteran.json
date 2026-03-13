@@ -1,0 +1,70 @@
+[
+  {
+    "id": "veteran.evidence.entity.veteran_combat_ability_stagger_nearby_enemies",
+    "subject_type": "entity",
+    "subject_id": "veteran.ability.veteran_combat_ability_stagger_nearby_enemies",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_combat_ability_stagger_nearby_enemies",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 545
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_grenade_apply_bleed",
+    "subject_type": "entity",
+    "subject_id": "veteran.ability.veteran_grenade_apply_bleed",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_grenade_apply_bleed",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1033
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_aura_gain_ammo_on_elite_kill_improved",
+    "subject_type": "entity",
+    "subject_id": "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_elite_kills_grant_ammo_coop_improved",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 679
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_improved_tag",
+    "subject_type": "entity",
+    "subject_id": "veteran.keystone.veteran_improved_tag",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_improved_tag",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2925
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  }
+]

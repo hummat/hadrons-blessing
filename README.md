@@ -140,11 +140,12 @@ npm run inspect -- --id psyker.talent.psyker_damage_based_on_warp_charge
 
 ## Status
 
-Current entity coverage (Psyker pilot + shared):
+Current entity coverage:
 
 | Domain   | Entities | Aliases |
 |----------|----------|---------|
 | Psyker   | talents, implicit tree nodes | display names, loc keys |
+| Veteran  | minimal class-side slot entities (`ability`, `aura`, `keystone`) | live sample labels such as `Voice of Command`, `Shredder Frag Grenade`, `Survivalist`, `Focus Target!` |
 | Shared   | weapons, weapon perks, curio perks, blessing families, classes, buffs | community names |
 
 20 build fixtures (all 6 classes) are now stored in canonical build shape and
@@ -154,6 +155,8 @@ Current fixture limitation:
 
 - the migrated fixture corpus preserves weapon, blessing, perk, curio, class,
   and provenance decisions
+- the live `Veteran Squad Leader` sample path now preserves and resolves its
+  explicit class-side selections end-to-end
 - it does **not** preserve real selected class-side talent-tree nodes from the
   original scrape data
 - canonicalization now falls back to Games Lantern description prose when a raw

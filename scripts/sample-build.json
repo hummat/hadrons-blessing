@@ -28,6 +28,12 @@
     { "name": "Blessed Bullet", "rarity": "", "perks": ["+4-5% Toughness", "+15-20% DR vs Gunners"], "blessings": [] },
     { "name": "Blessed Bullet", "rarity": "", "perks": ["+4-5% Health"], "blessings": [] }
   ],
+  "class_selections": {
+    "ability": "Voice of Command",
+    "blitz": "Shredder Frag Grenade",
+    "aura": "Survivalist",
+    "keystone": "Focus Target!"
+  },
   "talents": { "active": [], "inactive": [] },
   "description": "Team support through CC and coherency buffs. Voice of Command + Duty and Honour keystone with Survivalist aura."
 }
