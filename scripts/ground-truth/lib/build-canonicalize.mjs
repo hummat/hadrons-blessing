@@ -144,15 +144,15 @@ function classifyBuildNodes(rawBuild, deps = {}) {
     classifySlugRole = null,
   } = deps;
   const classRegistry = registryForClass(rawBuild.class, classificationRegistry);
-  const selectedNodes =
-    Object.keys(classRegistry).length === 0 && rawBuild?.class_selections != null
-      ? []
-      : rawBuild?.talents?.active ?? [];
+  const preserveUnclassifiedAsTalents =
+    Object.keys(classRegistry).length === 0 && rawBuild?.class_selections != null;
+  const selectedNodes = rawBuild?.talents?.active ?? [];
 
   return classifySelectedNodes(selectedNodes, {
     className: rawBuild.class,
     description: rawBuild?.description ?? "",
     explicitSelections: rawBuild?.class_selections ?? null,
+    preserveUnclassifiedAsTalents,
     classificationRegistry,
     ...(classifySlugRole == null ? {} : { classifySlugRole }),
   });

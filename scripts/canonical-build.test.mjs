@@ -532,7 +532,7 @@ describe("canonicalizeScrapedBuild", () => {
           ability: "Voice of Command",
           blitz: "Shredder Frag Grenade",
           aura: "Survivalist",
-          keystone: "Focus Target",
+          keystone: "Focus Target!",
         },
       }),
       makeStubCanonicalizerDeps({
@@ -542,6 +542,7 @@ describe("canonicalizeScrapedBuild", () => {
             ["Voice of Command", "veteran.ability.veteran_combat_ability_shout"],
             ["Shredder Frag Grenade", "veteran.blitz.veteran_frag_grenade"],
             ["Survivalist", "veteran.aura.veteran_improved_survivalist"],
+            ["Focus Target!", "veteran.keystone.veteran_improved_tag"],
             ["Focus Target", "veteran.keystone.veteran_improved_tag"],
           ]);
           return resolvedIds.has(query)
@@ -564,8 +565,14 @@ describe("canonicalizeScrapedBuild", () => {
     assert.equal(build.ability.raw_label, "Voice of Command");
     assert.equal(build.blitz.raw_label, "Shredder Frag Grenade");
     assert.equal(build.aura.raw_label, "Survivalist");
-    assert.equal(build.keystone?.raw_label, "Focus Target");
-    assert.deepEqual(build.talents, []);
+    assert.equal(build.keystone?.raw_label, "Focus Target!");
+    assert.deepEqual(build.talents, [
+      {
+        raw_label: "Exploit Weakness",
+        canonical_entity_id: null,
+        resolution_status: "unresolved",
+      },
+    ]);
   });
 });
 

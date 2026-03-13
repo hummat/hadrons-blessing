@@ -36,6 +36,9 @@
   - `blitz`: `Shredder Frag Grenade`
   - `aura`: `Survivalist`
   - `keystone`: `Focus Target!`
+- `scripts/sample-build.json` now also preserves `26` non-slot active picks in
+  canonical `talents[]` instead of dropping them when class registry coverage
+  is absent.
 - This recovery now comes from explicit scraped `class_selections`, not the old description-only fallback.
 - The checked-in canonical fixture `scripts/builds/01-veteran-squad-leader.json` now resolves those four veteran slot selections all the way to canonical entity ids.
 

@@ -157,6 +157,9 @@ Current fixture limitation:
   and provenance decisions
 - the live `Veteran Squad Leader` sample path now preserves and resolves its
   explicit class-side selections end-to-end
+- the live raw sample path also preserves the remaining active non-slot talent
+  picks as canonical `talents[]` entries even while veteran talent resolver
+  coverage is still missing
 - it does **not** preserve real selected class-side talent-tree nodes from the
   original scrape data
 - canonicalization now falls back to Games Lantern description prose when a raw

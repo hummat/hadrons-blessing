@@ -1,5 +1,7 @@
 import { BUILD_CLASSIFICATION_REGISTRY, classifySlugRole as defaultClassifySlugRole } from "./build-classification-registry.mjs";
 
+import { normalizeText } from "./normalize.mjs";
+
 const SLOT_PRIORITY = ["ability", "blitz", "aura", "keystone", "talents"];
 const DESCRIPTION_SLOTS = ["ability", "blitz", "aura", "keystone"];
 
@@ -128,11 +130,27 @@ function mergeExplicitSelections(classified, explicitSelections) {
   return classified;
 }
 
+function normalizedExplicitSelectionNames(explicitSelections) {
+  const names = new Set();
+
+  for (const slot of DESCRIPTION_SLOTS) {
+    const label = String(explicitSelections?.[slot] ?? "").trim();
+    if (label.length === 0) {
+      continue;
+    }
+
+    names.add(normalizeText(label));
+  }
+
+  return names;
+}
+
 function classifySelectedNodes(selectedNodes, options = {}) {
   const {
     className = "",
     description = "",
     explicitSelections = null,
+    preserveUnclassifiedAsTalents = false,
     classificationRegistry = BUILD_CLASSIFICATION_REGISTRY,
     classifySlugRole = (slug) => defaultClassifySlugRole(className, slug, classificationRegistry),
   } = options;
@@ -144,6 +162,7 @@ function classifySelectedNodes(selectedNodes, options = {}) {
     keystone: null,
     talents: [],
   };
+  const explicitSelectionNames = normalizedExplicitSelectionNames(explicitSelections);
 
   for (const node of selectedNodes ?? []) {
     const role = classifySlugRole(node.slug, node);
@@ -151,6 +170,16 @@ function classifySelectedNodes(selectedNodes, options = {}) {
     const slot = rawSlot === "talent" ? "talents" : rawSlot;
 
     if (!SLOT_PRIORITY.includes(slot)) {
+      if (preserveUnclassifiedAsTalents) {
+        const normalizedName = normalizeText(node?.name ?? "");
+        if (explicitSelectionNames.has(normalizedName)) {
+          continue;
+        }
+
+        classified.talents.push(node);
+        continue;
+      }
+
       throw new Error(`Missing class-side classification for ${className || "unknown"} slug ${node?.slug ?? "<missing>"}`);
     }
 
