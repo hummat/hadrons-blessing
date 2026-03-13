@@ -22,7 +22,8 @@ Provisional surface:
 Not yet part of the public CLI contract:
 
 - **Inspect** — planned, not implemented
-- **Coverage** — planned, not implemented
+- **Coverage** — implemented as `npm run coverage`, but not part of the stable
+  v1 contract
 
 All stable output is machine-readable JSON. Human-readable reports, richer
 build-oriented commands, and calculator features are follow-up phases.
@@ -94,6 +95,12 @@ Experimental scorecard output:
 
 ```bash
 node scripts/score-build.mjs scripts/builds/08-gandalf-melee-wizard.json --json
+```
+
+Read-only coverage summary:
+
+```bash
+npm run coverage
 ```
 
 ## Status
