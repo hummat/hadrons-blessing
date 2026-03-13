@@ -273,27 +273,6 @@
     "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
   },
   {
-    "text": "Maccabian Mk IV Duelling Sword",
-    "normalized_text": "maccabian mk iv duelling sword",
-    "non_canonical_kind": "known_unresolved",
-    "provenance": "build-fixture",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon"
-        },
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
-  },
-  {
     "text": "Munitorum Mk II Relic Blade",
     "normalized_text": "munitorum mk ii relic blade",
     "non_canonical_kind": "known_unresolved",
@@ -317,27 +296,6 @@
   {
     "text": "Munitorum Mk X Relic Blade",
     "normalized_text": "munitorum mk x relic blade",
-    "non_canonical_kind": "known_unresolved",
-    "provenance": "build-fixture",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon"
-        },
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
-  },
-  {
-    "text": "Orox Mk II Battle Maul & Slab Shield",
-    "normalized_text": "orox mk ii battle maul slab shield",
     "non_canonical_kind": "known_unresolved",
     "provenance": "build-fixture",
     "confidence": "high",

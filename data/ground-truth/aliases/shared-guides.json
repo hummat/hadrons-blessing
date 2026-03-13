@@ -686,6 +686,46 @@
     "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as plasmagun_p1_m1."
   },
   {
+    "text": "Godwyn-Branx Mk IV Bolt Pistol",
+    "normalized_text": "godwyn branx mk iv bolt pistol",
+    "candidate_entity_id": "shared.weapon.boltpistol_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 95,
+    "notes": "Display label comes from structured build data and build-scoring data; canonical internal weapon template is source-backed as boltpistol_p1_m1 and BetterBots weapon-blessings.md maps boltpistol_p1 to Godwyn-Branx Bolt Pistol."
+  },
+  {
+    "text": "Maccabian Mk IV Duelling Sword",
+    "normalized_text": "maccabian mk iv duelling sword",
+    "candidate_entity_id": "shared.weapon.combatsword_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 95,
+    "notes": "Display label comes from structured build data and build-scoring data; canonical internal weapon template is source-backed as combatsword_p1_m1 while BetterBots weapon-blessings.md maps combatsword_p1 to Maccabian Mk IV Duelling Sword."
+  },
+  {
     "text": "Artemia Mk III Purgation Flamer",
     "normalized_text": "artemia mk iii purgation flamer",
     "candidate_entity_id": "shared.weapon.flamer_p1_m1",
@@ -704,6 +744,26 @@
     },
     "rank_weight": 90,
     "notes": "Display label comes from structured build data; docs/knowledge/weapon-blessings.md maps flamer_p1 to Artemia Mk III Purgation Flamer while the canonical internal template is source-backed as flamer_p1_m1."
+  },
+  {
+    "text": "Orox Mk II Battle Maul & Slab Shield",
+    "normalized_text": "orox mk ii battle maul slab shield",
+    "candidate_entity_id": "shared.weapon.ogryn_powermaul_slabshield_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 95,
+    "notes": "Display label comes from structured build data; the canonical internal weapon template is source-backed as ogryn_powermaul_slabshield_p1_m1 and this family has a single checked-in weapon template."
   },
   {
     "text": "Momentum",

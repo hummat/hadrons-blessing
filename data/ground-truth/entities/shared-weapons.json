@@ -1478,6 +1478,48 @@
     "calc": {}
   },
   {
+    "id": "shared.weapon.boltpistol_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "boltpistol_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/bolt_pistols/boltpistol_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "boltpistol_p1",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.combatsword_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "combatsword_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/combat_swords/combatsword_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "combatsword_p1",
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.weapon.flamer_p1_m1",
     "kind": "weapon",
     "domain": "shared",
@@ -1516,6 +1558,27 @@
     "attributes": {
       "weapon_family": "needlepistol",
       "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.ogryn_powermaul_slabshield_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "ogryn_powermaul_slabshield_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/ogryn_powermaul_slabshield/ogryn_powermaul_slabshield_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "ogryn_powermaul_slabshield",
+      "slot": "melee"
     },
     "calc": {}
   },

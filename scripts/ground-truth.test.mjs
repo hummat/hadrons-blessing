@@ -476,15 +476,19 @@ describe("resolveQuery", () => {
   });
 
   it("keeps unrelated weapon labels unresolved instead of fuzzy-guessing", async () => {
-    const result = await resolveQuery("M1000 Completely Fake Lasgun", {
-      kind: "weapon",
-      slot: "ranged",
-    });
+    for (const [query, queryContext] of [
+      ["M1000 Completely Fake Lasgun", { kind: "weapon", slot: "ranged" }],
+      ["Totally Fake Bolt Pistol", { kind: "weapon", slot: "ranged" }],
+      ["Totally Fake Duelling Sword", { kind: "weapon", slot: "melee" }],
+      ["Totally Fake Slab Shield", { kind: "weapon", slot: "melee" }],
+    ]) {
+      const result = await resolveQuery(query, queryContext);
 
-    assert.equal(result.resolution_state, "unresolved");
-    assert.equal(result.resolved_entity_id, null);
-    assert.equal(result.proposed_entity_id, null);
-    assert.equal(result.match_type, "none");
+      assert.equal(result.resolution_state, "unresolved");
+      assert.equal(result.resolved_entity_id, null);
+      assert.equal(result.proposed_entity_id, null);
+      assert.equal(result.match_type, "none");
+    }
   });
 
   it("keeps unrelated curio perk labels unresolved instead of fuzzy-guessing", async () => {
@@ -858,9 +862,7 @@ describe("auditBuildFile", () => {
       [veteranSniperResult, "weapons[1].name", "Lucius Mk IV Helbore Lasgun"],
       [zealotStealthResult, "weapons[0].name", "Munitorum Mk II Relic Blade"],
       [zealotStealthResult, "weapons[1].name", "Locke Mk III Spearhead Boltgun"],
-      [zealotInfoDumpResult, "weapons[0].name", "Maccabian Mk IV Duelling Sword"],
       [zealotInfoDumpResult, "weapons[1].name", "Agripinaa Mk VIII Braced Autogun"],
-      [ogrynTankResult, "weapons[0].name", "Orox Mk II Battle Maul & Slab Shield"],
       [shovelOgrynResult, "weapons[0].name", "Brute-Brainer Mk III Latrine Shovel"],
       [shovelOgrynResult, "weapons[1].name", "Foe-Rend Mk V Ripper Gun"],
     ]) {
@@ -943,9 +945,12 @@ describe("auditBuildFile", () => {
   it("resolves newly covered weapon labels in representative build audits", async () => {
     const veteranResult = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
     const explodegrynResult = await auditBuildFile("scripts/builds/11-explodegryn.json");
+    const zealotInfoDumpResult = await auditBuildFile("scripts/builds/07-zealot-infodump.json");
+    const ogrynTankResult = await auditBuildFile("scripts/builds/12-ogryn-shield-tank.json");
     const arbitesResult = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
     const arbitesShotgunResult = await auditBuildFile("scripts/builds/15-arbites-melee-meta.json");
     const zealotMetaResult = await auditBuildFile("scripts/builds/04-spicy-meta-zealot.json");
+    const zealotHolyGainsResult = await auditBuildFile("scripts/builds/06-holy-gains-zealot.json");
     const hiveScumResult = await auditBuildFile("scripts/builds/17-crackhead-john-wick.json");
     const chemistResult = await auditBuildFile("scripts/builds/19-the-chemist.json");
     const surgeonResult = await auditBuildFile("scripts/builds/18-reginald-melee.json");
@@ -959,6 +964,9 @@ describe("auditBuildFile", () => {
       [arbitesResult, "weapons[0].name", "shared.weapon.powermaul_p2_m1"],
       [arbitesResult, "weapons[1].name", "shared.weapon.shotpistol_shield_p1_m1"],
       [arbitesShotgunResult, "weapons[1].name", "shared.weapon.shotgun_p4_m1"],
+      [zealotInfoDumpResult, "weapons[0].name", "shared.weapon.combatsword_p1_m1"],
+      [zealotHolyGainsResult, "weapons[1].name", "shared.weapon.boltpistol_p1_m1"],
+      [ogrynTankResult, "weapons[0].name", "shared.weapon.ogryn_powermaul_slabshield_p1_m1"],
       [zealotMetaResult, "weapons[1].name", "shared.weapon.flamer_p1_m1"],
       [hiveScumResult, "weapons[0].name", "shared.weapon.dual_shivs_p1_m1"],
       [hiveScumResult, "weapons[1].name", "shared.weapon.dual_stubpistols_p1_m1"],

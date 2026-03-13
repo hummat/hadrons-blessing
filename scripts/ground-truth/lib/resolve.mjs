@@ -72,6 +72,14 @@ function contextMatches(alias, queryContext) {
   };
 }
 
+function allowsFuzzyAliasMatching(alias, queryContext) {
+  return !(
+    queryContext.kind === "weapon" &&
+    alias.alias_kind === "guide_name" &&
+    alias.candidate_entity_id.startsWith("shared.weapon.")
+  );
+}
+
 function scoreAlias(alias, query, normalizedQuery, queryContext) {
   const context = contextMatches(alias, queryContext);
   if (!context.ok) {
@@ -95,6 +103,10 @@ function scoreAlias(alias, query, normalizedQuery, queryContext) {
     matchType = "normalized_alias";
     score += 800;
   } else {
+    if (!allowsFuzzyAliasMatching(alias, queryContext)) {
+      return null;
+    }
+
     const queryTokens = extractMeaningfulTokens(query);
     const aliasTokens = extractMeaningfulTokens(alias.text);
 

@@ -11,6 +11,104 @@ import { normalizeText } from "./ground-truth/lib/normalize.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_PATH = join(__dirname, "build-scoring-data.json");
+const PROVISIONAL_WEAPON_FAMILY_MATCHES = new Map([
+  [
+    normalizeText("Lucius Mk IV Helbore Lasgun"),
+    {
+      label: "Lucius Mk IV Helbore Lasgun",
+      slot: "ranged",
+      weapon_family: "lasgun_p2",
+      blessings: {
+        "Hot-Shot": { internal: "hot_shot" },
+        "Surgical": { internal: "surgical" },
+      },
+    },
+  ],
+  [
+    normalizeText("Munitorum Mk II Relic Blade"),
+    {
+      label: "Munitorum Mk II Relic Blade",
+      slot: "melee",
+      weapon_family: "powersword_2h",
+      blessings: {
+        Wrath: { internal: "wrath" },
+        Overload: { internal: "overload" },
+      },
+    },
+  ],
+  [
+    normalizeText("Munitorum Mk X Relic Blade"),
+    {
+      label: "Munitorum Mk X Relic Blade",
+      slot: "melee",
+      weapon_family: "powersword_2h",
+      blessings: {
+        "Cranial Grounding": { internal: "cranial_grounding" },
+        Heatsink: { internal: "heatsink" },
+      },
+    },
+  ],
+  [
+    normalizeText("Locke Mk III Spearhead Boltgun"),
+    {
+      label: "Locke Mk III Spearhead Boltgun",
+      slot: "ranged",
+      weapon_family: "bolter_p1",
+      blessings: {
+        "Pinning Fire": { internal: "pinning_fire" },
+        Puncture: { internal: "puncture" },
+      },
+    },
+  ],
+  [
+    normalizeText("Tigrus Mk XV Heavy Eviscerator"),
+    {
+      label: "Tigrus Mk XV Heavy Eviscerator",
+      slot: "melee",
+      weapon_family: "chainsword_2h",
+      blessings: {
+        Wrath: { internal: "wrath" },
+        Bloodthirsty: { internal: "bloodthirsty" },
+      },
+    },
+  ],
+  [
+    normalizeText("Godwyn-Branx Mk IV Bolt Pistol"),
+    {
+      label: "Godwyn-Branx Mk IV Bolt Pistol",
+      slot: "ranged",
+      weapon_family: "boltpistol_p1",
+      blessings: {
+        "Lethal Proximity": { internal: "lethal_proximity" },
+        Puncture: { internal: "puncture" },
+      },
+    },
+  ],
+  [
+    normalizeText("Orox Mk II Battle Maul & Slab Shield"),
+    {
+      label: "Orox Mk II Battle Maul & Slab Shield",
+      slot: "melee",
+      weapon_family: "ogryn_powermaul_slabshield",
+      blessings: {
+        "Brutal Momentum": { internal: "brutal_momentum" },
+        Skullcrusher: { internal: "skullcrusher" },
+      },
+    },
+  ],
+  [
+    normalizeText("Foe-Rend Mk V Ripper Gun"),
+    {
+      label: "Foe-Rend Mk V Ripper Gun",
+      slot: "ranged",
+      weapon_family: "ogryn_rippergun",
+      blessings: {
+        "Inspiring Barrage": { internal: "inspiring_barrage" },
+        "Blaze Away": { internal: "blaze_away" },
+      },
+    },
+  ],
+]);
 
 let _data = null;
 let _weaponLookup = null;
@@ -320,6 +418,27 @@ function resolveGroundTruthWeapon(weaponName) {
   };
 }
 
+function resolveProvisionalWeaponFamily(weaponName) {
+  const match = PROVISIONAL_WEAPON_FAMILY_MATCHES.get(normalizeText(weaponName));
+  if (!match) {
+    return null;
+  }
+
+  return {
+    key: match.label,
+    entry: {
+      internal: match.weapon_family,
+      slot: match.slot,
+      blessings: match.blessings,
+    },
+    canonical_entity_id: null,
+    internal_name: null,
+    weapon_family: match.weapon_family,
+    slot: match.slot,
+    resolution_source: "provisional_family",
+  };
+}
+
 /**
  * Normalize a weapon name for fallback fuzzy matching against scoring data:
  * lowercase, collapse whitespace.
@@ -352,6 +471,11 @@ function findWeapon(weaponName) {
   const groundTruthMatch = resolveGroundTruthWeapon(normalizedName);
   if (groundTruthMatch) {
     return groundTruthMatch;
+  }
+
+  const provisionalFamilyMatch = resolveProvisionalWeaponFamily(normalizedName);
+  if (provisionalFamilyMatch) {
+    return provisionalFamilyMatch;
   }
 
   const data = loadData();

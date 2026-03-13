@@ -24,6 +24,14 @@
     "expected_entity_id": "shared.weapon.needlepistol_p1_m1"
   },
   {
+    "query": "Godwyn-Branx Mk IV Bolt Pistol",
+    "query_context": {
+      "kind": "weapon",
+      "slot": "ranged"
+    },
+    "expected_entity_id": "shared.weapon.boltpistol_p1_m1"
+  },
+  {
     "query": "Branx Mk VIII Dual Stub Pistols",
     "query_context": {
       "kind": "weapon",
@@ -64,6 +72,14 @@
     "expected_entity_id": "shared.weapon.powersword_p2_m1"
   },
   {
+    "query": "Maccabian Mk IV Duelling Sword",
+    "query_context": {
+      "kind": "weapon",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.weapon.combatsword_p1_m1"
+  },
+  {
     "query": "Judgement Mk IV Subductor Shotpistol & Riot Shield",
     "query_context": {
       "kind": "weapon",
@@ -86,5 +102,13 @@
       "slot": "ranged"
     },
     "expected_entity_id": "shared.weapon.ogryn_thumper_p1_m2"
+  },
+  {
+    "query": "Orox Mk II Battle Maul & Slab Shield",
+    "query_context": {
+      "kind": "weapon",
+      "slot": "melee"
+    },
+    "expected_entity_id": "shared.weapon.ogryn_powermaul_slabshield_p1_m1"
   }
 ]

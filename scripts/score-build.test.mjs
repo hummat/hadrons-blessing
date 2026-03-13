@@ -223,6 +223,22 @@ describe("scoreBlessings", () => {
     assert.equal(result.valid, true);
     assert.equal(result.blessings[0].known, true);
   });
+
+  it("validates blessings for provisional family fallback weapons", () => {
+    const weapon = {
+      name: "Foe-Rend Mk V Ripper Gun",
+      blessings: [
+        { name: "Inspiring Barrage", description: "..." },
+        { name: "Blaze Away", description: "..." },
+      ],
+    };
+    const result = scoreBlessings(weapon);
+    assert.equal(result.valid, true);
+    assert.deepEqual(
+      result.blessings.map((blessing) => blessing.known),
+      [true, true],
+    );
+  });
 });
 
 describe("scoreCurios", () => {
@@ -470,6 +486,28 @@ describe("generateScorecard", () => {
     assert.equal(card.weapons[0].weapon_family, "dual_shivs");
     assert.equal(card.weapons[0].slot, "melee");
     assert.equal(card.weapons[0].resolution_source, "ground_truth");
+  });
+
+  it("includes provisional family metadata without minting fake canonical ids", () => {
+    const build = {
+      title: "Provisional Family Metadata Test",
+      class: "zealot",
+      weapons: [
+        {
+          name: "Munitorum Mk II Relic Blade",
+          perks: ["20-25% Damage (Flak Armoured)", "20-25% Damage (Maniacs)"],
+          blessings: [{ name: "Wrath" }, { name: "Overload" }],
+        },
+      ],
+      curios: [],
+      talents: { active: [], inactive: [] },
+    };
+    const card = generateScorecard(build);
+    assert.equal(card.weapons[0].canonical_entity_id, null);
+    assert.equal(card.weapons[0].weapon_family, "powersword_2h");
+    assert.equal(card.weapons[0].slot, "melee");
+    assert.equal(card.weapons[0].resolution_source, "provisional_family");
+    assert.equal(card.weapons[0].blessings.valid, true);
   });
 });
 

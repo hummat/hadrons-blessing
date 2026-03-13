@@ -14,8 +14,8 @@
 ### Audit on canonical build fixtures
 
 - 20/20 migrated canonical build fixtures completed with:
-  - `255` resolved entries
-  - `80` non-canonical entries
+  - `257` resolved entries
+  - `78` non-canonical entries
   - `0` ambiguous entries
   - `61` unresolved entries
 - The `61` unresolved entries are not fuzzy-match failures. They are persisted class-side selections that still lack resolver coverage, plus the remaining explicit placeholders in builds whose scrape data never preserved class-side choices.
@@ -37,11 +37,12 @@
 ### Scorecard on canonical build fixtures
 
 - `score-build` now accepts the migrated canonical build shape directly.
-- Canonical weapon metadata is improved but still incomplete:
-  - `13` builds: both weapons canonicalized
+- Canonical weapon metadata is now complete enough to emit either an exact canonical weapon id or a provisional family signal for every fixture weapon:
+  - `17` builds: both weapons canonicalized
   - `3` builds: one weapon canonicalized
-  - `4` builds: zero weapons canonicalized
-- Remaining misses are still display-name coverage gaps in the scoring catalog, not resolver crashes.
+  - `0` builds: zero weapons canonicalized
+- Exact canonical ids now cover additional real fixture labels such as `Godwyn-Branx Mk IV Bolt Pistol`, `Maccabian Mk IV Duelling Sword`, and `Orox Mk II Battle Maul & Slab Shield`.
+- The remaining partial cases are provisional family matches, not hard failures.
 
 ### BetterBots profile template ids
 
@@ -79,10 +80,10 @@ It is still not enough for full BetterBots build/behavior design because:
 
 - class-scoped non-Psyker talent/ability coverage is missing
 - the migrated fixture corpus still lacks real class-side selections, so `ability` / `blitz` / `aura` remain explicit unresolved placeholders
-- `score-build` still depends on partial display-name coverage for several community build weapon names
+- `score-build` still uses provisional family fallback for several community build weapon names instead of exact canonical ids
 
 ## Next High-Value Work
 
 1. Re-extract builds from source pages so fixtures preserve real selected class-side nodes beyond prose-level recovery and stop depending on placeholder slots.
-2. Expand shared weapon display-name alias and entity coverage for the remaining `score-build` misses.
+2. Replace the remaining provisional family matches in `score-build` with exact canonical weapon coverage where the source-backed mark-to-template bridge can be proven.
 3. Add class-scoped coverage beyond Psyker if BetterBots-side heuristic design needs talent/ability evidence for those archetypes.
