@@ -160,6 +160,46 @@
     "notes": ""
   },
   {
+    "text": "+5-20% Damage Resistance (Gunners)",
+    "normalized_text": "5 20 damage resistance gunners",
+    "candidate_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live Games Lantern curio perk label variant."
+  },
+  {
+    "text": "+5-20% Damage Resistance (Snipers)",
+    "normalized_text": "5 20 damage resistance snipers",
+    "candidate_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_snipers",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live Games Lantern curio perk label variant."
+  },
+  {
     "text": "+3-4% Combat Ability Regen",
     "normalized_text": "3 4 combat ability regen",
     "candidate_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
@@ -458,6 +498,26 @@
     },
     "rank_weight": 100,
     "notes": ""
+  },
+  {
+    "text": "10-25% Damage (Unyielding Enemies)",
+    "normalized_text": "10 25 damage unyielding enemies",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live Games Lantern weapon perk label variant."
   },
   {
     "text": "Blaze Away",

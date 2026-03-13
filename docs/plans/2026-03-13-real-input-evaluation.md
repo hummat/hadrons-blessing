@@ -14,11 +14,11 @@
 ### Audit on canonical build fixtures
 
 - 20/20 migrated canonical build fixtures completed with:
-  - `261` resolved entries
+  - `268` resolved entries
   - `78` non-canonical entries
   - `0` ambiguous entries
-  - `57` unresolved entries
-- The `57` unresolved entries are not fuzzy-match failures. They are the remaining persisted class-side selections that still lack resolver coverage, plus the explicit placeholders in builds whose scrape data never preserved class-side choices.
+  - `83` unresolved entries
+- The `83` unresolved entries are not fuzzy-match failures. They are the remaining persisted class-side selections that still lack resolver coverage, including the `26` preserved non-slot veteran talents from the live sample fixture, plus the explicit placeholders in builds whose scrape data never preserved class-side choices.
 - This means the current audit path is useful on real canonical fixtures, and it now preserves recovered class-side labels when raw scrape prose contains them instead of flattening everything to `Unknown ability` / `Unknown blitz` / `Unknown aura`.
 - The remaining `non_canonical` entries are still mostly expected:
   - unsupported curio display labels such as `Blessed Bullet`
@@ -41,6 +41,7 @@
   is absent.
 - This recovery now comes from explicit scraped `class_selections`, not the old description-only fallback.
 - The checked-in canonical fixture `scripts/builds/01-veteran-squad-leader.json` now resolves those four veteran slot selections all the way to canonical entity ids.
+- The checked-in canonical fixture `scripts/builds/01-veteran-squad-leader.json` now also carries those `26` preserved non-slot active talents as explicit unresolved canonical selections instead of dropping them.
 
 ### Live extractor verification
 

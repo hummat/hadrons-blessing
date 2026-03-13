@@ -41,10 +41,38 @@ function expectedPersistedUnresolvedFields(build) {
   }
 
   const expected = [];
-  for (const field of ["ability", "blitz", "aura", "keystone"]) {
-    const selection = build[field];
+
+  function addSelection(field, selection) {
     if (selection?.resolution_status === "unresolved") {
       expected.push(field);
+    }
+  }
+
+  for (const field of ["ability", "blitz", "aura", "keystone"]) {
+    addSelection(field, build[field]);
+  }
+
+  for (const [index, talent] of (build.talents ?? []).entries()) {
+    addSelection(`talents[${index}]`, talent);
+  }
+
+  for (const [weaponIndex, weapon] of (build.weapons ?? []).entries()) {
+    addSelection(`weapons[${weaponIndex}].name`, weapon?.name);
+
+    for (const [perkIndex, perk] of (weapon?.perks ?? []).entries()) {
+      addSelection(`weapons[${weaponIndex}].perks[${perkIndex}]`, perk);
+    }
+
+    for (const [blessingIndex, blessing] of (weapon?.blessings ?? []).entries()) {
+      addSelection(`weapons[${weaponIndex}].blessings[${blessingIndex}].name`, blessing);
+    }
+  }
+
+  for (const [curioIndex, curio] of (build.curios ?? []).entries()) {
+    addSelection(`curios[${curioIndex}].name`, curio?.name);
+
+    for (const [perkIndex, perk] of (curio?.perks ?? []).entries()) {
+      addSelection(`curios[${curioIndex}].perks[${perkIndex}]`, perk);
     }
   }
 
@@ -585,6 +613,31 @@ describe("resolveQuery", () => {
       ["Survivalist", { kind: "aura", class: "veteran" }, "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved"],
       ["Focus Target!", { kind: "keystone", class: "veteran" }, "veteran.keystone.veteran_improved_tag"],
       ["Focus Target", { kind: "keystone", class: "veteran" }, "veteran.keystone.veteran_improved_tag"],
+    ]) {
+      const result = await resolveQuery(query, queryContext);
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, expectedEntityId);
+    }
+  });
+
+  it("resolves live Games Lantern perk label variants", async () => {
+    for (const [query, queryContext, expectedEntityId] of [
+      [
+        "10-25% Damage (Unyielding Enemies)",
+        { kind: "weapon_perk", slot: "ranged" },
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+      ],
+      [
+        "+5-20% Damage Resistance (Snipers)",
+        { kind: "gadget_trait", slot: "curio" },
+        "shared.gadget_trait.gadget_damage_reduction_vs_snipers",
+      ],
+      [
+        "+5-20% Damage Resistance (Gunners)",
+        { kind: "gadget_trait", slot: "curio" },
+        "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+      ],
     ]) {
       const result = await resolveQuery(query, queryContext);
 
