@@ -153,12 +153,20 @@ function makeRawBuild(overrides = {}) {
 function makeStubCanonicalizerDeps(overrides = {}) {
   const resolvedIds = new Map([
     ["psyker", "shared.class.psyker"],
+    ["veteran", "shared.class.veteran"],
     ["chainsword_p1_m1", "shared.weapon.chainsword_p1_m1"],
     ["bot_lasgun_killshot", "shared.weapon.bot_lasgun_killshot"],
     ["20-25% Damage (Carapace)", "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_carapace_damage"],
     ["+4-5% Toughness", "shared.gadget_trait.gadget_toughness_increase"],
     ["Blazing Spirit", "shared.name_family.blessing.blazing_spirit"],
+    ["Voice of Command", "veteran.ability.veteran_combat_ability_shout"],
+    ["Duty and Honour", "veteran.keystone.veteran_tactical_aid"],
+    ["Survivalist", "veteran.aura.veteran_improved_survivalist"],
     ["Warp Rider", "psyker.talent.psyker_damage_based_on_warp_charge"],
+    ["Scrier's Gaze", "psyker.ability.psyker_gun"],
+    ["Brain Rupture", "psyker.blitz.psyker_smite_target"],
+    ["Psykinetic's Aura", "psyker.aura.quell_on_elite_kill_aura"],
+    ["Warp Siphon", "psyker.keystone.psyker_overcharge_stance"],
   ]);
 
   return {
@@ -355,6 +363,52 @@ describe("canonicalizeScrapedBuild", () => {
       build.talents.map((selection) => selection.raw_label),
       ["Warp Rider"],
     );
+  });
+
+  it("fills missing class-side slots from summary prose when the talent scrape is empty", async () => {
+    const build = await canonicalizeScrapedBuild(
+      makeRawBuild({
+        class: "veteran",
+        talents: {
+          active: [],
+          inactive: [],
+        },
+        description: "Team support through CC and coherency buffs. Voice of Command + Duty and Honour keystone with Survivalist aura.",
+      }),
+      makeStubCanonicalizerDeps(),
+    );
+
+    assert.equal(build.class.canonical_entity_id, "shared.class.veteran");
+    assert.equal(build.ability.raw_label, "Voice of Command");
+    assert.equal(build.ability.canonical_entity_id, "veteran.ability.veteran_combat_ability_shout");
+    assert.equal(build.aura.raw_label, "Survivalist");
+    assert.equal(build.aura.canonical_entity_id, "veteran.aura.veteran_improved_survivalist");
+    assert.equal(build.keystone?.raw_label, "Duty and Honour");
+    assert.equal(build.keystone?.canonical_entity_id, "veteran.keystone.veteran_tactical_aid");
+    assert.equal(build.blitz.raw_label, "Unknown blitz");
+    assert.equal(build.blitz.resolution_status, "unresolved");
+  });
+
+  it("fills missing class-side slots from explicit description markers", async () => {
+    const build = await canonicalizeScrapedBuild(
+      makeRawBuild({
+        talents: {
+          active: [],
+          inactive: [],
+        },
+        description: "ABILITY: Scrier's Gaze. BLITZ: Brain Rupture. TEAM AURA: Psykinetic's Aura. KEYSTONE: Warp Siphon.",
+      }),
+      makeStubCanonicalizerDeps(),
+    );
+
+    assert.equal(build.ability.raw_label, "Scrier's Gaze");
+    assert.equal(build.ability.canonical_entity_id, "psyker.ability.psyker_gun");
+    assert.equal(build.blitz.raw_label, "Brain Rupture");
+    assert.equal(build.blitz.canonical_entity_id, "psyker.blitz.psyker_smite_target");
+    assert.equal(build.aura.raw_label, "Psykinetic's Aura");
+    assert.equal(build.aura.canonical_entity_id, "psyker.aura.quell_on_elite_kill_aura");
+    assert.equal(build.keystone?.raw_label, "Warp Siphon");
+    assert.equal(build.keystone?.canonical_entity_id, "psyker.keystone.psyker_overcharge_stance");
   });
 });
 

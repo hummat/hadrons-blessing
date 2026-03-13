@@ -35,19 +35,15 @@ function writeTempCanonicalBuild(build) {
   return filePath;
 }
 
-function expectedPlaceholderUnresolvedFields(build) {
+function expectedPersistedUnresolvedFields(build) {
   if (build?.schema_version !== 1) {
     return [];
   }
 
   const expected = [];
-  for (const field of ["ability", "blitz", "aura"]) {
+  for (const field of ["ability", "blitz", "aura", "keystone"]) {
     const selection = build[field];
-    if (
-      selection?.resolution_status === "unresolved"
-      && typeof selection.raw_label === "string"
-      && selection.raw_label.startsWith("Unknown ")
-    ) {
+    if (selection?.resolution_status === "unresolved") {
       expected.push(field);
     }
   }
@@ -927,7 +923,7 @@ describe("auditBuildFile", () => {
       );
       assert.deepEqual(
         result.unresolved.map((entry) => entry.field).sort(),
-        expectedPlaceholderUnresolvedFields(build),
+        expectedPersistedUnresolvedFields(build),
         `unexpected unresolved entries in ${buildPath}`,
       );
       assert.equal(

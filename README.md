@@ -156,9 +156,12 @@ Current fixture limitation:
   and provenance decisions
 - it does **not** preserve real selected class-side talent-tree nodes from the
   original scrape data
-- as a result, current canonical fixtures legitimately carry unresolved
-  placeholder `ability` / `blitz` / `aura` selections until builds are
-  re-extracted from source pages
+- canonicalization now falls back to Games Lantern description prose when a raw
+  scrape includes explicit slot markers or summary text like `Voice of Command +
+  Duty and Honour keystone with Survivalist aura`
+- as a result, current canonical fixtures can preserve some real class-side
+  labels from raw scrape prose, but most of the checked-in corpus still needs
+  re-extraction from source pages to recover complete selected class-side data
 
 ## Roadmap
 

@@ -146,6 +146,7 @@ function classifyBuildNodes(rawBuild, deps = {}) {
 
   return classifySelectedNodes(rawBuild?.talents?.active ?? [], {
     className: rawBuild.class,
+    description: rawBuild?.description ?? "",
     classificationRegistry,
     ...(classifySlugRole == null ? {} : { classifySlugRole }),
   });

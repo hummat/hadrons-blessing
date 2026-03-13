@@ -13,7 +13,7 @@
     "scraped_at": "2026-03-13T00:00:00Z"
   },
   "ability": {
-    "raw_label": "Unknown ability",
+    "raw_label": "Voice of Command",
     "canonical_entity_id": null,
     "resolution_status": "unresolved"
   },
@@ -23,11 +23,15 @@
     "resolution_status": "unresolved"
   },
   "aura": {
-    "raw_label": "Unknown aura",
+    "raw_label": "Survivalist",
     "canonical_entity_id": null,
     "resolution_status": "unresolved"
   },
-  "keystone": null,
+  "keystone": {
+    "raw_label": "Duty and Honour",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
   "talents": [],
   "weapons": [
     {
@@ -124,12 +128,41 @@
       },
       "perks": [
         {
+          "raw_label": "+4-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
           "raw_label": "+15-20% DR vs Snipers",
           "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_snipers",
           "resolution_status": "resolved",
           "value": {
             "min": 0.15,
             "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+4-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.05,
             "unit": "percent"
           }
         },
@@ -151,15 +184,18 @@
         "canonical_entity_id": null,
         "resolution_status": "non_canonical"
       },
-      "perks": []
-    },
-    {
-      "name": {
-        "raw_label": "Blessed Bullet",
-        "canonical_entity_id": null,
-        "resolution_status": "non_canonical"
-      },
-      "perks": []
+      "perks": [
+        {
+          "raw_label": "+4-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ]
     }
   ]
 }

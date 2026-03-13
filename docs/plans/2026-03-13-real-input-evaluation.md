@@ -14,15 +14,25 @@
 ### Audit on canonical build fixtures
 
 - 20/20 migrated canonical build fixtures completed with:
-  - `252` resolved entries
+  - `255` resolved entries
   - `80` non-canonical entries
   - `0` ambiguous entries
-  - `60` unresolved entries
-- The `60` unresolved entries are not fuzzy-match failures. They are the explicit `ability` / `blitz` / `aura` placeholder selections now carried by the migrated fixtures because the checked-in legacy fixture corpus never preserved real class-side talent-tree data.
-- This means the current audit path is useful on real canonical fixtures, but it now honestly surfaces the class-side data gap instead of pretending those selections were present.
+  - `61` unresolved entries
+- The `61` unresolved entries are not fuzzy-match failures. They are persisted class-side selections that still lack resolver coverage, plus the remaining explicit placeholders in builds whose scrape data never preserved class-side choices.
+- This means the current audit path is useful on real canonical fixtures, and it now preserves recovered class-side labels when raw scrape prose contains them instead of flattening everything to `Unknown ability` / `Unknown blitz` / `Unknown aura`.
 - The remaining `non_canonical` entries are still mostly expected:
   - unsupported curio display labels such as `Blessed Bullet`
   - known unresolved weapon/blessing labels still tracked as non-canonical instead of leaking into `unresolved`
+
+### Real sample-build recovery
+
+- `scripts/sample-build.json` canonicalizes to:
+  - `ability`: `Voice of Command`
+  - `aura`: `Survivalist`
+  - `keystone`: `Duty and Honour`
+  - `blitz`: still unresolved because the description never names one
+- This recovery comes from build description fallback, not the Games Lantern talent-tree node scrape.
+- The checked-in canonical fixture `scripts/builds/01-veteran-squad-leader.json` now preserves those recovered labels instead of placeholder `Unknown ...` values.
 
 ### Scorecard on canonical build fixtures
 
@@ -73,6 +83,6 @@ It is still not enough for full BetterBots build/behavior design because:
 
 ## Next High-Value Work
 
-1. Re-extract builds from source pages so fixtures preserve real selected class-side nodes instead of `Unknown ability` / `Unknown blitz` / `Unknown aura` placeholders.
-2. Expand shared weapon display-name alias coverage for the remaining `score-build` misses.
+1. Re-extract builds from source pages so fixtures preserve real selected class-side nodes beyond prose-level recovery and stop depending on placeholder slots.
+2. Expand shared weapon display-name alias and entity coverage for the remaining `score-build` misses.
 3. Add class-scoped coverage beyond Psyker if BetterBots-side heuristic design needs talent/ability evidence for those archetypes.
