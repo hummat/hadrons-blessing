@@ -540,6 +540,49 @@ describe("resolveQuery", () => {
       assert.equal(result.resolved_entity_id, testCase.expected_entity_id);
     }
   });
+
+  it("resolves representative BetterBots profile weapon template ids", async () => {
+    for (const [query, queryContext, expectedEntityId] of [
+      ["chainsword_p1_m1", { kind: "weapon", slot: "melee" }, "shared.weapon.chainsword_p1_m1"],
+      ["autogun_p1_m1", { kind: "weapon", slot: "ranged" }, "shared.weapon.autogun_p1_m1"],
+      ["forcesword_p1_m1", { kind: "weapon", slot: "melee" }, "shared.weapon.forcesword_p1_m1"],
+      ["forcestaff_p1_m1", { kind: "weapon", slot: "ranged" }, "shared.weapon.forcestaff_p1_m1"],
+      ["bot_lasgun_killshot", { kind: "weapon", slot: "ranged" }, "shared.weapon.bot_lasgun_killshot"],
+      ["high_bot_autogun_killshot", { kind: "weapon", slot: "ranged" }, "shared.weapon.high_bot_autogun_killshot"],
+      ["bot_combatsword_linesman_p1", { kind: "weapon", slot: "melee" }, "shared.weapon.bot_combatsword_linesman_p1"],
+      ["bot_combataxe_linesman", { kind: "weapon", slot: "melee" }, "shared.weapon.bot_combataxe_linesman"],
+    ]) {
+      const result = await resolveQuery(query, queryContext);
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, expectedEntityId);
+    }
+  });
+
+  it("resolves BetterBots full content item paths via template basename", async () => {
+    for (const [query, queryContext, expectedEntityId] of [
+      [
+        "content/items/weapons/player/melee/chainsword_p1_m1",
+        { kind: "weapon", slot: "melee" },
+        "shared.weapon.chainsword_p1_m1",
+      ],
+      [
+        "content/items/weapons/player/ranged/bot_lasgun_killshot",
+        { kind: "weapon", slot: "ranged" },
+        "shared.weapon.bot_lasgun_killshot",
+      ],
+      [
+        "content/items/weapons/player/ranged/high_bot_autogun_killshot",
+        { kind: "weapon", slot: "ranged" },
+        "shared.weapon.high_bot_autogun_killshot",
+      ],
+    ]) {
+      const result = await resolveQuery(query, queryContext);
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, expectedEntityId);
+    }
+  });
 });
 
 describe("auditBuildFile", () => {
@@ -710,6 +753,16 @@ describe("auditBuildFile", () => {
       const build = JSON.parse(readFileSync(buildPath, "utf8"));
       const result = await auditBuildFile(buildPath);
 
+      assert.equal(
+        result.ambiguous.length,
+        0,
+        `unexpected ambiguous entries in ${buildPath}`,
+      );
+      assert.equal(
+        result.unresolved.length,
+        0,
+        `unexpected unresolved entries in ${buildPath}`,
+      );
       assert.equal(
         result.resolved.some(
           (entry) =>

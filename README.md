@@ -13,6 +13,10 @@ Stable v1 commands:
 - **Audit** — verify a build JSON: classify each field as resolved, ambiguous,
   unresolved, or known non-canonical
 
+For covered shared weapons, `resolve` also accepts internal template ids and
+BetterBots-style full content item paths such as
+`content/items/weapons/player/ranged/bot_lasgun_killshot`.
+
 Provisional surface:
 
 - **Score** — coarse build scoring exists today in `scripts/score-build.mjs`,
@@ -72,6 +76,12 @@ Resolve one query:
 
 ```bash
 GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run resolve -- --query "Warp Rider" --context '{"kind":"talent","class":"psyker"}'
+```
+
+Resolve a BetterBots profile weapon path:
+
+```bash
+GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run resolve -- --query "content/items/weapons/player/ranged/bot_lasgun_killshot" --context '{"kind":"weapon","slot":"ranged"}'
 ```
 
 Audit a build file:

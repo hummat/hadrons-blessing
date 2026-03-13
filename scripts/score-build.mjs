@@ -15,6 +15,15 @@ const DATA_PATH = join(__dirname, "build-scoring-data.json");
 let _data = null;
 let _weaponLookup = null;
 
+function extractTemplateBasename(text) {
+  if (typeof text !== "string" || !text.includes("/")) {
+    return null;
+  }
+
+  const basename = text.split("/").pop()?.trim() ?? "";
+  return basename.length > 0 ? basename : null;
+}
+
 function loadData() {
   if (!_data) {
     _data = JSON.parse(readFileSync(DATA_PATH, "utf-8"));
@@ -229,8 +238,20 @@ function loadWeaponLookup() {
 
 function resolveGroundTruthWeapon(weaponName) {
   const { aliasesByNormalizedText, scoringWeaponsByInternal, weaponEntitiesById } = loadWeaponLookup();
-  const normalizedName = normalizeText(weaponName);
-  const candidates = aliasesByNormalizedText.get(normalizedName) ?? [];
+  const candidateQueries = [weaponName];
+  const templateBasename = extractTemplateBasename(weaponName);
+
+  if (templateBasename != null && templateBasename !== weaponName) {
+    candidateQueries.push(templateBasename);
+  }
+
+  let candidates = [];
+  for (const candidateQuery of candidateQueries) {
+    candidates = aliasesByNormalizedText.get(normalizeText(candidateQuery)) ?? [];
+    if (candidates.length > 0) {
+      break;
+    }
+  }
 
   if (candidates.length === 0) {
     return null;
@@ -280,7 +301,7 @@ function normalizeName(name) {
  */
 function findWeapon(weaponName) {
   const groundTruthMatch = resolveGroundTruthWeapon(weaponName);
-  if (groundTruthMatch?.entry) {
+  if (groundTruthMatch) {
     return groundTruthMatch;
   }
 
@@ -356,6 +377,10 @@ export function scoreBlessings(weapon) {
 
   // Unknown weapon — can't validate
   if (!found) {
+    return { valid: null, blessings: [] };
+  }
+
+  if (!found.entry) {
     return { valid: null, blessings: [] };
   }
 

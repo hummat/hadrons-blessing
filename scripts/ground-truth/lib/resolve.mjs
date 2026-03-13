@@ -20,6 +20,15 @@ function getIndex() {
   return buildIndex({ check: false });
 }
 
+function extractTemplateBasename(text) {
+  if (typeof text !== "string" || !text.includes("/")) {
+    return null;
+  }
+
+  const basename = text.split("/").pop()?.trim() ?? "";
+  return basename.length > 0 ? basename : null;
+}
+
 function contextMatches(alias, queryContext) {
   const requireAll = alias.context_constraints.require_all;
   const prefer = alias.context_constraints.prefer;
@@ -195,7 +204,6 @@ function collectRefsForEntity(entity, evidence) {
 
 async function resolveQuery(query, queryContext, options = {}) {
   const safeQueryContext = assertAllowedQueryContext(queryContext);
-  const normalizedQuery = normalizeText(query);
   const index = await getIndex();
   const entitiesById = new Map(index.entities.map((entity) => [entity.id, entity]));
 
@@ -228,31 +236,41 @@ async function resolveQuery(query, queryContext, options = {}) {
     };
   }
 
-  const bestByEntity = new Map();
+  function rankAliasCandidates(candidateQuery) {
+    const bestByEntity = new Map();
+    const normalizedCandidateQuery = normalizeText(candidateQuery);
 
-  for (const alias of index.aliases) {
-    const candidate = scoreAlias(alias, query, normalizedQuery, safeQueryContext);
-    if (!candidate) {
-      continue;
+    for (const alias of index.aliases) {
+      const candidate = scoreAlias(alias, candidateQuery, normalizedCandidateQuery, safeQueryContext);
+      if (!candidate) {
+        continue;
+      }
+
+      const existing = bestByEntity.get(alias.candidate_entity_id);
+      if (!existing || candidate.score > existing.score) {
+        bestByEntity.set(alias.candidate_entity_id, candidate);
+      }
     }
 
-    const existing = bestByEntity.get(alias.candidate_entity_id);
-    if (!existing || candidate.score > existing.score) {
-      bestByEntity.set(alias.candidate_entity_id, candidate);
-    }
+    return [...bestByEntity.entries()]
+      .map(([entityId, candidate]) => ({
+        entity_id: entityId,
+        entity: entitiesById.get(entityId) ?? null,
+        score: candidate.score,
+        match_type: candidate.matchType,
+        context_match_explanation: candidate.contextExplanation,
+        alias: candidate.alias,
+      }))
+      .filter((candidate) => candidate.entity != null)
+      .sort((left, right) => right.score - left.score || left.entity_id.localeCompare(right.entity_id));
   }
 
-  const ranked = [...bestByEntity.entries()]
-    .map(([entityId, candidate]) => ({
-      entity_id: entityId,
-      entity: entitiesById.get(entityId) ?? null,
-      score: candidate.score,
-      match_type: candidate.matchType,
-      context_match_explanation: candidate.contextExplanation,
-      alias: candidate.alias,
-    }))
-    .filter((candidate) => candidate.entity != null)
-    .sort((left, right) => right.score - left.score || left.entity_id.localeCompare(right.entity_id));
+  let ranked = rankAliasCandidates(query);
+  const templateBasename = ranked.length === 0 ? extractTemplateBasename(query) : null;
+
+  if (ranked.length === 0 && templateBasename != null && templateBasename !== query) {
+    ranked = rankAliasCandidates(templateBasename);
+  }
 
   if (ranked.length === 0) {
     return {
@@ -317,7 +335,7 @@ async function resolveQuery(query, queryContext, options = {}) {
     score: best.score,
     score_margin: scoreMargin,
     confidence,
-    why_this_match: `Best candidate ${best.entity_id} via ${best.alias.text} (${best.match_type}); ${best.context_match_explanation}.`,
+    why_this_match: `Best candidate ${best.entity_id} via ${best.alias.text} (${best.match_type}); ${best.context_match_explanation}.${templateBasename != null && ranked.length > 0 ? ` Template basename fallback: ${templateBasename}.` : ""}`,
     candidate_trace: ranked.slice(0, 5).map((candidate) => ({
       entity_id: candidate.entity_id,
       score: candidate.score,

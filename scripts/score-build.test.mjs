@@ -289,6 +289,36 @@ describe("scoreCurios", () => {
 });
 
 describe("generateScorecard", () => {
+  it("preserves canonical metadata for BetterBots content item paths", () => {
+    const result = generateScorecard({
+      title: "BetterBots profile sample",
+      class: "veteran",
+      weapons: [
+        {
+          name: "content/items/weapons/player/melee/chainsword_p1_m1",
+          perks: [],
+          blessings: [],
+        },
+        {
+          name: "content/items/weapons/player/ranged/bot_lasgun_killshot",
+          perks: [],
+          blessings: [],
+        },
+      ],
+      curios: [],
+      talents: {},
+    });
+
+    assert.equal(result.weapons[0].canonical_entity_id, "shared.weapon.chainsword_p1_m1");
+    assert.equal(result.weapons[0].internal_name, "chainsword_p1_m1");
+    assert.equal(result.weapons[0].resolution_source, "ground_truth");
+    assert.equal(result.weapons[1].canonical_entity_id, "shared.weapon.bot_lasgun_killshot");
+    assert.equal(result.weapons[1].internal_name, "bot_lasgun_killshot");
+    assert.equal(result.weapons[1].resolution_source, "ground_truth");
+  });
+});
+
+describe("generateScorecard", () => {
   it("produces scorecard from sample build", () => {
     const build = {
       title: "Test Build",
