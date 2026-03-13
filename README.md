@@ -16,7 +16,8 @@ Stable v1 commands:
 Provisional surface:
 
 - **Score** — coarse build scoring exists today in `scripts/score-build.mjs`,
-  but it is not yet part of the stable CLI contract
+  uses checked-in ground-truth weapon aliases plus scoring data, but is not yet
+  part of the stable CLI contract
 
 Not yet part of the public CLI contract:
 
@@ -52,7 +53,7 @@ Current command requirements:
 - `scripts/score-build.mjs` — does not require `GROUND_TRUTH_SOURCE_ROOT`
 
 If `GROUND_TRUTH_SOURCE_ROOT` is missing or points at the wrong pinned revision,
-resolver/index/test commands fail deliberately.
+resolver/index/test commands fail deliberately with explicit setup guidance.
 
 Generated artifacts under `data/ground-truth/generated/` are build outputs and
 remain gitignored.

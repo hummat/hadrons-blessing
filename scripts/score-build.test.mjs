@@ -213,6 +213,16 @@ describe("scoreBlessings", () => {
     const result = scoreBlessings(weapon);
     assert.equal(result.blessings[0].internal, "crit_chance_scaled_on_heat");
   });
+
+  it("matches weapon internal names through ground-truth aliases", () => {
+    const weapon = {
+      name: "dual_shivs_p1_m1",
+      blessings: [{ name: "Uncanny Strike", description: "..." }],
+    };
+    const result = scoreBlessings(weapon);
+    assert.equal(result.valid, true);
+    assert.equal(result.blessings[0].known, true);
+  });
 });
 
 describe("scoreCurios", () => {
@@ -346,6 +356,24 @@ describe("generateScorecard", () => {
     assert.equal(card.qualitative.role_coverage, null);
     assert.equal(card.qualitative.difficulty_scaling, null);
     assert.deepEqual(card.bot_flags, []);
+  });
+
+  it("includes canonical weapon metadata from ground-truth resolution", () => {
+    const build = {
+      title: "Canonical Metadata Test",
+      class: "broker",
+      weapons: [
+        { name: "dual_shivs_p1_m1", perks: [], blessings: [] },
+      ],
+      curios: [],
+      talents: { active: [], inactive: [] },
+    };
+    const card = generateScorecard(build);
+    assert.equal(card.weapons[0].canonical_entity_id, "shared.weapon.dual_shivs_p1_m1");
+    assert.equal(card.weapons[0].internal_name, "dual_shivs_p1_m1");
+    assert.equal(card.weapons[0].weapon_family, "dual_shivs");
+    assert.equal(card.weapons[0].slot, "melee");
+    assert.equal(card.weapons[0].resolution_source, "ground_truth");
   });
 });
 

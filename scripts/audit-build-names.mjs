@@ -1,4 +1,5 @@
 import { basename } from "node:path";
+import { runCliMain } from "./ground-truth/lib/cli.mjs";
 import { loadJsonFile } from "./ground-truth/lib/load.mjs";
 import { classifyKnownUnresolved } from "./ground-truth/lib/non-canonical.mjs";
 import { resolveQuery } from "./ground-truth/lib/resolve.mjs";
@@ -163,13 +164,15 @@ async function auditBuildFile(buildPath) {
 }
 
 if (import.meta.main) {
-  const buildPath = process.argv[2];
-  if (!buildPath) {
-    throw new Error("build path is required");
-  }
+  await runCliMain("audit", async () => {
+    const buildPath = process.argv[2];
+    if (!buildPath) {
+      throw new Error("build path is required");
+    }
 
-  const result = await auditBuildFile(buildPath);
-  process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+    const result = await auditBuildFile(buildPath);
+    process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+  });
 }
 
 export { auditBuildFile };

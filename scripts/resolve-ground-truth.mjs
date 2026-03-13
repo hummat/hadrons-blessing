@@ -1,4 +1,5 @@
 import { resolveQuery } from "./ground-truth/lib/resolve.mjs";
+import { runCliMain } from "./ground-truth/lib/cli.mjs";
 
 function parseArgs(argv) {
   const args = {
@@ -25,7 +26,9 @@ function parseArgs(argv) {
 }
 
 if (import.meta.main) {
-  const args = parseArgs(process.argv.slice(2));
-  const result = await resolveQuery(args.query, args.context);
-  process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+  await runCliMain("resolve", async () => {
+    const args = parseArgs(process.argv.slice(2));
+    const result = await resolveQuery(args.query, args.context);
+    process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+  });
 }

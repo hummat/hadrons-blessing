@@ -6,11 +6,14 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
+import { ALIASES_ROOT, ENTITIES_ROOT, listJsonFiles, loadJsonFile } from "./ground-truth/lib/load.mjs";
+import { normalizeText } from "./ground-truth/lib/normalize.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_PATH = join(__dirname, "build-scoring-data.json");
 
 let _data = null;
+let _weaponLookup = null;
 
 function loadData() {
   if (!_data) {
@@ -167,8 +170,98 @@ export function scoreWeaponPerks(weapon, slot) {
   return { score, perks: scored };
 }
 
+function loadWeaponLookup() {
+  if (_weaponLookup) {
+    return _weaponLookup;
+  }
+
+  const data = loadData();
+  const scoringWeaponsByInternal = new Map(
+    Object.entries(data.weapons || {})
+      .filter(([, entry]) => typeof entry.internal === "string" && entry.internal.length > 0)
+      .map(([key, entry]) => [entry.internal, { key, entry }]),
+  );
+
+  const weaponEntities = listJsonFiles(ENTITIES_ROOT)
+    .flatMap((path) => loadJsonFile(path))
+    .filter((record) => record.kind === "weapon");
+  const weaponEntityIds = new Set(weaponEntities.map((record) => record.id));
+  const weaponEntitiesById = new Map(weaponEntities.map((record) => [record.id, record]));
+
+  const aliases = listJsonFiles(ALIASES_ROOT)
+    .flatMap((path) => loadJsonFile(path))
+    .filter((record) => weaponEntityIds.has(record.candidate_entity_id));
+
+  const aliasesByNormalizedText = new Map();
+
+  function addAlias(normalizedText, candidateEntityId, rankWeight, source) {
+    if (!normalizedText) {
+      return;
+    }
+
+    const bucket = aliasesByNormalizedText.get(normalizedText) ?? [];
+    bucket.push({ candidateEntityId, rankWeight, source });
+    aliasesByNormalizedText.set(normalizedText, bucket);
+  }
+
+  for (const alias of aliases) {
+    addAlias(alias.normalized_text, alias.candidate_entity_id, alias.rank_weight ?? 0, "ground_truth_alias");
+  }
+
+  for (const entity of weaponEntities) {
+    addAlias(normalizeText(entity.id), entity.id, 1000, "canonical_id");
+
+    for (const field of ["internal_name", "loc_key", "ui_name"]) {
+      const value = entity[field];
+      if (typeof value === "string" && value.length > 0) {
+        addAlias(normalizeText(value), entity.id, field === "internal_name" ? 900 : 800, field);
+      }
+    }
+  }
+
+  _weaponLookup = {
+    aliasesByNormalizedText,
+    scoringWeaponsByInternal,
+    weaponEntitiesById,
+  };
+  return _weaponLookup;
+}
+
+function resolveGroundTruthWeapon(weaponName) {
+  const { aliasesByNormalizedText, scoringWeaponsByInternal, weaponEntitiesById } = loadWeaponLookup();
+  const normalizedName = normalizeText(weaponName);
+  const candidates = aliasesByNormalizedText.get(normalizedName) ?? [];
+
+  if (candidates.length === 0) {
+    return null;
+  }
+
+  const best = [...candidates].sort(
+    (left, right) =>
+      right.rankWeight - left.rankWeight
+      || left.candidateEntityId.localeCompare(right.candidateEntityId),
+  )[0];
+  const entity = weaponEntitiesById.get(best.candidateEntityId);
+  if (!entity) {
+    return null;
+  }
+
+  const scoringRecord = scoringWeaponsByInternal.get(entity.internal_name) ?? null;
+
+  return {
+    key: scoringRecord?.key ?? null,
+    entry: scoringRecord?.entry ?? null,
+    canonical_entity_id: entity.id,
+    internal_name: entity.internal_name,
+    weapon_family: entity.attributes?.weapon_family ?? null,
+    slot: entity.attributes?.slot ?? null,
+    resolution_source: "ground_truth",
+  };
+}
+
 /**
- * Normalize a weapon name for fuzzy matching: lowercase, collapse whitespace.
+ * Normalize a weapon name for fallback fuzzy matching against scoring data:
+ * lowercase, collapse whitespace.
  */
 function normalizeName(name) {
   return name.toLowerCase().replace(/\s+/g, " ").trim();
@@ -186,13 +279,26 @@ function normalizeName(name) {
  * @returns {{ key: string, entry: object } | null}
  */
 function findWeapon(weaponName) {
+  const groundTruthMatch = resolveGroundTruthWeapon(weaponName);
+  if (groundTruthMatch?.entry) {
+    return groundTruthMatch;
+  }
+
   const data = loadData();
   const weapons = data.weapons;
   if (!weapons) return null;
 
   // Exact match first
   if (weapons[weaponName]) {
-    return { key: weaponName, entry: weapons[weaponName] };
+    return {
+      key: weaponName,
+      entry: weapons[weaponName],
+      canonical_entity_id: null,
+      internal_name: weapons[weaponName].internal ?? null,
+      weapon_family: null,
+      slot: weapons[weaponName].slot ?? null,
+      resolution_source: "legacy_scoring",
+    };
   }
 
   const normalized = normalizeName(weaponName);
@@ -203,7 +309,15 @@ function findWeapon(weaponName) {
 
     // Substring match
     if (normalized.includes(normKey) || normKey.includes(normalized)) {
-      return { key, entry };
+      return {
+        key,
+        entry,
+        canonical_entity_id: null,
+        internal_name: entry.internal ?? null,
+        weapon_family: null,
+        slot: entry.slot ?? null,
+        resolution_source: "legacy_scoring",
+      };
     }
 
     // Word containment: all words of the shorter name appear in the longer,
@@ -215,7 +329,15 @@ function findWeapon(weaponName) {
     if (shorter.length >= 2 && shorter.every((w) => longer.includes(w))) {
       const matchRatio = shorter.length / longer.length;
       if (matchRatio >= 0.5) {
-        return { key, entry };
+        return {
+          key,
+          entry,
+          canonical_entity_id: null,
+          internal_name: entry.internal ?? null,
+          weapon_family: null,
+          slot: entry.slot ?? null,
+          resolution_source: "legacy_scoring",
+        };
       }
     }
   }
@@ -359,7 +481,7 @@ export function generateScorecard(build) {
 
   for (const weapon of build.weapons || []) {
     const found = findWeapon(weapon.name);
-    const slot = found ? found.entry.slot : null;
+    const slot = found ? found.slot : null;
 
     // Score perks — use slot from data, or try both catalogs if unknown
     let perkResult;
@@ -381,6 +503,10 @@ export function generateScorecard(build) {
     weaponResults.push({
       name: weapon.name,
       slot,
+      canonical_entity_id: found?.canonical_entity_id ?? null,
+      internal_name: found?.internal_name ?? null,
+      weapon_family: found?.weapon_family ?? null,
+      resolution_source: found?.resolution_source ?? null,
       perks: perkResult,
       blessings: blessingResult,
     });

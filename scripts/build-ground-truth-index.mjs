@@ -19,6 +19,7 @@ import {
   validateEvidenceRecord,
   validateSourceSnapshot,
 } from "./ground-truth/lib/validate.mjs";
+import { runCliMain } from "./ground-truth/lib/cli.mjs";
 
 const GENERATED_INDEX_PATH = join(GENERATED_ROOT, "index.json");
 const GENERATED_META_PATH = join(GENERATED_ROOT, "meta.json");
@@ -581,7 +582,9 @@ function parseArgs(argv) {
 }
 
 if (import.meta.main) {
-  await buildIndex(parseArgs(process.argv.slice(2)));
+  await runCliMain("index:build", async () => {
+    await buildIndex(parseArgs(process.argv.slice(2)));
+  });
 }
 
 export { buildIndex };
