@@ -1,12 +1,54 @@
 const BUILD_CLASSIFICATION_REGISTRY = {
   psyker: {
-    "brain-rupture": { slot: "blitz", kind: "blitz" },
-    "empowered-psionics": { slot: "keystone", kind: "keystone" },
-    "psykinetics-aura": { slot: "aura", kind: "aura" },
+    // Abilities (source type: ability)
     "scriers-gaze": { slot: "ability", kind: "ability" },
+    "telekine-shield": { slot: "ability", kind: "ability" },
     "venting-shriek": { slot: "ability", kind: "ability" },
-    "warp-rider": { slot: "talents", kind: "talent" },
+    // Ability modifiers (source type: ability_modifier) -> talents
+    "becalming-eruption": { slot: "talents", kind: "talent_modifier" },
+    "bolstered-shield": { slot: "talents", kind: "talent_modifier" },
+    "creeping-flames": { slot: "talents", kind: "talent_modifier" },
+    "enervating-threshold": { slot: "talents", kind: "talent_modifier" },
+    "precognition": { slot: "talents", kind: "talent_modifier" },
+    "reality-anchor": { slot: "talents", kind: "talent_modifier" },
+    "sanctuary": { slot: "talents", kind: "talent_modifier" },
+    "telekine-dome": { slot: "talents", kind: "talent_modifier" },
+    "warp-rupture-2": { slot: "talents", kind: "talent_modifier" },
+    "warp-speed": { slot: "talents", kind: "talent_modifier" },
+    "warp-unbound": { slot: "talents", kind: "talent_modifier" },
+    // Blitz (source type: tactical)
+    "assail": { slot: "blitz", kind: "blitz" },
+    "brain-rupture": { slot: "blitz", kind: "blitz" },
+    "smite": { slot: "blitz", kind: "blitz" },
+    // Auras (source type: aura)
+    "kinetic-presence": { slot: "aura", kind: "aura" },
+    "prescience": { slot: "aura", kind: "aura" },
+    "seers-presence": { slot: "aura", kind: "aura" },
+    // Keystones (source type: keystone)
+    "disrupt-destiny": { slot: "keystone", kind: "keystone" },
+    "empowered-psionics": { slot: "keystone", kind: "keystone" },
     "warp-siphon": { slot: "keystone", kind: "keystone" },
+    // Keystone modifiers (source type: keystone_modifier) -> talents
+    "bio-lodestone": { slot: "talents", kind: "talent_modifier" },
+    "charged-up": { slot: "talents", kind: "talent_modifier" },
+    "cruel-fortune": { slot: "talents", kind: "talent_modifier" },
+    "essence-harvest": { slot: "talents", kind: "talent_modifier" },
+    "in-fire-reborn": { slot: "talents", kind: "talent_modifier" },
+    "inner-tranquility": { slot: "talents", kind: "talent_modifier" },
+    "lingering-influence": { slot: "talents", kind: "talent_modifier" },
+    "overpowering-souls": { slot: "talents", kind: "talent_modifier" },
+    "perfectionism": { slot: "talents", kind: "talent_modifier" },
+    "psychic-leeching": { slot: "talents", kind: "talent_modifier" },
+    "psychic-vampire": { slot: "talents", kind: "talent_modifier" },
+    "purloin-providence": { slot: "talents", kind: "talent_modifier" },
+    "warp-battery": { slot: "talents", kind: "talent_modifier" },
+    // Tactical modifiers (source type: tactical_modifier) -> talents
+    "charged-strike": { slot: "talents", kind: "talent_modifier" },
+    "enfeeble": { slot: "talents", kind: "talent_modifier" },
+    "ethereal-shards": { slot: "talents", kind: "talent_modifier" },
+    "kinetic-flayer": { slot: "talents", kind: "talent_modifier" },
+    "kinetic-resonance": { slot: "talents", kind: "talent_modifier" },
+    "quick-shards": { slot: "talents", kind: "talent_modifier" },
   },
   veteran: {
     // Abilities (source type: ability)

@@ -99,6 +99,12 @@ function mergeDescriptionSelections(classified, descriptionSelections) {
       continue;
     }
 
+    // Don't override talent-tree-classified slots (they have a slug from registry lookup).
+    // Description prose can false-positive on incidental mentions of ability/aura names.
+    if (classified[slot]?.slug != null) {
+      continue;
+    }
+
     classified[slot] = {
       slug: null,
       frame: null,
@@ -117,6 +123,7 @@ function mergeExplicitSelections(classified, explicitSelections) {
     if (label.length === 0) {
       continue;
     }
+
 
     classified[slot] = {
       slug: null,

@@ -37,9 +37,10 @@ function slugToName(slug) {
     "tis-but-a-scratch": "'Tis But a Scratch",
   };
   if (special[slug]) return special[slug];
+  const lowercase = new Set(["a", "an", "and", "at", "but", "by", "for", "in", "of", "on", "or", "the", "to", "vs"]);
   return slug
     .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .map((w, i) => i > 0 && lowercase.has(w) ? w : w.charAt(0).toUpperCase() + w.slice(1))
     .join(" ");
 }
 
@@ -441,10 +442,18 @@ async function main(argv = process.argv.slice(2)) {
   rawBuild.talents.active = postProcessTalentNodes(rawBuild.talents.active);
   rawBuild.talents.inactive = postProcessTalentNodes(rawBuild.talents.inactive);
 
-  const explicitSelections = extractDescriptionSelections(rawBuild.description);
-  rawBuild.class_selections = Object.values(explicitSelections).some((value) => value != null)
-    ? explicitSelections
-    : null;
+  // Only derive class_selections from description when the talent tree is empty.
+  // When active nodes exist, the talent tree classification is more reliable than
+  // description prose, which can false-positive on incidental mentions of aura/ability names.
+  const hasActiveTalents = rawBuild.talents.active.length > 0;
+  if (hasActiveTalents) {
+    rawBuild.class_selections = null;
+  } else {
+    const explicitSelections = extractDescriptionSelections(rawBuild.description);
+    rawBuild.class_selections = Object.values(explicitSelections).some((value) => value != null)
+      ? explicitSelections
+      : null;
+  }
 
   if (format === "raw-json") {
     console.log(JSON.stringify(rawBuild, null, 2));

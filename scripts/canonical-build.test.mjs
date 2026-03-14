@@ -647,7 +647,7 @@ describe("canonicalizeScrapedBuild", () => {
         class: "veteran",
         talents: {
           active: [
-            { slug: "voice-of-command", frame: "hex_frame", name: "Voice Of Command", tier: "ability" },
+            { slug: "voice-of-command", frame: "hex_frame", name: "Voice of Command", tier: "ability" },
             { slug: "shredder-frag-grenade", frame: "square_frame", name: "Shredder Frag Grenade", tier: "notable" },
             { slug: "survivalist", frame: "circular_frame", name: "Survivalist", tier: "talent" },
             { slug: "focus-target", frame: "circular_frame", name: "Focus Target", tier: "keystone" },

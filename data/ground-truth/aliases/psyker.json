@@ -1,61 +1,12 @@
 [
   {
-    "text": "Warp Rider",
-    "normalized_text": "warp rider",
-    "candidate_entity_id": "psyker.talent.psyker_damage_based_on_warp_charge",
+    "text": "Psykinetic's Aura",
+    "normalized_text": "psykinetic s aura",
+    "candidate_entity_id": "psyker.talent.psyker_2_tier_3_name_2",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-scrape",
     "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "class",
-          "value": "psyker"
-        },
-        {
-          "key": "kind",
-          "value": "talent"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Community/UI name mapped to source-backed internal talent psyker_damage_based_on_warp_charge."
-  },
-  {
-    "text": "Disrupt Destiny",
-    "normalized_text": "disrupt destiny",
-    "candidate_entity_id": "psyker.keystone.psyker_new_mark_passive",
-    "alias_kind": "community_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "class",
-          "value": "psyker"
-        }
-      ],
-      "prefer": [
-        {
-          "key": "kind",
-          "value": "keystone"
-        }
-      ]
-    },
-    "rank_weight": 100,
-    "notes": ""
-  },
-  {
-    "text": "Warp Splitting",
-    "normalized_text": "warp splitting",
-    "candidate_entity_id": "psyker.talent.psyker_cleave_from_peril",
-    "alias_kind": "community_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
-    "confidence": "medium",
     "context_constraints": {
       "require_all": [
         {
@@ -71,15 +22,40 @@
       ]
     },
     "rank_weight": 90,
-    "notes": ""
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Kinetic Deflection",
-    "normalized_text": "kinetic deflection",
-    "candidate_entity_id": "psyker.talent.psyker_damage_to_peril_conversion",
+    "text": "Kinetic Resonance",
+    "normalized_text": "kinetic resonance",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_ability_increase_brain_burst_speed",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Crystalline Will",
+    "normalized_text": "crystalline will",
+    "candidate_entity_id": "psyker.talent.psyker_alternative_peril_explosion",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -95,8 +71,8 @@
         }
       ]
     },
-    "rank_weight": 100,
-    "notes": ""
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
     "text": "Prescience",
@@ -104,7 +80,7 @@
     "candidate_entity_id": "psyker.aura.psyker_aura_crit_chance_aura",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-scrape",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -121,7 +97,107 @@
       ]
     },
     "rank_weight": 100,
-    "notes": ""
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Kinetic Presence",
+    "normalized_text": "kinetic presence",
+    "candidate_entity_id": "psyker.aura.psyker_aura_damage_vs_elites",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Psychic Vampire",
+    "normalized_text": "psychic vampire",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_aura_souls_on_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Kinetic Deflection",
+    "normalized_text": "kinetic deflection",
+    "candidate_entity_id": "psyker.talent.psyker_block_costs_warp_charge",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Sanctuary",
+    "normalized_text": "sanctuary",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_boost_allies_in_sphere",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
     "text": "Brain Rupture",
@@ -129,7 +205,7 @@
     "candidate_entity_id": "psyker.ability.psyker_brain_burst_improved",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-scrape",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -146,6 +222,1680 @@
       ]
     },
     "rank_weight": 100,
-    "notes": ""
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Charged Strike",
+    "normalized_text": "charged strike",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_chain_lightning_heavy_attacks",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Enfeeble",
+    "normalized_text": "enfeeble",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_chain_lightning_improved_target_buff",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Battle Meditation",
+    "normalized_text": "battle meditation",
+    "candidate_entity_id": "psyker.talent.psyker_chance_to_vent_on_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Warp Splitting",
+    "normalized_text": "warp splitting",
+    "candidate_entity_id": "psyker.talent.psyker_cleave_from_peril",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Puppet Master",
+    "normalized_text": "puppet master",
+    "candidate_entity_id": "psyker.talent.psyker_coherency_aura_size_increase",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Telekine Shield",
+    "normalized_text": "telekine shield",
+    "candidate_entity_id": "psyker.ability.psyker_combat_ability_force_field",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Scrier's Gaze",
+    "normalized_text": "scrier s gaze",
+    "candidate_entity_id": "psyker.ability.psyker_combat_ability_stance",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Seers Presence",
+    "normalized_text": "seers presence",
+    "candidate_entity_id": "psyker.aura.psyker_cooldown_aura_improved",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Perfect Timing",
+    "normalized_text": "perfect timing",
+    "candidate_entity_id": "psyker.talent.psyker_crits_empower_next_attack",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Mettle",
+    "normalized_text": "mettle",
+    "candidate_entity_id": "psyker.talent.psyker_crits_regen_toughness_movement_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Warp Rider",
+    "normalized_text": "warp rider",
+    "candidate_entity_id": "psyker.talent.psyker_damage_based_on_warp_charge",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Immaterial Focus",
+    "normalized_text": "immaterial focus",
+    "candidate_entity_id": "psyker.talent.psyker_damage_resistance_stun_immunity",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Just A Dream",
+    "normalized_text": "just a dream",
+    "candidate_entity_id": "psyker.talent.psyker_damage_to_peril_conversion",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Vulnerable Minds",
+    "normalized_text": "vulnerable minds",
+    "candidate_entity_id": "psyker.talent.psyker_damage_vs_ogryns_and_monsters",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Warp Rupture 2",
+    "normalized_text": "warp rupture 2",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_discharge_damage_debuff",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Empathic Evasion",
+    "normalized_text": "empathic evasion",
+    "candidate_entity_id": "psyker.talent.psyker_dodge_after_crits",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Perilous Combustion",
+    "normalized_text": "perilous combustion",
+    "candidate_entity_id": "psyker.talent.psyker_elite_kills_add_warpfire",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Empowered Psionics",
+    "normalized_text": "empowered psionics",
+    "candidate_entity_id": "psyker.keystone.psyker_empowered_ability",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Overpowering Souls",
+    "normalized_text": "overpowering souls",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_empowered_ability_on_elite_kills",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Psychic Leeching",
+    "normalized_text": "psychic leeching",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_empowered_chain_lightnings_replenish_toughness_to_allies",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Charged Up",
+    "normalized_text": "charged up",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_empowered_grenades_increased_max_stacks",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Bio Lodestone",
+    "normalized_text": "bio lodestone",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_empowered_grenades_passive_improved",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Channeled Force",
+    "normalized_text": "channeled force",
+    "candidate_entity_id": "psyker.talent.psyker_force_staff_bonus",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Empyric Shock",
+    "normalized_text": "empyric shock",
+    "candidate_entity_id": "psyker.talent.psyker_force_staff_quick_attack_bonus",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Smite",
+    "normalized_text": "smite",
+    "candidate_entity_id": "psyker.ability.psyker_grenade_chain_lightning",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Assail",
+    "normalized_text": "assail",
+    "candidate_entity_id": "psyker.ability.psyker_grenade_throwing_knives",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "True Aim",
+    "normalized_text": "true aim",
+    "candidate_entity_id": "psyker.talent.psyker_guaranteed_crit_on_multiple_weakspot_hits",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Anticipation",
+    "normalized_text": "anticipation",
+    "candidate_entity_id": "psyker.talent.psyker_improved_dodge",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Warp Battery",
+    "normalized_text": "warp battery",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_increased_max_souls",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Solidity",
+    "normalized_text": "solidity",
+    "candidate_entity_id": "psyker.talent.psyker_increased_vent_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Souldrinker",
+    "normalized_text": "souldrinker",
+    "candidate_entity_id": "psyker.talent.psyker_killing_enemy_with_warpfire_boosts",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Malefic Momentum",
+    "normalized_text": "malefic momentum",
+    "candidate_entity_id": "psyker.talent.psyker_kills_stack_other_weapon_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Lingering Influence",
+    "normalized_text": "lingering influence",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_mark_increased_duration",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Perfectionism",
+    "normalized_text": "perfectionism",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_mark_increased_max_stacks",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Purloin Providence",
+    "normalized_text": "purloin providence",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_mark_kills_can_vent",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Cruel Fortune",
+    "normalized_text": "cruel fortune",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_mark_weakspot_kills",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Lightning Speed",
+    "normalized_text": "lightning speed",
+    "candidate_entity_id": "psyker.talent.psyker_melee_attack_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "By Crack Of Bone",
+    "normalized_text": "by crack of bone",
+    "candidate_entity_id": "psyker.talent.psyker_melee_weaving",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Disrupt Destiny",
+    "normalized_text": "disrupt destiny",
+    "candidate_entity_id": "psyker.keystone.psyker_new_mark_passive",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Warp Speed",
+    "normalized_text": "warp speed",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_overcharge_increased_movement_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Reality Anchor",
+    "normalized_text": "reality anchor",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_overcharge_reduced_warp_charge",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Warp Unbound",
+    "normalized_text": "warp unbound",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_overcharge_stance_infinite_casting",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Precognition",
+    "normalized_text": "precognition",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_overcharge_weakspot_kill_bonuses",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Warp Siphon",
+    "normalized_text": "warp siphon",
+    "candidate_entity_id": "psyker.keystone.psyker_passive_souls_from_elite_kills",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Tranquility Through Slaughter",
+    "normalized_text": "tranquility through slaughter",
+    "candidate_entity_id": "psyker.talent.psyker_ranged_crits_vent",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Inner Tranquility",
+    "normalized_text": "inner tranquility",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_reduced_warp_charge_cost_and_venting_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Surety Of Arms",
+    "normalized_text": "surety of arms",
+    "candidate_entity_id": "psyker.talent.psyker_reload_speed_warp_charge",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Bolstered Shield",
+    "normalized_text": "bolstered shield",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_shield_extra_charge",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Enervating Threshold",
+    "normalized_text": "enervating threshold",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_shield_stun_passive",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Becalming Eruption",
+    "normalized_text": "becalming eruption",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_shout_reduces_warp_charge_generation",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Venting Shriek",
+    "normalized_text": "venting shriek",
+    "candidate_entity_id": "psyker.ability.psyker_shout_vent_warp_charge",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Kinetic Flayer",
+    "normalized_text": "kinetic flayer",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_smite_on_hit",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Telekine Dome",
+    "normalized_text": "telekine dome",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_sphere_shield",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Wildfire",
+    "normalized_text": "wildfire",
+    "candidate_entity_id": "psyker.talent.psyker_spread_warpfire_on_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Warp Ghost",
+    "normalized_text": "warp ghost",
+    "candidate_entity_id": "psyker.talent.psyker_stat_mix",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Quick Shards",
+    "normalized_text": "quick shards",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_throwing_knives_cast_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Ethereal Shards",
+    "normalized_text": "ethereal shards",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_throwing_knives_piercing",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Warp Expenditure 2",
+    "normalized_text": "warp expenditure 2",
+    "candidate_entity_id": "psyker.talent.psyker_toughness_on_melee",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Essence Harvest",
+    "normalized_text": "essence harvest",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_toughness_on_soul",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Quietude",
+    "normalized_text": "quietude",
+    "candidate_entity_id": "psyker.talent.psyker_toughness_on_vent",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Soulstealer",
+    "normalized_text": "soulstealer",
+    "candidate_entity_id": "psyker.talent.psyker_toughness_on_warp_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Mind In Motion",
+    "normalized_text": "mind in motion",
+    "candidate_entity_id": "psyker.talent.psyker_venting_improvements",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Penetration Of The Soul",
+    "normalized_text": "penetration of the soul",
+    "candidate_entity_id": "psyker.talent.psyker_warp_attacks_rending",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "One With The Warp",
+    "normalized_text": "one with the warp",
+    "candidate_entity_id": "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Empyric Resolve",
+    "normalized_text": "empyric resolve",
+    "candidate_entity_id": "psyker.talent.psyker_warp_glass_cannon",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "In Fire Reborn",
+    "normalized_text": "in fire reborn",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_warpfire_generate_souls",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Creeping Flames",
+    "normalized_text": "creeping flames",
+    "candidate_entity_id": "psyker.talent_modifier.psyker_warpfire_on_shout",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   }
 ]

@@ -51,17 +51,17 @@
     "source_kind": "decompiled_source"
   },
   {
-    "id": "psyker.evidence.entity.psyker_damage_to_peril_conversion",
+    "id": "psyker.evidence.entity.psyker_block_costs_warp_charge",
     "subject_type": "entity",
-    "subject_id": "psyker.talent.psyker_damage_to_peril_conversion",
+    "subject_id": "psyker.talent.psyker_block_costs_warp_charge",
     "predicate": "tree_presence",
-    "value": "psyker_damage_to_peril_conversion",
+    "value": "psyker_block_costs_warp_charge",
     "value_type": "internal_name",
     "source_snapshot_id": "darktide-source.dbe7035",
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
-        "line": 1875
+        "line": 888
       }
     ],
     "confidence": "high",

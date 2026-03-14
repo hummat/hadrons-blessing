@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Electrodominance Havoc 40 Scrier Smiter",
+  "title": "\"Electrodominance\" | Havoc 40 Scrier Smiter",
   "class": {
     "raw_label": "psyker",
     "canonical_entity_id": "shared.class.psyker",
@@ -8,27 +8,162 @@
   },
   "provenance": {
     "source_kind": "gameslantern",
-    "source_url": "legacy-fixture://scripts/builds/09-electrodominance-psyker.json",
+    "source_url": "https://darktide.gameslantern.com/builds/9fe8da5a-85d2-4193-a584-e47a6a8b5135/electrodominance-havoc-40-scrier-smiter",
     "author": "Magnafanta",
-    "scraped_at": "2026-03-13T00:00:00Z"
+    "scraped_at": "2026-03-14T19:28:20.761Z"
   },
   "ability": {
-    "raw_label": "Unknown ability",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Scrier's Gaze",
+    "canonical_entity_id": "psyker.ability.psyker_combat_ability_stance",
+    "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Unknown blitz",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Smite",
+    "canonical_entity_id": "psyker.ability.psyker_grenade_chain_lightning",
+    "resolution_status": "resolved"
   },
   "aura": {
-    "raw_label": "Unknown aura",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Kinetic Presence",
+    "canonical_entity_id": "psyker.aura.psyker_aura_damage_vs_elites",
+    "resolution_status": "resolved"
   },
-  "keystone": null,
-  "talents": [],
+  "keystone": {
+    "raw_label": "Empowered Psionics",
+    "canonical_entity_id": "psyker.keystone.psyker_empowered_ability",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Soulstealer",
+      "canonical_entity_id": "psyker.talent.psyker_toughness_on_warp_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Quietude",
+      "canonical_entity_id": "psyker.talent.psyker_toughness_on_vent",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Mettle",
+      "canonical_entity_id": "psyker.talent.psyker_crits_regen_toughness_movement_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Perilous Combustion",
+      "canonical_entity_id": "psyker.talent.psyker_elite_kills_add_warpfire",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Perfect Timing",
+      "canonical_entity_id": "psyker.talent.psyker_crits_empower_next_attack",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Precognition",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_overcharge_weakspot_kill_bonuses",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Wildfire",
+      "canonical_entity_id": "psyker.talent.psyker_spread_warpfire_on_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Psykinetic's Aura",
+      "canonical_entity_id": "psyker.talent.psyker_2_tier_3_name_2",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Enfeeble",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_chain_lightning_improved_target_buff",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "One With the Warp",
+      "canonical_entity_id": "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Rider",
+      "canonical_entity_id": "psyker.talent.psyker_damage_based_on_warp_charge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Puppet Master",
+      "canonical_entity_id": "psyker.talent.psyker_coherency_aura_size_increase",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Bio Lodestone",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_empowered_grenades_passive_improved",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Psychic Leeching",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_empowered_chain_lightnings_replenish_toughness_to_allies",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Charged Up",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_empowered_grenades_increased_max_stacks",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Unbound",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_overcharge_stance_infinite_casting",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Souldrinker",
+      "canonical_entity_id": "psyker.talent.psyker_killing_enemy_with_warpfire_boosts",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 4",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Ranged Damage Boost 3",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 10",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Stamina Boost",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Toughness Boost 5",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 4",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Peril Resistance 4",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Immaterial Focus",
+      "canonical_entity_id": "psyker.talent.psyker_damage_resistance_stun_immunity",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Critical Chance Boost 3",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    }
+  ],
   "weapons": [
     {
       "slot": "melee",
@@ -39,11 +174,11 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Flak Armoured)",
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -71,21 +206,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Unyielding)",
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Carapace)",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -114,22 +249,42 @@
       },
       "perks": [
         {
-          "raw_label": "+15-20% DR vs Gunners",
-          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.15,
-            "max": 0.2,
+            "min": 0.13,
+            "max": 0.17,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "+12-15% Corruption Resistance",
-          "canonical_entity_id": "shared.gadget_trait.gadget_corruption_resistance",
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.12,
-            "max": 0.15,
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
             "unit": "percent"
           }
         }
@@ -141,7 +296,48 @@
         "canonical_entity_id": null,
         "resolution_status": "non_canonical"
       },
-      "perks": []
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
     },
     {
       "name": {
@@ -149,7 +345,48 @@
         "canonical_entity_id": null,
         "resolution_status": "non_canonical"
       },
-      "perks": []
+      "perks": [
+        {
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.17,
+            "max": 0.21,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-15% Corruption Resistance",
+          "canonical_entity_id": "shared.gadget_trait.gadget_corruption_resistance",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.15,
+            "unit": "percent"
+          }
+        }
+      ]
     }
   ]
 }

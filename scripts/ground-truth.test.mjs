@@ -373,7 +373,7 @@ describe("buildIndex", () => {
       "psyker.evidence.entity.psyker_damage_based_on_warp_charge",
       "psyker.evidence.entity.psyker_brain_burst_improved",
       "psyker.evidence.entity.psyker_aura_crit_chance_aura",
-      "psyker.evidence.entity.psyker_damage_to_peril_conversion",
+      "psyker.evidence.entity.psyker_block_costs_warp_charge",
       "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
       "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
       "shared.evidence.edge.instance_of.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
@@ -762,7 +762,7 @@ describe("auditBuildFile", () => {
         },
         ability: makeCanonicalSelection("Venting Shriek", "psyker.ability.psyker_shout_vent_warp_charge"),
         blitz: makeCanonicalSelection("Brain Rupture", "psyker.ability.psyker_brain_burst_improved"),
-        aura: makeCanonicalSelection("Psykinetic's Aura", null, "unresolved"),
+        aura: makeCanonicalSelection("Nonexistent Aura Name", null, "unresolved"),
         keystone: makeCanonicalSelection("Warp Siphon", null, "unresolved"),
         talents: [
           makeCanonicalSelection("Warp Rider", null, "unresolved"),
