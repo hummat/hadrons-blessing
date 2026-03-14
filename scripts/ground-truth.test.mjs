@@ -910,8 +910,8 @@ describe("auditBuildFile", () => {
       [psykerResult, "curios[1].name", "Blessed Bullet"],
       [psykerResult, "curios[2].name", "Blessed Bullet"],
       [arbitesResult, "curios[0].name", "Gilded Inquisitorial Rosette"],
-      [arbitesResult, "curios[1].name", "Gilded Inquisitorial Rosette"],
-      [arbitesResult, "curios[2].name", "Scrap of Scripture"],
+      [arbitesResult, "curios[1].name", "Scrap of Scripture"],
+      [arbitesResult, "curios[2].name", "Gilded Inquisitorial Rosette"],
     ]) {
       assert.equal(
         result.non_canonical.some(
@@ -1070,19 +1070,15 @@ describe("auditBuildFile", () => {
       [veteranResult, "weapons[1].name", "shared.weapon.plasmagun_p1_m1"],
       [explodegrynResult, "weapons[0].name", "shared.weapon.ogryn_powermaul_p1_m1"],
       [explodegrynResult, "weapons[1].name", "shared.weapon.ogryn_thumper_p1_m2"],
-      [arbitesResult, "weapons[0].name", "shared.weapon.powermaul_p2_m1"],
-      [arbitesResult, "weapons[1].name", "shared.weapon.shotpistol_shield_p1_m1"],
+      [arbitesShotgunResult, "weapons[0].name", "shared.weapon.powermaul_p2_m1"],
       [arbitesShotgunResult, "weapons[1].name", "shared.weapon.shotgun_p4_m1"],
       [zealotInfoDumpResult, "weapons[0].name", "shared.weapon.combatsword_p1_m1"],
       [zealotHolyGainsResult, "weapons[1].name", "shared.weapon.boltpistol_p1_m1"],
       [ogrynTankResult, "weapons[0].name", "shared.weapon.ogryn_powermaul_slabshield_p1_m1"],
       [zealotMetaResult, "weapons[1].name", "shared.weapon.flamer_p1_m1"],
       [hiveScumResult, "weapons[0].name", "shared.weapon.dual_shivs_p1_m1"],
-      [hiveScumResult, "weapons[1].name", "shared.weapon.dual_stubpistols_p1_m1"],
-      [chemistResult, "weapons[1].name", "shared.weapon.needlepistol_p1_m1"],
       [surgeonResult, "weapons[0].name", "shared.weapon.saw_p1_m1"],
       [stimmtecResult, "weapons[0].name", "shared.weapon.dual_shivs_p1_m1"],
-      [stimmtecResult, "weapons[1].name", "shared.weapon.needlepistol_p1_m1"],
     ]) {
       assert.equal(
         result.resolved.some(
@@ -1135,8 +1131,8 @@ describe("auditBuildFile", () => {
 
     for (const [result, field, expectedEntityId] of [
       [arbitesResult, "curios[0].perks[0]", "shared.gadget_trait.gadget_toughness_increase"],
-      [arbitesResult, "curios[1].perks[0]", "shared.gadget_trait.gadget_health_increase"],
-      [hiveScumResult, "curios[0].perks[0]", "shared.gadget_trait.gadget_health_increase"],
+      [arbitesResult, "curios[1].perks[0]", "shared.gadget_trait.gadget_toughness_increase"],
+      [hiveScumResult, "curios[0].perks[1]", "shared.gadget_trait.gadget_health_increase"],
     ]) {
       assert.equal(
         result.resolved.some(
@@ -1325,12 +1321,12 @@ describe("auditBuildFile", () => {
       [
         hiveScumResult,
         "weapons[1].blessings[0].name",
-        "shared.name_family.blessing.run_n_gun",
+        "shared.name_family.blessing.speedload",
       ],
       [
         hiveScumResult,
         "weapons[1].blessings[1].name",
-        "shared.name_family.blessing.speedload",
+        "shared.name_family.blessing.run_n_gun",
       ],
       [
         chemistResult,

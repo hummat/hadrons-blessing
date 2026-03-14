@@ -1,0 +1,2577 @@
+[
+  {
+    "text": "Quick and Deadly",
+    "normalized_text": "quick and deadly",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_close_range_damage_on_dodge",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "A Tertium Welcome",
+    "normalized_text": "a tertium welcome",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_first_target_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "In Your Face",
+    "normalized_text": "in your face",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_close_ranged_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Precision Violence",
+    "normalized_text": "precision violence",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_restore_toughness_on_weakspot_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Voice of Tertium",
+    "normalized_text": "voice of tertium",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_restore_toughness_on_close_ranged_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Float Like a Butterfly",
+    "normalized_text": "float like a butterfly",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Speedloader",
+    "normalized_text": "speedloader",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_reload_speed_on_close_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Burst of Energy",
+    "normalized_text": "burst of energy",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_stun_immunity_on_toughness_broken",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Blackout",
+    "normalized_text": "blackout",
+    "candidate_entity_id": "hive_scum.ability.broker_blitz_flash_grenade_improved",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Boom Bringer",
+    "normalized_text": "boom bringer",
+    "candidate_entity_id": "hive_scum.ability.broker_blitz_missile_launcher",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Chem Grenade",
+    "normalized_text": "chem grenade",
+    "candidate_entity_id": "hive_scum.ability.broker_blitz_tox_grenade",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Gunslinger Improved",
+    "normalized_text": "gunslinger improved",
+    "candidate_entity_id": "hive_scum.aura.broker_aura_gunslinger_improved",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Ruffian",
+    "normalized_text": "ruffian",
+    "candidate_entity_id": "hive_scum.aura.broker_coherency_melee_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Anarchist",
+    "normalized_text": "anarchist",
+    "candidate_entity_id": "hive_scum.aura.broker_coherency_anarchist",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Nimble",
+    "normalized_text": "nimble",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_improved_dodges",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Regained Posture",
+    "normalized_text": "regained posture",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_stamina_on_successful_dodge",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Slippery Customer",
+    "normalized_text": "slippery customer",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_dodge_melee_on_slide",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "'Tis But a Scratch",
+    "normalized_text": "tis but a scratch",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_replenish_toughness_on_ranged_toughness_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Unload",
+    "normalized_text": "unload",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_damage_on_reload",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Enhanced Desperado",
+    "normalized_text": "enhanced desperado",
+    "candidate_entity_id": "hive_scum.ability.broker_ability_focus_improved",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Swift Endurance",
+    "normalized_text": "swift endurance",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_stamina_grants_atk_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Ramping Backstabs",
+    "normalized_text": "ramping backstabs",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_ramping_backstabs",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Moving Target",
+    "normalized_text": "moving target",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_increased_ranged_dodges",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Adrenaline Frenzy",
+    "normalized_text": "adrenaline frenzy",
+    "candidate_entity_id": "hive_scum.keystone.broker_keystone_adrenaline_junkie",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Vulture's Mark",
+    "normalized_text": "vulture s mark",
+    "candidate_entity_id": "hive_scum.keystone.broker_keystone_vultures_mark_on_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Stimm Supply",
+    "normalized_text": "stimm supply",
+    "candidate_entity_id": "hive_scum.ability.broker_ability_stimm_field",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Rampage",
+    "normalized_text": "rampage",
+    "candidate_entity_id": "hive_scum.ability.broker_ability_punk_rage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Jittery",
+    "normalized_text": "jittery",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_improved_dodges_at_full_stamina",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Sticky Hands",
+    "normalized_text": "sticky hands",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_reduce_swap_time",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Calling for a Time Out",
+    "normalized_text": "calling for a time out",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_reduced_toughness_damage_during_reload",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Like the Wind",
+    "normalized_text": "like the wind",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_improved_sprint_dodge",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Hive City Brawler",
+    "normalized_text": "hive city brawler",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_dr_damage_tradeoff_on_stamina",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Battering Strikes",
+    "normalized_text": "battering strikes",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_melee_cleave_on_melee_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Battering Momentum",
+    "normalized_text": "battering momentum",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_cleave_on_cleave",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Hyper Violence",
+    "normalized_text": "hyper violence",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_melee_damage_carry_over",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Loose Formation",
+    "normalized_text": "loose formation",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_increased_aura_size",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Toxin Mania",
+    "normalized_text": "toxin mania",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_damage_after_toxined_enemies",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Sample Collector",
+    "normalized_text": "sample collector",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_stimm_cd_on_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Extra Pouches",
+    "normalized_text": "extra pouches",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_increased_blitz_ammo",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Coated Weaponry",
+    "normalized_text": "coated weaponry",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_melee_attacks_apply_toxin",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Pocket Toxin",
+    "normalized_text": "pocket toxin",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_blitz_inflicts_toxin",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Targeted Toxin",
+    "normalized_text": "targeted toxin",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_reduced_damage_by_toxined",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Toxic Renewal",
+    "normalized_text": "toxic renewal",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_toughness_on_toxined_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Chemical Dependency",
+    "normalized_text": "chemical dependency",
+    "candidate_entity_id": "hive_scum.keystone.broker_keystone_chemical_dependency",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Ammo Jack",
+    "normalized_text": "ammo jack",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_extended_mag",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Untouchable",
+    "normalized_text": "untouchable",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_sprinting_reduces_threat",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Hyper Critical",
+    "normalized_text": "hyper critical",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_melee_crit_instakill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Punching Above Ones Weight",
+    "normalized_text": "punching above ones weight",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_damage_vs_elites_monsters",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "The Sweet Spot",
+    "normalized_text": "the sweet spot",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_increased_weakspot_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Chem Enhanced",
+    "normalized_text": "chem enhanced",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_1",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Chem Fortified",
+    "normalized_text": "chem fortified",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_2",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Maxed Out Chems",
+    "normalized_text": "maxed out chems",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_3",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Vultures Push",
+    "normalized_text": "vultures push",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_aoe_stagger",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Patient Hunter",
+    "normalized_text": "patient hunter",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_increased_duration",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Vultures Dodge",
+    "normalized_text": "vultures dodge",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_dodge_on_ranged_crit",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Gang Tough",
+    "normalized_text": "gang tough",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_punk_grit",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Long Lasting",
+    "normalized_text": "long lasting",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_stimm_increased_duration",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Blessed Stimms",
+    "normalized_text": "blessed stimms",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_stimm_cleanse_on_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Cheap Shots",
+    "normalized_text": "cheap shots",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_damage_vs_heavy_staggered",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Adrenaline Assassin",
+    "normalized_text": "adrenaline assassin",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_1",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Stoked Rage",
+    "normalized_text": "stoked rage",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_3",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Adrenaline Unbound",
+    "normalized_text": "adrenaline unbound",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_5",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Uncontrolled Aggression",
+    "normalized_text": "uncontrolled aggression",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_4",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Adrenaline Smiter",
+    "normalized_text": "adrenaline smiter",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_2",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Pulverising Strikes",
+    "normalized_text": "pulverising strikes",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_2",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Channelled Aggression",
+    "normalized_text": "channelled aggression",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_1",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Forges Bellow",
+    "normalized_text": "forges bellow",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_3",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Boiling Blood",
+    "normalized_text": "boiling blood",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_4",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Pickpocket",
+    "normalized_text": "pickpocket",
+    "candidate_entity_id": "hive_scum.talent.broker_passive_low_ammo_regen",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Focused Resolve",
+    "normalized_text": "focused resolve",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_ability_focus_sub_3",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Pick Your Targets",
+    "normalized_text": "pick your targets",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_ability_focus_sub_2",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Practiced Deployment",
+    "normalized_text": "practiced deployment",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_ability_stimm_field_sub_3",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Fast Acting Stimms",
+    "normalized_text": "fast acting stimms",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_ability_stimm_field_sub_1",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Booby Trap",
+    "normalized_text": "booby trap",
+    "candidate_entity_id": "hive_scum.talent_modifier.broker_ability_stimm_field_sub_2",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Spur I",
+    "normalized_text": "spur i",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_celerity_1",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Spur Ii",
+    "normalized_text": "spur ii",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_celerity_2",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Spur Iii",
+    "normalized_text": "spur iii",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_celerity_3",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Spur Iv",
+    "normalized_text": "spur iv",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_celerity_4",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Spur V",
+    "normalized_text": "spur v",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_celerity_5a",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Reflex",
+    "normalized_text": "reflex",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_celerity_5b",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Fervor",
+    "normalized_text": "fervor",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_celerity_5c",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Wildfire I",
+    "normalized_text": "wildfire i",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_combat_1",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Wildfire Ii",
+    "normalized_text": "wildfire ii",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_combat_2",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Wildfire Iii",
+    "normalized_text": "wildfire iii",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_combat_3",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Wildfire Iv",
+    "normalized_text": "wildfire iv",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_combat_4a",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Wildfire V",
+    "normalized_text": "wildfire v",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_combat_5a",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Fury I",
+    "normalized_text": "fury i",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_combat_4b",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Fury Ii",
+    "normalized_text": "fury ii",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_combat_5b",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Vultoprene I",
+    "normalized_text": "vultoprene i",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_combat_4c",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Vultoprene Ii",
+    "normalized_text": "vultoprene ii",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_combat_5c",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Barrage I",
+    "normalized_text": "barrage i",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_durability_1",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Barrage Ii",
+    "normalized_text": "barrage ii",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_durability_2",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Barrage Iii",
+    "normalized_text": "barrage iii",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_durability_3",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Barrage Iv",
+    "normalized_text": "barrage iv",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_durability_4",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Tank",
+    "normalized_text": "tank",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_durability_5a",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Regain",
+    "normalized_text": "regain",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_durability_5b",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Kalma I",
+    "normalized_text": "kalma i",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_concentration_1",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Kalma Ii",
+    "normalized_text": "kalma ii",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_concentration_2",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Kalma Iii",
+    "normalized_text": "kalma iii",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_concentration_3",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Kalma Iv",
+    "normalized_text": "kalma iv",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_concentration_4",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Kalma V",
+    "normalized_text": "kalma v",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_concentration_5a",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Hypex",
+    "normalized_text": "hypex",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_concentration_5b",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Klay",
+    "normalized_text": "klay",
+    "candidate_entity_id": "hive_scum.talent.broker_stimm_concentration_5c",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "hive scum"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  }
+]

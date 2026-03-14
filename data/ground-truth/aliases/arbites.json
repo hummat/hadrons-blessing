@@ -1,0 +1,2052 @@
+[
+  {
+    "text": "Part of the Squad",
+    "normalized_text": "part of the squad",
+    "candidate_entity_id": "arbites.aura.adamant_companion_coherency",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Ruthless Efficiency",
+    "normalized_text": "ruthless efficiency",
+    "candidate_entity_id": "arbites.aura.adamant_reload_speed_aura",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Execution Order",
+    "normalized_text": "execution order",
+    "candidate_entity_id": "arbites.keystone.adamant_execution_order",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Terminus Warrant",
+    "normalized_text": "terminus warrant",
+    "candidate_entity_id": "arbites.keystone.adamant_terminus_warrant",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Forceful",
+    "normalized_text": "forceful",
+    "candidate_entity_id": "arbites.keystone.adamant_forceful",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Remote Detonation",
+    "normalized_text": "remote detonation",
+    "candidate_entity_id": "arbites.ability.adamant_whistle",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Arbites Grenade",
+    "normalized_text": "arbites grenade",
+    "candidate_entity_id": "arbites.ability.adamant_grenade_improved",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Breaking Dissent",
+    "normalized_text": "breaking dissent",
+    "candidate_entity_id": "arbites.aura.adamant_damage_vs_staggered_aura",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Break the Line",
+    "normalized_text": "break the line",
+    "candidate_entity_id": "arbites.ability.adamant_charge",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Nuncio Aquila",
+    "normalized_text": "nuncio aquila",
+    "candidate_entity_id": "arbites.ability.adamant_area_buff_drone_improved",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Castigators Stance",
+    "normalized_text": "castigators stance",
+    "candidate_entity_id": "arbites.ability.adamant_stance",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Voltaic Shock Mine",
+    "normalized_text": "voltaic shock mine",
+    "candidate_entity_id": "arbites.ability.adamant_shock_mine",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Man and Cyber Mastiff",
+    "normalized_text": "man and cyber mastiff",
+    "candidate_entity_id": "arbites.talent.adamant_toughness_regen_near_companion",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Withering Fire",
+    "normalized_text": "withering fire",
+    "candidate_entity_id": "arbites.talent.adamant_damage_after_reloading",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Hammer of Judgement",
+    "normalized_text": "hammer of judgement",
+    "candidate_entity_id": "arbites.talent.adamant_multiple_hits_attack_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Target Neutralised",
+    "normalized_text": "target neutralised",
+    "candidate_entity_id": "arbites.talent.adamant_elite_special_kills_replenish_toughness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Up Close",
+    "normalized_text": "up close",
+    "candidate_entity_id": "arbites.talent.adamant_close_kills_restore_toughness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Force of Will",
+    "normalized_text": "force of will",
+    "candidate_entity_id": "arbites.talent.adamant_staggers_replenish_toughness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Voltaic Mandibles Augment",
+    "normalized_text": "voltaic mandibles augment",
+    "candidate_entity_id": "arbites.talent.adamant_dog_attacks_electrocute",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Walk It Off",
+    "normalized_text": "walk it off",
+    "candidate_entity_id": "arbites.talent.adamant_stamina_spent_replenish_toughness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "True Grit",
+    "normalized_text": "true grit",
+    "candidate_entity_id": "arbites.talent.adamant_limit_dmg_taken_from_hits",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Arbitrator Armour",
+    "normalized_text": "arbitrator armour",
+    "candidate_entity_id": "arbites.talent.adamant_armor",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Ammo Belt",
+    "normalized_text": "ammo belt",
+    "candidate_entity_id": "arbites.talent.adamant_ammo_belt",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Rebreather",
+    "normalized_text": "rebreather",
+    "candidate_entity_id": "arbites.talent.adamant_rebreather",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Suppression Protocols",
+    "normalized_text": "suppression protocols",
+    "candidate_entity_id": "arbites.talent.adamant_hitting_multiple_gives_tdr",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Lone Wolf",
+    "normalized_text": "lone wolf",
+    "candidate_entity_id": "arbites.keystone.adamant_disable_companion",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Will of the Lex",
+    "normalized_text": "will of the lex",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_forceful_toughness_regen_per_stack",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Adamant Will",
+    "normalized_text": "adamant will",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_forceful_stun_immune_and_block_all",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Targets Acquired",
+    "normalized_text": "targets acquired",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_forceful_offensive",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Arbites Vigilant",
+    "normalized_text": "arbites vigilant",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_forceful_ability_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Judicial Force",
+    "normalized_text": "judicial force",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_forceful_stagger_on_low_high",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Razor Jaw Augment",
+    "normalized_text": "razor jaw augment",
+    "candidate_entity_id": "arbites.talent.adamant_dog_pounces_bleed_nearby",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Imposing Force",
+    "normalized_text": "imposing force",
+    "candidate_entity_id": "arbites.talent.adamant_damage_reduction_after_elite_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Hold the Line",
+    "normalized_text": "hold the line",
+    "candidate_entity_id": "arbites.talent.adamant_staggers_reduce_damage_taken",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Blessed Armament",
+    "normalized_text": "blessed armament",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_stance_ranged_kills_transfer_ammo",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Writ of Execution",
+    "normalized_text": "writ of execution",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_stance_elite_kills_stack_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Bloodlust",
+    "normalized_text": "bloodlust",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_stance_dog_bloodlust",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Inspiring Recitation",
+    "normalized_text": "inspiring recitation",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_drone_buff_talent",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Fear of Justice",
+    "normalized_text": "fear of justice",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_drone_debuff_talent",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Commendation From Condemnation",
+    "normalized_text": "commendation from condemnation",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_charge_toughness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Targeted Brutality",
+    "normalized_text": "targeted brutality",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_charge_cooldown_reduction",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Engage",
+    "normalized_text": "engage",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_charge_longer_distance",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Plasteel Plates",
+    "normalized_text": "plasteel plates",
+    "candidate_entity_id": "arbites.talent.adamant_plasteel_plates",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Serrated Maw",
+    "normalized_text": "serrated maw",
+    "candidate_entity_id": "arbites.talent.adamant_dog_applies_brittleness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Arbites Revelatum",
+    "normalized_text": "arbites revelatum",
+    "candidate_entity_id": "arbites.talent.adamant_dodge_grants_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Soulguilt Scan",
+    "normalized_text": "soulguilt scan",
+    "candidate_entity_id": "arbites.talent.adamant_stacking_weakspot_strength",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Judicious Efficiency",
+    "normalized_text": "judicious efficiency",
+    "candidate_entity_id": "arbites.talent.adamant_elite_special_kills_reload_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "March",
+    "normalized_text": "march",
+    "candidate_entity_id": "arbites.talent.adamant_movement_speed_on_block",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "No Escape",
+    "normalized_text": "no escape",
+    "candidate_entity_id": "arbites.talent.adamant_elite_special_kills_offensive_boost",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Drive Them Back",
+    "normalized_text": "drive them back",
+    "candidate_entity_id": "arbites.talent.adamant_cleave_after_push",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Shield Plates",
+    "normalized_text": "shield plates",
+    "candidate_entity_id": "arbites.talent.adamant_shield_plates",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Weight of the Lex",
+    "normalized_text": "weight of the lex",
+    "candidate_entity_id": "arbites.talent.adamant_heavy_attacks_increase_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Kill Order",
+    "normalized_text": "kill order",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_dog_damage_after_ability",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Strike Down",
+    "normalized_text": "strike down",
+    "candidate_entity_id": "arbites.talent.adamant_melee_attacks_on_staggered_rend",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Dispense Justice",
+    "normalized_text": "dispense justice",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_terminus_warrant_ranged",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Terminal Decree",
+    "normalized_text": "terminal decree",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_terminus_warrant_melee",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Writ of Judgement",
+    "normalized_text": "writ of judgement",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_terminus_warrant_improved",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Efficient Killer",
+    "normalized_text": "efficient killer",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_execution_order_crit",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Malocator",
+    "normalized_text": "malocator",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_execution_order_cdr",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "No Lenience",
+    "normalized_text": "no lenience",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_execution_order_rending",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Keeping Protocol",
+    "normalized_text": "keeping protocol",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_execution_order_permastack",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Not Far Behind",
+    "normalized_text": "not far behind",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_pinning_dog_bonus_moving_towards",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Zealous Dedication",
+    "normalized_text": "zealous dedication",
+    "candidate_entity_id": "arbites.talent.adamant_crit_chance_on_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Prosecution Blow",
+    "normalized_text": "prosecution blow",
+    "candidate_entity_id": "arbites.talent.adamant_crits_rend",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Go Get Em",
+    "normalized_text": "go get em",
+    "candidate_entity_id": "arbites.keystone.adamant_companion_focus_ranged",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Unleashed Brutality",
+    "normalized_text": "unleashed brutality",
+    "candidate_entity_id": "arbites.keystone.adamant_companion_focus_elite",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Street Smarts",
+    "normalized_text": "street smarts",
+    "candidate_entity_id": "arbites.talent.adamant_dodge_improvement",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Monstrosity Hunter",
+    "normalized_text": "monstrosity hunter",
+    "candidate_entity_id": "arbites.talent.adamant_monster_hunter",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "The Emperors Fist",
+    "normalized_text": "the emperors fist",
+    "candidate_entity_id": "arbites.talent.adamant_first_melee_hit_increased_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Target Selection",
+    "normalized_text": "target selection",
+    "candidate_entity_id": "arbites.talent.adamant_pinning_dog_elite_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Target Priority",
+    "normalized_text": "target priority",
+    "candidate_entity_id": "arbites.talent.adamant_increased_damage_to_high_health",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Canine Morale",
+    "normalized_text": "canine morale",
+    "candidate_entity_id": "arbites.talent.adamant_pinning_dog_kills_buff_allies",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Rapid Movement",
+    "normalized_text": "rapid movement",
+    "candidate_entity_id": "arbites.talent.adamant_sprinting_sliding",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Obstinate",
+    "normalized_text": "obstinate",
+    "candidate_entity_id": "arbites.talent_modifier.adamant_terminus_warrant_upgrade",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent_modifier"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Final Warning",
+    "normalized_text": "final warning",
+    "candidate_entity_id": "arbites.talent.adamant_ranged_damage_on_melee_stagger",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Priority Endowment",
+    "normalized_text": "priority endowment",
+    "candidate_entity_id": "arbites.talent.adamant_clip_size",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Cower Miscreants",
+    "normalized_text": "cower miscreants",
+    "candidate_entity_id": "arbites.talent.adamant_damage_vs_suppressed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Justified Measures",
+    "normalized_text": "justified measures",
+    "candidate_entity_id": "arbites.talent.adamant_stacking_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Suppression Force",
+    "normalized_text": "suppression force",
+    "candidate_entity_id": "arbites.talent.adamant_staggered_enemies_deal_less_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Concussive",
+    "normalized_text": "concussive",
+    "candidate_entity_id": "arbites.talent.adamant_melee_weakspot_hits_count_as_stagger",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Target the Weak",
+    "normalized_text": "target the weak",
+    "candidate_entity_id": "arbites.talent.adamant_staggering_enemies_take_more_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Retaliatory Force",
+    "normalized_text": "retaliatory force",
+    "candidate_entity_id": "arbites.talent.adamant_perfect_block_damage_boost",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  }
+]

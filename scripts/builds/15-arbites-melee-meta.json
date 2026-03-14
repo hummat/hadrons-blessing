@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Arby's OP Melee Meta Havoc 40",
+  "title": "Arby's OP Melee Meta Havoc-40",
   "class": {
     "raw_label": "arbites",
     "canonical_entity_id": "shared.class.adamant",
@@ -8,27 +8,162 @@
   },
   "provenance": {
     "source_kind": "gameslantern",
-    "source_url": "legacy-fixture://scripts/builds/15-arbites-melee-meta.json",
+    "source_url": "https://darktide.gameslantern.com/builds/9f6108ec-d547-448f-b847-38fc0e21ccce/arbys-op-melee-meta-havoc-40",
     "author": "B-To-The-Ryan",
-    "scraped_at": "2026-03-13T00:00:00Z"
+    "scraped_at": "2026-03-14T19:49:22.403Z"
   },
   "ability": {
-    "raw_label": "Unknown ability",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Break the Line",
+    "canonical_entity_id": "arbites.ability.adamant_charge",
+    "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Unknown blitz",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Voltaic Shock Mine",
+    "canonical_entity_id": "arbites.ability.adamant_shock_mine",
+    "resolution_status": "resolved"
   },
   "aura": {
-    "raw_label": "Unknown aura",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Breaking Dissent",
+    "canonical_entity_id": "arbites.aura.adamant_damage_vs_staggered_aura",
+    "resolution_status": "resolved"
   },
-  "keystone": null,
-  "talents": [],
+  "keystone": {
+    "raw_label": "Forceful",
+    "canonical_entity_id": "arbites.keystone.adamant_forceful",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Hammer of Judgement",
+      "canonical_entity_id": "arbites.talent.adamant_multiple_hits_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Up Close",
+      "canonical_entity_id": "arbites.talent.adamant_close_kills_restore_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Force of Will",
+      "canonical_entity_id": "arbites.talent.adamant_staggers_replenish_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Walk It Off",
+      "canonical_entity_id": "arbites.talent.adamant_stamina_spent_replenish_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Arbitrator Armour",
+      "canonical_entity_id": "arbites.talent.adamant_armor",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Suppression Protocols",
+      "canonical_entity_id": "arbites.talent.adamant_hitting_multiple_gives_tdr",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Lone Wolf",
+      "canonical_entity_id": "arbites.keystone.adamant_disable_companion",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Will of the Lex",
+      "canonical_entity_id": "arbites.talent_modifier.adamant_forceful_toughness_regen_per_stack",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Targets Acquired",
+      "canonical_entity_id": "arbites.talent_modifier.adamant_forceful_offensive",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Arbites Vigilant",
+      "canonical_entity_id": "arbites.talent_modifier.adamant_forceful_ability_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Hold the Line",
+      "canonical_entity_id": "arbites.talent.adamant_staggers_reduce_damage_taken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Impact Boost",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Commendation From Condemnation",
+      "canonical_entity_id": "arbites.talent_modifier.adamant_charge_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Targeted Brutality",
+      "canonical_entity_id": "arbites.talent_modifier.adamant_charge_cooldown_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Plasteel Plates",
+      "canonical_entity_id": "arbites.talent.adamant_plasteel_plates",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Arbites Revelatum",
+      "canonical_entity_id": "arbites.talent.adamant_dodge_grants_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Soulguilt Scan",
+      "canonical_entity_id": "arbites.talent.adamant_stacking_weakspot_strength",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Drive Them Back",
+      "canonical_entity_id": "arbites.talent.adamant_cleave_after_push",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Zealous Dedication",
+      "canonical_entity_id": "arbites.talent.adamant_crit_chance_on_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Street Smarts",
+      "canonical_entity_id": "arbites.talent.adamant_dodge_improvement",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Monstrosity Hunter",
+      "canonical_entity_id": "arbites.talent.adamant_monster_hunter",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "The Emperors Fist",
+      "canonical_entity_id": "arbites.talent.adamant_first_melee_hit_increased_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Justified Measures",
+      "canonical_entity_id": "arbites.talent.adamant_stacking_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Concussive",
+      "canonical_entity_id": "arbites.talent.adamant_melee_weakspot_hits_count_as_stagger",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Target the Weak",
+      "canonical_entity_id": "arbites.talent.adamant_staggering_enemies_take_more_damage",
+      "resolution_status": "resolved"
+    }
+  ],
   "weapons": [
     {
       "slot": "melee",
@@ -39,21 +174,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Flak Armoured)",
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Carapace)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -81,21 +216,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Flak Armoured)",
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Maniacs)",
+          "raw_label": "10-25% Damage (Maniacs)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -124,21 +259,41 @@
       },
       "perks": [
         {
-          "raw_label": "+3-4% Combat Ability Regen",
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
           "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.03,
+            "min": 0.01,
             "max": 0.04,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "+10-12% Revive Speed",
+          "raw_label": "+4-10% Revive Speed (Ally)",
           "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
             "max": 0.12,
             "unit": "percent"
           }
@@ -153,11 +308,41 @@
       },
       "perks": [
         {
-          "raw_label": "+10-12% Stamina Regeneration",
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
           "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.06,
             "max": 0.12,
             "unit": "percent"
           }
@@ -170,7 +355,48 @@
         "canonical_entity_id": null,
         "resolution_status": "non_canonical"
       },
-      "perks": []
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
     }
   ]
 }

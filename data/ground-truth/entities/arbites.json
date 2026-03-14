@@ -1,0 +1,2216 @@
+[
+  {
+    "id": "arbites.aura.adamant_companion_coherency",
+    "kind": "aura",
+    "domain": "arbites",
+    "internal_name": "adamant_companion_coherency",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 35
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 745
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "aura",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "aura_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.aura.adamant_reload_speed_aura",
+    "kind": "aura",
+    "domain": "arbites",
+    "internal_name": "adamant_reload_speed_aura",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 60
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 674
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "aura",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "aura_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.keystone.adamant_execution_order",
+    "kind": "keystone",
+    "domain": "arbites",
+    "internal_name": "adamant_execution_order",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 83
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2044
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "keystone_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.keystone.adamant_terminus_warrant",
+    "kind": "keystone",
+    "domain": "arbites",
+    "internal_name": "adamant_terminus_warrant",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 111
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1828
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "keystone_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.keystone.adamant_forceful",
+    "kind": "keystone",
+    "domain": "arbites",
+    "internal_name": "adamant_forceful",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 140
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1497
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "keystone_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.ability.adamant_whistle",
+    "kind": "ability",
+    "domain": "arbites",
+    "internal_name": "adamant_whistle",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 168
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 340
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "blitz_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.ability.adamant_grenade_improved",
+    "kind": "ability",
+    "domain": "arbites",
+    "internal_name": "adamant_grenade_improved",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 202
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 402
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "blitz_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.aura.adamant_damage_vs_staggered_aura",
+    "kind": "aura",
+    "domain": "arbites",
+    "internal_name": "adamant_damage_vs_staggered_aura",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 237
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 699
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "aura",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "aura_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.ability.adamant_charge",
+    "kind": "ability",
+    "domain": "arbites",
+    "internal_name": "adamant_charge",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 260
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 94
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "ability_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.ability.adamant_area_buff_drone_improved",
+    "kind": "ability",
+    "domain": "arbites",
+    "internal_name": "adamant_area_buff_drone_improved",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 285
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 544
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "ability_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.ability.adamant_stance",
+    "kind": "ability",
+    "domain": "arbites",
+    "internal_name": "adamant_stance",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 310
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 201
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "ability_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.ability.adamant_shock_mine",
+    "kind": "ability",
+    "domain": "arbites",
+    "internal_name": "adamant_shock_mine",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 334
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 469
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "blitz_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_toughness_regen_near_companion",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_toughness_regen_near_companion",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 358
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 887
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_damage_after_reloading",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_damage_after_reloading",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 383
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 973
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_multiple_hits_attack_speed",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_multiple_hits_attack_speed",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 404
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 993
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_elite_special_kills_replenish_toughness",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_elite_special_kills_replenish_toughness",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 428
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1036
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_close_kills_restore_toughness",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_close_kills_restore_toughness",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 453
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1059
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_staggers_replenish_toughness",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_staggers_replenish_toughness",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 484
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1074
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_dog_attacks_electrocute",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_dog_attacks_electrocute",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 509
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1089
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_stamina_spent_replenish_toughness",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_stamina_spent_replenish_toughness",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 532
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2694
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_limit_dmg_taken_from_hits",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_limit_dmg_taken_from_hits",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 553
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1120
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_armor",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_armor",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 604
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1135
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_ammo_belt",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_ammo_belt",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 629
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1198
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_rebreather",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_rebreather",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 652
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1214
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_hitting_multiple_gives_tdr",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_hitting_multiple_gives_tdr",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 674
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1409
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.keystone.adamant_disable_companion",
+    "kind": "keystone",
+    "domain": "arbites",
+    "internal_name": "adamant_disable_companion",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 740
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 775
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_forceful_toughness_regen_per_stack",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_forceful_toughness_regen_per_stack",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 762
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1533
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_forceful_stun_immune_and_block_all",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_forceful_stun_immune_and_block_all",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 784
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1549
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_forceful_offensive",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_forceful_offensive",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 805
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1628
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_forceful_ability_damage",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_forceful_ability_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 826
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1585
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_forceful_stagger_on_low_high",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_forceful_stagger_on_low_high",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 846
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1605
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_dog_pounces_bleed_nearby",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_dog_pounces_bleed_nearby",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 866
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1451
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_damage_reduction_after_elite_kill",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_damage_reduction_after_elite_kill",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 891
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 864
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_staggers_reduce_damage_taken",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_staggers_reduce_damage_taken",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 915
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 938
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_stance_ranged_kills_transfer_ammo",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_stance_ranged_kills_transfer_ammo",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 991
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 317
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_stance_elite_kills_stack_damage",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_stance_elite_kills_stack_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1010
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 289
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_stance_dog_bloodlust",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_stance_dog_bloodlust",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1032
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 253
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_drone_buff_talent",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_drone_buff_talent",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1052
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 598
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_drone_debuff_talent",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_drone_debuff_talent",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1071
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 624
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_charge_toughness",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_charge_toughness",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1090
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 155
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_charge_cooldown_reduction",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_charge_cooldown_reduction",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1112
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 132
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_charge_longer_distance",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_charge_longer_distance",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1131
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 182
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_plasteel_plates",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_plasteel_plates",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1150
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1167
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_dog_applies_brittleness",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_dog_applies_brittleness",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1177
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1466
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_dodge_grants_damage",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_dodge_grants_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1201
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2612
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_stacking_weakspot_strength",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_stacking_weakspot_strength",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1226
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2631
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_elite_special_kills_reload_speed",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_elite_special_kills_reload_speed",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1248
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2597
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_movement_speed_on_block",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_movement_speed_on_block",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1269
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2577
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_elite_special_kills_offensive_boost",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_elite_special_kills_offensive_boost",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1292
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 839
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_cleave_after_push",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_cleave_after_push",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1315
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1310
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_shield_plates",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_shield_plates",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1341
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1283
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_heavy_attacks_increase_damage",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_heavy_attacks_increase_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1365
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1369
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_dog_damage_after_ability",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_dog_damage_after_ability",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1387
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1389
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_melee_attacks_on_staggered_rend",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_melee_attacks_on_staggered_rend",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1407
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1329
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_terminus_warrant_ranged",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_terminus_warrant_ranged",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1431
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1928
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_terminus_warrant_melee",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_terminus_warrant_melee",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1452
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1948
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_terminus_warrant_improved",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_terminus_warrant_improved",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1473
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1972
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_execution_order_crit",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_execution_order_crit",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1493
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2078
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_execution_order_cdr",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_execution_order_cdr",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1514
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2169
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_execution_order_rending",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_execution_order_rending",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1536
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2103
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_execution_order_permastack",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_execution_order_permastack",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1557
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2123
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_pinning_dog_bonus_moving_towards",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_pinning_dog_bonus_moving_towards",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1577
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2764
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_crit_chance_on_kill",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_crit_chance_on_kill",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1598
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2307
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_crits_rend",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_crits_rend",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1623
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2330
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.keystone.adamant_companion_focus_ranged",
+    "kind": "keystone",
+    "domain": "arbites",
+    "internal_name": "adamant_companion_focus_ranged",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1646
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2366
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "dog_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.keystone.adamant_companion_focus_elite",
+    "kind": "keystone",
+    "domain": "arbites",
+    "internal_name": "adamant_companion_focus_elite",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1669
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2386
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "dog_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_dodge_improvement",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_dodge_improvement",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1692
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2673
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_monster_hunter",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_monster_hunter",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1717
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2717
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_first_melee_hit_increased_damage",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_first_melee_hit_increased_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1740
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2743
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_pinning_dog_elite_damage",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_pinning_dog_elite_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1761
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2805
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_increased_damage_to_high_health",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_increased_damage_to_high_health",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1784
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2558
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_pinning_dog_kills_buff_allies",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_pinning_dog_kills_buff_allies",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1806
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2845
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_sprinting_sliding",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_sprinting_sliding",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1828
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2893
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_terminus_warrant_upgrade",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_terminus_warrant_upgrade",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1849
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 1899
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_ranged_damage_on_melee_stagger",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_ranged_damage_on_melee_stagger",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1870
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2654
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_clip_size",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_clip_size",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1892
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2432
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_damage_vs_suppressed",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_damage_vs_suppressed",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1914
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2416
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_stacking_damage",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_stacking_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1935
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2448
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_staggered_enemies_deal_less_damage",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_staggered_enemies_deal_less_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1964
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2492
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_melee_weakspot_hits_count_as_stagger",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_melee_weakspot_hits_count_as_stagger",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1987
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2511
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_staggering_enemies_take_more_damage",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_staggering_enemies_take_more_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 2009
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 2472
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent.adamant_perfect_block_damage_boost",
+    "kind": "talent",
+    "domain": "arbites",
+    "internal_name": "adamant_perfect_block_damage_boost",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 2030
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/adamant_talents.lua",
+        "line": 906
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  }
+]

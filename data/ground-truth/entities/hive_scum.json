@@ -1,0 +1,2667 @@
+[
+  {
+    "id": "hive_scum.talent.broker_passive_close_range_damage_on_dodge",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_close_range_damage_on_dodge",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 15
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1422
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_first_target_damage",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_first_target_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 37
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 821
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_close_ranged_damage",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_close_ranged_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 59
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 885
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_restore_toughness_on_weakspot_kill",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_restore_toughness_on_weakspot_kill",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 81
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1096
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_restore_toughness_on_close_ranged_kill",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_restore_toughness_on_close_ranged_kill",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 107
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1075
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_ninja_grants_crit_chance",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 134
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 914
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_reload_speed_on_close_kill",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_reload_speed_on_close_kill",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 156
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1169
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_stun_immunity_on_toughness_broken",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_stun_immunity_on_toughness_broken",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 179
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1480
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.ability.broker_blitz_flash_grenade_improved",
+    "kind": "ability",
+    "domain": "hive_scum",
+    "internal_name": "broker_blitz_flash_grenade_improved",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 232
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 599
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "blitz_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.ability.broker_blitz_missile_launcher",
+    "kind": "ability",
+    "domain": "hive_scum",
+    "internal_name": "broker_blitz_missile_launcher",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 254
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 679
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "blitz_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.ability.broker_blitz_tox_grenade",
+    "kind": "ability",
+    "domain": "hive_scum",
+    "internal_name": "broker_blitz_tox_grenade",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 277
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 628
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "blitz_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.aura.broker_aura_gunslinger_improved",
+    "kind": "aura",
+    "domain": "hive_scum",
+    "internal_name": "broker_aura_gunslinger_improved",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 300
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 739
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "aura",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "aura_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.aura.broker_coherency_melee_damage",
+    "kind": "aura",
+    "domain": "hive_scum",
+    "internal_name": "broker_coherency_melee_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 324
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 765
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "aura",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "aura_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.aura.broker_coherency_anarchist",
+    "kind": "aura",
+    "domain": "hive_scum",
+    "internal_name": "broker_coherency_anarchist",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 346
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 783
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "aura",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "aura_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_improved_dodges",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_improved_dodges",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 370
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1028
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_stamina_on_successful_dodge",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_stamina_on_successful_dodge",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 395
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1012
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_dodge_melee_on_slide",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_dodge_melee_on_slide",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 419
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1066
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_replenish_toughness_on_ranged_toughness_damage",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_replenish_toughness_on_ranged_toughness_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 443
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1534
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_damage_on_reload",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_damage_on_reload",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 472
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1619
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.ability.broker_ability_focus_improved",
+    "kind": "ability",
+    "domain": "hive_scum",
+    "internal_name": "broker_ability_focus_improved",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 493
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 58
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "ability_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_stamina_grants_atk_speed",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_stamina_grants_atk_speed",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 520
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1322
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_ramping_backstabs",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_ramping_backstabs",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 542
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1460
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_increased_ranged_dodges",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_increased_ranged_dodges",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 565
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 869
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.keystone.broker_keystone_adrenaline_junkie",
+    "kind": "keystone",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_adrenaline_junkie",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 588
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2409
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "keystone_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.keystone.broker_keystone_vultures_mark_on_kill",
+    "kind": "keystone",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_vultures_mark_on_kill",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 616
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2183
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "keystone_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.ability.broker_ability_stimm_field",
+    "kind": "ability",
+    "domain": "hive_scum",
+    "internal_name": "broker_ability_stimm_field",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 664
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 451
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "ability_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.ability.broker_ability_punk_rage",
+    "kind": "ability",
+    "domain": "hive_scum",
+    "internal_name": "broker_ability_punk_rage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 693
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 216
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "ability_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_improved_dodges_at_full_stamina",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_improved_dodges_at_full_stamina",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 748
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1299
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_reduce_swap_time",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_reduce_swap_time",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 851
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 837
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_reduced_toughness_damage_during_reload",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_reduced_toughness_damage_during_reload",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 875
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1119
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_improved_sprint_dodge",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_improved_sprint_dodge",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 899
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1264
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_dr_damage_tradeoff_on_stamina",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_dr_damage_tradeoff_on_stamina",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 920
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1693
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_melee_cleave_on_melee_kill",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_melee_cleave_on_melee_kill",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 948
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1780
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_cleave_on_cleave",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_cleave_on_cleave",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 970
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1823
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_melee_damage_carry_over",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_melee_damage_carry_over",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 993
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1748
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_increased_aura_size",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_increased_aura_size",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1016
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1918
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_damage_after_toxined_enemies",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_damage_after_toxined_enemies",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1037
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2016
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_stimm_cd_on_kill",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_stimm_cd_on_kill",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1063
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1879
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_increased_blitz_ammo",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_increased_blitz_ammo",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1087
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1856
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_melee_attacks_apply_toxin",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_melee_attacks_apply_toxin",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1110
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2098
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_blitz_inflicts_toxin",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_blitz_inflicts_toxin",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1132
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2123
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_reduced_damage_by_toxined",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_reduced_damage_by_toxined",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1158
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1974
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_toughness_on_toxined_kill",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_toughness_on_toxined_kill",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1182
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2041
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.keystone.broker_keystone_chemical_dependency",
+    "kind": "keystone",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_chemical_dependency",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1205
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2260
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": "keystone_1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_extended_mag",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_extended_mag",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1230
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1354
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_sprinting_reduces_threat",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_sprinting_reduces_threat",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1252
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1138
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_melee_crit_instakill",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_melee_crit_instakill",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1275
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1672
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_damage_vs_elites_monsters",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_damage_vs_elites_monsters",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1304
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1725
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_increased_weakspot_damage",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_increased_weakspot_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1326
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1338
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_1",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_chemical_dependency_sub_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1349
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2307
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_2",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_chemical_dependency_sub_2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1368
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2334
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_3",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_chemical_dependency_sub_3",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1387
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2374
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_aoe_stagger",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_vultures_mark_aoe_stagger",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1406
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2221
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_increased_duration",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_vultures_mark_increased_duration",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1425
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2230
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_dodge_on_ranged_crit",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_vultures_mark_dodge_on_ranged_crit",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1444
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2245
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_punk_grit",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_punk_grit",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1463
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 974
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_stimm_increased_duration",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_stimm_increased_duration",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1488
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1572
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_stimm_cleanse_on_kill",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_stimm_cleanse_on_kill",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1512
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1588
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_damage_vs_heavy_staggered",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_damage_vs_heavy_staggered",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1536
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 1941
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_1",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_adrenaline_junkie_sub_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1557
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2493
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_3",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_adrenaline_junkie_sub_3",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1576
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2564
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_5",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_adrenaline_junkie_sub_5",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1595
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2622
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_4",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_adrenaline_junkie_sub_4",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1614
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2593
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_2",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_keystone_adrenaline_junkie_sub_2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1633
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2523
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_2",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_ability_punk_rage_sub_2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1652
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 328
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_1",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_ability_punk_rage_sub_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1671
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 287
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_3",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_ability_punk_rage_sub_3",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1690
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 381
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_4",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_ability_punk_rage_sub_4",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1709
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 412
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_low_ammo_regen",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_low_ammo_regen",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1728
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 2077
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_ability_focus_sub_3",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_ability_focus_sub_3",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1751
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 175
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_ability_focus_sub_2",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_ability_focus_sub_2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1770
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 126
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_ability_stimm_field_sub_3",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_ability_stimm_field_sub_3",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1789
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 530
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_ability_stimm_field_sub_1",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_ability_stimm_field_sub_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1808
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 479
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_ability_stimm_field_sub_2",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_ability_stimm_field_sub_2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1827
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/broker_talents.lua",
+        "line": 507
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_celerity_1",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_celerity_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 481
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_celerity_2",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_celerity_2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 490
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_celerity_3",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_celerity_3",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 505
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_celerity_4",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_celerity_4",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 516
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_celerity_5a",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_celerity_5a",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 527
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_celerity_5b",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_celerity_5b",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 532
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_celerity_5c",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_celerity_5c",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 540
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_combat_1",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_combat_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 563
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_combat_2",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_combat_2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 568
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_combat_3",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_combat_3",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 573
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_combat_4a",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_combat_4a",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 578
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_combat_5a",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_combat_5a",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 587
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_combat_4b",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_combat_4b",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 596
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_combat_5b",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_combat_5b",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 605
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_combat_4c",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_combat_4c",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 614
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_combat_5c",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_combat_5c",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 623
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_durability_1",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_durability_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 632
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_durability_2",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_durability_2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 649
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_durability_3",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_durability_3",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 666
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_durability_4",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_durability_4",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 683
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_durability_5a",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_durability_5a",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 700
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_durability_5b",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_durability_5b",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 705
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_concentration_1",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_concentration_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 715
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_concentration_2",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_concentration_2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 720
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_concentration_3",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_concentration_3",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 725
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_concentration_4",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_concentration_4",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 730
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_concentration_5a",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_concentration_5a",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 735
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_concentration_5b",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_concentration_5b",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 740
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.talent.broker_stimm_concentration_5c",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_stimm_concentration_5c",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/talent/talent_settings_broker.lua",
+        "line": 751
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "broker_stimm",
+      "group_name": null,
+      "tree_widget_name": null,
+      "exclusive_group": null
+    },
+    "calc": {}
+  }
+]

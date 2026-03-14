@@ -57,11 +57,10 @@ const KEYSTONES = new Set([
   // Ogryn
   "heavy-hitter", "feel-no-pain", "burst-limiter-override",
   // Arbites (Adamant)
-  "forceful", "execution-order", "terminus-warrant", "stance-dance",
-  "exterminator", "bullet-rain", "pinning-dog",
+  "forceful", "execution-order", "terminus-warrant",
+  "go-get-em", "lone-wolf", "unleashed-brutality",
   // Hive Scum (Broker)
-  "float-like-a-butterfly", "pickpocket", "hyper-critical",
-  "vultures-mark", "chemical-dependency", "adrenaline-junkie",
+  "adrenaline-frenzy", "chemical-dependency", "vultures-mark",
 ]);
 
 // Frame shape → talent tier.
@@ -138,14 +137,15 @@ async function extractBuild(url) {
 
       // --- Class ---
       // Class is encoded in the archetype model image URL
+      // Pattern: /{class}-{gender}_model.webp where class can be multi-word (e.g., hive-scum)
       const classImg = document.querySelector(
         'img[src*="_model.webp"]'
       );
       if (classImg) {
         const match = classImg.src.match(
-          /\/([a-z]+)-[a-z]+_model\.webp/
+          /\/([a-z]+(?:-[a-z]+)*)-(?:male|female)_model\.webp/
         );
-        if (match) result.class = match[1];
+        if (match) result.class = match[1].replace(/-/g, " ");
       }
       // Fallback 1: breadcrumb text (e.g. "Arbites Builds")
       if (!result.class) {
