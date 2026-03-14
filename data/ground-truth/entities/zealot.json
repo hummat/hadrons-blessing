@@ -1,0 +1,1256 @@
+[
+  {
+    "id": "zealot.ability.zealot_attack_speed_post_ability",
+    "kind": "ability",
+    "domain": "zealot",
+    "internal_name": "zealot_attack_speed_post_ability",
+    "loc_key": "loc_talent_zealot_attack_speed_post_ability",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 552
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 370
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.ability.zealot_bolstering_prayer",
+    "kind": "ability",
+    "domain": "zealot",
+    "internal_name": "zealot_bolstering_prayer",
+    "loc_key": "loc_talent_zealot_bolstering_prayer",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 505
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 90
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.ability.zealot_flame_grenade",
+    "kind": "ability",
+    "domain": "zealot",
+    "internal_name": "zealot_flame_grenade",
+    "loc_key": "loc_talent_zealot_flame_grenade",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 187
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 157
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.ability.zealot_improved_stun_grenade",
+    "kind": "ability",
+    "domain": "zealot",
+    "internal_name": "zealot_improved_stun_grenade",
+    "loc_key": "loc_talent_zealot_improved_stun_grenade",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1340
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 62
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.ability.zealot_stealth",
+    "kind": "ability",
+    "domain": "zealot",
+    "internal_name": "zealot_stealth",
+    "loc_key": "loc_talent_zealot_stealth",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 736
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 231
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.ability.zealot_throwing_knives",
+    "kind": "ability",
+    "domain": "zealot",
+    "internal_name": "zealot_throwing_knives",
+    "loc_key": "loc_talent_zealot_throwing_knives",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 210
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 188
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.aura.zealot_corruption_healing_coherency_improved",
+    "kind": "aura",
+    "domain": "zealot",
+    "internal_name": "zealot_corruption_healing_coherency_improved",
+    "loc_key": "loc_talent_zealot_corruption_healing_coherency_improved",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 482
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 812
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.aura.zealot_toughness_damage_reduction_coherency_improved",
+    "kind": "aura",
+    "domain": "zealot",
+    "internal_name": "zealot_toughness_damage_reduction_coherency_improved",
+    "loc_key": "loc_talent_zealot_toughness_damage_reduction_coherency_improved",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 432
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 775
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.keystone.zealot_fanatic_rage",
+    "kind": "keystone",
+    "domain": "zealot",
+    "internal_name": "zealot_fanatic_rage",
+    "loc_key": "loc_talent_zealot_fanatic_rage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1248
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1040
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.keystone.zealot_martyrdom",
+    "kind": "keystone",
+    "domain": "zealot",
+    "internal_name": "zealot_martyrdom",
+    "loc_key": "loc_talent_zealot_martyrdom",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1012
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 893
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.keystone.zealot_quickness_passive",
+    "kind": "keystone",
+    "domain": "zealot",
+    "internal_name": "zealot_quickness_passive",
+    "loc_key": "loc_talent_zealot_quickness_passive",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1131
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 914
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_additional_charge_of_ability",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_additional_charge_of_ability",
+    "loc_key": "loc_talent_zealot_additional_charge_of_ability",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 691
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 413
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_backstab_kills_restore_cd",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_backstab_kills_restore_cd",
+    "loc_key": "loc_talent_zealot_backstab_kills_restore_cd",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1108
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1225
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_channel_grants_damage",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_channel_grants_damage",
+    "loc_key": "loc_talent_zealot_channel_grants_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 625
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 645
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_crits_grant_cd",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_crits_grant_cd",
+    "loc_key": "loc_talent_zealot_crits_grant_cd",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1201
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 344
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_fanatic_rage_improved",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_fanatic_rage_improved",
+    "loc_key": "loc_talent_zealot_fanatic_rage_improved",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1296
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1077
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_fanatic_rage_toughness_on_max",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_fanatic_rage_toughness_on_max",
+    "loc_key": "loc_talent_zealot_fanatic_rage_toughness_on_max",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1274
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1108
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_fotf_refund_cooldown",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_fotf_refund_cooldown",
+    "loc_key": "loc_talent_zealot_fotf_refund_cooldown",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1363
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2488
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_increased_duration",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_increased_duration",
+    "loc_key": "loc_talent_zealot_increased_duration",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 795
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 433
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_leaving_stealth_restores_toughness",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_leaving_stealth_restores_toughness",
+    "loc_key": "loc_talent_zealot_leaving_stealth_restores_toughness",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 911
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 572
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_martyrdom_grants_attack_speed",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_martyrdom_grants_attack_speed",
+    "loc_key": "loc_talent_zealot_martyrdom_grants_attack_speed",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1063
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1515
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_martyrdom_grants_toughness",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_martyrdom_grants_toughness",
+    "loc_key": "loc_talent_zealot_martyrdom_grants_toughness",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1041
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 3099
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_martyrdom_toughness_modifier",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_martyrdom_toughness_modifier",
+    "loc_key": "loc_talent_zealot_martyrdom_toughness_modifier",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1518
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2284
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_quickness_passive_dodge_stacks",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_quickness_passive_dodge_stacks",
+    "loc_key": "loc_talent_zealot_quickness_passive_dodge_stacks",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1179
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 980
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_restore_stealth_cd_on_damage",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_restore_stealth_cd_on_damage",
+    "loc_key": "loc_talent_zealot_restore_stealth_cd_on_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 960
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 604
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_shared_fanatic_rage",
+    "kind": "talent_modifier",
+    "domain": "zealot",
+    "internal_name": "zealot_shared_fanatic_rage",
+    "loc_key": "loc_talent_zealot_shared_fanatic_rage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1318
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1147
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_additional_wounds",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_additional_wounds",
+    "loc_key": "loc_talent_zealot_additional_wounds",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 984
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2788
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_ally_damage_taken_reduced",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_ally_damage_taken_reduced",
+    "loc_key": "loc_talent_zealot_ally_damage_taken_reduced",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 530
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 3133
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_attack_speed",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_attack_speed",
+    "loc_key": "loc_talent_zealot_attack_speed",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 933
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1403
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_backstab_damage",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_backstab_damage",
+    "loc_key": "loc_talent_zealot_backstab_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 66
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1308
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_backstab_periodic_damage",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_backstab_periodic_damage",
+    "loc_key": "loc_talent_zealot_backstab_periodic_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1890
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2661
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_bled_enemies_take_more_damage",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_bled_enemies_take_more_damage",
+    "loc_key": "loc_talent_zealot_bled_enemies_take_more_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1559
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2014
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_crits_apply_bleed",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_crits_apply_bleed",
+    "loc_key": "loc_talent_zealot_crits_apply_bleed",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 43
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1421
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_crits_reduce_toughness_damage",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_crits_reduce_toughness_damage",
+    "loc_key": "loc_talent_zealot_crits_reduce_toughness_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 233
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2939
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_damage_boosts_movement",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_damage_boosts_movement",
+    "loc_key": "loc_talent_zealot_damage_boosts_movement",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 713
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 3026
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_damage_vs_elites",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_damage_vs_elites",
+    "loc_key": "loc_talent_zealot_damage_vs_elites",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1655
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1948
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_damage_vs_nonthreat",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_damage_vs_nonthreat",
+    "loc_key": "loc_talent_zealot_damage_vs_nonthreat",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1478
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2038
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_defensive_knockback",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_defensive_knockback",
+    "loc_key": "loc_talent_zealot_defensive_knockback",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1499
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 3067
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_elite_kills_empowers",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_elite_kills_empowers",
+    "loc_key": "loc_talent_zealot_elite_kills_empowers",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1758
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1881
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_heal_part_of_damage_taken",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_heal_part_of_damage_taken",
+    "loc_key": "loc_talent_zealot_heal_part_of_damage_taken",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 332
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 3047
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_hits_grant_stacking_damage",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_hits_grant_stacking_damage",
+    "loc_key": "loc_talent_zealot_hits_grant_stacking_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 164
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1697
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_improved_weapon_handling_after_dodge",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_improved_weapon_handling_after_dodge",
+    "loc_key": "loc_talent_zealot_improved_weapon_handling_after_dodge",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1696
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1536
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_increase_ranged_close_damage",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_increase_ranged_close_damage",
+    "loc_key": "loc_talent_zealot_increase_ranged_close_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1085
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1680
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_increased_crit_and_weakspot_damage_after_dodge",
+    "loc_key": "loc_talent_zealot_increased_crit_and_weakspot_damage_after_dodge",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 456
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1274
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_increased_damage_vs_resilient",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_increased_damage_vs_resilient",
+    "loc_key": "loc_talent_zealot_increased_damage_vs_resilient",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 138
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1332
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_more_toughness_on_melee",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_more_toughness_on_melee",
+    "loc_key": "loc_talent_zealot_more_toughness_on_melee",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 16
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2825
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_multi_hits_increase_damage",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_multi_hits_increase_damage",
+    "loc_key": "loc_talent_zealot_multi_hits_increase_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 114
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1366
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_offensive_vs_many",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_offensive_vs_many",
+    "loc_key": "loc_talent_zealot_offensive_vs_many",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1912
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2628
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_reduced_damage_after_dodge",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_reduced_damage_after_dodge",
+    "loc_key": "loc_talent_zealot_reduced_damage_after_dodge",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 837
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2708
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_reduced_damage_on_wound",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_reduced_damage_on_wound",
+    "loc_key": "loc_talent_zealot_reduced_damage_on_wound",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 356
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 3083
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_resist_death",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_resist_death",
+    "loc_key": "loc_talent_zealot_resist_death",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 88
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2805
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_resist_death_healing",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_resist_death_healing",
+    "loc_key": "loc_talent_zealot_resist_death_healing",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1224
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 3002
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_revive_speed",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_revive_speed",
+    "loc_key": "loc_talent_zealot_revive_speed",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1627
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2075
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_stacking_melee_damage_after_dodge",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_stacking_melee_damage_after_dodge",
+    "loc_key": "loc_talent_zealot_stacking_melee_damage_after_dodge",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1428
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1989
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_toughness_in_melee",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_toughness_in_melee",
+    "loc_key": "loc_talent_zealot_toughness_in_melee",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 884
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2963
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_toughness_on_dodge",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_toughness_on_dodge",
+    "loc_key": "loc_talent_zealot_toughness_on_dodge",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 256
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 2895
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "zealot.talent.zealot_weakspot_damage_reduction",
+    "kind": "talent",
+    "domain": "zealot",
+    "internal_name": "zealot_weakspot_damage_reduction",
+    "loc_key": "loc_talent_zealot_weakspot_damage_reduction",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+        "line": 1674
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/zealot_talents.lua",
+        "line": 1965
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  }
+]

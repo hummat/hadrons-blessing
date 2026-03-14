@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Fatmangus Zealot Stealth",
+  "title": "Fatmangus Zealot (Stealth Version)",
   "class": {
     "raw_label": "zealot",
     "canonical_entity_id": "shared.class.zealot",
@@ -8,27 +8,162 @@
   },
   "provenance": {
     "source_kind": "gameslantern",
-    "source_url": "legacy-fixture://scripts/builds/05-fatmangus-zealot-stealth.json",
+    "source_url": "https://darktide.gameslantern.com/builds/a0d300f6-9d15-4766-bab5-76122e9477f7/fatmangus-zealot-stealth-version",
     "author": "dopeslinker",
-    "scraped_at": "2026-03-13T00:00:00Z"
+    "scraped_at": "2026-03-14T15:11:29.097Z"
   },
   "ability": {
-    "raw_label": "Unknown ability",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Shroudfield",
+    "canonical_entity_id": "zealot.ability.zealot_stealth",
+    "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Unknown blitz",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Blades Of Faith",
+    "canonical_entity_id": "zealot.ability.zealot_throwing_knives",
+    "resolution_status": "resolved"
   },
   "aura": {
-    "raw_label": "Unknown aura",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Beacon Of Purity",
+    "canonical_entity_id": "zealot.aura.zealot_corruption_healing_coherency_improved",
+    "resolution_status": "resolved"
   },
-  "keystone": null,
-  "talents": [],
+  "keystone": {
+    "raw_label": "Inexorable Judgement",
+    "canonical_entity_id": "zealot.keystone.zealot_quickness_passive",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Backstabber",
+      "canonical_entity_id": "zealot.talent.zealot_backstab_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Purge The Unclean",
+      "canonical_entity_id": "zealot.talent.zealot_increased_damage_vs_resilient",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Second Wind",
+      "canonical_entity_id": "zealot.talent.zealot_toughness_on_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Restoring Faith",
+      "canonical_entity_id": "zealot.talent.zealot_heal_part_of_damage_taken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Bleed For The Emperor",
+      "canonical_entity_id": "zealot.talent.zealot_reduced_damage_on_wound",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Duellist",
+      "canonical_entity_id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Shield Of Contempt",
+      "canonical_entity_id": "zealot.talent.zealot_ally_damage_taken_reduced",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Until Death",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Holy Revenant",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death_healing",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Thy Wrath Be Swift",
+      "canonical_entity_id": "zealot.talent.zealot_damage_boosts_movement",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Master Crafted Shroudfield",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_increased_duration",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Good Balance",
+      "canonical_entity_id": "zealot.talent.zealot_reduced_damage_after_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Invigorating Revelation",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_leaving_stealth_restores_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Faiths Fortitude",
+      "canonical_entity_id": "zealot.talent.zealot_additional_wounds",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Sustained Assault",
+      "canonical_entity_id": "zealot.talent.zealot_hits_grant_stacking_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Pious Cut Throat",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_backstab_kills_restore_cd",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Inebriates Poise",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_quickness_passive_dodge_stacks",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "The Masters Retribution",
+      "canonical_entity_id": "zealot.talent.zealot_defensive_knockback",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 2",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 8",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Toughness Boost",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Riposte",
+      "canonical_entity_id": "zealot.talent.zealot_stacking_melee_damage_after_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Providence",
+      "canonical_entity_id": "zealot.talent.zealot_revive_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Hubris",
+      "canonical_entity_id": "zealot.talent.zealot_weakspot_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Movement Speed Boost 5",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Time To Kill",
+      "canonical_entity_id": "zealot.talent.zealot_backstab_periodic_damage",
+      "resolution_status": "resolved"
+    }
+  ],
   "weapons": [
     {
       "slot": "melee",
@@ -39,21 +174,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Flak Armoured)",
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Unyielding)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -81,21 +216,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Maniacs)",
+          "raw_label": "10-25% Damage (Maniacs)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Unyielding)",
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -124,21 +259,41 @@
       },
       "perks": [
         {
-          "raw_label": "+10-12% Revive Speed",
-          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
-            "max": 0.12,
+            "min": 0.17,
+            "max": 0.21,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "+15-20% DR vs Gunners",
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
           "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.15,
+            "min": 0.05,
             "max": 0.2,
             "unit": "percent"
           }
@@ -153,11 +308,41 @@
       },
       "perks": [
         {
-          "raw_label": "+10-12% Stamina Regeneration",
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.17,
+            "max": 0.21,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
           "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.06,
             "max": 0.12,
             "unit": "percent"
           }
@@ -170,7 +355,48 @@
         "canonical_entity_id": null,
         "resolution_status": "non_canonical"
       },
-      "perks": []
+      "perks": [
+        {
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.17,
+            "max": 0.21,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
     }
   ]
 }

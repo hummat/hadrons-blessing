@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Spicy's Meta Havoc 40 Zealot",
+  "title": "SPICY'S META HAVOC 40 ZEALOT",
   "class": {
     "raw_label": "zealot",
     "canonical_entity_id": "shared.class.zealot",
@@ -8,27 +8,162 @@
   },
   "provenance": {
     "source_kind": "gameslantern",
-    "source_url": "legacy-fixture://scripts/builds/04-spicy-meta-zealot.json",
+    "source_url": "https://darktide.gameslantern.com/builds/9ede2ba5-850b-41d0-9325-4f42cddf9836/spicys-meta-havoc-40-zealot",
     "author": "randomspicy",
-    "scraped_at": "2026-03-13T00:00:00Z"
+    "scraped_at": "2026-03-14T15:11:27.516Z"
   },
   "ability": {
-    "raw_label": "Unknown ability",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Chorus Of Spiritual Fortitude",
+    "canonical_entity_id": "zealot.ability.zealot_bolstering_prayer",
+    "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Unknown blitz",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Blades Of Faith",
+    "canonical_entity_id": "zealot.ability.zealot_throwing_knives",
+    "resolution_status": "resolved"
   },
   "aura": {
-    "raw_label": "Unknown aura",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Beacon Of Purity",
+    "canonical_entity_id": "zealot.aura.zealot_corruption_healing_coherency_improved",
+    "resolution_status": "resolved"
   },
-  "keystone": null,
-  "talents": [],
+  "keystone": {
+    "raw_label": "Blazing Piety",
+    "canonical_entity_id": "zealot.keystone.zealot_fanatic_rage",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Scourge",
+      "canonical_entity_id": "zealot.talent.zealot_crits_apply_bleed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Backstabber",
+      "canonical_entity_id": "zealot.talent.zealot_backstab_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Purge The Unclean",
+      "canonical_entity_id": "zealot.talent.zealot_increased_damage_vs_resilient",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Anoint In Blood",
+      "canonical_entity_id": "zealot.talent.zealot_increase_ranged_close_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Enduring Faith",
+      "canonical_entity_id": "zealot.talent.zealot_crits_reduce_toughness_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Second Wind",
+      "canonical_entity_id": "zealot.talent.zealot_toughness_on_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Duellist",
+      "canonical_entity_id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Until Death",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ecclesiarchs Call",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_channel_grants_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Holy Revenant",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death_healing",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Thy Wrath Be Swift",
+      "canonical_entity_id": "zealot.talent.zealot_damage_boosts_movement",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Good Balance",
+      "canonical_entity_id": "zealot.talent.zealot_reduced_damage_after_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Faithful Frenzy",
+      "canonical_entity_id": "zealot.talent.zealot_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Sustained Assault",
+      "canonical_entity_id": "zealot.talent.zealot_hits_grant_stacking_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Invocation Of Death",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_crits_grant_cd",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Stalwart",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_fanatic_rage_toughness_on_max",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Righteous Warrior",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_fanatic_rage_improved",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Infectious Zeal",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_shared_fanatic_rage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 2",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 2",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 8",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Toughness Boost",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Providence",
+      "canonical_entity_id": "zealot.talent.zealot_revive_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Abolish Blasphemers",
+      "canonical_entity_id": "zealot.talent.zealot_damage_vs_elites",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Prime Target",
+      "canonical_entity_id": "zealot.talent.zealot_elite_kills_empowers",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Against The Odds",
+      "canonical_entity_id": "zealot.talent.zealot_offensive_vs_many",
+      "resolution_status": "resolved"
+    }
+  ],
   "weapons": [
     {
       "slot": "melee",
@@ -39,21 +174,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Carapace)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "8-10% Damage (Elites)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_damage_elites",
-          "resolution_status": "resolved",
+          "raw_label": "4-10% Melee Damage (Elites)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.08,
+            "min": 0.04,
             "max": 0.1,
             "unit": "percent"
           }
@@ -81,21 +216,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Carapace)",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Flak Armoured)",
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -124,21 +259,90 @@
       },
       "perks": [
         {
-          "raw_label": "+3-4% Combat Ability Regen",
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
           "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.03,
+            "min": 0.01,
             "max": 0.04,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "+15-20% DR vs Gunners",
+          "raw_label": "+6-12% Block Efficiency",
+          "canonical_entity_id": "shared.gadget_trait.gadget_block_cost_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
           "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.15,
+            "min": 0.05,
             "max": 0.2,
             "unit": "percent"
           }
@@ -153,34 +357,46 @@
       },
       "perks": [
         {
-          "raw_label": "+10-12% Block Efficiency",
-          "canonical_entity_id": "shared.gadget_trait.gadget_block_cost_reduction",
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
-            "max": 0.12,
+            "min": 0.17,
+            "max": 0.21,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "+10-12% Stamina Regeneration",
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
           "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.06,
             "max": 0.12,
             "unit": "percent"
           }
         }
       ]
-    },
-    {
-      "name": {
-        "raw_label": "Blessed Bullet",
-        "canonical_entity_id": null,
-        "resolution_status": "non_canonical"
-      },
-      "perks": []
     }
   ]
 }

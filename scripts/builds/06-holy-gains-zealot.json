@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Holy Gains Havoc 40",
+  "title": "Holy Gains - Havoc 40",
   "class": {
     "raw_label": "zealot",
     "canonical_entity_id": "shared.class.zealot",
@@ -8,27 +8,162 @@
   },
   "provenance": {
     "source_kind": "gameslantern",
-    "source_url": "legacy-fixture://scripts/builds/06-holy-gains-zealot.json",
+    "source_url": "https://darktide.gameslantern.com/builds/9d2b5a53-1975-4850-8041-0bc911ac4efc/holy-gains-havoc-40",
     "author": "charname",
-    "scraped_at": "2026-03-13T00:00:00Z"
+    "scraped_at": "2026-03-14T15:11:30.667Z"
   },
   "ability": {
-    "raw_label": "Unknown ability",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Fury Of The Faithful",
+    "canonical_entity_id": "zealot.ability.zealot_attack_speed_post_ability",
+    "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Unknown blitz",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Stunstorm Grenade",
+    "canonical_entity_id": "zealot.ability.zealot_improved_stun_grenade",
+    "resolution_status": "resolved"
   },
   "aura": {
-    "raw_label": "Unknown aura",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Benediction",
+    "canonical_entity_id": "zealot.aura.zealot_toughness_damage_reduction_coherency_improved",
+    "resolution_status": "resolved"
   },
-  "keystone": null,
-  "talents": [],
+  "keystone": {
+    "raw_label": "Martyrdom",
+    "canonical_entity_id": "zealot.keystone.zealot_martyrdom",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Disdain",
+      "canonical_entity_id": "zealot.talent.zealot_multi_hits_increase_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Purge The Unclean",
+      "canonical_entity_id": "zealot.talent.zealot_increased_damage_vs_resilient",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Enduring Faith",
+      "canonical_entity_id": "zealot.talent.zealot_crits_reduce_toughness_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Second Wind",
+      "canonical_entity_id": "zealot.talent.zealot_toughness_on_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Restoring Faith",
+      "canonical_entity_id": "zealot.talent.zealot_heal_part_of_damage_taken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Until Death",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Redoubled Zeal",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_additional_charge_of_ability",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Holy Revenant",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death_healing",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Good Balance",
+      "canonical_entity_id": "zealot.talent.zealot_reduced_damage_after_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Enemies Within Enemies Without",
+      "canonical_entity_id": "zealot.talent.zealot_toughness_in_melee",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Faithful Frenzy",
+      "canonical_entity_id": "zealot.talent.zealot_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Martyrs Purpose",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_restore_stealth_cd_on_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Faiths Fortitude",
+      "canonical_entity_id": "zealot.talent.zealot_additional_wounds",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "I Shall Not Fall",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Maniac",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Sustained Assault",
+      "canonical_entity_id": "zealot.talent.zealot_hits_grant_stacking_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 2",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 2",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 8",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Toughness Boost",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Unrelenting Fury",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_fotf_refund_cooldown",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Restorative Verses",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_toughness_modifier",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Providence",
+      "canonical_entity_id": "zealot.talent.zealot_revive_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Abolish Blasphemers",
+      "canonical_entity_id": "zealot.talent.zealot_damage_vs_elites",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Prime Target",
+      "canonical_entity_id": "zealot.talent.zealot_elite_kills_empowers",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Against The Odds",
+      "canonical_entity_id": "zealot.talent.zealot_offensive_vs_many",
+      "resolution_status": "resolved"
+    }
+  ],
   "weapons": [
     {
       "slot": "melee",
@@ -39,21 +174,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Unyielding)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Carapace)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -81,21 +216,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Flak Armoured)",
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Maniacs)",
+          "raw_label": "10-25% Damage (Maniacs)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -124,22 +259,42 @@
       },
       "perks": [
         {
-          "raw_label": "+3-4% Combat Ability Regen",
+          "raw_label": "+1 Wound(s)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
+          "value": {
+            "min": 1,
+            "max": 1,
+            "unit": "flat"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
           "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.03,
+            "min": 0.01,
             "max": 0.04,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "+10-12% Stamina Regeneration",
+          "raw_label": "+6-12% Stamina Regeneration",
           "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.06,
             "max": 0.12,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
             "unit": "percent"
           }
         }
@@ -153,12 +308,42 @@
       },
       "perks": [
         {
-          "raw_label": "+15-20% DR vs Gunners",
+          "raw_label": "+1 Wound(s)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
+          "value": {
+            "min": 1,
+            "max": 1,
+            "unit": "flat"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
           "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.15,
+            "min": 0.05,
             "max": 0.2,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
             "unit": "percent"
           }
         }
@@ -170,7 +355,48 @@
         "canonical_entity_id": null,
         "resolution_status": "non_canonical"
       },
-      "perks": []
+      "perks": [
+        {
+          "raw_label": "+1 Wound(s)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
+          "value": {
+            "min": 1,
+            "max": 1,
+            "unit": "flat"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        }
+      ]
     }
   ]
 }

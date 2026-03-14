@@ -1167,8 +1167,8 @@ describe("auditBuildFile", () => {
       ],
       [
         zealotResult,
-        "weapons[0].perks[1]",
-        "shared.weapon_perk.melee.weapon_trait_increase_damage_elites",
+        "weapons[1].perks[1]",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
       ],
       [
         hiveScumResult,

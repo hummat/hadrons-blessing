@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Zealot Infodump No Stealth Auric",
+  "title": "Zealot Infodump (No Stealth) [Auric]",
   "class": {
     "raw_label": "zealot",
     "canonical_entity_id": "shared.class.zealot",
@@ -8,27 +8,162 @@
   },
   "provenance": {
     "source_kind": "gameslantern",
-    "source_url": "legacy-fixture://scripts/builds/07-zealot-infodump.json",
+    "source_url": "https://darktide.gameslantern.com/builds/9a4fa304-0b88-4cf8-827a-d0435327a8c3/zealot-infodump-no-stealth-auric",
     "author": "Razgriz",
-    "scraped_at": "2026-03-13T00:00:00Z"
+    "scraped_at": "2026-03-14T15:11:32.251Z"
   },
   "ability": {
-    "raw_label": "Unknown ability",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Fury of the Faithful",
+    "canonical_entity_id": "zealot.ability.zealot_attack_speed_post_ability",
+    "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Unknown blitz",
+    "raw_label": "Stunstorm Grenade \u00a0or \u00a0Immolation Grenade \u00a0or Blades of Faith",
     "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "resolution_status": "non_canonical"
   },
   "aura": {
-    "raw_label": "Unknown aura",
+    "raw_label": "Benediction \u00a0or \u00a0Beacon of Purity",
     "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "resolution_status": "non_canonical"
   },
-  "keystone": null,
-  "talents": [],
+  "keystone": {
+    "raw_label": "Blazing Piety",
+    "canonical_entity_id": "zealot.keystone.zealot_fanatic_rage",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Blood Redemption",
+      "canonical_entity_id": "zealot.talent.zealot_more_toughness_on_melee",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Scourge",
+      "canonical_entity_id": "zealot.talent.zealot_crits_apply_bleed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Backstabber",
+      "canonical_entity_id": "zealot.talent.zealot_backstab_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Purge The Unclean",
+      "canonical_entity_id": "zealot.talent.zealot_increased_damage_vs_resilient",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Anoint In Blood",
+      "canonical_entity_id": "zealot.talent.zealot_increase_ranged_close_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Enduring Faith",
+      "canonical_entity_id": "zealot.talent.zealot_crits_reduce_toughness_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Second Wind",
+      "canonical_entity_id": "zealot.talent.zealot_toughness_on_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Bleed For The Emperor",
+      "canonical_entity_id": "zealot.talent.zealot_reduced_damage_on_wound",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Dance Of Death",
+      "canonical_entity_id": "zealot.talent.zealot_improved_weapon_handling_after_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Duellist",
+      "canonical_entity_id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Shield Of Contempt",
+      "canonical_entity_id": "zealot.talent.zealot_ally_damage_taken_reduced",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Until Death",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Redoubled Zeal",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_additional_charge_of_ability",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Holy Revenant",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death_healing",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Thy Wrath Be Swift",
+      "canonical_entity_id": "zealot.talent.zealot_damage_boosts_movement",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Good Balance",
+      "canonical_entity_id": "zealot.talent.zealot_reduced_damage_after_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Sustained Assault",
+      "canonical_entity_id": "zealot.talent.zealot_hits_grant_stacking_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Invocation Of Death",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_crits_grant_cd",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 2",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 2",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 8",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Toughness Boost",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Unseen Blade",
+      "canonical_entity_id": "zealot.talent.zealot_damage_vs_nonthreat",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Blinded By Blood",
+      "canonical_entity_id": "zealot.talent.zealot_bled_enemies_take_more_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Providence",
+      "canonical_entity_id": "zealot.talent.zealot_revive_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Prime Target",
+      "canonical_entity_id": "zealot.talent.zealot_elite_kills_empowers",
+      "resolution_status": "resolved"
+    }
+  ],
   "weapons": [
     {
       "slot": "melee",
@@ -39,21 +174,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Flak Armoured)",
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Unyielding)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -81,21 +216,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Flak Armoured)",
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Maniacs)",
+          "raw_label": "10-25% Damage (Maniacs)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -124,22 +259,42 @@
       },
       "perks": [
         {
-          "raw_label": "+15-20% DR vs Snipers",
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.17,
+            "max": 0.21,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Snipers)",
           "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_snipers",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.15,
+            "min": 0.05,
             "max": 0.2,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "+15-20% DR vs Gunners",
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
           "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.15,
+            "min": 0.05,
             "max": 0.2,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-15% Corruption Resistance",
+          "canonical_entity_id": "shared.gadget_trait.gadget_corruption_resistance",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.15,
             "unit": "percent"
           }
         }
@@ -153,21 +308,41 @@
       },
       "perks": [
         {
-          "raw_label": "+15-20% DR vs Flamers",
-          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_flamers",
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.15,
+            "min": 0.17,
+            "max": 0.21,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Snipers)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_snipers",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
             "max": 0.2,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "+12-15% Corruption Resistance",
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-15% Corruption Resistance",
           "canonical_entity_id": "shared.gadget_trait.gadget_corruption_resistance",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.12,
+            "min": 0.06,
             "max": 0.15,
             "unit": "percent"
           }
@@ -180,7 +355,48 @@
         "canonical_entity_id": null,
         "resolution_status": "non_canonical"
       },
-      "perks": []
+      "perks": [
+        {
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.17,
+            "max": 0.21,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Tox Flamers)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ]
     }
   ]
 }

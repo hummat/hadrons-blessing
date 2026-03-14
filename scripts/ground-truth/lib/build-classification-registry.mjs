@@ -36,7 +36,40 @@ const BUILD_CLASSIFICATION_REGISTRY = {
     "always-prepared": { slot: "talents", kind: "talent_modifier" },
     "redirect-fire": { slot: "talents", kind: "talent_modifier" },
   },
-  zealot: {},
+  zealot: {
+    // Abilities (source type: ability)
+    "chorus-of-spiritual-fortitude": { slot: "ability", kind: "ability" },
+    "fury-of-the-faithful": { slot: "ability", kind: "ability" },
+    "shroudfield": { slot: "ability", kind: "ability" },
+    // Ability modifiers (source type: ability_modifier) -> talents
+    "ecclesiarchs-call": { slot: "talents", kind: "talent_modifier" },
+    "invigorating-revelation": { slot: "talents", kind: "talent_modifier" },
+    "master-crafted-shroudfield": { slot: "talents", kind: "talent_modifier" },
+    "redoubled-zeal": { slot: "talents", kind: "talent_modifier" },
+    "unrelenting-fury": { slot: "talents", kind: "talent_modifier" },
+    // Blitz (source type: tactical)
+    "blades-of-faith": { slot: "blitz", kind: "blitz" },
+    "immolation-grenade": { slot: "blitz", kind: "blitz" },
+    "stunstorm-grenade": { slot: "blitz", kind: "blitz" },
+    // Auras (source type: aura)
+    "beacon-of-purity": { slot: "aura", kind: "aura" },
+    "benediction": { slot: "aura", kind: "aura" },
+    // Keystones (source type: keystone)
+    "blazing-piety": { slot: "keystone", kind: "keystone" },
+    "inexorable-judgement": { slot: "keystone", kind: "keystone" },
+    "martyrdom": { slot: "keystone", kind: "keystone" },
+    // Keystone modifiers (source type: keystone_modifier) -> talents
+    "i-shall-not-fall": { slot: "talents", kind: "talent_modifier" },
+    "inebriates-poise": { slot: "talents", kind: "talent_modifier" },
+    "infectious-zeal": { slot: "talents", kind: "talent_modifier" },
+    "invocation-of-death": { slot: "talents", kind: "talent_modifier" },
+    "maniac": { slot: "talents", kind: "talent_modifier" },
+    "martyrs-purpose": { slot: "talents", kind: "talent_modifier" },
+    "pious-cut-throat": { slot: "talents", kind: "talent_modifier" },
+    "restorative-verses": { slot: "talents", kind: "talent_modifier" },
+    "righteous-warrior": { slot: "talents", kind: "talent_modifier" },
+    "stalwart": { slot: "talents", kind: "talent_modifier" },
+  },
   ogryn: {},
   arbites: {},
   adamant: {},
