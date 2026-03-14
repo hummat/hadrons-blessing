@@ -123,5 +123,197 @@
     },
     "rank_weight": 100,
     "notes": "Source-backed keystone name without the Games Lantern punctuation."
+  },
+  {
+    "text": "Grenade Tinkerer",
+    "normalized_text": "grenade tinkerer",
+    "candidate_entity_id": "veteran.talent.veteran_improved_grenades",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_improved_grenades."
+  },
+  {
+    "text": "Born Leader",
+    "normalized_text": "born leader",
+    "candidate_entity_id": "veteran.talent.veteran_allies_in_coherency_share_toughness_gain",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_allies_in_coherency_share_toughness_gain."
+  },
+  {
+    "text": "Tactical Awareness",
+    "normalized_text": "tactical awareness",
+    "candidate_entity_id": "veteran.talent.veteran_elite_kills_reduce_cooldown",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_elite_kills_reduce_cooldown."
+  },
+  {
+    "text": "Confirmed Kill",
+    "normalized_text": "confirmed kill",
+    "candidate_entity_id": "veteran.talent.veteran_elite_kills_replenish_toughness",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_elite_kills_replenish_toughness."
+  },
+  {
+    "text": "Demolition Stockpile",
+    "normalized_text": "demolition stockpile",
+    "candidate_entity_id": "veteran.talent.veteran_replenish_grenades",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_replenish_grenades."
+  },
+  {
+    "text": "Superiority Complex",
+    "normalized_text": "superiority complex",
+    "candidate_entity_id": "veteran.talent.veteran_increase_damage_vs_elites",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_increase_damage_vs_elites."
+  },
+  {
+    "text": "Close Order Drill",
+    "normalized_text": "close order drill",
+    "candidate_entity_id": "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_reduced_toughness_damage_in_coherency."
+  },
+  {
+    "text": "Iron Will",
+    "normalized_text": "iron will",
+    "candidate_entity_id": "veteran.talent.veteran_tdr_on_high_toughness",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_tdr_on_high_toughness."
   }
 ]

@@ -66,5 +66,141 @@
     ],
     "confidence": "high",
     "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_improved_grenades",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_improved_grenades",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_improved_grenades",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 133
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_elite_kills_reduce_cooldown",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_elite_kills_reduce_cooldown",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_elite_kills_reduce_cooldown",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 758
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_replenish_grenades",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_replenish_grenades",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_ranger_replenish_grenade",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1958
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_allies_in_coherency_share_toughness_gain",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_allies_in_coherency_share_toughness_gain",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_allies_share_toughness",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2288
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_elite_kills_replenish_toughness",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_elite_kills_replenish_toughness",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_toughness_on_elite_kill",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1455
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_reduced_toughness_damage_in_coherency",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_toughness_damage_reduction_per_ally",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1412
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_increase_damage_vs_elites",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_increase_damage_vs_elites",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_increase_damage_vs_elites",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 905
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_tdr_on_high_toughness",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_tdr_on_high_toughness",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_block_break_gives_tdr",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2192
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
   }
 ]

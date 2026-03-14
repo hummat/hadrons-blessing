@@ -621,6 +621,24 @@ describe("resolveQuery", () => {
     }
   });
 
+  it("resolves the first source-backed veteran talent batch from the live sample build", async () => {
+    for (const [query, expectedEntityId] of [
+      ["Grenade Tinkerer", "veteran.talent.veteran_improved_grenades"],
+      ["Born Leader", "veteran.talent.veteran_allies_in_coherency_share_toughness_gain"],
+      ["Tactical Awareness", "veteran.talent.veteran_elite_kills_reduce_cooldown"],
+      ["Confirmed Kill", "veteran.talent.veteran_elite_kills_replenish_toughness"],
+      ["Demolition Stockpile", "veteran.talent.veteran_replenish_grenades"],
+      ["Superiority Complex", "veteran.talent.veteran_increase_damage_vs_elites"],
+      ["Close Order Drill", "veteran.talent.veteran_reduced_toughness_damage_in_coherency"],
+      ["Iron Will", "veteran.talent.veteran_tdr_on_high_toughness"],
+    ]) {
+      const result = await resolveQuery(query, { kind: "talent", class: "veteran" });
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, expectedEntityId);
+    }
+  });
+
   it("resolves live Games Lantern perk label variants", async () => {
     for (const [query, queryContext, expectedEntityId] of [
       [
