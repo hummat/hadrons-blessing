@@ -202,5 +202,226 @@
     ],
     "confidence": "high",
     "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_increased_weakspot_damage",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_increased_weakspot_damage",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_increased_weakspot_damage",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1016
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_increased_melee_crit_chance_and_melee_finesse",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_increased_melee_crit_chance_and_melee_finesse",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1895
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_increase_damage_after_sprinting",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_increase_damage_after_sprinting",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_damage_damage_after_sprinting",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 955
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_crits_apply_rending",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_crits_apply_rending",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_crits_rend",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1114
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_dodging_grants_crit",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_dodging_grants_crit",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_dodging_grants_crit",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1192
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_hits_cause_bleed",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_hits_cause_bleed",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_hits_cause_bleed",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1742
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_attack_speed",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_attack_speed",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_attack_speed",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2498
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_replenish_toughness_outside_melee",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_replenish_toughness_outside_melee",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_replenish_toughness_outside_melee",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2326
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_replenish_toughness_on_weakspot_kill",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_replenish_toughness_on_weakspot_kill",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_toughness_on_weakspot_kill",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2249
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_combat_ability_increase_and_restore_toughness_to_coherency",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent_modifier.veteran_combat_ability_increase_and_restore_toughness_to_coherency",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_combat_ability_increase_and_restore_toughness_to_coherency",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 487
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_increased_damage_based_on_range",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_increased_damage_based_on_range",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_increased_damage_based_on_range",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 843
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_big_game_hunter",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent.veteran_big_game_hunter",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_big_game_hunter",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1087
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  },
+  {
+    "id": "veteran.evidence.entity.veteran_improved_tag_dead_coherency_bonus",
+    "subject_type": "entity",
+    "subject_id": "veteran.talent_modifier.veteran_improved_tag_dead_coherency_bonus",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_veteran_improved_tag_dead_coherency_bonus",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2988
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
   }
 ]

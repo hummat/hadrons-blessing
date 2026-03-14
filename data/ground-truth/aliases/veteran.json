@@ -315,5 +315,317 @@
     },
     "rank_weight": 100,
     "notes": "Live sample talent label backed by veteran_tdr_on_high_toughness."
+  },
+  {
+    "text": "Exploit Weakness",
+    "normalized_text": "exploit weakness",
+    "candidate_entity_id": "veteran.talent.veteran_crits_apply_rending",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_crits_apply_rending."
+  },
+  {
+    "text": "Skirmisher",
+    "normalized_text": "skirmisher",
+    "candidate_entity_id": "veteran.talent.veteran_increase_damage_after_sprinting",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_increase_damage_after_sprinting."
+  },
+  {
+    "text": "Desperado",
+    "normalized_text": "desperado",
+    "candidate_entity_id": "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_increased_melee_crit_chance_and_melee_finesse."
+  },
+  {
+    "text": "Reciprocity",
+    "normalized_text": "reciprocity",
+    "candidate_entity_id": "veteran.talent.veteran_dodging_grants_crit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_dodging_grants_crit."
+  },
+  {
+    "text": "Serrated Blade",
+    "normalized_text": "serrated blade",
+    "candidate_entity_id": "veteran.talent.veteran_hits_cause_bleed",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_hits_cause_bleed."
+  },
+  {
+    "text": "Trench Fighter Drill",
+    "normalized_text": "trench fighter drill",
+    "candidate_entity_id": "veteran.talent.veteran_attack_speed",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_attack_speed."
+  },
+  {
+    "text": "Catch A Breath",
+    "normalized_text": "catch a breath",
+    "candidate_entity_id": "veteran.talent.veteran_replenish_toughness_outside_melee",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_replenish_toughness_outside_melee."
+  },
+  {
+    "text": "Exhilarating Takedown",
+    "normalized_text": "exhilarating takedown",
+    "candidate_entity_id": "veteran.talent.veteran_replenish_toughness_on_weakspot_kill",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_replenish_toughness_on_weakspot_kill."
+  },
+  {
+    "text": "Duty And Honour",
+    "normalized_text": "duty and honour",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_combat_ability_increase_and_restore_toughness_to_coherency",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by the Voice of Command modifier veteran_combat_ability_increase_and_restore_toughness_to_coherency."
+  },
+  {
+    "text": "Longshot",
+    "normalized_text": "longshot",
+    "candidate_entity_id": "veteran.talent.veteran_increased_damage_based_on_range",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_increased_damage_based_on_range."
+  },
+  {
+    "text": "Precision Strikes",
+    "normalized_text": "precision strikes",
+    "candidate_entity_id": "veteran.talent.veteran_increased_weakspot_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_increased_weakspot_damage."
+  },
+  {
+    "text": "Bring It Down",
+    "normalized_text": "bring it down",
+    "candidate_entity_id": "veteran.talent.veteran_big_game_hunter",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by veteran_big_game_hunter."
+  },
+  {
+    "text": "Redirect Fire",
+    "normalized_text": "redirect fire",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_improved_tag_dead_coherency_bonus",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Live sample talent label backed by the Focus Target keystone modifier veteran_improved_tag_dead_coherency_bonus."
   }
 ]

@@ -14,11 +14,11 @@
 ### Audit on canonical build fixtures
 
 - 20/20 migrated canonical build fixtures completed with:
-  - `268` resolved entries
+  - `289` resolved entries
   - `78` non-canonical entries
   - `0` ambiguous entries
-  - `83` unresolved entries
-- The `83` unresolved entries are not fuzzy-match failures. They are the remaining persisted class-side selections that still lack resolver coverage, including the `26` preserved non-slot veteran talents from the live sample fixture, plus the explicit placeholders in builds whose scrape data never preserved class-side choices.
+  - `62` unresolved entries
+- The `62` unresolved entries are not fuzzy-match failures. They are now mostly the explicit placeholders in builds whose scrape data never preserved class-side choices, plus the five unresolved veteran stat nodes still carried by the live sample fixture.
 - This means the current audit path is useful on real canonical fixtures, and it now preserves recovered class-side labels when raw scrape prose contains them instead of flattening everything to `Unknown ability` / `Unknown blitz` / `Unknown aura`.
 - The remaining `non_canonical` entries are still mostly expected:
   - unsupported curio display labels such as `Blessed Bullet`
@@ -41,7 +41,13 @@
   is absent.
 - This recovery now comes from explicit scraped `class_selections`, not the old description-only fallback.
 - The checked-in canonical fixture `scripts/builds/01-veteran-squad-leader.json` now resolves those four veteran slot selections all the way to canonical entity ids.
-- The checked-in canonical fixture `scripts/builds/01-veteran-squad-leader.json` now also carries those `26` preserved non-slot active talents as explicit unresolved canonical selections instead of dropping them.
+- The checked-in canonical fixture `scripts/builds/01-veteran-squad-leader.json` now resolves `21` of those `26` preserved non-slot active picks to canonical ids.
+- The remaining `5` unresolved veteran selections are the stat nodes:
+  - `Toughness Boost 22`
+  - `Toughness Boost 24`
+  - `Stamina Boost 3`
+  - `Melee Damage Boost 9`
+  - `Ranged Damage Boost 2`
 
 ### Live extractor verification
 
@@ -57,7 +63,7 @@
   - the full active talent tree scrape, which was previously missing from the checked-in sample fixture
 - Canonical `--json` no longer crashes on that real veteran page even though `veteran` class-side registry coverage is still empty.
 - The recovered sample labels now resolve for the live veteran page path because minimal veteran slot aliases exist.
-- Broader veteran tree selections still remain a coverage limitation rather than an extraction failure.
+- The remaining veteran class-side limitation is now mostly the unresolved stat nodes and any unmapped talent selections outside this live sample path, not the extraction pipeline itself.
 
 ### Scorecard on canonical build fixtures
 
@@ -105,10 +111,12 @@ It is still not enough for full BetterBots build/behavior design because:
 
 - full class-scoped non-Psyker talent/ability coverage is still missing
 - most of the migrated fixture corpus still lacks real class-side selections, so `ability` / `blitz` / `aura` remain explicit unresolved placeholders outside the live veteran sample path
+- veteran stat nodes are still unresolved and not yet represented as source-backed tree-node facts
 - `score-build` still uses provisional family fallback for several community build weapon names instead of exact canonical ids
 
 ## Next High-Value Work
 
 1. Re-extract builds from source pages so fixtures preserve real selected class-side nodes beyond prose-level recovery and stop depending on placeholder slots.
-2. Replace the remaining provisional family matches in `score-build` with exact canonical weapon coverage where the source-backed mark-to-template bridge can be proven.
-3. Extend veteran beyond the four live sample slot entities, then add class-scoped coverage for zealot/ogryn/adamant if BetterBots-side heuristic design needs talent/ability evidence for those archetypes.
+2. Decide how stat nodes should be represented and resolved in canonical builds, since they are now the main unresolved residue in the live veteran sample.
+3. Replace the remaining provisional family matches in `score-build` with exact canonical weapon coverage where the source-backed mark-to-template bridge can be proven.
+4. Extend veteran beyond this live sample path, then add class-scoped coverage for zealot/ogryn/adamant if BetterBots-side heuristic design needs talent/ability evidence for those archetypes.

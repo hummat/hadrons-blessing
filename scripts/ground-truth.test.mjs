@@ -639,6 +639,29 @@ describe("resolveQuery", () => {
     }
   });
 
+  it("resolves the second source-backed veteran talent batch from the live sample build", async () => {
+    for (const [query, expectedEntityId] of [
+      ["Exploit Weakness", "veteran.talent.veteran_crits_apply_rending"],
+      ["Skirmisher", "veteran.talent.veteran_increase_damage_after_sprinting"],
+      ["Desperado", "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse"],
+      ["Reciprocity", "veteran.talent.veteran_dodging_grants_crit"],
+      ["Serrated Blade", "veteran.talent.veteran_hits_cause_bleed"],
+      ["Trench Fighter Drill", "veteran.talent.veteran_attack_speed"],
+      ["Catch A Breath", "veteran.talent.veteran_replenish_toughness_outside_melee"],
+      ["Exhilarating Takedown", "veteran.talent.veteran_replenish_toughness_on_weakspot_kill"],
+      ["Duty And Honour", "veteran.talent_modifier.veteran_combat_ability_increase_and_restore_toughness_to_coherency"],
+      ["Longshot", "veteran.talent.veteran_increased_damage_based_on_range"],
+      ["Precision Strikes", "veteran.talent.veteran_increased_weakspot_damage"],
+      ["Bring It Down", "veteran.talent.veteran_big_game_hunter"],
+      ["Redirect Fire", "veteran.talent_modifier.veteran_improved_tag_dead_coherency_bonus"],
+    ]) {
+      const result = await resolveQuery(query, { kind: "talent", class: "veteran" });
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, expectedEntityId);
+    }
+  });
+
   it("resolves live Games Lantern perk label variants", async () => {
     for (const [query, queryContext, expectedEntityId] of [
       [
