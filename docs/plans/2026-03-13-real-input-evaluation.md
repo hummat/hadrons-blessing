@@ -1,6 +1,6 @@
 # Real Input Evaluation
 
-> Ran 2026-03-13 against checked-in build fixtures, current shared/Psyker data plus minimal veteran slot coverage, and representative BetterBots profile weapon template ids.
+> Last updated 2026-03-14 against all 20 checked-in build fixtures, current shared/psyker/veteran/zealot ground-truth data, and representative BetterBots profile weapon template ids.
 
 ## What Was Tested
 
@@ -13,70 +13,47 @@
 
 ### Audit on canonical build fixtures
 
-- 20/20 migrated canonical build fixtures completed with:
-  - `289` resolved entries
-  - `78` non-canonical entries
+- 20/20 canonical build fixtures completed with:
+  - `480` resolved entries
+  - `79` non-canonical entries
   - `0` ambiguous entries
-  - `62` unresolved entries
-- The `62` unresolved entries are not fuzzy-match failures. They are now mostly the explicit placeholders in builds whose scrape data never preserved class-side choices, plus the five unresolved veteran stat nodes still carried by the live sample fixture.
-- This means the current audit path is useful on real canonical fixtures, and it now preserves recovered class-side labels when raw scrape prose contains them instead of flattening everything to `Unknown ability` / `Unknown blitz` / `Unknown aura`.
-- The remaining `non_canonical` entries are still mostly expected:
-  - unsupported curio display labels such as `Blessed Bullet`
-  - known unresolved weapon/blessing labels still tracked as non-canonical instead of leaking into `unresolved`
+  - `85` unresolved entries
 
-### Real sample-build recovery
+Unresolved breakdown:
+- ~20 stat nodes across 7 re-extracted builds (e.g., `Toughness Boost 22`, `Stamina Boost 3`) — design question on representation, not resolver failures
+- ~48 placeholder class-side slots across 13 legacy fixtures (`Unknown ability`, `Unknown blitz`, `Unknown aura`) — need re-extraction from live GL pages
+- ~17 perks in expanded GL label format not covered by current aliases (e.g., `10-25% Damage (Carapace Armoured Enemies)` vs the aliased `20-25% Damage (Carapace)`)
 
-- `scripts/sample-build.json` is now a live raw scrape snapshot of the veteran sample page, not the earlier hand-thinned placeholder.
-- It currently preserves:
-  - `30` active talent nodes
-  - `48` inactive talent nodes
-  - explicit `class_selections` for `Voice of Command`, `Shredder Frag Grenade`, `Survivalist`, and `Focus Target!`
-- `scripts/sample-build.json` canonicalizes to:
-  - `ability`: `Voice of Command`
-  - `blitz`: `Shredder Frag Grenade`
-  - `aura`: `Survivalist`
-  - `keystone`: `Focus Target!`
-- `scripts/sample-build.json` now also preserves `26` non-slot active picks in
-  canonical `talents[]` instead of dropping them when class registry coverage
-  is absent.
-- This recovery now comes from explicit scraped `class_selections`, not the old description-only fallback.
-- The checked-in canonical fixture `scripts/builds/01-veteran-squad-leader.json` now resolves those four veteran slot selections all the way to canonical entity ids.
-- The checked-in canonical fixture `scripts/builds/01-veteran-squad-leader.json` now resolves `21` of those `26` preserved non-slot active picks to canonical ids.
-- The remaining `5` unresolved veteran selections are the stat nodes:
-  - `Toughness Boost 22`
-  - `Toughness Boost 24`
-  - `Stamina Boost 3`
-  - `Melee Damage Boost 9`
-  - `Ranged Damage Boost 2`
+Non-canonical entries are mostly expected:
+- unsupported curio display labels such as `Blessed Bullet`
+- known unresolved weapon/blessing labels tracked as non-canonical
+- multi-option guide entries (e.g., build 07's compound blitz label listing 3 alternatives)
 
-### Live extractor verification
+### Re-extracted builds
 
-- Ran the live extractor against:
-  - `https://darktide.gameslantern.com/builds/9a565016-bd70-4fe0-8c82-1080bc73412e/veteran-squad-leader`
-- `--raw-json` now returns:
-  - the full Description section instead of only the old teaser snippet
-  - clean `class_selections`:
-    - `ability`: `Voice of Command`
-    - `blitz`: `Shredder Frag Grenade`
-    - `aura`: `Survivalist`
-    - `keystone`: `Focus Target!`
-  - the full active talent tree scrape, which was previously missing from the checked-in sample fixture
-- Canonical `--json` no longer crashes on that real veteran page even though `veteran` class-side registry coverage is still empty.
-- The recovered sample labels now resolve for the live veteran page path because minimal veteran slot aliases exist.
-- The remaining veteran class-side limitation is now mostly the unresolved stat nodes and any unmapped talent selections outside this live sample path, not the extraction pipeline itself.
+7 of 20 builds have been re-extracted from live GL pages with full talent trees:
+
+| Build | Class | Slots | Talents | Unresolved |
+|-------|-------|-------|---------|------------|
+| 01-veteran-squad-leader | veteran | 4/4 resolved | 21/26 | 5 stat nodes |
+| 02-assault-veteran | veteran | 4/4 resolved | 21/26 | 5 stat nodes |
+| 03-slinking-veteran | veteran | 4/4 resolved | 21/26 | 5 stat nodes |
+| 04-spicy-meta-zealot | zealot | 4/4 resolved | 22/26 | 4 stat nodes |
+| 05-fatmangus-zealot-stealth | zealot | 4/4 resolved | 22/26 | 4 stat nodes |
+| 06-holy-gains-zealot | zealot | 4/4 resolved | 22/26 | 4 stat nodes |
+| 07-zealot-infodump | zealot | 2/4 resolved (blitz+aura are multi-option guide entries) | 22/26 | 4 stat nodes |
+
+Remaining 13 builds (psyker 08-10, ogryn 11-13, arbites 14-16, hive-scum 17-20) are legacy fixtures with empty talent data and placeholder class-side slots.
 
 ### Scorecard on canonical build fixtures
 
-- `score-build` now accepts the migrated canonical build shape directly.
-- Canonical weapon metadata is now complete enough to emit either an exact canonical weapon id or a provisional family signal for every fixture weapon:
-  - exact canonical ids: `14` builds with both weapons canonicalized, `3` with one, `3` with zero
-  - exact-or-provisional family signal: `17` builds with both weapons identified, `3` with one, `0` with zero
-- Exact canonical ids now cover additional real fixture labels such as `Godwyn-Branx Mk IV Bolt Pistol`, `Maccabian Mk IV Duelling Sword`, and `Orox Mk II Battle Maul & Slab Shield`.
-- The remaining partial cases are provisional family matches, not hard failures.
+- `score-build` accepts canonical build shape directly
+- Weapon coverage: 17 builds with both weapons identified (exact or provisional), 3 with one
+- Some re-extracted perks in expanded GL label format are unresolved by the scorer — a perk alias coverage gap, not a structural issue
 
 ### BetterBots profile template ids
 
-Representative internal template ids now resolve:
+Representative internal template ids resolve:
 
 - `chainsword_p1_m1` -> `shared.weapon.chainsword_p1_m1`
 - `bot_lasgun_killshot` -> `shared.weapon.bot_lasgun_killshot`
@@ -88,35 +65,37 @@ Full content item paths also resolve via basename fallback:
 - `content/items/weapons/player/melee/chainsword_p1_m1`
 - `content/items/weapons/player/ranged/bot_lasgun_killshot`
 
-This is the first point where `resolve` is directly useful on the strings BetterBots profile tables actually contain.
-
 ### Coverage boundary
 
-`coverage` now reports:
-
-- `shared` domain: source-backed
-- `psyker` domain: source-backed
-- `veteran` domain: partial (`ability`, `aura`, `keystone` implemented; `talent`, `talent_modifier`, `tree_node` still missing)
-- `zealot`, `ogryn`, `adamant`, `broker`: unsupported for class-scoped talent/ability data
+| Domain | Status | Entities | Aliases | Notes |
+|--------|--------|----------|---------|-------|
+| shared | source-backed | 90 | many | weapons, perks, blessings, curio traits, classes |
+| psyker | source-backed | ~25 | ~25 | builds not yet re-extracted |
+| veteran | source-backed | 43 | 44 | 3 builds re-extracted with full talent trees |
+| zealot | source-backed | 57 | 57 | 4 builds re-extracted with full talent trees |
+| ogryn | unsupported | — | — | |
+| arbites/adamant | unsupported | — | — | |
+| hive-scum/broker | unsupported | — | — | |
 
 ## What This Means
 
 The current CLI is useful today for:
 
-- weapon/blessing/perk/curio/class audit on real build fixtures
+- weapon/blessing/perk/curio/class audit on real build fixtures across all classes
+- full class-side resolution (ability, blitz, aura, keystone, talents) for veteran and zealot builds
 - canonicalization of BetterBots weapon template ids
-- inspecting source-backed shared weapon entities for bot loadout work
+- inspecting source-backed entities for bot loadout work
 
-It is still not enough for full BetterBots build/behavior design because:
+It is still not enough for full BetterBots build/behavior design across all classes because:
 
-- full class-scoped non-Psyker talent/ability coverage is still missing
-- most of the migrated fixture corpus still lacks real class-side selections, so `ability` / `blitz` / `aura` remain explicit unresolved placeholders outside the live veteran sample path
-- veteran stat nodes are still unresolved and not yet represented as source-backed tree-node facts
-- `score-build` still uses provisional family fallback for several community build weapon names instead of exact canonical ids
+- ogryn, psyker (re-extraction), arbites, and hive-scum talent/ability coverage is missing
+- stat nodes are unresolved and not yet represented as source-backed entities
+- some perk labels in the expanded GL display format are not covered by aliases
 
 ## Next High-Value Work
 
-1. Re-extract builds from source pages so fixtures preserve real selected class-side nodes beyond prose-level recovery and stop depending on placeholder slots.
-2. Decide how stat nodes should be represented and resolved in canonical builds, since they are now the main unresolved residue in the live veteran sample.
-3. Replace the remaining provisional family matches in `score-build` with exact canonical weapon coverage where the source-backed mark-to-template bridge can be proven.
-4. Extend veteran beyond this live sample path, then add class-scoped coverage for zealot/ogryn/adamant if BetterBots-side heuristic design needs talent/ability evidence for those archetypes.
+1. Re-extract ogryn builds (11-13) and psyker builds (08-10) with full talent trees
+2. Add ogryn and psyker class-side entity coverage following the established workflow
+3. Decide how stat nodes should be represented and resolved
+4. Expand perk alias coverage for the newer GL label format (`X-Y% Damage (Carapace Armoured Enemies)`)
+5. Re-extract arbites and hive-scum builds when those classes become relevant for BetterBots work

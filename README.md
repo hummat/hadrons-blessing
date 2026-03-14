@@ -142,32 +142,23 @@ npm run inspect -- --id psyker.talent.psyker_damage_based_on_warp_charge
 
 Current entity coverage:
 
-| Domain   | Entities | Aliases |
-|----------|----------|---------|
-| Psyker   | talents, implicit tree nodes | display names, loc keys |
-| Veteran  | minimal class-side slot entities (`ability`, `aura`, `keystone`) | live sample labels such as `Voice of Command`, `Shredder Frag Grenade`, `Survivalist`, `Focus Target!` |
-| Shared   | weapons, weapon perks, curio perks, blessing families, classes, buffs | community names |
+| Domain   | Entities | Aliases | Notes |
+|----------|----------|---------|-------|
+| Shared   | 90 | many | weapons, weapon perks, curio perks, blessing families, classes, buffs |
+| Psyker   | ~25 | ~25 | talents, abilities, implicit tree nodes |
+| Veteran  | 43 | 44 | abilities, auras, keystones, talent modifiers, talents — 3 builds re-extracted |
+| Zealot   | 57 | 57 | abilities, auras, keystones, talent modifiers, talents — 4 builds re-extracted |
+| Ogryn    | — | — | unsupported (builds exist but not re-extracted) |
+| Arbites  | — | — | unsupported |
+| Hive Scum | — | — | unsupported |
 
-20 build fixtures (all 6 classes) are now stored in canonical build shape and
-used as audit/score regression coverage.
+20 build fixtures (all 6 classes) are stored in canonical build shape.
+7 of the 20 (3 veteran, 4 zealot) have been re-extracted from live GL pages
+with full 30-node talent trees. The remaining 13 are legacy fixtures with
+placeholder class-side slots and no talent data.
 
-Current fixture limitation:
-
-- the migrated fixture corpus preserves weapon, blessing, perk, curio, class,
-  and provenance decisions
-- the live `Veteran Squad Leader` sample path now preserves and resolves its
-  explicit class-side selections end-to-end
-- the live raw sample path also preserves the remaining active non-slot talent
-  picks as canonical `talents[]` entries even while veteran talent resolver
-  coverage is still missing
-- it does **not** preserve real selected class-side talent-tree nodes from the
-  original scrape data
-- canonicalization now falls back to Games Lantern description prose when a raw
-  scrape includes explicit slot markers or summary text like `Voice of Command +
-  Duty and Honour keystone with Survivalist aura`
-- as a result, current canonical fixtures can preserve some real class-side
-  labels from raw scrape prose, but most of the checked-in corpus still needs
-  re-extraction from source pages to recover complete selected class-side data
+Audit totals across all 20 fixtures: **480 resolved / 79 non-canonical / 85
+unresolved / 0 ambiguous**.
 
 ## Roadmap
 
