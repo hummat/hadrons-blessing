@@ -74,6 +74,18 @@ function frameTier(href) {
   return "unknown";
 }
 
+function postProcessTalentNodes(nodes) {
+  return nodes.map((talent) => {
+    const baseTier = frameTier(talent.frame ?? "");
+    const tier = baseTier === "talent" && KEYSTONES.has(talent.slug) ? "keystone" : baseTier;
+    return {
+      ...talent,
+      name: slugToName(talent.slug),
+      tier,
+    };
+  });
+}
+
 async function extractBuild(url) {
   const browser = await chromium.launch({ headless: true });
   try {
@@ -159,6 +171,31 @@ async function extractBuild(url) {
       }
 
       // --- Talents ---
+      function nodeHref(node) {
+        return (
+          node?.getAttribute?.("href") ||
+          node?.getAttribute?.("xlink:href") ||
+          node?.getAttribute?.("src") ||
+          ""
+        ).trim();
+      }
+
+      function extractTalentIcon(anchor, frameHref) {
+        if (!anchor) {
+          return null;
+        }
+
+        for (const node of anchor.querySelectorAll("image, img")) {
+          const href = nodeHref(node);
+          if (!href || href === frameHref || href.includes("/frames/")) {
+            continue;
+          }
+          return href;
+        }
+
+        return null;
+      }
+
       function extractTalents(selector) {
         const nodes = [];
         for (const el of document.querySelectorAll(selector)) {
@@ -168,7 +205,12 @@ async function extractBuild(url) {
           const match = href.match(/\/abilities\/(.+)$/);
           if (!match) continue;
           const frameHref = el.getAttribute("href") || "";
-          nodes.push({ slug: match[1], frame: frameHref });
+          const icon = extractTalentIcon(anchor, frameHref);
+          nodes.push({
+            slug: match[1],
+            frame: frameHref,
+            ...(icon == null ? {} : { icon }),
+          });
         }
         return nodes;
       }
@@ -380,49 +422,46 @@ function formatMarkdown(build) {
   return lines.join("\n");
 }
 
-// --- Main ---
-const args = process.argv.slice(2);
-const url = args.find((a) => !a.startsWith("--"));
-const format = args.includes("--raw-json")
-  ? "raw-json"
-  : args.includes("--json")
-    ? "json"
-    : "markdown";
+async function main(argv = process.argv.slice(2)) {
+  const url = argv.find((arg) => !arg.startsWith("--"));
+  const format = argv.includes("--raw-json")
+    ? "raw-json"
+    : argv.includes("--json")
+      ? "json"
+      : "markdown";
 
-if (!url || !url.includes("gameslantern.com/builds/")) {
-  console.error(USAGE);
-  process.exit(1);
+  if (!url || !url.includes("gameslantern.com/builds/")) {
+    console.error(USAGE);
+    process.exit(1);
+  }
+
+  console.error("Extracting build from:", url);
+  const rawBuild = await extractBuild(url);
+
+  rawBuild.talents.active = postProcessTalentNodes(rawBuild.talents.active);
+  rawBuild.talents.inactive = postProcessTalentNodes(rawBuild.talents.inactive);
+
+  const explicitSelections = extractDescriptionSelections(rawBuild.description);
+  rawBuild.class_selections = Object.values(explicitSelections).some((value) => value != null)
+    ? explicitSelections
+    : null;
+
+  if (format === "raw-json") {
+    console.log(JSON.stringify(rawBuild, null, 2));
+    return;
+  }
+
+  const build = await canonicalizeScrapedBuild(rawBuild);
+
+  if (format === "json") {
+    console.log(JSON.stringify(build, null, 2));
+  } else {
+    console.log(formatMarkdown(build));
+  }
 }
 
-console.error("Extracting build from:", url);
-const rawBuild = await extractBuild(url);
-
-// Post-process talents: compute tier and promote known keystones
-rawBuild.talents.active = rawBuild.talents.active.map((t) => {
-  const baseTier = frameTier(t.frame);
-  const tier = baseTier === "talent" && KEYSTONES.has(t.slug) ? "keystone" : baseTier;
-  return { ...t, name: slugToName(t.slug), tier };
-});
-rawBuild.talents.inactive = rawBuild.talents.inactive.map((t) => {
-  const baseTier = frameTier(t.frame);
-  const tier = baseTier === "talent" && KEYSTONES.has(t.slug) ? "keystone" : baseTier;
-  return { ...t, name: slugToName(t.slug), tier };
-});
-
-const explicitSelections = extractDescriptionSelections(rawBuild.description);
-rawBuild.class_selections = Object.values(explicitSelections).some((value) => value != null)
-  ? explicitSelections
-  : null;
-
-if (format === "raw-json") {
-  console.log(JSON.stringify(rawBuild, null, 2));
-  process.exit(0);
+if (import.meta.main) {
+  await main();
 }
 
-const build = await canonicalizeScrapedBuild(rawBuild);
-
-if (format === "json") {
-  console.log(JSON.stringify(build, null, 2));
-} else {
-  console.log(formatMarkdown(build));
-}
+export { extractBuild, frameTier, main, postProcessTalentNodes, slugToName };
