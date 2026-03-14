@@ -1,0 +1,2127 @@
+[
+  {
+    "text": "Starting Point Ogryn",
+    "normalized_text": "starting point ogryn",
+    "candidate_entity_id": "ogryn.talent.ogryn_multi_heavy_toughness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Single Heavy Toughness",
+    "normalized_text": "single heavy toughness",
+    "candidate_entity_id": "ogryn.talent.ogryn_single_heavy_toughness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Increased Coherency Toughness",
+    "normalized_text": "increased coherency toughness",
+    "candidate_entity_id": "ogryn.talent.ogryn_increased_coherency_toughness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Toughness While Bracing",
+    "normalized_text": "toughness while bracing",
+    "candidate_entity_id": "ogryn.talent.ogryn_toughness_while_bracing",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "More Hits More Damage",
+    "normalized_text": "more hits more damage",
+    "candidate_entity_id": "ogryn.talent.ogryn_more_hits_more_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Ogryn Killer",
+    "normalized_text": "ogryn killer",
+    "candidate_entity_id": "ogryn.talent.ogryn_ogryn_killer",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Coherency Radius Increase",
+    "normalized_text": "coherency radius increase",
+    "candidate_entity_id": "ogryn.talent.ogryn_coherency_radius_increase",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Aura Intimidating Presence",
+    "normalized_text": "aura intimidating presence",
+    "candidate_entity_id": "ogryn.aura.ogryn_melee_damage_coherency_improved",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Aura Bringing Big Guns",
+    "normalized_text": "aura bringing big guns",
+    "candidate_entity_id": "ogryn.aura.ogryn_damage_vs_suppressed_coherency",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Aura Stay Close",
+    "normalized_text": "aura stay close",
+    "candidate_entity_id": "ogryn.aura.ogryn_toughness_regen_aura",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Melee Stagger",
+    "normalized_text": "melee stagger",
+    "candidate_entity_id": "ogryn.talent.ogryn_melee_stagger",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Targets Recieve Damage Taken Increase Debuff",
+    "normalized_text": "targets recieve damage taken increase debuff",
+    "candidate_entity_id": "ogryn.talent.ogryn_targets_recieve_damage_taken_increase_debuff",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Box Explodes",
+    "normalized_text": "box explodes",
+    "candidate_entity_id": "ogryn.ability.ogryn_box_explodes",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Blitz Big Nade",
+    "normalized_text": "blitz big nade",
+    "candidate_entity_id": "ogryn.ability.ogryn_grenade_frag",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Fully Charged Attacks Gain Damage And Stagger",
+    "normalized_text": "fully charged attacks gain damage and stagger",
+    "candidate_entity_id": "ogryn.talent.ogryn_fully_charged_attacks_gain_damage_and_stagger",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Heavy Bleeds",
+    "normalized_text": "heavy bleeds",
+    "candidate_entity_id": "ogryn.talent.ogryn_heavy_bleeds",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Staggering Increases Damage",
+    "normalized_text": "staggering increases damage",
+    "candidate_entity_id": "ogryn.talent.ogryn_staggering_increases_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Increase Explosion Radius",
+    "normalized_text": "increase explosion radius",
+    "candidate_entity_id": "ogryn.talent.ogryn_increase_explosion_radius",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Increased Ammo Reserve",
+    "normalized_text": "increased ammo reserve",
+    "candidate_entity_id": "ogryn.talent.ogryn_increased_ammo_reserve",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Multi Hits Grant Reload Speed",
+    "normalized_text": "multi hits grant reload speed",
+    "candidate_entity_id": "ogryn.talent.ogryn_multi_hits_grant_reload_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Bracing Reduces Damage Taken",
+    "normalized_text": "bracing reduces damage taken",
+    "candidate_entity_id": "ogryn.talent.ogryn_bracing_reduces_damage_taken",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Keystone Leadbelcher",
+    "normalized_text": "keystone leadbelcher",
+    "candidate_entity_id": "ogryn.keystone.ogryn_leadbelcher_no_ammo_chance",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Knocked Allies Grant Damage Reduction",
+    "normalized_text": "knocked allies grant damage reduction",
+    "candidate_entity_id": "ogryn.talent.ogryn_knocked_allies_grant_damage_reduction",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Keystone Carapace Armor",
+    "normalized_text": "keystone carapace armor",
+    "candidate_entity_id": "ogryn.keystone.ogryn_carapace_armor",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Toughness On Low Health",
+    "normalized_text": "toughness on low health",
+    "candidate_entity_id": "ogryn.talent.ogryn_toughness_on_low_health",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Nearby Bleeds Reduce Damage Taken",
+    "normalized_text": "nearby bleeds reduce damage taken",
+    "candidate_entity_id": "ogryn.talent.ogryn_nearby_bleeds_reduce_damage_taken",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Keystone Heavy Hitter",
+    "normalized_text": "keystone heavy hitter",
+    "candidate_entity_id": "ogryn.keystone.ogryn_passive_heavy_hitter",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Carapace Armor Trigger On Zero Stacks",
+    "normalized_text": "carapace armor trigger on zero stacks",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_carapace_armor_trigger_on_zero_stacks",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Carapace Armor Add Stack On Push",
+    "normalized_text": "carapace armor add stack on push",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_carapace_armor_add_stack_on_push",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Carapace Armor More Toughness",
+    "normalized_text": "carapace armor more toughness",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_carapace_armor_more_toughness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Leadbelcher Cooldown Reduction",
+    "normalized_text": "leadbelcher cooldown reduction",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_leadbelcher_cooldown_reduction",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Leadbelcher Crits",
+    "normalized_text": "leadbelcher crits",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_leadbelcher_crits",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Blo Ally Ranged Buffs",
+    "normalized_text": "blo ally ranged buffs",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_blo_ally_ranged_buffs",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Stamina Restores Toughness",
+    "normalized_text": "stamina restores toughness",
+    "candidate_entity_id": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Ally Movement Boost On Ability",
+    "normalized_text": "ally movement boost on ability",
+    "candidate_entity_id": "ogryn.talent.ogryn_ally_movement_boost_on_ability",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Windup Reduces Damage Taken",
+    "normalized_text": "windup reduces damage taken",
+    "candidate_entity_id": "ogryn.talent.ogryn_windup_reduces_damage_taken",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Windup Is Uninterruptible",
+    "normalized_text": "windup is uninterruptible",
+    "candidate_entity_id": "ogryn.talent.ogryn_windup_is_uninterruptible",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Kills Grant Crit Chance",
+    "normalized_text": "kills grant crit chance",
+    "candidate_entity_id": "ogryn.talent.ogryn_kills_grant_crit_chance",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Revenge Damage",
+    "normalized_text": "revenge damage",
+    "candidate_entity_id": "ogryn.talent.ogryn_revenge_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Rending On Elite Kills",
+    "normalized_text": "rending on elite kills",
+    "candidate_entity_id": "ogryn.talent.ogryn_rending_on_elite_kills",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Reloading Grants Damage",
+    "normalized_text": "reloading grants damage",
+    "candidate_entity_id": "ogryn.talent.ogryn_reloading_grants_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Movement Speed After Ranged Kills",
+    "normalized_text": "movement speed after ranged kills",
+    "candidate_entity_id": "ogryn.talent.ogryn_movement_speed_after_ranged_kills",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Ability Taunt",
+    "normalized_text": "ability taunt",
+    "candidate_entity_id": "ogryn.ability.ogryn_taunt_shout",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Longer Charge",
+    "normalized_text": "longer charge",
+    "candidate_entity_id": "ogryn.ability.ogryn_longer_charge",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Ability Speshul Ammo",
+    "normalized_text": "ability speshul ammo",
+    "candidate_entity_id": "ogryn.ability.ogryn_special_ammo",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Charge Toughness",
+    "normalized_text": "charge toughness",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_charge_toughness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Charge Applies Bleed",
+    "normalized_text": "charge applies bleed",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_charge_applies_bleed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Taunt Staggers Reduce Cooldown",
+    "normalized_text": "taunt staggers reduce cooldown",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_taunt_staggers_reduce_cooldown",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Special Ammo Armor Pen",
+    "normalized_text": "special ammo armor pen",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_special_ammo_armor_pen",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Special Ammo Fire Shots",
+    "normalized_text": "special ammo fire shots",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_special_ammo_fire_shots",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Taunt Damage Taken Increase",
+    "normalized_text": "taunt damage taken increase",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_taunt_damage_taken_increase",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Blocking Reduces Push Cost",
+    "normalized_text": "blocking reduces push cost",
+    "candidate_entity_id": "ogryn.talent.ogryn_blocking_reduces_push_cost",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Ranged Stance Toughness Regen",
+    "normalized_text": "ranged stance toughness regen",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_ranged_stance_toughness_regen",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Blitz Big Friendly Rock",
+    "normalized_text": "blitz big friendly rock",
+    "candidate_entity_id": "ogryn.ability.ogryn_grenade_friend_rock",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Blocking Ranged Taunts",
+    "normalized_text": "blocking ranged taunts",
+    "candidate_entity_id": "ogryn.talent.ogryn_blocking_ranged_taunts",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Taunt Restore Toughness",
+    "normalized_text": "taunt restore toughness",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_taunt_restore_toughness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Ability Charge Trample",
+    "normalized_text": "ability charge trample",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_charge_trample",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Replenish Rock On Miss",
+    "normalized_text": "replenish rock on miss",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_replenish_rock_on_miss",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Protect Allies",
+    "normalized_text": "protect allies",
+    "candidate_entity_id": "ogryn.talent.ogryn_protect_allies",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Movement Boost On Ranged Damage",
+    "normalized_text": "movement boost on ranged damage",
+    "candidate_entity_id": "ogryn.talent.ogryn_ranged_damage_immunity",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Melee Attacks Give Mtdr",
+    "normalized_text": "melee attacks give mtdr",
+    "candidate_entity_id": "ogryn.talent.ogryn_melee_attacks_give_mtdr",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Pushing Applies Brittlenes",
+    "normalized_text": "pushing applies brittlenes",
+    "candidate_entity_id": "ogryn.talent.ogryn_pushing_applies_brittleness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Explosions Burn",
+    "normalized_text": "explosions burn",
+    "candidate_entity_id": "ogryn.talent.ogryn_explosions_burn",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Block All Attacks",
+    "normalized_text": "block all attacks",
+    "candidate_entity_id": "ogryn.talent.ogryn_block_all_attacks",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Damage Reduction On High Stamina",
+    "normalized_text": "damage reduction on high stamina",
+    "candidate_entity_id": "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Special Ammo Movement",
+    "normalized_text": "special ammo movement",
+    "candidate_entity_id": "ogryn.talent.ogryn_crit_damage_increase",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Stacking Attack Speed",
+    "normalized_text": "stacking attack speed",
+    "candidate_entity_id": "ogryn.talent.ogryn_stacking_attack_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Melee Damage After Heavy",
+    "normalized_text": "melee damage after heavy",
+    "candidate_entity_id": "ogryn.talent.ogryn_melee_damage_after_heavy",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Drain Stamina For Handling",
+    "normalized_text": "drain stamina for handling",
+    "candidate_entity_id": "ogryn.talent.ogryn_drain_stamina_for_handling",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Damage Reduction After Elite Kill",
+    "normalized_text": "damage reduction after elite kill",
+    "candidate_entity_id": "ogryn.talent.ogryn_damage_reduction_after_elite_kill",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Reload Speed On Empty",
+    "normalized_text": "reload speed on empty",
+    "candidate_entity_id": "ogryn.talent.ogryn_reload_speed_on_empty",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Corruption Resistance",
+    "normalized_text": "corruption resistance",
+    "candidate_entity_id": "ogryn.talent.ogryn_corruption_resistance",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Blo Wield Speed",
+    "normalized_text": "blo wield speed",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_blo_wield_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Blo Melee",
+    "normalized_text": "blo melee",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_blo_melee",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Heavy Hitter Tdr",
+    "normalized_text": "heavy hitter tdr",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_tdr",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Heavy Hitter Cleave",
+    "normalized_text": "heavy hitter cleave",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_cleave",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Heavy Hitter Max Stacks Improves Toughness",
+    "normalized_text": "heavy hitter max stacks improves toughness",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_toughness",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Heavy Hitter Light Attacks Refresh",
+    "normalized_text": "heavy hitter light attacks refresh",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_stagger",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Heavy Hitter Max Stacks Improves Attack Speed",
+    "normalized_text": "heavy hitter max stacks improves attack speed",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_attack_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Wield Speed Increase",
+    "normalized_text": "wield speed increase",
+    "candidate_entity_id": "ogryn.talent.ogryn_wield_speed_increase",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Big Box Of Hurt More Bombs",
+    "normalized_text": "big box of hurt more bombs",
+    "candidate_entity_id": "ogryn.talent_modifier.ogryn_big_box_of_hurt_more_bombs",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Melee Improves Ranged",
+    "normalized_text": "melee improves ranged",
+    "candidate_entity_id": "ogryn.talent.ogryn_melee_improves_ranged",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Ranged Improves Melee",
+    "normalized_text": "ranged improves melee",
+    "candidate_entity_id": "ogryn.talent.ogryn_ranged_improves_melee",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Ally Elite Kills Grant Cooldown",
+    "normalized_text": "ally elite kills grant cooldown",
+    "candidate_entity_id": "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  },
+  {
+    "text": "Weakspot Damage",
+    "normalized_text": "weakspot damage",
+    "candidate_entity_id": "ogryn.talent.ogryn_weakspot_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "automated",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 80,
+    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+  }
+]

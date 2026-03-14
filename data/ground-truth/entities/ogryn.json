@@ -1,0 +1,1872 @@
+[
+  {
+    "id": "ogryn.ability.ogryn_box_explodes",
+    "kind": "ability",
+    "domain": "ogryn",
+    "internal_name": "ogryn_box_explodes",
+    "loc_key": "loc_talent_ogryn_box_explodes",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 337
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1167
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.ability.ogryn_grenade_frag",
+    "kind": "ability",
+    "domain": "ogryn",
+    "internal_name": "ogryn_grenade_frag",
+    "loc_key": "loc_talent_ogryn_grenade_frag",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 360
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 259
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.ability.ogryn_grenade_friend_rock",
+    "kind": "ability",
+    "domain": "ogryn",
+    "internal_name": "ogryn_grenade_friend_rock",
+    "loc_key": "loc_talent_ogryn_grenade_friend_rock",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1408
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 213
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.ability.ogryn_longer_charge",
+    "kind": "ability",
+    "domain": "ogryn",
+    "internal_name": "ogryn_longer_charge",
+    "loc_key": "loc_talent_ogryn_longer_charge",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1188
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1386
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.ability.ogryn_special_ammo",
+    "kind": "ability",
+    "domain": "ogryn",
+    "internal_name": "ogryn_special_ammo",
+    "loc_key": "loc_talent_ogryn_special_ammo",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1212
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 301
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.ability.ogryn_taunt_shout",
+    "kind": "ability",
+    "domain": "ogryn",
+    "internal_name": "ogryn_taunt_shout",
+    "loc_key": "loc_talent_ogryn_taunt_shout",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1162
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 74
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.aura.ogryn_damage_vs_suppressed_coherency",
+    "kind": "aura",
+    "domain": "ogryn",
+    "internal_name": "ogryn_damage_vs_suppressed_coherency",
+    "loc_key": "loc_talent_ogryn_damage_vs_suppressed_coherency",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 238
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 684
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.aura.ogryn_melee_damage_coherency_improved",
+    "kind": "aura",
+    "domain": "ogryn",
+    "internal_name": "ogryn_melee_damage_coherency_improved",
+    "loc_key": "loc_talent_ogryn_melee_damage_coherency_improved",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 214
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 662
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.aura.ogryn_toughness_regen_aura",
+    "kind": "aura",
+    "domain": "ogryn",
+    "internal_name": "ogryn_toughness_regen_aura",
+    "loc_key": "loc_talent_ogryn_toughness_regen_aura",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 263
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 711
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.keystone.ogryn_carapace_armor",
+    "kind": "keystone",
+    "domain": "ogryn",
+    "internal_name": "ogryn_carapace_armor",
+    "loc_key": "loc_talent_ogryn_carapace_armor",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 628
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1612
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.keystone.ogryn_leadbelcher_no_ammo_chance",
+    "kind": "keystone",
+    "domain": "ogryn",
+    "internal_name": "ogryn_leadbelcher_no_ammo_chance",
+    "loc_key": "loc_talent_ogryn_leadbelcher_no_ammo_chance",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 579
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 364
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.keystone.ogryn_passive_heavy_hitter",
+    "kind": "keystone",
+    "domain": "ogryn",
+    "internal_name": "ogryn_passive_heavy_hitter",
+    "loc_key": "loc_talent_ogryn_passive_heavy_hitter",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 701
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 510
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_big_box_of_hurt_more_bombs",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_big_box_of_hurt_more_bombs",
+    "loc_key": "loc_talent_ogryn_big_box_of_hurt_more_bombs",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 2020
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2643
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_blo_ally_ranged_buffs",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_blo_ally_ranged_buffs",
+    "loc_key": "loc_talent_ogryn_blo_ally_ranged_buffs",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 827
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2711
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_blo_melee",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_blo_melee",
+    "loc_key": "loc_talent_ogryn_blo_melee",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1874
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2450
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_blo_wield_speed",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_blo_wield_speed",
+    "loc_key": "loc_talent_ogryn_blo_wield_speed",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1854
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2659
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_carapace_armor_add_stack_on_push",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_carapace_armor_add_stack_on_push",
+    "loc_key": "loc_talent_ogryn_carapace_armor_add_stack_on_push",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 747
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1671
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_carapace_armor_more_toughness",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_carapace_armor_more_toughness",
+    "loc_key": "loc_talent_ogryn_carapace_armor_more_toughness",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 766
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1722
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_carapace_armor_trigger_on_zero_stacks",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_carapace_armor_trigger_on_zero_stacks",
+    "loc_key": "loc_talent_ogryn_carapace_armor_trigger_on_zero_stacks",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 728
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1687
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_charge_applies_bleed",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_charge_applies_bleed",
+    "loc_key": "loc_talent_ogryn_charge_applies_bleed",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1257
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1366
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_charge_toughness",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_charge_toughness",
+    "loc_key": "loc_talent_ogryn_charge_toughness",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1235
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1428
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_charge_trample",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_charge_trample",
+    "loc_key": "loc_talent_ogryn_charge_trample",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1525
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1449
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_heavy_hitter_cleave",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_heavy_hitter_cleave",
+    "loc_key": "loc_talent_ogryn_heavy_hitter_cleave",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1914
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2410
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_attack_speed",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_heavy_hitter_max_stacks_improves_attack_speed",
+    "loc_key": "loc_talent_ogryn_heavy_hitter_max_stacks_improves_attack_speed",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1974
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 575
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_toughness",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_heavy_hitter_max_stacks_improves_toughness",
+    "loc_key": "loc_talent_ogryn_heavy_hitter_max_stacks_improves_toughness",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1934
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 613
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_heavy_hitter_stagger",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_heavy_hitter_stagger",
+    "loc_key": "loc_talent_ogryn_heavy_hitter_stagger",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1954
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2430
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_heavy_hitter_tdr",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_heavy_hitter_tdr",
+    "loc_key": "loc_talent_ogryn_heavy_hitter_tdr",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1894
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2390
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_leadbelcher_cooldown_reduction",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_leadbelcher_cooldown_reduction",
+    "loc_key": "loc_talent_ogryn_leadbelcher_cooldown_reduction",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 785
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 408
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_leadbelcher_crits",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_leadbelcher_crits",
+    "loc_key": "loc_talent_ogryn_leadbelcher_crits",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 807
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 453
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_ranged_stance_toughness_regen",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_ranged_stance_toughness_regen",
+    "loc_key": "loc_talent_ogryn_ranged_stance_toughness_regen",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1385
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1521
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_replenish_rock_on_miss",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_replenish_rock_on_miss",
+    "loc_key": "loc_talent_ogryn_replenish_rock_on_miss",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1545
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1925
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_special_ammo_armor_pen",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_special_ammo_armor_pen",
+    "loc_key": "loc_talent_ogryn_special_ammo_armor_pen",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1301
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1547
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_special_ammo_fire_shots",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_special_ammo_fire_shots",
+    "loc_key": "loc_talent_ogryn_special_ammo_fire_shots",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1321
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1497
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_taunt_damage_taken_increase",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_taunt_damage_taken_increase",
+    "loc_key": "loc_talent_ogryn_taunt_damage_taken_increase",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1341
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 117
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_taunt_restore_toughness",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_taunt_restore_toughness",
+    "loc_key": "loc_talent_ogryn_taunt_restore_toughness",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1452
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2501
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_taunt_staggers_reduce_cooldown",
+    "kind": "talent_modifier",
+    "domain": "ogryn",
+    "internal_name": "ogryn_taunt_staggers_reduce_cooldown",
+    "loc_key": "loc_talent_ogryn_taunt_staggers_reduce_cooldown",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1280
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 148
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_ally_elite_kills_grant_cooldown",
+    "loc_key": "loc_talent_ogryn_ally_elite_kills_grant_cooldown",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 2077
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1346
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_ally_movement_boost_on_ability",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_ally_movement_boost_on_ability",
+    "loc_key": "loc_talent_ogryn_ally_movement_boost_on_ability",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 922
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1325
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_block_all_attacks",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_block_all_attacks",
+    "loc_key": "loc_talent_ogryn_block_all_attacks",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1669
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2485
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_blocking_ranged_taunts",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_blocking_ranged_taunts",
+    "loc_key": "loc_talent_ogryn_blocking_ranged_taunts",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1431
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1001
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_blocking_reduces_push_cost",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_blocking_reduces_push_cost",
+    "loc_key": "loc_talent_ogryn_blocking_reduces_push_cost",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1362
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1869
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_bracing_reduces_damage_taken",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_bracing_reduces_damage_taken",
+    "loc_key": "loc_talent_ogryn_bracing_reduces_damage_taken",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 555
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 950
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_coherency_radius_increase",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_coherency_radius_increase",
+    "loc_key": "loc_talent_ogryn_coherency_radius_increase",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 167
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1308
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_corruption_resistance",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_corruption_resistance",
+    "loc_key": "loc_talent_ogryn_corruption_resistance",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1835
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2328
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_crit_damage_increase",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_crit_damage_increase",
+    "loc_key": "loc_talent_ogryn_crit_damage_increase",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1710
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2731
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_damage_reduction_after_elite_kill",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_damage_reduction_after_elite_kill",
+    "loc_key": "loc_talent_ogryn_damage_reduction_after_elite_kill",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1791
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1973
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_damage_reduction_on_high_stamina",
+    "loc_key": "loc_talent_ogryn_damage_reduction_on_high_stamina",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1688
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2168
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_damage_taken_by_all_increases_strength_tdr",
+    "loc_key": "loc_talent_ogryn_damage_taken_by_all_increases_strength_tdr",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 899
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2679
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_drain_stamina_for_handling",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_drain_stamina_for_handling",
+    "loc_key": "loc_talent_ogryn_drain_stamina_for_handling",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1772
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2597
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_explosions_burn",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_explosions_burn",
+    "loc_key": "loc_talent_ogryn_explosions_burn",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1650
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2107
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_fully_charged_attacks_gain_damage_and_stagger",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_fully_charged_attacks_gain_damage_and_stagger",
+    "loc_key": "loc_talent_ogryn_fully_charged_attacks_gain_damage_and_stagger",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 428
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1903
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_heavy_bleeds",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_heavy_bleeds",
+    "loc_key": "loc_talent_ogryn_heavy_bleeds",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 447
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1193
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_increase_explosion_radius",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_increase_explosion_radius",
+    "loc_key": "loc_talent_ogryn_increase_explosion_radius",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 488
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1818
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_increased_ammo_reserve",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_increased_ammo_reserve",
+    "loc_key": "loc_talent_ogryn_increased_ammo_reserve",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 510
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1128
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_increased_coherency_toughness",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_increased_coherency_toughness",
+    "loc_key": "loc_talent_ogryn_increased_coherency_toughness",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 80
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 774
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_kills_grant_crit_chance",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_kills_grant_crit_chance",
+    "loc_key": "loc_talent_ogryn_kills_grant_crit_chance",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1041
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 976
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_knocked_allies_grant_damage_reduction",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_knocked_allies_grant_damage_reduction",
+    "loc_key": "loc_talent_ogryn_knocked_allies_grant_damage_reduction",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 607
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 855
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_melee_attacks_give_mtdr",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_melee_attacks_give_mtdr",
+    "loc_key": "loc_talent_ogryn_melee_attacks_give_mtdr",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1607
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1950
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_melee_damage_after_heavy",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_melee_damage_after_heavy",
+    "loc_key": "loc_talent_ogryn_melee_damage_after_heavy",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1750
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2243
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_melee_improves_ranged",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_melee_improves_ranged",
+    "loc_key": "loc_talent_ogryn_melee_improves_ranged",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 2039
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2548
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_melee_stagger",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_melee_stagger",
+    "loc_key": "loc_talent_ogryn_melee_stagger",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 287
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1103
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_more_hits_more_damage",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_more_hits_more_damage",
+    "loc_key": "loc_talent_ogryn_more_hits_more_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 124
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1257
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_movement_speed_after_ranged_kills",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_movement_speed_after_ranged_kills",
+    "loc_key": "loc_talent_ogryn_movement_speed_after_ranged_kills",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1139
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 736
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_multi_heavy_toughness",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_multi_heavy_toughness",
+    "loc_key": "loc_talent_ogryn_multi_heavy_toughness",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 35
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 811
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_multi_hits_grant_reload_speed",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_multi_hits_grant_reload_speed",
+    "loc_key": "loc_talent_ogryn_multi_hits_grant_reload_speed",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 534
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1023
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_nearby_bleeds_reduce_damage_taken",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_nearby_bleeds_reduce_damage_taken",
+    "loc_key": "loc_talent_ogryn_nearby_bleeds_reduce_damage_taken",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 677
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 831
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_ogryn_killer",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_ogryn_killer",
+    "loc_key": "loc_talent_ogryn_ogryn_killer",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 145
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1145
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_protect_allies",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_protect_allies",
+    "loc_key": "loc_talent_ogryn_protect_allies",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1564
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2263
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_pushing_applies_brittleness",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_pushing_applies_brittleness",
+    "loc_key": "loc_talent_ogryn_pushing_applies_brittleness",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1628
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2470
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_ranged_damage_immunity",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_ranged_damage_immunity",
+    "loc_key": "loc_talent_ogryn_ranged_damage_immunity",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1586
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2363
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_ranged_improves_melee",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_ranged_improves_melee",
+    "loc_key": "loc_talent_ogryn_ranged_improves_melee",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 2058
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2572
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_reload_speed_on_empty",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_reload_speed_on_empty",
+    "loc_key": "loc_talent_ogryn_reload_speed_on_empty",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1814
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2347
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_reloading_grants_damage",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_reloading_grants_damage",
+    "loc_key": "loc_talent_ogryn_reloading_grants_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1115
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1082
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_rending_on_elite_kills",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_rending_on_elite_kills",
+    "loc_key": "loc_talent_ogryn_rending_on_elite_kills",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1092
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1274
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_revenge_damage",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_revenge_damage",
+    "loc_key": "loc_talent_ogryn_revenge_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1065
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1215
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_single_heavy_toughness",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_single_heavy_toughness",
+    "loc_key": "loc_talent_ogryn_single_heavy_toughness",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 58
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 791
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_stacking_attack_speed",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_stacking_attack_speed",
+    "loc_key": "loc_talent_ogryn_stacking_attack_speed",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1729
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2083
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_staggering_increases_damage",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_staggering_increases_damage",
+    "loc_key": "loc_talent_ogryn_staggering_increases_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 466
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1236
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_targets_recieve_damage_taken_increase_debuff",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_targets_recieve_damage_taken_increase_debuff",
+    "loc_key": "loc_talent_ogryn_targets_recieve_damage_taken_increase_debuff",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 314
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 1750
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_toughness_on_low_health",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_toughness_on_low_health",
+    "loc_key": "loc_talent_ogryn_toughness_on_low_health",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 656
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 876
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_toughness_while_bracing",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_toughness_while_bracing",
+    "loc_key": "loc_talent_ogryn_toughness_while_bracing",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 102
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 757
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_weakspot_damage",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_weakspot_damage",
+    "loc_key": "loc_talent_ogryn_weakspot_damage",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 2098
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2627
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_wield_speed_increase",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_wield_speed_increase",
+    "loc_key": "loc_talent_ogryn_wield_speed_increase",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 1996
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 2532
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_windup_is_uninterruptible",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_windup_is_uninterruptible",
+    "loc_key": "loc_talent_ogryn_windup_is_uninterruptible",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 972
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 924
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "ogryn.talent.ogryn_windup_reduces_damage_taken",
+    "kind": "talent",
+    "domain": "ogryn",
+    "internal_name": "ogryn_windup_reduces_damage_taken",
+    "loc_key": "loc_talent_ogryn_windup_reduces_damage_taken",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/ogryn_tree.lua",
+        "line": 948
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 897
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {},
+    "calc": {}
+  }
+]
