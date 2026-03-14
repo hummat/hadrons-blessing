@@ -2,7 +2,7 @@ import { loadJsonFile } from "./load.mjs";
 import { classifyKnownUnresolved as defaultClassifyKnownUnresolved } from "./non-canonical.mjs";
 import { resolveQuery as defaultResolveQuery } from "./resolve.mjs";
 import { assertValidCanonicalBuild } from "./build-shape.mjs";
-import { classifySelectedNodes } from "./build-classification.mjs";
+import { classifySelectedNodes, extractDescriptionSelections } from "./build-classification.mjs";
 import { BUILD_CLASSIFICATION_REGISTRY, registryForClass } from "./build-classification-registry.mjs";
 import { parsePerkString } from "../../score-build.mjs";
 
@@ -144,8 +144,10 @@ function classifyBuildNodes(rawBuild, deps = {}) {
     classifySlugRole = null,
   } = deps;
   const classRegistry = registryForClass(rawBuild.class, classificationRegistry);
+  const descriptionSelections = extractDescriptionSelections(rawBuild?.description ?? "");
+  const hasDescriptionFallback = Object.values(descriptionSelections).some((value) => value != null);
   const preserveUnclassifiedAsTalents =
-    Object.keys(classRegistry).length === 0 && rawBuild?.class_selections != null;
+    rawBuild?.class_selections != null || hasDescriptionFallback;
   const selectedNodes = rawBuild?.talents?.active ?? [];
 
   return classifySelectedNodes(selectedNodes, {

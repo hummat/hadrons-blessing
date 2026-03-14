@@ -95,7 +95,7 @@ function extractDescriptionSelections(description) {
 
 function mergeDescriptionSelections(classified, descriptionSelections) {
   for (const slot of DESCRIPTION_SLOTS) {
-    if (classified[slot] != null || descriptionSelections[slot] == null) {
+    if (descriptionSelections[slot] == null) {
       continue;
     }
 
@@ -114,7 +114,7 @@ function mergeDescriptionSelections(classified, descriptionSelections) {
 function mergeExplicitSelections(classified, explicitSelections) {
   for (const slot of DESCRIPTION_SLOTS) {
     const label = String(explicitSelections?.[slot] ?? "").trim();
-    if (classified[slot] != null || label.length === 0) {
+    if (label.length === 0) {
       continue;
     }
 
@@ -200,8 +200,8 @@ function classifySelectedNodes(selectedNodes, options = {}) {
     throw new Error(`Duplicate class-side slot ${slot} for class ${className || "unknown"}`);
   }
 
-  mergeExplicitSelections(classified, explicitSelections);
-  return mergeDescriptionSelections(classified, extractDescriptionSelections(description));
+  mergeDescriptionSelections(classified, extractDescriptionSelections(description));
+  return mergeExplicitSelections(classified, explicitSelections);
 }
 
 export {

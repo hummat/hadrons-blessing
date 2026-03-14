@@ -464,10 +464,10 @@ describe("canonicalizeScrapedBuild", () => {
       }),
     );
 
-    assert.equal(build.ability.raw_label, "Voice of Command");
-    assert.equal(build.blitz.raw_label, "Shredder Frag Grenade");
-    assert.equal(build.aura.raw_label, "Survivalist");
-    assert.equal(build.keystone?.raw_label, "Focus Target!");
+    assert.equal(build.ability.canonical_entity_id, "veteran.ability.veteran_combat_ability_shout");
+    assert.equal(build.blitz.canonical_entity_id, "veteran.blitz.veteran_frag_grenade");
+    assert.equal(build.aura.canonical_entity_id, "veteran.aura.veteran_improved_survivalist");
+    assert.equal(build.keystone?.canonical_entity_id, "veteran.keystone.veteran_improved_tag");
   });
 
   it("prefers explicit scraped class-side selections over prose fallback", async () => {
@@ -562,13 +562,152 @@ describe("canonicalizeScrapedBuild", () => {
       }),
     );
 
+    assert.equal(build.ability.canonical_entity_id, "veteran.ability.veteran_combat_ability_shout");
+    assert.equal(build.blitz.canonical_entity_id, "veteran.blitz.veteran_frag_grenade");
+    assert.equal(build.aura.canonical_entity_id, "veteran.aura.veteran_improved_survivalist");
+    assert.equal(build.keystone?.canonical_entity_id, "veteran.keystone.veteran_improved_tag");
+    assert.deepEqual(build.talents, [
+      {
+        raw_label: "Exploit Weakness",
+        canonical_entity_id: null,
+        resolution_status: "unresolved",
+      },
+    ]);
+  });
+
+  it("preserves unclassified nodes as talents when explicit class selections exist but registry coverage is partial", async () => {
+    const build = await canonicalizeScrapedBuild(
+      makeRawBuild({
+        class: "veteran",
+        talents: {
+          active: [
+            { slug: "voice-of-command", frame: "hex_frame", name: "Voice Of Command", tier: "ability" },
+            { slug: "shredder-frag-grenade", frame: "square_frame", name: "Shredder Frag Grenade", tier: "notable" },
+            { slug: "survivalist", frame: "circular_frame", name: "Survivalist", tier: "talent" },
+            { slug: "focus-target", frame: "circular_frame", name: "Focus Target", tier: "keystone" },
+            { slug: "demolition-team", frame: "circular_frame", name: "Demolition Team", tier: "talent" },
+          ],
+          inactive: [],
+        },
+        class_selections: {
+          ability: "Voice of Command",
+          blitz: "Shredder Frag Grenade",
+          aura: "Survivalist",
+          keystone: "Focus Target!",
+        },
+      }),
+      makeStubCanonicalizerDeps({
+        resolveQuery: async (query) => {
+          const resolvedIds = new Map([
+            ["veteran", "shared.class.veteran"],
+            ["Voice of Command", "veteran.ability.veteran_combat_ability_shout"],
+            ["Shredder Frag Grenade", "veteran.blitz.veteran_frag_grenade"],
+            ["Survivalist", "veteran.aura.veteran_improved_survivalist"],
+            ["Focus Target!", "veteran.keystone.veteran_improved_tag"],
+            ["Focus Target", "veteran.keystone.veteran_improved_tag"],
+          ]);
+          return resolvedIds.has(query)
+            ? {
+              resolution_state: "resolved",
+              resolved_entity_id: resolvedIds.get(query),
+            }
+            : {
+              resolution_state: "unresolved",
+              resolved_entity_id: null,
+            };
+        },
+        classificationRegistry: {
+          psyker: makeStubCanonicalizerDeps().classificationRegistry.psyker,
+          veteran: {
+            "voice-of-command": { slot: "ability", kind: "ability" },
+            "shredder-frag-grenade": { slot: "blitz", kind: "blitz" },
+            "survivalist": { slot: "aura", kind: "aura" },
+            "focus-target": { slot: "keystone", kind: "keystone" },
+          },
+        },
+      }),
+    );
+
     assert.equal(build.ability.raw_label, "Voice of Command");
     assert.equal(build.blitz.raw_label, "Shredder Frag Grenade");
     assert.equal(build.aura.raw_label, "Survivalist");
     assert.equal(build.keystone?.raw_label, "Focus Target!");
     assert.deepEqual(build.talents, [
       {
-        raw_label: "Exploit Weakness",
+        raw_label: "Demolition Team",
+        canonical_entity_id: null,
+        resolution_status: "unresolved",
+      },
+    ]);
+  });
+
+  it("preserves unclassified nodes as talents when description fallback exists but registry coverage is partial", async () => {
+    const build = await canonicalizeScrapedBuild(
+      makeRawBuild({
+        class: "veteran",
+        talents: {
+          active: [
+            { slug: "voice-of-command", frame: "hex_frame", name: "Voice Of Command", tier: "ability" },
+            { slug: "shredder-frag-grenade", frame: "square_frame", name: "Shredder Frag Grenade", tier: "notable" },
+            { slug: "survivalist", frame: "circular_frame", name: "Survivalist", tier: "talent" },
+            { slug: "focus-target", frame: "circular_frame", name: "Focus Target", tier: "keystone" },
+            { slug: "demolition-team", frame: "circular_frame", name: "Demolition Team", tier: "talent" },
+          ],
+          inactive: [],
+        },
+        class_selections: null,
+        description: [
+          "-----",
+          "BLITZ: Shredder Frag Grenade",
+          "-----",
+          "-----",
+          "ABILITY: Voice of Command",
+          "-----",
+          "-----",
+          "KEYSTONE: Focus Target!",
+          "-----",
+          "TEAM AURA: Survivalist -> Fire Team",
+        ].join("\n"),
+      }),
+      makeStubCanonicalizerDeps({
+        resolveQuery: async (query) => {
+          const resolvedIds = new Map([
+            ["veteran", "shared.class.veteran"],
+            ["Voice of Command", "veteran.ability.veteran_combat_ability_shout"],
+            ["Shredder Frag Grenade", "veteran.blitz.veteran_frag_grenade"],
+            ["Survivalist", "veteran.aura.veteran_improved_survivalist"],
+            ["Focus Target!", "veteran.keystone.veteran_improved_tag"],
+            ["Focus Target", "veteran.keystone.veteran_improved_tag"],
+          ]);
+          return resolvedIds.has(query)
+            ? {
+              resolution_state: "resolved",
+              resolved_entity_id: resolvedIds.get(query),
+            }
+            : {
+              resolution_state: "unresolved",
+              resolved_entity_id: null,
+            };
+        },
+        classificationRegistry: {
+          psyker: makeStubCanonicalizerDeps().classificationRegistry.psyker,
+          veteran: {
+            "voice-of-command": { slot: "ability", kind: "ability" },
+            "shredder-frag-grenade": { slot: "blitz", kind: "blitz" },
+            "survivalist": { slot: "aura", kind: "aura" },
+            "focus-target": { slot: "keystone", kind: "keystone" },
+          },
+        },
+      }),
+    );
+
+    assert.equal(build.ability.canonical_entity_id, "veteran.ability.veteran_combat_ability_shout");
+    assert.equal(build.blitz.canonical_entity_id, "veteran.blitz.veteran_frag_grenade");
+    assert.equal(build.aura.canonical_entity_id, "veteran.aura.veteran_improved_survivalist");
+    assert.equal(build.keystone?.canonical_entity_id, "veteran.keystone.veteran_improved_tag");
+    assert.deepEqual(build.talents, [
+      {
+        raw_label: "Demolition Team",
         canonical_entity_id: null,
         resolution_status: "unresolved",
       },
