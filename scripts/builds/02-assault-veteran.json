@@ -10,25 +10,160 @@
     "source_kind": "gameslantern",
     "source_url": "https://darktide.gameslantern.com/builds/a0461ea4-4701-473d-ba0d-cb8b91fd3479/assault-veteran",
     "author": "Graf",
-    "scraped_at": "2026-03-13T00:00:00Z"
+    "scraped_at": "2026-03-14T12:40:08.775Z"
   },
   "ability": {
-    "raw_label": "Unknown ability",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Infiltrate",
+    "canonical_entity_id": "veteran.ability.veteran_invisibility_on_combat_ability",
+    "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Unknown blitz",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Shredder Frag Grenade",
+    "canonical_entity_id": "veteran.ability.veteran_grenade_apply_bleed",
+    "resolution_status": "resolved"
   },
   "aura": {
-    "raw_label": "Unknown aura",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Survivalist",
+    "canonical_entity_id": "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
+    "resolution_status": "resolved"
   },
-  "keystone": null,
-  "talents": [],
+  "keystone": {
+    "raw_label": "Weapons Specialist",
+    "canonical_entity_id": "veteran.keystone.veteran_weapon_switch_passive",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Demolition Team",
+      "canonical_entity_id": "veteran.talent.veteran_aura_elite_kills_restore_grenade",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Exploit Weakness",
+      "canonical_entity_id": "veteran.talent.veteran_crits_apply_rending",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 17",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Out For Blood",
+      "canonical_entity_id": "veteran.talent.veteran_all_kills_replenish_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Skirmisher",
+      "canonical_entity_id": "veteran.talent.veteran_increase_damage_after_sprinting",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Desperado",
+      "canonical_entity_id": "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Reciprocity",
+      "canonical_entity_id": "veteran.talent.veteran_dodging_grants_crit",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Agile Engagement",
+      "canonical_entity_id": "veteran.talent.veteran_kill_grants_damage_to_other_slot",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Trench Fighter Drill",
+      "canonical_entity_id": "veteran.talent.veteran_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Catch A Breath",
+      "canonical_entity_id": "veteran.talent.veteran_replenish_toughness_outside_melee",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Hunters Resolve",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_toughness_bonus_leaving_invisibility",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Grenade Tinkerer",
+      "canonical_entity_id": "veteran.talent.veteran_improved_grenades",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Demolition Stockpile",
+      "canonical_entity_id": "veteran.talent.veteran_replenish_grenades",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Field Improvisation",
+      "canonical_entity_id": "veteran.talent.veteran_better_deployables",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Superiority Complex",
+      "canonical_entity_id": "veteran.talent.veteran_increase_damage_vs_elites",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Tactical Awareness",
+      "canonical_entity_id": "veteran.talent.veteran_elite_kills_reduce_cooldown",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Confirmed Kill",
+      "canonical_entity_id": "veteran.talent.veteran_elite_kills_replenish_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Close Order Drill",
+      "canonical_entity_id": "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Bring It Down",
+      "canonical_entity_id": "veteran.talent.veteran_big_game_hunter",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Iron Will",
+      "canonical_entity_id": "veteran.talent.veteran_tdr_on_high_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 22",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Toughness Boost 24",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Stamina Boost 3",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Always Prepared",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_weapon_switch_replenish_ammo",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "One Motion",
+      "canonical_entity_id": "veteran.talent.veteran_reduce_swap_time",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 9",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    }
+  ],
   "weapons": [
     {
       "slot": "melee",
@@ -39,21 +174,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Flak Armoured)",
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Maniacs)",
+          "raw_label": "10-25% Damage (Maniacs)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -81,21 +216,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Carapace)",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Unyielding)",
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -124,21 +259,41 @@
       },
       "perks": [
         {
-          "raw_label": "+3-4% Combat Ability Regen",
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
           "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.03,
+            "min": 0.01,
             "max": 0.04,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "+15-20% DR vs Gunners",
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
           "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.15,
+            "min": 0.05,
             "max": 0.2,
             "unit": "percent"
           }
@@ -153,12 +308,42 @@
       },
       "perks": [
         {
-          "raw_label": "+10-12% Stamina Regeneration",
-          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
-            "max": 0.12,
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
             "unit": "percent"
           }
         }
@@ -170,7 +355,48 @@
         "canonical_entity_id": null,
         "resolution_status": "non_canonical"
       },
-      "perks": []
+      "perks": [
+        {
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.17,
+            "max": 0.21,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
     }
   ]
 }

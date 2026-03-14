@@ -8,7 +8,34 @@ const BUILD_CLASSIFICATION_REGISTRY = {
     "warp-rider": { slot: "talents", kind: "talent" },
     "warp-siphon": { slot: "keystone", kind: "keystone" },
   },
-  veteran: {},
+  veteran: {
+    // Abilities (source type: ability)
+    "voice-of-command": { slot: "ability", kind: "ability" },
+    "infiltrate": { slot: "ability", kind: "ability" },
+    "executioners-stance": { slot: "ability", kind: "ability" },
+    // Ability modifiers (source type: ability_modifier) -> talents
+    "hunters-resolve": { slot: "talents", kind: "talent_modifier" },
+    "marksman": { slot: "talents", kind: "talent_modifier" },
+    "the-bigger-they-are": { slot: "talents", kind: "talent_modifier" },
+    "duty-and-honour": { slot: "talents", kind: "talent_modifier" },
+    // Blitz (source type: tactical)
+    "shredder-frag-grenade": { slot: "blitz", kind: "blitz" },
+    "krak-grenade": { slot: "blitz", kind: "blitz" },
+    "smoke-grenade": { slot: "blitz", kind: "blitz" },
+    // Auras (source type: aura)
+    "survivalist": { slot: "aura", kind: "aura" },
+    "fire-team": { slot: "aura", kind: "aura" },
+    "close-quarters": { slot: "aura", kind: "aura" },
+    // Keystones (source type: keystone)
+    "marksmans-focus": { slot: "keystone", kind: "keystone" },
+    "weapons-specialist": { slot: "keystone", kind: "keystone" },
+    "focus-target": { slot: "keystone", kind: "keystone" },
+    // Keystone modifiers (source type: keystone_modifier) -> talents
+    "tunnel-vision": { slot: "talents", kind: "talent_modifier" },
+    "long-range-assassin": { slot: "talents", kind: "talent_modifier" },
+    "always-prepared": { slot: "talents", kind: "talent_modifier" },
+    "redirect-fire": { slot: "talents", kind: "talent_modifier" },
+  },
   zealot: {},
   ogryn: {},
   arbites: {},

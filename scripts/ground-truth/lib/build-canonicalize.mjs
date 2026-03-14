@@ -146,9 +146,8 @@ function classifyBuildNodes(rawBuild, deps = {}) {
   const classRegistry = registryForClass(rawBuild.class, classificationRegistry);
   const descriptionSelections = extractDescriptionSelections(rawBuild?.description ?? "");
   const hasDescriptionFallback = Object.values(descriptionSelections).some((value) => value != null);
-  const preserveUnclassifiedAsTalents =
-    rawBuild?.class_selections != null || hasDescriptionFallback;
   const selectedNodes = rawBuild?.talents?.active ?? [];
+  const preserveUnclassifiedAsTalents = selectedNodes.length > 0;
 
   return classifySelectedNodes(selectedNodes, {
     className: rawBuild.class,

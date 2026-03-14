@@ -10,25 +10,160 @@
     "source_kind": "gameslantern",
     "source_url": "https://darktide.gameslantern.com/builds/a0d307bf-c6b5-4270-9492-e142e61d2722/slinking-veteran",
     "author": "dopeslinker",
-    "scraped_at": "2026-03-13T00:00:00Z"
+    "scraped_at": "2026-03-14T12:40:44.155Z"
   },
   "ability": {
-    "raw_label": "Unknown ability",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Executioners Stance",
+    "canonical_entity_id": "veteran.ability.veteran_combat_ability_elite_and_special_outlines",
+    "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Unknown blitz",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Shredder Frag Grenade",
+    "canonical_entity_id": "veteran.ability.veteran_grenade_apply_bleed",
+    "resolution_status": "resolved"
   },
   "aura": {
-    "raw_label": "Unknown aura",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Survivalist",
+    "canonical_entity_id": "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
+    "resolution_status": "resolved"
   },
-  "keystone": null,
-  "talents": [],
+  "keystone": {
+    "raw_label": "Marksman's Focus",
+    "canonical_entity_id": "veteran.keystone.veteran_snipers_focus",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Demolition Team",
+      "canonical_entity_id": "veteran.talent.veteran_aura_elite_kills_restore_grenade",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Catch A Breath",
+      "canonical_entity_id": "veteran.talent.veteran_replenish_toughness_outside_melee",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Kill Zone",
+      "canonical_entity_id": "veteran.talent.veteran_ranged_power_out_of_melee",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Shock Trooper",
+      "canonical_entity_id": "veteran.talent.veteran_no_ammo_consumption_on_lasweapon_crit",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Exhilarating Takedown",
+      "canonical_entity_id": "veteran.talent.veteran_replenish_toughness_on_weakspot_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Demolition Stockpile",
+      "canonical_entity_id": "veteran.talent.veteran_replenish_grenades",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Field Improvisation",
+      "canonical_entity_id": "veteran.talent.veteran_better_deployables",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Superiority Complex",
+      "canonical_entity_id": "veteran.talent.veteran_increase_damage_vs_elites",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Tactical Awareness",
+      "canonical_entity_id": "veteran.talent.veteran_elite_kills_reduce_cooldown",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Confirmed Kill",
+      "canonical_entity_id": "veteran.talent.veteran_elite_kills_replenish_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Close Order Drill",
+      "canonical_entity_id": "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Longshot",
+      "canonical_entity_id": "veteran.talent.veteran_increased_damage_based_on_range",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Precision Strikes",
+      "canonical_entity_id": "veteran.talent.veteran_increased_weakspot_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Bring It Down",
+      "canonical_entity_id": "veteran.talent.veteran_big_game_hunter",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Fully Loaded",
+      "canonical_entity_id": "veteran.talent.veteran_ammo_increase",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Iron Will",
+      "canonical_entity_id": "veteran.talent.veteran_tdr_on_high_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 22",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Stamina Regeneration Boost",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Marksman",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_increased_weakspot_power_after_combat_ability",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 24",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Stamina Boost 3",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "The Bigger They Are",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_combat_ability_ogryn_outlines",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Tunnel Vision",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_snipers_focus_toughness_bonus",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Long Range Assassin",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_snipers_focus_increased_stacks",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "One Motion",
+      "canonical_entity_id": "veteran.talent.veteran_reduce_swap_time",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ranged Damage Boost 2",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    }
+  ],
   "weapons": [
     {
       "slot": "melee",
@@ -39,21 +174,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Flak Armoured)",
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Unarmoured)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_unarmored_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Unarmoured Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -81,21 +216,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Carapace)",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Unyielding)",
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -124,22 +259,42 @@
       },
       "perks": [
         {
-          "raw_label": "+10-12% Revive Speed",
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
           "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
             "max": 0.12,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "+10-12% Stamina Regeneration",
-          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
-            "max": 0.12,
+            "min": 0.02,
+            "max": 0.05,
             "unit": "percent"
           }
         }
@@ -151,7 +306,48 @@
         "canonical_entity_id": null,
         "resolution_status": "non_canonical"
       },
-      "perks": []
+      "perks": [
+        {
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.17,
+            "max": 0.21,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ]
     },
     {
       "name": {
@@ -159,7 +355,48 @@
         "canonical_entity_id": null,
         "resolution_status": "non_canonical"
       },
-      "perks": []
+      "perks": [
+        {
+          "raw_label": "+1-3 Max Stamina",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
+          "value": {
+            "min": 1,
+            "max": 3,
+            "unit": "flat"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ]
     }
   ]
 }

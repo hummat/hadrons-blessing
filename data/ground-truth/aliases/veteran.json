@@ -627,5 +627,455 @@
     },
     "rank_weight": 100,
     "notes": "Live sample talent label backed by the Focus Target keystone modifier veteran_improved_tag_dead_coherency_bonus."
+  },
+  {
+    "text": "Infiltrate",
+    "normalized_text": "infiltrate",
+    "candidate_entity_id": "veteran.ability.veteran_invisibility_on_combat_ability",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran ability node."
+  },
+  {
+    "text": "Executioners Stance",
+    "normalized_text": "executioners stance",
+    "candidate_entity_id": "veteran.ability.veteran_combat_ability_elite_and_special_outlines",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran ability node."
+  },
+  {
+    "text": "Marksman's Focus",
+    "normalized_text": "marksman s focus",
+    "candidate_entity_id": "veteran.keystone.veteran_snipers_focus",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran keystone node."
+  },
+  {
+    "text": "Weapons Specialist",
+    "normalized_text": "weapons specialist",
+    "candidate_entity_id": "veteran.keystone.veteran_weapon_switch_passive",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran keystone node."
+  },
+  {
+    "text": "Hunters Resolve",
+    "normalized_text": "hunters resolve",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_toughness_bonus_leaving_invisibility",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
+  },
+  {
+    "text": "Marksman",
+    "normalized_text": "marksman",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_increased_weakspot_power_after_combat_ability",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
+  },
+  {
+    "text": "The Bigger They Are",
+    "normalized_text": "the bigger they are",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_combat_ability_ogryn_outlines",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
+  },
+  {
+    "text": "Tunnel Vision",
+    "normalized_text": "tunnel vision",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_snipers_focus_toughness_bonus",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
+  },
+  {
+    "text": "Long Range Assassin",
+    "normalized_text": "long range assassin",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_snipers_focus_increased_stacks",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
+  },
+  {
+    "text": "Always Prepared",
+    "normalized_text": "always prepared",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_weapon_switch_replenish_ammo",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
+  },
+  {
+    "text": "Demolition Team",
+    "normalized_text": "demolition team",
+    "candidate_entity_id": "veteran.talent.veteran_aura_elite_kills_restore_grenade",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
+  },
+  {
+    "text": "Out For Blood",
+    "normalized_text": "out for blood",
+    "candidate_entity_id": "veteran.talent.veteran_all_kills_replenish_toughness",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
+  },
+  {
+    "text": "Agile Engagement",
+    "normalized_text": "agile engagement",
+    "candidate_entity_id": "veteran.talent.veteran_kill_grants_damage_to_other_slot",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
+  },
+  {
+    "text": "Field Improvisation",
+    "normalized_text": "field improvisation",
+    "candidate_entity_id": "veteran.talent.veteran_better_deployables",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
+  },
+  {
+    "text": "Fully Loaded",
+    "normalized_text": "fully loaded",
+    "candidate_entity_id": "veteran.talent.veteran_ammo_increase",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
+  },
+  {
+    "text": "One Motion",
+    "normalized_text": "one motion",
+    "candidate_entity_id": "veteran.talent.veteran_reduce_swap_time",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
+  },
+  {
+    "text": "Kill Zone",
+    "normalized_text": "kill zone",
+    "candidate_entity_id": "veteran.talent.veteran_ranged_power_out_of_melee",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
+  },
+  {
+    "text": "Shock Trooper",
+    "normalized_text": "shock trooper",
+    "candidate_entity_id": "veteran.talent.veteran_no_ammo_consumption_on_lasweapon_crit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern display name for veteran talent node."
   }
 ]
