@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Havoc 40 Ogryn Shield Tank",
+  "title": "[Dec 2025] Havoc 40 Ogryn Shield Tank Build: For the Lil'uns",
   "class": {
     "raw_label": "ogryn",
     "canonical_entity_id": "shared.class.ogryn",
@@ -8,52 +8,187 @@
   },
   "provenance": {
     "source_kind": "gameslantern",
-    "source_url": "legacy-fixture://scripts/builds/12-ogryn-shield-tank.json",
+    "source_url": "https://darktide.gameslantern.com/builds/a006d28e-3024-4c8b-b73f-b57383335a8a/dec-2025-havoc-40-ogryn-shield-tank-build-for-the-liluns",
     "author": "Jay-Brodi",
-    "scraped_at": "2026-03-13T00:00:00Z"
+    "scraped_at": "2026-03-14T19:03:27.376Z"
   },
   "ability": {
-    "raw_label": "Unknown ability",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Loyal Protector",
+    "canonical_entity_id": "ogryn.ability.ogryn_taunt_shout",
+    "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Unknown blitz",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Frag Bomb",
+    "canonical_entity_id": "ogryn.ability.ogryn_grenade_frag",
+    "resolution_status": "resolved"
   },
   "aura": {
-    "raw_label": "Unknown aura",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Bonebreakers Aura",
+    "canonical_entity_id": "ogryn.aura.ogryn_melee_damage_coherency_improved",
+    "resolution_status": "resolved"
   },
-  "keystone": null,
-  "talents": [],
+  "keystone": {
+    "raw_label": "Feel No Pain",
+    "canonical_entity_id": "ogryn.keystone.ogryn_carapace_armor",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "The Best Defence",
+      "canonical_entity_id": "ogryn.talent.ogryn_multi_heavy_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Smash Em",
+      "canonical_entity_id": "ogryn.talent.ogryn_single_heavy_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Heavyweight",
+      "canonical_entity_id": "ogryn.talent.ogryn_ogryn_killer",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 2",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Toughness Boost 3",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Slam",
+      "canonical_entity_id": "ogryn.talent.ogryn_melee_stagger",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Soften Them Up",
+      "canonical_entity_id": "ogryn.talent.ogryn_targets_recieve_damage_taken_increase_debuff",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Batter",
+      "canonical_entity_id": "ogryn.talent.ogryn_heavy_bleeds",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Hard Knocks",
+      "canonical_entity_id": "ogryn.talent.ogryn_staggering_increases_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Implacable",
+      "canonical_entity_id": "ogryn.talent.ogryn_windup_reduces_damage_taken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Delight In Destruction",
+      "canonical_entity_id": "ogryn.talent.ogryn_nearby_bleeds_reduce_damage_taken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughest",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_carapace_armor_more_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 3",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Bruiser",
+      "canonical_entity_id": "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "No Stopping Me",
+      "canonical_entity_id": "ogryn.talent.ogryn_windup_is_uninterruptible",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Valuable Distraction",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_taunt_damage_taken_increase",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "No Pushover",
+      "canonical_entity_id": "ogryn.talent.ogryn_blocking_reduces_push_cost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Attention Seeker",
+      "canonical_entity_id": "ogryn.talent.ogryn_blocking_ranged_taunts",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 7",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "No Hurting Friends 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 5",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "No Pain 2",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_taunt_restore_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Focused Fighter 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_melee_attacks_give_mtdr",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Brutish Strength 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_pushing_applies_brittleness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Strongman 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_damage_reduction_after_elite_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Strike True 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_weakspot_damage",
+      "resolution_status": "resolved"
+    }
+  ],
   "weapons": [
     {
       "slot": "melee",
       "name": {
-        "raw_label": "Orox Mk II Battle Maul & Slab Shield",
+        "raw_label": "Orox Mk II & Mk III Battle Maul & Slab Shield",
         "canonical_entity_id": "shared.weapon.ogryn_powermaul_slabshield_p1_m1",
         "resolution_status": "resolved"
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Carapace)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Flak Armoured)",
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -81,21 +216,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Carapace)",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Unyielding)",
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -124,21 +259,41 @@
       },
       "perks": [
         {
-          "raw_label": "+15-20% DR vs Gunners",
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
           "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.15,
+            "min": 0.05,
             "max": 0.2,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "+3-4% Combat Ability Regen",
+          "raw_label": "+1-4% Combat Ability Regeneration",
           "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.03,
+            "min": 0.01,
             "max": 0.04,
             "unit": "percent"
           }
@@ -153,12 +308,42 @@
       },
       "perks": [
         {
-          "raw_label": "+12-15% Corruption Resistance",
-          "canonical_entity_id": "shared.gadget_trait.gadget_corruption_resistance",
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.12,
-            "max": 0.15,
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
             "unit": "percent"
           }
         }
@@ -170,7 +355,48 @@
         "canonical_entity_id": null,
         "resolution_status": "non_canonical"
       },
-      "perks": []
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-15% Corruption Resistance",
+          "canonical_entity_id": "shared.gadget_trait.gadget_corruption_resistance",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.15,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        }
+      ]
     }
   ]
 }

@@ -826,6 +826,26 @@
     "notes": "Display label comes from structured build data; the canonical internal weapon template is source-backed as ogryn_powermaul_slabshield_p1_m1 and this family has a single checked-in weapon template."
   },
   {
+    "text": "Orox Mk II & Mk III Battle Maul & Slab Shield",
+    "normalized_text": "orox mk ii mk iii battle maul slab shield",
+    "candidate_entity_id": "shared.weapon.ogryn_powermaul_slabshield_p1_m1",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-scrape",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 95,
+    "notes": "GL build scrape label includes both marks (Mk II & Mk III). Same weapon family as ogryn_powermaul_slabshield_p1_m1."
+  },
+  {
     "text": "Momentum",
     "normalized_text": "momentum",
     "candidate_entity_id": "shared.name_family.blessing.momentum",

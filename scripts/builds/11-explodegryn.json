@@ -8,27 +8,162 @@
   },
   "provenance": {
     "source_kind": "gameslantern",
-    "source_url": "legacy-fixture://scripts/builds/11-explodegryn.json",
+    "source_url": "https://darktide.gameslantern.com/builds/9e632ca3-292b-4721-af64-2230bca819bf/mister-es-explodegryn",
     "author": "Mister E",
-    "scraped_at": "2026-03-13T00:00:00Z"
+    "scraped_at": "2026-03-14T19:01:55.385Z"
   },
   "ability": {
-    "raw_label": "Unknown ability",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Loyal Protector",
+    "canonical_entity_id": "ogryn.ability.ogryn_taunt_shout",
+    "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Unknown blitz",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Bombs Away",
+    "canonical_entity_id": "ogryn.ability.ogryn_box_explodes",
+    "resolution_status": "resolved"
   },
   "aura": {
-    "raw_label": "Unknown aura",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Coward Culling",
+    "canonical_entity_id": "ogryn.aura.ogryn_damage_vs_suppressed_coherency",
+    "resolution_status": "resolved"
   },
-  "keystone": null,
-  "talents": [],
+  "keystone": {
+    "raw_label": "Burst Limiter Override",
+    "canonical_entity_id": "ogryn.keystone.ogryn_leadbelcher_no_ammo_chance",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Smash Em",
+      "canonical_entity_id": "ogryn.talent.ogryn_single_heavy_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Steady Grip",
+      "canonical_entity_id": "ogryn.talent.ogryn_toughness_while_bracing",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Heavyweight",
+      "canonical_entity_id": "ogryn.talent.ogryn_ogryn_killer",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Reloaded And Ready",
+      "canonical_entity_id": "ogryn.talent.ogryn_reloading_grants_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 2",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Toughness Boost 3",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Soften Them Up",
+      "canonical_entity_id": "ogryn.talent.ogryn_targets_recieve_damage_taken_increase_debuff",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Reload Boost 2",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Pacemaker",
+      "canonical_entity_id": "ogryn.talent.ogryn_multi_hits_grant_reload_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ammo Stash",
+      "canonical_entity_id": "ogryn.talent.ogryn_increased_ammo_reserve",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Maximum Firepower",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_leadbelcher_cooldown_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 3",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Bruiser",
+      "canonical_entity_id": "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Get Stuck In",
+      "canonical_entity_id": "ogryn.talent.ogryn_ally_movement_boost_on_ability",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Payback Time",
+      "canonical_entity_id": "ogryn.talent.ogryn_revenge_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Big Boom",
+      "canonical_entity_id": "ogryn.talent.ogryn_increase_explosion_radius",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Unstoppable Momentum",
+      "canonical_entity_id": "ogryn.talent.ogryn_movement_speed_after_ranged_kills",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Valuable Distraction",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_taunt_damage_taken_increase",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 7",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "No Hurting Friends 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ranged Damage Boost 7",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "No Pain 2",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_taunt_restore_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Fire Away 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_explosions_burn",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Pumped Up 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Keep Shooting 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_reload_speed_on_empty",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Back Off 2",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_blo_melee",
+      "resolution_status": "resolved"
+    }
+  ],
   "weapons": [
     {
       "slot": "melee",
@@ -39,21 +174,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Carapace)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Flak Armoured)",
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -81,21 +216,21 @@
       },
       "perks": [
         {
-          "raw_label": "20-25% Damage (Carapace)",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
-          "resolution_status": "resolved",
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "20-25% Damage (Unyielding)",
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.2,
+            "min": 0.1,
             "max": 0.25,
             "unit": "percent"
           }
@@ -124,21 +259,41 @@
       },
       "perks": [
         {
-          "raw_label": "+3-4% Combat Ability Regen",
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
           "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.03,
+            "min": 0.01,
             "max": 0.04,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "+15-20% DR vs Gunners",
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
           "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.15,
+            "min": 0.05,
             "max": 0.2,
             "unit": "percent"
           }
@@ -153,12 +308,42 @@
       },
       "perks": [
         {
-          "raw_label": "+10-12% Stamina Regeneration",
-          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
-            "max": 0.12,
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
             "unit": "percent"
           }
         }
@@ -170,7 +355,48 @@
         "canonical_entity_id": null,
         "resolution_status": "non_canonical"
       },
-      "perks": []
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
     }
   ]
 }

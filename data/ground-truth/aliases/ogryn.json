@@ -1,12 +1,12 @@
 [
   {
-    "text": "Starting Point Ogryn",
-    "normalized_text": "starting point ogryn",
+    "text": "The Best Defence",
+    "normalized_text": "the best defence",
     "candidate_entity_id": "ogryn.talent.ogryn_multi_heavy_toughness",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -22,16 +22,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Single Heavy Toughness",
-    "normalized_text": "single heavy toughness",
+    "text": "Smash Em",
+    "normalized_text": "smash em",
     "candidate_entity_id": "ogryn.talent.ogryn_single_heavy_toughness",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -47,16 +47,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Increased Coherency Toughness",
-    "normalized_text": "increased coherency toughness",
+    "text": "Lynchpin",
+    "normalized_text": "lynchpin",
     "candidate_entity_id": "ogryn.talent.ogryn_increased_coherency_toughness",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -72,16 +72,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Toughness While Bracing",
-    "normalized_text": "toughness while bracing",
+    "text": "Steady Grip",
+    "normalized_text": "steady grip",
     "candidate_entity_id": "ogryn.talent.ogryn_toughness_while_bracing",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -97,16 +97,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "More Hits More Damage",
-    "normalized_text": "more hits more damage",
+    "text": "Furious",
+    "normalized_text": "furious",
     "candidate_entity_id": "ogryn.talent.ogryn_more_hits_more_damage",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -122,16 +122,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Ogryn Killer",
-    "normalized_text": "ogryn killer",
+    "text": "Heavyweight",
+    "normalized_text": "heavyweight",
     "candidate_entity_id": "ogryn.talent.ogryn_ogryn_killer",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -147,16 +147,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Coherency Radius Increase",
-    "normalized_text": "coherency radius increase",
+    "text": "Towering Presence",
+    "normalized_text": "towering presence",
     "candidate_entity_id": "ogryn.talent.ogryn_coherency_radius_increase",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -172,16 +172,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Aura Intimidating Presence",
-    "normalized_text": "aura intimidating presence",
+    "text": "Bonebreakers Aura",
+    "normalized_text": "bonebreakers aura",
     "candidate_entity_id": "ogryn.aura.ogryn_melee_damage_coherency_improved",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -197,16 +197,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Aura Bringing Big Guns",
-    "normalized_text": "aura bringing big guns",
+    "text": "Coward Culling",
+    "normalized_text": "coward culling",
     "candidate_entity_id": "ogryn.aura.ogryn_damage_vs_suppressed_coherency",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -222,16 +222,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Aura Stay Close",
-    "normalized_text": "aura stay close",
+    "text": "Stay Close",
+    "normalized_text": "stay close",
     "candidate_entity_id": "ogryn.aura.ogryn_toughness_regen_aura",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -247,16 +247,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Melee Stagger",
-    "normalized_text": "melee stagger",
+    "text": "Slam",
+    "normalized_text": "slam",
     "candidate_entity_id": "ogryn.talent.ogryn_melee_stagger",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -272,16 +272,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Targets Recieve Damage Taken Increase Debuff",
-    "normalized_text": "targets recieve damage taken increase debuff",
+    "text": "Soften Them Up",
+    "normalized_text": "soften them up",
     "candidate_entity_id": "ogryn.talent.ogryn_targets_recieve_damage_taken_increase_debuff",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -297,16 +297,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Box Explodes",
-    "normalized_text": "box explodes",
+    "text": "Bombs Away",
+    "normalized_text": "bombs away",
     "candidate_entity_id": "ogryn.ability.ogryn_box_explodes",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -322,16 +322,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Blitz Big Nade",
-    "normalized_text": "blitz big nade",
+    "text": "Frag Bomb",
+    "normalized_text": "frag bomb",
     "candidate_entity_id": "ogryn.ability.ogryn_grenade_frag",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -347,16 +347,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Fully Charged Attacks Gain Damage And Stagger",
-    "normalized_text": "fully charged attacks gain damage and stagger",
+    "text": "Crunch",
+    "normalized_text": "crunch",
     "candidate_entity_id": "ogryn.talent.ogryn_fully_charged_attacks_gain_damage_and_stagger",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -372,16 +372,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Heavy Bleeds",
-    "normalized_text": "heavy bleeds",
+    "text": "Batter",
+    "normalized_text": "batter",
     "candidate_entity_id": "ogryn.talent.ogryn_heavy_bleeds",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -397,16 +397,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Staggering Increases Damage",
-    "normalized_text": "staggering increases damage",
+    "text": "Hard Knocks",
+    "normalized_text": "hard knocks",
     "candidate_entity_id": "ogryn.talent.ogryn_staggering_increases_damage",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -422,16 +422,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Increase Explosion Radius",
-    "normalized_text": "increase explosion radius",
+    "text": "Big Boom",
+    "normalized_text": "big boom",
     "candidate_entity_id": "ogryn.talent.ogryn_increase_explosion_radius",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -447,16 +447,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Increased Ammo Reserve",
-    "normalized_text": "increased ammo reserve",
+    "text": "Ammo Stash",
+    "normalized_text": "ammo stash",
     "candidate_entity_id": "ogryn.talent.ogryn_increased_ammo_reserve",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -472,16 +472,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Multi Hits Grant Reload Speed",
-    "normalized_text": "multi hits grant reload speed",
+    "text": "Pacemaker",
+    "normalized_text": "pacemaker",
     "candidate_entity_id": "ogryn.talent.ogryn_multi_hits_grant_reload_speed",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -497,16 +497,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Bracing Reduces Damage Taken",
-    "normalized_text": "bracing reduces damage taken",
+    "text": "Mobile Emplacement",
+    "normalized_text": "mobile emplacement",
     "candidate_entity_id": "ogryn.talent.ogryn_bracing_reduces_damage_taken",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -522,16 +522,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Keystone Leadbelcher",
-    "normalized_text": "keystone leadbelcher",
+    "text": "Burst Limiter Override",
+    "normalized_text": "burst limiter override",
     "candidate_entity_id": "ogryn.keystone.ogryn_leadbelcher_no_ammo_chance",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -547,16 +547,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Knocked Allies Grant Damage Reduction",
-    "normalized_text": "knocked allies grant damage reduction",
+    "text": "Wont Give In",
+    "normalized_text": "wont give in",
     "candidate_entity_id": "ogryn.talent.ogryn_knocked_allies_grant_damage_reduction",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -572,16 +572,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Keystone Carapace Armor",
-    "normalized_text": "keystone carapace armor",
+    "text": "Feel No Pain",
+    "normalized_text": "feel no pain",
     "candidate_entity_id": "ogryn.keystone.ogryn_carapace_armor",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -597,16 +597,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Toughness On Low Health",
-    "normalized_text": "toughness on low health",
+    "text": "Too Stubborn To Die",
+    "normalized_text": "too stubborn to die",
     "candidate_entity_id": "ogryn.talent.ogryn_toughness_on_low_health",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -622,16 +622,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Nearby Bleeds Reduce Damage Taken",
-    "normalized_text": "nearby bleeds reduce damage taken",
+    "text": "Delight In Destruction",
+    "normalized_text": "delight in destruction",
     "candidate_entity_id": "ogryn.talent.ogryn_nearby_bleeds_reduce_damage_taken",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -647,16 +647,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Keystone Heavy Hitter",
-    "normalized_text": "keystone heavy hitter",
+    "text": "Heavy Hitter",
+    "normalized_text": "heavy hitter",
     "candidate_entity_id": "ogryn.keystone.ogryn_passive_heavy_hitter",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -672,16 +672,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Carapace Armor Trigger On Zero Stacks",
-    "normalized_text": "carapace armor trigger on zero stacks",
+    "text": "Pained Outburst",
+    "normalized_text": "pained outburst",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_carapace_armor_trigger_on_zero_stacks",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -697,16 +697,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Carapace Armor Add Stack On Push",
-    "normalized_text": "carapace armor add stack on push",
+    "text": "Strongest",
+    "normalized_text": "strongest",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_carapace_armor_add_stack_on_push",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -722,16 +722,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Carapace Armor More Toughness",
-    "normalized_text": "carapace armor more toughness",
+    "text": "Toughest",
+    "normalized_text": "toughest",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_carapace_armor_more_toughness",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -747,16 +747,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Leadbelcher Cooldown Reduction",
-    "normalized_text": "leadbelcher cooldown reduction",
+    "text": "Maximum Firepower",
+    "normalized_text": "maximum firepower",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_leadbelcher_cooldown_reduction",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -772,16 +772,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Leadbelcher Crits",
-    "normalized_text": "leadbelcher crits",
+    "text": "Good Shootin",
+    "normalized_text": "good shootin",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_leadbelcher_crits",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -797,16 +797,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Blo Ally Ranged Buffs",
-    "normalized_text": "blo ally ranged buffs",
+    "text": "Bulletstorm 2",
+    "normalized_text": "bulletstorm 2",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_blo_ally_ranged_buffs",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -822,16 +822,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Stamina Restores Toughness",
-    "normalized_text": "stamina restores toughness",
+    "text": "No Hurting Friends 2",
+    "normalized_text": "no hurting friends 2",
     "candidate_entity_id": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -847,16 +847,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Ally Movement Boost On Ability",
-    "normalized_text": "ally movement boost on ability",
+    "text": "Get Stuck In",
+    "normalized_text": "get stuck in",
     "candidate_entity_id": "ogryn.talent.ogryn_ally_movement_boost_on_ability",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -872,16 +872,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Windup Reduces Damage Taken",
-    "normalized_text": "windup reduces damage taken",
+    "text": "Implacable",
+    "normalized_text": "implacable",
     "candidate_entity_id": "ogryn.talent.ogryn_windup_reduces_damage_taken",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -897,16 +897,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Windup Is Uninterruptible",
-    "normalized_text": "windup is uninterruptible",
+    "text": "No Stopping Me",
+    "normalized_text": "no stopping me",
     "candidate_entity_id": "ogryn.talent.ogryn_windup_is_uninterruptible",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -922,16 +922,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Kills Grant Crit Chance",
-    "normalized_text": "kills grant crit chance",
+    "text": "Massacre",
+    "normalized_text": "massacre",
     "candidate_entity_id": "ogryn.talent.ogryn_kills_grant_crit_chance",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -947,16 +947,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Revenge Damage",
-    "normalized_text": "revenge damage",
+    "text": "Payback Time",
+    "normalized_text": "payback time",
     "candidate_entity_id": "ogryn.talent.ogryn_revenge_damage",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -972,16 +972,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Rending On Elite Kills",
-    "normalized_text": "rending on elite kills",
+    "text": "Dominate",
+    "normalized_text": "dominate",
     "candidate_entity_id": "ogryn.talent.ogryn_rending_on_elite_kills",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -997,16 +997,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Reloading Grants Damage",
-    "normalized_text": "reloading grants damage",
+    "text": "Reloaded And Ready",
+    "normalized_text": "reloaded and ready",
     "candidate_entity_id": "ogryn.talent.ogryn_reloading_grants_damage",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1022,16 +1022,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Movement Speed After Ranged Kills",
-    "normalized_text": "movement speed after ranged kills",
+    "text": "Unstoppable Momentum",
+    "normalized_text": "unstoppable momentum",
     "candidate_entity_id": "ogryn.talent.ogryn_movement_speed_after_ranged_kills",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1047,16 +1047,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Ability Taunt",
-    "normalized_text": "ability taunt",
+    "text": "Loyal Protector",
+    "normalized_text": "loyal protector",
     "candidate_entity_id": "ogryn.ability.ogryn_taunt_shout",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1072,16 +1072,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Longer Charge",
-    "normalized_text": "longer charge",
+    "text": "Indomitable",
+    "normalized_text": "indomitable",
     "candidate_entity_id": "ogryn.ability.ogryn_longer_charge",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1097,16 +1097,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Ability Speshul Ammo",
-    "normalized_text": "ability speshul ammo",
+    "text": "Point Blank Barrage",
+    "normalized_text": "point blank barrage",
     "candidate_entity_id": "ogryn.ability.ogryn_special_ammo",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1122,16 +1122,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Charge Toughness",
-    "normalized_text": "charge toughness",
+    "text": "Stomping Boots",
+    "normalized_text": "stomping boots",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_charge_toughness",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1147,16 +1147,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Charge Applies Bleed",
-    "normalized_text": "charge applies bleed",
+    "text": "Pulverise",
+    "normalized_text": "pulverise",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_charge_applies_bleed",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1172,16 +1172,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Taunt Staggers Reduce Cooldown",
-    "normalized_text": "taunt staggers reduce cooldown",
+    "text": "Just Getting Started",
+    "normalized_text": "just getting started",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_taunt_staggers_reduce_cooldown",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1197,16 +1197,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Special Ammo Armor Pen",
-    "normalized_text": "special ammo armor pen",
+    "text": "Hail Of Fire",
+    "normalized_text": "hail of fire",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_special_ammo_armor_pen",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1222,16 +1222,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Special Ammo Fire Shots",
-    "normalized_text": "special ammo fire shots",
+    "text": "Light Em Up",
+    "normalized_text": "light em up",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_special_ammo_fire_shots",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1247,16 +1247,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Taunt Damage Taken Increase",
-    "normalized_text": "taunt damage taken increase",
+    "text": "Valuable Distraction",
+    "normalized_text": "valuable distraction",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_taunt_damage_taken_increase",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1272,16 +1272,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Blocking Reduces Push Cost",
-    "normalized_text": "blocking reduces push cost",
+    "text": "No Pushover",
+    "normalized_text": "no pushover",
     "candidate_entity_id": "ogryn.talent.ogryn_blocking_reduces_push_cost",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1297,16 +1297,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Ranged Stance Toughness Regen",
-    "normalized_text": "ranged stance toughness regen",
+    "text": "Bullet Bravado",
+    "normalized_text": "bullet bravado",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_ranged_stance_toughness_regen",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1322,16 +1322,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Blitz Big Friendly Rock",
-    "normalized_text": "blitz big friendly rock",
+    "text": "Big Friendly Rock",
+    "normalized_text": "big friendly rock",
     "candidate_entity_id": "ogryn.ability.ogryn_grenade_friend_rock",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1347,16 +1347,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Blocking Ranged Taunts",
-    "normalized_text": "blocking ranged taunts",
+    "text": "Attention Seeker",
+    "normalized_text": "attention seeker",
     "candidate_entity_id": "ogryn.talent.ogryn_blocking_ranged_taunts",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1372,16 +1372,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Taunt Restore Toughness",
-    "normalized_text": "taunt restore toughness",
+    "text": "No Pain 2",
+    "normalized_text": "no pain 2",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_taunt_restore_toughness",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1397,16 +1397,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Ability Charge Trample",
-    "normalized_text": "ability charge trample",
+    "text": "Trample",
+    "normalized_text": "trample",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_charge_trample",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1422,16 +1422,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Replenish Rock On Miss",
-    "normalized_text": "replenish rock on miss",
+    "text": "That One Didnt Count 2",
+    "normalized_text": "that one didnt count 2",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_replenish_rock_on_miss",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1447,16 +1447,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Protect Allies",
-    "normalized_text": "protect allies",
+    "text": "For The Liluns 2",
+    "normalized_text": "for the liluns 2",
     "candidate_entity_id": "ogryn.talent.ogryn_protect_allies",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1472,16 +1472,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Movement Boost On Ranged Damage",
-    "normalized_text": "movement boost on ranged damage",
+    "text": "Cant Hit Meagain 2",
+    "normalized_text": "cant hit meagain 2",
     "candidate_entity_id": "ogryn.talent.ogryn_ranged_damage_immunity",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1497,16 +1497,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Melee Attacks Give Mtdr",
-    "normalized_text": "melee attacks give mtdr",
+    "text": "Focused Fighter 2",
+    "normalized_text": "focused fighter 2",
     "candidate_entity_id": "ogryn.talent.ogryn_melee_attacks_give_mtdr",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1522,16 +1522,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Pushing Applies Brittlenes",
-    "normalized_text": "pushing applies brittlenes",
+    "text": "Brutish Strength 2",
+    "normalized_text": "brutish strength 2",
     "candidate_entity_id": "ogryn.talent.ogryn_pushing_applies_brittleness",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1547,16 +1547,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Explosions Burn",
-    "normalized_text": "explosions burn",
+    "text": "Fire Away 2",
+    "normalized_text": "fire away 2",
     "candidate_entity_id": "ogryn.talent.ogryn_explosions_burn",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1572,16 +1572,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Block All Attacks",
-    "normalized_text": "block all attacks",
+    "text": "Unbreakable 2",
+    "normalized_text": "unbreakable 2",
     "candidate_entity_id": "ogryn.talent.ogryn_block_all_attacks",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1597,16 +1597,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Damage Reduction On High Stamina",
-    "normalized_text": "damage reduction on high stamina",
+    "text": "Pumped Up 2",
+    "normalized_text": "pumped up 2",
     "candidate_entity_id": "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1622,16 +1622,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Special Ammo Movement",
-    "normalized_text": "special ammo movement",
+    "text": "Lucky Streak 2",
+    "normalized_text": "lucky streak 2",
     "candidate_entity_id": "ogryn.talent.ogryn_crit_damage_increase",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1647,16 +1647,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Stacking Attack Speed",
-    "normalized_text": "stacking attack speed",
+    "text": "Frenzied Blows 2",
+    "normalized_text": "frenzied blows 2",
     "candidate_entity_id": "ogryn.talent.ogryn_stacking_attack_speed",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1672,16 +1672,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Melee Damage After Heavy",
-    "normalized_text": "melee damage after heavy",
+    "text": "Beat Them Back 2",
+    "normalized_text": "beat them back 2",
     "candidate_entity_id": "ogryn.talent.ogryn_melee_damage_after_heavy",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1697,16 +1697,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Drain Stamina For Handling",
-    "normalized_text": "drain stamina for handling",
+    "text": "Concentrate 2",
+    "normalized_text": "concentrate 2",
     "candidate_entity_id": "ogryn.talent.ogryn_drain_stamina_for_handling",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1722,16 +1722,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Damage Reduction After Elite Kill",
-    "normalized_text": "damage reduction after elite kill",
+    "text": "Strongman 2",
+    "normalized_text": "strongman 2",
     "candidate_entity_id": "ogryn.talent.ogryn_damage_reduction_after_elite_kill",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1747,16 +1747,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Reload Speed On Empty",
-    "normalized_text": "reload speed on empty",
+    "text": "Keep Shooting 2",
+    "normalized_text": "keep shooting 2",
     "candidate_entity_id": "ogryn.talent.ogryn_reload_speed_on_empty",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1772,16 +1772,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Corruption Resistance",
-    "normalized_text": "corruption resistance",
+    "text": "Simple Minded 2",
+    "normalized_text": "simple minded 2",
     "candidate_entity_id": "ogryn.talent.ogryn_corruption_resistance",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1797,16 +1797,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Blo Wield Speed",
-    "normalized_text": "blo wield speed",
+    "text": "Heat Of Battle 2",
+    "normalized_text": "heat of battle 2",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_blo_wield_speed",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1822,16 +1822,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Blo Melee",
-    "normalized_text": "blo melee",
+    "text": "Back Off 2",
+    "normalized_text": "back off 2",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_blo_melee",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1847,16 +1847,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Heavy Hitter Tdr",
-    "normalized_text": "heavy hitter tdr",
+    "text": "Dont Feel A Thing 2",
+    "normalized_text": "dont feel a thing 2",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_tdr",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1872,16 +1872,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Heavy Hitter Cleave",
-    "normalized_text": "heavy hitter cleave",
+    "text": "Great Cleaver 2",
+    "normalized_text": "great cleaver 2",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_cleave",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1897,16 +1897,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Heavy Hitter Max Stacks Improves Toughness",
-    "normalized_text": "heavy hitter max stacks improves toughness",
+    "text": "Unstoppable",
+    "normalized_text": "unstoppable",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_toughness",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1922,16 +1922,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Heavy Hitter Light Attacks Refresh",
-    "normalized_text": "heavy hitter light attacks refresh",
+    "text": "Impactful 2",
+    "normalized_text": "impactful 2",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_stagger",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1947,16 +1947,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Heavy Hitter Max Stacks Improves Attack Speed",
-    "normalized_text": "heavy hitter max stacks improves attack speed",
+    "text": "Just Getting Started 2",
+    "normalized_text": "just getting started 2",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_attack_speed",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1972,16 +1972,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Wield Speed Increase",
-    "normalized_text": "wield speed increase",
+    "text": "Dedicated Practice 2",
+    "normalized_text": "dedicated practice 2",
     "candidate_entity_id": "ogryn.talent.ogryn_wield_speed_increase",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -1997,16 +1997,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Big Box Of Hurt More Bombs",
-    "normalized_text": "big box of hurt more bombs",
+    "text": "Bigger Box Of Hurt 2",
+    "normalized_text": "bigger box of hurt 2",
     "candidate_entity_id": "ogryn.talent_modifier.ogryn_big_box_of_hurt_more_bombs",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -2022,16 +2022,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Melee Improves Ranged",
-    "normalized_text": "melee improves ranged",
+    "text": "Bash And Blast 2",
+    "normalized_text": "bash and blast 2",
     "candidate_entity_id": "ogryn.talent.ogryn_melee_improves_ranged",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -2047,16 +2047,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Ranged Improves Melee",
-    "normalized_text": "ranged improves melee",
+    "text": "Spray And Slay 2",
+    "normalized_text": "spray and slay 2",
     "candidate_entity_id": "ogryn.talent.ogryn_ranged_improves_melee",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -2072,16 +2072,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Ally Elite Kills Grant Cooldown",
-    "normalized_text": "ally elite kills grant cooldown",
+    "text": "Bruiser",
+    "normalized_text": "bruiser",
     "candidate_entity_id": "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -2097,16 +2097,16 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
-    "text": "Weakspot Damage",
-    "normalized_text": "weakspot damage",
+    "text": "Strike True 2",
+    "normalized_text": "strike true 2",
     "candidate_entity_id": "ogryn.talent.ogryn_weakspot_damage",
     "alias_kind": "community_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "automated",
-    "confidence": "medium",
+    "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
@@ -2122,6 +2122,6 @@
       ]
     },
     "rank_weight": 80,
-    "notes": "Display name derived from icon path. Needs GL scrape verification for exact display name."
+    "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   }
 ]
