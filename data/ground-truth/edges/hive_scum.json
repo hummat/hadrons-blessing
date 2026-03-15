@@ -1,0 +1,3542 @@
+[
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_ability_focus_improved",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.ability.broker_ability_focus_improved",
+    "to_entity_id": "hive_scum.tree_node.node_4fa187c3-c910-4e93-b982-cc2e68d2515b",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_ability_focus_sub_2",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_ability_focus_sub_2",
+    "to_entity_id": "hive_scum.tree_node.node_276ffd37-efb4-4ced-b119-38aa2714359b",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_ability_focus_sub_3",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_ability_focus_sub_3",
+    "to_entity_id": "hive_scum.tree_node.node_28d7a3c1-58af-42f2-99c4-70b734175557",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_ability_punk_rage",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.ability.broker_ability_punk_rage",
+    "to_entity_id": "hive_scum.tree_node.node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_ability_punk_rage_sub_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_1",
+    "to_entity_id": "hive_scum.tree_node.node_4a01428d-790a-49d5-adbb-e910b4272cbe",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_ability_punk_rage_sub_2",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_2",
+    "to_entity_id": "hive_scum.tree_node.node_0625b695-b695-49f5-9050-551fbd7e9699",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_ability_punk_rage_sub_3",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_3",
+    "to_entity_id": "hive_scum.tree_node.node_32f5f38d-828f-4993-8fcf-ebd1f1f30199",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_ability_punk_rage_sub_4",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_4",
+    "to_entity_id": "hive_scum.tree_node.node_8efd6143-4d2d-4bd8-a40d-229263fccfd1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_ability_stimm_field",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.ability.broker_ability_stimm_field",
+    "to_entity_id": "hive_scum.tree_node.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_ability_stimm_field_sub_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_ability_stimm_field_sub_1",
+    "to_entity_id": "hive_scum.tree_node.node_9abd28ea-b786-4e90-a185-4afabef584ec",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_ability_stimm_field_sub_2",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_ability_stimm_field_sub_2",
+    "to_entity_id": "hive_scum.tree_node.node_1eebfc9e-efbd-4df8-9562-3097cb46af1f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_ability_stimm_field_sub_3",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_ability_stimm_field_sub_3",
+    "to_entity_id": "hive_scum.tree_node.node_c7a8a5c5-60d1-4c71-bc38-79121befb0c8",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_aura_gunslinger_improved",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.aura.broker_aura_gunslinger_improved",
+    "to_entity_id": "hive_scum.tree_node.node_8899507b-9a1c-41c4-8107-a3e559dc2172",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_blitz_flash_grenade_improved",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.ability.broker_blitz_flash_grenade_improved",
+    "to_entity_id": "hive_scum.tree_node.node_90db015f-623c-44a1-b981-fce3bee1abb5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_blitz_missile_launcher",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.ability.broker_blitz_missile_launcher",
+    "to_entity_id": "hive_scum.tree_node.node_71b9436c-eebd-417b-b666-9df1a19c2db7",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_blitz_tox_grenade",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.ability.broker_blitz_tox_grenade",
+    "to_entity_id": "hive_scum.tree_node.node_1fffd79f-0e4f-4b88-b35a-8a37fe2939ed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_coherency_anarchist",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.aura.broker_coherency_anarchist",
+    "to_entity_id": "hive_scum.tree_node.node_821e29e2-e6df-445f-817d-2f2d5c79c617",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_coherency_melee_damage",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.aura.broker_coherency_melee_damage",
+    "to_entity_id": "hive_scum.tree_node.node_5717014d-0da6-4d49-b43b-3c9233e6fb37",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_adrenaline_junkie",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.keystone.broker_keystone_adrenaline_junkie",
+    "to_entity_id": "hive_scum.tree_node.node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_adrenaline_junkie_sub_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_1",
+    "to_entity_id": "hive_scum.tree_node.node_ec8f7ffd-0a53-4d62-b0a7-d1c1e5254bcd",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_adrenaline_junkie_sub_2",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_2",
+    "to_entity_id": "hive_scum.tree_node.node_8277fab7-51c3-4697-aa79-d80ddcb6060e",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_adrenaline_junkie_sub_3",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_3",
+    "to_entity_id": "hive_scum.tree_node.node_4943dd3d-899a-44ad-a876-da513a6f3b01",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_adrenaline_junkie_sub_4",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_4",
+    "to_entity_id": "hive_scum.tree_node.node_43d2abfa-c6f8-4ab7-8469-148b526040c2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_adrenaline_junkie_sub_5",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_5",
+    "to_entity_id": "hive_scum.tree_node.node_084b7585-f08d-497a-939b-848ffcb58960",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_chemical_dependency",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.keystone.broker_keystone_chemical_dependency",
+    "to_entity_id": "hive_scum.tree_node.node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_chemical_dependency_sub_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_1",
+    "to_entity_id": "hive_scum.tree_node.node_c557fdde-e5e1-4849-b9ba-1d5302550fb0",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_chemical_dependency_sub_2",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_2",
+    "to_entity_id": "hive_scum.tree_node.node_29d36ca3-ef53-4d5b-980d-0d0353cf8541",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_chemical_dependency_sub_3",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_3",
+    "to_entity_id": "hive_scum.tree_node.node_2459c212-b00a-43ce-a3b6-ad55e67605ed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_vultures_mark_aoe_stagger",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_aoe_stagger",
+    "to_entity_id": "hive_scum.tree_node.node_c2a46314-e334-402f-a37d-12e5f58d1594",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_vultures_mark_dodge_on_ranged_crit",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_dodge_on_ranged_crit",
+    "to_entity_id": "hive_scum.tree_node.node_7c3d0b39-9457-4c3e-a4f6-3334c6d07b96",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_vultures_mark_increased_duration",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_increased_duration",
+    "to_entity_id": "hive_scum.tree_node.node_aab0fcfa-aa2c-4f06-bed9-dd6903333cf0",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_keystone_vultures_mark_on_kill",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.keystone.broker_keystone_vultures_mark_on_kill",
+    "to_entity_id": "hive_scum.tree_node.node_004740df-29af-45f1-af0d-12d2c815a541",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_blitz_inflicts_toxin",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_blitz_inflicts_toxin",
+    "to_entity_id": "hive_scum.tree_node.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_cleave_on_cleave",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_cleave_on_cleave",
+    "to_entity_id": "hive_scum.tree_node.node_2f306ae7-923d-4a28-bbe8-37f860901067",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_close_range_damage_on_dodge",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_close_range_damage_on_dodge",
+    "to_entity_id": "hive_scum.tree_node.node_a8bc4def-415e-4b1b-9b1d-6f2783c5323d",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_close_ranged_damage",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_close_ranged_damage",
+    "to_entity_id": "hive_scum.tree_node.node_61e47549-aaca-4298-977e-ece3e68e2372",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_damage_after_toxined_enemies",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_damage_after_toxined_enemies",
+    "to_entity_id": "hive_scum.tree_node.node_45324e02-771e-4f7d-8743-d306bcf106d2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_damage_on_reload",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_damage_on_reload",
+    "to_entity_id": "hive_scum.tree_node.node_ba99146a-4a89-452f-8b02-7d6d871b30dd",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_damage_vs_elites_monsters",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_damage_vs_elites_monsters",
+    "to_entity_id": "hive_scum.tree_node.node_596f2c9b-2980-4b96-8c2a-521611e83a65",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_damage_vs_heavy_staggered",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_damage_vs_heavy_staggered",
+    "to_entity_id": "hive_scum.tree_node.node_9fd091a0-462c-42cb-917a-ba7755c9fc94",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_dodge_melee_on_slide",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_dodge_melee_on_slide",
+    "to_entity_id": "hive_scum.tree_node.node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_dr_damage_tradeoff_on_stamina",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_dr_damage_tradeoff_on_stamina",
+    "to_entity_id": "hive_scum.tree_node.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_extended_mag",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_extended_mag",
+    "to_entity_id": "hive_scum.tree_node.node_42f02425-b59e-44b5-8eac-c4ae72c9bc1a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_first_target_damage",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_first_target_damage",
+    "to_entity_id": "hive_scum.tree_node.node_546ca755-3d86-41f5-bfc3-01a388f9471a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_improved_dodges",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_improved_dodges",
+    "to_entity_id": "hive_scum.tree_node.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_improved_dodges_at_full_stamina",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_improved_dodges_at_full_stamina",
+    "to_entity_id": "hive_scum.tree_node.node_c8272e59-a92d-4d10-b768-fc7539d3886f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_improved_sprint_dodge",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_improved_sprint_dodge",
+    "to_entity_id": "hive_scum.tree_node.node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_increased_aura_size",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_increased_aura_size",
+    "to_entity_id": "hive_scum.tree_node.node_735140ff-109a-4bc2-a2b9-761614c238cc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_increased_blitz_ammo",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_increased_blitz_ammo",
+    "to_entity_id": "hive_scum.tree_node.node_38569366-6b83-4815-a1e7-ca4f41f4a366",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_increased_ranged_dodges",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_increased_ranged_dodges",
+    "to_entity_id": "hive_scum.tree_node.node_3d505fe8-4783-4d64-9bc8-df4a39546474",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_increased_weakspot_damage",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_increased_weakspot_damage",
+    "to_entity_id": "hive_scum.tree_node.node_52c9240d-6228-4b32-badf-76f17ef9b6da",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_low_ammo_regen",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_low_ammo_regen",
+    "to_entity_id": "hive_scum.tree_node.node_21d23a99-f022-4bb4-831a-e2c1da111e98",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_melee_attacks_apply_toxin",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_melee_attacks_apply_toxin",
+    "to_entity_id": "hive_scum.tree_node.node_82e26378-1ad7-41c9-bd62-db6fee2779f7",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_melee_cleave_on_melee_kill",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_melee_cleave_on_melee_kill",
+    "to_entity_id": "hive_scum.tree_node.node_43d46f72-28f5-4330-8a30-6fb2f1bc94db",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_melee_crit_instakill",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_melee_crit_instakill",
+    "to_entity_id": "hive_scum.tree_node.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_melee_damage_carry_over",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_melee_damage_carry_over",
+    "to_entity_id": "hive_scum.tree_node.node_ca3fd6b8-f002-4e51-875d-a234a153d071",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_ninja_grants_crit_chance",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+    "to_entity_id": "hive_scum.tree_node.node_b2a0147e-0949-4501-8650-2b1ba64377a9",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_punk_grit",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_punk_grit",
+    "to_entity_id": "hive_scum.tree_node.node_e71c71cc-49b9-494b-9904-ee4cc2496658",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_ramping_backstabs",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_ramping_backstabs",
+    "to_entity_id": "hive_scum.tree_node.node_1e885682-6bee-46c1-9d23-21332ffd3b51",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_reduce_swap_time",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_reduce_swap_time",
+    "to_entity_id": "hive_scum.tree_node.node_977720e3-b06a-4dc7-b27c-497af87a0812",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_reduced_damage_by_toxined",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_reduced_damage_by_toxined",
+    "to_entity_id": "hive_scum.tree_node.node_088ae839-61d1-45c5-9656-582439b3b638",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_reduced_toughness_damage_during_reload",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_reduced_toughness_damage_during_reload",
+    "to_entity_id": "hive_scum.tree_node.node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_reload_speed_on_close_kill",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_reload_speed_on_close_kill",
+    "to_entity_id": "hive_scum.tree_node.node_11c062d4-c4be-4e96-b5f2-991bbedf2de3",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_replenish_toughness_on_ranged_toughness_damage",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_replenish_toughness_on_ranged_toughness_damage",
+    "to_entity_id": "hive_scum.tree_node.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_restore_toughness_on_close_ranged_kill",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_restore_toughness_on_close_ranged_kill",
+    "to_entity_id": "hive_scum.tree_node.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_restore_toughness_on_weakspot_kill",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_restore_toughness_on_weakspot_kill",
+    "to_entity_id": "hive_scum.tree_node.node_46a6b70d-17b4-4088-af93-c3af18887046",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_sprinting_reduces_threat",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_sprinting_reduces_threat",
+    "to_entity_id": "hive_scum.tree_node.node_f8ac2c83-f6f8-40f2-958d-565a359f0607",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_stamina_grants_atk_speed",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_stamina_grants_atk_speed",
+    "to_entity_id": "hive_scum.tree_node.node_ba662782-8e5c-4a86-8927-3127d7c3735c",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_stamina_on_successful_dodge",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_stamina_on_successful_dodge",
+    "to_entity_id": "hive_scum.tree_node.node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_stimm_cd_on_kill",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_stimm_cd_on_kill",
+    "to_entity_id": "hive_scum.tree_node.node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_stimm_cleanse_on_kill",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_stimm_cleanse_on_kill",
+    "to_entity_id": "hive_scum.tree_node.node_75d309a1-bc24-4856-bf61-814272a077e2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_stimm_increased_duration",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_stimm_increased_duration",
+    "to_entity_id": "hive_scum.tree_node.node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_stun_immunity_on_toughness_broken",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_stun_immunity_on_toughness_broken",
+    "to_entity_id": "hive_scum.tree_node.node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_toughness_on_toxined_kill",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_toughness_on_toxined_kill",
+    "to_entity_id": "hive_scum.tree_node.node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_004740df-29af-45f1-af0d-12d2c815a541.node_1e885682-6bee-46c1-9d23-21332ffd3b51",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_004740df-29af-45f1-af0d-12d2c815a541",
+    "to_entity_id": "hive_scum.tree_node.node_1e885682-6bee-46c1-9d23-21332ffd3b51",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_004740df-29af-45f1-af0d-12d2c815a541.node_3d505fe8-4783-4d64-9bc8-df4a39546474",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_004740df-29af-45f1-af0d-12d2c815a541",
+    "to_entity_id": "hive_scum.tree_node.node_3d505fe8-4783-4d64-9bc8-df4a39546474",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_004740df-29af-45f1-af0d-12d2c815a541.node_7c3d0b39-9457-4c3e-a4f6-3334c6d07b96",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_004740df-29af-45f1-af0d-12d2c815a541",
+    "to_entity_id": "hive_scum.tree_node.node_7c3d0b39-9457-4c3e-a4f6-3334c6d07b96",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_004740df-29af-45f1-af0d-12d2c815a541.node_aab0fcfa-aa2c-4f06-bed9-dd6903333cf0",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_004740df-29af-45f1-af0d-12d2c815a541",
+    "to_entity_id": "hive_scum.tree_node.node_aab0fcfa-aa2c-4f06-bed9-dd6903333cf0",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_004740df-29af-45f1-af0d-12d2c815a541.node_c2a46314-e334-402f-a37d-12e5f58d1594",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_004740df-29af-45f1-af0d-12d2c815a541",
+    "to_entity_id": "hive_scum.tree_node.node_c2a46314-e334-402f-a37d-12e5f58d1594",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_088ae839-61d1-45c5-9656-582439b3b638.node_3b9ce6b2-13e7-42f3-a450-60c2d72cbe0e",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_088ae839-61d1-45c5-9656-582439b3b638",
+    "to_entity_id": "hive_scum.tree_node.node_3b9ce6b2-13e7-42f3-a450-60c2d72cbe0e",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_088ae839-61d1-45c5-9656-582439b3b638.node_45324e02-771e-4f7d-8743-d306bcf106d2",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_088ae839-61d1-45c5-9656-582439b3b638",
+    "to_entity_id": "hive_scum.tree_node.node_45324e02-771e-4f7d-8743-d306bcf106d2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_088ae839-61d1-45c5-9656-582439b3b638.node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_088ae839-61d1-45c5-9656-582439b3b638",
+    "to_entity_id": "hive_scum.tree_node.node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_089c4280-425c-40cd-8ec6-0aa812fe11ff.node_42f02425-b59e-44b5-8eac-c4ae72c9bc1a",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
+    "to_entity_id": "hive_scum.tree_node.node_42f02425-b59e-44b5-8eac-c4ae72c9bc1a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_089c4280-425c-40cd-8ec6-0aa812fe11ff.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
+    "to_entity_id": "hive_scum.tree_node.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_089c4280-425c-40cd-8ec6-0aa812fe11ff.node_ba662782-8e5c-4a86-8927-3127d7c3735c",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
+    "to_entity_id": "hive_scum.tree_node.node_ba662782-8e5c-4a86-8927-3127d7c3735c",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_089c4280-425c-40cd-8ec6-0aa812fe11ff.node_ba99146a-4a89-452f-8b02-7d6d871b30dd",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
+    "to_entity_id": "hive_scum.tree_node.node_ba99146a-4a89-452f-8b02-7d6d871b30dd",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_11c062d4-c4be-4e96-b5f2-991bbedf2de3.node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_11c062d4-c4be-4e96-b5f2-991bbedf2de3",
+    "to_entity_id": "hive_scum.tree_node.node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_11c062d4-c4be-4e96-b5f2-991bbedf2de3.node_8f48a9f7-b2ed-4aa2-b071-73ebf35d3528",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_11c062d4-c4be-4e96-b5f2-991bbedf2de3",
+    "to_entity_id": "hive_scum.tree_node.node_8f48a9f7-b2ed-4aa2-b071-73ebf35d3528",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_1e885682-6bee-46c1-9d23-21332ffd3b51.node_004740df-29af-45f1-af0d-12d2c815a541",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_1e885682-6bee-46c1-9d23-21332ffd3b51",
+    "to_entity_id": "hive_scum.tree_node.node_004740df-29af-45f1-af0d-12d2c815a541",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_1fffd79f-0e4f-4b88-b35a-8a37fe2939ed.node_e71c71cc-49b9-494b-9904-ee4cc2496658",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_1fffd79f-0e4f-4b88-b35a-8a37fe2939ed",
+    "to_entity_id": "hive_scum.tree_node.node_e71c71cc-49b9-494b-9904-ee4cc2496658",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_21d23a99-f022-4bb4-831a-e2c1da111e98.node_3d505fe8-4783-4d64-9bc8-df4a39546474",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_21d23a99-f022-4bb4-831a-e2c1da111e98",
+    "to_entity_id": "hive_scum.tree_node.node_3d505fe8-4783-4d64-9bc8-df4a39546474",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_21d23a99-f022-4bb4-831a-e2c1da111e98.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_21d23a99-f022-4bb4-831a-e2c1da111e98",
+    "to_entity_id": "hive_scum.tree_node.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_2c613026-5cb8-44d3-aff8-29114f2f10b6.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
+    "to_entity_id": "hive_scum.tree_node.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_2f306ae7-923d-4a28-bbe8-37f860901067.node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_2f306ae7-923d-4a28-bbe8-37f860901067",
+    "to_entity_id": "hive_scum.tree_node.node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_2f306ae7-923d-4a28-bbe8-37f860901067.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_2f306ae7-923d-4a28-bbe8-37f860901067",
+    "to_entity_id": "hive_scum.tree_node.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_38569366-6b83-4815-a1e7-ca4f41f4a366.node_45324e02-771e-4f7d-8743-d306bcf106d2",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_38569366-6b83-4815-a1e7-ca4f41f4a366",
+    "to_entity_id": "hive_scum.tree_node.node_45324e02-771e-4f7d-8743-d306bcf106d2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_38569366-6b83-4815-a1e7-ca4f41f4a366.node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_38569366-6b83-4815-a1e7-ca4f41f4a366",
+    "to_entity_id": "hive_scum.tree_node.node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_38569366-6b83-4815-a1e7-ca4f41f4a366.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_38569366-6b83-4815-a1e7-ca4f41f4a366",
+    "to_entity_id": "hive_scum.tree_node.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c.node_2459c212-b00a-43ce-a3b6-ad55e67605ed",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
+    "to_entity_id": "hive_scum.tree_node.node_2459c212-b00a-43ce-a3b6-ad55e67605ed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c.node_29d36ca3-ef53-4d5b-980d-0d0353cf8541",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
+    "to_entity_id": "hive_scum.tree_node.node_29d36ca3-ef53-4d5b-980d-0d0353cf8541",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c.node_c557fdde-e5e1-4849-b9ba-1d5302550fb0",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
+    "to_entity_id": "hive_scum.tree_node.node_c557fdde-e5e1-4849-b9ba-1d5302550fb0",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_3d4045a2-3883-4d78-9bf7-ac097351162e.node_5717014d-0da6-4d49-b43b-3c9233e6fb37",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "to_entity_id": "hive_scum.tree_node.node_5717014d-0da6-4d49-b43b-3c9233e6fb37",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_3d4045a2-3883-4d78-9bf7-ac097351162e.node_821e29e2-e6df-445f-817d-2f2d5c79c617",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "to_entity_id": "hive_scum.tree_node.node_821e29e2-e6df-445f-817d-2f2d5c79c617",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_3d4045a2-3883-4d78-9bf7-ac097351162e.node_8899507b-9a1c-41c4-8107-a3e559dc2172",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "to_entity_id": "hive_scum.tree_node.node_8899507b-9a1c-41c4-8107-a3e559dc2172",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_3d4045a2-3883-4d78-9bf7-ac097351162e.node_c8272e59-a92d-4d10-b768-fc7539d3886f",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "to_entity_id": "hive_scum.tree_node.node_c8272e59-a92d-4d10-b768-fc7539d3886f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_3d4045a2-3883-4d78-9bf7-ac097351162e.node_f8ac2c83-f6f8-40f2-958d-565a359f0607",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "to_entity_id": "hive_scum.tree_node.node_f8ac2c83-f6f8-40f2-958d-565a359f0607",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_3d505fe8-4783-4d64-9bc8-df4a39546474.node_004740df-29af-45f1-af0d-12d2c815a541",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_3d505fe8-4783-4d64-9bc8-df4a39546474",
+    "to_entity_id": "hive_scum.tree_node.node_004740df-29af-45f1-af0d-12d2c815a541",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_42f02425-b59e-44b5-8eac-c4ae72c9bc1a.node_21d23a99-f022-4bb4-831a-e2c1da111e98",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_42f02425-b59e-44b5-8eac-c4ae72c9bc1a",
+    "to_entity_id": "hive_scum.tree_node.node_21d23a99-f022-4bb4-831a-e2c1da111e98",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_42f02425-b59e-44b5-8eac-c4ae72c9bc1a.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_42f02425-b59e-44b5-8eac-c4ae72c9bc1a",
+    "to_entity_id": "hive_scum.tree_node.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_43d46f72-28f5-4330-8a30-6fb2f1bc94db.node_2f306ae7-923d-4a28-bbe8-37f860901067",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_43d46f72-28f5-4330-8a30-6fb2f1bc94db",
+    "to_entity_id": "hive_scum.tree_node.node_2f306ae7-923d-4a28-bbe8-37f860901067",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_43d46f72-28f5-4330-8a30-6fb2f1bc94db.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_43d46f72-28f5-4330-8a30-6fb2f1bc94db",
+    "to_entity_id": "hive_scum.tree_node.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_45324e02-771e-4f7d-8743-d306bcf106d2.node_088ae839-61d1-45c5-9656-582439b3b638",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_45324e02-771e-4f7d-8743-d306bcf106d2",
+    "to_entity_id": "hive_scum.tree_node.node_088ae839-61d1-45c5-9656-582439b3b638",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_45324e02-771e-4f7d-8743-d306bcf106d2.node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_45324e02-771e-4f7d-8743-d306bcf106d2",
+    "to_entity_id": "hive_scum.tree_node.node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_45324e02-771e-4f7d-8743-d306bcf106d2.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_45324e02-771e-4f7d-8743-d306bcf106d2",
+    "to_entity_id": "hive_scum.tree_node.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_46a6b70d-17b4-4088-af93-c3af18887046.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_46a6b70d-17b4-4088-af93-c3af18887046",
+    "to_entity_id": "hive_scum.tree_node.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_46a6b70d-17b4-4088-af93-c3af18887046.node_977720e3-b06a-4dc7-b27c-497af87a0812",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_46a6b70d-17b4-4088-af93-c3af18887046",
+    "to_entity_id": "hive_scum.tree_node.node_977720e3-b06a-4dc7-b27c-497af87a0812",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_46a6b70d-17b4-4088-af93-c3af18887046.node_b2a0147e-0949-4501-8650-2b1ba64377a9",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_46a6b70d-17b4-4088-af93-c3af18887046",
+    "to_entity_id": "hive_scum.tree_node.node_b2a0147e-0949-4501-8650-2b1ba64377a9",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_46a6b70d-17b4-4088-af93-c3af18887046.node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_46a6b70d-17b4-4088-af93-c3af18887046",
+    "to_entity_id": "hive_scum.tree_node.node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_4fa187c3-c910-4e93-b982-cc2e68d2515b.node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_4fa187c3-c910-4e93-b982-cc2e68d2515b",
+    "to_entity_id": "hive_scum.tree_node.node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_4fa187c3-c910-4e93-b982-cc2e68d2515b.node_276ffd37-efb4-4ced-b119-38aa2714359b",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_4fa187c3-c910-4e93-b982-cc2e68d2515b",
+    "to_entity_id": "hive_scum.tree_node.node_276ffd37-efb4-4ced-b119-38aa2714359b",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_4fa187c3-c910-4e93-b982-cc2e68d2515b.node_28d7a3c1-58af-42f2-99c4-70b734175557",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_4fa187c3-c910-4e93-b982-cc2e68d2515b",
+    "to_entity_id": "hive_scum.tree_node.node_28d7a3c1-58af-42f2-99c4-70b734175557",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_4fa187c3-c910-4e93-b982-cc2e68d2515b.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_4fa187c3-c910-4e93-b982-cc2e68d2515b",
+    "to_entity_id": "hive_scum.tree_node.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_4fa187c3-c910-4e93-b982-cc2e68d2515b.node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_4fa187c3-c910-4e93-b982-cc2e68d2515b",
+    "to_entity_id": "hive_scum.tree_node.node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_50641b61-dfb0-4865-87e7-30e4dd71acdc.node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
+    "to_entity_id": "hive_scum.tree_node.node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_50641b61-dfb0-4865-87e7-30e4dd71acdc.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
+    "to_entity_id": "hive_scum.tree_node.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_52c9240d-6228-4b32-badf-76f17ef9b6da.node_1e885682-6bee-46c1-9d23-21332ffd3b51",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_52c9240d-6228-4b32-badf-76f17ef9b6da",
+    "to_entity_id": "hive_scum.tree_node.node_1e885682-6bee-46c1-9d23-21332ffd3b51",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_52c9240d-6228-4b32-badf-76f17ef9b6da.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_52c9240d-6228-4b32-badf-76f17ef9b6da",
+    "to_entity_id": "hive_scum.tree_node.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_546ca755-3d86-41f5-bfc3-01a388f9471a.node_46a6b70d-17b4-4088-af93-c3af18887046",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_546ca755-3d86-41f5-bfc3-01a388f9471a",
+    "to_entity_id": "hive_scum.tree_node.node_46a6b70d-17b4-4088-af93-c3af18887046",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_546ca755-3d86-41f5-bfc3-01a388f9471a.node_b2a0147e-0949-4501-8650-2b1ba64377a9",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_546ca755-3d86-41f5-bfc3-01a388f9471a",
+    "to_entity_id": "hive_scum.tree_node.node_b2a0147e-0949-4501-8650-2b1ba64377a9",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_5717014d-0da6-4d49-b43b-3c9233e6fb37.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_5717014d-0da6-4d49-b43b-3c9233e6fb37",
+    "to_entity_id": "hive_scum.tree_node.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_596f2c9b-2980-4b96-8c2a-521611e83a65.node_ca3fd6b8-f002-4e51-875d-a234a153d071",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_596f2c9b-2980-4b96-8c2a-521611e83a65",
+    "to_entity_id": "hive_scum.tree_node.node_ca3fd6b8-f002-4e51-875d-a234a153d071",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_596f2c9b-2980-4b96-8c2a-521611e83a65.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_596f2c9b-2980-4b96-8c2a-521611e83a65",
+    "to_entity_id": "hive_scum.tree_node.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_5c6828fd-4ac1-427e-bd39-793677a16ccc.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
+    "to_entity_id": "hive_scum.tree_node.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_5c6828fd-4ac1-427e-bd39-793677a16ccc.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
+    "to_entity_id": "hive_scum.tree_node.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_5c6828fd-4ac1-427e-bd39-793677a16ccc.node_c8272e59-a92d-4d10-b768-fc7539d3886f",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
+    "to_entity_id": "hive_scum.tree_node.node_c8272e59-a92d-4d10-b768-fc7539d3886f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_61e47549-aaca-4298-977e-ece3e68e2372.node_11c062d4-c4be-4e96-b5f2-991bbedf2de3",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_61e47549-aaca-4298-977e-ece3e68e2372",
+    "to_entity_id": "hive_scum.tree_node.node_11c062d4-c4be-4e96-b5f2-991bbedf2de3",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_61e47549-aaca-4298-977e-ece3e68e2372.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_61e47549-aaca-4298-977e-ece3e68e2372",
+    "to_entity_id": "hive_scum.tree_node.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29.node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "to_entity_id": "hive_scum.tree_node.node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29.node_43d46f72-28f5-4330-8a30-6fb2f1bc94db",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "to_entity_id": "hive_scum.tree_node.node_43d46f72-28f5-4330-8a30-6fb2f1bc94db",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29.node_596f2c9b-2980-4b96-8c2a-521611e83a65",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "to_entity_id": "hive_scum.tree_node.node_596f2c9b-2980-4b96-8c2a-521611e83a65",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29.node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "to_entity_id": "hive_scum.tree_node.node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29.node_9fd091a0-462c-42cb-917a-ba7755c9fc94",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "to_entity_id": "hive_scum.tree_node.node_9fd091a0-462c-42cb-917a-ba7755c9fc94",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29.node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "to_entity_id": "hive_scum.tree_node.node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_71b9436c-eebd-417b-b666-9df1a19c2db7.node_e71c71cc-49b9-494b-9904-ee4cc2496658",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_71b9436c-eebd-417b-b666-9df1a19c2db7",
+    "to_entity_id": "hive_scum.tree_node.node_e71c71cc-49b9-494b-9904-ee4cc2496658",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_735140ff-109a-4bc2-a2b9-761614c238cc.node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_735140ff-109a-4bc2-a2b9-761614c238cc",
+    "to_entity_id": "hive_scum.tree_node.node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_75d309a1-bc24-4856-bf61-814272a077e2.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_75d309a1-bc24-4856-bf61-814272a077e2",
+    "to_entity_id": "hive_scum.tree_node.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_75d309a1-bc24-4856-bf61-814272a077e2.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_75d309a1-bc24-4856-bf61-814272a077e2",
+    "to_entity_id": "hive_scum.tree_node.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_763f2b5b-964d-42a3-b4d7-4fca89c0e311.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
+    "to_entity_id": "hive_scum.tree_node.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_763f2b5b-964d-42a3-b4d7-4fca89c0e311.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
+    "to_entity_id": "hive_scum.tree_node.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_763f2b5b-964d-42a3-b4d7-4fca89c0e311.node_f8ac2c83-f6f8-40f2-958d-565a359f0607",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
+    "to_entity_id": "hive_scum.tree_node.node_f8ac2c83-f6f8-40f2-958d-565a359f0607",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+    "to_entity_id": "hive_scum.tree_node.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef.node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+    "to_entity_id": "hive_scum.tree_node.node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef.node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+    "to_entity_id": "hive_scum.tree_node.node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_821e29e2-e6df-445f-817d-2f2d5c79c617.node_75d309a1-bc24-4856-bf61-814272a077e2",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_821e29e2-e6df-445f-817d-2f2d5c79c617",
+    "to_entity_id": "hive_scum.tree_node.node_75d309a1-bc24-4856-bf61-814272a077e2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_821e29e2-e6df-445f-817d-2f2d5c79c617.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_821e29e2-e6df-445f-817d-2f2d5c79c617",
+    "to_entity_id": "hive_scum.tree_node.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_82e26378-1ad7-41c9-bd62-db6fee2779f7.node_088ae839-61d1-45c5-9656-582439b3b638",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_82e26378-1ad7-41c9-bd62-db6fee2779f7",
+    "to_entity_id": "hive_scum.tree_node.node_088ae839-61d1-45c5-9656-582439b3b638",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_82e26378-1ad7-41c9-bd62-db6fee2779f7.node_45324e02-771e-4f7d-8743-d306bcf106d2",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_82e26378-1ad7-41c9-bd62-db6fee2779f7",
+    "to_entity_id": "hive_scum.tree_node.node_45324e02-771e-4f7d-8743-d306bcf106d2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_887dd932-ea4e-42cb-b294-64f30771d7e0.node_084b7585-f08d-497a-939b-848ffcb58960",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+    "to_entity_id": "hive_scum.tree_node.node_084b7585-f08d-497a-939b-848ffcb58960",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_887dd932-ea4e-42cb-b294-64f30771d7e0.node_43d2abfa-c6f8-4ab7-8469-148b526040c2",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+    "to_entity_id": "hive_scum.tree_node.node_43d2abfa-c6f8-4ab7-8469-148b526040c2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_887dd932-ea4e-42cb-b294-64f30771d7e0.node_4943dd3d-899a-44ad-a876-da513a6f3b01",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+    "to_entity_id": "hive_scum.tree_node.node_4943dd3d-899a-44ad-a876-da513a6f3b01",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_887dd932-ea4e-42cb-b294-64f30771d7e0.node_8277fab7-51c3-4697-aa79-d80ddcb6060e",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+    "to_entity_id": "hive_scum.tree_node.node_8277fab7-51c3-4697-aa79-d80ddcb6060e",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_887dd932-ea4e-42cb-b294-64f30771d7e0.node_ec8f7ffd-0a53-4d62-b0a7-d1c1e5254bcd",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+    "to_entity_id": "hive_scum.tree_node.node_ec8f7ffd-0a53-4d62-b0a7-d1c1e5254bcd",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8899507b-9a1c-41c4-8107-a3e559dc2172.node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8899507b-9a1c-41c4-8107-a3e559dc2172",
+    "to_entity_id": "hive_scum.tree_node.node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8899507b-9a1c-41c4-8107-a3e559dc2172.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8899507b-9a1c-41c4-8107-a3e559dc2172",
+    "to_entity_id": "hive_scum.tree_node.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1.node_1fffd79f-0e4f-4b88-b35a-8a37fe2939ed",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+    "to_entity_id": "hive_scum.tree_node.node_1fffd79f-0e4f-4b88-b35a-8a37fe2939ed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1.node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+    "to_entity_id": "hive_scum.tree_node.node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1.node_71b9436c-eebd-417b-b666-9df1a19c2db7",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+    "to_entity_id": "hive_scum.tree_node.node_71b9436c-eebd-417b-b666-9df1a19c2db7",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1.node_8f48a9f7-b2ed-4aa2-b071-73ebf35d3528",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+    "to_entity_id": "hive_scum.tree_node.node_8f48a9f7-b2ed-4aa2-b071-73ebf35d3528",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1.node_90db015f-623c-44a1-b981-fce3bee1abb5",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+    "to_entity_id": "hive_scum.tree_node.node_90db015f-623c-44a1-b981-fce3bee1abb5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1.node_977720e3-b06a-4dc7-b27c-497af87a0812",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+    "to_entity_id": "hive_scum.tree_node.node_977720e3-b06a-4dc7-b27c-497af87a0812",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5.node_11c062d4-c4be-4e96-b5f2-991bbedf2de3",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
+    "to_entity_id": "hive_scum.tree_node.node_11c062d4-c4be-4e96-b5f2-991bbedf2de3",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5.node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
+    "to_entity_id": "hive_scum.tree_node.node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5.node_46a6b70d-17b4-4088-af93-c3af18887046",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
+    "to_entity_id": "hive_scum.tree_node.node_46a6b70d-17b4-4088-af93-c3af18887046",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5.node_8f48a9f7-b2ed-4aa2-b071-73ebf35d3528",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
+    "to_entity_id": "hive_scum.tree_node.node_8f48a9f7-b2ed-4aa2-b071-73ebf35d3528",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5.node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
+    "to_entity_id": "hive_scum.tree_node.node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8e4d87c9-49d0-4bee-a732-7ddeb3949022.node_38569366-6b83-4815-a1e7-ca4f41f4a366",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
+    "to_entity_id": "hive_scum.tree_node.node_38569366-6b83-4815-a1e7-ca4f41f4a366",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8e4d87c9-49d0-4bee-a732-7ddeb3949022.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
+    "to_entity_id": "hive_scum.tree_node.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8e4d87c9-49d0-4bee-a732-7ddeb3949022.node_735140ff-109a-4bc2-a2b9-761614c238cc",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
+    "to_entity_id": "hive_scum.tree_node.node_735140ff-109a-4bc2-a2b9-761614c238cc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_8e4d87c9-49d0-4bee-a732-7ddeb3949022.node_82e26378-1ad7-41c9-bd62-db6fee2779f7",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
+    "to_entity_id": "hive_scum.tree_node.node_82e26378-1ad7-41c9-bd62-db6fee2779f7",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_90db015f-623c-44a1-b981-fce3bee1abb5.node_e71c71cc-49b9-494b-9904-ee4cc2496658",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_90db015f-623c-44a1-b981-fce3bee1abb5",
+    "to_entity_id": "hive_scum.tree_node.node_e71c71cc-49b9-494b-9904-ee4cc2496658",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_960e594b-c6d9-4bac-aa73-31bfe2e2691f.node_546ca755-3d86-41f5-bfc3-01a388f9471a",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_960e594b-c6d9-4bac-aa73-31bfe2e2691f",
+    "to_entity_id": "hive_scum.tree_node.node_546ca755-3d86-41f5-bfc3-01a388f9471a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_960e594b-c6d9-4bac-aa73-31bfe2e2691f.node_61e47549-aaca-4298-977e-ece3e68e2372",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_960e594b-c6d9-4bac-aa73-31bfe2e2691f",
+    "to_entity_id": "hive_scum.tree_node.node_61e47549-aaca-4298-977e-ece3e68e2372",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_960e594b-c6d9-4bac-aa73-31bfe2e2691f.node_a8bc4def-415e-4b1b-9b1d-6f2783c5323d",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_960e594b-c6d9-4bac-aa73-31bfe2e2691f",
+    "to_entity_id": "hive_scum.tree_node.node_a8bc4def-415e-4b1b-9b1d-6f2783c5323d",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_977720e3-b06a-4dc7-b27c-497af87a0812.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_977720e3-b06a-4dc7-b27c-497af87a0812",
+    "to_entity_id": "hive_scum.tree_node.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8.node_4fa187c3-c910-4e93-b982-cc2e68d2515b",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
+    "to_entity_id": "hive_scum.tree_node.node_4fa187c3-c910-4e93-b982-cc2e68d2515b",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
+    "to_entity_id": "hive_scum.tree_node.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_9fd091a0-462c-42cb-917a-ba7755c9fc94.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_9fd091a0-462c-42cb-917a-ba7755c9fc94",
+    "to_entity_id": "hive_scum.tree_node.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2.node_0625b695-b695-49f5-9050-551fbd7e9699",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2",
+    "to_entity_id": "hive_scum.tree_node.node_0625b695-b695-49f5-9050-551fbd7e9699",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2.node_32f5f38d-828f-4993-8fcf-ebd1f1f30199",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2",
+    "to_entity_id": "hive_scum.tree_node.node_32f5f38d-828f-4993-8fcf-ebd1f1f30199",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2.node_4a01428d-790a-49d5-adbb-e910b4272cbe",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2",
+    "to_entity_id": "hive_scum.tree_node.node_4a01428d-790a-49d5-adbb-e910b4272cbe",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2",
+    "to_entity_id": "hive_scum.tree_node.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2.node_8efd6143-4d2d-4bd8-a40d-229263fccfd1",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2",
+    "to_entity_id": "hive_scum.tree_node.node_8efd6143-4d2d-4bd8-a40d-229263fccfd1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_a43d9e96-9651-4ff6-8627-49dbd87e668b.node_4fa187c3-c910-4e93-b982-cc2e68d2515b",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "to_entity_id": "hive_scum.tree_node.node_4fa187c3-c910-4e93-b982-cc2e68d2515b",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_a43d9e96-9651-4ff6-8627-49dbd87e668b.node_75d309a1-bc24-4856-bf61-814272a077e2",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "to_entity_id": "hive_scum.tree_node.node_75d309a1-bc24-4856-bf61-814272a077e2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_a43d9e96-9651-4ff6-8627-49dbd87e668b.node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "to_entity_id": "hive_scum.tree_node.node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_a43d9e96-9651-4ff6-8627-49dbd87e668b.node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "to_entity_id": "hive_scum.tree_node.node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_a43d9e96-9651-4ff6-8627-49dbd87e668b.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "to_entity_id": "hive_scum.tree_node.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_a8bc4def-415e-4b1b-9b1d-6f2783c5323d.node_46a6b70d-17b4-4088-af93-c3af18887046",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_a8bc4def-415e-4b1b-9b1d-6f2783c5323d",
+    "to_entity_id": "hive_scum.tree_node.node_46a6b70d-17b4-4088-af93-c3af18887046",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_a8bc4def-415e-4b1b-9b1d-6f2783c5323d.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_a8bc4def-415e-4b1b-9b1d-6f2783c5323d",
+    "to_entity_id": "hive_scum.tree_node.node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_b2a0147e-0949-4501-8650-2b1ba64377a9.node_977720e3-b06a-4dc7-b27c-497af87a0812",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_b2a0147e-0949-4501-8650-2b1ba64377a9",
+    "to_entity_id": "hive_scum.tree_node.node_977720e3-b06a-4dc7-b27c-497af87a0812",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_b2bbbec7-1551-42ea-9d9b-9771eda40654.node_3b9ce6b2-13e7-42f3-a450-60c2d72cbe0e",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
+    "to_entity_id": "hive_scum.tree_node.node_3b9ce6b2-13e7-42f3-a450-60c2d72cbe0e",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_ba662782-8e5c-4a86-8927-3127d7c3735c.node_52c9240d-6228-4b32-badf-76f17ef9b6da",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_ba662782-8e5c-4a86-8927-3127d7c3735c",
+    "to_entity_id": "hive_scum.tree_node.node_52c9240d-6228-4b32-badf-76f17ef9b6da",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_ba662782-8e5c-4a86-8927-3127d7c3735c.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_ba662782-8e5c-4a86-8927-3127d7c3735c",
+    "to_entity_id": "hive_scum.tree_node.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_ba99146a-4a89-452f-8b02-7d6d871b30dd.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_ba99146a-4a89-452f-8b02-7d6d871b30dd",
+    "to_entity_id": "hive_scum.tree_node.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc",
+    "to_entity_id": "hive_scum.tree_node.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_c8272e59-a92d-4d10-b768-fc7539d3886f.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_c8272e59-a92d-4d10-b768-fc7539d3886f",
+    "to_entity_id": "hive_scum.tree_node.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_c8272e59-a92d-4d10-b768-fc7539d3886f.node_821e29e2-e6df-445f-817d-2f2d5c79c617",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_c8272e59-a92d-4d10-b768-fc7539d3886f",
+    "to_entity_id": "hive_scum.tree_node.node_821e29e2-e6df-445f-817d-2f2d5c79c617",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_ca3fd6b8-f002-4e51-875d-a234a153d071.node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_ca3fd6b8-f002-4e51-875d-a234a153d071",
+    "to_entity_id": "hive_scum.tree_node.node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_ca3fd6b8-f002-4e51-875d-a234a153d071.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_ca3fd6b8-f002-4e51-875d-a234a153d071",
+    "to_entity_id": "hive_scum.tree_node.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f.node_004740df-29af-45f1-af0d-12d2c815a541",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "to_entity_id": "hive_scum.tree_node.node_004740df-29af-45f1-af0d-12d2c815a541",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f.node_1e885682-6bee-46c1-9d23-21332ffd3b51",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "to_entity_id": "hive_scum.tree_node.node_1e885682-6bee-46c1-9d23-21332ffd3b51",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f.node_21d23a99-f022-4bb4-831a-e2c1da111e98",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "to_entity_id": "hive_scum.tree_node.node_21d23a99-f022-4bb4-831a-e2c1da111e98",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f.node_3d505fe8-4783-4d64-9bc8-df4a39546474",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "to_entity_id": "hive_scum.tree_node.node_3d505fe8-4783-4d64-9bc8-df4a39546474",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f.node_52c9240d-6228-4b32-badf-76f17ef9b6da",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+    "to_entity_id": "hive_scum.tree_node.node_52c9240d-6228-4b32-badf-76f17ef9b6da",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad.node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
+    "to_entity_id": "hive_scum.tree_node.node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad.node_45324e02-771e-4f7d-8743-d306bcf106d2",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
+    "to_entity_id": "hive_scum.tree_node.node_45324e02-771e-4f7d-8743-d306bcf106d2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad.node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
+    "to_entity_id": "hive_scum.tree_node.node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad.node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
+    "to_entity_id": "hive_scum.tree_node.node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_d774a7a8-87a2-4b0e-973e-5f735b67109f.node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
+    "to_entity_id": "hive_scum.tree_node.node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_d774a7a8-87a2-4b0e-973e-5f735b67109f.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
+    "to_entity_id": "hive_scum.tree_node.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_d774a7a8-87a2-4b0e-973e-5f735b67109f.node_977720e3-b06a-4dc7-b27c-497af87a0812",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
+    "to_entity_id": "hive_scum.tree_node.node_977720e3-b06a-4dc7-b27c-497af87a0812",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d.node_1eebfc9e-efbd-4df8-9562-3097cb46af1f",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d",
+    "to_entity_id": "hive_scum.tree_node.node_1eebfc9e-efbd-4df8-9562-3097cb46af1f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d.node_61886809-9c92-4986-9441-23c5ff71e45c",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d",
+    "to_entity_id": "hive_scum.tree_node.node_61886809-9c92-4986-9441-23c5ff71e45c",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d",
+    "to_entity_id": "hive_scum.tree_node.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d.node_75d309a1-bc24-4856-bf61-814272a077e2",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d",
+    "to_entity_id": "hive_scum.tree_node.node_75d309a1-bc24-4856-bf61-814272a077e2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d.node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d",
+    "to_entity_id": "hive_scum.tree_node.node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d.node_9abd28ea-b786-4e90-a185-4afabef584ec",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d",
+    "to_entity_id": "hive_scum.tree_node.node_9abd28ea-b786-4e90-a185-4afabef584ec",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d.node_c7a8a5c5-60d1-4c71-bc38-79121befb0c8",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_e341cdcf-7254-4ac0-9f37-cb056b00d14d",
+    "to_entity_id": "hive_scum.tree_node.node_c7a8a5c5-60d1-4c71-bc38-79121befb0c8",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_e71c71cc-49b9-494b-9904-ee4cc2496658.node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_e71c71cc-49b9-494b-9904-ee4cc2496658",
+    "to_entity_id": "hive_scum.tree_node.node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_e71c71cc-49b9-494b-9904-ee4cc2496658.node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_e71c71cc-49b9-494b-9904-ee4cc2496658",
+    "to_entity_id": "hive_scum.tree_node.node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_e71c71cc-49b9-494b-9904-ee4cc2496658.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_e71c71cc-49b9-494b-9904-ee4cc2496658",
+    "to_entity_id": "hive_scum.tree_node.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_f8ac2c83-f6f8-40f2-958d-565a359f0607.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_f8ac2c83-f6f8-40f2-958d-565a359f0607",
+    "to_entity_id": "hive_scum.tree_node.node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_f8ac2c83-f6f8-40f2-958d-565a359f0607.node_8899507b-9a1c-41c4-8107-a3e559dc2172",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_f8ac2c83-f6f8-40f2-958d-565a359f0607",
+    "to_entity_id": "hive_scum.tree_node.node_8899507b-9a1c-41c4-8107-a3e559dc2172",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_fac6179f-a86a-489f-bb1a-b9382fd6630a.node_2f306ae7-923d-4a28-bbe8-37f860901067",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "to_entity_id": "hive_scum.tree_node.node_2f306ae7-923d-4a28-bbe8-37f860901067",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_fac6179f-a86a-489f-bb1a-b9382fd6630a.node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "to_entity_id": "hive_scum.tree_node.node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.parent_of.node_fac6179f-a86a-489f-bb1a-b9382fd6630a.node_ca3fd6b8-f002-4e51-875d-a234a153d071",
+    "type": "parent_of",
+    "from_entity_id": "hive_scum.tree_node.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "to_entity_id": "hive_scum.tree_node.node_ca3fd6b8-f002-4e51-875d-a234a153d071",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  }
+]

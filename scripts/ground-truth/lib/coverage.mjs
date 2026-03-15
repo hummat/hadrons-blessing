@@ -29,27 +29,27 @@ const DOMAIN_EXPECTATIONS = [
   {
     domain: "veteran",
     expected_kinds: ["ability", "aura", "keystone", "talent", "talent_modifier", "tree_node"],
-    notes: "Class-side slot coverage complete; tree edges not yet extracted.",
+    notes: "Class-side slot coverage complete; tree edges extracted.",
   },
   {
     domain: "zealot",
     expected_kinds: ["ability", "aura", "keystone", "talent", "talent_modifier", "tree_node"],
-    notes: "Class-side slot coverage complete; tree edges not yet extracted.",
+    notes: "Class-side slot coverage complete; tree edges extracted.",
   },
   {
     domain: "ogryn",
     expected_kinds: ["ability", "aura", "keystone", "talent", "talent_modifier", "tree_node"],
-    notes: "Class-side slot coverage complete; tree edges not yet extracted.",
+    notes: "Class-side slot coverage complete; tree edges extracted.",
   },
   {
     domain: "arbites",
     expected_kinds: ["ability", "aura", "keystone", "talent", "talent_modifier", "tree_node"],
-    notes: "Class-side slot coverage complete; tree edges not yet extracted.",
+    notes: "Class-side slot coverage complete; tree edges extracted.",
   },
   {
     domain: "hive_scum",
     expected_kinds: ["ability", "aura", "keystone", "talent", "talent_modifier", "tree_node"],
-    notes: "Class-side slot coverage complete; tree edges not yet extracted.",
+    notes: "Class-side slot coverage complete; tree edges extracted.",
   },
 ];
 

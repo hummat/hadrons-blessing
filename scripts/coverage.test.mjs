@@ -14,7 +14,7 @@ describe("buildCoverageReport", () => {
 
     assert.equal(shared.status, "source_backed");
     assert.equal(psyker.status, "source_backed");
-    assert.equal(veteran.status, "partial");
+    assert.equal(veteran.status, "source_backed");
   });
 
   it("includes implemented kinds and record counts per domain", () => {
