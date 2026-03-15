@@ -30,10 +30,12 @@ describe("generateReport", () => {
 
   it("populates structural slots", async () => {
     const report = await generateReport(join(BUILDS_DIR, "08-gandalf-melee-wizard.json"));
-    for (const slot of ["ability", "blitz", "aura", "keystone"]) {
-      assert.ok(report.slots[slot], `slot ${slot} should exist`);
-      assert.ok(typeof report.slots[slot].label === "string", `${slot}.label should be string`);
-      assert.ok(typeof report.slots[slot].status === "string", `${slot}.status should be string`);
+    assert.ok(Array.isArray(report.slots), "slots should be an array");
+    for (const slotName of ["ability", "blitz", "aura", "keystone"]) {
+      const entry = report.slots.find((s) => s.slot === slotName);
+      assert.ok(entry, `slot ${slotName} should exist`);
+      assert.ok(typeof entry.label === "string", `${slotName}.label should be string`);
+      assert.ok(typeof entry.status === "string", `${slotName}.status should be string`);
     }
   });
 
@@ -60,8 +62,8 @@ describe("generateReport", () => {
 
   it("lists unresolved entries in problems", async () => {
     const report = await generateReport(join(BUILDS_DIR, "08-gandalf-melee-wizard.json"));
-    assert.ok(report.problems.unresolved.length > 0, "build 08 should have unresolved curio names");
-    for (const entry of report.problems.unresolved) {
+    assert.ok(report.unresolved.length > 0, "build 08 should have unresolved curio names");
+    for (const entry of report.unresolved) {
       assert.ok(typeof entry.field === "string", "unresolved entry should have field");
       assert.ok(typeof entry.label === "string", "unresolved entry should have label");
     }
@@ -69,12 +71,13 @@ describe("generateReport", () => {
 
   it("lists non_canonical entries when present", async () => {
     const report = await generateReport(join(BUILDS_DIR, "07-zealot-infodump.json"));
-    assert.ok(report.problems.non_canonical.length > 0, "build 07 should have non_canonical entries");
+    assert.ok(report.non_canonical.length > 0, "build 07 should have non_canonical entries");
   });
 
   it("includes keystone slot even when null", async () => {
     const report = await generateReport(join(BUILDS_DIR, "08-gandalf-melee-wizard.json"));
-    assert.ok("keystone" in report.slots, "keystone slot should exist");
+    const keystone = report.slots.find((s) => s.slot === "keystone");
+    assert.ok(keystone, "keystone slot should exist");
   });
 
   it("normalizes blessing fields to { label, known }", async () => {

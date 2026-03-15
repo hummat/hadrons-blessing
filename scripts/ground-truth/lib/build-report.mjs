@@ -46,11 +46,12 @@ function selectionEntityId(selection) {
 /**
  * Build a structural slot descriptor.
  */
-function buildSlot(selection) {
+function buildSlot(slotName, selection) {
   return {
+    slot: slotName,
     label: selectionLabel(selection),
-    status: selectionStatus(selection),
     entity_id: selectionEntityId(selection),
+    status: selectionStatus(selection),
   };
 }
 
@@ -71,12 +72,19 @@ export async function generateReport(buildPath) {
   const provenance = build.provenance ?? null;
 
   // --- Structural slots ---
-  const slots = {
-    ability: buildSlot(build.ability),
-    blitz: buildSlot(build.blitz),
-    aura: buildSlot(build.aura),
-    keystone: buildSlot(build.keystone),
-  };
+  const slots = [
+    buildSlot("ability", build.ability),
+    buildSlot("blitz", build.blitz),
+    buildSlot("aura", build.aura),
+    buildSlot("keystone", build.keystone),
+  ];
+
+  // --- Talents ---
+  const talents = (build.talents ?? []).map((t) => ({
+    label: selectionLabel(t),
+    entity_id: selectionEntityId(t),
+    status: selectionStatus(t),
+  }));
 
   // --- Weapons ---
   const weapons = (build.weapons ?? []).map((buildWeapon, weaponIndex) => {
@@ -95,7 +103,7 @@ export async function generateReport(buildPath) {
     }));
 
     return {
-      label: selectionLabel(buildWeapon.name),
+      name: selectionLabel(buildWeapon.name),
       slot: buildWeapon.slot ?? scorecardWeapon?.slot ?? null,
       entity_id: selectionEntityId(buildWeapon.name),
       perk_score: scorecardWeapon?.perks?.score ?? null,
@@ -115,8 +123,7 @@ export async function generateReport(buildPath) {
     perkOffset += perkCount;
 
     return {
-      label: selectionLabel(buildCurio.name),
-      status: selectionStatus(buildCurio.name),
+      name: selectionLabel(buildCurio.name),
       perks: scoredPerks.map((p) => ({
         label: p.name,
         tier: p.tier,
@@ -130,45 +137,53 @@ export async function generateReport(buildPath) {
   const curio_score = scorecard.curio_efficiency;
 
   // --- Summary counts from audit buckets ---
-  const resolved = audit.resolved.length;
-  const ambiguous = audit.ambiguous.length;
-  const unresolved = audit.unresolved.length;
-  const non_canonical = audit.non_canonical.length;
-  const total = resolved + ambiguous + unresolved + non_canonical;
-  const warnings = audit.warnings.length;
+  const resolvedCount = audit.resolved.length;
+  const ambiguousCount = audit.ambiguous.length;
+  const unresolvedCount = audit.unresolved.length;
+  const nonCanonicalCount = audit.non_canonical.length;
+  const total = resolvedCount + ambiguousCount + unresolvedCount + nonCanonicalCount;
+  const warningCount = audit.warnings.length;
 
-  const summary = { total, resolved, ambiguous, unresolved, non_canonical, warnings };
-
-  // --- Problems ---
-  const problems = {
-    unresolved: audit.unresolved.map((entry) => ({
-      field: entry.field,
-      label: entry.text,
-      reason: entry.match_type ?? "none",
-    })),
-    ambiguous: audit.ambiguous.map((entry) => ({
-      field: entry.field,
-      label: entry.text,
-      candidates: [],
-    })),
-    non_canonical: audit.non_canonical.map((entry) => ({
-      field: entry.field,
-      label: entry.text,
-      kind: entry.non_canonical_kind ?? null,
-      notes: entry.notes ?? null,
-    })),
+  const summary = {
+    total,
+    resolved: resolvedCount,
+    ambiguous: ambiguousCount,
+    unresolved: unresolvedCount,
+    non_canonical: nonCanonicalCount,
+    warnings: warningCount,
   };
+
+  // --- Problem arrays (top-level) ---
+  const unresolved = audit.unresolved.map((entry) => ({
+    field: entry.field,
+    label: entry.text,
+    reason: entry.match_type ?? "none",
+  }));
+  const ambiguous = audit.ambiguous.map((entry) => ({
+    field: entry.field,
+    label: entry.text,
+    candidates: [],
+  }));
+  const non_canonical = audit.non_canonical.map((entry) => ({
+    field: entry.field,
+    label: entry.text,
+    kind: entry.non_canonical_kind ?? null,
+    notes: entry.notes ?? null,
+  }));
 
   return {
     title,
     class: className,
     provenance,
     slots,
+    talents,
     weapons,
     curios,
     perk_optimality,
     curio_score,
     summary,
-    problems,
+    unresolved,
+    ambiguous,
+    non_canonical,
   };
 }
