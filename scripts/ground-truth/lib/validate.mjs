@@ -6,6 +6,7 @@ import {
   SCHEMAS_ROOT,
   loadJsonFile,
   loadSourceSnapshotManifest,
+  resolveSourceRoot,
 } from "./load.mjs";
 
 let _validators;
@@ -171,9 +172,9 @@ function validateEvidenceRecord(record) {
 function validateSourceSnapshot(sourceRoot) {
   loadSchemas();
 
-  const resolvedSourceRoot = resolve(sourceRoot ?? process.env.GROUND_TRUTH_SOURCE_ROOT ?? "");
+  const resolvedSourceRoot = resolveSourceRoot(sourceRoot);
   if (!resolvedSourceRoot) {
-    throw new Error("GROUND_TRUTH_SOURCE_ROOT is required");
+    throw new Error("GROUND_TRUTH_SOURCE_ROOT is required (set env var or create .source-root)");
   }
 
   if (!existsSync(resolvedSourceRoot)) {

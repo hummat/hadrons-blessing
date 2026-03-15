@@ -6,7 +6,7 @@ import { formatCliError } from "./ground-truth/lib/cli.mjs";
 
 function runCli(scriptPath, args = []) {
   const quotedArgs = args.map((arg) => JSON.stringify(arg)).join(" ");
-  const command = `GROUND_TRUTH_SOURCE_ROOT='' node ${JSON.stringify(scriptPath)} ${quotedArgs}`.trim();
+  const command = `GROUND_TRUTH_SOURCE_ROOT=/nonexistent/source-root node ${JSON.stringify(scriptPath)} ${quotedArgs}`.trim();
 
   return spawnSync("/usr/bin/zsh", ["-lc", command], {
     cwd: REPO_ROOT,

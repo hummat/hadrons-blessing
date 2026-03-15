@@ -4,7 +4,7 @@ import { existsSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve, sep } from "node:path";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
-import { REPO_ROOT } from "./ground-truth/lib/load.mjs";
+import { REPO_ROOT, resolveSourceRoot } from "./ground-truth/lib/load.mjs";
 import { normalizeText } from "./ground-truth/lib/normalize.mjs";
 import {
   loadSchemas,
@@ -16,9 +16,7 @@ import { buildIndex } from "./build-ground-truth-index.mjs";
 import { resolveQuery } from "./ground-truth/lib/resolve.mjs";
 import { auditBuildFile } from "./audit-build-names.mjs";
 
-const PINNED_SOURCE_ROOT = process.env.GROUND_TRUTH_SOURCE_ROOT != null
-  ? resolve(process.env.GROUND_TRUTH_SOURCE_ROOT)
-  : null;
+const PINNED_SOURCE_ROOT = resolveSourceRoot();
 
 function makeCanonicalSelection(rawLabel, canonicalEntityId, resolutionStatus = "resolved") {
   return {

@@ -29,6 +29,27 @@ function loadSourceSnapshotManifest() {
   return loadJsonFile(SOURCE_SNAPSHOT_MANIFEST_PATH);
 }
 
+const SOURCE_ROOT_FILE = join(REPO_ROOT, ".source-root");
+
+function resolveSourceRoot(explicit) {
+  if (explicit) {
+    return resolve(explicit);
+  }
+
+  if (process.env.GROUND_TRUTH_SOURCE_ROOT) {
+    return resolve(process.env.GROUND_TRUTH_SOURCE_ROOT);
+  }
+
+  if (existsSync(SOURCE_ROOT_FILE)) {
+    const content = readFileSync(SOURCE_ROOT_FILE, "utf8").trim();
+    if (content) {
+      return resolve(content);
+    }
+  }
+
+  return null;
+}
+
 function listJsonFiles(root) {
   if (!existsSync(root)) {
     return [];
@@ -57,4 +78,5 @@ export {
   listJsonFiles,
   loadJsonFile,
   loadSourceSnapshotManifest,
+  resolveSourceRoot,
 };
