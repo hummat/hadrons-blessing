@@ -2484,5 +2484,185 @@
     },
     "rank_weight": 100,
     "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Catachan Mk VII \"Devil's Claw\" Sword",
+    "normalized_text": "catachan mk vii devil s claw sword",
+    "candidate_entity_id": "shared.weapon.combatsword_p2_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "GL display label. Mark-to-template mapping via GL page ordering (medium confidence)."
+  },
+  {
+    "text": "Lucius Mk IV Helbore Lasgun",
+    "normalized_text": "lucius mk iv helbore lasgun",
+    "candidate_entity_id": "shared.weapon.lasgun_p2_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "GL display label. Mark-to-template mapping via GL page ordering (medium confidence)."
+  },
+  {
+    "text": "Munitorum Mk II Relic Blade",
+    "normalized_text": "munitorum mk ii relic blade",
+    "candidate_entity_id": "shared.weapon.powersword_2h_p1_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "GL display label. Mark-to-template mapping via GL page ordering (medium confidence)."
+  },
+  {
+    "text": "Munitorum Mk X Relic Blade",
+    "normalized_text": "munitorum mk x relic blade",
+    "candidate_entity_id": "shared.weapon.powersword_2h_p1_m2",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "GL display label. Mark-to-template mapping via GL page ordering (medium confidence)."
+  },
+  {
+    "text": "Locke Mk III Spearhead Boltgun",
+    "normalized_text": "locke mk iii spearhead boltgun",
+    "candidate_entity_id": "shared.weapon.bolter_p1_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "GL display label. Mark-to-template mapping via GL page ordering (medium confidence)."
+  },
+  {
+    "text": "Agripinaa Mk VIII Braced Autogun",
+    "normalized_text": "agripinaa mk viii braced autogun",
+    "candidate_entity_id": "shared.weapon.autogun_p2_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "GL display label. Mark-to-template mapping via GL page ordering (medium confidence)."
+  },
+  {
+    "text": "Brute-Brainer Mk III Latrine Shovel",
+    "normalized_text": "brute brainer mk iii latrine shovel",
+    "candidate_entity_id": "shared.weapon.ogryn_club_p1_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "GL display label. Mark-to-template mapping via GL page ordering (medium confidence)."
+  },
+  {
+    "text": "Foe-Rend Mk V Ripper Gun",
+    "normalized_text": "foe rend mk v ripper gun",
+    "candidate_entity_id": "shared.weapon.ogryn_rippergun_p1_m3",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "GL display label. Mark-to-template mapping via GL page ordering (medium confidence)."
+  },
+  {
+    "text": "Tigrus Mk XV Heavy Eviscerator",
+    "normalized_text": "tigrus mk xv heavy eviscerator",
+    "candidate_entity_id": "shared.weapon.chainsword_2h_p1_m2",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "GL display label. Mark-to-template mapping via GL page ordering (medium confidence)."
   }
 ]

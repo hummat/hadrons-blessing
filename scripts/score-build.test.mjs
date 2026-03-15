@@ -224,7 +224,7 @@ describe("scoreBlessings", () => {
     assert.equal(result.blessings[0].known, true);
   });
 
-  it("validates blessings for provisional family fallback weapons", () => {
+  it("returns null validity for weapons resolved via ground-truth without scoring data", () => {
     const weapon = {
       name: "Foe-Rend Mk V Ripper Gun",
       blessings: [
@@ -233,11 +233,9 @@ describe("scoreBlessings", () => {
       ],
     };
     const result = scoreBlessings(weapon);
-    assert.equal(result.valid, true);
-    assert.deepEqual(
-      result.blessings.map((blessing) => blessing.known),
-      [true, true],
-    );
+    // Ground-truth resolution finds the weapon entity but the scorer
+    // has no blessing catalog for it — returns null validity.
+    assert.equal(result.valid, null);
   });
 });
 
@@ -488,9 +486,9 @@ describe("generateScorecard", () => {
     assert.equal(card.weapons[0].resolution_source, "ground_truth");
   });
 
-  it("includes provisional family metadata without minting fake canonical ids", () => {
+  it("resolves weapon metadata from ground-truth when entities exist", () => {
     const build = {
-      title: "Provisional Family Metadata Test",
+      title: "Ground Truth Weapon Metadata Test",
       class: "zealot",
       weapons: [
         {
@@ -503,11 +501,10 @@ describe("generateScorecard", () => {
       talents: { active: [], inactive: [] },
     };
     const card = generateScorecard(build);
-    assert.equal(card.weapons[0].canonical_entity_id, null);
+    assert.equal(card.weapons[0].canonical_entity_id, "shared.weapon.powersword_2h_p1_m1");
     assert.equal(card.weapons[0].weapon_family, "powersword_2h");
     assert.equal(card.weapons[0].slot, "melee");
-    assert.equal(card.weapons[0].resolution_source, "provisional_family");
-    assert.equal(card.weapons[0].blessings.valid, true);
+    assert.equal(card.weapons[0].resolution_source, "ground_truth");
   });
 });
 

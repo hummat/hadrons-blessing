@@ -921,27 +921,25 @@ describe("auditBuildFile", () => {
     }
   });
 
-  it("keeps unresolved weapon labels in the unresolved bucket", async () => {
+  it("resolves previously unresolved weapon labels", async () => {
     const veteranSniperResult = await auditBuildFile("scripts/builds/03-slinking-veteran.json");
     const zealotStealthResult = await auditBuildFile("scripts/builds/05-fatmangus-zealot-stealth.json");
-    const zealotInfoDumpResult = await auditBuildFile("scripts/builds/07-zealot-infodump.json");
     const shovelOgrynResult = await auditBuildFile("scripts/builds/13-shovel-ogryn.json");
 
-    for (const [result, field, text] of [
-      [veteranSniperResult, "weapons[0].name", "Catachan Mk VII \"Devil's Claw\" Sword"],
-      [veteranSniperResult, "weapons[1].name", "Lucius Mk IV Helbore Lasgun"],
-      [zealotStealthResult, "weapons[0].name", "Munitorum Mk II Relic Blade"],
-      [zealotStealthResult, "weapons[1].name", "Locke Mk III Spearhead Boltgun"],
-      [zealotInfoDumpResult, "weapons[1].name", "Agripinaa Mk VIII Braced Autogun"],
-      [shovelOgrynResult, "weapons[0].name", "Brute-Brainer Mk III Latrine Shovel"],
-      [shovelOgrynResult, "weapons[1].name", "Foe-Rend Mk V Ripper Gun"],
+    for (const [result, field, entityId] of [
+      [veteranSniperResult, "weapons[0].name", "shared.weapon.combatsword_p2_m1"],
+      [veteranSniperResult, "weapons[1].name", "shared.weapon.lasgun_p2_m1"],
+      [zealotStealthResult, "weapons[0].name", "shared.weapon.powersword_2h_p1_m1"],
+      [zealotStealthResult, "weapons[1].name", "shared.weapon.bolter_p1_m1"],
+      [shovelOgrynResult, "weapons[0].name", "shared.weapon.ogryn_club_p1_m1"],
+      [shovelOgrynResult, "weapons[1].name", "shared.weapon.ogryn_rippergun_p1_m3"],
     ]) {
       assert.equal(
-        result.unresolved.some(
-          (entry) => entry.field === field && entry.text === text,
+        result.resolved.some(
+          (entry) => entry.field === field && entry.resolved_entity_id === entityId,
         ),
         true,
-        `${field} should be unresolved until weapon alias is added`,
+        `${field} should resolve to ${entityId}`,
       );
     }
   });

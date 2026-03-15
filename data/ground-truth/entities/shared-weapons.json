@@ -2374,5 +2374,194 @@
       "slot": "melee"
     },
     "calc": {}
+  },
+  {
+    "id": "shared.weapon.combatsword_p2_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "combatsword_p2_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/combat_swords/combatsword_p2_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "combatsword_p2",
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.lasgun_p2_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "lasgun_p2_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/lasguns/lasgun_p2_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "lasgun_p2",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.powersword_2h_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "powersword_2h_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/power_swords_2h/powersword_2h_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "powersword_2h",
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.powersword_2h_p1_m2",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "powersword_2h_p1_m2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/power_swords_2h/powersword_2h_p1_m2.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "powersword_2h",
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.bolter_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "bolter_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/bolters/bolter_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "bolter_p1",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.autogun_p2_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "autogun_p2_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/autoguns/autogun_p2_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "autogun_p2",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.ogryn_club_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "ogryn_club_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/ogryn_clubs/ogryn_club_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "ogryn_club",
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.ogryn_rippergun_p1_m3",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "ogryn_rippergun_p1_m3",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/ripperguns/ogryn_rippergun_p1_m3.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "ogryn_rippergun",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.chainsword_2h_p1_m2",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "chainsword_2h_p1_m2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/chain_swords_2h/chainsword_2h_p1_m2.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "chainsword_2h",
+      "slot": "melee"
+    },
+    "calc": {}
   }
 ]
