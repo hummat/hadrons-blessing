@@ -16,6 +16,9 @@ function capitalize(s) {
 
 const DIVIDER = "═".repeat(54);
 
+/** Ordered section names — documents render order and serves as extension point. */
+export const SECTIONS = ["header", "summary", "slots", "weapons", "scores", "curios", "problems", "warnings"];
+
 function ratingIcon(rating) {
   if (rating === "optimal") return "★";
   if (rating === "good") return "✓";
@@ -51,17 +54,9 @@ export function formatText(report) {
   for (const slot of report.slots) {
     const label = capitalize(slot.slot);
     const status = slot.status === "resolved" ? "✓" : "✗";
-    lines.push(`  ${label.padEnd(12)} ${slot.label} ${status}`);
+    lines.push(`  ${label.padEnd(12)} ${slot.label ?? "(none)"} ${status}`);
   }
   lines.push("");
-
-  // Talents (compact)
-  if (report.talents.length > 0) {
-    lines.push(`TALENTS (${report.talents.length})`);
-    const names = report.talents.map((t) => t.label);
-    lines.push(`  ${names.join(", ")}`);
-    lines.push("");
-  }
 
   // Weapons
   lines.push("WEAPONS");
@@ -91,10 +86,16 @@ export function formatText(report) {
   lines.push("");
 
   // Scores
-  lines.push("SCORES");
-  lines.push(`  Perk Optimality  ${report.perk_optimality.toFixed(1)}/5`);
-  lines.push(`  Curio Efficiency ${report.curio_score.toFixed(1)}/5`);
-  lines.push("");
+  if (report.perk_optimality != null || report.curio_score != null) {
+    lines.push("SCORES");
+    if (report.perk_optimality != null) {
+      lines.push(`  Perk Optimality  ${report.perk_optimality.toFixed(1)}/5`);
+    }
+    if (report.curio_score != null) {
+      lines.push(`  Curio Efficiency ${report.curio_score.toFixed(1)}/5`);
+    }
+    lines.push("");
+  }
 
   // Curios
   if (report.curios.length > 0) {
@@ -120,7 +121,8 @@ export function formatText(report) {
       lines.push(`  ${entry.field} "${entry.label}" — ambiguous`);
     }
     for (const entry of report.non_canonical) {
-      lines.push(`  ${entry.field} "${entry.label}" — non-canonical`);
+      const notes = entry.notes ? ` (${entry.notes})` : "";
+      lines.push(`  ${entry.field} "${entry.label}" — non-canonical: ${entry.kind}${notes}`);
     }
     lines.push("");
   }
@@ -160,7 +162,7 @@ export function formatMarkdown(report) {
   lines.push("|------|-------|--------|");
   for (const slot of report.slots) {
     const status = slot.status === "resolved" ? "✓" : "✗";
-    lines.push(`| ${capitalize(slot.slot)} | ${slot.label} | ${status} |`);
+    lines.push(`| ${capitalize(slot.slot)} | ${slot.label ?? "—"} | ${status} |`);
   }
   lines.push("");
 
@@ -194,10 +196,16 @@ export function formatMarkdown(report) {
   }
 
   // Scores
-  lines.push("## Scores");
-  lines.push(`- **Perk Optimality:** ${report.perk_optimality.toFixed(1)}/5`);
-  lines.push(`- **Curio Efficiency:** ${report.curio_score.toFixed(1)}/5`);
-  lines.push("");
+  if (report.perk_optimality != null || report.curio_score != null) {
+    lines.push("## Scores");
+    if (report.perk_optimality != null) {
+      lines.push(`- **Perk Optimality:** ${report.perk_optimality.toFixed(1)}/5`);
+    }
+    if (report.curio_score != null) {
+      lines.push(`- **Curio Efficiency:** ${report.curio_score.toFixed(1)}/5`);
+    }
+    lines.push("");
+  }
 
   // Curios
   if (report.curios.length > 0) {
@@ -226,8 +234,15 @@ export function formatMarkdown(report) {
       lines.push(`- \`${entry.field}\` "${entry.label}" — ambiguous`);
     }
     for (const entry of report.non_canonical) {
-      lines.push(`- \`${entry.field}\` "${entry.label}" — non-canonical`);
+      const notes = entry.notes ? ` (${entry.notes})` : "";
+      lines.push(`- \`${entry.field}\` "${entry.label}" — non-canonical: ${entry.kind}${notes}`);
     }
+    lines.push("");
+  }
+
+  // Warnings (conditional)
+  if (report.summary.warnings && report.summary.warnings.length > 0) {
+    lines.push(`> **Warnings:** ${report.summary.warnings.join(", ")}`);
     lines.push("");
   }
 
