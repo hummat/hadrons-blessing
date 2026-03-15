@@ -1,9 +1,13 @@
+# Read GROUND_TRUTH_SOURCE_ROOT from env, falling back to .source-root file.
+# Create .source-root once: echo /path/to/Darktide-Source-Code > .source-root
+GROUND_TRUTH_SOURCE_ROOT ?= $(shell cat .source-root 2>/dev/null)
+
 .PHONY: require-source-root test resolve audit index-build index-check check
 
 require-source-root:
 	@if [ -z "$(GROUND_TRUTH_SOURCE_ROOT)" ]; then \
 		echo "GROUND_TRUTH_SOURCE_ROOT is required."; \
-		echo "Example: GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code make check"; \
+		echo "Set it via env var or: echo /path/to/Darktide-Source-Code > .source-root"; \
 		exit 1; \
 	fi
 
@@ -13,8 +17,8 @@ test: require-source-root
 resolve:
 	npm run resolve -- $(ARGS)
 
-audit:
-	npm run audit -- $(ARGS)
+audit: require-source-root
+	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run audit -- $(ARGS)
 
 index-build: require-source-root
 	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run index:build

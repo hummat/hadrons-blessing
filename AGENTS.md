@@ -13,13 +13,14 @@ This is a standalone project extracted from BetterBots. The long-term vision is 
 All index builds and most tests require a pinned Darktide source checkout:
 
 ```bash
-GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm test
-GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code make check
+echo /path/to/Darktide-Source-Code > .source-root   # one-time setup (gitignored)
+make check                                           # reads from .source-root
+make test                                            # or set env: GROUND_TRUTH_SOURCE_ROOT=... npm test
 ```
 
 Local path: `/run/media/matthias/1274B04B74B032F9/git/Darktide-Source-Code`
 
-Never hardcode the source root. Always use the env var. Tests that require it are skipped when the env var is absent.
+Never hardcode the source root. The Makefile reads `.source-root` as a fallback; the env var always takes precedence. Tests that require it are skipped when neither is set.
 
 ## Commands
 
