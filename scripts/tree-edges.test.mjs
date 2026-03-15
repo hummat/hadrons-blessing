@@ -642,3 +642,29 @@ describe("psyker golden comparison", () => {
     }
   });
 });
+
+// -- Task 9: Idempotency test -----------------------------------------------
+
+describe("idempotency", () => {
+  it(
+    "running the generator twice produces identical output",
+    { skip: SOURCE_ROOT == null },
+    () => {
+      const lua = readFileSync(
+        `${SOURCE_ROOT}/scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua`,
+        "utf8",
+      );
+      const nodes = parseLuaTree(lua);
+      const snapshotId = "darktide-source.dbe7035";
+      const luaPath = "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua";
+
+      const edges1 = generateTreeEdges(nodes, "psyker", snapshotId);
+      const edges2 = generateTreeEdges(nodes, "psyker", snapshotId);
+      assert.deepEqual(edges1, edges2);
+
+      const entities1 = generateTreeNodeEntities(nodes, "psyker", snapshotId, luaPath);
+      const entities2 = generateTreeNodeEntities(nodes, "psyker", snapshotId, luaPath);
+      assert.deepEqual(entities1, entities2);
+    },
+  );
+});
