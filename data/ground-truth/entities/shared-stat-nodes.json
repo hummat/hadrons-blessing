@@ -1,0 +1,296 @@
+[
+  {
+    "id": "shared.stat_node.toughness_boost",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_toughness_node_buff",
+    "loc_key": "loc_talent_toughness_boost_medium",
+    "ui_name": "Toughness Boost",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 183
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "toughness",
+      "family": "toughness_node_buff"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.stat_node.toughness_damage_reduction",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_toughness_damage_reduction_node_buff",
+    "loc_key": "loc_talent_toughness_damage_reduction_medium",
+    "ui_name": "Toughness Damage Reduction",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 438
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "toughness_damage_reduction",
+      "family": "toughness_damage_reduction_node_buff"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.stat_node.melee_damage_boost",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_melee_damage_node_buff",
+    "loc_key": "loc_talent_melee_damage_boost_medium",
+    "ui_name": "Melee Damage Boost",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 1038
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "melee_damage",
+      "family": "melee_damage_node_buff"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.stat_node.ranged_damage_boost",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_ranged_damage_node_buff",
+    "loc_key": "loc_talent_ranged_damage_medium",
+    "ui_name": "Ranged Damage Boost",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 1638
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "ranged_damage",
+      "family": "ranged_damage_node_buff"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.stat_node.critical_chance_boost",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_crit_chance_node_buff",
+    "loc_key": "loc_talent_crit_chance_low",
+    "ui_name": "Critical Chance Boost",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 2623
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "crit_chance",
+      "family": "crit_chance_node_buff"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.stat_node.stamina_boost",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_stamina_node_buff",
+    "loc_key": "loc_talent_stamina_low",
+    "ui_name": "Stamina Boost",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 2263
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "stamina",
+      "family": "stamina_node_buff"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.stat_node.stamina_regeneration_boost",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_stamina_regen_delay",
+    "loc_key": "loc_talent_stamina_regen_delay",
+    "ui_name": "Stamina Regeneration Boost",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 9
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "stamina_regen_delay",
+      "family": "stamina_regen_delay"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.stat_node.movement_speed_boost",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_movement_speed_node_buff",
+    "loc_key": "loc_talent_movement_speed_low",
+    "ui_name": "Movement Speed Boost",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 2743
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "movement_speed",
+      "family": "movement_speed_node_buff"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.stat_node.reload_boost",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_reload_speed_node_buff",
+    "loc_key": "loc_talent_reload_speed_medium",
+    "ui_name": "Reload Boost",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 2023
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "reload_speed",
+      "family": "reload_speed_node_buff"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.stat_node.rending_boost",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_armor_pen_node_buff",
+    "loc_key": "loc_talent_armor_pen_low",
+    "ui_name": "Rending Boost",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 1783
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "rending_multiplier",
+      "family": "armor_pen_node_buff"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.stat_node.cleave_boost",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_cleave_node_buff",
+    "loc_key": "loc_talent_cleave_boost_medium",
+    "ui_name": "Cleave Boost",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 1014
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "cleave",
+      "family": "cleave_node_buff"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.stat_node.impact_boost",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_impact_node_buff",
+    "loc_key": "loc_talent_impact_boost_medium",
+    "ui_name": "Impact Boost",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 990
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "impact",
+      "family": "impact_node_buff"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.stat_node.peril_resistance",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_warp_charge_node_buff",
+    "loc_key": "loc_talent_warp_charge_low",
+    "ui_name": "Peril Resistance",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 3118
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "warp_charge",
+      "family": "warp_charge_node_buff"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.stat_node.potent_tox",
+    "kind": "stat_node",
+    "domain": "shared",
+    "internal_name": "base_toxin_power_boost",
+    "loc_key": "loc_talent_toxin_damage_boost",
+    "ui_name": "Potent Tox",
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 1758
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "buff_stat": "toxin_power",
+      "family": "toxin_power_boost"
+    },
+    "calc": {}
+  }
+]

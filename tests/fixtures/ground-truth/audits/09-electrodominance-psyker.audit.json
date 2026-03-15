@@ -262,6 +262,36 @@
       "warnings": []
     },
     {
+      "field": "talents[17]",
+      "text": "Toughness Boost 4",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.toughness_boost",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[18]",
+      "text": "Ranged Damage Boost 3",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.ranged_damage_boost",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[19]",
+      "text": "Melee Damage Boost 10",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.melee_damage_boost",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
       "field": "talents[2]",
       "text": "Mettle",
       "resolution_state": "resolved",
@@ -272,10 +302,60 @@
       "warnings": []
     },
     {
+      "field": "talents[20]",
+      "text": "Stamina Boost",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.stamina_boost",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[21]",
+      "text": "Toughness Boost 5",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.toughness_boost",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[22]",
+      "text": "Toughness Damage Reduction 4",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[23]",
+      "text": "Peril Resistance 4",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.peril_resistance",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
       "field": "talents[24]",
       "text": "Immaterial Focus",
       "resolution_state": "resolved",
       "resolved_entity_id": "psyker.talent.psyker_damage_resistance_stun_immunity",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[25]",
+      "text": "Critical Chance Boost 3",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.critical_chance_boost",
       "proposed_entity_id": null,
       "match_type": "persisted_canonical_id",
       "confidence": "high",
@@ -493,107 +573,9 @@
       "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
     }
   ],
-  "unresolved": [
-    {
-      "field": "talents[17]",
-      "text": "Toughness Boost 4",
-      "resolution_state": "unresolved",
-      "resolved_entity_id": null,
-      "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
-      "warnings": [
-        "persisted_unresolved_selection"
-      ]
-    },
-    {
-      "field": "talents[18]",
-      "text": "Ranged Damage Boost 3",
-      "resolution_state": "unresolved",
-      "resolved_entity_id": null,
-      "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
-      "warnings": [
-        "persisted_unresolved_selection"
-      ]
-    },
-    {
-      "field": "talents[19]",
-      "text": "Melee Damage Boost 10",
-      "resolution_state": "unresolved",
-      "resolved_entity_id": null,
-      "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
-      "warnings": [
-        "persisted_unresolved_selection"
-      ]
-    },
-    {
-      "field": "talents[20]",
-      "text": "Stamina Boost",
-      "resolution_state": "unresolved",
-      "resolved_entity_id": null,
-      "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
-      "warnings": [
-        "persisted_unresolved_selection"
-      ]
-    },
-    {
-      "field": "talents[21]",
-      "text": "Toughness Boost 5",
-      "resolution_state": "unresolved",
-      "resolved_entity_id": null,
-      "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
-      "warnings": [
-        "persisted_unresolved_selection"
-      ]
-    },
-    {
-      "field": "talents[22]",
-      "text": "Toughness Damage Reduction 4",
-      "resolution_state": "unresolved",
-      "resolved_entity_id": null,
-      "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
-      "warnings": [
-        "persisted_unresolved_selection"
-      ]
-    },
-    {
-      "field": "talents[23]",
-      "text": "Peril Resistance 4",
-      "resolution_state": "unresolved",
-      "resolved_entity_id": null,
-      "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
-      "warnings": [
-        "persisted_unresolved_selection"
-      ]
-    },
-    {
-      "field": "talents[25]",
-      "text": "Critical Chance Boost 3",
-      "resolution_state": "unresolved",
-      "resolved_entity_id": null,
-      "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
-      "warnings": [
-        "persisted_unresolved_selection"
-      ]
-    }
-  ],
+  "unresolved": [],
   "warnings": [
     "known_non_canonical_label",
-    "persisted_non_canonical_selection",
-    "persisted_unresolved_selection"
+    "persisted_non_canonical_selection"
   ]
 }

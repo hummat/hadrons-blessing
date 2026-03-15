@@ -2204,5 +2204,285 @@
     },
     "rank_weight": 100,
     "notes": "GL curio perk label variant for flamer damage reduction."
+  },
+  {
+    "text": "Toughness Boost",
+    "normalized_text": "toughness boost",
+    "candidate_entity_id": "shared.stat_node.toughness_boost",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Toughness Damage Reduction",
+    "normalized_text": "toughness damage reduction",
+    "candidate_entity_id": "shared.stat_node.toughness_damage_reduction",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Melee Damage Boost",
+    "normalized_text": "melee damage boost",
+    "candidate_entity_id": "shared.stat_node.melee_damage_boost",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Ranged Damage Boost",
+    "normalized_text": "ranged damage boost",
+    "candidate_entity_id": "shared.stat_node.ranged_damage_boost",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Critical Chance Boost",
+    "normalized_text": "critical chance boost",
+    "candidate_entity_id": "shared.stat_node.critical_chance_boost",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Stamina Boost",
+    "normalized_text": "stamina boost",
+    "candidate_entity_id": "shared.stat_node.stamina_boost",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Stamina Regeneration Boost",
+    "normalized_text": "stamina regeneration boost",
+    "candidate_entity_id": "shared.stat_node.stamina_regeneration_boost",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Movement Speed Boost",
+    "normalized_text": "movement speed boost",
+    "candidate_entity_id": "shared.stat_node.movement_speed_boost",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Reload Boost",
+    "normalized_text": "reload boost",
+    "candidate_entity_id": "shared.stat_node.reload_boost",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Rending Boost",
+    "normalized_text": "rending boost",
+    "candidate_entity_id": "shared.stat_node.rending_boost",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Cleave Boost",
+    "normalized_text": "cleave boost",
+    "candidate_entity_id": "shared.stat_node.cleave_boost",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Impact Boost",
+    "normalized_text": "impact boost",
+    "candidate_entity_id": "shared.stat_node.impact_boost",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Peril Resistance",
+    "normalized_text": "peril resistance",
+    "candidate_entity_id": "shared.stat_node.peril_resistance",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
+  },
+  {
+    "text": "Potent Tox",
+    "normalized_text": "potent tox",
+    "candidate_entity_id": "shared.stat_node.potent_tox",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
   }
 ]
