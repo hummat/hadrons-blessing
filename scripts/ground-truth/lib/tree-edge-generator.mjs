@@ -21,12 +21,14 @@ const TREE_TYPE_TO_KIND = {
   stat: "talent",
 };
 
-const CONDITIONS_BOILERPLATE = {
-  predicates: [],
-  aggregation: "additive",
-  stacking_mode: "binary",
-  exclusive_scope: null,
-};
+function makeConditions() {
+  return {
+    predicates: [],
+    aggregation: "additive",
+    stacking_mode: "binary",
+    exclusive_scope: null,
+  };
+}
 
 /**
  * Generate edge records from parsed tree nodes.
@@ -51,7 +53,7 @@ function generateTreeEdges(nodes, domain, snapshotId) {
         from_entity_id: `${domain}.tree_node.${node.widget_name}`,
         to_entity_id: `${domain}.tree_node.${childWidget}`,
         source_snapshot_id: snapshotId,
-        conditions: { ...CONDITIONS_BOILERPLATE },
+        conditions: makeConditions(),
         calc: {},
         evidence_ids: [],
       });
@@ -67,7 +69,7 @@ function generateTreeEdges(nodes, domain, snapshotId) {
           from_entity_id: `${domain}.${kind}.${node.talent}`,
           to_entity_id: `${domain}.tree_node.${node.widget_name}`,
           source_snapshot_id: snapshotId,
-          conditions: { ...CONDITIONS_BOILERPLATE },
+          conditions: makeConditions(),
           calc: {},
           evidence_ids: [],
         });
@@ -94,7 +96,7 @@ function generateTreeEdges(nodes, domain, snapshotId) {
           from_entity_id: `${domain}.tree_node.${sorted[i]}`,
           to_entity_id: `${domain}.tree_node.${sorted[j]}`,
           source_snapshot_id: snapshotId,
-          conditions: { ...CONDITIONS_BOILERPLATE },
+          conditions: makeConditions(),
           calc: {},
           evidence_ids: [],
         });
