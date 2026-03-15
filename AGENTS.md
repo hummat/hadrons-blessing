@@ -153,6 +153,8 @@ Key paths for entity work:
 
 Issue `#4` resolved. `data/exports/` is the cross-repo handoff surface. BetterBots agents read exports via `../hadrons-blessing/data/exports/` or regenerate via CLI (`npm run export:bot-weapons`). See `data/exports/README.md` for the contract and `docs/superpowers/specs/2026-03-15-betterBots-integration-contract-design.md` for the design spec.
 
+**Weapon export scoring caveat:** The current scoring uses outdated ADS/peril penalties. BetterBots already handles ADS, peril, force staves, and melee selection. The real bot-incompatible traits are: dodge-dependent, block-timing-dependent, weapon-special-dependent (until BetterBots #33), and weakspot-aim-dependent. Re-evaluate picks against these 4 criteria before trusting current weapon recommendations.
+
 ## No Unsourced Claims
 
 Every factual claim about Darktide mechanics must be sourced from a file you've actually read. If you haven't read the source, say so — never guess. Entity IDs, talent names, field names, buff values — all must be verified against the decompiled source before being added to ground-truth data.
