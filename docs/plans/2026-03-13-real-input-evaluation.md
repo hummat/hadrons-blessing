@@ -1,6 +1,8 @@
 # Real Input Evaluation
 
-> Last updated 2026-03-14 against all 20 checked-in build fixtures, current shared/psyker/veteran/zealot ground-truth data, and representative BetterBots profile weapon template ids.
+> Last updated 2026-03-15.
+>
+> **Superseded:** The numbers below reflect a 2026-03-14 snapshot. As of 2026-03-15 all 20 builds are re-extracted, all 6 classes have full entity coverage (768 entities total), and audit totals are **1089 resolved / 60 unresolved / 1 non_canonical / 0 ambiguous**. The 60 unresolved are curio cosmetic item names (backend-only). See README.md for current coverage table.
 
 ## What Was Tested
 

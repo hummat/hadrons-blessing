@@ -29,27 +29,27 @@ const DOMAIN_EXPECTATIONS = [
   {
     domain: "veteran",
     expected_kinds: ["ability", "aura", "keystone", "talent", "talent_modifier", "tree_node"],
-    notes: "Minimal class-side slot coverage landed; broader veteran tree coverage remains incomplete.",
+    notes: "Class-side slot coverage complete; tree edges not yet extracted.",
   },
   {
     domain: "zealot",
     expected_kinds: ["ability", "aura", "keystone", "talent", "talent_modifier", "tree_node"],
-    notes: "No class-scoped shard coverage yet.",
+    notes: "Class-side slot coverage complete; tree edges not yet extracted.",
   },
   {
     domain: "ogryn",
     expected_kinds: ["ability", "aura", "keystone", "talent", "talent_modifier", "tree_node"],
-    notes: "No class-scoped shard coverage yet.",
+    notes: "Class-side slot coverage complete; tree edges not yet extracted.",
   },
   {
-    domain: "adamant",
+    domain: "arbites",
     expected_kinds: ["ability", "aura", "keystone", "talent", "talent_modifier", "tree_node"],
-    notes: "No class-scoped shard coverage yet.",
+    notes: "Class-side slot coverage complete; tree edges not yet extracted.",
   },
   {
-    domain: "broker",
+    domain: "hive_scum",
     expected_kinds: ["ability", "aura", "keystone", "talent", "talent_modifier", "tree_node"],
-    notes: "No class-scoped shard coverage yet.",
+    notes: "Class-side slot coverage complete; tree edges not yet extracted.",
   },
 ];
 

@@ -140,25 +140,24 @@ npm run inspect -- --id psyker.talent.psyker_damage_based_on_warp_charge
 
 ## Status
 
-Current entity coverage:
+Current entity coverage (768 total):
 
-| Domain   | Entities | Aliases | Notes |
-|----------|----------|---------|-------|
-| Shared   | 90 | many | weapons, weapon perks, curio perks, blessing families, classes, buffs |
-| Psyker   | ~25 | ~25 | talents, abilities, implicit tree nodes |
-| Veteran  | 43 | 44 | abilities, auras, keystones, talent modifiers, talents — 3 builds re-extracted |
-| Zealot   | 57 | 57 | abilities, auras, keystones, talent modifiers, talents — 4 builds re-extracted |
-| Ogryn    | — | — | unsupported (builds exist but not re-extracted) |
-| Arbites  | — | — | unsupported |
-| Hive Scum | — | — | unsupported |
+| Domain    | Entities | Aliases | Edges | Notes |
+|-----------|----------|---------|-------|-------|
+| Shared    | 200 | 134 | 76 | weapons, weapon perks, curio perks, blessing families, stat nodes, classes, buffs |
+| Psyker    | 198 | 76 | 249 | full tree DAG — only class with topology |
+| Ogryn     | 85 | 85 | 0 | abilities, auras, keystones, talent modifiers, talents |
+| Arbites   | 82 | — | 0 | abilities, auras, keystones, talent modifiers, talents |
+| Hive Scum | 103 | — | 0 | abilities, auras, keystones, talent modifiers, talents |
+| Zealot    | 57 | 57 | 0 | abilities, auras, keystones, talent modifiers, talents |
+| Veteran   | 43 | 44 | 0 | abilities, auras, keystones, talent modifiers, talents |
 
-20 build fixtures (all 6 classes) are stored in canonical build shape.
-7 of the 20 (3 veteran, 4 zealot) have been re-extracted from live GL pages
-with full 30-node talent trees. The remaining 13 are legacy fixtures with
-placeholder class-side slots and no talent data.
+All 20 build fixtures (all 6 classes) are stored in canonical build shape,
+re-extracted from live Games Lantern pages with full talent trees.
 
-Audit totals across all 20 fixtures: **480 resolved / 79 non-canonical / 85
-unresolved / 0 ambiguous**.
+Audit totals across all 20 fixtures: **1089 resolved / 60 unresolved / 1
+non_canonical / 0 ambiguous**. The 60 unresolved are curio cosmetic item
+names (backend-only, not in the decompiled source).
 
 ## Roadmap
 
