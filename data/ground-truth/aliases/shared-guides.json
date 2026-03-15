@@ -2724,5 +2724,125 @@
     },
     "rank_weight": 90,
     "notes": "Blessing display name mapped via mechanic description to source template."
+  },
+  {
+    "text": "10-25% Damage (Flak Armoured Enemies)",
+    "normalized_text": "10 25 damage flak armoured enemies",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL full-range perk label variant for armored/flak damage (melee)."
+  },
+  {
+    "text": "10-25% Damage (Flak Armoured Enemies)",
+    "normalized_text": "10 25 damage flak armoured enemies",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL full-range perk label variant for armored/flak damage (ranged)."
+  },
+  {
+    "text": "+5-20% Damage Resistance (Bombers)",
+    "normalized_text": "5 20 damage resistance bombers",
+    "candidate_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_bombers",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL curio perk label for bomber damage resistance."
+  },
+  {
+    "text": "Gorgonum Mk IV Twin-Linked Heavy Stubber",
+    "normalized_text": "gorgonum mk iv twin linked heavy stubber",
+    "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p2_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Inferred family mapping from build usage; English mark mapping is build-sourced, not decompiled-source localized."
+  },
+  {
+    "text": "Deimos Mk IV Blaze Force Sword",
+    "normalized_text": "deimos mk iv blaze force sword",
+    "candidate_entity_id": "shared.weapon.forcesword_p1_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Inferred family mapping from build usage; English mark mapping is build-sourced, not decompiled-source localized."
+  },
+  {
+    "text": "Rifthaven Mk II Inferno Force Staff",
+    "normalized_text": "rifthaven mk ii inferno force staff",
+    "candidate_entity_id": "shared.weapon.forcestaff_p2_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Inferred family mapping from build usage; English mark mapping is build-sourced, not decompiled-source localized."
   }
 ]

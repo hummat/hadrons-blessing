@@ -2643,5 +2643,67 @@
       "weapon_family": "saw_p1"
     },
     "calc": {}
+  },
+  {
+    "id": "shared.gadget_trait.gadget_damage_reduction_vs_bombers",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_damage_reduction_vs_bombers",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 416
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.ogryn_heavystubber_p2_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "ogryn_heavystubber_p2_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/ogryn_heavystubbers/ogryn_heavystubber_p2_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "ogryn_heavystubber_p2",
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.forcestaff_p2_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "forcestaff_p2_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/force_staffs/forcestaff_p2_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "forcestaff_p2",
+      "slot": "ranged"
+    },
+    "calc": {}
   }
 ]
