@@ -2664,5 +2664,65 @@
     },
     "rank_weight": 90,
     "notes": "GL display label. Mark-to-template mapping via GL page ordering (medium confidence)."
+  },
+  {
+    "text": "Cranial Grounding",
+    "normalized_text": "cranial grounding",
+    "candidate_entity_id": "shared.name_family.blessing.cranial_grounding",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Blessing display name mapped via mechanic description to source template."
+  },
+  {
+    "text": "Heatsink",
+    "normalized_text": "heatsink",
+    "candidate_entity_id": "shared.name_family.blessing.heatsink",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Blessing display name mapped via mechanic description to source template."
+  },
+  {
+    "text": "Decimator",
+    "normalized_text": "decimator",
+    "candidate_entity_id": "shared.name_family.blessing.decimator",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Blessing display name mapped via mechanic description to source template."
+  },
+  {
+    "text": "Shock & Awe",
+    "normalized_text": "shock awe",
+    "candidate_entity_id": "shared.name_family.blessing.shock_and_awe",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [],
+      "prefer": []
+    },
+    "rank_weight": 90,
+    "notes": "Blessing display name mapped via mechanic description to source template."
   }
 ]

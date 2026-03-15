@@ -901,22 +901,22 @@ describe("auditBuildFile", () => {
     }
   });
 
-  it("keeps unresolved blessing labels in the unresolved bucket", async () => {
+  it("resolves blessing labels to family-level entities", async () => {
     const veteranResult = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
     const hiveScumResult = await auditBuildFile("scripts/builds/18-reginald-melee.json");
 
-    for (const [result, field, text] of [
-      [veteranResult, "weapons[0].blessings[0].name", "Cranial Grounding"],
-      [veteranResult, "weapons[0].blessings[1].name", "Heatsink"],
-      [hiveScumResult, "weapons[0].blessings[0].name", "Decimator"],
-      [hiveScumResult, "weapons[0].blessings[1].name", "Shock & Awe"],
+    for (const [result, field, entityId] of [
+      [veteranResult, "weapons[0].blessings[0].name", "shared.name_family.blessing.cranial_grounding"],
+      [veteranResult, "weapons[0].blessings[1].name", "shared.name_family.blessing.heatsink"],
+      [hiveScumResult, "weapons[0].blessings[0].name", "shared.name_family.blessing.decimator"],
+      [hiveScumResult, "weapons[0].blessings[1].name", "shared.name_family.blessing.shock_and_awe"],
     ]) {
       assert.equal(
-        result.unresolved.some(
-          (entry) => entry.field === field && entry.text === text,
+        result.resolved.some(
+          (entry) => entry.field === field && entry.resolved_entity_id === entityId,
         ),
         true,
-        `${field} should be unresolved until blessing aliases are added`,
+        `${field} should resolve to ${entityId}`,
       );
     }
   });

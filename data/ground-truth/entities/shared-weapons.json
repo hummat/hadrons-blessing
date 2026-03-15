@@ -2563,5 +2563,85 @@
       "slot": "melee"
     },
     "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_powersword_p2_chained_weakspot_hits_increase_finesse_and_reduce_overheat",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_powersword_p2_chained_weakspot_hits_increase_finesse_and_reduce_overheat",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_p2.lua",
+        "line": 98
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "powersword_p2"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_powersword_p2_reduce_fixed_overheat_amount_parent",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_powersword_p2_reduce_fixed_overheat_amount_parent",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_p2.lua",
+        "line": 53
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "powersword_p2"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_saw_p1_chained_hits_increases_power",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_saw_p1_chained_hits_increases_power",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_saw_p1.lua",
+        "line": 10
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "saw_p1"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_saw_p1_hit_mass_consumption_reduction_on_kill",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_saw_p1_hit_mass_consumption_reduction_on_kill",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_saw_p1.lua",
+        "line": 423
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "saw_p1"
+    },
+    "calc": {}
   }
 ]

@@ -1102,5 +1102,65 @@
     },
     "calc": {},
     "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_powersword_p2_chained_weakspot_hits_increase_finesse_and_reduce_overheat",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_powersword_p2_chained_weakspot_hits_increase_finesse_and_reduce_overheat",
+    "to_entity_id": "shared.name_family.blessing.cranial_grounding",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_powersword_p2_reduce_fixed_overheat_amount_parent",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_powersword_p2_reduce_fixed_overheat_amount_parent",
+    "to_entity_id": "shared.name_family.blessing.heatsink",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_saw_p1_chained_hits_increases_power",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_saw_p1_chained_hits_increases_power",
+    "to_entity_id": "shared.name_family.blessing.decimator",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "shared.edge.instance_of.weapon_trait_bespoke_saw_p1_hit_mass_consumption_reduction_on_kill",
+    "type": "instance_of",
+    "from_entity_id": "shared.weapon_trait.weapon_trait_bespoke_saw_p1_hit_mass_consumption_reduction_on_kill",
+    "to_entity_id": "shared.name_family.blessing.shock_and_awe",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
   }
 ]

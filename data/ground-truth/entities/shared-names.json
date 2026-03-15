@@ -838,5 +838,85 @@
       "family_type": "blessing"
     },
     "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.cranial_grounding",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_p2.lua",
+        "line": 98
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.heatsink",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_p2.lua",
+        "line": 53
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.decimator",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_saw_p1.lua",
+        "line": 10
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.shock_and_awe",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_saw_p1.lua",
+        "line": 423
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
   }
 ]
