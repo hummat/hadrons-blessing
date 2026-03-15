@@ -1,5 +1,45 @@
 [
   {
+    "id": "shared.gadget_trait.gadget_innate_max_wounds_increase",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_innate_max_wounds_increase",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 110
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.gadget_trait.gadget_stamina_increase",
+    "kind": "gadget_trait",
+    "domain": "shared",
+    "internal_name": "gadget_stamina_increase",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua",
+        "line": 90
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "curio"
+    },
+    "calc": {}
+  },
+  {
     "id": "shared.gadget_trait.gadget_block_cost_reduction",
     "kind": "gadget_trait",
     "domain": "shared",
@@ -456,6 +496,66 @@
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {
       "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_ranged_common_wield_increased_unarmored_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_ranged.lua",
+        "line": 10
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_disgustingly_resilient_damage",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_ranged_common_wield_increased_disgustingly_resilient_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_ranged.lua",
+        "line": 210
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "ranged"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon_perk.melee.weapon_trait_increase_stamina",
+    "kind": "weapon_perk",
+    "domain": "shared",
+    "internal_name": "weapon_trait_increase_stamina",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_perks_melee.lua",
+        "line": 330
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "slot": "melee"
     },
     "calc": {}
   },
@@ -2250,6 +2350,27 @@
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {
       "weapon_family": "thunderhammer_2h",
+      "slot": "melee"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.weapon.powermaul_shield_p1_m1",
+    "kind": "weapon",
+    "domain": "shared",
+    "internal_name": "powermaul_shield_p1_m1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_templates/power_maul_shields/powermaul_shield_p1_m1.lua",
+        "line": 1
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "weapon_family": "powermaul_shield",
       "slot": "melee"
     },
     "calc": {}

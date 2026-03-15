@@ -92,7 +92,7 @@ All records are validated against JSON schemas in `data/ground-truth/schemas/`. 
 
 7 builds (01–03 veteran, 04–07 zealot) have been re-extracted from live GL pages with full talent trees. The remaining 13 are legacy fixtures with placeholder class-side slots.
 
-Frozen audit snapshots live in `tests/fixtures/ground-truth/audits/`. When the index changes, re-freeze affected snapshots with `npm run audit -- scripts/builds/<name>.json > tests/fixtures/ground-truth/audits/<name>.audit.json`.
+Frozen audit snapshots live in `tests/fixtures/ground-truth/audits/`. When the index or audit logic changes, re-freeze all snapshots with `npm run audit:freeze`. Do NOT use `npm run audit -- <file> > snapshot.json` — npm's stderr banner contaminates the JSON output.
 
 ## Canonical Build Shape
 

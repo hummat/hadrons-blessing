@@ -139,11 +139,20 @@ async function auditPersistedSelection(audit, field, selection, queryContext, in
     ? "persisted_non_canonical_selection"
     : "persisted_unresolved_selection";
 
-  if (reResolved.resolution_state === "ambiguous" && selection.resolution_status === "non_canonical") {
-    audit.non_canonical.push(selectionResult(field, selection, {
-      resolution_state: "non_canonical",
-      warnings: [persistenceWarning],
-    }));
+  if (selection.resolution_status === "non_canonical") {
+    if (reResolved.resolution_state === "resolved") {
+      appendAuditEntry(audit, {
+        ...reResolved,
+        warnings: [...new Set([...(reResolved.warnings ?? []), persistenceWarning, "non_canonical_now_resolves"])],
+      }, queryContext);
+    } else {
+      const base = selectionResult(field, selection, {
+        resolution_state: "non_canonical",
+        warnings: [persistenceWarning],
+      });
+      const record = classifyKnownUnresolved(selection.raw_label, queryContext);
+      audit.non_canonical.push(record ? toNonCanonicalEntry(base, record) : base);
+    }
     return;
   }
 

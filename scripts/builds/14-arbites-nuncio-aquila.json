@@ -169,8 +169,8 @@
       "slot": "melee",
       "name": {
         "raw_label": "Branx Mk VI Shock Maul and Suppression Shield",
-        "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "canonical_entity_id": "shared.weapon.powermaul_shield_p1_m1",
+        "resolution_status": "resolved"
       },
       "perks": [
         {
@@ -185,8 +185,8 @@
         },
         {
           "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
           "value": {
             "min": 0.1,
             "max": 0.25,
@@ -211,8 +211,8 @@
       "slot": "ranged",
       "name": {
         "raw_label": "Judgement Mk IV Subductor Shotpistol and Riot Shield",
-        "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "canonical_entity_id": "shared.weapon.shotpistol_shield_p1_m1",
+        "resolution_status": "resolved"
       },
       "perks": [
         {

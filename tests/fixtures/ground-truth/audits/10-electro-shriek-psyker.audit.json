@@ -122,6 +122,16 @@
       "warnings": []
     },
     {
+      "field": "curios[2].perks[0]",
+      "text": "+1-3 Max Stamina",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_stamina_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
       "field": "curios[2].perks[1]",
       "text": "+2-5% Toughness",
       "resolution_state": "resolved",
@@ -382,6 +392,26 @@
       "warnings": []
     },
     {
+      "field": "weapons[0].perks[0]",
+      "text": "10-25% Damage (Infested Enemies)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_disgustingly_resilient_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[0].perks[1]",
+      "text": "10-25% Damage (Unarmoured Enemies)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_unarmored_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
       "field": "weapons[1].blessings[0].name",
       "text": "Warp Nexus",
       "resolution_state": "resolved",
@@ -437,11 +467,11 @@
     {
       "field": "curios[0].name",
       "text": "Blessed Bullet",
-      "resolution_state": "unresolved",
+      "resolution_state": "non_canonical",
       "resolved_entity_id": null,
       "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
+      "match_type": null,
+      "confidence": null,
       "warnings": [
         "persisted_non_canonical_selection",
         "known_non_canonical_label"
@@ -453,11 +483,11 @@
     {
       "field": "curios[1].name",
       "text": "Blessed Bullet",
-      "resolution_state": "unresolved",
+      "resolution_state": "non_canonical",
       "resolved_entity_id": null,
       "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
+      "match_type": null,
+      "confidence": null,
       "warnings": [
         "persisted_non_canonical_selection",
         "known_non_canonical_label"
@@ -469,11 +499,11 @@
     {
       "field": "curios[2].name",
       "text": "Blessed Bullet",
-      "resolution_state": "unresolved",
+      "resolution_state": "non_canonical",
       "resolved_entity_id": null,
       "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
+      "match_type": null,
+      "confidence": null,
       "warnings": [
         "persisted_non_canonical_selection",
         "known_non_canonical_label"
@@ -484,18 +514,6 @@
     }
   ],
   "unresolved": [
-    {
-      "field": "curios[2].perks[0]",
-      "text": "+1-3 Max Stamina",
-      "resolution_state": "unresolved",
-      "resolved_entity_id": null,
-      "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
-      "warnings": [
-        "persisted_unresolved_selection"
-      ]
-    },
     {
       "field": "talents[15]",
       "text": "Toughness Damage Reduction 12",
@@ -571,30 +589,6 @@
     {
       "field": "talents[25]",
       "text": "Critical Chance Boost 3",
-      "resolution_state": "unresolved",
-      "resolved_entity_id": null,
-      "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
-      "warnings": [
-        "persisted_unresolved_selection"
-      ]
-    },
-    {
-      "field": "weapons[0].perks[0]",
-      "text": "10-25% Damage (Infested Enemies)",
-      "resolution_state": "unresolved",
-      "resolved_entity_id": null,
-      "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
-      "warnings": [
-        "persisted_unresolved_selection"
-      ]
-    },
-    {
-      "field": "weapons[0].perks[1]",
-      "text": "10-25% Damage (Unarmoured Enemies)",
       "resolution_state": "unresolved",
       "resolved_entity_id": null,
       "proposed_entity_id": null,

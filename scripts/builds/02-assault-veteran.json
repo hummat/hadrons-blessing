@@ -217,8 +217,8 @@
       "perks": [
         {
           "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
           "value": {
             "min": 0.1,
             "max": 0.25,

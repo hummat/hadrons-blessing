@@ -334,5 +334,68 @@
       "prefer": []
     },
     "notes": "Structured build weapon label intentionally kept outside the canonical registry until the exact mark-to-template bridge is proven from local source."
+  },
+  {
+    "text": "Laurel of the Righteous",
+    "normalized_text": "laurel of the righteous",
+    "non_canonical_kind": "display_label",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "gadget_item"
+        },
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
+  },
+  {
+    "text": "Gilded Mandible",
+    "normalized_text": "gilded mandible",
+    "non_canonical_kind": "display_label",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "gadget_item"
+        },
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
+  },
+  {
+    "text": "Guardian Nocturnus",
+    "normalized_text": "guardian nocturnus",
+    "non_canonical_kind": "display_label",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "gadget_item"
+        },
+        {
+          "key": "slot",
+          "value": "curio"
+        }
+      ],
+      "prefer": []
+    },
+    "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
   }
 ]

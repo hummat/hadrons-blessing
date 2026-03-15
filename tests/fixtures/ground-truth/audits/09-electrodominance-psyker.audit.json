@@ -430,6 +430,16 @@
       "match_type": "persisted_canonical_id",
       "confidence": "high",
       "warnings": []
+    },
+    {
+      "field": "weapons[1].perks[1]",
+      "text": "10-25% Damage (Carapace Armoured Enemies)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
     }
   ],
   "ambiguous": [],
@@ -437,11 +447,11 @@
     {
       "field": "curios[0].name",
       "text": "Blessed Bullet",
-      "resolution_state": "unresolved",
+      "resolution_state": "non_canonical",
       "resolved_entity_id": null,
       "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
+      "match_type": null,
+      "confidence": null,
       "warnings": [
         "persisted_non_canonical_selection",
         "known_non_canonical_label"
@@ -453,11 +463,11 @@
     {
       "field": "curios[1].name",
       "text": "Blessed Bullet",
-      "resolution_state": "unresolved",
+      "resolution_state": "non_canonical",
       "resolved_entity_id": null,
       "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
+      "match_type": null,
+      "confidence": null,
       "warnings": [
         "persisted_non_canonical_selection",
         "known_non_canonical_label"
@@ -469,11 +479,11 @@
     {
       "field": "curios[2].name",
       "text": "Blessed Bullet",
-      "resolution_state": "unresolved",
+      "resolution_state": "non_canonical",
       "resolved_entity_id": null,
       "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
+      "match_type": null,
+      "confidence": null,
       "warnings": [
         "persisted_non_canonical_selection",
         "known_non_canonical_label"
@@ -571,18 +581,6 @@
     {
       "field": "talents[25]",
       "text": "Critical Chance Boost 3",
-      "resolution_state": "unresolved",
-      "resolved_entity_id": null,
-      "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
-      "warnings": [
-        "persisted_unresolved_selection"
-      ]
-    },
-    {
-      "field": "weapons[1].perks[1]",
-      "text": "10-25% Damage (Carapace Armoured Enemies)",
       "resolution_state": "unresolved",
       "resolved_entity_id": null,
       "proposed_entity_id": null,

@@ -1884,5 +1884,325 @@
     },
     "rank_weight": 90,
     "notes": ""
+  },
+  {
+    "text": "Branx Mk VI Shock Maul and Suppression Shield",
+    "normalized_text": "branx mk vi shock maul and suppression shield",
+    "candidate_entity_id": "shared.weapon.powermaul_shield_p1_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL display label for the powermaul_shield_p1_m1 template (smiter/strikedown primary)."
+  },
+  {
+    "text": "Judgement Mk IV Subductor Shotpistol and Riot Shield",
+    "normalized_text": "judgement mk iv subductor shotpistol and riot shield",
+    "candidate_entity_id": "shared.weapon.shotpistol_shield_p1_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL display label for the shotpistol_shield_p1_m1 template (only mark in the family)."
+  },
+  {
+    "text": "Branx MkVIII Dual Stub Pistols",
+    "normalized_text": "branx mkviii dual stub pistols",
+    "candidate_entity_id": "shared.weapon.dual_stubpistols_p1_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL display label for the dual_stubpistols_p1_m1 template (only mark in the family)."
+  },
+  {
+    "text": "Branx MKII Needle Pistol",
+    "normalized_text": "branx mkii needle pistol",
+    "candidate_entity_id": "shared.weapon.needlepistol_p1_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL display label for the needlepistol_p1_m1 template (explosive-needle variant)."
+  },
+  {
+    "text": "10-25% Damage (Carapace Armoured Enemies)",
+    "normalized_text": "10 25 damage carapace armoured enemies",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL full-range perk label variant for super armor damage (melee)."
+  },
+  {
+    "text": "10-25% Damage (Carapace Armoured Enemies)",
+    "normalized_text": "10 25 damage carapace armoured enemies",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL full-range perk label variant for super armor damage (ranged)."
+  },
+  {
+    "text": "10-25% Damage (Unyielding Enemies)",
+    "normalized_text": "10 25 damage unyielding enemies",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL full-range perk label variant for resistant/unyielding damage (melee)."
+  },
+  {
+    "text": "10-25% Damage (Unyielding Enemies)",
+    "normalized_text": "10 25 damage unyielding enemies",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL full-range perk label variant for resistant/unyielding damage (ranged)."
+  },
+  {
+    "text": "10-25% Damage (Unarmoured Enemies)",
+    "normalized_text": "10 25 damage unarmoured enemies",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_unarmored_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL full-range perk label variant for unarmored damage (melee)."
+  },
+  {
+    "text": "10-25% Damage (Unarmoured Enemies)",
+    "normalized_text": "10 25 damage unarmoured enemies",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL full-range perk label variant for unarmored damage (ranged)."
+  },
+  {
+    "text": "10-25% Damage (Infested Enemies)",
+    "normalized_text": "10 25 damage infested enemies",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_disgustingly_resilient_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL full-range perk label variant for disgustingly_resilient/infested damage (melee)."
+  },
+  {
+    "text": "10-25% Damage (Infested Enemies)",
+    "normalized_text": "10 25 damage infested enemies",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_disgustingly_resilient_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL full-range perk label variant for disgustingly_resilient/infested damage (ranged)."
+  },
+  {
+    "text": "4-10% Melee Damage (Elites)",
+    "normalized_text": "4 10 melee damage elites",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_damage_elites",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL full-range perk label variant for elite melee damage."
+  },
+  {
+    "text": "+1-3 Max Stamina",
+    "normalized_text": "1 3 max stamina",
+    "candidate_entity_id": "shared.gadget_trait.gadget_stamina_increase",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "gadget_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL curio perk label for stamina increase."
+  },
+  {
+    "text": "+1 Wound(s)",
+    "normalized_text": "1 wound s",
+    "candidate_entity_id": "shared.gadget_trait.gadget_innate_max_wounds_increase",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "gadget_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL curio perk label for max wounds increase."
+  },
+  {
+    "text": "+5-20% Damage Resistance (Tox Flamers)",
+    "normalized_text": "5 20 damage resistance tox flamers",
+    "candidate_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_flamers",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gameslantern",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "gadget_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "GL curio perk label variant for flamer damage reduction."
   }
 ]
