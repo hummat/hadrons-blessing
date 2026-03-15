@@ -19,7 +19,7 @@ Every CLI command in hadrons-blessing outputs raw JSON. The audit pipeline answe
 
 - Refactoring existing CLI commands or `score-build.mjs`
 - Adding scoring dimensions beyond what exists today (perk optimality, curio efficiency)
-- Talent list display (noise until synergy model makes it meaningful)
+- Full talent list display (noise until synergy model makes it meaningful — talents appear only in the problems section if unresolved)
 - Interactive/TUI output
 
 ## Architecture
@@ -63,12 +63,13 @@ build.json ──→ build metadata (title, class, provenance)
   // Header
   title: string,
   class: string,
-  provenance: { source_url, author, scraped_at },
+  provenance: { source_kind, source_url, author, scraped_at },
 
   // Summary counts
   summary: {
     total: number,
     resolved: number,
+    ambiguous: number,        // typically 0 in canonical builds; folded into problems if > 0
     unresolved: number,
     non_canonical: number,
     warnings: string[],
@@ -77,7 +78,8 @@ build.json ──→ build metadata (title, class, provenance)
   // Structural slots (ability, blitz, aura, keystone)
   slots: [{ slot, label, entity_id, status }],
 
-  // Talents (flat list, resolved names only)
+  // Talents (flat list — included in report only when unresolved/ambiguous;
+  // resolved talents omitted as noise until synergy model exists)
   talents: [{ label, entity_id, status }],
 
   // Weapons with scoring
@@ -85,20 +87,22 @@ build.json ──→ build metadata (title, class, provenance)
     slot: "melee" | "ranged",
     name: string,
     entity_id: string | null,
-    perks: [{ label, tier, rating }],
+    perks: [{ name, tier, value } | null],  // null = unparseable perk string
     blessings: [{ label, known: boolean }],
-    perk_score: number | null,
+    perk_score: number | null,              // extracted from scorecard weapon.perks.score
   }],
 
   // Curios with scoring
   curios: [{
     name: string,
-    perks: [{ label, tier, rating }],
+    perks: [{ label, tier, rating }],       // rating: "optimal" | "good" | "neutral" | "avoid"
   }],
-  curio_score: number | null,
+  curio_score: number | null,               // from scorecard curio_efficiency
+  perk_optimality: number | null,           // from scorecard perk_optimality (average across weapons)
 
-  // Problems (the actionable part)
+  // Problems (the actionable part — includes ambiguous if any)
   unresolved: [{ field, label, reason }],
+  ambiguous: [{ field, label, candidates: string[] }],
   non_canonical: [{ field, label, kind, notes }],
 }
 ```
@@ -112,14 +116,16 @@ Assembled in `build-report.mjs` from audit result + build file + scorecard. Form
 Two exports:
 
 ```js
-generateReport(buildPath, { index }) → BuildReport
-generateBatchReport(dirPath, { index }) → { summary, reports: BuildReport[] }
+generateReport(buildPath) → BuildReport
+generateBatchReport(dirPath) → { summary, reports: BuildReport[] }
 ```
 
-- Calls `auditBuildFile()` (from `build-audit.mjs`) and `generateScorecard()` (from `score-build.mjs`) internally
-- Reads build JSON for metadata (title, class, provenance)
-- Merges into BuildReport shape
+- Reads the build JSON for metadata (title, class, provenance)
+- Calls `auditBuildFile(buildPath)` (from `../audit-build-names.mjs`) for resolution data — this internally loads the ground-truth index
+- Calls `generateScorecard(buildJson)` (from `../score-build.mjs`) for perk/curio scoring — this internally loads its own scoring data
+- Merges audit result + scorecard + build metadata into BuildReport shape
 - `generateBatchReport` globs `*.json` in directory, calls `generateReport` for each, computes aggregate summary
+- Note: `auditBuildFile` rebuilds the index per call. For batch mode, an optimization pass may pre-load the index and call `auditCanonicalBuild` (from `build-audit.mjs`) directly. This is optional — correctness first, performance if needed.
 
 ### `report-formatter.mjs` (library)
 
@@ -139,13 +145,15 @@ Section order (shared constant across all formats): header → summary → slots
 
 #### Text format
 
+Illustrative mockup (names/numbers approximate — actual output derived from build data at runtime):
+
 ```
 ══════════════════════════════════════════════════
   Gandalf: Melee Wizard (Updated for Bound by Duty)
   Psyker · by nomalarkey · gameslantern
 ══════════════════════════════════════════════════
 
-  Summary: 49 resolved · 3 unresolved · 0 non-canonical
+  Summary: 54 resolved · 3 unresolved · 0 ambiguous · 0 non-canonical
 
   SLOTS
     Ability:   Scrier's Gaze
@@ -206,12 +214,12 @@ npm run report -- <build-or-dir> [--format text|md|json]
 ```
 
 - Detects file vs. directory input
-- Loads ground-truth index once via `loadGroundTruthIndex()`
-- Calls `generateReport` or `generateBatchReport`
+- Calls `generateReport` or `generateBatchReport` (index loading is internal to these)
 - Calls appropriate formatter
 - Writes to stdout
 - Uses `parseArgs` from `node:util` (matches `score-build.mjs` pattern)
 - Wraps in `runCliMain` from `cli.mjs` for error handling
+- Uses `import.meta.main` guard (modern pattern, matches `audit-build-names.mjs`)
 
 ### package.json addition
 
@@ -222,7 +230,7 @@ npm run report -- <build-or-dir> [--format text|md|json]
 ## Testing
 
 - **Golden output tests**: freeze text/markdown/json output for 2-3 representative builds (one clean, one with unresolved entries, one with non-canonical). Assert exact match.
-- **Batch test**: run against `scripts/builds/`, assert summary counts match known totals (1220 resolved, 70 unresolved, 2 non-canonical).
+- **Batch test**: run against `scripts/builds/`, assert summary counts match totals computed at freeze time (exact values TBD — derived from current build fixtures at implementation).
 - **Regression**: existing audit and score tests unchanged.
 
 ## Extension Point for #7–#9
@@ -235,7 +243,7 @@ When buff semantics and scoring land:
 
 ## Dependencies
 
-- Depends on: existing `build-audit.mjs`, `score-build.mjs` (as library imports)
+- Depends on: existing `audit-build-names.mjs` (`auditBuildFile`), `score-build.mjs` (`generateScorecard`) as library imports
 - No new runtime dependencies
 - Blocks: nothing directly, but provides the presentation layer for #9 scoring output
 
