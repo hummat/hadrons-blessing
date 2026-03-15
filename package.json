@@ -18,6 +18,7 @@
     "index:build": "node scripts/build-ground-truth-index.mjs",
     "index:check": "node scripts/build-ground-truth-index.mjs --check",
     "audit:freeze": "for f in tests/fixtures/ground-truth/audits/*.audit.json; do b=$(basename \"$f\" .audit.json); node scripts/audit-build-names.mjs \"scripts/builds/${b}.json\" > \"$f\"; done",
+    "edges:build": "node scripts/extract-tree-edges.mjs",
     "export:bot-weapons": "node scripts/export-bot-weapons.mjs",
     "check": "npm run index:build && npm test && npm run index:check"
   },
