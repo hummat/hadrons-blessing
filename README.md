@@ -126,6 +126,12 @@ Experimental scorecard output on canonical build fixtures:
 node scripts/score-build.mjs scripts/builds/08-gandalf-melee-wizard.json --json
 ```
 
+Regenerate tree edges from Lua source (requires source root):
+
+```bash
+npm run edges:build
+```
+
 Read-only coverage summary:
 
 ```bash
@@ -140,17 +146,20 @@ npm run inspect -- --id psyker.talent.psyker_damage_based_on_warp_charge
 
 ## Status
 
-Current entity coverage (768 total):
+Current entity coverage (1376 total: 768 non-tree + 608 tree_node):
 
-| Domain    | Entities | Aliases | Edges | Notes |
-|-----------|----------|---------|-------|-------|
-| Shared    | 200 | 134 | 76 | weapons, weapon perks, curio perks, blessing families, stat nodes, classes, buffs |
-| Psyker    | 198 | 76 | 249 | full tree DAG — only class with topology |
-| Ogryn     | 85 | 85 | 0 | abilities, auras, keystones, talent modifiers, talents |
-| Arbites   | 82 | — | 0 | abilities, auras, keystones, talent modifiers, talents |
-| Hive Scum | 103 | — | 0 | abilities, auras, keystones, talent modifiers, talents |
-| Zealot    | 57 | 57 | 0 | abilities, auras, keystones, talent modifiers, talents |
-| Veteran   | 43 | 44 | 0 | abilities, auras, keystones, talent modifiers, talents |
+| Domain    | Entities | Tree Nodes | Aliases | Edges | Notes |
+|-----------|----------|------------|---------|-------|-------|
+| Shared    | 200 | — | 134 | 76 | weapons, weapon perks, curio perks, blessing families, stat nodes, classes, buffs |
+| Psyker    | 89 | 111 | 76 | 255 | full tree DAG with exclusive_with edges |
+| Ogryn     | 85 | 108 | 85 | 240 | tree DAG (9 edges skipped — missing talent entities) |
+| Arbites   | 82 | 110 | — | 259 | tree DAG (5 edges skipped) |
+| Hive Scum | 103 | 83 | — | 236 | tree DAG (5 edges skipped) |
+| Zealot    | 57 | 89 | 57 | 210 | tree DAG (24 edges skipped) |
+| Veteran   | 43 | 107 | 44 | 211 | tree DAG (40 edges skipped) |
+
+Tree edges are generated from Lua source via `npm run edges:build`. Skipped edges reference
+talent entities not yet in ground-truth — they appear automatically as entity coverage grows.
 
 All 20 build fixtures (all 6 classes) are stored in canonical build shape,
 re-extracted from live Games Lantern pages with full talent trees.
@@ -164,7 +173,7 @@ names (backend-only, not in the decompiled source).
 - `#1` TypeScript migration
 - `#2` Human-readable audit/report layer
 - `#3` Build-oriented CLI (browse, compare)
-- `#4` BetterBots integration contract
+- ~~`#4` BetterBots integration contract~~ (resolved)
 - `#5` Calculator and dataflow layer
 - `#6` Website (SvelteKit + Svelte Flow talent tree)
 

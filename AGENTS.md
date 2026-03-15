@@ -27,8 +27,9 @@ Never hardcode the source root. The Makefile reads `.source-root` as a fallback;
 ```bash
 npm install
 npm test                                          # unit tests (no source root needed for most)
+npm run edges:build                               # regenerate tree edges from Lua source
 npm run check                                     # index:build + test + index:check
-make check                                        # full quality gate (reads .source-root)
+make check                                        # full quality gate (edges:build + check)
 npm run resolve -- --query "Warp Rider" --context '{"kind":"talent","class":"psyker"}'
 npm run audit -- scripts/builds/08-gandalf-melee-wizard.json
 npm run canonicalize -- scripts/sample-build.json # raw scrape → canonical build JSON
@@ -58,7 +59,8 @@ scripts/ground-truth/
   lib/               # resolve.mjs, validate.mjs, load.mjs, normalize.mjs
                      # build-canonicalize.mjs, build-classification.mjs,
                      # build-classification-registry.mjs, build-shape.mjs,
-                     # build-audit.mjs, coverage.mjs, inspect.mjs
+                     # build-audit.mjs, coverage.mjs, inspect.mjs,
+                     # lua-tree-parser.mjs, tree-edge-generator.mjs
 scripts/builds/      # 20 canonical build fixtures (all 6 classes)
 ```
 
