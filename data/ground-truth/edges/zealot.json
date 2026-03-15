@@ -1,5 +1,80 @@
 [
   {
+    "id": "zealot.edge.belongs_to_tree_node.base_melee_damage_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.base_melee_damage_node_buff_medium_1",
+    "to_entity_id": "zealot.tree_node.node_ac2f3e1c-641a-4132-98f5-5e13c199a21a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.base_melee_damage_node_buff_medium_4",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.base_melee_damage_node_buff_medium_4",
+    "to_entity_id": "zealot.tree_node.node_cf60d947-e174-49d8-881d-79aaa602cc4d",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.base_movement_speed_node_buff_low_4",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.base_movement_speed_node_buff_low_4",
+    "to_entity_id": "zealot.tree_node.node_94333107-ec28-44ca-b37e-2f714fc57ed5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.base_toughness_damage_reduction_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.base_toughness_damage_reduction_node_buff_medium_1",
+    "to_entity_id": "zealot.tree_node.node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.base_toughness_node_buff_medium_2",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.base_toughness_node_buff_medium_2",
+    "to_entity_id": "zealot.tree_node.node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "zealot.edge.belongs_to_tree_node.zealot_additional_charge_of_ability",
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_additional_charge_of_ability",
@@ -135,6 +210,21 @@
     "evidence_ids": []
   },
   {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_block_dodging_synergy",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.zealot_block_dodging_synergy",
+    "to_entity_id": "zealot.tree_node.node_2a5c7e89-6bfb-4394-ad08-a7aa014c2cc5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "zealot.edge.belongs_to_tree_node.zealot_bolstering_prayer",
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.ability.zealot_bolstering_prayer",
@@ -165,10 +255,40 @@
     "evidence_ids": []
   },
   {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_channel_grants_toughness_damage_reduction",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent_modifier.zealot_channel_grants_toughness_damage_reduction",
+    "to_entity_id": "zealot.tree_node.node_72c78ca8-a422-429a-90cf-b85d0b36aa19",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "zealot.edge.belongs_to_tree_node.zealot_corruption_healing_coherency_improved",
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.aura.zealot_corruption_healing_coherency_improved",
     "to_entity_id": "zealot.tree_node.node_69985978-58fd-4215-9404-5ebfe1869483",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_corruption_resistance_stacking",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent_modifier.zealot_corruption_resistance_stacking",
+    "to_entity_id": "zealot.tree_node.node_ccd0b423-3a44-4f74-8339-7c7b65ba2d63",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -495,6 +615,21 @@
     "evidence_ids": []
   },
   {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_increased_stagger_on_weakspot_melee",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.zealot_increased_stagger_on_weakspot_melee",
+    "to_entity_id": "zealot.tree_node.node_2aa8cb10-8d27-4716-b001-85aa3bf9cc41",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "zealot.edge.belongs_to_tree_node.zealot_leaving_stealth_restores_toughness",
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_leaving_stealth_restores_toughness",
@@ -570,10 +705,70 @@
     "evidence_ids": []
   },
   {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_melee_crits_restore_stamina",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.zealot_melee_crits_restore_stamina",
+    "to_entity_id": "zealot.tree_node.node_5832cbce-960a-4303-b772-3f8813fde6d0",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_momentum_toughness_replenish",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent_modifier.zealot_momentum_toughness_replenish",
+    "to_entity_id": "zealot.tree_node.node_1473ca58-1a77-4543-b2e5-9c4491d240c8",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_more_damage_when_low_on_stamina",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.zealot_more_damage_when_low_on_stamina",
+    "to_entity_id": "zealot.tree_node.node_cb819666-6781-499a-bb33-9a43ed61b4b3",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "zealot.edge.belongs_to_tree_node.zealot_more_toughness_on_melee",
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_more_toughness_on_melee",
     "to_entity_id": "zealot.tree_node.node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_multi_hits_grant_impact_and_uninterruptible",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.zealot_multi_hits_grant_impact_and_uninterruptible",
+    "to_entity_id": "zealot.tree_node.node_6ab8617d-6ddd-4d56-a6c3-7ead4e4f1648",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -604,6 +799,36 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_offensive_vs_many",
     "to_entity_id": "zealot.tree_node.node_5f6902c3-f9af-4bbf-b4ad-68a0d7da94a1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_push_attacks_attack_speed",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.zealot_push_attacks_attack_speed",
+    "to_entity_id": "zealot.tree_node.node_e6beb408-b6d9-4b1b-b30c-91e9a92d0590",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_quickness_increased_duration",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent_modifier.zealot_quickness_increased_duration",
+    "to_entity_id": "zealot.tree_node.node_8b72c79c-2b0f-4081-b919-f730aaee433d",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -664,6 +889,21 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_reduced_damage_on_wound",
     "to_entity_id": "zealot.tree_node.node_a5510705-1db7-4086-aa35-04833ebb8527",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_reload_from_backstab",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.zealot_reload_from_backstab",
+    "to_entity_id": "zealot.tree_node.node_d98a3747-d645-472e-8188-38903a86cf0e",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -750,6 +990,21 @@
     "evidence_ids": []
   },
   {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_sprint_improvements",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.zealot_sprint_improvements",
+    "to_entity_id": "zealot.tree_node.node_72f07a65-a83f-4264-99fe-6d3551d135e1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "zealot.edge.belongs_to_tree_node.zealot_stacking_melee_damage_after_dodge",
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_stacking_melee_damage_after_dodge",
@@ -765,10 +1020,70 @@
     "evidence_ids": []
   },
   {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_stamina_cost_multiplier_aura",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.aura.zealot_stamina_cost_multiplier_aura",
+    "to_entity_id": "zealot.tree_node.node_a943bfdb-5117-4252-a3bb-ecaf704d5b9d",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_stamina_on_block_break",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.zealot_stamina_on_block_break",
+    "to_entity_id": "zealot.tree_node.node_d80353e9-c157-4d7d-b736-33b0666def5e",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "zealot.edge.belongs_to_tree_node.zealot_stealth",
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.ability.zealot_stealth",
     "to_entity_id": "zealot.tree_node.node_f1b10508-b92d-45c4-8661-941d3eadac13",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_stealth_cooldown_regeneration",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent_modifier.zealot_stealth_cooldown_regeneration",
+    "to_entity_id": "zealot.tree_node.node_de287eb8-d0e5-46ab-98c2-d71496a3bd4a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_suppress_on_backstab_kill",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.zealot_suppress_on_backstab_kill",
+    "to_entity_id": "zealot.tree_node.node_09a97b15-e79d-4953-a189-f24beac4a40d",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -829,6 +1144,51 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_toughness_on_dodge",
     "to_entity_id": "zealot.tree_node.node_7e007113-75ff-4081-af02-5512abe200dc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_toughness_on_heavy_kills",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.zealot_toughness_on_heavy_kills",
+    "to_entity_id": "zealot.tree_node.node_b71544c5-61d9-4c06-8de3-0b834357c0c9",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_toughness_on_ranged_kill",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.zealot_toughness_on_ranged_kill",
+    "to_entity_id": "zealot.tree_node.node_b5ef81ae-d72f-4e83-8fd4-077fad7f6fe0",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.edge.belongs_to_tree_node.zealot_uninterruptible_no_slow_heavies",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "zealot.talent.zealot_uninterruptible_no_slow_heavies",
+    "to_entity_id": "zealot.tree_node.node_4afa8c9e-b961-4078-8231-963c3c9cbeab",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],

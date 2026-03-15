@@ -1,5 +1,80 @@
 [
   {
+    "id": "hive_scum.edge.belongs_to_tree_node.base_crit_chance_node_buff_low_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.base_crit_chance_node_buff_low_1",
+    "to_entity_id": "hive_scum.tree_node.node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.base_melee_damage_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.base_melee_damage_node_buff_medium_1",
+    "to_entity_id": "hive_scum.tree_node.node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.base_toughness_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.base_toughness_node_buff_medium_1",
+    "to_entity_id": "hive_scum.tree_node.node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.base_toughness_node_buff_medium_2",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.base_toughness_node_buff_medium_2",
+    "to_entity_id": "hive_scum.tree_node.node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.base_toxin_power_boost_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.base_toxin_power_boost_1",
+    "to_entity_id": "hive_scum.tree_node.node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "hive_scum.edge.belongs_to_tree_node.broker_ability_focus_improved",
     "type": "belongs_to_tree_node",
     "from_entity_id": "hive_scum.ability.broker_ability_focus_improved",

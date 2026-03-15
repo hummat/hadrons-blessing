@@ -1,5 +1,140 @@
 [
   {
+    "id": "ogryn.edge.belongs_to_tree_node.base_armor_pen_node_buff_low_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "ogryn.talent.base_armor_pen_node_buff_low_1",
+    "to_entity_id": "ogryn.tree_node.node_d21dd87f-c648-4250-8723-e931a8dfdeea",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.edge.belongs_to_tree_node.base_melee_damage_node_buff_medium_2",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "ogryn.talent.base_melee_damage_node_buff_medium_2",
+    "to_entity_id": "ogryn.tree_node.node_da691fd8-8833-4a20-a249-1289c8c8ced0",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.edge.belongs_to_tree_node.base_ranged_damage_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "ogryn.talent.base_ranged_damage_node_buff_medium_1",
+    "to_entity_id": "ogryn.tree_node.node_387adcbf-5a43-4004-b575-862acfb59183",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.edge.belongs_to_tree_node.base_reload_speed_node_buff_low_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "ogryn.talent.base_reload_speed_node_buff_low_1",
+    "to_entity_id": "ogryn.tree_node.node_0966a3c3-55ef-4492-b3d1-7399663aeb55",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.edge.belongs_to_tree_node.base_toughness_damage_reduction_node_buff_low_5",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "ogryn.talent.base_toughness_damage_reduction_node_buff_low_5",
+    "to_entity_id": "ogryn.tree_node.node_228dd214-e42e-40e7-a4b4-7aa427199190",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.edge.belongs_to_tree_node.base_toughness_damage_reduction_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "ogryn.talent.base_toughness_damage_reduction_node_buff_medium_1",
+    "to_entity_id": "ogryn.tree_node.node_9d635d3a-59ef-4d38-96ac-51ab2c8828bf",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.edge.belongs_to_tree_node.base_toughness_node_buff_low_2",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "ogryn.talent.base_toughness_node_buff_low_2",
+    "to_entity_id": "ogryn.tree_node.node_381a5d0b-75be-474b-a2a4-7f003de9e0f9",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.edge.belongs_to_tree_node.base_toughness_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "ogryn.talent.base_toughness_node_buff_medium_1",
+    "to_entity_id": "ogryn.tree_node.node_083e96ae-e6c6-4eb1-9225-d28ee308abff",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.edge.belongs_to_tree_node.base_toughness_node_buff_medium_2",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "ogryn.talent.base_toughness_node_buff_medium_2",
+    "to_entity_id": "ogryn.tree_node.node_56c81af7-254e-43da-9b53-4a8e02d88748",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "ogryn.edge.belongs_to_tree_node.ogryn_ally_elite_kills_grant_cooldown",
     "type": "belongs_to_tree_node",
     "from_entity_id": "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown",

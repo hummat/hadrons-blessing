@@ -98,6 +98,60 @@
     "calc": {}
   },
   {
+    "id": "veteran.ability.veteran_krak_grenade",
+    "kind": "ability",
+    "domain": "veteran",
+    "internal_name": "veteran_krak_grenade",
+    "loc_key": "loc_talent_ability_krak_grenade_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 868
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 44
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical",
+      "group_name": null,
+      "tree_widget_name": "node_29b3560b-2a50-46cd-b0bb-352b34897c49",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.ability.veteran_smoke_grenade",
+    "kind": "ability",
+    "domain": "veteran",
+    "internal_name": "veteran_smoke_grenade",
+    "loc_key": "loc_ability_smoke_grenade",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 247
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 67
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical",
+      "group_name": null,
+      "tree_widget_name": "node_4bde1a72-40bd-46ad-950f-8546a48ccb9f",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
     "id": "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
     "kind": "aura",
     "domain": "veteran",
@@ -121,6 +175,60 @@
       "group_name": null,
       "tree_widget_name": "node_5ae6929c-f9fe-43b2-b2d9-079d6737de23",
       "exclusive_group": "aura"
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.aura.veteran_increased_damage_coherency",
+    "kind": "aura",
+    "domain": "veteran",
+    "internal_name": "veteran_increased_damage_coherency",
+    "loc_key": "loc_talent_veteran_damage_coherency_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 991
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 706
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "aura",
+      "group_name": null,
+      "tree_widget_name": "node_bd398c77-960a-41f8-af1c-e4e15ef9ee7d",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.aura.veteran_movement_speed_coherency",
+    "kind": "aura",
+    "domain": "veteran",
+    "internal_name": "veteran_movement_speed_coherency",
+    "loc_key": "loc_talent_veteran_movement_speed_coherency_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 363
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 731
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "aura",
+      "group_name": null,
+      "tree_widget_name": "node_06b8c8de-0e09-40c9-af16-a6018e9984a8",
+      "exclusive_group": null
     },
     "calc": {}
   },
@@ -196,6 +304,60 @@
     "calc": {}
   },
   {
+    "id": "veteran.talent_modifier.veteran_combat_ability_coherency_outlines",
+    "kind": "talent_modifier",
+    "domain": "veteran",
+    "internal_name": "veteran_combat_ability_coherency_outlines",
+    "loc_key": "loc_talent_veteran_combat_ability_coherency_outlines_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 664
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 411
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": "node_92793f3d-46d0-4a20-a4af-b5fe7ea28b22",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent_modifier.veteran_combat_ability_extra_charge",
+    "kind": "talent_modifier",
+    "domain": "veteran",
+    "internal_name": "veteran_combat_ability_extra_charge",
+    "loc_key": "loc_talent_veteran_combat_ability_extra_charge_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1120
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 616
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": "node_6469a1ec-589f-49a3-a53e-3676c3181dad",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
     "id": "veteran.talent_modifier.veteran_combat_ability_increase_and_restore_toughness_to_coherency",
     "kind": "talent_modifier",
     "domain": "veteran",
@@ -245,6 +407,87 @@
     "calc": {}
   },
   {
+    "id": "veteran.talent_modifier.veteran_combat_ability_ranged_roamer_outlines",
+    "kind": "talent_modifier",
+    "domain": "veteran",
+    "internal_name": "veteran_combat_ability_ranged_roamer_outlines",
+    "loc_key": "loc_talent_veteran_combat_ability_ranged_enemies_outlines_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 707
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 358
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": "node_3843e597-be1c-44dc-b07f-e7b0b2f779dd",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent_modifier.veteran_combat_ability_revive_nearby_allies",
+    "kind": "talent_modifier",
+    "domain": "veteran",
+    "internal_name": "veteran_combat_ability_revive_nearby_allies",
+    "loc_key": "loc_talent_veteran_combat_ability_revives_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 916
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 571
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": "node_5c3c2498-e9f8-497c-ad3a-a99d5ccfdefd",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent_modifier.veteran_improved_tag_dead_bonus",
+    "kind": "talent_modifier",
+    "domain": "veteran",
+    "internal_name": "veteran_improved_tag_dead_bonus",
+    "loc_key": "loc_talent_veteran_improved_tag_dead_bonus_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1835
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2966
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": "node_a7ec533f-0efa-450a-b45d-02b8c7f61861",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
     "id": "veteran.talent_modifier.veteran_improved_tag_dead_coherency_bonus",
     "kind": "talent_modifier",
     "domain": "veteran",
@@ -272,6 +515,60 @@
     "calc": {}
   },
   {
+    "id": "veteran.talent_modifier.veteran_improved_tag_more_damage",
+    "kind": "talent_modifier",
+    "domain": "veteran",
+    "internal_name": "veteran_improved_tag_more_damage",
+    "loc_key": "loc_talent_veteran_improved_tag_more_damage_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1873
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 3020
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": "node_97953f03-3524-42f4-b653-da2e3468823f",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent_modifier.veteran_increased_close_damage_after_combat_ability",
+    "kind": "talent_modifier",
+    "domain": "veteran",
+    "internal_name": "veteran_increased_close_damage_after_combat_ability",
+    "loc_key": "loc_talent_veteran_ability_assault_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1529
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1313
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": "node_7c08ee90-6528-4188-915f-41e330db49f5",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
     "id": "veteran.talent_modifier.veteran_increased_weakspot_power_after_combat_ability",
     "kind": "talent_modifier",
     "domain": "veteran",
@@ -294,6 +591,33 @@
     "calc": {}
   },
   {
+    "id": "veteran.talent_modifier.veteran_reduced_threat_after_combat_ability",
+    "kind": "talent_modifier",
+    "domain": "veteran",
+    "internal_name": "veteran_reduced_threat_after_combat_ability",
+    "loc_key": "loc_talent_veteran_reduced_threat_after_stealth_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 523
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1278
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "group_name": null,
+      "tree_widget_name": "node_a85c31ac-40a1-48e3-8585-0e04d85adfcf",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
     "id": "veteran.talent_modifier.veteran_snipers_focus_increased_stacks",
     "kind": "talent_modifier",
     "domain": "veteran",
@@ -313,6 +637,33 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent_modifier.veteran_snipers_focus_rending_bonus",
+    "kind": "talent_modifier",
+    "domain": "veteran",
+    "internal_name": "veteran_snipers_focus_rending_bonus",
+    "loc_key": "loc_talent_veteran_snipers_focus_rending_bonus_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1667
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2572
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": "node_11a4a71d-e135-4842-a90d-8cf96e5ee5a8",
+      "exclusive_group": null
+    },
     "calc": {}
   },
   {
@@ -382,6 +733,357 @@
     "calc": {}
   },
   {
+    "id": "veteran.talent_modifier.veteran_weapon_switch_replenish_stamina",
+    "kind": "talent_modifier",
+    "domain": "veteran",
+    "internal_name": "veteran_weapon_switch_replenish_stamina",
+    "loc_key": "loc_talent_veteran_weapon_switch_replenish_stamina_new_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1790
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2772
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": "node_78c14d65-e167-4148-ac90-b53c00f2d4f4",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent_modifier.veteran_weapon_switch_replenish_toughness",
+    "kind": "talent_modifier",
+    "domain": "veteran",
+    "internal_name": "veteran_weapon_switch_replenish_toughness",
+    "loc_key": "loc_talent_veteran_weapon_switch_replenish_toughness_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1750
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2903
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "group_name": null,
+      "tree_widget_name": "node_18ddfb8a-8035-4232-90b2-c114a1451ac7",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.base_melee_damage_node_buff_high_1",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "base_melee_damage_node_buff_high_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1331
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 1158
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "group_name": null,
+      "tree_widget_name": "node_fa0ae054-51ac-4488-90ee-58d24f90fb63",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.base_movement_speed_node_buff_low_1",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "base_movement_speed_node_buff_low_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1596
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 2743
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "group_name": null,
+      "tree_widget_name": "node_079ac2c7-5e1d-41d2-a31d-6c3ce9fcec12",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.base_ranged_damage_node_buff_medium_1",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "base_ranged_damage_node_buff_medium_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1357
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 1638
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "group_name": null,
+      "tree_widget_name": "node_b40ef26d-5e6e-4f30-87e6-a96091d5ce0a",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.base_reload_speed_node_buff_medium_1",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "base_reload_speed_node_buff_medium_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1303
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 2023
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "group_name": null,
+      "tree_widget_name": "node_0a263862-582d-4b55-80fa-6978c907efd5",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.base_stamina_node_buff_low_2",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "base_stamina_node_buff_low_2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1570
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 2287
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "group_name": null,
+      "tree_widget_name": "node_e38451de-f4cc-4490-89b6-ae9f7bfefbde",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.base_stamina_regen_delay_2",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "base_stamina_regen_delay_2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1507
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 36
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "group_name": null,
+      "tree_widget_name": "node_9f8799fb-9107-462b-9adb-204b2d257650",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.base_toughness_damage_reduction_node_buff_medium_1",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "base_toughness_damage_reduction_node_buff_medium_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1454
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 438
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "group_name": null,
+      "tree_widget_name": "node_630f40a6-c9ca-4337-8af3-541d274dbcab",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.base_toughness_node_buff_low_5",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "base_toughness_node_buff_low_5",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1475
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 159
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "group_name": null,
+      "tree_widget_name": "node_6dd3ceaa-4d3c-4493-9836-79584c994fcf",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.base_toughness_node_buff_medium_1",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "base_toughness_node_buff_medium_1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 159
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 183
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "group_name": null,
+      "tree_widget_name": "node_e0e0d8de-9787-4ecb-b7b8-43cb0eb133d9",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.base_toughness_node_buff_medium_2",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "base_toughness_node_buff_medium_2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 501
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/base_talents.lua",
+        "line": 207
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "group_name": null,
+      "tree_widget_name": "node_33819d8f-8635-4356-97b1-4cf1d67dd6d5",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.veteran_ads_drain_stamina",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_ads_drain_stamina",
+    "loc_key": "loc_talent_veteran_ads_drains_stamina_boost_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1214
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 252
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_7adfbd19-7df3-4337-875b-2a9dfa00d378",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
     "id": "veteran.talent.veteran_all_kills_replenish_toughness",
     "kind": "talent",
     "domain": "veteran",
@@ -426,6 +1128,33 @@
       "tree_type": "default",
       "group_name": null,
       "tree_widget_name": "node_7faaad0d-aebf-44f2-ba30-6a23ce68d320",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.veteran_ally_kills_increase_damage",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_ally_kills_increase_damage",
+    "loc_key": "loc_talent_veteran_ally_kills_increase_damage_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 799
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 785
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_7163a098-c55a-47f0-a861-38509acc0d44",
       "exclusive_group": null
     },
     "calc": {}
@@ -551,6 +1280,87 @@
     "calc": {}
   },
   {
+    "id": "veteran.talent.veteran_bonus_crit_chance_on_ammo",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_bonus_crit_chance_on_ammo",
+    "loc_key": "loc_talent_veteran_bonus_crit_chance_on_ammo_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 569
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1561
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_40c7bc1e-e4a2-40c1-ab28-459d599cc30b",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.veteran_clip_size",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_clip_size",
+    "loc_key": "loc_talent_adamant_clip_size_alt_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1550
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 3042
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_891f1d0a-96ac-40b0-8a37-7dd491212599",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.veteran_continous_hits_apply_rending",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_continous_hits_apply_rending",
+    "loc_key": "loc_talent_veteran_continous_hits_apply_rending_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 478
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1146
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_96335f86-60f8-46e4-a6df-47c0a4ee2719",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
     "id": "veteran.talent.veteran_crits_apply_rending",
     "kind": "talent",
     "domain": "veteran",
@@ -605,6 +1415,33 @@
     "calc": {}
   },
   {
+    "id": "veteran.talent.veteran_dodging_grants_stamina",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_dodging_grants_stamina",
+    "loc_key": "loc_talent_veteran_stamina_on_ranged_dodge_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1409
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1723
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_e17c1b44-cbfd-4f58-bc7e-dc80ff90fbcc",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
     "id": "veteran.talent.veteran_elite_kills_reduce_cooldown",
     "kind": "talent",
     "domain": "veteran",
@@ -654,6 +1491,60 @@
       "tree_type": "default",
       "group_name": null,
       "tree_widget_name": "node_ba8679cd-fc19-435d-a317-ebeccb210f87",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.veteran_extra_grenade",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_extra_grenade",
+    "loc_key": "loc_talent_veteran_extra_grenade_and_throw_chance_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 319
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 88
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_8c9efccd-3b95-45aa-a620-98f9d4d7133e",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.veteran_faster_reload_on_non_empty_clips",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_faster_reload_on_non_empty_clips",
+    "loc_key": "loc_talent_veteran_reload_speed_non_empty_mag_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 61
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2307
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_be2f4721-6e3e-4594-9393-6654b6c234cd",
       "exclusive_group": null
     },
     "calc": {}
@@ -767,6 +1658,33 @@
     "calc": {}
   },
   {
+    "id": "veteran.talent.veteran_increase_suppression",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_increase_suppression",
+    "loc_key": "loc_talent_veteran_increase_suppression_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1892
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 876
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_a3f092bc-651f-457d-9791-9c38ff2b99fd",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
     "id": "veteran.talent.veteran_increased_damage_based_on_range",
     "kind": "talent",
     "domain": "veteran",
@@ -789,6 +1707,33 @@
       "tree_type": "default",
       "group_name": null,
       "tree_widget_name": "node_62b7b680-7096-40ed-9303-7ba124a5d812",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.veteran_increased_damage_when_flanking",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_increased_damage_when_flanking",
+    "loc_key": "loc_talent_zealot_increased_flanking_damage_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1913
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 3058
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_eb62ac80-bd39-4ad3-bf09-49e25ae55af9",
       "exclusive_group": null
     },
     "calc": {}
@@ -867,6 +1812,60 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.veteran_movement_bonuses_on_toughness_broken",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_movement_bonuses_on_toughness_broken",
+    "loc_key": "loc_talent_veteran_movement_bonus_on_toughness_broken_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 683
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1645
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_92ce0aa9-e7c8-4620-9ad3-de2cedbf9431",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.veteran_movement_speed_towards_downed",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_movement_speed_towards_downed",
+    "loc_key": "loc_talent_veteran_movement_speed_towards_downed_description",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 298
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 1682
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_c6d92993-58ab-4f1c-ac76-0e3b36af29a5",
+      "exclusive_group": null
+    },
     "calc": {}
   },
   {
@@ -963,6 +1962,60 @@
     "calc": {}
   },
   {
+    "id": "veteran.talent.veteran_reload_speed_on_elite_kill",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_reload_speed_on_elite_kill",
+    "loc_key": "loc_talent_veteran_reload_speed_on_elite_kill_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 86
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 997
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_d99d3163-8528-4232-af21-f29cbf453fb1",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.veteran_rending_bonus",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_rending_bonus",
+    "loc_key": "loc_talent_veteran_rending_bonus_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 342
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2378
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_c36508a3-b4f2-4b5a-837e-132101c8739d",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
     "id": "veteran.talent.veteran_replenish_grenades",
     "kind": "talent",
     "domain": "veteran",
@@ -985,6 +2038,33 @@
       "tree_type": "default",
       "group_name": null,
       "tree_widget_name": "node_8acdddd9-366b-4601-bf16-13574eb1cb24",
+      "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "veteran.talent.veteran_replenish_toughness_and_boost_allies",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_replenish_toughness_and_boost_allies",
+    "loc_key": "loc_talent_veteran_replenish_toughness_and_boost_allies_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 1034
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 2218
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_f607f1a6-5fe0-4814-b534-4177cbe9b2c0",
       "exclusive_group": null
     },
     "calc": {}

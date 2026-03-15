@@ -1230,6 +1230,81 @@
     "evidence_ids": []
   },
   {
+    "id": "arbites.edge.belongs_to_tree_node.base_cleave_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "arbites.talent.base_cleave_node_buff_medium_1",
+    "to_entity_id": "arbites.tree_node.node_4cb10022-552a-4499-84e1-b956aa007511",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.edge.belongs_to_tree_node.base_impact_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "arbites.talent.base_impact_node_buff_medium_1",
+    "to_entity_id": "arbites.tree_node.node_da43a66a-4f23-41fb-8257-6cf06d157433",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.edge.belongs_to_tree_node.base_melee_damage_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "arbites.talent.base_melee_damage_node_buff_medium_1",
+    "to_entity_id": "arbites.tree_node.node_030fde55-407f-4bb3-bd36-46d70fe56bbf",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.edge.belongs_to_tree_node.base_ranged_damage_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "arbites.talent.base_ranged_damage_node_buff_medium_1",
+    "to_entity_id": "arbites.tree_node.node_a40126d6-c985-42b7-bffb-7234639e6704",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.edge.belongs_to_tree_node.base_toughness_damage_reduction_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "arbites.talent.base_toughness_damage_reduction_node_buff_medium_1",
+    "to_entity_id": "arbites.tree_node.node_6b1ed144-097b-4dd0-9fab-c56e5722ee5f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "arbites.edge.parent_of.node_011c39aa-3025-4c37-b8de-608a36813a25.node_284a6993-4069-480f-be4b-ad6bb34c6739",
     "type": "parent_of",
     "from_entity_id": "arbites.tree_node.node_011c39aa-3025-4c37-b8de-608a36813a25",

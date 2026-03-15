@@ -1,5 +1,170 @@
 [
   {
+    "id": "veteran.edge.belongs_to_tree_node.base_melee_damage_node_buff_high_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.base_melee_damage_node_buff_high_1",
+    "to_entity_id": "veteran.tree_node.node_fa0ae054-51ac-4488-90ee-58d24f90fb63",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.base_movement_speed_node_buff_low_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.base_movement_speed_node_buff_low_1",
+    "to_entity_id": "veteran.tree_node.node_079ac2c7-5e1d-41d2-a31d-6c3ce9fcec12",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.base_ranged_damage_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.base_ranged_damage_node_buff_medium_1",
+    "to_entity_id": "veteran.tree_node.node_b40ef26d-5e6e-4f30-87e6-a96091d5ce0a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.base_reload_speed_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.base_reload_speed_node_buff_medium_1",
+    "to_entity_id": "veteran.tree_node.node_0a263862-582d-4b55-80fa-6978c907efd5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.base_stamina_node_buff_low_2",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.base_stamina_node_buff_low_2",
+    "to_entity_id": "veteran.tree_node.node_e38451de-f4cc-4490-89b6-ae9f7bfefbde",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.base_stamina_regen_delay_2",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.base_stamina_regen_delay_2",
+    "to_entity_id": "veteran.tree_node.node_9f8799fb-9107-462b-9adb-204b2d257650",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.base_toughness_damage_reduction_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.base_toughness_damage_reduction_node_buff_medium_1",
+    "to_entity_id": "veteran.tree_node.node_630f40a6-c9ca-4337-8af3-541d274dbcab",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.base_toughness_node_buff_low_5",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.base_toughness_node_buff_low_5",
+    "to_entity_id": "veteran.tree_node.node_6dd3ceaa-4d3c-4493-9836-79584c994fcf",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.base_toughness_node_buff_medium_1",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.base_toughness_node_buff_medium_1",
+    "to_entity_id": "veteran.tree_node.node_e0e0d8de-9787-4ecb-b7b8-43cb0eb133d9",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.base_toughness_node_buff_medium_2",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.base_toughness_node_buff_medium_2",
+    "to_entity_id": "veteran.tree_node.node_33819d8f-8635-4356-97b1-4cf1d67dd6d5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_ads_drain_stamina",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_ads_drain_stamina",
+    "to_entity_id": "veteran.tree_node.node_7adfbd19-7df3-4337-875b-2a9dfa00d378",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "veteran.edge.belongs_to_tree_node.veteran_all_kills_replenish_toughness",
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.talent.veteran_all_kills_replenish_toughness",
@@ -19,6 +184,21 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.talent.veteran_allies_in_coherency_share_toughness_gain",
     "to_entity_id": "veteran.tree_node.node_7faaad0d-aebf-44f2-ba30-6a23ce68d320",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_ally_kills_increase_damage",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_ally_kills_increase_damage",
+    "to_entity_id": "veteran.tree_node.node_7163a098-c55a-47f0-a861-38509acc0d44",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -120,10 +300,70 @@
     "evidence_ids": []
   },
   {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_bonus_crit_chance_on_ammo",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_bonus_crit_chance_on_ammo",
+    "to_entity_id": "veteran.tree_node.node_40c7bc1e-e4a2-40c1-ab28-459d599cc30b",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_clip_size",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_clip_size",
+    "to_entity_id": "veteran.tree_node.node_891f1d0a-96ac-40b0-8a37-7dd491212599",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_combat_ability_coherency_outlines",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent_modifier.veteran_combat_ability_coherency_outlines",
+    "to_entity_id": "veteran.tree_node.node_92793f3d-46d0-4a20-a4af-b5fe7ea28b22",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "veteran.edge.belongs_to_tree_node.veteran_combat_ability_elite_and_special_outlines",
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.ability.veteran_combat_ability_elite_and_special_outlines",
     "to_entity_id": "veteran.tree_node.node_bbd51147-0e4f-4bec-a020-b23d16efb29a",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_combat_ability_extra_charge",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent_modifier.veteran_combat_ability_extra_charge",
+    "to_entity_id": "veteran.tree_node.node_6469a1ec-589f-49a3-a53e-3676c3181dad",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -165,10 +405,55 @@
     "evidence_ids": []
   },
   {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_combat_ability_ranged_roamer_outlines",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent_modifier.veteran_combat_ability_ranged_roamer_outlines",
+    "to_entity_id": "veteran.tree_node.node_3843e597-be1c-44dc-b07f-e7b0b2f779dd",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_combat_ability_revive_nearby_allies",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent_modifier.veteran_combat_ability_revive_nearby_allies",
+    "to_entity_id": "veteran.tree_node.node_5c3c2498-e9f8-497c-ad3a-a99d5ccfdefd",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "veteran.edge.belongs_to_tree_node.veteran_combat_ability_stagger_nearby_enemies",
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.ability.veteran_combat_ability_stagger_nearby_enemies",
     "to_entity_id": "veteran.tree_node.node_73319c64-81e7-4234-8fb7-4e65ebb620f5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_continous_hits_apply_rending",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_continous_hits_apply_rending",
+    "to_entity_id": "veteran.tree_node.node_96335f86-60f8-46e4-a6df-47c0a4ee2719",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -210,6 +495,21 @@
     "evidence_ids": []
   },
   {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_dodging_grants_stamina",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_dodging_grants_stamina",
+    "to_entity_id": "veteran.tree_node.node_e17c1b44-cbfd-4f58-bc7e-dc80ff90fbcc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "veteran.edge.belongs_to_tree_node.veteran_elite_kills_reduce_cooldown",
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.talent.veteran_elite_kills_reduce_cooldown",
@@ -229,6 +529,36 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.talent.veteran_elite_kills_replenish_toughness",
     "to_entity_id": "veteran.tree_node.node_ba8679cd-fc19-435d-a317-ebeccb210f87",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_extra_grenade",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_extra_grenade",
+    "to_entity_id": "veteran.tree_node.node_8c9efccd-3b95-45aa-a620-98f9d4d7133e",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_faster_reload_on_non_empty_clips",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_faster_reload_on_non_empty_clips",
+    "to_entity_id": "veteran.tree_node.node_be2f4721-6e3e-4594-9393-6654b6c234cd",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -300,10 +630,40 @@
     "evidence_ids": []
   },
   {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_improved_tag_dead_bonus",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent_modifier.veteran_improved_tag_dead_bonus",
+    "to_entity_id": "veteran.tree_node.node_a7ec533f-0efa-450a-b45d-02b8c7f61861",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "veteran.edge.belongs_to_tree_node.veteran_improved_tag_dead_coherency_bonus",
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.talent_modifier.veteran_improved_tag_dead_coherency_bonus",
     "to_entity_id": "veteran.tree_node.node_ac52f1fe-53d7-4e5a-8872-21c6db29db9e",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_improved_tag_more_damage",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent_modifier.veteran_improved_tag_more_damage",
+    "to_entity_id": "veteran.tree_node.node_97953f03-3524-42f4-b653-da2e3468823f",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -345,10 +705,70 @@
     "evidence_ids": []
   },
   {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_increase_suppression",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_increase_suppression",
+    "to_entity_id": "veteran.tree_node.node_a3f092bc-651f-457d-9791-9c38ff2b99fd",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_increased_close_damage_after_combat_ability",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent_modifier.veteran_increased_close_damage_after_combat_ability",
+    "to_entity_id": "veteran.tree_node.node_7c08ee90-6528-4188-915f-41e330db49f5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "veteran.edge.belongs_to_tree_node.veteran_increased_damage_based_on_range",
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.talent.veteran_increased_damage_based_on_range",
     "to_entity_id": "veteran.tree_node.node_62b7b680-7096-40ed-9303-7ba124a5d812",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_increased_damage_coherency",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.aura.veteran_increased_damage_coherency",
+    "to_entity_id": "veteran.tree_node.node_bd398c77-960a-41f8-af1c-e4e15ef9ee7d",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_increased_damage_when_flanking",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_increased_damage_when_flanking",
+    "to_entity_id": "veteran.tree_node.node_eb62ac80-bd39-4ad3-bf09-49e25ae55af9",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -435,6 +855,66 @@
     "evidence_ids": []
   },
   {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_krak_grenade",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.ability.veteran_krak_grenade",
+    "to_entity_id": "veteran.tree_node.node_29b3560b-2a50-46cd-b0bb-352b34897c49",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_movement_bonuses_on_toughness_broken",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_movement_bonuses_on_toughness_broken",
+    "to_entity_id": "veteran.tree_node.node_92ce0aa9-e7c8-4620-9ad3-de2cedbf9431",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_movement_speed_coherency",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.aura.veteran_movement_speed_coherency",
+    "to_entity_id": "veteran.tree_node.node_06b8c8de-0e09-40c9-af16-a6018e9984a8",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_movement_speed_towards_downed",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_movement_speed_towards_downed",
+    "to_entity_id": "veteran.tree_node.node_c6d92993-58ab-4f1c-ac76-0e3b36af29a5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "veteran.edge.belongs_to_tree_node.veteran_no_ammo_consumption_on_lasweapon_crit",
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.talent.veteran_no_ammo_consumption_on_lasweapon_crit",
@@ -480,6 +960,21 @@
     "evidence_ids": []
   },
   {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_reduced_threat_after_combat_ability",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent_modifier.veteran_reduced_threat_after_combat_ability",
+    "to_entity_id": "veteran.tree_node.node_a85c31ac-40a1-48e3-8585-0e04d85adfcf",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "veteran.edge.belongs_to_tree_node.veteran_reduced_toughness_damage_in_coherency",
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
@@ -495,10 +990,55 @@
     "evidence_ids": []
   },
   {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_reload_speed_on_elite_kill",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_reload_speed_on_elite_kill",
+    "to_entity_id": "veteran.tree_node.node_d99d3163-8528-4232-af21-f29cbf453fb1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_rending_bonus",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_rending_bonus",
+    "to_entity_id": "veteran.tree_node.node_c36508a3-b4f2-4b5a-837e-132101c8739d",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "veteran.edge.belongs_to_tree_node.veteran_replenish_grenades",
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.talent.veteran_replenish_grenades",
     "to_entity_id": "veteran.tree_node.node_8acdddd9-366b-4601-bf16-13574eb1cb24",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_replenish_toughness_and_boost_allies",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_replenish_toughness_and_boost_allies",
+    "to_entity_id": "veteran.tree_node.node_f607f1a6-5fe0-4814-b534-4177cbe9b2c0",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -540,6 +1080,21 @@
     "evidence_ids": []
   },
   {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_smoke_grenade",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.ability.veteran_smoke_grenade",
+    "to_entity_id": "veteran.tree_node.node_4bde1a72-40bd-46ad-950f-8546a48ccb9f",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "veteran.edge.belongs_to_tree_node.veteran_snipers_focus",
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.keystone.veteran_snipers_focus",
@@ -559,6 +1114,21 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.talent_modifier.veteran_snipers_focus_increased_stacks",
     "to_entity_id": "veteran.tree_node.node_c426c7f4-97d1-4176-810c-9dd935ef89cd",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_snipers_focus_rending_bonus",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent_modifier.veteran_snipers_focus_rending_bonus",
+    "to_entity_id": "veteran.tree_node.node_11a4a71d-e135-4842-a90d-8cf96e5ee5a8",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
@@ -634,6 +1204,36 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "veteran.talent_modifier.veteran_weapon_switch_replenish_ammo",
     "to_entity_id": "veteran.tree_node.node_265dcb9e-af95-4e79-8ccd-1591951ac6ac",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_weapon_switch_replenish_stamina",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent_modifier.veteran_weapon_switch_replenish_stamina",
+    "to_entity_id": "veteran.tree_node.node_78c14d65-e167-4148-ac90-b53c00f2d4f4",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_weapon_switch_replenish_toughness",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent_modifier.veteran_weapon_switch_replenish_toughness",
+    "to_entity_id": "veteran.tree_node.node_18ddfb8a-8035-4232-90b2-c114a1451ac7",
     "source_snapshot_id": "darktide-source.dbe7035",
     "conditions": {
       "predicates": [],
