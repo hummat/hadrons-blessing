@@ -142,7 +142,6 @@ export async function generateReport(buildPath) {
   const unresolvedCount = audit.unresolved.length;
   const nonCanonicalCount = audit.non_canonical.length;
   const total = resolvedCount + ambiguousCount + unresolvedCount + nonCanonicalCount;
-  const warningCount = audit.warnings.length;
 
   const summary = {
     total,
@@ -150,7 +149,7 @@ export async function generateReport(buildPath) {
     ambiguous: ambiguousCount,
     unresolved: unresolvedCount,
     non_canonical: nonCanonicalCount,
-    warnings: warningCount,
+    warnings: audit.warnings ?? [],
   };
 
   // --- Problem arrays (top-level) ---

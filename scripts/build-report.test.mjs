@@ -26,6 +26,7 @@ describe("generateReport", () => {
       s.total,
       "counts should sum to total",
     );
+    assert.ok(Array.isArray(s.warnings), "warnings should be an array");
   });
 
   it("populates structural slots", async () => {
