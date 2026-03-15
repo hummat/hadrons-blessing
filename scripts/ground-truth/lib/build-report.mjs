@@ -1,0 +1,174 @@
+/**
+ * Build report data assembly.
+ *
+ * Joins three data sources into a BuildReport object:
+ *   - Build JSON metadata (title, class, provenance)
+ *   - Audit results from auditBuildFile() (resolution correctness)
+ *   - Scorecard from generateScorecard() (perk/curio ratings)
+ */
+
+import { loadJsonFile } from "./load.mjs";
+import { auditBuildFile } from "../../audit-build-names.mjs";
+import { generateScorecard } from "../../score-build.mjs";
+
+/**
+ * Return the display label for a selection (object or plain string).
+ */
+function selectionLabel(selection) {
+  if (typeof selection === "string") return selection;
+  if (selection != null && typeof selection === "object" && typeof selection.raw_label === "string") {
+    return selection.raw_label;
+  }
+  return "(unknown)";
+}
+
+/**
+ * Return the resolution status for a selection.
+ */
+function selectionStatus(selection) {
+  if (typeof selection === "string") return "resolved";
+  if (selection != null && typeof selection === "object" && typeof selection.resolution_status === "string") {
+    return selection.resolution_status;
+  }
+  return "resolved";
+}
+
+/**
+ * Return the canonical entity ID for a selection.
+ */
+function selectionEntityId(selection) {
+  if (selection != null && typeof selection === "object" && typeof selection.canonical_entity_id === "string") {
+    return selection.canonical_entity_id;
+  }
+  return null;
+}
+
+/**
+ * Build a structural slot descriptor.
+ */
+function buildSlot(selection) {
+  return {
+    label: selectionLabel(selection),
+    status: selectionStatus(selection),
+    entity_id: selectionEntityId(selection),
+  };
+}
+
+/**
+ * Generate a BuildReport for a canonical build file.
+ *
+ * @param {string} buildPath - Absolute or relative path to a canonical build JSON file.
+ * @returns {Promise<object>} BuildReport object.
+ */
+export async function generateReport(buildPath) {
+  const build = loadJsonFile(buildPath);
+  const audit = await auditBuildFile(buildPath);
+  const scorecard = generateScorecard(build);
+
+  // --- Header ---
+  const className = selectionLabel(build.class);
+  const title = build.title;
+  const provenance = build.provenance ?? null;
+
+  // --- Structural slots ---
+  const slots = {
+    ability: buildSlot(build.ability),
+    blitz: buildSlot(build.blitz),
+    aura: buildSlot(build.aura),
+    keystone: buildSlot(build.keystone),
+  };
+
+  // --- Weapons ---
+  const weapons = (build.weapons ?? []).map((buildWeapon, weaponIndex) => {
+    const scorecardWeapon = scorecard.weapons[weaponIndex];
+
+    // Perks: pass through from scorecard (keep .name field as-is)
+    const perks = (scorecardWeapon?.perks?.perks ?? []).map((p) => {
+      if (p == null) return null;
+      return { name: p.name, tier: p.tier, value: p.value };
+    });
+
+    // Blessings: normalize from scorecard { name, known, internal } -> { label, known }
+    const blessings = (scorecardWeapon?.blessings?.blessings ?? []).map((b) => ({
+      label: b.name,
+      known: b.known,
+    }));
+
+    return {
+      label: selectionLabel(buildWeapon.name),
+      slot: buildWeapon.slot ?? scorecardWeapon?.slot ?? null,
+      entity_id: selectionEntityId(buildWeapon.name),
+      perk_score: scorecardWeapon?.perks?.score ?? null,
+      perks,
+      blessings,
+    };
+  });
+
+  // --- Curios ---
+  // scorecard.curios.perks is FLAT across all curios. Re-group by slicing
+  // using build file's per-curio perk count.
+  const flatCurioPerks = scorecard.curios?.perks ?? [];
+  let perkOffset = 0;
+  const curios = (build.curios ?? []).map((buildCurio) => {
+    const perkCount = (buildCurio.perks ?? []).length;
+    const scoredPerks = flatCurioPerks.slice(perkOffset, perkOffset + perkCount);
+    perkOffset += perkCount;
+
+    return {
+      label: selectionLabel(buildCurio.name),
+      status: selectionStatus(buildCurio.name),
+      perks: scoredPerks.map((p) => ({
+        label: p.name,
+        tier: p.tier,
+        rating: p.rating,
+      })),
+    };
+  });
+
+  // --- Scoring ---
+  const perk_optimality = scorecard.perk_optimality;
+  const curio_score = scorecard.curio_efficiency;
+
+  // --- Summary counts from audit buckets ---
+  const resolved = audit.resolved.length;
+  const ambiguous = audit.ambiguous.length;
+  const unresolved = audit.unresolved.length;
+  const non_canonical = audit.non_canonical.length;
+  const total = resolved + ambiguous + unresolved + non_canonical;
+  const warnings = audit.warnings.length;
+
+  const summary = { total, resolved, ambiguous, unresolved, non_canonical, warnings };
+
+  // --- Problems ---
+  const problems = {
+    unresolved: audit.unresolved.map((entry) => ({
+      field: entry.field,
+      label: entry.text,
+      reason: entry.match_type ?? "none",
+    })),
+    ambiguous: audit.ambiguous.map((entry) => ({
+      field: entry.field,
+      label: entry.text,
+      candidates: [],
+    })),
+    non_canonical: audit.non_canonical.map((entry) => ({
+      field: entry.field,
+      label: entry.text,
+      kind: entry.non_canonical_kind ?? null,
+      notes: entry.notes ?? null,
+    })),
+  };
+
+  return {
+    title,
+    class: className,
+    provenance,
+    slots,
+    weapons,
+    curios,
+    perk_optimality,
+    curio_score,
+    summary,
+    problems,
+  };
+}
