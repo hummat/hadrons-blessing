@@ -2,7 +2,7 @@
 # Create .source-root once: echo /path/to/Darktide-Source-Code > .source-root
 GROUND_TRUTH_SOURCE_ROOT ?= $(shell cat .source-root 2>/dev/null)
 
-.PHONY: require-source-root test resolve audit index-build index-check check
+.PHONY: require-source-root test resolve audit index-build index-check edges-build check
 
 require-source-root:
 	@if [ -z "$(GROUND_TRUTH_SOURCE_ROOT)" ]; then \
@@ -26,5 +26,8 @@ index-build: require-source-root
 index-check: require-source-root
 	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run index:check
 
-check: require-source-root
+edges-build: require-source-root
+	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run edges:build
+
+check: require-source-root edges-build
 	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run check
