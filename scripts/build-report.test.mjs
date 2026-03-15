@@ -78,15 +78,14 @@ describe("generateReport", () => {
   });
 
   it("normalizes blessing fields to { label, known }", async () => {
-    const report = await generateReport(join(BUILDS_DIR, "08-gandalf-melee-wizard.json"));
-    // Find a weapon with blessings
+    // Build 07 has weapons with blessing scoring data (combat sword)
+    const report = await generateReport(join(BUILDS_DIR, "07-zealot-infodump.json"));
     const weapon = report.weapons.find((w) => w.blessings.length > 0);
-    if (weapon) {
-      for (const b of weapon.blessings) {
-        assert.ok(typeof b.label === "string", "blessing should have label string");
-        assert.ok(typeof b.known === "boolean", "blessing should have known boolean");
-        assert.equal(b.internal, undefined, "blessing should not have internal field");
-      }
+    assert.ok(weapon, "should find weapon with blessings");
+    for (const b of weapon.blessings) {
+      assert.ok(typeof b.label === "string", "blessing should have label string");
+      assert.ok(typeof b.known === "boolean", "blessing should have known boolean");
+      assert.equal(b.internal, undefined, "blessing should not have internal field");
     }
   });
 
