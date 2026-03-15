@@ -888,50 +888,20 @@ describe("auditBuildFile", () => {
     );
   });
 
-  it("keeps unsupported curio item labels explicit", async () => {
+  it("keeps unresolved curio item labels in the unresolved bucket", async () => {
     const result = await auditBuildFile("scripts/builds/08-gandalf-melee-wizard.json");
-    assert.equal(
-      result.non_canonical.some(
-        (entry) =>
-          entry.field === "curios[0].name" &&
-          entry.text === "Blessed Bullet" &&
-          entry.non_canonical_kind === "display_label",
-      ),
-      true,
-    );
-  });
-
-  it("classifies known unsupported curio item labels into a non-canonical bucket", async () => {
-    const psykerResult = await auditBuildFile("scripts/builds/08-gandalf-melee-wizard.json");
-    const arbitesResult = await auditBuildFile("scripts/builds/14-arbites-nuncio-aquila.json");
-
-    for (const [result, field, text] of [
-      [psykerResult, "curios[0].name", "Blessed Bullet"],
-      [psykerResult, "curios[1].name", "Blessed Bullet"],
-      [psykerResult, "curios[2].name", "Blessed Bullet"],
-      [arbitesResult, "curios[0].name", "Gilded Inquisitorial Rosette"],
-      [arbitesResult, "curios[1].name", "Scrap of Scripture"],
-      [arbitesResult, "curios[2].name", "Gilded Inquisitorial Rosette"],
-    ]) {
+    for (const field of ["curios[0].name", "curios[1].name", "curios[2].name"]) {
       assert.equal(
-        result.non_canonical.some(
-          (entry) =>
-            entry.field === field &&
-            entry.text === text &&
-            entry.non_canonical_kind === "display_label",
+        result.unresolved.some(
+          (entry) => entry.field === field && entry.text === "Blessed Bullet",
         ),
         true,
-        `${field} should be classified as a known non-canonical label`,
-      );
-      assert.equal(
-        result.unresolved.some((entry) => entry.field === field),
-        false,
-        `${field} should not remain unresolved once classified`,
+        `${field} should be unresolved until curio item entities are modeled`,
       );
     }
   });
 
-  it("classifies repeated unresolved blessing labels into the non-canonical bucket", async () => {
+  it("keeps unresolved blessing labels in the unresolved bucket", async () => {
     const veteranResult = await auditBuildFile("scripts/builds/01-veteran-squad-leader.json");
     const hiveScumResult = await auditBuildFile("scripts/builds/18-reginald-melee.json");
 
@@ -942,28 +912,19 @@ describe("auditBuildFile", () => {
       [hiveScumResult, "weapons[0].blessings[1].name", "Shock & Awe"],
     ]) {
       assert.equal(
-        result.non_canonical.some(
-          (entry) =>
-            entry.field === field &&
-            entry.text === text &&
-            entry.non_canonical_kind === "known_unresolved",
+        result.unresolved.some(
+          (entry) => entry.field === field && entry.text === text,
         ),
         true,
-        `${field} should be classified as a repeated known-unresolved blessing label`,
-      );
-      assert.equal(
-        result.unresolved.some((entry) => entry.field === field),
-        false,
-        `${field} should not remain unresolved once classified`,
+        `${field} should be unresolved until blessing aliases are added`,
       );
     }
   });
 
-  it("classifies one-off unresolved weapon labels into the non-canonical bucket", async () => {
+  it("keeps unresolved weapon labels in the unresolved bucket", async () => {
     const veteranSniperResult = await auditBuildFile("scripts/builds/03-slinking-veteran.json");
     const zealotStealthResult = await auditBuildFile("scripts/builds/05-fatmangus-zealot-stealth.json");
     const zealotInfoDumpResult = await auditBuildFile("scripts/builds/07-zealot-infodump.json");
-    const ogrynTankResult = await auditBuildFile("scripts/builds/12-ogryn-shield-tank.json");
     const shovelOgrynResult = await auditBuildFile("scripts/builds/13-shovel-ogryn.json");
 
     for (const [result, field, text] of [
@@ -976,19 +937,11 @@ describe("auditBuildFile", () => {
       [shovelOgrynResult, "weapons[1].name", "Foe-Rend Mk V Ripper Gun"],
     ]) {
       assert.equal(
-        result.non_canonical.some(
-          (entry) =>
-            entry.field === field &&
-            entry.text === text &&
-            entry.non_canonical_kind === "known_unresolved",
+        result.unresolved.some(
+          (entry) => entry.field === field && entry.text === text,
         ),
         true,
-        `${field} should be classified as a known-unresolved weapon label`,
-      );
-      assert.equal(
-        result.unresolved.some((entry) => entry.field === field),
-        false,
-        `${field} should not remain unresolved once classified`,
+        `${field} should be unresolved until weapon alias is added`,
       );
     }
   });

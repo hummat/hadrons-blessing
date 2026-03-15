@@ -523,59 +523,46 @@
     }
   ],
   "ambiguous": [],
-  "non_canonical": [
+  "non_canonical": [],
+  "unresolved": [
     {
       "field": "curios[0].name",
       "text": "Blessed Bullet",
-      "resolution_state": "non_canonical",
+      "resolution_state": "unresolved",
       "resolved_entity_id": null,
       "proposed_entity_id": null,
-      "match_type": null,
-      "confidence": null,
+      "match_type": "none",
+      "confidence": "low",
       "warnings": [
-        "persisted_non_canonical_selection",
-        "known_non_canonical_label"
-      ],
-      "non_canonical_kind": "display_label",
-      "provenance": "build-fixture",
-      "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
+        "persisted_unresolved_selection"
+      ]
     },
     {
       "field": "curios[1].name",
       "text": "Blessed Bullet",
-      "resolution_state": "non_canonical",
+      "resolution_state": "unresolved",
       "resolved_entity_id": null,
       "proposed_entity_id": null,
-      "match_type": null,
-      "confidence": null,
+      "match_type": "none",
+      "confidence": "low",
       "warnings": [
-        "persisted_non_canonical_selection",
-        "known_non_canonical_label"
-      ],
-      "non_canonical_kind": "display_label",
-      "provenance": "build-fixture",
-      "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
+        "persisted_unresolved_selection"
+      ]
     },
     {
       "field": "curios[2].name",
       "text": "Blessed Bullet",
-      "resolution_state": "non_canonical",
+      "resolution_state": "unresolved",
       "resolved_entity_id": null,
       "proposed_entity_id": null,
-      "match_type": null,
-      "confidence": null,
+      "match_type": "none",
+      "confidence": "low",
       "warnings": [
-        "persisted_non_canonical_selection",
-        "known_non_canonical_label"
-      ],
-      "non_canonical_kind": "display_label",
-      "provenance": "build-fixture",
-      "notes": "Structured build curio display label intentionally kept outside the canonical registry until curio item entities are modeled."
+        "persisted_unresolved_selection"
+      ]
     }
   ],
-  "unresolved": [],
   "warnings": [
-    "known_non_canonical_label",
-    "persisted_non_canonical_selection"
+    "persisted_unresolved_selection"
   ]
 }
