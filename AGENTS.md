@@ -70,6 +70,11 @@ Shared cross-class entities use `shared` as domain: `shared.weapon.lasgun_p1_m1`
 - `ambiguous` — multiple candidates above threshold, no winner
 - `unresolved` — no match above threshold
 - `proposed` — below threshold, best candidate surfaced with low confidence
+- `non_canonical` — structurally unresolvable (e.g. multi-option guide labels listing alternatives). **Never** use as a parking spot for deferred work — missing aliases and unmodeled domains are `unresolved`.
+
+## Known Coverage Gaps
+
+**Curio item names** (60 unresolved, 6 unique labels like "Blessed Bullet"): Darktide's item catalog is fetched from Fatshark's authenticated backend at runtime. The decompiled source contains curio rendering code and perk/trait mechanics but not the item catalog itself. Curio *perks* resolve (`shared.gadget_trait.*`); only the cosmetic item *names* are unresolvable from this source. These are the lowest-value unresolved entries — they don't affect build analysis, scoring, or optimization.
 
 ## Adding New Entity Coverage
 
@@ -91,7 +96,7 @@ All records are validated against JSON schemas in `data/ground-truth/schemas/`. 
 
 `scripts/builds/` contains 20 representative build JSON files (builds 01–20, all 6 classes) in canonical build shape. Each build stores `schema_version`, `title`, `class`, `provenance`, `ability`, `blitz`, `aura`, `keystone`, `talents[]`, `weapons[]`, and `curios[]`. Every selection carries `raw_label`, `canonical_entity_id`, and `resolution_status` (`resolved` / `unresolved` / `non_canonical`).
 
-All 20 builds have been re-extracted from live GL pages with full talent trees. All selections are either `resolved` or `non_canonical` (zero unresolved).
+All 20 builds have been re-extracted from live GL pages with full talent trees. 1089 resolved, 60 unresolved (all curio cosmetic names — backend-only, see below), 1 non_canonical (multi-option guide label).
 
 Frozen audit snapshots live in `tests/fixtures/ground-truth/audits/`. When the index or audit logic changes, re-freeze all snapshots with `npm run audit:freeze`. Do NOT use `npm run audit -- <file> > snapshot.json` — npm's stderr banner contaminates the JSON output.
 
