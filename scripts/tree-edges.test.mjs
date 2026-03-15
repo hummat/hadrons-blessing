@@ -591,7 +591,7 @@ describe("psyker golden comparison", () => {
     }
   });
 
-  it("reproduces existing hand-authored psyker entity counts", { skip: !SOURCE_ROOT }, () => {
+  it("regenerating psyker tree entities matches committed shard", { skip: !SOURCE_ROOT }, () => {
     const luaPath = join(SOURCE_ROOT, PSYKER_LUA_REL);
     const nodes = parseLuaTree(readFileSync(luaPath, "utf8"));
     const generated = generateTreeNodeEntities(
@@ -601,27 +601,20 @@ describe("psyker golden comparison", () => {
       PSYKER_LUA_REL,
     );
 
-    const generatedPrimary = generated.filter((e) => e.status === "source_backed");
-    const generatedImplicit = generated.filter((e) => e.status === "partially_resolved");
-
-    // Compare primary nodes against existing psyker.json tree_nodes
-    const psykerEntitiesPath = join(REPO_ROOT, "data", "ground-truth", "entities", "psyker.json");
-    const existingTreeNodes = JSON.parse(readFileSync(psykerEntitiesPath, "utf8"))
-      .filter((e) => e.kind === "tree_node");
+    // Compare against the generated shard (psyker_tree.json)
+    const shardPath = join(REPO_ROOT, "data", "ground-truth", "entities", "psyker_tree.json");
+    const committed = JSON.parse(readFileSync(shardPath, "utf8"));
 
     assert.equal(
-      generatedPrimary.length,
-      existingTreeNodes.length,
-      `Primary node count mismatch: generated ${generatedPrimary.length}, existing ${existingTreeNodes.length}`,
+      generated.length,
+      committed.length,
+      `Entity count mismatch: generated ${generated.length}, committed ${committed.length}`,
     );
 
-    // Implicit nodes: generator may find more than the 22 in the hand-authored file
-    const implicitPath = join(REPO_ROOT, "data", "ground-truth", "entities", "psyker-implicit-tree-nodes.json");
-    const existingImplicit = JSON.parse(readFileSync(implicitPath, "utf8"));
-
-    assert.ok(
-      generatedImplicit.length >= existingImplicit.length,
-      `Implicit node count too low: generated ${generatedImplicit.length}, existing ${existingImplicit.length}`,
+    assert.deepEqual(
+      generated,
+      committed,
+      "Regenerated psyker tree entities should exactly match committed shard",
     );
   });
 

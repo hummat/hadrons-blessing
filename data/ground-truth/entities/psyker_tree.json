@@ -1,0 +1,3247 @@
+[
+  {
+    "id": "psyker.tree_node.node_012fb3aa-bcfb-429b-8bd9-376cd7ad7915",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_012fb3aa-bcfb-429b-8bd9-376cd7ad7915",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1592
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "talent_internal_name": "psyker_overcharge_stance_infinite_casting",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_79ffb5f6-b82f-47c0-8eeb-5e28dcb2766a",
+        "node_17c2bf3f-7235-4e00-be33-5931be3bb011"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_0866df78-dac3-46dc-9af6-30119a64acbe",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_0866df78-dac3-46dc-9af6-30119a64acbe",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 62
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_toughness_on_vent",
+      "group_name": "psyker_1",
+      "exclusive_group": null,
+      "children": [
+        "node_dbf51b8d-f6d8-418b-a1dc-29435eea34b0",
+        "node_a665def4-3336-44eb-b7ed-1023d01cfd99"
+      ],
+      "parents": [
+        "node_98df89ba-6894-4d94-9a36-a870d3962ba9"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_0bb80aeb-f367-4e65-bcb5-04e91aad3c23",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_0bb80aeb-f367-4e65-bcb5-04e91aad3c23",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1216
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "psyker_empowered_grenades_passive_improved",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_56a1da66-78b5-4f11-8b20-967dc92650da"
+      ],
+      "parents": [
+        "node_8d367c1d-ce78-44f3-a7b8-6a4b55341929"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_0bbf73c4-d47e-4205-b8a3-1ee5879708cb",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_0bbf73c4-d47e-4205-b8a3-1ee5879708cb",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1028
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "talent_internal_name": "base_toughness_node_buff_medium_5",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_58a8d92f-0b8c-43c4-ac80-f0c597fffc54",
+        "node_88eb687e-bd2e-449e-b198-1bd2318eeda1",
+        "node_35ce2086-9081-49c7-9703-f3c07eb0be86"
+      ],
+      "parents": [
+        "node_dbf51b8d-f6d8-418b-a1dc-29435eea34b0",
+        "node_a665def4-3336-44eb-b7ed-1023d01cfd99",
+        "node_70bf8f4f-c0be-4c83-9c62-4b47ef5e3300"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_0bf7158c-dd89-4db0-a864-53369c029cac",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_0bf7158c-dd89-4db0-a864-53369c029cac",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 251
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_0c96d4f4-ec5f-41da-aaa8-6507b10c03dd",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_0c96d4f4-ec5f-41da-aaa8-6507b10c03dd",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 251
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_0ee8a9f7-a62a-4bd7-996e-050a9f445d10",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_0ee8a9f7-a62a-4bd7-996e-050a9f445d10",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1320
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "psyker_mark_increased_duration",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_9c95d8c4-7304-4a56-a9fa-6a727d553105"
+      ],
+      "parents": [
+        "node_44ce21ca-9b23-46b9-a6df-eae7ee03114b"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_0eee06a4-3acd-4b44-ae64-61376c34b3da",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_0eee06a4-3acd-4b44-ae64-61376c34b3da",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1404
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "psyker_increased_max_souls",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_97a70547-63e0-473c-9e2f-79096161d4e5",
+        "node_b5482701-b516-444a-92d4-df82bc410afd"
+      ],
+      "parents": [
+        "node_20f0e5f6-c24d-4e29-809d-d264ecb5613f",
+        "node_25c8ee81-d16b-4d5b-b0fa-fc1e7b40c26f"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_15ffb139-928c-406e-a4b5-71c9d5bebadc",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_15ffb139-928c-406e-a4b5-71c9d5bebadc",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1052
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "talent_internal_name": "base_ranged_damage_node_buff_medium_4",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_c6386e49-221f-43c7-b30a-a4d5f415e6e1",
+        "node_b2a9dab7-310f-4938-a070-97187d356f75",
+        "node_bad7157a-70c9-4b5a-80c5-c4930b8c16d8",
+        "node_57581786-6c2f-45d1-a396-8e58299d84d8"
+      ],
+      "parents": [
+        "node_650c5469-5194-4722-a4f8-7d62487039df",
+        "node_bad7157a-70c9-4b5a-80c5-c4930b8c16d8",
+        "node_ba340289-3623-4920-b6cb-0a665eff8c0e"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_17c2bf3f-7235-4e00-be33-5931be3bb011",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_17c2bf3f-7235-4e00-be33-5931be3bb011",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 509
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "talent_internal_name": "psyker_overcharge_weakspot_kill_bonuses",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_012fb3aa-bcfb-429b-8bd9-376cd7ad7915"
+      ],
+      "parents": [
+        "node_2a022d3f-fddf-4faf-a79d-c8fe6a18fe36"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_1943527f-b930-43f0-98b6-340d14d596d5",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_1943527f-b930-43f0-98b6-340d14d596d5",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 733
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_warp_charge_reduces_toughness_damage_taken",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_7b4e0ecc-fba4-418c-a34c-8ae1739e341c"
+      ],
+      "parents": [
+        "node_fb6fc9c4-aed8-46c8-88a2-0ec1fa8e1eb0",
+        "node_25cef95d-234f-4299-a964-2ca42056cb5a"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_1a3b8fd0-026d-4a46-b89e-6c1889f85a78",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_1a3b8fd0-026d-4a46-b89e-6c1889f85a78",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1726
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_warp_attacks_rending",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_b2a9dab7-310f-4938-a070-97187d356f75",
+        "node_8f13724d-f213-4559-969e-74dcf1053468"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_1c28e8f1-c647-401d-80f1-38263a6b616b",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_1c28e8f1-c647-401d-80f1-38263a6b616b",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 755
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_dodge_after_crits",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_b64d3e49-d2d6-4565-8195-fba8f68d014c",
+        "node_25cef95d-234f-4299-a964-2ca42056cb5a"
+      ],
+      "parents": [
+        "node_592db669-6d46-45a9-aa87-c66bc5d52a53",
+        "node_25cef95d-234f-4299-a964-2ca42056cb5a"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_1f52a8dd-e3bb-400a-85d7-314dd3884ce7",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_1f52a8dd-e3bb-400a-85d7-314dd3884ce7",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 393
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_20f0e5f6-c24d-4e29-809d-d264ecb5613f",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_20f0e5f6-c24d-4e29-809d-d264ecb5613f",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1103
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_229f2961-ef6f-4ccb-942e-8c4945f1f90f",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_229f2961-ef6f-4ccb-942e-8c4945f1f90f",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 531
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "talent_internal_name": "psyker_overcharge_increased_movement_speed",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_2a022d3f-fddf-4faf-a79d-c8fe6a18fe36"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_237fc277-fe42-473b-aeda-70d82fc2d9e8",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_237fc277-fe42-473b-aeda-70d82fc2d9e8",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1746
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_ranged_crits_vent",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_28f80048-978b-420d-b0f8-8d3883a36334"
+      ],
+      "parents": [
+        "node_9674b583-7566-4f0c-a334-99e83f4715b2",
+        "node_3f08eb1a-09e8-4213-ab90-84032e51f7ae"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_25c8ee81-d16b-4d5b-b0fa-fc1e7b40c26f",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_25c8ee81-d16b-4d5b-b0fa-fc1e7b40c26f",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1103
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone",
+      "talent_internal_name": "psyker_passive_souls_from_elite_kills",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_3879efd1-ebac-4cd2-b004-8c7927d16924",
+        "node_cec906f5-721d-46dd-95e9-78b903190c9d",
+        "node_20f0e5f6-c24d-4e29-809d-d264ecb5613f",
+        "node_0eee06a4-3acd-4b44-ae64-61376c34b3da"
+      ],
+      "parents": [
+        "node_8f13724d-f213-4559-969e-74dcf1053468"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_25cef95d-234f-4299-a964-2ca42056cb5a",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_25cef95d-234f-4299-a964-2ca42056cb5a",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 620
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_2_tier_3_name_2",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_eaba4084-d11f-424a-872b-69ee649bdd44",
+        "node_1943527f-b930-43f0-98b6-340d14d596d5",
+        "node_b64d3e49-d2d6-4565-8195-fba8f68d014c",
+        "node_fb6fc9c4-aed8-46c8-88a2-0ec1fa8e1eb0",
+        "node_1c28e8f1-c647-401d-80f1-38263a6b616b"
+      ],
+      "parents": [
+        "node_d323e130-860b-42f1-acd2-dc50cacde619",
+        "node_c2759b06-3158-4d95-a860-492fd3b6594e",
+        "node_592db669-6d46-45a9-aa87-c66bc5d52a53",
+        "node_1c28e8f1-c647-401d-80f1-38263a6b616b",
+        "node_fb6fc9c4-aed8-46c8-88a2-0ec1fa8e1eb0"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_25ffe424-4f39-4206-8304-66333fe44fa5",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_25ffe424-4f39-4206-8304-66333fe44fa5",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1808
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_alternative_peril_explosion",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_42b4a214-4619-4b7a-9a92-b17b8ed1f10f",
+        "node_50f4db9f-a576-43cf-b4a3-a96996f103a6"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_28f80048-978b-420d-b0f8-8d3883a36334",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_28f80048-978b-420d-b0f8-8d3883a36334",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 846
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_2a022d3f-fddf-4faf-a79d-c8fe6a18fe36",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_2a022d3f-fddf-4faf-a79d-c8fe6a18fe36",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 418
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability",
+      "talent_internal_name": "psyker_combat_ability_stance",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_7e0096b1-511c-4ca6-a4dd-81836758e85c",
+        "node_3f52126e-dbc7-492b-912d-26e4cc53a80e",
+        "node_229f2961-ef6f-4ccb-942e-8c4945f1f90f",
+        "node_17c2bf3f-7235-4e00-be33-5931be3bb011",
+        "node_79ffb5f6-b82f-47c0-8eeb-5e28dcb2766a",
+        "node_da8959b5-f8dd-4efb-8fee-c1600e6ee831"
+      ],
+      "parents": [
+        "node_b8bc29fc-5fd2-41dc-89ac-25628444b75a",
+        "node_7b4e0ecc-fba4-418c-a34c-8ae1739e341c"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_31fbc1eb-b397-449d-adb8-f5c9adb5d883",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_31fbc1eb-b397-449d-adb8-f5c9adb5d883",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1279
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "psyker_mark_increased_max_stacks",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_9c95d8c4-7304-4a56-a9fa-6a727d553105"
+      ],
+      "parents": [
+        "node_44ce21ca-9b23-46b9-a6df-eae7ee03114b"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_33f800cc-9538-4964-ac84-bfb3751c70a9",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_33f800cc-9538-4964-ac84-bfb3751c70a9",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1828
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_35ce2086-9081-49c7-9703-f3c07eb0be86",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_35ce2086-9081-49c7-9703-f3c07eb0be86",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 251
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical",
+      "talent_internal_name": "psyker_grenade_throwing_knives",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_df9852a3-36e2-40ab-bd6b-c8ce430cfaa4",
+        "node_0bf7158c-dd89-4db0-a864-53369c029cac",
+        "node_a0e99f21-5abe-407d-a328-c955e9cc27f2",
+        "node_9049de9c-7aef-4bda-bc26-2892d147c486"
+      ],
+      "parents": [
+        "node_0c96d4f4-ec5f-41da-aaa8-6507b10c03dd",
+        "node_7a0b6272-1fb7-409e-ab01-cb500736cc3d",
+        "node_0bbf73c4-d47e-4205-b8a3-1ee5879708cb"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_3707077c-1f49-4605-9d6a-9fa062edbbf8",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_3707077c-1f49-4605-9d6a-9fa062edbbf8",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 393
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_3879efd1-ebac-4cd2-b004-8c7927d16924",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_3879efd1-ebac-4cd2-b004-8c7927d16924",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1176
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "psyker_reduced_warp_charge_cost_and_venting_speed",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_25c8ee81-d16b-4d5b-b0fa-fc1e7b40c26f"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_3d79a0fe-26e0-4ff4-9ecd-6b5d4b228404",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_3d79a0fe-26e0-4ff4-9ecd-6b5d4b228404",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1682
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_melee_weaving",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_c48ce8da-ed42-4327-9db7-a4b6533e431a",
+        "node_c648889c-ff07-4664-81b7-b9fafcd93a04"
+      ],
+      "parents": [
+        "node_f33e4491-1a9b-444b-b4f8-835aa37a6a87",
+        "node_dafc9b1b-859e-44df-bea9-33fecbd3afc7",
+        "node_c648889c-ff07-4664-81b7-b9fafcd93a04"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_3f08eb1a-09e8-4213-ab90-84032e51f7ae",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_3f08eb1a-09e8-4213-ab90-84032e51f7ae",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1471
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "talent_internal_name": "base_movement_speed_node_buff_low_1",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_44ce21ca-9b23-46b9-a6df-eae7ee03114b",
+        "node_e3d09295-0206-4166-91c4-2371e8abf9e3",
+        "node_237fc277-fe42-473b-aeda-70d82fc2d9e8"
+      ],
+      "parents": [
+        "node_59a39703-43ce-432e-b853-c80517a08947",
+        "node_9674b583-7566-4f0c-a334-99e83f4715b2"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_3f52126e-dbc7-492b-912d-26e4cc53a80e",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_3f52126e-dbc7-492b-912d-26e4cc53a80e",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1077
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "talent_internal_name": "base_melee_damage_node_buff_medium_4",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_c6386e49-221f-43c7-b30a-a4d5f415e6e1",
+        "node_bad7157a-70c9-4b5a-80c5-c4930b8c16d8",
+        "node_59a39703-43ce-432e-b853-c80517a08947",
+        "node_9674b583-7566-4f0c-a334-99e83f4715b2"
+      ],
+      "parents": [
+        "node_2a022d3f-fddf-4faf-a79d-c8fe6a18fe36",
+        "node_ba340289-3623-4920-b6cb-0a665eff8c0e",
+        "node_bad7157a-70c9-4b5a-80c5-c4930b8c16d8"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_400d79d6-4aaa-47e4-b9c4-127b79ef639a",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_400d79d6-4aaa-47e4-b9c4-127b79ef639a",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 489
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "talent_internal_name": "psyker_warpfire_on_shout",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_b6b57be7-9aa8-483b-a127-6c1815d452a4"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_41dad090-f3f7-4ee5-8402-25d97161a590",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_41dad090-f3f7-4ee5-8402-25d97161a590",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1828
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_427cefce-0443-4754-becd-ae4967e84f5a",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_427cefce-0443-4754-becd-ae4967e84f5a",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1706
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_warp_glass_cannon",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_57581786-6c2f-45d1-a396-8e58299d84d8",
+        "node_8f13724d-f213-4559-969e-74dcf1053468"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_42b4a214-4619-4b7a-9a92-b17b8ed1f10f",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_42b4a214-4619-4b7a-9a92-b17b8ed1f10f",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1921
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_damage_vs_ogryns_and_monsters",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_50f4db9f-a576-43cf-b4a3-a96996f103a6",
+        "node_25ffe424-4f39-4206-8304-66333fe44fa5"
+      ],
+      "parents": [
+        "node_bad7157a-70c9-4b5a-80c5-c4930b8c16d8"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_4315ba13-1c64-4293-981d-9bd75a1c6612",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_4315ba13-1c64-4293-981d-9bd75a1c6612",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1660
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_killing_enemy_with_warpfire_boosts",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_ebeb44ed-54d4-44f6-a211-f7060668f98a",
+        "node_de28df8a-4aed-426c-8122-73893a04aa5b"
+      ],
+      "parents": [
+        "node_9049de9c-7aef-4bda-bc26-2892d147c486"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_44ce21ca-9b23-46b9-a6df-eae7ee03114b",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_44ce21ca-9b23-46b9-a6df-eae7ee03114b",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1128
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone",
+      "talent_internal_name": "psyker_new_mark_passive",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_31fbc1eb-b397-449d-adb8-f5c9adb5d883",
+        "node_0ee8a9f7-a62a-4bd7-996e-050a9f445d10",
+        "node_4941c66a-d4ff-4dca-917f-a6bbf2bbdbfc"
+      ],
+      "parents": [
+        "node_3f08eb1a-09e8-4213-ab90-84032e51f7ae"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_4941c66a-d4ff-4dca-917f-a6bbf2bbdbfc",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_4941c66a-d4ff-4dca-917f-a6bbf2bbdbfc",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1301
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "psyker_mark_kills_can_vent",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_44ce21ca-9b23-46b9-a6df-eae7ee03114b"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_4badc199-b432-420c-ae2f-9d13a253a48d",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_4badc199-b432-420c-ae2f-9d13a253a48d",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1828
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_4da2356c-4742-4000-9dd3-e6f3ee0280bd",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_4da2356c-4742-4000-9dd3-e6f3ee0280bd",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 297
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_502ba655-95d9-419a-a825-c688915e2983",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_502ba655-95d9-419a-a825-c688915e2983",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 824
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_damage_based_on_warp_charge",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_50f4db9f-a576-43cf-b4a3-a96996f103a6",
+        "node_61959df9-adf1-45a9-9e2f-4d9e3c7f8e00"
+      ],
+      "parents": [
+        "node_bad7157a-70c9-4b5a-80c5-c4930b8c16d8"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_50c20065-9156-4d29-a908-2e69f7b5ca48",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_50c20065-9156-4d29-a908-2e69f7b5ca48",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 869
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_50f4db9f-a576-43cf-b4a3-a96996f103a6",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_50f4db9f-a576-43cf-b4a3-a96996f103a6",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1568
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "talent_internal_name": "base_warp_charge_node_buff_medium_3",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_8d367c1d-ce78-44f3-a7b8-6a4b55341929",
+        "node_25ffe424-4f39-4206-8304-66333fe44fa5",
+        "node_61959df9-adf1-45a9-9e2f-4d9e3c7f8e00"
+      ],
+      "parents": [
+        "node_502ba655-95d9-419a-a825-c688915e2983",
+        "node_42b4a214-4619-4b7a-9a92-b17b8ed1f10f"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_56a1da66-78b5-4f11-8b20-967dc92650da",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_56a1da66-78b5-4f11-8b20-967dc92650da",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1342
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "psyker_empowered_grenades_increased_max_stacks",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_0bb80aeb-f367-4e65-bcb5-04e91aad3c23",
+        "node_a5fc8414-3a27-4c9b-833c-a5b6c1836a86"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_57581786-6c2f-45d1-a396-8e58299d84d8",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_57581786-6c2f-45d1-a396-8e58299d84d8",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 800
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_increased_vent_speed",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_427cefce-0443-4754-becd-ae4967e84f5a",
+        "node_8f13724d-f213-4559-969e-74dcf1053468"
+      ],
+      "parents": [
+        "node_5c4a163b-68e5-4123-80dd-ccf9c5282b76",
+        "node_652174b2-b6c8-4ff7-9ba8-087954a21022",
+        "node_15ffb139-928c-406e-a4b5-71c9d5bebadc"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_579235ed-79b0-4532-8028-6cee7e154d94",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_579235ed-79b0-4532-8028-6cee7e154d94",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 225
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_58a8d92f-0b8c-43c4-ac80-f0c597fffc54",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_58a8d92f-0b8c-43c4-ac80-f0c597fffc54",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 225
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical",
+      "talent_internal_name": "psyker_brain_burst_improved",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_579235ed-79b0-4532-8028-6cee7e154d94",
+        "node_d0f28c39-50b3-4f6f-893f-52e71aaba392",
+        "node_fbf53cbf-026b-4076-aa50-08813d53dbb6",
+        "node_9049de9c-7aef-4bda-bc26-2892d147c486"
+      ],
+      "parents": [
+        "node_d17100f5-03fb-4f7d-8918-b046bb713b25",
+        "node_0bbf73c4-d47e-4205-b8a3-1ee5879708cb"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_592db669-6d46-45a9-aa87-c66bc5d52a53",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_592db669-6d46-45a9-aa87-c66bc5d52a53",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 569
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "aura",
+      "talent_internal_name": "psyker_aura_crit_chance_aura",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_0c96d4f4-ec5f-41da-aaa8-6507b10c03dd",
+        "node_25cef95d-234f-4299-a964-2ca42056cb5a",
+        "node_1c28e8f1-c647-401d-80f1-38263a6b616b"
+      ],
+      "parents": [
+        "node_ff791f9e-aa3a-40e0-b677-8a7b10649495",
+        "node_c48ce8da-ed42-4327-9db7-a4b6533e431a"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_59a39703-43ce-432e-b853-c80517a08947",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_59a39703-43ce-432e-b853-c80517a08947",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 894
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_block_costs_warp_charge",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_cb488818-7e33-4b04-aee2-7c515ffcbde2",
+        "node_28f80048-978b-420d-b0f8-8d3883a36334",
+        "node_e3d09295-0206-4166-91c4-2371e8abf9e3",
+        "node_3f08eb1a-09e8-4213-ab90-84032e51f7ae"
+      ],
+      "parents": [
+        "node_3f52126e-dbc7-492b-912d-26e4cc53a80e"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_5c4a163b-68e5-4123-80dd-ccf9c5282b76",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_5c4a163b-68e5-4123-80dd-ccf9c5282b76",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 800
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_5cdd458f-bbfc-40a3-ac1f-4a229ddbbb6a",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_5cdd458f-bbfc-40a3-ac1f-4a229ddbbb6a",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 40
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_toughness_on_warp_kill",
+      "group_name": "psyker_1",
+      "exclusive_group": null,
+      "children": [
+        "node_dbf51b8d-f6d8-418b-a1dc-29435eea34b0"
+      ],
+      "parents": [
+        "node_98df89ba-6894-4d94-9a36-a870d3962ba9"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_61959df9-adf1-45a9-9e2f-4d9e3c7f8e00",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_61959df9-adf1-45a9-9e2f-4d9e3c7f8e00",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1943
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_stat_mix",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_502ba655-95d9-419a-a825-c688915e2983",
+        "node_50f4db9f-a576-43cf-b4a3-a96996f103a6"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_650c5469-5194-4722-a4f8-7d62487039df",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_650c5469-5194-4722-a4f8-7d62487039df",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 393
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability",
+      "talent_internal_name": "psyker_shout_vent_warp_charge",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_b6b57be7-9aa8-483b-a127-6c1815d452a4",
+        "node_3707077c-1f49-4605-9d6a-9fa062edbbf8",
+        "node_1f52a8dd-e3bb-400a-85d7-314dd3884ce7",
+        "node_15ffb139-928c-406e-a4b5-71c9d5bebadc"
+      ],
+      "parents": [
+        "node_7b4e0ecc-fba4-418c-a34c-8ae1739e341c"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_652174b2-b6c8-4ff7-9ba8-087954a21022",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_652174b2-b6c8-4ff7-9ba8-087954a21022",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 800
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_685300ac-9564-437d-9611-de94d66ec880",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_685300ac-9564-437d-9611-de94d66ec880",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 469
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "talent_internal_name": "psyker_discharge_damage_debuff",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_b6b57be7-9aa8-483b-a127-6c1815d452a4"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_70bf8f4f-c0be-4c83-9c62-4b47ef5e3300",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_70bf8f4f-c0be-4c83-9c62-4b47ef5e3300",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 181
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_crits_empower_next_attack",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_7a0b6272-1fb7-409e-ab01-cb500736cc3d",
+        "node_0bbf73c4-d47e-4205-b8a3-1ee5879708cb",
+        "node_a665def4-3336-44eb-b7ed-1023d01cfd99"
+      ],
+      "parents": [
+        "node_aeefc406-9103-4749-a827-a90a0525baea",
+        "node_a9e156c8-8c1a-4421-a5de-ec60da158b5d",
+        "node_a665def4-3336-44eb-b7ed-1023d01cfd99"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_79ffb5f6-b82f-47c0-8eeb-5e28dcb2766a",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_79ffb5f6-b82f-47c0-8eeb-5e28dcb2766a",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 692
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "talent_internal_name": "psyker_overcharge_reduced_warp_charge",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_012fb3aa-bcfb-429b-8bd9-376cd7ad7915"
+      ],
+      "parents": [
+        "node_2a022d3f-fddf-4faf-a79d-c8fe6a18fe36"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_7a0b6272-1fb7-409e-ab01-cb500736cc3d",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_7a0b6272-1fb7-409e-ab01-cb500736cc3d",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 153
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_7b4e0ecc-fba4-418c-a34c-8ae1739e341c",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_7b4e0ecc-fba4-418c-a34c-8ae1739e341c",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1494
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "talent_internal_name": "base_toughness_node_buff_medium_4",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_650c5469-5194-4722-a4f8-7d62487039df",
+        "node_ba340289-3623-4920-b6cb-0a665eff8c0e",
+        "node_2a022d3f-fddf-4faf-a79d-c8fe6a18fe36"
+      ],
+      "parents": [
+        "node_b64d3e49-d2d6-4565-8195-fba8f68d014c",
+        "node_1943527f-b930-43f0-98b6-340d14d596d5",
+        "node_eaba4084-d11f-424a-872b-69ee649bdd44"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_7e0096b1-511c-4ca6-a4dd-81836758e85c",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_7e0096b1-511c-4ca6-a4dd-81836758e85c",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 418
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_88eb687e-bd2e-449e-b198-1bd2318eeda1",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_88eb687e-bd2e-449e-b198-1bd2318eeda1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 297
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical",
+      "talent_internal_name": "psyker_grenade_chain_lightning",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_4da2356c-4742-4000-9dd3-e6f3ee0280bd",
+        "node_8da8c02b-211b-48bc-a170-f06b79b545b9",
+        "node_d958faa6-e3ea-4c79-bc84-3477063b09f7",
+        "node_9049de9c-7aef-4bda-bc26-2892d147c486"
+      ],
+      "parents": [
+        "node_0bf7158c-dd89-4db0-a864-53369c029cac",
+        "node_579235ed-79b0-4532-8028-6cee7e154d94",
+        "node_0bbf73c4-d47e-4205-b8a3-1ee5879708cb",
+        "node_7a0b6272-1fb7-409e-ab01-cb500736cc3d"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_8d367c1d-ce78-44f3-a7b8-6a4b55341929",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_8d367c1d-ce78-44f3-a7b8-6a4b55341929",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1152
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone",
+      "talent_internal_name": "psyker_empowered_ability",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_0bb80aeb-f367-4e65-bcb5-04e91aad3c23",
+        "node_8ff8fcfb-3f13-497f-9288-0afc05b5cb55",
+        "node_a5fc8414-3a27-4c9b-833c-a5b6c1836a86"
+      ],
+      "parents": [
+        "node_50f4db9f-a576-43cf-b4a3-a96996f103a6"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_8da8c02b-211b-48bc-a170-f06b79b545b9",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_8da8c02b-211b-48bc-a170-f06b79b545b9",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 714
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical_modifier",
+      "talent_internal_name": "psyker_chain_lightning_improved_target_buff",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_88eb687e-bd2e-449e-b198-1bd2318eeda1"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_8e7a1179-6cbd-4f0d-9992-a0ca5282b30b",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_8e7a1179-6cbd-4f0d-9992-a0ca5282b30b",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 670
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_kills_stack_other_weapon_damage",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_c648889c-ff07-4664-81b7-b9fafcd93a04",
+        "node_ebeb44ed-54d4-44f6-a211-f7060668f98a"
+      ],
+      "parents": [
+        "node_9049de9c-7aef-4bda-bc26-2892d147c486"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_8f13724d-f213-4559-969e-74dcf1053468",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_8f13724d-f213-4559-969e-74dcf1053468",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1545
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "talent_internal_name": "base_toughness_damage_reduction_node_buff_low_4",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_1a3b8fd0-026d-4a46-b89e-6c1889f85a78",
+        "node_427cefce-0443-4754-becd-ae4967e84f5a",
+        "node_25c8ee81-d16b-4d5b-b0fa-fc1e7b40c26f"
+      ],
+      "parents": [
+        "node_57581786-6c2f-45d1-a396-8e58299d84d8",
+        "node_b2a9dab7-310f-4938-a070-97187d356f75"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_8ff8fcfb-3f13-497f-9288-0afc05b5cb55",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_8ff8fcfb-3f13-497f-9288-0afc05b5cb55",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1238
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "psyker_empowered_chain_lightnings_replenish_toughness_to_allies",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_8d367c1d-ce78-44f3-a7b8-6a4b55341929"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_9049de9c-7aef-4bda-bc26-2892d147c486",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_9049de9c-7aef-4bda-bc26-2892d147c486",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1518
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "talent_internal_name": "base_toughness_damage_reduction_node_buff_medium_1",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_f0bb8060-6afc-4ae9-954d-3817cc054b35",
+        "node_4315ba13-1c64-4293-981d-9bd75a1c6612",
+        "node_8e7a1179-6cbd-4f0d-9992-a0ca5282b30b",
+        "node_f33e4491-1a9b-444b-b4f8-835aa37a6a87",
+        "node_dafc9b1b-859e-44df-bea9-33fecbd3afc7"
+      ],
+      "parents": [
+        "node_58a8d92f-0b8c-43c4-ac80-f0c597fffc54",
+        "node_35ce2086-9081-49c7-9703-f3c07eb0be86",
+        "node_4da2356c-4742-4000-9dd3-e6f3ee0280bd",
+        "node_88eb687e-bd2e-449e-b198-1bd2318eeda1"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_959bd205-bf6c-48fc-ab14-f59364fedd6c",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_959bd205-bf6c-48fc-ab14-f59364fedd6c",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1010
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "talent_internal_name": "psyker_shield_extra_charge",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_a10c7d87-9c54-4268-b6be-ca862dcc59ae"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_9674b583-7566-4f0c-a334-99e83f4715b2",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_9674b583-7566-4f0c-a334-99e83f4715b2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 846
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_guaranteed_crit_on_multiple_weakspot_hits",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_3f08eb1a-09e8-4213-ab90-84032e51f7ae",
+        "node_237fc277-fe42-473b-aeda-70d82fc2d9e8"
+      ],
+      "parents": [
+        "node_28f80048-978b-420d-b0f8-8d3883a36334",
+        "node_3f52126e-dbc7-492b-912d-26e4cc53a80e"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_97a70547-63e0-473c-9e2f-79096161d4e5",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_97a70547-63e0-473c-9e2f-79096161d4e5",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1362
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "psyker_warpfire_generate_souls",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_20f0e5f6-c24d-4e29-809d-d264ecb5613f",
+        "node_0eee06a4-3acd-4b44-ae64-61376c34b3da"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_98df89ba-6894-4d94-9a36-a870d3962ba9",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_98df89ba-6894-4d94-9a36-a870d3962ba9",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 17
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "start",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_5cdd458f-bbfc-40a3-ac1f-4a229ddbbb6a",
+        "node_aeefc406-9103-4749-a827-a90a0525baea",
+        "node_a9e156c8-8c1a-4421-a5de-ec60da158b5d",
+        "node_0866df78-dac3-46dc-9af6-30119a64acbe"
+      ],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_9c3b1d9e-e531-47f1-bd27-e0a8ff27b50e",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_9c3b1d9e-e531-47f1-bd27-e0a8ff27b50e",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1828
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_9c95d8c4-7304-4a56-a9fa-6a727d553105",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_9c95d8c4-7304-4a56-a9fa-6a727d553105",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1427
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "psyker_mark_weakspot_kills",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_31fbc1eb-b397-449d-adb8-f5c9adb5d883",
+        "node_0ee8a9f7-a62a-4bd7-996e-050a9f445d10"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_a0e99f21-5abe-407d-a328-c955e9cc27f2",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_a0e99f21-5abe-407d-a328-c955e9cc27f2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 550
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical_modifier",
+      "talent_internal_name": "psyker_throwing_knives_cast_speed",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_35ce2086-9081-49c7-9703-f3c07eb0be86"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_a10c7d87-9c54-4268-b6be-ca862dcc59ae",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_a10c7d87-9c54-4268-b6be-ca862dcc59ae",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 946
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "talent_internal_name": "psyker_shield_stun_passive",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_959bd205-bf6c-48fc-ab14-f59364fedd6c"
+      ],
+      "parents": [
+        "node_ba340289-3623-4920-b6cb-0a665eff8c0e"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_a5fc8414-3a27-4c9b-833c-a5b6c1836a86",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_a5fc8414-3a27-4c9b-833c-a5b6c1836a86",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1257
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "psyker_empowered_ability_on_elite_kills",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_56a1da66-78b5-4f11-8b20-967dc92650da"
+      ],
+      "parents": [
+        "node_8d367c1d-ce78-44f3-a7b8-6a4b55341929"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_a665def4-3336-44eb-b7ed-1023d01cfd99",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_a665def4-3336-44eb-b7ed-1023d01cfd99",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 153
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_chance_to_vent_on_kill",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_d17100f5-03fb-4f7d-8918-b046bb713b25",
+        "node_0bbf73c4-d47e-4205-b8a3-1ee5879708cb",
+        "node_7a0b6272-1fb7-409e-ab01-cb500736cc3d",
+        "node_70bf8f4f-c0be-4c83-9c62-4b47ef5e3300",
+        "node_dbf51b8d-f6d8-418b-a1dc-29435eea34b0"
+      ],
+      "parents": [
+        "node_0866df78-dac3-46dc-9af6-30119a64acbe",
+        "node_aeefc406-9103-4749-a827-a90a0525baea",
+        "node_dbf51b8d-f6d8-418b-a1dc-29435eea34b0",
+        "node_70bf8f4f-c0be-4c83-9c62-4b47ef5e3300"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_a9e156c8-8c1a-4421-a5de-ec60da158b5d",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_a9e156c8-8c1a-4421-a5de-ec60da158b5d",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 108
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_crits_regen_toughness_movement_speed",
+      "group_name": "psyker_1",
+      "exclusive_group": null,
+      "children": [
+        "node_70bf8f4f-c0be-4c83-9c62-4b47ef5e3300"
+      ],
+      "parents": [
+        "node_98df89ba-6894-4d94-9a36-a870d3962ba9"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_aeefc406-9103-4749-a827-a90a0525baea",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_aeefc406-9103-4749-a827-a90a0525baea",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 85
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_toughness_on_melee",
+      "group_name": "psyker_1",
+      "exclusive_group": null,
+      "children": [
+        "node_a665def4-3336-44eb-b7ed-1023d01cfd99",
+        "node_70bf8f4f-c0be-4c83-9c62-4b47ef5e3300"
+      ],
+      "parents": [
+        "node_98df89ba-6894-4d94-9a36-a870d3962ba9"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_b2a9dab7-310f-4938-a070-97187d356f75",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_b2a9dab7-310f-4938-a070-97187d356f75",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 869
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_coherency_aura_size_increase",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_50c20065-9156-4d29-a908-2e69f7b5ca48",
+        "node_5c4a163b-68e5-4123-80dd-ccf9c5282b76",
+        "node_652174b2-b6c8-4ff7-9ba8-087954a21022",
+        "node_1a3b8fd0-026d-4a46-b89e-6c1889f85a78",
+        "node_8f13724d-f213-4559-969e-74dcf1053468"
+      ],
+      "parents": [
+        "node_15ffb139-928c-406e-a4b5-71c9d5bebadc"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_b5482701-b516-444a-92d4-df82bc410afd",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_b5482701-b516-444a-92d4-df82bc410afd",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1383
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "psyker_aura_souls_on_kill",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_20f0e5f6-c24d-4e29-809d-d264ecb5613f",
+        "node_0eee06a4-3acd-4b44-ae64-61376c34b3da"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_b64d3e49-d2d6-4565-8195-fba8f68d014c",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_b64d3e49-d2d6-4565-8195-fba8f68d014c",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 778
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_improved_dodge",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_7b4e0ecc-fba4-418c-a34c-8ae1739e341c"
+      ],
+      "parents": [
+        "node_1c28e8f1-c647-401d-80f1-38263a6b616b",
+        "node_25cef95d-234f-4299-a964-2ca42056cb5a"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_b6b57be7-9aa8-483b-a127-6c1815d452a4",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_b6b57be7-9aa8-483b-a127-6c1815d452a4",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 446
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "talent_internal_name": "psyker_shout_reduces_warp_charge_generation",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_685300ac-9564-437d-9611-de94d66ec880",
+        "node_c5704647-fc14-437e-9906-5ab5f3ded524",
+        "node_400d79d6-4aaa-47e4-b9c4-127b79ef639a"
+      ],
+      "parents": [
+        "node_650c5469-5194-4722-a4f8-7d62487039df"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_b8bc29fc-5fd2-41dc-89ac-25628444b75a",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_b8bc29fc-5fd2-41dc-89ac-25628444b75a",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 418
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_b965d30f-4412-43e5-856a-c571751925a7",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_b965d30f-4412-43e5-856a-c571751925a7",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 988
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "talent_internal_name": "psyker_sphere_shield",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_d64a57d2-05d8-4077-92a2-d12069d8d628"
+      ],
+      "parents": [
+        "node_ba340289-3623-4920-b6cb-0a665eff8c0e"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_ba340289-3623-4920-b6cb-0a665eff8c0e",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_ba340289-3623-4920-b6cb-0a665eff8c0e",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 918
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability",
+      "talent_internal_name": "psyker_combat_ability_force_field",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_a10c7d87-9c54-4268-b6be-ca862dcc59ae",
+        "node_3f52126e-dbc7-492b-912d-26e4cc53a80e",
+        "node_b965d30f-4412-43e5-856a-c571751925a7",
+        "node_15ffb139-928c-406e-a4b5-71c9d5bebadc",
+        "node_bad7157a-70c9-4b5a-80c5-c4930b8c16d8"
+      ],
+      "parents": [
+        "node_c6386e49-221f-43c7-b30a-a4d5f415e6e1",
+        "node_7b4e0ecc-fba4-418c-a34c-8ae1739e341c"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_bad7157a-70c9-4b5a-80c5-c4930b8c16d8",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_bad7157a-70c9-4b5a-80c5-c4930b8c16d8",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1446
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "talent_internal_name": "base_stamina_node_buff_low_1",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_3f52126e-dbc7-492b-912d-26e4cc53a80e",
+        "node_15ffb139-928c-406e-a4b5-71c9d5bebadc",
+        "node_42b4a214-4619-4b7a-9a92-b17b8ed1f10f",
+        "node_502ba655-95d9-419a-a825-c688915e2983"
+      ],
+      "parents": [
+        "node_15ffb139-928c-406e-a4b5-71c9d5bebadc",
+        "node_3f52126e-dbc7-492b-912d-26e4cc53a80e",
+        "node_ba340289-3623-4920-b6cb-0a665eff8c0e"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_c2759b06-3158-4d95-a860-492fd3b6594e",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_c2759b06-3158-4d95-a860-492fd3b6594e",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 370
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "aura",
+      "talent_internal_name": "psyker_cooldown_aura_improved",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_25cef95d-234f-4299-a964-2ca42056cb5a"
+      ],
+      "parents": [
+        "node_ff791f9e-aa3a-40e0-b677-8a7b10649495",
+        "node_c48ce8da-ed42-4327-9db7-a4b6533e431a"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_c48ce8da-ed42-4327-9db7-a4b6533e431a",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_c48ce8da-ed42-4327-9db7-a4b6533e431a",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1962
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "stat",
+      "talent_internal_name": "base_crit_chance_node_buff_low_1",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_c2759b06-3158-4d95-a860-492fd3b6594e",
+        "node_592db669-6d46-45a9-aa87-c66bc5d52a53",
+        "node_d323e130-860b-42f1-acd2-dc50cacde619"
+      ],
+      "parents": [
+        "node_de28df8a-4aed-426c-8122-73893a04aa5b",
+        "node_ebeb44ed-54d4-44f6-a211-f7060668f98a",
+        "node_c648889c-ff07-4664-81b7-b9fafcd93a04",
+        "node_3d79a0fe-26e0-4ff4-9ecd-6b5d4b228404"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_c5704647-fc14-437e-9906-5ab5f3ded524",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_c5704647-fc14-437e-9906-5ab5f3ded524",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 446
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_c6386e49-221f-43c7-b30a-a4d5f415e6e1",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_c6386e49-221f-43c7-b30a-a4d5f415e6e1",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 918
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_c648889c-ff07-4664-81b7-b9fafcd93a04",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_c648889c-ff07-4664-81b7-b9fafcd93a04",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1634
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_cleave_from_peril",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_c48ce8da-ed42-4327-9db7-a4b6533e431a",
+        "node_3d79a0fe-26e0-4ff4-9ecd-6b5d4b228404",
+        "node_ebeb44ed-54d4-44f6-a211-f7060668f98a"
+      ],
+      "parents": [
+        "node_8e7a1179-6cbd-4f0d-9992-a0ca5282b30b",
+        "node_f33e4491-1a9b-444b-b4f8-835aa37a6a87",
+        "node_ebeb44ed-54d4-44f6-a211-f7060668f98a",
+        "node_3d79a0fe-26e0-4ff4-9ecd-6b5d4b228404"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_cb488818-7e33-4b04-aee2-7c515ffcbde2",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_cb488818-7e33-4b04-aee2-7c515ffcbde2",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 894
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_cec906f5-721d-46dd-95e9-78b903190c9d",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_cec906f5-721d-46dd-95e9-78b903190c9d",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1196
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "psyker_toughness_on_soul",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_25c8ee81-d16b-4d5b-b0fa-fc1e7b40c26f"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_d0f28c39-50b3-4f6f-893f-52e71aaba392",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_d0f28c39-50b3-4f6f-893f-52e71aaba392",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 351
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical_modifier",
+      "talent_internal_name": "psyker_ability_increase_brain_burst_speed",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_58a8d92f-0b8c-43c4-ac80-f0c597fffc54"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_d17100f5-03fb-4f7d-8918-b046bb713b25",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_d17100f5-03fb-4f7d-8918-b046bb713b25",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 153
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_d323e130-860b-42f1-acd2-dc50cacde619",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_d323e130-860b-42f1-acd2-dc50cacde619",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 325
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "aura",
+      "talent_internal_name": "psyker_aura_damage_vs_elites",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_fb6fc9c4-aed8-46c8-88a2-0ec1fa8e1eb0",
+        "node_25cef95d-234f-4299-a964-2ca42056cb5a"
+      ],
+      "parents": [
+        "node_579235ed-79b0-4532-8028-6cee7e154d94",
+        "node_ff791f9e-aa3a-40e0-b677-8a7b10649495",
+        "node_d17100f5-03fb-4f7d-8918-b046bb713b25",
+        "node_c48ce8da-ed42-4327-9db7-a4b6533e431a"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_d64a57d2-05d8-4077-92a2-d12069d8d628",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_d64a57d2-05d8-4077-92a2-d12069d8d628",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 969
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "ability_modifier",
+      "talent_internal_name": "psyker_boost_allies_in_sphere",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_b965d30f-4412-43e5-856a-c571751925a7"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_d958faa6-e3ea-4c79-bc84-3477063b09f7",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_d958faa6-e3ea-4c79-bc84-3477063b09f7",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1789
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical_modifier",
+      "talent_internal_name": "psyker_chain_lightning_heavy_attacks",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_88eb687e-bd2e-449e-b198-1bd2318eeda1"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_da8959b5-f8dd-4efb-8fee-c1600e6ee831",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_da8959b5-f8dd-4efb-8fee-c1600e6ee831",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 418
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_dafc9b1b-859e-44df-bea9-33fecbd3afc7",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_dafc9b1b-859e-44df-bea9-33fecbd3afc7",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 649
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_venting_improvements",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_3d79a0fe-26e0-4ff4-9ecd-6b5d4b228404"
+      ],
+      "parents": [
+        "node_9049de9c-7aef-4bda-bc26-2892d147c486"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_dbf51b8d-f6d8-418b-a1dc-29435eea34b0",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_dbf51b8d-f6d8-418b-a1dc-29435eea34b0",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 129
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_elite_kills_add_warpfire",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_0bbf73c4-d47e-4205-b8a3-1ee5879708cb",
+        "node_a665def4-3336-44eb-b7ed-1023d01cfd99"
+      ],
+      "parents": [
+        "node_5cdd458f-bbfc-40a3-ac1f-4a229ddbbb6a",
+        "node_0866df78-dac3-46dc-9af6-30119a64acbe",
+        "node_a665def4-3336-44eb-b7ed-1023d01cfd99"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_de28df8a-4aed-426c-8122-73893a04aa5b",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_de28df8a-4aed-426c-8122-73893a04aa5b",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1853
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_force_staff_quick_attack_bonus",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_c48ce8da-ed42-4327-9db7-a4b6533e431a",
+        "node_ebeb44ed-54d4-44f6-a211-f7060668f98a"
+      ],
+      "parents": [
+        "node_f0bb8060-6afc-4ae9-954d-3817cc054b35",
+        "node_4315ba13-1c64-4293-981d-9bd75a1c6612",
+        "node_ebeb44ed-54d4-44f6-a211-f7060668f98a"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_df9852a3-36e2-40ab-bd6b-c8ce430cfaa4",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_df9852a3-36e2-40ab-bd6b-c8ce430cfaa4",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 278
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical_modifier",
+      "talent_internal_name": "psyker_throwing_knives_piercing",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_35ce2086-9081-49c7-9703-f3c07eb0be86"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_e3d09295-0206-4166-91c4-2371e8abf9e3",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_e3d09295-0206-4166-91c4-2371e8abf9e3",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1768
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_reload_speed_warp_charge",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_59a39703-43ce-432e-b853-c80517a08947",
+        "node_28f80048-978b-420d-b0f8-8d3883a36334",
+        "node_3f08eb1a-09e8-4213-ab90-84032e51f7ae"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_eaba4084-d11f-424a-872b-69ee649bdd44",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_eaba4084-d11f-424a-872b-69ee649bdd44",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1877
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_damage_to_peril_conversion",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_7b4e0ecc-fba4-418c-a34c-8ae1739e341c"
+      ],
+      "parents": [
+        "node_25cef95d-234f-4299-a964-2ca42056cb5a"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_ebeb44ed-54d4-44f6-a211-f7060668f98a",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_ebeb44ed-54d4-44f6-a211-f7060668f98a",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 594
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_spread_warpfire_on_kill",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_c48ce8da-ed42-4327-9db7-a4b6533e431a",
+        "node_c648889c-ff07-4664-81b7-b9fafcd93a04",
+        "node_de28df8a-4aed-426c-8122-73893a04aa5b"
+      ],
+      "parents": [
+        "node_4315ba13-1c64-4293-981d-9bd75a1c6612",
+        "node_8e7a1179-6cbd-4f0d-9992-a0ca5282b30b",
+        "node_de28df8a-4aed-426c-8122-73893a04aa5b",
+        "node_c648889c-ff07-4664-81b7-b9fafcd93a04"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_f0bb8060-6afc-4ae9-954d-3817cc054b35",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_f0bb8060-6afc-4ae9-954d-3817cc054b35",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1828
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_force_staff_bonus",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_33f800cc-9538-4964-ac84-bfb3751c70a9",
+        "node_4badc199-b432-420c-ae2f-9d13a253a48d",
+        "node_41dad090-f3f7-4ee5-8402-25d97161a590",
+        "node_9c3b1d9e-e531-47f1-bd27-e0a8ff27b50e",
+        "node_de28df8a-4aed-426c-8122-73893a04aa5b"
+      ],
+      "parents": [
+        "node_9049de9c-7aef-4bda-bc26-2892d147c486"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_f33e4491-1a9b-444b-b4f8-835aa37a6a87",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_f33e4491-1a9b-444b-b4f8-835aa37a6a87",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1612
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_melee_attack_speed",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_3d79a0fe-26e0-4ff4-9ecd-6b5d4b228404",
+        "node_c648889c-ff07-4664-81b7-b9fafcd93a04"
+      ],
+      "parents": [
+        "node_9049de9c-7aef-4bda-bc26-2892d147c486"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_fb6fc9c4-aed8-46c8-88a2-0ec1fa8e1eb0",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_fb6fc9c4-aed8-46c8-88a2-0ec1fa8e1eb0",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 1898
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "default",
+      "talent_internal_name": "psyker_damage_resistance_stun_immunity",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_1943527f-b930-43f0-98b6-340d14d596d5",
+        "node_25cef95d-234f-4299-a964-2ca42056cb5a"
+      ],
+      "parents": [
+        "node_d323e130-860b-42f1-acd2-dc50cacde619",
+        "node_25cef95d-234f-4299-a964-2ca42056cb5a"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_fbf53cbf-026b-4076-aa50-08813d53dbb6",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_fbf53cbf-026b-4076-aa50-08813d53dbb6",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 206
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "tactical_modifier",
+      "talent_internal_name": "psyker_smite_on_hit",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": [
+        "node_58a8d92f-0b8c-43c4-ac80-f0c597fffc54"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "psyker.tree_node.node_ff791f9e-aa3a-40e0-b677-8a7b10649495",
+    "kind": "tree_node",
+    "domain": "psyker",
+    "internal_name": "node_ff791f9e-aa3a-40e0-b677-8a7b10649495",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",
+        "line": 325
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "tree_type": "implicit_reference",
+      "talent_internal_name": null,
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [],
+      "parents": []
+    },
+    "calc": {}
+  }
+]
