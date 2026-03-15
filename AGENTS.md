@@ -28,7 +28,7 @@ Never hardcode the source root. The Makefile reads `.source-root` as a fallback;
 npm install
 npm test                                          # unit tests (no source root needed for most)
 npm run check                                     # index:build + test + index:check
-GROUND_TRUTH_SOURCE_ROOT=... make check           # full quality gate
+make check                                        # full quality gate (reads .source-root)
 npm run resolve -- --query "Warp Rider" --context '{"kind":"talent","class":"psyker"}'
 npm run audit -- scripts/builds/08-gandalf-melee-wizard.json
 npm run canonicalize -- scripts/sample-build.json # raw scrape → canonical build JSON
@@ -62,7 +62,7 @@ scripts/builds/      # 20 canonical build fixtures (all 6 classes)
 
 Entity ID format: `{domain}.{kind}.{internal_name}` — e.g. `psyker.talent.psyker_damage_based_on_warp_charge`
 
-Shared cross-class entities use `shared` as domain: `shared.weapon.lasgun_p1_m1`, `shared.gadget_trait.gadget_toughness_increase`.
+Shared cross-class entities use `shared` as domain: `shared.weapon.lasgun_p1_m1`, `shared.gadget_trait.gadget_toughness_increase`. Family-level stat nodes: `shared.stat_node.toughness_boost`.
 
 ## Resolution States
 
@@ -91,7 +91,7 @@ All records are validated against JSON schemas in `data/ground-truth/schemas/`. 
 
 `scripts/builds/` contains 20 representative build JSON files (builds 01–20, all 6 classes) in canonical build shape. Each build stores `schema_version`, `title`, `class`, `provenance`, `ability`, `blitz`, `aura`, `keystone`, `talents[]`, `weapons[]`, and `curios[]`. Every selection carries `raw_label`, `canonical_entity_id`, and `resolution_status` (`resolved` / `unresolved` / `non_canonical`).
 
-7 builds (01–03 veteran, 04–07 zealot) have been re-extracted from live GL pages with full talent trees. The remaining 13 are legacy fixtures with placeholder class-side slots.
+All 20 builds have been re-extracted from live GL pages with full talent trees. All selections are either `resolved` or `non_canonical` (zero unresolved).
 
 Frozen audit snapshots live in `tests/fixtures/ground-truth/audits/`. When the index or audit logic changes, re-freeze all snapshots with `npm run audit:freeze`. Do NOT use `npm run audit -- <file> > snapshot.json` — npm's stderr banner contaminates the JSON output.
 
@@ -103,6 +103,7 @@ The canonical build format is the single shared shape consumed by `audit`, `scor
 - Fixed structural slots: `ability`, `blitz`, `aura`, `keystone` (nullable)
 - Flat `talents[]` for all other selected class-side nodes
 - Blessings resolve to family-level IDs (`shared.name_family.blessing.*`), not concrete weapon-trait instances
+- Stat nodes resolve to family-level IDs (`shared.stat_node.*`), stripping GL positional numbers. Per-instance resolution deferred to tree DAG work.
 - `ambiguous` is not a valid `resolution_status` in build files — if ingestion can't commit, store `unresolved`
 
 ## Classification Registry
@@ -126,6 +127,7 @@ cd ../Darktide-Source-Code && git pull && cd -
 Key paths for entity work:
 - `scripts/ui/views/talent_builder_view/layouts/{class}_tree.lua` — talent tree node definitions (talent name, type, icon, exclusive groups)
 - `scripts/settings/ability/archetype_talents/talents/{class}_talents.lua` — talent implementation details (buff definitions, display name loc keys)
+- `scripts/settings/ability/archetype_talents/talents/base_talents.lua` — shared stat node definitions (138 passive buff templates across 14 families)
 - `scripts/settings/equipment/weapons/` — weapon templates
 - `scripts/settings/equipment/weapon_traits/` — blessing/perk templates
 - `scripts/backend/item_definitions/` — backend item IDs
