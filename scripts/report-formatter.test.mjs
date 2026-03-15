@@ -61,7 +61,8 @@ describe("formatText", () => {
   });
 
   it("shows weapon sections", async () => {
-    const report = await getReport();
+    // Use build 01 which has weapons with both perks and blessings
+    const report = await generateReport(join(BUILDS_DIR, "01-veteran-squad-leader.json"));
     const text = formatText(report);
     assert.ok(/\[melee\]/i.test(text) || /melee/i.test(text), "should mention melee");
     assert.ok(/\[ranged\]/i.test(text) || /ranged/i.test(text), "should mention ranged");
