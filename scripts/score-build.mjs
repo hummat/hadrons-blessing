@@ -462,20 +462,26 @@ function findWeapon(weaponName) {
   const canonicalEntityId = selectionCanonicalEntityId(weaponName);
   if (canonicalEntityId) {
     const directMatch = resolveGroundTruthWeapon(canonicalEntityId);
-    if (directMatch) {
+    if (directMatch?.entry) {
       return directMatch;
     }
   }
 
   const normalizedName = selectionLabel(weaponName);
   const groundTruthMatch = resolveGroundTruthWeapon(normalizedName);
-  if (groundTruthMatch) {
+  if (groundTruthMatch?.entry) {
     return groundTruthMatch;
   }
 
   const provisionalFamilyMatch = resolveProvisionalWeaponFamily(normalizedName);
   if (provisionalFamilyMatch) {
     return provisionalFamilyMatch;
+  }
+
+  // Ground-truth resolved the entity but had no scoring data —
+  // return it so callers get metadata (family, slot) even without scores.
+  if (groundTruthMatch) {
+    return groundTruthMatch;
   }
 
   const data = loadData();
