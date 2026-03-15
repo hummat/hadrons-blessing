@@ -14,6 +14,7 @@ describe("bot-weapon-recommendations export", () => {
     const data = JSON.parse(readFileSync(EXPORT_PATH, "utf8"));
 
     assert.equal(data.schema_version, 1);
+    assert.equal(data.assumes, "betterbots");
     assert.ok(typeof data.generated_at === "string");
     assert.ok(data.generated_at.length > 0);
 

@@ -12,8 +12,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = join(__dirname, "..", "data", "exports", "bot-weapon-recommendations.json");
 
 // Curated per-class weapon selections.
-// Chosen from meta-builds research BOT:* compatibility analysis.
-// See docs/superpowers/specs/2026-03-15-betterBots-integration-contract-design.md
+// Evaluated against BetterBots bot-incompatibility criteria:
+//   dodge-dependent, block-timing-dependent, weapon-special-dependent, weakspot-aim-dependent
+// BetterBots already handles: ADS, peril/overheat, force staves, melee selection.
 const CURATED_WEAPONS = {
   veteran: {
     melee: {
@@ -21,15 +22,15 @@ const CURATED_WEAPONS = {
       display_name: 'Catachan Mk VII "Devil\'s Claw" Sword',
       gestalt: "linesman",
       source_builds: ["03-slinking-veteran"],
-      bot_notes: "Simple melee with Rampage+Wrath blessings, no weakspot/dodge dependency",
+      bot_notes: "Simple melee with wide cleave, no dodge/block/weakspot dependency",
     },
     ranged: {
-      template_id: "autogun_p1_m1",
-      display_name: "Agripinaa Mk I Infantry Autogun",
+      template_id: "plasmagun_p1_m1",
+      display_name: "M35 Magnacore Mk II Plasma Gun",
       gestalt: "killshot",
-      source_builds: [],
+      source_builds: ["01-veteran-squad-leader", "02-assault-veteran"],
       bot_notes:
-        "Simple spray autogun — all 3 veteran meta builds use plasma/helbore (BOT:AIM_DEPENDENT), autogun is the bot-safe fallback",
+        "High damage charged shots, no weakspot dependency — used in 2 of 3 meta builds, peril managed by BetterBots",
     },
   },
   zealot: {
@@ -38,14 +39,14 @@ const CURATED_WEAPONS = {
       display_name: "Munitorum Mk X Relic Blade",
       gestalt: "linesman",
       source_builds: ["04-spicy-meta-zealot"],
-      bot_notes: "Best cleave melee from S-rank build (BOT:ABILITY_OK), no dodge/block dependency",
+      bot_notes: "Best cleave melee from S-rank build, no dodge/block dependency",
     },
     ranged: {
       template_id: "flamer_p1_m1",
       display_name: "Artemia Mk III Purgation Flamer",
       gestalt: "killshot",
       source_builds: ["04-spicy-meta-zealot"],
-      bot_notes: "Area denial spray, no aim dependency — S-rank build choice",
+      bot_notes: "Area denial spray, no aim/dodge/block dependency — S-rank build choice",
     },
   },
   psyker: {
@@ -54,14 +55,14 @@ const CURATED_WEAPONS = {
       display_name: "Covenant Mk VI Blaze Force Greatsword",
       gestalt: "linesman",
       source_builds: ["08-gandalf-melee-wizard"],
-      bot_notes: "Simple force melee with wide cleave, standard psyker melee",
+      bot_notes: "Wide cleave force melee, no dodge/block dependency",
     },
     ranged: {
       template_id: "forcestaff_p4_m1",
       display_name: "Equinox Mk III Voidblast Force Staff",
       gestalt: "killshot",
       source_builds: ["08-gandalf-melee-wizard"],
-      bot_notes: "AoE blast staff, no charged shot timing dependency",
+      bot_notes: "AoE blast staff, no weakspot dependency — peril managed by BetterBots",
     },
   },
   ogryn: {
@@ -70,14 +71,14 @@ const CURATED_WEAPONS = {
       display_name: "Achlys Mk I Power Maul",
       gestalt: "linesman",
       source_builds: ["11-explodegryn"],
-      bot_notes: "High stagger melee, simple attack pattern",
+      bot_notes: "High stagger melee, simple attack pattern, no dodge/block dependency",
     },
     ranged: {
       template_id: "ogryn_thumper_p1_m2",
       display_name: "Lorenz Mk VI Rumbler",
       gestalt: "killshot",
       source_builds: ["11-explodegryn", "12-ogryn-shield-tank"],
-      bot_notes: "Grenade launcher, area damage, appears in 2 of 3 ogryn builds",
+      bot_notes: "Grenade launcher, area damage, no aim dependency — appears in 2 of 3 ogryn builds",
     },
   },
 };
@@ -119,6 +120,7 @@ function buildExport() {
   return {
     generated_at: new Date().toISOString(),
     schema_version: 1,
+    assumes: "betterbots",
     classes,
   };
 }
