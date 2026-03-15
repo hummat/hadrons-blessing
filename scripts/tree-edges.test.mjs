@@ -8,7 +8,9 @@ import {
   generateTreeEdges,
   generateTreeNodeEntities,
 } from "./ground-truth/lib/tree-edge-generator.mjs";
-import { resolveSourceRoot } from "./ground-truth/lib/load.mjs";
+import { REPO_ROOT, resolveSourceRoot } from "./ground-truth/lib/load.mjs";
+
+const SOURCE_ROOT = resolveSourceRoot();
 
 // -- Inline test fixtures --------------------------------------------------
 
@@ -550,5 +552,100 @@ return {
       (e) => e.internal_name === "node_ffff-9999",
     );
     assert.equal(implicit.length, 1, "Should only emit one entity for node_ffff-9999");
+  });
+});
+
+// -- Task 4: Psyker golden comparison tests --------------------------------
+
+const PSYKER_LUA_REL = "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua";
+const PSYKER_SNAPSHOT = "darktide-source.dbe7035";
+
+describe("psyker golden comparison", () => {
+  it("reproduces existing hand-authored psyker edges", { skip: !SOURCE_ROOT }, () => {
+    const luaPath = join(SOURCE_ROOT, PSYKER_LUA_REL);
+    const nodes = parseLuaTree(readFileSync(luaPath, "utf8"));
+    const generated = generateTreeEdges(nodes, "psyker", PSYKER_SNAPSHOT);
+
+    // Filter to only parent_of and belongs_to_tree_node (exclusive_with is new)
+    const generatedFiltered = generated
+      .filter((e) => e.type === "parent_of" || e.type === "belongs_to_tree_node")
+      .sort((a, b) => a.id.localeCompare(b.id));
+
+    const existingPath = join(REPO_ROOT, "data", "ground-truth", "edges", "psyker.json");
+    const existing = JSON.parse(readFileSync(existingPath, "utf8"))
+      .filter((e) => e.type === "parent_of" || e.type === "belongs_to_tree_node")
+      .sort((a, b) => a.id.localeCompare(b.id));
+
+    assert.equal(
+      generatedFiltered.length,
+      existing.length,
+      `Edge count mismatch: generated ${generatedFiltered.length}, existing ${existing.length}`,
+    );
+
+    for (let i = 0; i < existing.length; i++) {
+      assert.deepEqual(
+        generatedFiltered[i],
+        existing[i],
+        `Edge mismatch at index ${i}: ${generatedFiltered[i]?.id} vs ${existing[i]?.id}`,
+      );
+    }
+  });
+
+  it("reproduces existing hand-authored psyker entity counts", { skip: !SOURCE_ROOT }, () => {
+    const luaPath = join(SOURCE_ROOT, PSYKER_LUA_REL);
+    const nodes = parseLuaTree(readFileSync(luaPath, "utf8"));
+    const generated = generateTreeNodeEntities(
+      nodes,
+      "psyker",
+      PSYKER_SNAPSHOT,
+      PSYKER_LUA_REL,
+    );
+
+    const generatedPrimary = generated.filter((e) => e.status === "source_backed");
+    const generatedImplicit = generated.filter((e) => e.status === "partially_resolved");
+
+    // Compare primary nodes against existing psyker.json tree_nodes
+    const psykerEntitiesPath = join(REPO_ROOT, "data", "ground-truth", "entities", "psyker.json");
+    const existingTreeNodes = JSON.parse(readFileSync(psykerEntitiesPath, "utf8"))
+      .filter((e) => e.kind === "tree_node");
+
+    assert.equal(
+      generatedPrimary.length,
+      existingTreeNodes.length,
+      `Primary node count mismatch: generated ${generatedPrimary.length}, existing ${existingTreeNodes.length}`,
+    );
+
+    // Implicit nodes: generator may find more than the 22 in the hand-authored file
+    const implicitPath = join(REPO_ROOT, "data", "ground-truth", "entities", "psyker-implicit-tree-nodes.json");
+    const existingImplicit = JSON.parse(readFileSync(implicitPath, "utf8"));
+
+    assert.ok(
+      generatedImplicit.length >= existingImplicit.length,
+      `Implicit node count too low: generated ${generatedImplicit.length}, existing ${existingImplicit.length}`,
+    );
+  });
+
+  it("generates exclusive_with edges with lexicographically ordered UUIDs", { skip: !SOURCE_ROOT }, () => {
+    const luaPath = join(SOURCE_ROOT, PSYKER_LUA_REL);
+    const nodes = parseLuaTree(readFileSync(luaPath, "utf8"));
+    const edges = generateTreeEdges(nodes, "psyker", PSYKER_SNAPSHOT);
+
+    const exclusiveEdges = edges.filter((e) => e.type === "exclusive_with");
+
+    assert.ok(
+      exclusiveEdges.length > 0,
+      "Should generate at least one exclusive_with edge",
+    );
+
+    for (const edge of exclusiveEdges) {
+      // Extract UUIDs from the entity IDs (format: psyker.tree_node.node_{uuid})
+      const fromUuid = edge.from_entity_id.replace("psyker.tree_node.", "");
+      const toUuid = edge.to_entity_id.replace("psyker.tree_node.", "");
+
+      assert.ok(
+        fromUuid.localeCompare(toUuid) < 0,
+        `exclusive_with edge ${edge.id}: from UUID ${fromUuid} should be lexicographically before to UUID ${toUuid}`,
+      );
+    }
   });
 });
