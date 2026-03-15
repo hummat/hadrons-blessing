@@ -1,0 +1,376 @@
+{
+  "schema_version": 1,
+  "title": "Novice's Havoc 40 build: All-rounder",
+  "class": {
+    "raw_label": "psyker",
+    "canonical_entity_id": "shared.class.psyker",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "https://darktide.gameslantern.com/builds/9eb0384d-c297-4273-9596-d41d7f8f56eb/novices-havoc-40-build-all-rounder",
+    "author": "krjpnovice",
+    "scraped_at": "2026-03-15T16:00:05.891Z"
+  },
+  "ability": {
+    "raw_label": "Telekine Shield",
+    "canonical_entity_id": "psyker.ability.psyker_combat_ability_force_field",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Brain Rupture",
+    "canonical_entity_id": "psyker.ability.psyker_brain_burst_improved",
+    "resolution_status": "resolved"
+  },
+  "aura": {
+    "raw_label": "Seers Presence",
+    "canonical_entity_id": "psyker.aura.psyker_cooldown_aura_improved",
+    "resolution_status": "resolved"
+  },
+  "keystone": {
+    "raw_label": "Warp Siphon",
+    "canonical_entity_id": "psyker.keystone.psyker_passive_souls_from_elite_kills",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Soulstealer",
+      "canonical_entity_id": "psyker.talent.psyker_toughness_on_warp_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Mettle",
+      "canonical_entity_id": "psyker.talent.psyker_crits_regen_toughness_movement_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Perilous Combustion",
+      "canonical_entity_id": "psyker.talent.psyker_elite_kills_add_warpfire",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Perfect Timing",
+      "canonical_entity_id": "psyker.talent.psyker_crits_empower_next_attack",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Kinetic Flayer",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_smite_on_hit",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Wildfire",
+      "canonical_entity_id": "psyker.talent.psyker_spread_warpfire_on_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Psykinetic's Aura",
+      "canonical_entity_id": "psyker.talent.psyker_2_tier_3_name_2",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Empathic Evasion",
+      "canonical_entity_id": "psyker.talent.psyker_dodge_after_crits",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Solidity",
+      "canonical_entity_id": "psyker.talent.psyker_increased_vent_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Rider",
+      "canonical_entity_id": "psyker.talent.psyker_damage_based_on_warp_charge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Kinetic Deflection",
+      "canonical_entity_id": "psyker.talent.psyker_block_costs_warp_charge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Sanctuary",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_boost_allies_in_sphere",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Telekine Dome",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_sphere_shield",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "In Fire Reborn",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_warpfire_generate_souls",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Battery",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_increased_max_souls",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 12",
+      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Souldrinker",
+      "canonical_entity_id": "psyker.talent.psyker_killing_enemy_with_warpfire_boosts",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Empyric Resolve",
+      "canonical_entity_id": "psyker.talent.psyker_warp_glass_cannon",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 4",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ranged Damage Boost 3",
+      "canonical_entity_id": "shared.stat_node.ranged_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 10",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Stamina Boost",
+      "canonical_entity_id": "shared.stat_node.stamina_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 5",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 4",
+      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Just a Dream",
+      "canonical_entity_id": "psyker.talent.psyker_damage_to_peril_conversion",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Critical Chance Boost 3",
+      "canonical_entity_id": "shared.stat_node.critical_chance_boost",
+      "resolution_status": "resolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "Deimos Mk IV Blaze Force Sword",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Deflector",
+          "canonical_entity_id": "shared.name_family.blessing.deflector",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Uncanny Strike",
+          "canonical_entity_id": "shared.name_family.blessing.uncanny_strike",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Rifthaven Mk II Inferno Force Staff",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [],
+      "blessings": [
+        {
+          "raw_label": "Increase Ranged Critical Strike Chance by 2-5%",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved"
+        },
+        {
+          "raw_label": "Blaze Away",
+          "canonical_entity_id": "shared.name_family.blessing.blaze_away",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Penetrating Flame",
+          "canonical_entity_id": "shared.name_family.blessing.penetrating_flame",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ],
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.17,
+            "max": 0.21,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Block Efficiency",
+          "canonical_entity_id": "shared.gadget_trait.gadget_block_cost_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.17,
+            "max": 0.21,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Block Efficiency",
+          "canonical_entity_id": "shared.gadget_trait.gadget_block_cost_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.17,
+            "max": 0.21,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Block Efficiency",
+          "canonical_entity_id": "shared.gadget_trait.gadget_block_cost_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -78,7 +78,10 @@ async function canonicalizeBlessings(rawBlessings, queryContext, deps = {}) {
       selection.resolution_status === "resolved"
       && !selection.canonical_entity_id.startsWith("shared.name_family.blessing.")
     ) {
-      throw new Error(`Blessing ${label} resolved to non-family id ${selection.canonical_entity_id}`);
+      // GL pages sometimes mix weapon perks/stat bonuses into the blessing list.
+      // Reclassify as unresolved rather than crashing — the perk is real but not a blessing.
+      selection.resolution_status = "unresolved";
+      selection.canonical_entity_id = null;
     }
     selections.push(selection);
   }
