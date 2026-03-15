@@ -7,6 +7,8 @@
  *   - Scorecard from generateScorecard() (perk/curio ratings)
  */
 
+import { readdirSync } from "node:fs";
+import { join } from "node:path";
 import { loadJsonFile } from "./load.mjs";
 import { auditBuildFile } from "../../audit-build-names.mjs";
 import { generateScorecard } from "../../score-build.mjs";
@@ -185,4 +187,33 @@ export async function generateReport(buildPath) {
     ambiguous,
     non_canonical,
   };
+}
+
+/**
+ * Generate BuildReports for every JSON file in a directory.
+ *
+ * @param {string} dirPath - Path to a directory containing canonical build JSON files.
+ * @returns {Promise<{summary: object, reports: object[]}>} Batch result with aggregate summary.
+ */
+export async function generateBatchReport(dirPath) {
+  const files = readdirSync(dirPath)
+    .filter((f) => f.endsWith(".json"))
+    .sort();
+
+  const reports = [];
+  for (const file of files) {
+    const report = await generateReport(join(dirPath, file));
+    reports.push(report);
+  }
+
+  const summary = {
+    build_count: reports.length,
+    total: reports.reduce((s, r) => s + r.summary.total, 0),
+    resolved: reports.reduce((s, r) => s + r.summary.resolved, 0),
+    ambiguous: reports.reduce((s, r) => s + r.summary.ambiguous, 0),
+    unresolved: reports.reduce((s, r) => s + r.summary.unresolved, 0),
+    non_canonical: reports.reduce((s, r) => s + r.summary.non_canonical, 0),
+  };
+
+  return { summary, reports };
 }

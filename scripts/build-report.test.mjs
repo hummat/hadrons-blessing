@@ -1,7 +1,8 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { join } from "node:path";
-import { generateReport } from "./ground-truth/lib/build-report.mjs";
+import { readdirSync } from "node:fs";
+import { generateReport, generateBatchReport } from "./ground-truth/lib/build-report.mjs";
 import { REPO_ROOT } from "./ground-truth/lib/load.mjs";
 
 const BUILDS_DIR = join(REPO_ROOT, "scripts", "builds");
@@ -103,5 +104,23 @@ describe("generateReport", () => {
       assert.ok(typeof p.tier === "number", "curio perk should have tier number");
       assert.ok(typeof p.rating === "string", "curio perk should have rating string");
     }
+  });
+});
+
+describe("generateBatchReport", () => {
+  it("produces reports for all builds in a directory", async () => {
+    const batch = await generateBatchReport(BUILDS_DIR);
+    const expectedCount = readdirSync(BUILDS_DIR).filter((f) => f.endsWith(".json")).length;
+    assert.ok(batch.reports.length > 0, "should produce at least one report");
+    assert.equal(batch.reports.length, expectedCount, "should produce one report per JSON file");
+    assert.ok(typeof batch.summary.total === "number", "summary should have total");
+    assert.ok(typeof batch.summary.resolved === "number", "summary should have resolved");
+    assert.ok(typeof batch.summary.unresolved === "number", "summary should have unresolved");
+  });
+
+  it("batch summary counts sum correctly", async () => {
+    const batch = await generateBatchReport(BUILDS_DIR);
+    const sumResolved = batch.reports.reduce((s, r) => s + r.summary.resolved, 0);
+    assert.equal(batch.summary.resolved, sumResolved, "batch resolved should equal sum of individual resolved");
   });
 });
