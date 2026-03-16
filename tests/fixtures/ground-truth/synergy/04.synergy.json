@@ -296,8 +296,9 @@
         "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
         "zealot.talent.zealot_reduced_damage_after_dodge"
       ],
+      "families": [],
       "strength": 2,
-      "trigger": "on_successful_dodge"
+      "explanation": "Both activate on on_successful_dodge"
     },
     {
       "type": "stat_alignment",

@@ -128,7 +128,7 @@ export function triggerTargetChain(selA, selB) {
   const triggersB = new Set(selB.effects.map((e) => e.trigger).filter(Boolean));
   for (const t of triggersA) {
     if (triggersB.has(t)) {
-      edges.push({ type: "trigger_target", selections: [selA.id, selB.id], strength: 2, trigger: t });
+      edges.push({ type: "trigger_target", selections: [selA.id, selB.id], families: [], strength: 2, explanation: `Both activate on ${t}` });
     }
   }
 
@@ -150,8 +150,9 @@ export function triggerTargetChain(selA, selB) {
         edges.push({
           type: "trigger_target",
           selections: [producer.id, consumer.id],
+          families: [],
           strength: 3,
-          resource: eff.condition,
+          explanation: `${producer.id} produces resource needed by ${eff.condition} condition`,
         });
       }
     }

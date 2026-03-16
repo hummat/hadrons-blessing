@@ -357,14 +357,16 @@ export function analyzeBuild(build, index) {
   if (slotResult.melee.strength > 0 && slotResult.ranged.strength === 0) {
     anti_synergies.push({
       type: "slot_imbalance",
-      explanation: "Build has melee coverage but no ranged offense support",
-      slots: { melee: slotResult.melee.strength, ranged: 0 },
+      selections: [],
+      reason: "No ranged offense support — ranged weapon slot unbuffed",
+      severity: "medium",
     });
   } else if (slotResult.ranged.strength > 0 && slotResult.melee.strength === 0) {
     anti_synergies.push({
       type: "slot_imbalance",
-      explanation: "Build has ranged coverage but no melee offense support",
-      slots: { melee: 0, ranged: slotResult.ranged.strength },
+      selections: [],
+      reason: "No melee offense support — melee weapon slot unbuffed",
+      severity: "medium",
     });
   }
 

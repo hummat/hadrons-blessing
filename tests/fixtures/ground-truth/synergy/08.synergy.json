@@ -116,8 +116,9 @@
         "psyker.talent.psyker_chance_to_vent_on_kill",
         "psyker.talent.psyker_block_costs_warp_charge"
       ],
+      "families": [],
       "strength": 3,
-      "resource": "threshold:warp_charge"
+      "explanation": "psyker.talent.psyker_chance_to_vent_on_kill produces resource needed by threshold:warp_charge condition"
     },
     {
       "type": "stat_alignment",

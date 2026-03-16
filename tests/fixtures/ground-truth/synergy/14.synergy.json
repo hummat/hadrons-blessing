@@ -56,8 +56,9 @@
         "arbites.talent.adamant_hitting_multiple_gives_tdr",
         "arbites.talent.adamant_damage_reduction_after_elite_kill"
       ],
+      "families": [],
       "strength": 2,
-      "trigger": "on_hit"
+      "explanation": "Both activate on on_hit"
     },
     {
       "type": "stat_alignment",
