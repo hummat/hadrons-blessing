@@ -239,3 +239,101 @@ describe("stat family coverage", () => {
     );
   });
 });
+
+import { computeCoverage, resolveSelections, analyzeBuild, loadIndex } from "./ground-truth/lib/synergy-model.mjs";
+
+describe("stat aggregator", () => {
+  describe("computeCoverage", () => {
+    it("computes family profile from selections", () => {
+      const selections = [
+        { id: "t1", effects: [{ stat: "toughness", type: "stat_buff", magnitude: 15 }] },
+        { id: "t2", effects: [{ stat: "toughness", type: "stat_buff", magnitude: 10 }] },
+        { id: "t3", effects: [{ stat: "melee_damage", type: "stat_buff", magnitude: 0.1 }] },
+      ];
+      const cov = computeCoverage(selections);
+      assert.equal(cov.family_profile.toughness.count, 2);
+      assert.equal(cov.family_profile.toughness.total_magnitude, 25);
+      assert.equal(cov.family_profile.melee_offense.count, 1);
+    });
+
+    it("computes build identity as top families", () => {
+      const selections = [
+        { id: "t1", effects: [{ stat: "toughness", type: "stat_buff", magnitude: 15 }] },
+        { id: "t2", effects: [{ stat: "toughness", type: "stat_buff", magnitude: 10 }] },
+        { id: "t3", effects: [{ stat: "toughness", type: "stat_buff", magnitude: 5 }] },
+        { id: "t4", effects: [{ stat: "melee_damage", type: "stat_buff", magnitude: 0.1 }] },
+      ];
+      const cov = computeCoverage(selections);
+      assert.equal(cov.build_identity[0], "toughness");
+    });
+
+    it("computes NHHI concentration", () => {
+      const selections = [
+        { id: "t1", effects: [{ stat: "toughness", type: "stat_buff", magnitude: 10 }] },
+        { id: "t2", effects: [{ stat: "toughness_replenish_modifier", type: "stat_buff", magnitude: 0.1 }] },
+      ];
+      const cov = computeCoverage(selections);
+      assert.ok(cov.concentration > 0.8, `Expected high concentration, got ${cov.concentration}`);
+    });
+
+    it("detects missing survivability gap", () => {
+      const selections = [
+        { id: "t1", effects: [{ stat: "melee_damage", type: "stat_buff", magnitude: 0.1 }] },
+        { id: "t2", effects: [{ stat: "melee_attack_speed", type: "stat_buff", magnitude: 0.1 }] },
+        { id: "t3", effects: [{ stat: "melee_damage", type: "stat_buff", magnitude: 0.1 }] },
+      ];
+      const cov = computeCoverage(selections);
+      assert.ok(cov.coverage_gaps.includes("survivability"));
+    });
+  });
+});
+
+describe("resolveSelections", () => {
+  const entityDir = "data/ground-truth/entities";
+  const edgeDir = "data/ground-truth/edges";
+  const entities = new Map();
+  for (const f of readdirSync(entityDir).filter((f) => f.endsWith(".json"))) {
+    for (const e of JSON.parse(readFileSync(join(entityDir, f), "utf-8"))) {
+      entities.set(e.id, e);
+    }
+  }
+  const edges = readdirSync(edgeDir)
+    .filter((f) => f.endsWith(".json"))
+    .flatMap((f) => JSON.parse(readFileSync(join(edgeDir, f), "utf-8")));
+
+  it("resolves entity with direct calc.effects", () => {
+    const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const resolved = resolveSelections(build, entities, edges);
+    const withEffects = resolved.filter((s) => s.effects.length > 0);
+    assert.ok(withEffects.length > 0, "Expected some selections with effects");
+  });
+
+  it("deduplicates selections by entity ID", () => {
+    const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const resolved = resolveSelections(build, entities, edges);
+    const ids = resolved.map((s) => s.id);
+    const uniqueIds = new Set(ids);
+    assert.equal(ids.length, uniqueIds.size, "Expected no duplicate IDs");
+  });
+});
+
+describe("analyzeBuild", () => {
+  it("produces valid analysis for build 08", () => {
+    const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const index = loadIndex();
+    const result = analyzeBuild(build, index);
+
+    assert.ok(Array.isArray(result.synergy_edges));
+    assert.ok(Array.isArray(result.anti_synergies));
+    assert.ok(Array.isArray(result.orphans));
+    assert.ok(result.coverage);
+    assert.ok(result.metadata);
+
+    assert.ok(result.metadata.entities_analyzed > 0);
+    assert.ok(result.metadata.unique_entities_with_calc > 0);
+    assert.ok(result.metadata.calc_coverage_pct > 0);
+    assert.ok(result.metadata.calc_coverage_pct <= 1);
+    assert.ok(result.synergy_edges.length > 0, "Expected synergy edges");
+    assert.ok(result.coverage.build_identity.length > 0);
+  });
+});
