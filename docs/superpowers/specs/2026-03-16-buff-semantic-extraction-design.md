@@ -13,10 +13,10 @@ This is the foundation for synergy modeling (#8), build scoring (#9), and modifi
 ## Background: Darktide's 3-layer buff architecture
 
 1. **Talent definition** (`*_talents.lua`): display metadata + `passive.buff_template_name` pointer(s). No magnitudes.
-2. **Buff template** (`archetype_buff_templates/*.lua`, `weapon_traits_buff_templates/*.lua`): runtime behavior — `stat_buffs`, `conditional_stat_buffs`, `proc_events`, `max_stacks`, `duration`, `keywords`, `class_name`. Magnitudes usually indirected through `TalentSettings.*`.
-3. **Talent settings** (`talent_settings_*.lua`): named numeric constants. Single authoritative magnitude source for talents.
+2. **Buff template** (`scripts/settings/buff/archetype_buff_templates/*.lua`, `scripts/settings/buff/weapon_traits_buff_templates/*.lua`, `scripts/settings/buff/gadget_buff_templates.lua`, `scripts/settings/buff/player_buff_templates.lua`): runtime behavior — `stat_buffs`, `conditional_stat_buffs`, `lerped_stat_buffs`, `conditional_lerped_stat_buffs`, `proc_events`, `proc_stat_buffs`, `max_stacks`, `duration`, `keywords`, `class_name`. Magnitudes usually indirected through `TalentSettings.*`.
+3. **Talent settings** (`scripts/settings/talent/talent_settings_*.lua`): named numeric constants. Single authoritative magnitude source for talents.
 
-Blessings skip layer 3: magnitudes are inline in the weapon trait definition as 4-element arrays indexed by rarity tier.
+Blessings skip layer 3: magnitudes are inline in the weapon trait definition (`scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_*.lua`) as 4-element tier arrays — each tier is a table object that can contain `stat_buffs`, `conditional_stat_buffs`, `active_duration`, and other fields. Tier objects patch the base buff template; absent fields inherit from the base.
 
 ## Approach
 
@@ -43,8 +43,9 @@ scripts/ground-truth/lib/
 **`lua-data-reader.mjs`** — Generic, Darktide-agnostic. Reads Lua source text and extracts:
 - Named block definitions: `templates.X = { ... }`
 - Clone statements: `templates.X = table.clone(templates.Y)`
-- Merge statements: `templates.X = table.merge(a, b)`
+- Merge statements: `templates.X = table.merge(dest, source)` — second arg (source) overwrites first arg (dest) on key collision, per the engine's `table.merge` implementation at `scripts/foundation/utilities/table.lua:143-148`. In practice, `table.merge({inline_overrides}, BaseTemplate)` means the BaseTemplate wins on collision.
 - Post-construction patches: `templates.X.field = value`
+- `table.make_unique(templates)` calls are ignored — this is a runtime debug assertion that ensures no shared table references, irrelevant for static extraction
 - Table literals into JS objects with:
   - `[enum.member]` bracket keys → `{ $ref: "enum.member" }` symbolic nodes
   - Numbers, strings, booleans → JS primitives
@@ -53,7 +54,7 @@ scripts/ground-truth/lib/
 
 **`talent-settings-parser.mjs`** — Reads `talent_settings_*.lua` files (pure nested data — no functions, no enums, no clones). Returns `Map<string, number>` keyed by dotted path, e.g. `"psyker_2.passive_1.on_hit_proc_chance" → 1`.
 
-Also handles the alias convention used in buff template files: `local talent_settings = TalentSettings.psyker` means `talent_settings.X.Y` resolves to `psyker.X.Y` in the lookup table. The parser maps `talent_settings`, `talent_settings_2`, `talent_settings_3` aliases to their respective namespace roots.
+Also handles the alias convention used in buff template files. Each file declares local aliases like `local talent_settings = TalentSettings.psyker`, `local talent_settings_2 = TalentSettings.psyker_2`, etc. The alias variable names vary across classes (e.g. `stimm_talent_settings` for broker, `talent_settings_shared` for ogryn). The parser dynamically scans for all `local <var> = TalentSettings.<namespace>` bindings in each file and builds the alias map accordingly — no hardcoded variable names.
 
 **`buff-semantic-parser.mjs`** — Darktide-specific. Orchestrates the extraction:
 1. Loads TalentSettings lookup via `talent-settings-parser.mjs`
@@ -80,12 +81,42 @@ The `calc` sub-schema to be added to `data/ground-truth/schemas/`:
         "condition": null,
         "trigger": null,
         "type": "stat_buff"
+      },
+      {
+        "stat": "damage",
+        "magnitude": null,
+        "magnitude_expr": null,
+        "magnitude_min": 0.05,
+        "magnitude_max": 0.25,
+        "condition": null,
+        "trigger": null,
+        "type": "lerped_stat_buff"
       }
     ],
-    "tier_scaling": [
+    "tiers": [
       {
-        "stat": "melee_power_level_modifier",
-        "values": [0.24, 0.28, 0.32, 0.36]
+        "effects": [
+          { "stat": "power_level_modifier", "magnitude": 0.05, "type": "stat_buff" }
+        ],
+        "child_duration": 3.5
+      },
+      {
+        "effects": [
+          { "stat": "power_level_modifier", "magnitude": 0.055, "type": "stat_buff" }
+        ],
+        "child_duration": 3.5
+      },
+      {
+        "effects": [
+          { "stat": "power_level_modifier", "magnitude": 0.06, "type": "stat_buff" }
+        ],
+        "child_duration": 3.5
+      },
+      {
+        "effects": [
+          { "stat": "power_level_modifier", "magnitude": 0.065, "type": "stat_buff" }
+        ],
+        "child_duration": 3.5
       }
     ],
     "max_stacks": 1,
@@ -93,51 +124,64 @@ The `calc` sub-schema to be added to `data/ground-truth/schemas/`:
     "active_duration": null,
     "keywords": ["stun_immune"],
     "class_name": "buff",
-    "buff_template_name": "veteran_combat_ability_extra_charge"
+    "buff_template_names": ["veteran_combat_ability_extra_charge"]
   }
 }
 ```
 
 ### Field definitions
 
-**`effects[]`** — Array of stat modifications this entity grants.
+**`effects[]`** — Array of stat modifications this entity grants (from the base buff template, or merged from all referenced buff templates for multi-buff talents).
 - `stat` (string, required): The stat key from `stat_buffs.*` (e.g. `"toughness"`, `"ranged_damage"`, `"critical_strike_chance"`)
-- `magnitude` (number | null): Resolved numeric value. Null when the expression couldn't be resolved statically.
+- `magnitude` (number | null): Resolved numeric value. Null when the expression couldn't be resolved statically or when using min/max range.
 - `magnitude_expr` (string | null): Symbolic expression when magnitude is unresolved (e.g. `"talent_settings_2.combat_ability.ranged_weakspot_damage - talent_settings_2.combat_ability_base.ranged_weakspot_damage"`). Null when magnitude is resolved.
+- `magnitude_min` (number | null): Lower bound for lerped stats. Null for non-lerped effects.
+- `magnitude_max` (number | null): Upper bound for lerped stats. Null for non-lerped effects.
 - `condition` (string | null): Semantic tag from the conditional function. Null for unconditional effects.
 - `trigger` (string | null): Proc event tag (e.g. `"on_kill"`, `"on_hit"`). Null for non-proc effects.
-- `type` (enum): One of `"stat_buff"`, `"conditional_stat_buff"`, `"proc_stat_buff"`
+- `type` (enum): One of `"stat_buff"`, `"conditional_stat_buff"`, `"proc_stat_buff"`, `"lerped_stat_buff"`, `"conditional_lerped_stat_buff"`, `"stepped_stat_buff"`
 
-**`tier_scaling[]`** — Blessing-only. Per-tier magnitude arrays.
-- `stat` (string, required): The stat key
-- `values` (array of 4 numbers): Magnitudes for tiers 1–4
+**`tiers[]`** — Blessing/weapon-trait-only. Array of exactly 4 tier objects, each representing one rarity tier. Each tier is a full override snapshot — it can contain different stat keys, different effect types, and different metadata than other tiers. This mirrors the actual Lua structure where each tier is a table object patched onto the base buff template.
+- `effects[]` (array): Same shape as top-level `effects[]`, specific to this tier
+- Plus any per-tier metadata fields: `active_duration`, `child_duration`, `max_stacks`, etc.
+
+**`stepped_stat_buffs`** — Used by the `stepped_stat_buff` class (~15 weapon trait buff templates in the "continuous fire" family, inherited via `table.merge` from `base_weapon_trait_buff_templates.lua`). These buffs have per-step magnitude values controlled by `conditional_stepped_stat_buffs_func`. Extracted as effects with `type: "stepped_stat_buff"` — the magnitude represents the per-step value. The step function is tagged using the same inline heuristic system as conditional functions.
 
 **`max_stacks`** (integer | null): Maximum stack count from buff template.
 **`duration`** (number | null): Duration in seconds.
 **`active_duration`** (number | null): Active/proc duration in seconds.
 **`keywords`** (string[]): Keyword tags from buff template (e.g. `"stun_immune"`, `"deterministic_recoil"`).
 **`class_name`** (string | null): Buff class name (e.g. `"buff"`, `"proc_buff"`, `"psyker_passive_buff"`).
-**`buff_template_name`** (string | null): The buff template this entity's calc was extracted from.
+**`buff_template_names`** (string[]): The buff template name(s) this entity's calc was extracted from. Array because talents can reference multiple buff templates via `passive.buff_template_name` (17 talents across 5 classes have arrays). When multiple templates are referenced, effects from all templates are merged into a single `effects[]` array.
 
 ### Invariants
 
-- `magnitude` and `magnitude_expr` are mutually exclusive: exactly one is non-null per effect, or both are null (magnitude not applicable, e.g. keyword-only buffs).
-- `tier_scaling` is only present on weapon trait entities (blessings). Never on talent entities.
+- For fixed-magnitude effects: exactly one of `magnitude` or `magnitude_expr` is non-null, and both `magnitude_min`/`magnitude_max` are null.
+- For lerped effects: `magnitude_min` and `magnitude_max` are both non-null, and `magnitude` is null.
+- `tiers` is only present on weapon trait entities (blessings/perks). Never on talent entities. Always exactly 4 elements.
 - `effects` is always present and non-empty when `calc` is populated.
 - An entity with no extractable buff data retains `calc: {}`.
+- `buff_template_names` is always a non-empty array when `calc` is populated.
 
 ## Pipeline: `npm run effects:build`
 
 ### Flow
 
 ```
-Read talent_settings_*.lua  ──→  TalentSettings lookup table
+Read scripts/settings/talent/talent_settings_*.lua
+  ──→  TalentSettings lookup table (Map<dotted.path, number>)
         │
-Read archetype_buff_templates/*.lua  ──→  Parsed + resolved buff templates
-Read weapon_traits_buff_templates/*.lua
+Read scripts/settings/buff/archetype_buff_templates/*.lua
+Read scripts/settings/buff/weapon_traits_buff_templates/*.lua  (includes weapon perk buff templates)
+Read scripts/settings/buff/gadget_buff_templates.lua
+Read scripts/settings/buff/player_buff_templates.lua
+Read scripts/settings/buff/common_buff_templates.lua
+  ──→  Parsed + resolved buff templates (with clone/merge chains materialized)
         │
-Read *_talents.lua  ──→  talent internal_name → buff_template_name map
-Read weapon_traits_bespoke_*.lua  ──→  trait → tier arrays map
+Read scripts/settings/ability/archetype_talents/talents/*_talents.lua
+  ──→  talent internal_name → buff_template_name(s) map (1:N — some talents reference arrays)
+Read scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_*.lua
+  ──→  trait → tier arrays map
         │
 Match buff templates to existing entities by internal_name
         │
@@ -149,11 +193,15 @@ Report summary: entities populated, unresolved expressions, unknown conditions
 
 ### Entity matching
 
-For talents: the `passive.buff_template_name` in `*_talents.lua` links a talent's `internal_name` to a buff template name. The pipeline looks up the entity by `{domain}.talent.{internal_name}`, finds the corresponding buff template, and populates `calc`.
+For talents: the `passive.buff_template_name` in `*_talents.lua` links a talent's `internal_name` to one or more buff template names (17 talents have arrays). The pipeline looks up the entity by `{domain}.talent.{internal_name}`, finds all corresponding buff templates, merges their effects into a single `calc.effects[]`, and generates one `grants_buff` edge per buff template.
 
 For blessings/weapon traits: the entity `internal_name` matches the weapon trait template name directly. Tier arrays from `weapon_traits_bespoke_*.lua` are merged with buff template data from `weapon_traits_buff_templates/*.lua`.
 
+For weapon perks: entity `internal_name` matches perk buff template names from `weapon_perks_melee_buff_templates.lua` and `weapon_perks_ranged_buff_templates.lua`.
+
 For stat nodes: the `attributes.family` field on stat node entities maps to buff template families in `player_buff_templates.lua`.
+
+For gadget traits: entity `internal_name` matches buff template names from `gadget_buff_templates.lua`.
 
 ### Edge generation
 
@@ -195,32 +243,39 @@ A lookup table maps known Lua function references to semantic condition tags:
 
 ### CheckProcFunctions (for `check_proc_func`)
 
-| Lua reference | Tag |
-|---|---|
-| `CheckProcFunctions.on_kill` | `"on_kill"` |
-| `CheckProcFunctions.on_melee_kill` | `"on_melee_kill"` |
-| `CheckProcFunctions.on_ranged_kill` | `"on_ranged_kill"` |
-| `CheckProcFunctions.on_weakspot_kill` | `"on_weakspot_kill"` |
-| `CheckProcFunctions.on_elite_or_special_kill` | `"on_elite_or_special_kill"` |
-| `CheckProcFunctions.on_crit` | `"on_crit"` |
-| `CheckProcFunctions.on_melee_hit` | `"on_melee_hit"` |
-| `CheckProcFunctions.on_ranged_hit` | `"on_ranged_hit"` |
-| `CheckProcFunctions.on_item_match` | `"on_item_match"` |
-| `CheckProcFunctions.on_melee_weapon_special_hit` | `"on_weapon_special_hit"` |
-| `CheckProcFunctions.always` | `"always"` |
-| `CheckProcFunctions.all(A, B)` | `"all:tagA+tagB"` |
-| `CheckProcFunctions.any(A, B)` | `"any:tagA+tagB"` |
-| (other named functions) | Mapped by stripping prefix: `CheckProcFunctions.on_X` → `"on_X"` |
+The `check_proc_func` field uses `CheckProcFunctions.*` named references heavily. There are ~46 distinct functions in the source. Rather than maintaining an exhaustive hardcoded table, the parser uses a general rule:
+
+- **Named references** (`CheckProcFunctions.X`): strip prefix → tag `"X"` (e.g. `on_kill`, `on_melee_hit`, `on_crit`, `always`, `on_weakspot_kill`, `on_elite_or_special_kill`, `on_heavy_hit`, `on_push_hit`, `on_close_kill`, `on_warp_kill`, etc.)
+- **N-ary combinators** (`CheckProcFunctions.all(A, B, ...)` or `.any(A, B, ...)`): recursively tag each argument, join with `+` → `"all:tagA+tagB+tagC"`. Arguments can be named refs, other combinators, or inline functions.
+- **Inline functions within combinators** (`all(function(...) ... end, named_ref)`): tag the inline function using inline heuristics (see below), use `"unknown_condition"` as fallback.
+
+### Local function variable references
+
+Buff template files sometimes assign functions to file-local variables (e.g. `local _psyker_passive_conditional_stat_buffs = function(...) ... end`) and then reference them by variable name in `conditional_stat_buffs_func`. The parser handles these by:
+
+1. Pre-scanning the file for `local <name> = function(...)` assignments
+2. Storing the function body text keyed by variable name
+3. When a `conditional_stat_buffs_func` value is a bare identifier (not `ConditionalFunctions.*`, not `function(...)`), looking it up in the local function map and applying inline heuristics to the stored body
 
 ### Inline function heuristics
 
-For inline `conditional_stat_buffs_func` bodies, scan for known patterns:
-- `template_data.active` → `"active"` (buff is currently active)
-- `wielded_slot` checks → `"slot_primary"` / `"slot_secondary"`
-- `has_weapon_keyword_from_slot(..., "keyword")` → `"weapon_keyword:keyword"`
-- Threshold checks on ammo/health/peril → `"threshold:stat:value"`
+The majority of `conditional_stat_buffs_func` values in archetype buff templates (~96%) are inline functions or local function variable references, not named `ConditionalFunctions.*` calls. The parser scans the function body text for known patterns (ordered by expected frequency):
 
-Target: <10% `unknown_condition` rate across all conditional buffs.
+| Pattern in function body | Tag | Example |
+|---|---|---|
+| `template_data.active` (only check) | `"active"` | Buff is currently active |
+| `template_data.active` + additional checks | `"active_and_unknown"` | Active with extra conditions |
+| `wielded_slot` or `slot_primary`/`slot_secondary` | `"slot_primary"` / `"slot_secondary"` | Slot-specific conditional |
+| `has_weapon_keyword_from_slot(..., "keyword")` | `"weapon_keyword:keyword"` | Weapon keyword check |
+| `current_health` / `health_percent` threshold | `"threshold:health:value"` | Health-based conditional |
+| `current_warp_charge` / `warp_charge` threshold | `"threshold:warp_charge:value"` | Warp charge threshold |
+| `ammo` / `clip` threshold | `"threshold:ammo:value"` | Ammo-based conditional |
+| `coherency` / `num_units` check | `"coherency"` | Coherency-based |
+| Unrecognized body | `"unknown_condition"` | Fallback |
+
+**Condition rate targets:** tracked separately for archetype buffs vs. weapon trait buffs:
+- Weapon trait buffs (predominantly `ConditionalFunctions.*`): target <5% unknown
+- Archetype buffs (predominantly inline): target <15% unknown — more realistic given the diversity of inline patterns. The inline heuristic list will be expanded iteratively based on the initial pipeline run.
 
 ## Testing strategy
 
@@ -229,14 +284,19 @@ Target: <10% `unknown_condition` rate across all conditional buffs.
 Representative samples covering each pattern:
 1. Flat `stat_buffs` — simple numeric literal magnitudes
 2. `conditional_stat_buffs` — TalentSettings magnitude resolution + condition tag
-3. `proc_events` + `proc_stat_buffs` — trigger tag + active duration
-4. `table.clone` chain — inherited fields from cloned template
-5. `table.merge` — override merging
-6. Post-construction patch — `templates.X.field = value` after clone
-7. Blessing tier arrays — 4-tier `tier_scaling` extraction
-8. Compound conditions — `CheckProcFunctions.all(A, B)` → `"all:tagA+tagB"`
-9. Inline function heuristic — `conditional_stat_buffs_func` body pattern matching
-10. Unresolvable magnitude — `magnitude: null`, `magnitude_expr: "..."` fallback
+3. `lerped_stat_buffs` — min/max magnitude range extraction
+4. `conditional_lerped_stat_buffs` — lerped range + condition tag
+5. `proc_events` + `proc_stat_buffs` — trigger tag + active duration
+6. `table.clone` chain — inherited fields from cloned template
+7. `table.merge` — override merging
+8. Post-construction patch — `templates.X.field = value` after clone
+9. Blessing tier objects — 4-tier `tiers[]` extraction with per-tier effects
+10. Compound conditions — `CheckProcFunctions.all(A, B, C)` → `"all:tagA+tagB+tagC"`
+11. Inline function heuristic — `conditional_stat_buffs_func` body pattern matching
+12. Local function variable reference — file-local named function lookup + heuristic tagging
+13. Multi-buff talent — `buff_template_name` array → merged effects + multiple edges
+14. Stepped stat buff — `stepped_stat_buff` class with per-step magnitudes
+15. Unresolvable magnitude — `magnitude: null`, `magnitude_expr: "..."` fallback
 
 ### Integration tests
 
@@ -252,12 +312,14 @@ Representative samples covering each pattern:
 
 ## Acceptance criteria
 
-1. Every talent/blessing entity with a `buff_template_name` has a non-empty `calc.effects[]`
-2. Blessing entities have `calc.tier_scaling` with 4-tier magnitudes
-3. `unknown_condition` rate is tracked and reported — target <10% of conditional buffs
+1. Every talent/blessing/perk entity with a `buff_template_name` has a non-empty `calc.effects[]`
+2. Blessing entities have `calc.tiers` with exactly 4 tier objects, each with its own `effects[]`
+3. `unknown_condition` rate is tracked and reported — target <5% for weapon trait buffs, <15% for archetype buffs
 4. `make check` passes with populated `calc` fields
 5. No runtime dependencies added
 6. Concrete magnitude resolution via TalentSettings two-pass lookup, with simple expression evaluation (`a - b`, `a * b`, `1 - a`)
+7. Pipeline is idempotent: running `effects:build` twice produces identical output (stable field ordering, deterministic JSON serialization)
+8. Coverage metrics reported: entities populated, entities with partial extraction (some magnitudes unresolved), entities with zero extraction despite having a buff_template_name
 
 ## Out of scope
 
