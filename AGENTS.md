@@ -2,6 +2,10 @@
 
 AI agent instructions for the Hadron's Blessing project.
 
+## Roles
+
+The human owner (Matthias) provides high-level design directives, feature priorities, and architectural steering. All software engineering and software design decisions — implementation approach, data modeling, schema design, algorithm choice, error handling strategy, test design, etc. — are the AI agent's responsibility. Do not ask the human SWE/SWD/code questions; make the best decision, state your reasoning, and proceed. Escalate only when a decision requires domain knowledge about Darktide game mechanics that cannot be derived from the decompiled source, or when the decision has irreversible external consequences (e.g. pushing, publishing).
+
 ## What This Is
 
 Source-backed Darktide entity resolution and build audit tooling. Maps community-facing names (talent labels, weapon names, blessing names, perks) to canonical internal IDs from the decompiled Darktide source (`Aussiemon/Darktide-Source-Code`).
@@ -29,7 +33,11 @@ npm install
 npm test                                          # unit tests (no source root needed for most)
 npm run edges:build                               # regenerate tree edges from Lua source
 npm run check                                     # index:build + test + index:check
-make check                                        # full quality gate (edges:build + check)
+make check                                        # full quality gate (edges:build + effects:build + check)
+npm run effects:build                             # populate calc fields from Lua buff templates
+npm run synergy -- scripts/builds/08-gandalf-melee-wizard.json          # synergy analysis (text)
+npm run synergy -- scripts/builds/08-gandalf-melee-wizard.json --json   # synergy analysis (JSON)
+npm run synergy -- scripts/builds/                                       # batch synergy (all builds)
 npm run resolve -- --query "Warp Rider" --context '{"kind":"talent","class":"psyker"}'
 npm run audit -- scripts/builds/08-gandalf-melee-wizard.json
 npm run canonicalize -- scripts/sample-build.json # raw scrape → canonical build JSON
@@ -37,6 +45,9 @@ npm run reresolve -- --write scripts/builds       # batch re-resolve unresolved 
 npm run coverage                                  # domain/kind coverage summary
 npm run inspect -- --id psyker.talent.psyker_damage_based_on_warp_charge
 npm run export:bot-weapons                        # regenerate data/exports/bot-weapon-recommendations.json
+npm run report -- scripts/builds/08-gandalf-melee-wizard.json           # human-readable text report
+npm run report -- scripts/builds/08-gandalf-melee-wizard.json --format md  # markdown report
+npm run report -- scripts/builds/                                       # batch report (all builds)
 node scripts/score-build.mjs scripts/builds/08-gandalf-melee-wizard.json --json  # provisional
 node scripts/extract-build.mjs <gl-url> --json    # live GL scrape → canonical (requires Playwright)
 node scripts/extract-build.mjs <gl-url> --raw-json # live GL scrape → pre-canonical raw shape
@@ -61,7 +72,11 @@ scripts/ground-truth/
                      # build-classification-registry.mjs, build-shape.mjs,
                      # build-audit.mjs, coverage.mjs, inspect.mjs,
                      # lua-tree-parser.mjs, tree-edge-generator.mjs
-scripts/builds/      # 20 canonical build fixtures (all 6 classes)
+                     # lua-data-reader.mjs, talent-settings-parser.mjs,
+                     # condition-tagger.mjs, buff-semantic-parser.mjs
+                     # synergy-stat-families.mjs, synergy-rules.mjs,
+                     # synergy-model.mjs
+scripts/builds/      # 23 canonical build fixtures (all 6 classes)
 ```
 
 Entity ID format: `{domain}.{kind}.{internal_name}` — e.g. `psyker.talent.psyker_damage_based_on_warp_charge`
@@ -115,6 +130,23 @@ The canonical build format is the single shared shape consumed by `audit`, `scor
 - Stat nodes resolve to family-level IDs (`shared.stat_node.*`), stripping GL positional numbers. Per-instance resolution deferred to tree DAG work.
 - `ambiguous` is not a valid `resolution_status` in build files — if ingestion can't commit, store `unresolved`
 
+## Synergy Model
+
+`npm run synergy -- <build.json> [--json]` analyzes talent-weapon synergies. Produces structured output with synergy edges, anti-synergies, orphaned selections, and build coverage metrics.
+
+**Architecture:** 3 modules in `scripts/ground-truth/lib/`:
+- `synergy-stat-families.mjs` — 144 stats mapped to 11 families (melee_offense, ranged_offense, general_offense, crit, toughness, damage_reduction, mobility, warp_resource, grenade, stamina, utility). Multi-membership supported.
+- `synergy-rules.mjs` — 5 pure-function rules: stat-family alignment, slot coverage, trigger-target chains, resource flow, orphan detection
+- `synergy-model.mjs` — orchestrator: selection resolution (direct calc, stat_node prefix match, blessing tier-4 traversal), stat aggregation (NHHI concentration, build identity, coverage gaps), output assembly
+
+**Coverage:** ~40% per-build calc coverage. Blessing synergy partial (27/46 families via `instance_of` → weapon_trait tier traversal). Named gameplay talents at 48% calc coverage; stat-node talents and gadget traits at 100%.
+
+**Output consumed by:** #9 (scoring) and #10 (recommendations). Design spec: `docs/superpowers/specs/2026-03-16-synergy-model-design.md`.
+
+**Deferred:** Keyword affinity rule (no proficiency data in index), weak (1) strength edges, 68 opaque conditions.
+
+Frozen synergy snapshots in `tests/fixtures/ground-truth/synergy/`. Re-freeze with `npm run synergy:freeze`.
+
 ## Classification Registry
 
 `scripts/ground-truth/lib/build-classification-registry.mjs` maps GL talent slugs to canonical build slots. Only slot-routing nodes need entries (abilities, blitz, auras, keystones, modifiers). Regular talents flow through to `talents[]` without registry entries. The registry is populated per-class from the decompiled source tree.
@@ -140,20 +172,28 @@ Key paths for entity work:
 - `scripts/settings/equipment/weapons/` — weapon templates
 - `scripts/settings/equipment/weapon_traits/` — blessing/perk templates
 - `scripts/backend/item_definitions/` — backend item IDs
+- `scripts/utilities/attack/damage_calculation.lua` — 13-stage damage pipeline (needed for #5)
 
 ## Open Issues
 
 - `#1` TypeScript migration for CLI and library
-- `#2` Human-readable audit/report layer
 - `#3` Build-oriented CLI commands (browse, compare)
-- `#5` Calculator and dataflow layer
+- `#5` Calculator and dataflow layer (prior research in `../BetterBots/docs/knowledge/damage-system.md`)
 - `#6` Website architecture
+- `#9` Build quality scoring (replace null stubs in score-build.mjs — consumes synergy model)
+- `#10` Modification recommendations (weapon swap analysis — consumes scores + tree edges)
+
+## Completed Issues
+
+- `#4` BetterBots integration contract
+- `#7` Buff semantic extraction (`effects:build` pipeline)
+- `#8` Synergy model (`synergy` CLI, 5 rules, stat aggregator)
 
 ## BetterBots Integration
 
 Issue `#4` resolved. `data/exports/` is the cross-repo handoff surface. BetterBots agents read exports via `../hadrons-blessing/data/exports/` or regenerate via CLI (`npm run export:bot-weapons`). See `data/exports/README.md` for the contract and `docs/superpowers/specs/2026-03-15-betterBots-integration-contract-design.md` for the design spec.
 
-**Weapon export scoring caveat:** The current scoring uses outdated ADS/peril penalties. BetterBots already handles ADS, peril, force staves, and melee selection. The real bot-incompatible traits are: dodge-dependent, block-timing-dependent, weapon-special-dependent (until BetterBots #33), and weakspot-aim-dependent. Re-evaluate picks against these 4 criteria before trusting current weapon recommendations.
+**Weapon export scoring:** Picks are evaluated against 4 bot-incompatibility criteria: dodge-dependent, block-timing-dependent, weapon-special-dependent (until BetterBots #33), and weakspot-aim-dependent. The export declares `"assumes": "betterbots"` — ADS, peril, force staves, and melee selection are handled by BetterBots and are not exclusion criteria.
 
 ## No Unsourced Claims
 
