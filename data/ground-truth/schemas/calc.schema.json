@@ -1,0 +1,72 @@
+{
+  "$id": "calc.schema.json",
+  "title": "Entity calc (buff semantic data)",
+  "description": "Structured effect data extracted from Darktide Lua buff system",
+  "type": "object",
+  "minProperties": 1,
+  "properties": {
+    "effects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "stat": { "type": "string", "minLength": 1 },
+          "magnitude": { "type": ["number", "null"] },
+          "magnitude_expr": { "type": ["string", "null"] },
+          "magnitude_min": { "type": ["number", "null"] },
+          "magnitude_max": { "type": ["number", "null"] },
+          "condition": { "type": ["string", "null"] },
+          "trigger": { "type": ["string", "null"] },
+          "type": {
+            "type": "string",
+            "enum": [
+              "stat_buff",
+              "conditional_stat_buff",
+              "proc_stat_buff",
+              "lerped_stat_buff",
+              "conditional_lerped_stat_buff",
+              "stepped_stat_buff"
+            ]
+          }
+        },
+        "required": ["stat", "type"],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "tiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "effects": {
+            "type": "array",
+            "items": { "$ref": "#/properties/effects/items" }
+          },
+          "active_duration": { "type": ["number", "null"] },
+          "child_duration": { "type": ["number", "null"] },
+          "max_stacks": { "type": ["integer", "null"] },
+          "duration": { "type": ["number", "null"] }
+        },
+        "required": ["effects"],
+        "additionalProperties": true
+      },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "max_stacks": { "type": ["integer", "null"] },
+    "duration": { "type": ["number", "null"] },
+    "active_duration": { "type": ["number", "null"] },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "class_name": { "type": ["string", "null"] },
+    "buff_template_names": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": false
+}

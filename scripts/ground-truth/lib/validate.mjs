@@ -93,6 +93,7 @@ function loadSchemas() {
   for (const file of [
     "query-context.schema.json",
     "condition.schema.json",
+    "calc.schema.json",
     "entity-base.schema.json",
     "alias.schema.json",
     "known-unresolved.schema.json",

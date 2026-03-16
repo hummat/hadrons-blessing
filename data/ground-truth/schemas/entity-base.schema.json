@@ -59,6 +59,11 @@
     },
     "source_snapshot_id": { "type": "string", "minLength": 1 },
     "attributes": { "type": "object" },
-    "calc": { "type": "object" }
+    "calc": {
+      "oneOf": [
+        { "type": "object", "properties": {}, "additionalProperties": false },
+        { "$ref": "calc.schema.json" }
+      ]
+    }
   }
 }
