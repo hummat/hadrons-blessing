@@ -2,7 +2,7 @@
 
 **Issue:** #8
 **Date:** 2026-03-16
-**Status:** Draft
+**Status:** Implemented
 
 ## Problem
 
