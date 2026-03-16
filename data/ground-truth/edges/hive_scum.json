@@ -3613,5 +3613,785 @@
     },
     "calc": {},
     "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.base_toughness_node_buff_medium_1--grants_buff--hive_scum.buff.player_toughness_node_buff_medium_1",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.base_toughness_node_buff_medium_1",
+    "to_entity_id": "hive_scum.buff.player_toughness_node_buff_medium_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.base_toughness_node_buff_medium_2--grants_buff--hive_scum.buff.player_toughness_node_buff_medium_2",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.base_toughness_node_buff_medium_2",
+    "to_entity_id": "hive_scum.buff.player_toughness_node_buff_medium_2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.base_toxin_power_boost_1--grants_buff--hive_scum.buff.base_toxin_power_boost_1",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.base_toxin_power_boost_1",
+    "to_entity_id": "hive_scum.buff.base_toxin_power_boost_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.base_crit_chance_node_buff_low_1--grants_buff--hive_scum.buff.player_crit_chance_node_buff_low_1",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.base_crit_chance_node_buff_low_1",
+    "to_entity_id": "hive_scum.buff.player_crit_chance_node_buff_low_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_ability_stimm_field_sub_3--grants_buff--hive_scum.buff.broker_ability_stimm_field_sub_3",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent_modifier.broker_ability_stimm_field_sub_3",
+    "to_entity_id": "hive_scum.buff.broker_ability_stimm_field_sub_3",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_first_target_damage--grants_buff--hive_scum.buff.broker_passive_first_target_damage",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_first_target_damage",
+    "to_entity_id": "hive_scum.buff.broker_passive_first_target_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_reduce_swap_time--grants_buff--hive_scum.buff.broker_passive_reduce_swap_time",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_reduce_swap_time",
+    "to_entity_id": "hive_scum.buff.broker_passive_reduce_swap_time",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_increased_ranged_dodges--grants_buff--hive_scum.buff.broker_passive_increased_ranged_dodges",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_increased_ranged_dodges",
+    "to_entity_id": "hive_scum.buff.broker_passive_increased_ranged_dodges",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_close_ranged_damage--grants_buff--hive_scum.buff.broker_passive_close_ranged_damage",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_close_ranged_damage",
+    "to_entity_id": "hive_scum.buff.broker_passive_close_ranged_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_ninja_grants_crit_chance--grants_buff--hive_scum.buff.broker_passive_ninja_grants_crit_chance",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+    "to_entity_id": "hive_scum.buff.broker_passive_ninja_grants_crit_chance",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_punk_grit--grants_buff--hive_scum.buff.broker_passive_punk_grit",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_punk_grit",
+    "to_entity_id": "hive_scum.buff.broker_passive_punk_grit",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_stamina_on_successful_dodge--grants_buff--hive_scum.buff.broker_passive_stamina_on_successful_dodge",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_stamina_on_successful_dodge",
+    "to_entity_id": "hive_scum.buff.broker_passive_stamina_on_successful_dodge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_improved_dodges--grants_buff--hive_scum.buff.broker_passive_improved_dodges",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_improved_dodges",
+    "to_entity_id": "hive_scum.buff.broker_passive_improved_dodges",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_dodge_melee_on_slide--grants_buff--hive_scum.buff.broker_passive_dodge_melee_on_slide",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_dodge_melee_on_slide",
+    "to_entity_id": "hive_scum.buff.broker_passive_dodge_melee_on_slide",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_restore_toughness_on_close_ranged_kill--grants_buff--hive_scum.buff.broker_passive_restore_toughness_on_close_ranged_kill",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_restore_toughness_on_close_ranged_kill",
+    "to_entity_id": "hive_scum.buff.broker_passive_restore_toughness_on_close_ranged_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_restore_toughness_on_weakspot_kill--grants_buff--hive_scum.buff.broker_passive_restore_toughness_on_weakspot_kill",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_restore_toughness_on_weakspot_kill",
+    "to_entity_id": "hive_scum.buff.broker_passive_restore_toughness_on_weakspot_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_reduced_toughness_damage_during_reload--grants_buff--hive_scum.buff.broker_passive_reduced_toughness_damage_during_reload",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_reduced_toughness_damage_during_reload",
+    "to_entity_id": "hive_scum.buff.broker_passive_reduced_toughness_damage_during_reload",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_sprinting_reduces_threat--grants_buff--hive_scum.buff.broker_passive_sprinting_reduces_threat",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_sprinting_reduces_threat",
+    "to_entity_id": "hive_scum.buff.broker_passive_sprinting_reduces_threat",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_reload_speed_on_close_kill--grants_buff--hive_scum.buff.broker_passive_reload_speed_on_close_kill",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_reload_speed_on_close_kill",
+    "to_entity_id": "hive_scum.buff.broker_passive_reload_speed_on_close_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_improved_sprint_dodge--grants_buff--hive_scum.buff.broker_passive_improved_sprint_dodge",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_improved_sprint_dodge",
+    "to_entity_id": "hive_scum.buff.broker_passive_improved_sprint_dodge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_improved_dodges_at_full_stamina--grants_buff--hive_scum.buff.broker_passive_improved_dodges_at_full_stamina",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_improved_dodges_at_full_stamina",
+    "to_entity_id": "hive_scum.buff.broker_passive_improved_dodges_at_full_stamina",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_stamina_grants_atk_speed--grants_buff--hive_scum.buff.broker_passive_stamina_grants_atk_speed",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_stamina_grants_atk_speed",
+    "to_entity_id": "hive_scum.buff.broker_passive_stamina_grants_atk_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_increased_weakspot_damage--grants_buff--hive_scum.buff.broker_passive_increased_weakspot_damage",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_increased_weakspot_damage",
+    "to_entity_id": "hive_scum.buff.broker_passive_increased_weakspot_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_extended_mag--grants_buff--hive_scum.buff.broker_passive_extended_mag",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_extended_mag",
+    "to_entity_id": "hive_scum.buff.broker_passive_extended_mag",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_close_range_damage_on_dodge--grants_buff--hive_scum.buff.broker_passive_close_range_damage_on_dodge",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_close_range_damage_on_dodge",
+    "to_entity_id": "hive_scum.buff.broker_passive_close_range_damage_on_dodge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_ramping_backstabs--grants_buff--hive_scum.buff.broker_passive_ramping_backstabs",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_ramping_backstabs",
+    "to_entity_id": "hive_scum.buff.broker_passive_ramping_backstabs",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_stun_immunity_on_toughness_broken--grants_buff--hive_scum.buff.broker_passive_stun_immunity_on_toughness_broken",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_stun_immunity_on_toughness_broken",
+    "to_entity_id": "hive_scum.buff.broker_passive_stun_immunity_on_toughness_broken",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_replenish_toughness_on_ranged_toughness_damage--grants_buff--hive_scum.buff.broker_passive_replenish_toughness_on_ranged_toughness_damage",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_replenish_toughness_on_ranged_toughness_damage",
+    "to_entity_id": "hive_scum.buff.broker_passive_replenish_toughness_on_ranged_toughness_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_stimm_increased_duration--grants_buff--hive_scum.buff.broker_passive_stimm_increased_duration",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_stimm_increased_duration",
+    "to_entity_id": "hive_scum.buff.broker_passive_stimm_increased_duration",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_stimm_cleanse_on_kill--grants_buff--hive_scum.buff.broker_passive_stimm_cleanse_on_kill",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_stimm_cleanse_on_kill",
+    "to_entity_id": "hive_scum.buff.broker_passive_stimm_cleanse_on_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_damage_on_reload--grants_buff--hive_scum.buff.broker_passive_damage_on_reload",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_damage_on_reload",
+    "to_entity_id": "hive_scum.buff.broker_passive_damage_on_reload",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_melee_crit_instakill--grants_buff--hive_scum.buff.broker_passive_melee_crit_instakill",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_melee_crit_instakill",
+    "to_entity_id": "hive_scum.buff.broker_passive_melee_crit_instakill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_dr_damage_tradeoff_on_stamina--grants_buff--hive_scum.buff.broker_passive_dr_damage_tradeoff_on_stamina",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_dr_damage_tradeoff_on_stamina",
+    "to_entity_id": "hive_scum.buff.broker_passive_dr_damage_tradeoff_on_stamina",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_damage_vs_elites_monsters--grants_buff--hive_scum.buff.broker_passive_damage_vs_elites_monsters",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_damage_vs_elites_monsters",
+    "to_entity_id": "hive_scum.buff.broker_passive_damage_vs_elites_monsters",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_melee_damage_carry_over--grants_buff--hive_scum.buff.broker_passive_melee_damage_carry_over",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_melee_damage_carry_over",
+    "to_entity_id": "hive_scum.buff.broker_passive_melee_damage_carry_over",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_melee_cleave_on_melee_kill--grants_buff--hive_scum.buff.broker_passive_melee_cleave_on_melee_kill",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_melee_cleave_on_melee_kill",
+    "to_entity_id": "hive_scum.buff.broker_passive_melee_cleave_on_melee_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_cleave_on_cleave--grants_buff--hive_scum.buff.broker_passive_cleave_on_cleave",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_cleave_on_cleave",
+    "to_entity_id": "hive_scum.buff.broker_passive_cleave_on_cleave",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_increased_blitz_ammo--grants_buff--hive_scum.buff.broker_passive_increased_blitz_ammo",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_increased_blitz_ammo",
+    "to_entity_id": "hive_scum.buff.broker_passive_increased_blitz_ammo",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_stimm_cd_on_kill--grants_buff--hive_scum.buff.broker_passive_stimm_cd_on_kill",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_stimm_cd_on_kill",
+    "to_entity_id": "hive_scum.buff.broker_passive_stimm_cd_on_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_increased_aura_size--grants_buff--hive_scum.buff.broker_passive_increased_aura_size",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_increased_aura_size",
+    "to_entity_id": "hive_scum.buff.broker_passive_increased_aura_size",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_damage_vs_heavy_staggered--grants_buff--hive_scum.buff.broker_passive_damage_vs_heavy_staggered",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_damage_vs_heavy_staggered",
+    "to_entity_id": "hive_scum.buff.broker_passive_damage_vs_heavy_staggered",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_reduced_damage_by_toxined--grants_buff--hive_scum.buff.broker_passive_reduced_damage_by_toxined",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_reduced_damage_by_toxined",
+    "to_entity_id": "hive_scum.buff.broker_passive_reduced_damage_by_toxined",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_damage_after_toxined_enemies--grants_buff--hive_scum.buff.broker_passive_damage_after_toxined_enemies",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_damage_after_toxined_enemies",
+    "to_entity_id": "hive_scum.buff.broker_passive_damage_after_toxined_enemies",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_toughness_on_toxined_kill--grants_buff--hive_scum.buff.broker_passive_toughness_on_toxined_kill",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_toughness_on_toxined_kill",
+    "to_entity_id": "hive_scum.buff.broker_passive_toughness_on_toxined_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_low_ammo_regen--grants_buff--hive_scum.buff.broker_passive_low_ammo_regen",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_low_ammo_regen",
+    "to_entity_id": "hive_scum.buff.broker_passive_low_ammo_regen",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_melee_attacks_apply_toxin--grants_buff--hive_scum.buff.broker_passive_melee_attacks_apply_toxin",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_melee_attacks_apply_toxin",
+    "to_entity_id": "hive_scum.buff.broker_passive_melee_attacks_apply_toxin",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_blitz_inflicts_toxin--grants_buff--hive_scum.buff.broker_passive_blitz_inflicts_toxin",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_blitz_inflicts_toxin",
+    "to_entity_id": "hive_scum.buff.broker_passive_blitz_inflicts_toxin",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.keystone.broker_keystone_vultures_mark_on_kill--grants_buff--hive_scum.buff.broker_keystone_vultures_mark_on_kill",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.keystone.broker_keystone_vultures_mark_on_kill",
+    "to_entity_id": "hive_scum.buff.broker_keystone_vultures_mark_on_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_aoe_stagger--grants_buff--hive_scum.buff.broker_keystone_vultures_mark_aoe_stagger",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_aoe_stagger",
+    "to_entity_id": "hive_scum.buff.broker_keystone_vultures_mark_aoe_stagger",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_dodge_on_ranged_crit--grants_buff--hive_scum.buff.broker_keystone_vultures_mark_dodge_on_ranged_crit",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_dodge_on_ranged_crit",
+    "to_entity_id": "hive_scum.buff.broker_keystone_vultures_mark_dodge_on_ranged_crit",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.keystone.broker_keystone_chemical_dependency--grants_buff--hive_scum.buff.broker_keystone_chemical_dependency",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.keystone.broker_keystone_chemical_dependency",
+    "to_entity_id": "hive_scum.buff.broker_keystone_chemical_dependency",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.keystone.broker_keystone_adrenaline_junkie--grants_buff--hive_scum.buff.broker_keystone_adrenaline_junkie",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.keystone.broker_keystone_adrenaline_junkie",
+    "to_entity_id": "hive_scum.buff.broker_keystone_adrenaline_junkie",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
   }
 ]

@@ -3508,5 +3508,905 @@
     },
     "calc": {},
     "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.base_movement_speed_node_buff_low_4--grants_buff--zealot.buff.player_movement_speed_node_buff_low_4",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.base_movement_speed_node_buff_low_4",
+    "to_entity_id": "zealot.buff.player_movement_speed_node_buff_low_4",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.ability.zealot_improved_stun_grenade--grants_buff--zealot.buff.zealot_improved_stun_grenade",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.ability.zealot_improved_stun_grenade",
+    "to_entity_id": "zealot.buff.zealot_improved_stun_grenade",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.ability.zealot_flame_grenade--grants_buff--zealot.buff.zealot_flame_grenade_thrown",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.ability.zealot_flame_grenade",
+    "to_entity_id": "zealot.buff.zealot_flame_grenade_thrown",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.ability.zealot_throwing_knives--grants_buff--zealot.buff.zealot_passive_replenish_throwing_knives_from_melee_kills",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.ability.zealot_throwing_knives",
+    "to_entity_id": "zealot.buff.zealot_passive_replenish_throwing_knives_from_melee_kills",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_crits_grant_cd--grants_buff--zealot.buff.zealot_combat_ability_crits_reduce_cooldown",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent_modifier.zealot_crits_grant_cd",
+    "to_entity_id": "zealot.buff.zealot_combat_ability_crits_reduce_cooldown",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_restore_stealth_cd_on_damage--grants_buff--zealot.buff.zealot_cooldown_based_on_health",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent_modifier.zealot_restore_stealth_cd_on_damage",
+    "to_entity_id": "zealot.buff.zealot_cooldown_based_on_health",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.aura.zealot_toughness_damage_reduction_coherency_improved--grants_buff--zealot.buff.zealot_improved_toughness_on_aura_tracking_buff",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.aura.zealot_toughness_damage_reduction_coherency_improved",
+    "to_entity_id": "zealot.buff.zealot_improved_toughness_on_aura_tracking_buff",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.keystone.zealot_martyrdom--grants_buff--zealot.buff.zealot_martyrdom_base",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.keystone.zealot_martyrdom",
+    "to_entity_id": "zealot.buff.zealot_martyrdom_base",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.keystone.zealot_quickness_passive--grants_buff--zealot.buff.zealot_quickness_passive",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.keystone.zealot_quickness_passive",
+    "to_entity_id": "zealot.buff.zealot_quickness_passive",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.keystone.zealot_fanatic_rage--grants_buff--zealot.buff.zealot_fanatic_rage",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.keystone.zealot_fanatic_rage",
+    "to_entity_id": "zealot.buff.zealot_fanatic_rage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_increased_stagger_on_weakspot_melee--grants_buff--zealot.buff.zealot_pious_stabguy_increased_weaskpot_impact",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_increased_stagger_on_weakspot_melee",
+    "to_entity_id": "zealot.buff.zealot_pious_stabguy_increased_weaskpot_impact",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_more_damage_when_low_on_stamina--grants_buff--zealot.buff.zealot_more_power_when_low_on_stamina",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_more_damage_when_low_on_stamina",
+    "to_entity_id": "zealot.buff.zealot_more_power_when_low_on_stamina",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_backstab_kills_restore_cd--grants_buff--zealot.buff.zealot_combat_ability_weakspot_backstab_hit_cooldown",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent_modifier.zealot_backstab_kills_restore_cd",
+    "to_entity_id": "zealot.buff.zealot_combat_ability_weakspot_backstab_hit_cooldown",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge--grants_buff--zealot.buff.zealot_critstrike_damage_on_dodge",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+    "to_entity_id": "zealot.buff.zealot_critstrike_damage_on_dodge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_backstab_damage--grants_buff--zealot.buff.zealot_backstab_damage",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_backstab_damage",
+    "to_entity_id": "zealot.buff.zealot_backstab_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_increased_damage_vs_resilient--grants_buff--zealot.buff.zealot_preacher_damage_vs_disgusting",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_increased_damage_vs_resilient",
+    "to_entity_id": "zealot.buff.zealot_preacher_damage_vs_disgusting",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_multi_hits_increase_damage--grants_buff--zealot.buff.zealot_preacher_melee_increase_next_melee_proc",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_multi_hits_increase_damage",
+    "to_entity_id": "zealot.buff.zealot_preacher_melee_increase_next_melee_proc",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_attack_speed--grants_buff--zealot.buff.zealot_increased_melee_attack_speed",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_attack_speed",
+    "to_entity_id": "zealot.buff.zealot_increased_melee_attack_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_crits_apply_bleed--grants_buff--zealot.buff.zealot_bleeding_crits",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_crits_apply_bleed",
+    "to_entity_id": "zealot.buff.zealot_bleeding_crits",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_multi_hits_grant_impact_and_uninterruptible--grants_buff--zealot.buff.zealot_multi_hits_increase_impact",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_multi_hits_grant_impact_and_uninterruptible",
+    "to_entity_id": "zealot.buff.zealot_multi_hits_increase_impact",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_martyrdom_grants_attack_speed--grants_buff--zealot.buff.zealot_martyrdom_attack_speed",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_attack_speed",
+    "to_entity_id": "zealot.buff.zealot_martyrdom_attack_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_improved_weapon_handling_after_dodge--grants_buff--zealot.buff.zealot_improved_weapon_handling_after_dodge",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_improved_weapon_handling_after_dodge",
+    "to_entity_id": "zealot.buff.zealot_improved_weapon_handling_after_dodge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_increase_ranged_close_damage--grants_buff--zealot.buff.zealot_close_ranged_damage",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_increase_ranged_close_damage",
+    "to_entity_id": "zealot.buff.zealot_close_ranged_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_hits_grant_stacking_damage--grants_buff--zealot.buff.zealot_stacking_melee_damage",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_hits_grant_stacking_damage",
+    "to_entity_id": "zealot.buff.zealot_stacking_melee_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_elite_kills_empowers--grants_buff--zealot.buff.zealot_elite_kills_empowers",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_elite_kills_empowers",
+    "to_entity_id": "zealot.buff.zealot_elite_kills_empowers",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_uninterruptible_no_slow_heavies--grants_buff--zealot.buff.zealot_uninterruptible_no_slow_heavies",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_uninterruptible_no_slow_heavies",
+    "to_entity_id": "zealot.buff.zealot_uninterruptible_no_slow_heavies",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_damage_vs_elites--grants_buff--zealot.buff.zealot_damage_vs_elites",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_damage_vs_elites",
+    "to_entity_id": "zealot.buff.zealot_damage_vs_elites",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_weakspot_damage_reduction--grants_buff--zealot.buff.zealot_weakspot_damage_reduction",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_weakspot_damage_reduction",
+    "to_entity_id": "zealot.buff.zealot_weakspot_damage_reduction",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_stacking_melee_damage_after_dodge--grants_buff--zealot.buff.zealot_stacking_melee_damage_after_dodge",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_stacking_melee_damage_after_dodge",
+    "to_entity_id": "zealot.buff.zealot_stacking_melee_damage_after_dodge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_bled_enemies_take_more_damage--grants_buff--zealot.buff.zealot_bled_enemies_take_more_damage",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_bled_enemies_take_more_damage",
+    "to_entity_id": "zealot.buff.zealot_bled_enemies_take_more_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_damage_vs_nonthreat--grants_buff--zealot.buff.zealot_damage_vs_nonthreat",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_damage_vs_nonthreat",
+    "to_entity_id": "zealot.buff.zealot_damage_vs_nonthreat",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_revive_speed--grants_buff--zealot.buff.zealot_revive_speed",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_revive_speed",
+    "to_entity_id": "zealot.buff.zealot_revive_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_melee_crits_restore_stamina--grants_buff--zealot.buff.zealot_melee_crits_restore_stamina",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_melee_crits_restore_stamina",
+    "to_entity_id": "zealot.buff.zealot_melee_crits_restore_stamina",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_stamina_on_block_break--grants_buff--zealot.buff.zealot_stamina_on_block_break",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_stamina_on_block_break",
+    "to_entity_id": "zealot.buff.zealot_stamina_on_block_break",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_martyrdom_toughness_modifier--grants_buff--zealot.buff.zealot_martyrdom_toughness_modifier",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent_modifier.zealot_martyrdom_toughness_modifier",
+    "to_entity_id": "zealot.buff.zealot_martyrdom_toughness_modifier",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_sprint_improvements--grants_buff--zealot.buff.zealot_sprint_improvements",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_sprint_improvements",
+    "to_entity_id": "zealot.buff.zealot_sprint_improvements",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_push_attacks_attack_speed--grants_buff--zealot.buff.zealot_push_attacks_attack_speed",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_push_attacks_attack_speed",
+    "to_entity_id": "zealot.buff.zealot_push_attacks_attack_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_stealth_cooldown_regeneration--grants_buff--zealot.buff.zealot_stealth_cooldown_regeneration",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent_modifier.zealot_stealth_cooldown_regeneration",
+    "to_entity_id": "zealot.buff.zealot_stealth_cooldown_regeneration",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_suppress_on_backstab_kill--grants_buff--zealot.buff.zealot_suppress_on_backstab_kill",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_suppress_on_backstab_kill",
+    "to_entity_id": "zealot.buff.zealot_suppress_on_backstab_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_block_dodging_synergy--grants_buff--zealot.buff.zealot_block_dodging_synergy",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_block_dodging_synergy",
+    "to_entity_id": "zealot.buff.zealot_block_dodging_synergy",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_reload_from_backstab--grants_buff--zealot.buff.zealot_reload_from_backstab",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_reload_from_backstab",
+    "to_entity_id": "zealot.buff.zealot_reload_from_backstab",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_corruption_resistance_stacking--grants_buff--zealot.buff.zealot_corruption_resistance_stacking",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent_modifier.zealot_corruption_resistance_stacking",
+    "to_entity_id": "zealot.buff.zealot_corruption_resistance_stacking",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_offensive_vs_many--grants_buff--zealot.buff.zealot_offensive_vs_many",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_offensive_vs_many",
+    "to_entity_id": "zealot.buff.zealot_offensive_vs_many",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_backstab_periodic_damage--grants_buff--zealot.buff.zealot_backstab_periodic_damage",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_backstab_periodic_damage",
+    "to_entity_id": "zealot.buff.zealot_backstab_periodic_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_reduced_damage_after_dodge--grants_buff--zealot.buff.zealot_damage_reduction_after_dodge",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_reduced_damage_after_dodge",
+    "to_entity_id": "zealot.buff.zealot_damage_reduction_after_dodge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_additional_wounds--grants_buff--zealot.buff.zealot_preacher_more_segments",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_additional_wounds",
+    "to_entity_id": "zealot.buff.zealot_preacher_more_segments",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_resist_death--grants_buff--zealot.buff.zealot_resist_death",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_resist_death",
+    "to_entity_id": "zealot.buff.zealot_resist_death",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_more_toughness_on_melee--grants_buff--zealot.buff.zealot_increased_toughness_recovery_from_kills",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_more_toughness_on_melee",
+    "to_entity_id": "zealot.buff.zealot_increased_toughness_recovery_from_kills",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_toughness_on_heavy_kills--grants_buff--zealot.buff.zealot_toughness_on_heavy_kills",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_toughness_on_heavy_kills",
+    "to_entity_id": "zealot.buff.zealot_toughness_on_heavy_kills",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_toughness_on_dodge--grants_buff--zealot.buff.zealot_toughness_on_dodge",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_toughness_on_dodge",
+    "to_entity_id": "zealot.buff.zealot_toughness_on_dodge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_toughness_on_ranged_kill--grants_buff--zealot.buff.zealot_toughness_on_ranged_kill",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_toughness_on_ranged_kill",
+    "to_entity_id": "zealot.buff.zealot_toughness_on_ranged_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_crits_reduce_toughness_damage--grants_buff--zealot.buff.zealot_reduced_toughness_damage_taken_on_critical_strike_hits",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_crits_reduce_toughness_damage",
+    "to_entity_id": "zealot.buff.zealot_reduced_toughness_damage_taken_on_critical_strike_hits",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_toughness_in_melee--grants_buff--zealot.buff.zealot_toughness_regen_in_melee",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_toughness_in_melee",
+    "to_entity_id": "zealot.buff.zealot_toughness_regen_in_melee",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_resist_death_healing--grants_buff--zealot.buff.zealot_resist_death_improved_with_leech",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_resist_death_healing",
+    "to_entity_id": "zealot.buff.zealot_resist_death_improved_with_leech",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_damage_boosts_movement--grants_buff--zealot.buff.zealot_movement_enhanced",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_damage_boosts_movement",
+    "to_entity_id": "zealot.buff.zealot_movement_enhanced",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_heal_part_of_damage_taken--grants_buff--zealot.buff.zealot_recuperate_a_portion_of_damage_taken",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_heal_part_of_damage_taken",
+    "to_entity_id": "zealot.buff.zealot_recuperate_a_portion_of_damage_taken",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_defensive_knockback--grants_buff--zealot.buff.zealot_preacher_push_on_hit",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_defensive_knockback",
+    "to_entity_id": "zealot.buff.zealot_preacher_push_on_hit",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_reduced_damage_on_wound--grants_buff--zealot.buff.zealot_preacher_segment_breaking_half_damage",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_reduced_damage_on_wound",
+    "to_entity_id": "zealot.buff.zealot_preacher_segment_breaking_half_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent_modifier.zealot_martyrdom_grants_toughness--grants_buff--zealot.buff.zealot_martyrdom_toughness",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_toughness",
+    "to_entity_id": "zealot.buff.zealot_martyrdom_toughness",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.talent.zealot_ally_damage_taken_reduced--grants_buff--zealot.buff.zealot_preacher_ally_defensive",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.talent.zealot_ally_damage_taken_reduced",
+    "to_entity_id": "zealot.buff.zealot_preacher_ally_defensive",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
   }
 ]

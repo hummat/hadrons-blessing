@@ -19,7 +19,44 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_weakspot_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "active_and_unknown",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "ranged_impact_modifier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "active_and_unknown",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "active_and_unknown",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_combat_ability_increased_ranged_and_weakspot_damage_outlines"
+      ]
+    }
   },
   {
     "id": "veteran.ability.veteran_combat_ability_stagger_nearby_enemies",
@@ -73,7 +110,11 @@
       "tree_widget_name": "node_0800a598-65f0-4293-a838-43c21ce1849c",
       "exclusive_group": "blitz"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_frag_grenade_bleed"
+      ]
+    }
   },
   {
     "id": "veteran.ability.veteran_invisibility_on_combat_ability",
@@ -95,7 +136,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_invisibility_on_combat_ability"
+      ]
+    }
   },
   {
     "id": "veteran.ability.veteran_krak_grenade",
@@ -257,7 +302,11 @@
       "tree_widget_name": "node_18f58702-92f4-4084-afc3-934731f36b83",
       "exclusive_group": "keystone"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_improved_tag"
+      ]
+    }
   },
   {
     "id": "veteran.keystone.veteran_snipers_focus",
@@ -279,7 +328,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_snipers_focus"
+      ]
+    }
   },
   {
     "id": "veteran.keystone.veteran_weapon_switch_passive",
@@ -301,7 +354,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_weapon_switch_passive_buff"
+      ]
+    }
   },
   {
     "id": "veteran.talent_modifier.veteran_combat_ability_coherency_outlines",
@@ -355,7 +412,35 @@
       "tree_widget_name": "node_6469a1ec-589f-49a3-a53e-3676c3181dad",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ability_extra_charges",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "combat_ability_cooldown_modifier",
+          "magnitude": 0.33,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_combat_ability_extra_charge"
+      ]
+    }
   },
   {
     "id": "veteran.talent_modifier.veteran_combat_ability_increase_and_restore_toughness_to_coherency",
@@ -404,7 +489,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_combat_ability_increased_damage_vs_ogryn_and_monsters"
+      ]
+    }
   },
   {
     "id": "veteran.talent_modifier.veteran_combat_ability_ranged_roamer_outlines",
@@ -458,7 +547,35 @@
       "tree_widget_name": "node_5c3c2498-e9f8-497c-ad3a-a99d5ccfdefd",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "combat_ability_cooldown_modifier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "shout_radius_modifier",
+          "magnitude": -0.33,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_combat_ability_revive_nearby_allies"
+      ]
+    }
   },
   {
     "id": "veteran.talent_modifier.veteran_improved_tag_dead_bonus",
@@ -566,7 +683,11 @@
       "tree_widget_name": "node_7c08ee90-6528-4188-915f-41e330db49f5",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_buffs_after_combat_ability"
+      ]
+    }
   },
   {
     "id": "veteran.talent_modifier.veteran_increased_weakspot_power_after_combat_ability",
@@ -588,7 +709,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_buffs_after_combat_ability"
+      ]
+    }
   },
   {
     "id": "veteran.talent_modifier.veteran_reduced_threat_after_combat_ability",
@@ -615,7 +740,11 @@
       "tree_widget_name": "node_a85c31ac-40a1-48e3-8585-0e04d85adfcf",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_buffs_after_combat_ability"
+      ]
+    }
   },
   {
     "id": "veteran.talent_modifier.veteran_snipers_focus_increased_stacks",
@@ -811,7 +940,24 @@
       "tree_widget_name": "node_fa0ae054-51ac-4488-90ee-58d24f90fb63",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_melee_damage_node_buff_high_1"
+      ]
+    }
   },
   {
     "id": "veteran.talent.base_movement_speed_node_buff_low_1",
@@ -838,7 +984,24 @@
       "tree_widget_name": "node_079ac2c7-5e1d-41d2-a31d-6c3ce9fcec12",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_movement_speed_node_buff_low_1"
+      ]
+    }
   },
   {
     "id": "veteran.talent.base_ranged_damage_node_buff_medium_1",
@@ -865,7 +1028,24 @@
       "tree_widget_name": "node_b40ef26d-5e6e-4f30-87e6-a96091d5ce0a",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_ranged_damage_node_buff_medium_1"
+      ]
+    }
   },
   {
     "id": "veteran.talent.base_reload_speed_node_buff_medium_1",
@@ -892,7 +1072,24 @@
       "tree_widget_name": "node_0a263862-582d-4b55-80fa-6978c907efd5",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "reload_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_reload_speed_node_buff_medium_1"
+      ]
+    }
   },
   {
     "id": "veteran.talent.base_stamina_node_buff_low_2",
@@ -919,7 +1116,24 @@
       "tree_widget_name": "node_e38451de-f4cc-4490-89b6-ae9f7bfefbde",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "stamina_modifier",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_stamina_node_buff_low_2"
+      ]
+    }
   },
   {
     "id": "veteran.talent.base_stamina_regen_delay_2",
@@ -946,7 +1160,24 @@
       "tree_widget_name": "node_9f8799fb-9107-462b-9adb-204b2d257650",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "stamina_regeneration_delay",
+          "magnitude": -0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "reduced_stamina_regen_delay_2"
+      ]
+    }
   },
   {
     "id": "veteran.talent.base_toughness_damage_reduction_node_buff_medium_1",
@@ -973,7 +1204,24 @@
       "tree_widget_name": "node_630f40a6-c9ca-4337-8af3-541d274dbcab",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_modifier",
+          "magnitude": -0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_damage_reduction_node_buff_medium_1"
+      ]
+    }
   },
   {
     "id": "veteran.talent.base_toughness_node_buff_low_5",
@@ -1000,7 +1248,24 @@
       "tree_widget_name": "node_6dd3ceaa-4d3c-4493-9836-79584c994fcf",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness",
+          "magnitude": 7.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_low_5"
+      ]
+    }
   },
   {
     "id": "veteran.talent.base_toughness_node_buff_medium_1",
@@ -1027,7 +1292,24 @@
       "tree_widget_name": "node_e0e0d8de-9787-4ecb-b7b8-43cb0eb133d9",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness",
+          "magnitude": 15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_medium_1"
+      ]
+    }
   },
   {
     "id": "veteran.talent.base_toughness_node_buff_medium_2",
@@ -1054,7 +1336,24 @@
       "tree_widget_name": "node_33819d8f-8635-4356-97b1-4cf1d67dd6d5",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness",
+          "magnitude": 15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_medium_2"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_ads_drain_stamina",
@@ -1081,7 +1380,54 @@
       "tree_widget_name": "node_7adfbd19-7df3-4337-875b-2a9dfa00d378",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "spread_modifier",
+          "magnitude": -0.19,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "recoil_modifier",
+          "magnitude": -0.12,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "sway_modifier",
+          "magnitude": 0.4,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "veteran_ads_stamina_boost"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_all_kills_replenish_toughness",
@@ -1103,7 +1449,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_all_kills_replenish_bonus_toughness"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_allies_in_coherency_share_toughness_gain",
@@ -1130,7 +1480,11 @@
       "tree_widget_name": "node_7faaad0d-aebf-44f2-ba30-6a23ce68d320",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_share_toughness_gained"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_ally_kills_increase_damage",
@@ -1157,7 +1511,11 @@
       "tree_widget_name": "node_7163a098-c55a-47f0-a861-38509acc0d44",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_allies_kills_chance_to_trigger_increased_damage"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_ammo_increase",
@@ -1179,7 +1537,24 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ammo_reserve_capacity",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_ammo_increase"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_attack_speed",
@@ -1206,7 +1581,24 @@
       "tree_widget_name": "node_340ef70a-75c5-4a84-9627-6ccd00409d01",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_attack_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_attack_speed"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_aura_elite_kills_restore_grenade",
@@ -1228,7 +1620,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_aura_gain_grenade_on_elite_kill"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_better_deployables",
@@ -1250,7 +1646,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_better_deployables"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_big_game_hunter",
@@ -1277,7 +1677,24 @@
       "tree_widget_name": "node_181e4412-cb3f-4b80-b3f9-10c5bb61d022",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_vs_ogryn_and_monsters",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_big_game_hunter"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_bonus_crit_chance_on_ammo",
@@ -1304,7 +1721,25 @@
       "tree_widget_name": "node_40c7bc1e-e4a2-40c1-ab28-459d599cc30b",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_critical_strike_chance",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "threshold:ammo",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_bonus_crit_chance_on_ammo"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_clip_size",
@@ -1331,7 +1766,24 @@
       "tree_widget_name": "node_891f1d0a-96ac-40b0-8a37-7dd491212599",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "clip_size_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_clip_size"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_continous_hits_apply_rending",
@@ -1358,7 +1810,11 @@
       "tree_widget_name": "node_96335f86-60f8-46e4-a6df-47c0a4ee2719",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_consecutive_hits_apply_rending"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_crits_apply_rending",
@@ -1385,7 +1841,25 @@
       "tree_widget_name": "node_a8044c1f-dda9-4a0b-b503-d549fd2ad5f9",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": 6,
+      "buff_template_names": [
+        "veteran_melee_crits_increase_damage"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_dodging_grants_crit",
@@ -1412,7 +1886,11 @@
       "tree_widget_name": "node_8c17e249-1082-43cd-82b1-42e18c7f29e8",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_dodging_grants_crit"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_dodging_grants_stamina",
@@ -1439,7 +1917,11 @@
       "tree_widget_name": "node_e17c1b44-cbfd-4f58-bc7e-dc80ff90fbcc",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_stamina_on_ranged_dodges"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_elite_kills_reduce_cooldown",
@@ -1466,7 +1948,11 @@
       "tree_widget_name": "node_efcadf37-2626-40eb-b9e5-5baecdcecd0a",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_combat_ability_cooldown_reduction_on_elite_kills"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_elite_kills_replenish_toughness",
@@ -1493,7 +1979,11 @@
       "tree_widget_name": "node_ba8679cd-fc19-435d-a317-ebeccb210f87",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_toughness_on_elite_kill"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_extra_grenade",
@@ -1520,7 +2010,35 @@
       "tree_widget_name": "node_8c9efccd-3b95-45aa-a620-98f9d4d7133e",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "extra_max_amount_of_grenades",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "extra_grenade_throw_chance",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_extra_grenade",
+        "veteran_extra_grenade_throw_chance"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_faster_reload_on_non_empty_clips",
@@ -1547,7 +2065,24 @@
       "tree_widget_name": "node_be2f4721-6e3e-4594-9393-6654b6c234cd",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "reload_speed",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_reload_speed_on_non_empty_clip"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_hits_cause_bleed",
@@ -1574,7 +2109,11 @@
       "tree_widget_name": "node_9971a100-0ec5-4252-a20f-f33e94a34442",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_hits_cause_bleed"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_improved_grenades",
@@ -1601,7 +2140,54 @@
       "tree_widget_name": "node_5888acc4-4572-49ef-b277-f38b174bb166",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "frag_damage",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "explosion_radius_modifier_frag",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "krak_damage",
+          "magnitude": 0.75,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "smoke_fog_duration_modifier",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_improved_grenades"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_increase_damage_after_sprinting",
@@ -1628,7 +2214,11 @@
       "tree_widget_name": "node_39129a53-b8c1-4d7e-82bd-e2b9d49315a1",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_damage_after_sprinting"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_increase_damage_vs_elites",
@@ -1655,7 +2245,25 @@
       "tree_widget_name": "node_06272211-2d9a-47c7-bf84-8e7ea1eb8a01",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_vs_elites",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_increase_elite_damage"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_increase_suppression",
@@ -1682,7 +2290,25 @@
       "tree_widget_name": "node_a3f092bc-651f-457d-9791-9c38ff2b99fd",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "suppression_dealt",
+          "magnitude": 0.75,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_increase_suppression"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_increased_damage_based_on_range",
@@ -1709,7 +2335,34 @@
       "tree_widget_name": "node_62b7b680-7096-40ed-9303-7ba124a5d812",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "ranged_damage_far",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_increase_ranged_far_damage"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_increased_damage_when_flanking",
@@ -1736,7 +2389,27 @@
       "tree_widget_name": "node_eb62ac80-bd39-4ad3-bf09-49e25ae55af9",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "flanking_damage",
+          "magnitude": 0.3,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "keywords": [
+        "allow_flanking"
+      ],
+      "buff_template_names": [
+        "veteran_flanking_damage"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
@@ -1763,7 +2436,34 @@
       "tree_widget_name": "node_7e94349b-d6c6-446e-bb39-0b367f6477bf",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_critical_strike_chance",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_finesse_modifier_bonus",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_increased_melee_crit_chance_and_melee_finesse"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_increased_weakspot_damage",
@@ -1790,7 +2490,24 @@
       "tree_widget_name": "node_a6dcece9-435c-4d88-83a6-8c58bd9240b9",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "weakspot_damage",
+          "magnitude": 0.3,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_increased_weakspot_damage"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_kill_grants_damage_to_other_slot",
@@ -1812,7 +2529,36 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "proc_stat_buff"
+        },
+        {
+          "stat": "melee_damage",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": 6,
+      "buff_template_names": [
+        "veteran_melee_kills_grant_range_damage",
+        "veteran_ranged_kills_grant_melee_damage"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_movement_bonuses_on_toughness_broken",
@@ -1839,7 +2585,11 @@
       "tree_widget_name": "node_92ce0aa9-e7c8-4620-9ad3-de2cedbf9431",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_movement_bonuses_on_toughness_broken"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_movement_speed_towards_downed",
@@ -1866,7 +2616,11 @@
       "tree_widget_name": "node_c6d92993-58ab-4f1c-ac76-0e3b36af29a5",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_increased_move_speed_when_moving_towards_disabled_allies"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_no_ammo_consumption_on_lasweapon_crit",
@@ -1888,7 +2642,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_no_ammo_consumption_on_lasweapon_crit"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_ranged_power_out_of_melee",
@@ -1910,7 +2668,24 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "veteran_ranged_power_out_of_melee"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_reduce_swap_time",
@@ -1932,7 +2707,24 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "wield_speed",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_reduce_swap_time"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
@@ -1959,7 +2751,24 @@
       "tree_widget_name": "node_90d61df3-340c-4ddf-b802-ef29d3878e0c",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings_3.toughness_1.min",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_toughness_damage_reduction_per_ally_in_coherency"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_reload_speed_on_elite_kill",
@@ -1986,7 +2795,11 @@
       "tree_widget_name": "node_d99d3163-8528-4232-af21-f29cbf453fb1",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_reload_speed_on_elite_kill"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_rending_bonus",
@@ -2013,7 +2826,24 @@
       "tree_widget_name": "node_c36508a3-b4f2-4b5a-837e-132101c8739d",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "rending_multiplier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_rending_bonus"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_replenish_grenades",
@@ -2040,7 +2870,11 @@
       "tree_widget_name": "node_8acdddd9-366b-4601-bf16-13574eb1cb24",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_grenade_replenishment"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_replenish_toughness_and_boost_allies",
@@ -2067,7 +2901,11 @@
       "tree_widget_name": "node_f607f1a6-5fe0-4814-b534-4177cbe9b2c0",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_replenish_toughness_of_ally_close_to_victim"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_replenish_toughness_on_weakspot_kill",
@@ -2094,7 +2932,11 @@
       "tree_widget_name": "node_f0744989-1f87-4da4-aa97-30a821197ed9",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_ranged_weakspot_toughness_recovery"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_replenish_toughness_outside_melee",
@@ -2121,7 +2963,11 @@
       "tree_widget_name": "node_3a5e822f-27dd-4ec0-ab2f-ee8638d959af",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "veteran_toughness_regen_out_of_melee"
+      ]
+    }
   },
   {
     "id": "veteran.talent.veteran_tdr_on_high_toughness",
@@ -2148,6 +2994,23 @@
       "tree_widget_name": "node_60000569-87a7-4c75-874b-02b86af43f52",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_tdr_on_high_toughness"
+      ]
+    }
   }
 ]

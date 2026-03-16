@@ -17,7 +17,21 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "extra_max_amount_of_wounds",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.gadget_trait.gadget_stamina_increase",
@@ -37,7 +51,21 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "stamina_modifier",
+          "magnitude": null,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "stepped_range_buff"
+    }
   },
   {
     "id": "shared.gadget_trait.gadget_block_cost_reduction",
@@ -57,7 +85,21 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "block_cost_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.gadget_trait.gadget_cooldown_reduction",
@@ -77,7 +119,21 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ability_cooldown_modifier",
+          "magnitude": -0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.gadget_trait.gadget_corruption_resistance",
@@ -97,7 +153,21 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "corruption_taken_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.gadget_trait.gadget_damage_reduction_vs_flamers",
@@ -117,7 +187,41 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_by_cultist_flamer_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_taken_by_renegade_flamer_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_taken_by_renegade_flamer_mutator_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
@@ -137,7 +241,41 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_by_cultist_gunner_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_taken_by_renegade_gunner_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_taken_by_chaos_ogryn_gunner_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.gadget_trait.gadget_damage_reduction_vs_snipers",
@@ -157,7 +295,21 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_by_renegade_sniper_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.gadget_trait.gadget_health_increase",
@@ -177,7 +329,21 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "max_health_modifier",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.gadget_trait.gadget_revive_speed_increase",
@@ -197,7 +363,21 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "revive_speed_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.gadget_trait.gadget_sprint_cost_reduction",
@@ -217,7 +397,21 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "sprinting_cost_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.gadget_trait.gadget_stamina_regeneration",
@@ -237,7 +431,21 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "stamina_regeneration_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.gadget_trait.gadget_toughness_increase",
@@ -257,7 +465,21 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_bonus",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
@@ -397,7 +619,21 @@
     "attributes": {
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_vs_elites",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
@@ -477,7 +713,21 @@
     "attributes": {
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "reload_speed",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
@@ -557,7 +807,21 @@
     "attributes": {
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "stamina_modifier",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_bolter_p1_stacking_power_bonus_on_staggering_enemies",
@@ -578,7 +842,70 @@
       "weapon_family": "bolter",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.0425,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ],
+          "max_stacks": 5
+        },
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.045,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ],
+          "max_stacks": 5
+        },
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.0475,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ],
+          "max_stacks": 5
+        },
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.05,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ],
+          "max_stacks": 5
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_boltpistol_p1_rending_on_crit",
@@ -599,7 +926,66 @@
       "weapon_family": "boltpistol",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_rending_multiplier",
+              "magnitude": 0.3,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_rending_multiplier",
+              "magnitude": 0.4,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_rending_multiplier",
+              "magnitude": 0.5,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_rending_multiplier",
+              "magnitude": 0.6,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_boltpistol_p1_crit_weakspot_finesse",
@@ -620,7 +1006,66 @@
       "weapon_family": "boltpistol",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_weakspot_damage",
+              "magnitude": 0.7,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_weakspot_damage",
+              "magnitude": 0.8,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_weakspot_damage",
+              "magnitude": 0.9,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_weakspot_damage",
+              "magnitude": 1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_chainsword_2h_p1_guaranteed_melee_crit_on_activated_kill",
@@ -641,7 +1086,22 @@
       "weapon_family": "chainsword_2h",
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_chainsword_2h_p1_increased_melee_damage_on_multiple_hits",
@@ -662,7 +1122,70 @@
       "weapon_family": "chainsword_2h",
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "melee_power_level_modifier",
+              "magnitude": 0.24,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ],
+          "active_duration": 3.5
+        },
+        {
+          "effects": [
+            {
+              "stat": "melee_power_level_modifier",
+              "magnitude": 0.28,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ],
+          "active_duration": 3.5
+        },
+        {
+          "effects": [
+            {
+              "stat": "melee_power_level_modifier",
+              "magnitude": 0.32,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ],
+          "active_duration": 3.5
+        },
+        {
+          "effects": [
+            {
+              "stat": "melee_power_level_modifier",
+              "magnitude": 0.36,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ],
+          "active_duration": 3.5
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_dual_shivs_p1_stacking_rending_on_weakspot_parent",
@@ -704,7 +1227,106 @@
       "weapon_family": "dual_stubpistols",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "spread_modifier",
+              "magnitude": -0.3,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            },
+            {
+              "stat": "damage_near",
+              "magnitude": 0.06,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "spread_modifier",
+              "magnitude": -0.3,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            },
+            {
+              "stat": "damage_near",
+              "magnitude": 0.09,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "spread_modifier",
+              "magnitude": -0.3,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            },
+            {
+              "stat": "damage_near",
+              "magnitude": 0.12,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "spread_modifier",
+              "magnitude": -0.3,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            },
+            {
+              "stat": "damage_near",
+              "magnitude": 0.15,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_dual_stubpistols_p1_reload_speed_on_slide_parent",
@@ -765,7 +1387,78 @@
     "attributes": {
       "weapon_family": "forcestaff_p3"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.02,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.035,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.04,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.045,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.05,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_parent",
@@ -805,7 +1498,78 @@
     "attributes": {
       "weapon_family": "forcestaff_p4"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.02,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.035,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.04,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.045,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.05,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_pickaxe_2h_p1_windup_increases_power",
@@ -826,7 +1590,66 @@
       "weapon_family": "ogryn_pickaxe_2h",
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "melee_power_level_modifier",
+              "magnitude": 0.05,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "melee_power_level_modifier",
+              "magnitude": 0.1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "melee_power_level_modifier",
+              "magnitude": 0.15,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "melee_power_level_modifier",
+              "magnitude": 0.2,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_lasgun_p2_crit_chance_based_on_aim_time",
@@ -847,7 +1670,66 @@
       "weapon_family": "lasgun_p2",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_lasgun_p2_followup_shots_ranged_damage",
@@ -868,7 +1750,66 @@
       "weapon_family": "lasgun_p2",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "ranged_damage",
+              "magnitude": 0.14,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "ranged_damage",
+              "magnitude": 0.16,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "ranged_damage",
+              "magnitude": 0.18,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "ranged_damage",
+              "magnitude": 0.2,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_lasgun_p2_target_hit_mass_reduction_on_weakspot_hits",
@@ -889,7 +1830,79 @@
       "weapon_family": "lasgun_p2",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "consumed_hit_mass_modifier_on_weakspot_hit",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "consumed_hit_mass_modifier_on_weakspot_hit",
+              "magnitude": 0.8,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "consumed_hit_mass_modifier_on_weakspot_hit",
+              "magnitude": 0.7,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "consumed_hit_mass_modifier_on_weakspot_hit",
+              "magnitude": 0.6,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "consumed_hit_mass_modifier_on_weakspot_hit",
+              "magnitude": 0.5,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_needlepistol_p1_increased_sprint_speed",
@@ -910,7 +1923,22 @@
       "weapon_family": "needlepistol",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_can_block_ranged",
@@ -930,7 +1958,66 @@
     "attributes": {
       "weapon_family": "forcesword_2h"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "block_cost_multiplier",
+              "magnitude": 0.775,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "block_cost_multiplier",
+              "magnitude": 0.75,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "block_cost_multiplier",
+              "magnitude": 0.725,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "block_cost_multiplier",
+              "magnitude": 0.7,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_parent",
@@ -970,7 +2057,66 @@
     "attributes": {
       "weapon_family": "forcesword_2h"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.125,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.15,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.175,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.2,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_finesse_bonus",
@@ -990,7 +2136,70 @@
     "attributes": {
       "weapon_family": "forcesword_2h"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "finesse_modifier_bonus",
+              "magnitude": 0.45,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ],
+          "active_duration": 2
+        },
+        {
+          "effects": [
+            {
+              "stat": "finesse_modifier_bonus",
+              "magnitude": 0.5,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ],
+          "active_duration": 2
+        },
+        {
+          "effects": [
+            {
+              "stat": "finesse_modifier_bonus",
+              "magnitude": 0.55,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ],
+          "active_duration": 2
+        },
+        {
+          "effects": [
+            {
+              "stat": "finesse_modifier_bonus",
+              "magnitude": 0.6,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ],
+          "active_duration": 2
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits",
@@ -1010,7 +2219,66 @@
     "attributes": {
       "weapon_family": "forcesword_2h"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "max_hit_mass_attack_modifier",
+              "magnitude": 1.4,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "max_hit_mass_attack_modifier",
+              "magnitude": 1.6,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "max_hit_mass_attack_modifier",
+              "magnitude": 1.8,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "max_hit_mass_attack_modifier",
+              "magnitude": 2,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_toughness_recovery_on_multiple_hits",
@@ -1030,7 +2298,22 @@
     "attributes": {
       "weapon_family": "forcesword_2h"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_slabshield_p1_infinite_melee_cleave_on_weakspot_kill",
@@ -1051,7 +2334,66 @@
       "weapon_family": "ogryn_powermaul_slabshield",
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "melee_weakspot_damage",
+              "magnitude": 0.075,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "melee_weakspot_damage",
+              "magnitude": 0.1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "melee_weakspot_damage",
+              "magnitude": 0.125,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "melee_weakspot_damage",
+              "magnitude": 0.15,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_slabshield_p1_toughness_recovery_on_chained_attacks",
@@ -1072,7 +2414,22 @@
       "weapon_family": "ogryn_powermaul_slabshield",
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_p1_staggered_targets_receive_increased_damage_debuff",
@@ -1093,7 +2450,22 @@
       "weapon_family": "ogryn_powermaul",
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_p1_extra_explosion_on_activated_attacks_on_armor",
@@ -1114,7 +2486,66 @@
       "weapon_family": "ogryn_powermaul",
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "explosion_radius_modifier",
+              "magnitude": 0.1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "explosion_radius_modifier",
+              "magnitude": 0.15,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "explosion_radius_modifier",
+              "magnitude": 0.2,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "explosion_radius_modifier",
+              "magnitude": 0.25,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_rippergun_p1_toughness_on_continuous_fire",
@@ -1135,7 +2566,22 @@
       "weapon_family": "ogryn_rippergun",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_damage_bonus_vs_electrocuted",
@@ -1156,7 +2602,79 @@
       "weapon_family": "powermaul_p2",
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_vs_electrocuted",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_electrocuted",
+              "magnitude": 0.1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_electrocuted",
+              "magnitude": 0.15,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_electrocuted",
+              "magnitude": 0.2,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_electrocuted",
+              "magnitude": 0.25,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_staggered_targets_receive_increased_damage_debuff",
@@ -1177,7 +2695,22 @@
       "weapon_family": "powermaul_p2",
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_extra_explosion_on_activated_attacks_on_armor",
@@ -1198,7 +2731,66 @@
       "weapon_family": "powermaul_p2",
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "explosion_radius_modifier",
+              "magnitude": 0.1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "explosion_radius_modifier",
+              "magnitude": 0.15,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "explosion_radius_modifier",
+              "magnitude": 0.2,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "explosion_radius_modifier",
+              "magnitude": 0.25,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_consecutive_melee_hits_same_target_increases_melee_power_parent",
@@ -1240,7 +2832,79 @@
       "weapon_family": "powermaul_shield",
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_vs_electrocuted",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_electrocuted",
+              "magnitude": 0.1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_electrocuted",
+              "magnitude": 0.15,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_electrocuted",
+              "magnitude": 0.2,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_electrocuted",
+              "magnitude": 0.25,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_powersword_p2_explosion_on_overheat_lockout",
@@ -1261,7 +2925,23 @@
       "weapon_family": "powersword_p2",
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_powersword_p2_slower_heat_buildup_on_perfect_block",
@@ -1282,7 +2962,134 @@
       "weapon_family": "powersword_p2",
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "overheat_over_time_amount",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_perfect_block",
+          "type": "proc_stat_buff"
+        },
+        {
+          "stat": "overheat_dissipation_multiplier",
+          "magnitude": 1.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_perfect_block",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": 5,
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "overheat_over_time_amount",
+              "magnitude": 0.84,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            },
+            {
+              "stat": "overheat_dissipation_multiplier",
+              "magnitude": 1.03,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ],
+          "active_duration": 5
+        },
+        {
+          "effects": [
+            {
+              "stat": "overheat_over_time_amount",
+              "magnitude": 0.82,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            },
+            {
+              "stat": "overheat_dissipation_multiplier",
+              "magnitude": 1.04,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ],
+          "active_duration": 5
+        },
+        {
+          "effects": [
+            {
+              "stat": "overheat_over_time_amount",
+              "magnitude": 0.8,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            },
+            {
+              "stat": "overheat_dissipation_multiplier",
+              "magnitude": 1.05,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ],
+          "active_duration": 5
+        },
+        {
+          "effects": [
+            {
+              "stat": "overheat_over_time_amount",
+              "magnitude": 0.78,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            },
+            {
+              "stat": "overheat_dissipation_multiplier",
+              "magnitude": 1.06,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ],
+          "active_duration": 5
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_plasmagun_p1_power_bonus_on_continuous_fire",
@@ -1303,7 +3110,78 @@
       "weapon_family": "plasmagun",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.02,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.05,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.06,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.07,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.08,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_plasmagun_p1_crit_chance_scaled_on_heat",
@@ -1324,7 +3202,130 @@
       "weapon_family": "plasmagun",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.01,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "ranged_critical_strike_damage",
+          "magnitude": 0.01,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "stepped_stat_buff",
+      "max_stacks": 1,
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.055,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            },
+            {
+              "stat": "ranged_critical_strike_damage",
+              "magnitude": 0.04,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.07,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            },
+            {
+              "stat": "ranged_critical_strike_damage",
+              "magnitude": 0.06,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.085,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            },
+            {
+              "stat": "ranged_critical_strike_damage",
+              "magnitude": 0.08,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "critical_strike_chance",
+              "magnitude": 0.1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            },
+            {
+              "stat": "ranged_critical_strike_damage",
+              "magnitude": 0.1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_plasmagun_p1_reduced_overheat_on_critical_strike",
@@ -1345,7 +3346,79 @@
       "weapon_family": "plasmagun",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "overheat_immediate_amount_critical_strike",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "overheat_immediate_amount_critical_strike",
+              "magnitude": 0.7,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "overheat_immediate_amount_critical_strike",
+              "magnitude": 0.6,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "overheat_immediate_amount_critical_strike",
+              "magnitude": 0.5,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "overheat_immediate_amount_critical_strike",
+              "magnitude": 0.4,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "conditional_stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_thumper_p2_targets_receive_rending_debuff",
@@ -1366,7 +3439,22 @@
       "weapon_family": "ogryn_thumper",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_thumper_p2_close_explosion_applies_bleed",
@@ -1387,7 +3475,23 @@
       "weapon_family": "ogryn_thumper",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_ogryn_thumper_p2_grenades_stick_to_monsters",
@@ -1408,7 +3512,66 @@
       "weapon_family": "ogryn_thumper",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_ogryn_and_monsters",
+              "magnitude": 0.06,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_ogryn_and_monsters",
+              "magnitude": 0.09,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_ogryn_and_monsters",
+              "magnitude": 0.12,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_ogryn_and_monsters",
+              "magnitude": 0.15,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_warp_burninating_on_crit",
@@ -1428,7 +3591,22 @@
     "attributes": {
       "weapon_family": "forcesword_2h"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_flamer_p1_burned_targets_receive_rending_debuff",
@@ -1449,7 +3627,22 @@
       "weapon_family": "flamer",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon.ogryn_powermaul_p1_m1",
@@ -1827,7 +4020,66 @@
       "weapon_family": "shotgun_p4",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.14,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.16,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.18,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.2,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_shotgun_p4_stagger_bonus_damage",
@@ -1848,7 +4100,66 @@
       "weapon_family": "shotgun_p4",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_staggered",
+              "magnitude": 0.05,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_staggered",
+              "magnitude": 0.1,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_staggered",
+              "magnitude": 0.15,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "damage_vs_staggered",
+              "magnitude": 0.2,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon.shotpistol_shield_p1_m1",
@@ -1932,7 +4243,66 @@
       "weapon_family": "shotpistol_shield",
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.14,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.16,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.18,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "power_level_modifier",
+              "magnitude": 0.2,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "proc_stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon.forcestaff_p3_m1",
@@ -2582,7 +4952,106 @@
     "attributes": {
       "weapon_family": "powersword_p2"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "finesse_modifier_bonus",
+              "magnitude": 0.01,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            },
+            {
+              "stat": "overheat_amount",
+              "magnitude": 0.97,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "finesse_modifier_bonus",
+              "magnitude": 0.02,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            },
+            {
+              "stat": "overheat_amount",
+              "magnitude": 0.96,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "finesse_modifier_bonus",
+              "magnitude": 0.03,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            },
+            {
+              "stat": "overheat_amount",
+              "magnitude": 0.95,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "finesse_modifier_bonus",
+              "magnitude": 0.04,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            },
+            {
+              "stat": "overheat_amount",
+              "magnitude": 0.94,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_powersword_p2_reduce_fixed_overheat_amount_parent",
@@ -2602,7 +5071,28 @@
     "attributes": {
       "weapon_family": "powersword_p2"
     },
-    "calc": {}
+    "calc": {
+      "class_name": "weapon_trait_parent_proc_buff",
+      "max_stacks": 1,
+      "tiers": [
+        {
+          "effects": [],
+          "duration": 3
+        },
+        {
+          "effects": [],
+          "duration": 3
+        },
+        {
+          "effects": [],
+          "duration": 3
+        },
+        {
+          "effects": [],
+          "duration": 3
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_saw_p1_chained_hits_increases_power",
@@ -2622,7 +5112,70 @@
     "attributes": {
       "weapon_family": "saw_p1"
     },
-    "calc": {}
+    "calc": {
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "melee_power_level_modifier",
+              "magnitude": 0.02,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ],
+          "max_stacks": 10
+        },
+        {
+          "effects": [
+            {
+              "stat": "melee_power_level_modifier",
+              "magnitude": 0.03,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ],
+          "max_stacks": 10
+        },
+        {
+          "effects": [
+            {
+              "stat": "melee_power_level_modifier",
+              "magnitude": 0.04,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ],
+          "max_stacks": 10
+        },
+        {
+          "effects": [
+            {
+              "stat": "melee_power_level_modifier",
+              "magnitude": 0.05,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ],
+          "max_stacks": 10
+        }
+      ]
+    }
   },
   {
     "id": "shared.weapon_trait.weapon_trait_bespoke_saw_p1_hit_mass_consumption_reduction_on_kill",
@@ -2642,7 +5195,80 @@
     "attributes": {
       "weapon_family": "saw_p1"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "consumed_hit_mass_modifier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": 3,
+      "tiers": [
+        {
+          "effects": [
+            {
+              "stat": "consumed_hit_mass_modifier",
+              "magnitude": 0.7,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "consumed_hit_mass_modifier",
+              "magnitude": 0.6,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "consumed_hit_mass_modifier",
+              "magnitude": 0.5,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "stat": "consumed_hit_mass_modifier",
+              "magnitude": 0.4,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": null,
+              "type": "stat_buff"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "shared.gadget_trait.gadget_damage_reduction_vs_bombers",
@@ -2662,7 +5288,21 @@
     "attributes": {
       "slot": "curio"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_by_chaos_poxwalker_bomber_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   },
   {
     "id": "shared.weapon.ogryn_heavystubber_p2_m1",

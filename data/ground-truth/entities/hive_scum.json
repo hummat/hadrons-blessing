@@ -267,7 +267,11 @@
       "tree_widget_name": null,
       "exclusive_group": "keystone_1"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_keystone_adrenaline_junkie"
+      ]
+    }
   },
   {
     "id": "hive_scum.keystone.broker_keystone_chemical_dependency",
@@ -294,7 +298,11 @@
       "tree_widget_name": null,
       "exclusive_group": "keystone_1"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_keystone_chemical_dependency"
+      ]
+    }
   },
   {
     "id": "hive_scum.keystone.broker_keystone_vultures_mark_on_kill",
@@ -321,7 +329,11 @@
       "tree_widget_name": null,
       "exclusive_group": "keystone_1"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_keystone_vultures_mark_on_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent_modifier.broker_ability_focus_sub_2",
@@ -564,7 +576,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_ability_stimm_field_sub_3"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_1",
@@ -807,7 +823,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_keystone_vultures_mark_aoe_stagger"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_dodge_on_ranged_crit",
@@ -834,7 +854,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_keystone_vultures_mark_dodge_on_ranged_crit"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent_modifier.broker_keystone_vultures_mark_increased_duration",
@@ -888,7 +912,24 @@
       "tree_widget_name": "node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_crit_chance_node_buff_low_1"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.base_melee_damage_node_buff_medium_1",
@@ -915,7 +956,24 @@
       "tree_widget_name": "node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_melee_damage_node_buff_medium_1"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.base_toughness_node_buff_medium_1",
@@ -942,7 +1000,24 @@
       "tree_widget_name": "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness",
+          "magnitude": 15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_medium_1"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.base_toughness_node_buff_medium_2",
@@ -969,7 +1044,24 @@
       "tree_widget_name": "node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness",
+          "magnitude": 15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_medium_2"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.base_toxin_power_boost_1",
@@ -996,7 +1088,24 @@
       "tree_widget_name": "node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toxin_power",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "base_toxin_power_boost_1"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_blitz_inflicts_toxin",
@@ -1023,7 +1132,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_blitz_inflicts_toxin"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_cleave_on_cleave",
@@ -1050,7 +1163,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_cleave_on_cleave"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_close_range_damage_on_dodge",
@@ -1077,7 +1194,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_near",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_close_range_damage_on_dodge.damage_near",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_successful_dodge",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "broker_passive_close_range_damage_on_dodge"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_close_ranged_damage",
@@ -1104,7 +1239,34 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_near",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_close_ranged_damage.damage_near",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "slot_secondary",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "damage_far",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_close_ranged_damage.damage_far",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "slot_secondary",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_close_ranged_damage"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_damage_after_toxined_enemies",
@@ -1131,7 +1293,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_damage_after_toxined_enemies"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_damage_on_reload",
@@ -1158,7 +1324,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_damage_on_reload"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_damage_vs_elites_monsters",
@@ -1185,7 +1355,34 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_vs_elites",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_vs_monsters",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_damage_vs_elites_monsters"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_damage_vs_heavy_staggered",
@@ -1212,7 +1409,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_damage_vs_heavy_staggered"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_dodge_melee_on_slide",
@@ -1239,7 +1440,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_dodge_melee_on_slide"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_dr_damage_tradeoff_on_stamina",
@@ -1266,7 +1471,34 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_damage",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_dr_damage_tradeoff_on_stamina"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_extended_mag",
@@ -1293,7 +1525,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "clip_size_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_extended_mag.clip_size_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_extended_mag"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_first_target_damage",
@@ -1320,7 +1569,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "first_target_melee_damage_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_first_target_damage.damage",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_first_target_damage"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_improved_dodges",
@@ -1347,7 +1613,34 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "dodge_speed_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_improved_dodges.dodge_speed_multiplier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "dodge_linger_time",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_improved_dodges.dodge_linger_time",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_improved_dodges"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_improved_dodges_at_full_stamina",
@@ -1374,7 +1667,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "dodge_cooldown_reset_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_improved_dodges_at_full_stamina.dodge_cooldown_reset_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_improved_dodges_at_full_stamina"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_improved_sprint_dodge",
@@ -1401,7 +1711,27 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "sprint_dodge_reduce_angle_threshold_rad",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_improved_sprint_dodge.sprint_dodge_reduce_angle_threshold_rad",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "keywords": [
+        "sprint_dodge_in_overtime"
+      ],
+      "buff_template_names": [
+        "broker_passive_improved_sprint_dodge"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_increased_aura_size",
@@ -1428,7 +1758,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "coherency_radius_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_increased_aura_size.coherency_radius_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_increased_aura_size"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_increased_blitz_ammo",
@@ -1455,7 +1802,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "extra_max_amount_of_grenades",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_increased_blitz_ammo"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_increased_ranged_dodges",
@@ -1482,7 +1846,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "extra_consecutive_dodges",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_increased_ranged_dodges.extra_consecutive_dodges",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "slot_secondary",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_increased_ranged_dodges"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_increased_weakspot_damage",
@@ -1509,7 +1890,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "weakspot_damage",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_increased_weakspot_damage.weakspot_damage",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_increased_weakspot_damage"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_low_ammo_regen",
@@ -1536,7 +1934,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_low_ammo_regen"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_melee_attacks_apply_toxin",
@@ -1563,7 +1965,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_melee_attacks_apply_toxin"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_melee_cleave_on_melee_kill",
@@ -1590,7 +1996,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_melee_cleave_on_melee_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_melee_crit_instakill",
@@ -1617,7 +2027,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_melee_crit_instakill"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_melee_damage_carry_over",
@@ -1644,7 +2058,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage_bonus",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "broker_passive_melee_damage_carry_over"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
@@ -1671,7 +2103,26 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_ninja_grants_crit_chance.critical_strike_chance",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_successful_dodge",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": null,
+      "active_duration": null,
+      "buff_template_names": [
+        "broker_passive_ninja_grants_crit_chance"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_punk_grit",
@@ -1698,7 +2149,34 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_punk_grit.ranged_damage",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_punk_grit.toughness_damage_taken_multiplier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_punk_grit"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_ramping_backstabs",
@@ -1725,7 +2203,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_ramping_backstabs"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_reduce_swap_time",
@@ -1752,7 +2234,44 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "wield_speed",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_reduce_swap_time.wield_speed",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "recoil_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_reduce_swap_time.recoil_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "spread_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_reduce_swap_time.spread_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_reduce_swap_time"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_reduced_damage_by_toxined",
@@ -1779,7 +2298,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_reduced_damage_by_toxined"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_reduced_toughness_damage_during_reload",
@@ -1806,7 +2329,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_reduced_toughness_damage_during_reload.toughness_damage_taken_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "broker_passive_reduced_toughness_damage_during_reload"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_reload_speed_on_close_kill",
@@ -1833,7 +2374,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_reload_speed_on_close_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_replenish_toughness_on_ranged_toughness_damage",
@@ -1860,7 +2405,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_replenish_toughness_on_ranged_toughness_damage"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_restore_toughness_on_close_ranged_kill",
@@ -1887,7 +2436,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_restore_toughness_on_close_ranged_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_restore_toughness_on_weakspot_kill",
@@ -1914,7 +2467,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_restore_toughness_on_weakspot_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_sprinting_reduces_threat",
@@ -1941,7 +2498,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_sprinting_reduces_threat"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_stamina_grants_atk_speed",
@@ -1968,7 +2529,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_attack_speed",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_stamina_grants_atk_speed.attack_speed_increase",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "stepped_stat_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "broker_passive_stamina_grants_atk_speed"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_stamina_on_successful_dodge",
@@ -1995,7 +2574,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_stamina_on_successful_dodge"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_stimm_cd_on_kill",
@@ -2022,7 +2605,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_stimm_cd_on_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_stimm_cleanse_on_kill",
@@ -2049,7 +2636,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_stimm_cleanse_on_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_stimm_increased_duration",
@@ -2076,7 +2667,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "syringe_duration",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_stimm_increased_duration.duration_increase",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_stimm_increased_duration"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_stun_immunity_on_toughness_broken",
@@ -2103,7 +2711,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_stun_immunity_on_toughness_broken"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_passive_toughness_on_toxined_kill",
@@ -2130,7 +2742,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_toughness_on_toxined_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.talent.broker_stimm_celerity_1",

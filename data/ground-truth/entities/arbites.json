@@ -51,7 +51,11 @@
       "tree_widget_name": null,
       "exclusive_group": "ability_1"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_charge_passive_buff"
+      ]
+    }
   },
   {
     "id": "arbites.ability.adamant_grenade_improved",
@@ -78,7 +82,11 @@
       "tree_widget_name": null,
       "exclusive_group": "blitz_1"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_grenade_cluster_kills_tracking_buff"
+      ]
+    }
   },
   {
     "id": "arbites.ability.adamant_shock_mine",
@@ -159,7 +167,11 @@
       "tree_widget_name": null,
       "exclusive_group": "blitz_1"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_whistle_replenishment"
+      ]
+    }
   },
   {
     "id": "arbites.aura.adamant_companion_coherency",
@@ -186,7 +198,11 @@
       "tree_widget_name": null,
       "exclusive_group": "aura_1"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_companion_counts_for_coherency"
+      ]
+    }
   },
   {
     "id": "arbites.aura.adamant_damage_vs_staggered_aura",
@@ -213,7 +229,11 @@
       "tree_widget_name": null,
       "exclusive_group": "aura_1"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_no_companion_coherency"
+      ]
+    }
   },
   {
     "id": "arbites.aura.adamant_reload_speed_aura",
@@ -240,7 +260,11 @@
       "tree_widget_name": null,
       "exclusive_group": "aura_1"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_no_companion_coherency"
+      ]
+    }
   },
   {
     "id": "arbites.keystone.adamant_companion_focus_elite",
@@ -267,7 +291,34 @@
       "tree_widget_name": null,
       "exclusive_group": "dog_1"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "companion_damage_vs_elites",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "companion_damage_vs_special",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_companion_focus_elite"
+      ]
+    }
   },
   {
     "id": "arbites.keystone.adamant_companion_focus_ranged",
@@ -294,7 +345,24 @@
       "tree_widget_name": null,
       "exclusive_group": "dog_1"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "companion_damage_vs_ranged",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_companion_focus_ranged"
+      ]
+    }
   },
   {
     "id": "arbites.keystone.adamant_disable_companion",
@@ -321,7 +389,55 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "toughness_damage_taken_modifier",
+          "magnitude": -0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "attack_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "extra_max_amount_of_grenades",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_disable_companion_buff",
+        "adamant_grenade_replenishment"
+      ]
+    }
   },
   {
     "id": "arbites.keystone.adamant_execution_order",
@@ -348,7 +464,11 @@
       "tree_widget_name": null,
       "exclusive_group": "keystone_1"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_execution_order"
+      ]
+    }
   },
   {
     "id": "arbites.keystone.adamant_forceful",
@@ -375,7 +495,11 @@
       "tree_widget_name": null,
       "exclusive_group": "keystone_1"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_forceful"
+      ]
+    }
   },
   {
     "id": "arbites.keystone.adamant_terminus_warrant",
@@ -402,7 +526,11 @@
       "tree_widget_name": null,
       "exclusive_group": "keystone_1"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_terminus_warrant"
+      ]
+    }
   },
   {
     "id": "arbites.talent_modifier.adamant_charge_cooldown_reduction",
@@ -429,7 +557,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_charge_cooldown_buff"
+      ]
+    }
   },
   {
     "id": "arbites.talent_modifier.adamant_charge_longer_distance",
@@ -456,7 +588,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "lunge_distance",
+          "magnitude": 3.75,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_charge_increased_distance"
+      ]
+    }
   },
   {
     "id": "arbites.talent_modifier.adamant_charge_toughness",
@@ -483,7 +633,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_charge_toughness_buff"
+      ]
+    }
   },
   {
     "id": "arbites.talent_modifier.adamant_dog_damage_after_ability",
@@ -510,7 +664,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "companion_damage_modifier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_dog_damage_after_ability"
+      ]
+    }
   },
   {
     "id": "arbites.talent_modifier.adamant_drone_buff_talent",
@@ -753,7 +925,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_forceful_stagger"
+      ]
+    }
   },
   {
     "id": "arbites.talent_modifier.adamant_forceful_stun_immune_and_block_all",
@@ -834,7 +1010,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_pinning_dog_bonus_moving_towards"
+      ]
+    }
   },
   {
     "id": "arbites.talent_modifier.adamant_stance_dog_bloodlust",
@@ -861,7 +1041,26 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "companion_damage_modifier",
+          "magnitude": 0.75,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_hunt_stance_dog_bloodlust"
+      ]
+    }
   },
   {
     "id": "arbites.talent_modifier.adamant_stance_elite_kills_stack_damage",
@@ -1050,7 +1249,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ammo_reserve_capacity",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_ammo_belt"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_armor",
@@ -1077,7 +1293,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness",
+          "magnitude": 25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_armor"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_cleave_after_push",
@@ -1104,7 +1337,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "max_melee_hit_mass_attack_modifier",
+          "magnitude": 0.75,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_push_finish",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_cleave_after_push"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_clip_size",
@@ -1131,7 +1382,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "clip_size_modifier",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_clip_size"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_close_kills_restore_toughness",
@@ -1158,7 +1426,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_close_kills_restore_toughness"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_crit_chance_on_kill",
@@ -1185,7 +1457,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_crit_chance_on_kill"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_crits_rend",
@@ -1212,7 +1488,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_critical_strike_rending_multiplier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_crits_rend"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_damage_after_reloading",
@@ -1239,7 +1532,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_reload",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_damage_after_reloading"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_damage_reduction_after_elite_kill",
@@ -1266,7 +1577,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 0.75,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_damage_reduction_after_elite_kill"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_damage_vs_suppressed",
@@ -1293,7 +1622,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_vs_suppressed",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_damage_vs_suppressed"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_dodge_grants_damage",
@@ -1320,7 +1666,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_successful_dodge",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_dodge_grants_damage"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_dodge_improvement",
@@ -1347,7 +1711,34 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "extra_consecutive_dodges",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "dodge_linger_time_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_dodge_improvement"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_dog_applies_brittleness",
@@ -1374,7 +1765,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_dog_applies_brittleness"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_dog_attacks_electrocute",
@@ -1401,7 +1796,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_dog_attacks_electrocute"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_dog_pounces_bleed_nearby",
@@ -1428,7 +1827,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_dog_pounces_bleed_nearby"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_elite_special_kills_offensive_boost",
@@ -1455,7 +1858,35 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "proc_stat_buff"
+        },
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_elite_special_kills_offensive_boost"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_elite_special_kills_reload_speed",
@@ -1482,7 +1913,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_elite_special_kills_reload_speed"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_elite_special_kills_replenish_toughness",
@@ -1509,7 +1944,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_elite_special_kills_replenish_toughness"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_first_melee_hit_increased_damage",
@@ -1536,7 +1975,34 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "active_and_unknown",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "impact_modifier",
+          "magnitude": 0.3,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "active_and_unknown",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "adamant_first_melee_hit_increased_damage"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_heavy_attacks_increase_damage",
@@ -1563,7 +2029,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_sweep_finish",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_heavy_attacks_increase_damage"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_hitting_multiple_gives_tdr",
@@ -1590,7 +2074,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_hitting_multiple_gives_tdr"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_increased_damage_to_high_health",
@@ -1617,7 +2119,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_vs_healthy",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_increased_damage_to_high_health"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_limit_dmg_taken_from_hits",
@@ -1644,7 +2164,28 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "max_health_damage_taken_per_hit",
+          "magnitude": 50,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "keywords": [
+        "limit_health_damage_taken"
+      ],
+      "buff_template_names": [
+        "adamant_limit_dmg_taken_from_hits"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_melee_attacks_on_staggered_rend",
@@ -1671,7 +2212,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_rending_vs_staggered_multiplier",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_melee_attacks_on_staggered_rend"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_melee_weakspot_hits_count_as_stagger",
@@ -1698,7 +2256,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_melee_weakspot_hits_count_as_stagger"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_monster_hunter",
@@ -1725,7 +2287,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_vs_ogryn_and_monsters",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_monster_hunter"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_movement_speed_on_block",
@@ -1752,7 +2331,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_movement_speed_on_block"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_multiple_hits_attack_speed",
@@ -1779,7 +2376,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_attack_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_multiple_hits_attack_speed"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_perfect_block_damage_boost",
@@ -1806,7 +2421,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "block_cost_multiplier",
+          "magnitude": 0.85,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "adamant_perfect_block_damage_boost"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_pinning_dog_elite_damage",
@@ -1833,7 +2465,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_pinning_dog_elite_damage"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_pinning_dog_kills_buff_allies",
@@ -1860,7 +2496,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_pinning_dog_kills_buff_allies"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_plasteel_plates",
@@ -1887,7 +2527,24 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness",
+          "magnitude": 25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_plasteel_plates"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_ranged_damage_on_melee_stagger",
@@ -1914,7 +2571,25 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_ranged_damage_on_melee_stagger"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_rebreather",
@@ -1941,7 +2616,34 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "corruption_taken_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_taken_from_toxic_gas_multiplier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_rebreather"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_shield_plates",
@@ -1968,7 +2670,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_shield_plates"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_sprinting_sliding",
@@ -1995,7 +2701,26 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "sprint_movement_speed",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_slide_end",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_sprinting_sliding",
+        "adamant_sprinting_sliding_kills"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_stacking_damage",
@@ -2022,7 +2747,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_stacking_damage"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_stacking_weakspot_strength",
@@ -2049,7 +2778,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_stacking_weakspot_strength"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_staggered_enemies_deal_less_damage",
@@ -2076,7 +2809,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_staggered_enemies_deal_less_damage"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_staggering_enemies_take_more_damage",
@@ -2103,7 +2840,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_staggering_increases_damage_taken"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_staggers_reduce_damage_taken",
@@ -2130,7 +2871,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_staggers_reduce_damage_taken"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_staggers_replenish_toughness",
@@ -2157,7 +2902,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_staggers_replenish_toughness"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_stamina_spent_replenish_toughness",
@@ -2184,7 +2933,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_stamina_spent_replenish_toughness"
+      ]
+    }
   },
   {
     "id": "arbites.talent.adamant_toughness_regen_near_companion",
@@ -2211,7 +2964,11 @@
       "tree_widget_name": null,
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "adamant_toughness_regen_near_companion"
+      ]
+    }
   },
   {
     "id": "arbites.talent.base_cleave_node_buff_medium_1",
@@ -2238,7 +2995,34 @@
       "tree_widget_name": "node_4cb10022-552a-4499-84e1-b956aa007511",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "max_hit_mass_attack_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "max_hit_mass_impact_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_cleave_node_buff_medium_1"
+      ]
+    }
   },
   {
     "id": "arbites.talent.base_impact_node_buff_medium_1",
@@ -2265,7 +3049,24 @@
       "tree_widget_name": "node_da43a66a-4f23-41fb-8257-6cf06d157433",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "impact_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_impact_node_buff_medium_1"
+      ]
+    }
   },
   {
     "id": "arbites.talent.base_melee_damage_node_buff_medium_1",
@@ -2292,7 +3093,24 @@
       "tree_widget_name": "node_030fde55-407f-4bb3-bd36-46d70fe56bbf",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_melee_damage_node_buff_medium_1"
+      ]
+    }
   },
   {
     "id": "arbites.talent.base_ranged_damage_node_buff_medium_1",
@@ -2319,7 +3137,24 @@
       "tree_widget_name": "node_a40126d6-c985-42b7-bffb-7234639e6704",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_ranged_damage_node_buff_medium_1"
+      ]
+    }
   },
   {
     "id": "arbites.talent.base_toughness_damage_reduction_node_buff_medium_1",
@@ -2346,6 +3181,23 @@
       "tree_widget_name": "node_6b1ed144-097b-4dd0-9fab-c56e5722ee5f",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_modifier",
+          "magnitude": -0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_damage_reduction_node_buff_medium_1"
+      ]
+    }
   }
 ]

@@ -3763,5 +3763,920 @@
     },
     "calc": {},
     "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.base_stamina_regen_delay_2--grants_buff--veteran.buff.reduced_stamina_regen_delay_2",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.base_stamina_regen_delay_2",
+    "to_entity_id": "veteran.buff.reduced_stamina_regen_delay_2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.base_toughness_node_buff_low_5--grants_buff--veteran.buff.player_toughness_node_buff_low_5",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.base_toughness_node_buff_low_5",
+    "to_entity_id": "veteran.buff.player_toughness_node_buff_low_5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.base_melee_damage_node_buff_high_1--grants_buff--veteran.buff.player_melee_damage_node_buff_high_1",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.base_melee_damage_node_buff_high_1",
+    "to_entity_id": "veteran.buff.player_melee_damage_node_buff_high_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.base_reload_speed_node_buff_medium_1--grants_buff--veteran.buff.player_reload_speed_node_buff_medium_1",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.base_reload_speed_node_buff_medium_1",
+    "to_entity_id": "veteran.buff.player_reload_speed_node_buff_medium_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.base_stamina_node_buff_low_2--grants_buff--veteran.buff.player_stamina_node_buff_low_2",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.base_stamina_node_buff_low_2",
+    "to_entity_id": "veteran.buff.player_stamina_node_buff_low_2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_extra_grenade--grants_buff--veteran.buff.veteran_extra_grenade",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_extra_grenade",
+    "to_entity_id": "veteran.buff.veteran_extra_grenade",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_extra_grenade--grants_buff--veteran.buff.veteran_extra_grenade_throw_chance",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_extra_grenade",
+    "to_entity_id": "veteran.buff.veteran_extra_grenade_throw_chance",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_improved_grenades--grants_buff--veteran.buff.veteran_improved_grenades",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_improved_grenades",
+    "to_entity_id": "veteran.buff.veteran_improved_grenades",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_ads_drain_stamina--grants_buff--veteran.buff.veteran_ads_stamina_boost",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_ads_drain_stamina",
+    "to_entity_id": "veteran.buff.veteran_ads_stamina_boost",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.ability.veteran_combat_ability_elite_and_special_outlines--grants_buff--veteran.buff.veteran_combat_ability_increased_ranged_and_weakspot_damage_outlines",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.ability.veteran_combat_ability_elite_and_special_outlines",
+    "to_entity_id": "veteran.buff.veteran_combat_ability_increased_ranged_and_weakspot_damage_outlines",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent_modifier.veteran_combat_ability_ogryn_outlines--grants_buff--veteran.buff.veteran_combat_ability_increased_damage_vs_ogryn_and_monsters",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent_modifier.veteran_combat_ability_ogryn_outlines",
+    "to_entity_id": "veteran.buff.veteran_combat_ability_increased_damage_vs_ogryn_and_monsters",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent_modifier.veteran_combat_ability_revive_nearby_allies--grants_buff--veteran.buff.veteran_combat_ability_revive_nearby_allies",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent_modifier.veteran_combat_ability_revive_nearby_allies",
+    "to_entity_id": "veteran.buff.veteran_combat_ability_revive_nearby_allies",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent_modifier.veteran_combat_ability_extra_charge--grants_buff--veteran.buff.veteran_combat_ability_extra_charge",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent_modifier.veteran_combat_ability_extra_charge",
+    "to_entity_id": "veteran.buff.veteran_combat_ability_extra_charge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_elite_kills_reduce_cooldown--grants_buff--veteran.buff.veteran_combat_ability_cooldown_reduction_on_elite_kills",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_elite_kills_reduce_cooldown",
+    "to_entity_id": "veteran.buff.veteran_combat_ability_cooldown_reduction_on_elite_kills",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_ally_kills_increase_damage--grants_buff--veteran.buff.veteran_allies_kills_chance_to_trigger_increased_damage",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_ally_kills_increase_damage",
+    "to_entity_id": "veteran.buff.veteran_allies_kills_chance_to_trigger_increased_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_increased_damage_based_on_range--grants_buff--veteran.buff.veteran_increase_ranged_far_damage",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_increased_damage_based_on_range",
+    "to_entity_id": "veteran.buff.veteran_increase_ranged_far_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_increase_suppression--grants_buff--veteran.buff.veteran_increase_suppression",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_increase_suppression",
+    "to_entity_id": "veteran.buff.veteran_increase_suppression",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_increase_damage_vs_elites--grants_buff--veteran.buff.veteran_increase_elite_damage",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_increase_damage_vs_elites",
+    "to_entity_id": "veteran.buff.veteran_increase_elite_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_increase_damage_after_sprinting--grants_buff--veteran.buff.veteran_damage_after_sprinting",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_increase_damage_after_sprinting",
+    "to_entity_id": "veteran.buff.veteran_damage_after_sprinting",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_reload_speed_on_elite_kill--grants_buff--veteran.buff.veteran_reload_speed_on_elite_kill",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_reload_speed_on_elite_kill",
+    "to_entity_id": "veteran.buff.veteran_reload_speed_on_elite_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_increased_weakspot_damage--grants_buff--veteran.buff.veteran_increased_weakspot_damage",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_increased_weakspot_damage",
+    "to_entity_id": "veteran.buff.veteran_increased_weakspot_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.ability.veteran_grenade_apply_bleed--grants_buff--veteran.buff.veteran_frag_grenade_bleed",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.ability.veteran_grenade_apply_bleed",
+    "to_entity_id": "veteran.buff.veteran_frag_grenade_bleed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_big_game_hunter--grants_buff--veteran.buff.veteran_big_game_hunter",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_big_game_hunter",
+    "to_entity_id": "veteran.buff.veteran_big_game_hunter",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_crits_apply_rending--grants_buff--veteran.buff.veteran_melee_crits_increase_damage",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_crits_apply_rending",
+    "to_entity_id": "veteran.buff.veteran_melee_crits_increase_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_continous_hits_apply_rending--grants_buff--veteran.buff.veteran_consecutive_hits_apply_rending",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_continous_hits_apply_rending",
+    "to_entity_id": "veteran.buff.veteran_consecutive_hits_apply_rending",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_dodging_grants_crit--grants_buff--veteran.buff.veteran_dodging_grants_crit",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_dodging_grants_crit",
+    "to_entity_id": "veteran.buff.veteran_dodging_grants_crit",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent_modifier.veteran_reduced_threat_after_combat_ability--grants_buff--veteran.buff.veteran_buffs_after_combat_ability",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent_modifier.veteran_reduced_threat_after_combat_ability",
+    "to_entity_id": "veteran.buff.veteran_buffs_after_combat_ability",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent_modifier.veteran_increased_close_damage_after_combat_ability--grants_buff--veteran.buff.veteran_buffs_after_combat_ability",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent_modifier.veteran_increased_close_damage_after_combat_ability",
+    "to_entity_id": "veteran.buff.veteran_buffs_after_combat_ability",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent_modifier.veteran_increased_weakspot_power_after_combat_ability--grants_buff--veteran.buff.veteran_buffs_after_combat_ability",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent_modifier.veteran_increased_weakspot_power_after_combat_ability",
+    "to_entity_id": "veteran.buff.veteran_buffs_after_combat_ability",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_reduced_toughness_damage_in_coherency--grants_buff--veteran.buff.veteran_toughness_damage_reduction_per_ally_in_coherency",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
+    "to_entity_id": "veteran.buff.veteran_toughness_damage_reduction_per_ally_in_coherency",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_all_kills_replenish_toughness--grants_buff--veteran.buff.veteran_all_kills_replenish_bonus_toughness",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_all_kills_replenish_toughness",
+    "to_entity_id": "veteran.buff.veteran_all_kills_replenish_bonus_toughness",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_elite_kills_replenish_toughness--grants_buff--veteran.buff.veteran_toughness_on_elite_kill",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_elite_kills_replenish_toughness",
+    "to_entity_id": "veteran.buff.veteran_toughness_on_elite_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_ranged_power_out_of_melee--grants_buff--veteran.buff.veteran_ranged_power_out_of_melee",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_ranged_power_out_of_melee",
+    "to_entity_id": "veteran.buff.veteran_ranged_power_out_of_melee",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_bonus_crit_chance_on_ammo--grants_buff--veteran.buff.veteran_bonus_crit_chance_on_ammo",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_bonus_crit_chance_on_ammo",
+    "to_entity_id": "veteran.buff.veteran_bonus_crit_chance_on_ammo",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_no_ammo_consumption_on_lasweapon_crit--grants_buff--veteran.buff.veteran_no_ammo_consumption_on_lasweapon_crit",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_no_ammo_consumption_on_lasweapon_crit",
+    "to_entity_id": "veteran.buff.veteran_no_ammo_consumption_on_lasweapon_crit",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_movement_bonuses_on_toughness_broken--grants_buff--veteran.buff.veteran_movement_bonuses_on_toughness_broken",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_movement_bonuses_on_toughness_broken",
+    "to_entity_id": "veteran.buff.veteran_movement_bonuses_on_toughness_broken",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_movement_speed_towards_downed--grants_buff--veteran.buff.veteran_increased_move_speed_when_moving_towards_disabled_allies",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_movement_speed_towards_downed",
+    "to_entity_id": "veteran.buff.veteran_increased_move_speed_when_moving_towards_disabled_allies",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_dodging_grants_stamina--grants_buff--veteran.buff.veteran_stamina_on_ranged_dodges",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_dodging_grants_stamina",
+    "to_entity_id": "veteran.buff.veteran_stamina_on_ranged_dodges",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_hits_cause_bleed--grants_buff--veteran.buff.veteran_hits_cause_bleed",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_hits_cause_bleed",
+    "to_entity_id": "veteran.buff.veteran_hits_cause_bleed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_kill_grants_damage_to_other_slot--grants_buff--veteran.buff.veteran_melee_kills_grant_range_damage",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_kill_grants_damage_to_other_slot",
+    "to_entity_id": "veteran.buff.veteran_melee_kills_grant_range_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_kill_grants_damage_to_other_slot--grants_buff--veteran.buff.veteran_ranged_kills_grant_melee_damage",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_kill_grants_damage_to_other_slot",
+    "to_entity_id": "veteran.buff.veteran_ranged_kills_grant_melee_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_reduce_swap_time--grants_buff--veteran.buff.veteran_reduce_swap_time",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_reduce_swap_time",
+    "to_entity_id": "veteran.buff.veteran_reduce_swap_time",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse--grants_buff--veteran.buff.veteran_increased_melee_crit_chance_and_melee_finesse",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
+    "to_entity_id": "veteran.buff.veteran_increased_melee_crit_chance_and_melee_finesse",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_better_deployables--grants_buff--veteran.buff.veteran_better_deployables",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_better_deployables",
+    "to_entity_id": "veteran.buff.veteran_better_deployables",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_replenish_grenades--grants_buff--veteran.buff.veteran_grenade_replenishment",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_replenish_grenades",
+    "to_entity_id": "veteran.buff.veteran_grenade_replenishment",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.ability.veteran_invisibility_on_combat_ability--grants_buff--veteran.buff.veteran_invisibility_on_combat_ability",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.ability.veteran_invisibility_on_combat_ability",
+    "to_entity_id": "veteran.buff.veteran_invisibility_on_combat_ability",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_aura_elite_kills_restore_grenade--grants_buff--veteran.buff.veteran_aura_gain_grenade_on_elite_kill",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_aura_elite_kills_restore_grenade",
+    "to_entity_id": "veteran.buff.veteran_aura_gain_grenade_on_elite_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_tdr_on_high_toughness--grants_buff--veteran.buff.veteran_tdr_on_high_toughness",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_tdr_on_high_toughness",
+    "to_entity_id": "veteran.buff.veteran_tdr_on_high_toughness",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_replenish_toughness_and_boost_allies--grants_buff--veteran.buff.veteran_replenish_toughness_of_ally_close_to_victim",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_replenish_toughness_and_boost_allies",
+    "to_entity_id": "veteran.buff.veteran_replenish_toughness_of_ally_close_to_victim",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_replenish_toughness_on_weakspot_kill--grants_buff--veteran.buff.veteran_ranged_weakspot_toughness_recovery",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_replenish_toughness_on_weakspot_kill",
+    "to_entity_id": "veteran.buff.veteran_ranged_weakspot_toughness_recovery",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_allies_in_coherency_share_toughness_gain--grants_buff--veteran.buff.veteran_share_toughness_gained",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_allies_in_coherency_share_toughness_gain",
+    "to_entity_id": "veteran.buff.veteran_share_toughness_gained",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_faster_reload_on_non_empty_clips--grants_buff--veteran.buff.veteran_reload_speed_on_non_empty_clip",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_faster_reload_on_non_empty_clips",
+    "to_entity_id": "veteran.buff.veteran_reload_speed_on_non_empty_clip",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_replenish_toughness_outside_melee--grants_buff--veteran.buff.veteran_toughness_regen_out_of_melee",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_replenish_toughness_outside_melee",
+    "to_entity_id": "veteran.buff.veteran_toughness_regen_out_of_melee",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_rending_bonus--grants_buff--veteran.buff.veteran_rending_bonus",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_rending_bonus",
+    "to_entity_id": "veteran.buff.veteran_rending_bonus",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_ammo_increase--grants_buff--veteran.buff.veteran_ammo_increase",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_ammo_increase",
+    "to_entity_id": "veteran.buff.veteran_ammo_increase",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_attack_speed--grants_buff--veteran.buff.veteran_attack_speed",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_attack_speed",
+    "to_entity_id": "veteran.buff.veteran_attack_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.keystone.veteran_snipers_focus--grants_buff--veteran.buff.veteran_snipers_focus",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.keystone.veteran_snipers_focus",
+    "to_entity_id": "veteran.buff.veteran_snipers_focus",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.keystone.veteran_weapon_switch_passive--grants_buff--veteran.buff.veteran_weapon_switch_passive_buff",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.keystone.veteran_weapon_switch_passive",
+    "to_entity_id": "veteran.buff.veteran_weapon_switch_passive_buff",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.keystone.veteran_improved_tag--grants_buff--veteran.buff.veteran_improved_tag",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.keystone.veteran_improved_tag",
+    "to_entity_id": "veteran.buff.veteran_improved_tag",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_clip_size--grants_buff--veteran.buff.veteran_clip_size",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_clip_size",
+    "to_entity_id": "veteran.buff.veteran_clip_size",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "veteran.talent.veteran_increased_damage_when_flanking--grants_buff--veteran.buff.veteran_flanking_damage",
+    "type": "grants_buff",
+    "from_entity_id": "veteran.talent.veteran_increased_damage_when_flanking",
+    "to_entity_id": "veteran.buff.veteran_flanking_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
   }
 ]

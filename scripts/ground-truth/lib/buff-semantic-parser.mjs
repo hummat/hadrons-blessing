@@ -489,31 +489,177 @@ export function resolveTemplateChain(blocks, externalTemplates = new Map()) {
 /**
  * Extract talent → buff template links from a talent definition Lua file.
  *
- * Scans each talent block for `passive.buff_template_name`, which may be
- * a single string or an array of strings.
+ * Talent files use nested table structures with talent definitions that may
+ * contain `passive = { buff_template_name = "..." }` blocks. This scanner
+ * tracks the current talent context and extracts buff links from passive blocks.
+ *
+ * Only extracts buff_template_name from inside `passive = { ... }` blocks,
+ * ignoring format_values.find_value references which are display-only.
  *
  * @param {string} talentLuaSource - Full Lua source text of a talent file
  * @returns {Map<string, string[]>} Map from talent internal name to buff template name(s)
  */
 export function extractTalentBuffLinks(talentLuaSource) {
-  const { blocks } = extractTemplateBlocks(talentLuaSource);
   /** @type {Map<string, string[]>} */
   const links = new Map();
+  const lines = talentLuaSource.split("\n");
 
-  for (const block of blocks) {
-    const parsed = block.parsed;
-    if (!parsed || typeof parsed !== "object") continue;
+  // Phase 1: Find the talents block start.
+  // Match `talents = {` but NOT `archetype_talents = {` or `local archetype_talents = {`.
+  // Accept either `\ttalents = {` (nested inside archetype_talents) or
+  // `archetype_talents.talents = {` (dot-access assignment).
+  let talentsLineIdx = -1;
+  for (let i = 0; i < lines.length; i++) {
+    const trimmed = lines[i].trim();
+    // Direct key: `talents = {` (at some indentation)
+    if (/^\s+talents\s*=\s*\{/.test(lines[i])) {
+      talentsLineIdx = i;
+      break;
+    }
+    // Dot-access: `archetype_talents.talents = {`
+    if (/\w+\.talents\s*=\s*\{/.test(trimmed)) {
+      talentsLineIdx = i;
+      break;
+    }
+  }
+  if (talentsLineIdx === -1) return links;
 
-    const passive = parsed.passive;
-    if (!passive || typeof passive !== "object") continue;
+  // Phase 2: Determine the talent-level indent by finding the first key after `talents = {`
+  let talentIndent = -1;
+  for (let i = talentsLineIdx + 1; i < lines.length; i++) {
+    const m = lines[i].match(/^(\t+)(\w+)\s*=\s*\{/);
+    if (m) {
+      talentIndent = m[1].length;
+      break;
+    }
+    // Skip blank lines and non-key lines
+    if (lines[i].trim() && !lines[i].trim().startsWith("--")) break;
+  }
+  if (talentIndent === -1) return links;
 
-    const buffName = passive.buff_template_name;
-    if (buffName === undefined || buffName === null) continue;
+  // Phase 3: Track current talent name and passive blocks
+  let currentTalent = null;
+  let insidePassive = false;
+  let passiveDepth = 0;
+  let insidePassiveBuffArray = false;
+  let buffArrayDepth = 0;
+  let buffArrayNames = [];
 
-    if (typeof buffName === "string") {
-      links.set(block.name, [buffName]);
-    } else if (Array.isArray(buffName)) {
-      links.set(block.name, buffName);
+  for (let i = talentsLineIdx; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+
+    // Detect talent-level keys at the determined indent
+    const talentMatch = line.match(/^(\t+)(\w+)\s*=\s*\{/);
+    if (talentMatch && !insidePassive) {
+      const indent = talentMatch[1].length;
+      if (indent === talentIndent) {
+        currentTalent = talentMatch[2];
+      }
+    }
+
+    // Detect passive block start
+    if (currentTalent && !insidePassive && /^\s*passive\s*=\s*\{/.test(line)) {
+      insidePassive = true;
+      passiveDepth = 0;
+      // Count braces on this line
+      for (const ch of trimmed) {
+        if (ch === "{") passiveDepth++;
+        if (ch === "}") passiveDepth--;
+      }
+      // Check for single-line passive
+      if (passiveDepth === 0) {
+        // Single-line passive — extract inline
+        const m = trimmed.match(/buff_template_name\s*=\s*"([^"]+)"/);
+        if (m) {
+          const existing = links.get(currentTalent) || [];
+          if (!existing.includes(m[1])) existing.push(m[1]);
+          links.set(currentTalent, existing);
+        }
+        insidePassive = false;
+      }
+      continue;
+    }
+
+    // Inside a passive block
+    if (insidePassive) {
+      // Track brace depth
+      for (const ch of trimmed) {
+        if (ch === "{") passiveDepth++;
+        if (ch === "}") passiveDepth--;
+      }
+
+      // Handle buff_template_name array across lines
+      if (insidePassiveBuffArray) {
+        const inlineNames = trimmed.match(/"([^"]+)"/g);
+        if (inlineNames) {
+          for (const n of inlineNames) {
+            buffArrayNames.push(n.replace(/"/g, ""));
+          }
+        }
+        // Check if array closed
+        let arrDepth = buffArrayDepth;
+        for (const ch of trimmed) {
+          if (ch === "{") arrDepth++;
+          if (ch === "}") arrDepth--;
+        }
+        buffArrayDepth = arrDepth;
+        if (arrDepth <= 0) {
+          insidePassiveBuffArray = false;
+          const existing = links.get(currentTalent) || [];
+          for (const n of buffArrayNames) {
+            if (!existing.includes(n)) existing.push(n);
+          }
+          if (existing.length > 0) links.set(currentTalent, existing);
+          buffArrayNames = [];
+        }
+        if (passiveDepth <= 0) insidePassive = false;
+        continue;
+      }
+
+      // Single string: buff_template_name = "name"
+      const singleMatch = trimmed.match(/^buff_template_name\s*=\s*"([^"]+)"/);
+      if (singleMatch) {
+        const existing = links.get(currentTalent) || [];
+        if (!existing.includes(singleMatch[1])) {
+          existing.push(singleMatch[1]);
+        }
+        links.set(currentTalent, existing);
+      }
+
+      // Array start: buff_template_name = {
+      const arrayMatch = trimmed.match(/^buff_template_name\s*=\s*\{/);
+      if (arrayMatch) {
+        insidePassiveBuffArray = true;
+        buffArrayDepth = 0;
+        buffArrayNames = [];
+        for (const ch of trimmed) {
+          if (ch === "{") buffArrayDepth++;
+          if (ch === "}") buffArrayDepth--;
+        }
+        // Collect any names on this line
+        const inlineNames = trimmed.match(/"([^"]+)"/g);
+        if (inlineNames) {
+          for (const n of inlineNames) {
+            buffArrayNames.push(n.replace(/"/g, ""));
+          }
+        }
+        // Check if array closed on same line
+        if (buffArrayDepth <= 0) {
+          insidePassiveBuffArray = false;
+          const existing = links.get(currentTalent) || [];
+          for (const n of buffArrayNames) {
+            if (!existing.includes(n)) existing.push(n);
+          }
+          if (existing.length > 0) links.set(currentTalent, existing);
+          buffArrayNames = [];
+        }
+      }
+
+      if (passiveDepth <= 0) {
+        insidePassive = false;
+      }
     }
   }
 

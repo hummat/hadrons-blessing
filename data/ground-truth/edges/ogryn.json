@@ -3733,5 +3733,1145 @@
     },
     "calc": {},
     "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.base_toughness_node_buff_low_2--grants_buff--ogryn.buff.player_toughness_node_buff_low_2",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.base_toughness_node_buff_low_2",
+    "to_entity_id": "ogryn.buff.player_toughness_node_buff_low_2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.base_toughness_damage_reduction_node_buff_low_5--grants_buff--ogryn.buff.player_toughness_damage_reduction_node_buff_low_5",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.base_toughness_damage_reduction_node_buff_low_5",
+    "to_entity_id": "ogryn.buff.player_toughness_damage_reduction_node_buff_low_5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.base_melee_damage_node_buff_medium_2--grants_buff--ogryn.buff.player_melee_damage_node_buff_medium_2",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.base_melee_damage_node_buff_medium_2",
+    "to_entity_id": "ogryn.buff.player_melee_damage_node_buff_medium_2",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.base_armor_pen_node_buff_low_1--grants_buff--ogryn.buff.player_armor_pen_node_buff_low_1",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.base_armor_pen_node_buff_low_1",
+    "to_entity_id": "ogryn.buff.player_armor_pen_node_buff_low_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.base_reload_speed_node_buff_low_1--grants_buff--ogryn.buff.player_reload_speed_node_buff_low_1",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.base_reload_speed_node_buff_low_1",
+    "to_entity_id": "ogryn.buff.player_reload_speed_node_buff_low_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_taunt_staggers_reduce_cooldown--grants_buff--ogryn.buff.ogryn_taunt_staggers_reduce_cooldown",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_taunt_staggers_reduce_cooldown",
+    "to_entity_id": "ogryn.buff.ogryn_taunt_staggers_reduce_cooldown",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.ability.ogryn_grenade_friend_rock--grants_buff--ogryn.buff.ogryn_friend_grenade_replenishment",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.ability.ogryn_grenade_friend_rock",
+    "to_entity_id": "ogryn.buff.ogryn_friend_grenade_replenishment",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.ability.ogryn_grenade_frag--grants_buff--ogryn.buff.ogryn_frag_grenade_thrown",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.ability.ogryn_grenade_frag",
+    "to_entity_id": "ogryn.buff.ogryn_frag_grenade_thrown",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.keystone.ogryn_leadbelcher_no_ammo_chance--grants_buff--ogryn.buff.ogryn_leadbelcher_aura_tracking_buff",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.keystone.ogryn_leadbelcher_no_ammo_chance",
+    "to_entity_id": "ogryn.buff.ogryn_leadbelcher_aura_tracking_buff",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.keystone.ogryn_leadbelcher_no_ammo_chance--grants_buff--ogryn.buff.ogryn_blo_new_passive",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.keystone.ogryn_leadbelcher_no_ammo_chance",
+    "to_entity_id": "ogryn.buff.ogryn_blo_new_passive",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_leadbelcher_cooldown_reduction--grants_buff--ogryn.buff.ogryn_passive_proc_combat_ability_cooldown_reduction",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_leadbelcher_cooldown_reduction",
+    "to_entity_id": "ogryn.buff.ogryn_passive_proc_combat_ability_cooldown_reduction",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.keystone.ogryn_passive_heavy_hitter--grants_buff--ogryn.buff.ogryn_passive_heavy_hitter",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.keystone.ogryn_passive_heavy_hitter",
+    "to_entity_id": "ogryn.buff.ogryn_passive_heavy_hitter",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.aura.ogryn_damage_vs_suppressed_coherency--grants_buff--ogryn.buff.ogryn_suppression_increase",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.aura.ogryn_damage_vs_suppressed_coherency",
+    "to_entity_id": "ogryn.buff.ogryn_suppression_increase",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_movement_speed_after_ranged_kills--grants_buff--ogryn.buff.ogryn_movement_speed_on_ranged_kill",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_movement_speed_after_ranged_kills",
+    "to_entity_id": "ogryn.buff.ogryn_movement_speed_on_ranged_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_toughness_while_bracing--grants_buff--ogryn.buff.ogryn_regen_toughness_on_braced",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_toughness_while_bracing",
+    "to_entity_id": "ogryn.buff.ogryn_regen_toughness_on_braced",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_increased_coherency_toughness--grants_buff--ogryn.buff.ogryn_increased_coherency_regen",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_increased_coherency_toughness",
+    "to_entity_id": "ogryn.buff.ogryn_increased_coherency_regen",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_single_heavy_toughness--grants_buff--ogryn.buff.ogryn_heavy_hits_toughness",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_single_heavy_toughness",
+    "to_entity_id": "ogryn.buff.ogryn_heavy_hits_toughness",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_multi_heavy_toughness--grants_buff--ogryn.buff.ogryn_multiple_enemy_heavy_hits_restore_toughness",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_multi_heavy_toughness",
+    "to_entity_id": "ogryn.buff.ogryn_multiple_enemy_heavy_hits_restore_toughness",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_nearby_bleeds_reduce_damage_taken--grants_buff--ogryn.buff.ogryn_reduce_damage_taken_per_bleed",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_nearby_bleeds_reduce_damage_taken",
+    "to_entity_id": "ogryn.buff.ogryn_reduce_damage_taken_per_bleed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_knocked_allies_grant_damage_reduction--grants_buff--ogryn.buff.ogryn_reduce_damage_taken_on_disabled_allies",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_knocked_allies_grant_damage_reduction",
+    "to_entity_id": "ogryn.buff.ogryn_reduce_damage_taken_on_disabled_allies",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_toughness_on_low_health--grants_buff--ogryn.buff.ogryn_increased_toughness_at_low_health",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_toughness_on_low_health",
+    "to_entity_id": "ogryn.buff.ogryn_increased_toughness_at_low_health",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_windup_reduces_damage_taken--grants_buff--ogryn.buff.ogryn_windup_reduces_damage_taken",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_windup_reduces_damage_taken",
+    "to_entity_id": "ogryn.buff.ogryn_windup_reduces_damage_taken",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_windup_is_uninterruptible--grants_buff--ogryn.buff.ogryn_windup_is_uninterruptible",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_windup_is_uninterruptible",
+    "to_entity_id": "ogryn.buff.ogryn_windup_is_uninterruptible",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_bracing_reduces_damage_taken--grants_buff--ogryn.buff.ogryn_bracing_reduces_damage_taken",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_bracing_reduces_damage_taken",
+    "to_entity_id": "ogryn.buff.ogryn_bracing_reduces_damage_taken",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_kills_grant_crit_chance--grants_buff--ogryn.buff.ogryn_crit_chance_on_kill",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_kills_grant_crit_chance",
+    "to_entity_id": "ogryn.buff.ogryn_crit_chance_on_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_blocking_ranged_taunts--grants_buff--ogryn.buff.ogryn_blocking_ranged_taunts",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_blocking_ranged_taunts",
+    "to_entity_id": "ogryn.buff.ogryn_blocking_ranged_taunts",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_multi_hits_grant_reload_speed--grants_buff--ogryn.buff.ogryn_increased_reload_speed_on_multiple_hits",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_multi_hits_grant_reload_speed",
+    "to_entity_id": "ogryn.buff.ogryn_increased_reload_speed_on_multiple_hits",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_reloading_grants_damage--grants_buff--ogryn.buff.ogryn_increased_damage_after_reload",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_reloading_grants_damage",
+    "to_entity_id": "ogryn.buff.ogryn_increased_damage_after_reload",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_melee_stagger--grants_buff--ogryn.buff.ogryn_passive_stagger",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_melee_stagger",
+    "to_entity_id": "ogryn.buff.ogryn_passive_stagger",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_increased_ammo_reserve--grants_buff--ogryn.buff.ogryn_increased_ammo_reserve_passive",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_increased_ammo_reserve",
+    "to_entity_id": "ogryn.buff.ogryn_increased_ammo_reserve_passive",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_ogryn_killer--grants_buff--ogryn.buff.ogryn_better_ogryn_fighting",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_ogryn_killer",
+    "to_entity_id": "ogryn.buff.ogryn_better_ogryn_fighting",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_heavy_bleeds--grants_buff--ogryn.buff.ogryn_heavy_attacks_bleed",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_heavy_bleeds",
+    "to_entity_id": "ogryn.buff.ogryn_heavy_attacks_bleed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_revenge_damage--grants_buff--ogryn.buff.ogryn_melee_revenge_damage",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_revenge_damage",
+    "to_entity_id": "ogryn.buff.ogryn_melee_revenge_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_staggering_increases_damage--grants_buff--ogryn.buff.ogryn_staggering_increases_damage_taken",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_staggering_increases_damage",
+    "to_entity_id": "ogryn.buff.ogryn_staggering_increases_damage_taken",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_more_hits_more_damage--grants_buff--ogryn.buff.ogryn_hitting_multiple_with_melee_grants_melee_damage_bonus",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_more_hits_more_damage",
+    "to_entity_id": "ogryn.buff.ogryn_hitting_multiple_with_melee_grants_melee_damage_bonus",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_rending_on_elite_kills--grants_buff--ogryn.buff.ogryn_rending_on_elite_kills",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_rending_on_elite_kills",
+    "to_entity_id": "ogryn.buff.ogryn_rending_on_elite_kills",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_coherency_radius_increase--grants_buff--ogryn.buff.ogryn_bigger_coherency_radius",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_coherency_radius_increase",
+    "to_entity_id": "ogryn.buff.ogryn_bigger_coherency_radius",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_ally_movement_boost_on_ability--grants_buff--ogryn.buff.ogryn_charge_grants_allied_movement_speed",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_ally_movement_boost_on_ability",
+    "to_entity_id": "ogryn.buff.ogryn_charge_grants_allied_movement_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown--grants_buff--ogryn.buff.ogryn_cooldown_on_elite_kills_by_coherence",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown",
+    "to_entity_id": "ogryn.buff.ogryn_cooldown_on_elite_kills_by_coherence",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_charge_applies_bleed--grants_buff--ogryn.buff.ogryn_charge_bleed",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_charge_applies_bleed",
+    "to_entity_id": "ogryn.buff.ogryn_charge_bleed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_charge_toughness--grants_buff--ogryn.buff.ogryn_bull_rush_hits_replenish_toughness",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_charge_toughness",
+    "to_entity_id": "ogryn.buff.ogryn_bull_rush_hits_replenish_toughness",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_charge_trample--grants_buff--ogryn.buff.ogryn_charge_trample",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_charge_trample",
+    "to_entity_id": "ogryn.buff.ogryn_charge_trample",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.keystone.ogryn_carapace_armor--grants_buff--ogryn.buff.ogryn_carapace_armor_parent",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.keystone.ogryn_carapace_armor",
+    "to_entity_id": "ogryn.buff.ogryn_carapace_armor_parent",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_targets_recieve_damage_taken_increase_debuff--grants_buff--ogryn.buff.ogryn_targets_recieve_damage_taken_increase_debuff",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_targets_recieve_damage_taken_increase_debuff",
+    "to_entity_id": "ogryn.buff.ogryn_targets_recieve_damage_taken_increase_debuff",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_increase_explosion_radius--grants_buff--ogryn.buff.ogryn_increase_explosion_radius",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_increase_explosion_radius",
+    "to_entity_id": "ogryn.buff.ogryn_increase_explosion_radius",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_blocking_reduces_push_cost--grants_buff--ogryn.buff.ogryn_empowered_push",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_blocking_reduces_push_cost",
+    "to_entity_id": "ogryn.buff.ogryn_empowered_push",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_fully_charged_attacks_gain_damage_and_stagger--grants_buff--ogryn.buff.ogryn_windup_increases_power_parent",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_fully_charged_attacks_gain_damage_and_stagger",
+    "to_entity_id": "ogryn.buff.ogryn_windup_increases_power_parent",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_replenish_rock_on_miss--grants_buff--ogryn.buff.ogryn_replenish_rock_on_miss",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_replenish_rock_on_miss",
+    "to_entity_id": "ogryn.buff.ogryn_replenish_rock_on_miss",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_melee_attacks_give_mtdr--grants_buff--ogryn.buff.ogryn_melee_attacks_give_mtdr",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_melee_attacks_give_mtdr",
+    "to_entity_id": "ogryn.buff.ogryn_melee_attacks_give_mtdr",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_damage_reduction_after_elite_kill--grants_buff--ogryn.buff.ogryn_damage_reduction_after_elite_kill",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_damage_reduction_after_elite_kill",
+    "to_entity_id": "ogryn.buff.ogryn_damage_reduction_after_elite_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_stacking_attack_speed--grants_buff--ogryn.buff.ogryn_stacking_attack_speed",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_stacking_attack_speed",
+    "to_entity_id": "ogryn.buff.ogryn_stacking_attack_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_explosions_burn--grants_buff--ogryn.buff.ogryn_explosions_burn",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_explosions_burn",
+    "to_entity_id": "ogryn.buff.ogryn_explosions_burn",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_damage_reduction_on_high_stamina--grants_buff--ogryn.buff.ogryn_damage_reduction_on_high_stamina",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
+    "to_entity_id": "ogryn.buff.ogryn_damage_reduction_on_high_stamina",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_melee_damage_after_heavy--grants_buff--ogryn.buff.ogryn_melee_damage_after_heavy",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_melee_damage_after_heavy",
+    "to_entity_id": "ogryn.buff.ogryn_melee_damage_after_heavy",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_protect_allies--grants_buff--ogryn.buff.ogryn_protect_allies",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_protect_allies",
+    "to_entity_id": "ogryn.buff.ogryn_protect_allies",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_protect_allies--grants_buff--ogryn.buff.ogryn_protect_allies_toughness_broken",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_protect_allies",
+    "to_entity_id": "ogryn.buff.ogryn_protect_allies_toughness_broken",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_corruption_resistance--grants_buff--ogryn.buff.ogryn_corruption_resistance",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_corruption_resistance",
+    "to_entity_id": "ogryn.buff.ogryn_corruption_resistance",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_reload_speed_on_empty--grants_buff--ogryn.buff.ogryn_reload_speed_on_empty",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_reload_speed_on_empty",
+    "to_entity_id": "ogryn.buff.ogryn_reload_speed_on_empty",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_ranged_damage_immunity--grants_buff--ogryn.buff.ogryn_ranged_damage_immunity",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_ranged_damage_immunity",
+    "to_entity_id": "ogryn.buff.ogryn_ranged_damage_immunity",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_heavy_hitter_tdr--grants_buff--ogryn.buff.ogryn_heavy_hitter_tdr",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_tdr",
+    "to_entity_id": "ogryn.buff.ogryn_heavy_hitter_tdr",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_heavy_hitter_cleave--grants_buff--ogryn.buff.ogryn_heavy_hitter_cleave",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_cleave",
+    "to_entity_id": "ogryn.buff.ogryn_heavy_hitter_cleave",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_heavy_hitter_stagger--grants_buff--ogryn.buff.ogryn_heavy_hitter_stagger",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_stagger",
+    "to_entity_id": "ogryn.buff.ogryn_heavy_hitter_stagger",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_blo_melee--grants_buff--ogryn.buff.ogryn_blo_melee",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_blo_melee",
+    "to_entity_id": "ogryn.buff.ogryn_blo_melee",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_pushing_applies_brittleness--grants_buff--ogryn.buff.ogryn_pushing_applies_brittleness",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_pushing_applies_brittleness",
+    "to_entity_id": "ogryn.buff.ogryn_pushing_applies_brittleness",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_block_all_attacks--grants_buff--ogryn.buff.ogryn_block_all_attacks_perfect",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_block_all_attacks",
+    "to_entity_id": "ogryn.buff.ogryn_block_all_attacks_perfect",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_taunt_restore_toughness--grants_buff--ogryn.buff.ogryn_taunt_restore_toughness",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_taunt_restore_toughness",
+    "to_entity_id": "ogryn.buff.ogryn_taunt_restore_toughness",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_wield_speed_increase--grants_buff--ogryn.buff.ogryn_wield_speed_increase",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_wield_speed_increase",
+    "to_entity_id": "ogryn.buff.ogryn_wield_speed_increase",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_melee_improves_ranged--grants_buff--ogryn.buff.ogryn_melee_improves_ranged",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_melee_improves_ranged",
+    "to_entity_id": "ogryn.buff.ogryn_melee_improves_ranged",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_ranged_improves_melee--grants_buff--ogryn.buff.ogryn_ranged_improves_melee",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_ranged_improves_melee",
+    "to_entity_id": "ogryn.buff.ogryn_ranged_improves_melee",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_drain_stamina_for_handling--grants_buff--ogryn.buff.ogryn_drain_stamina_for_handling",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_drain_stamina_for_handling",
+    "to_entity_id": "ogryn.buff.ogryn_drain_stamina_for_handling",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_weakspot_damage--grants_buff--ogryn.buff.ogryn_weakspot_damage",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_weakspot_damage",
+    "to_entity_id": "ogryn.buff.ogryn_weakspot_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_big_box_of_hurt_more_bombs--grants_buff--ogryn.buff.ogryn_big_box_of_hurt_more_bombs",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_big_box_of_hurt_more_bombs",
+    "to_entity_id": "ogryn.buff.ogryn_big_box_of_hurt_more_bombs",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_blo_wield_speed--grants_buff--ogryn.buff.ogryn_blo_fire_rate",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_blo_wield_speed",
+    "to_entity_id": "ogryn.buff.ogryn_blo_fire_rate",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr--grants_buff--ogryn.buff.ogryn_damage_taken_by_all_increases_strength_tdr",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
+    "to_entity_id": "ogryn.buff.ogryn_damage_taken_by_all_increases_strength_tdr",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent_modifier.ogryn_blo_ally_ranged_buffs--grants_buff--ogryn.buff.ogryn_blo_ally_ranged_buffs",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent_modifier.ogryn_blo_ally_ranged_buffs",
+    "to_entity_id": "ogryn.buff.ogryn_blo_ally_ranged_buffs",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "ogryn.talent.ogryn_crit_damage_increase--grants_buff--ogryn.buff.ogryn_crit_damage_increase",
+    "type": "grants_buff",
+    "from_entity_id": "ogryn.talent.ogryn_crit_damage_increase",
+    "to_entity_id": "ogryn.buff.ogryn_crit_damage_increase",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
   }
 ]

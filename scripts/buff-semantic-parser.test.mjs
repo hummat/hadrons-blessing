@@ -256,13 +256,19 @@ describe("resolveTemplateChain", () => {
 describe("extractTalentBuffLinks", () => {
   it("extracts single buff_template_name", () => {
     const talentLua = `
-local talents = {}
-talents.my_talent = {
-  passive = {
-    buff_template_name = "my_talent_buff",
-  },
+local archetype_talents = {
+\tarchetype = "test",
+\ttalents = {
+\t\tmy_talent = {
+\t\t\tdescription = "test",
+\t\t\tpassive = {
+\t\t\t\tbuff_template_name = "my_talent_buff",
+\t\t\t\tidentifier = "my_talent",
+\t\t\t},
+\t\t},
+\t},
 }
-return talents
+return archetype_talents
 `;
     const links = extractTalentBuffLinks(talentLua);
     assert.deepEqual(links.get("my_talent"), ["my_talent_buff"]);
@@ -270,13 +276,18 @@ return talents
 
   it("extracts array buff_template_name", () => {
     const talentLua = `
-local talents = {}
-talents.multi_talent = {
-  passive = {
-    buff_template_name = { "buff_a", "buff_b", "buff_c" },
-  },
+local archetype_talents = {
+\tarchetype = "test",
+\ttalents = {
+\t\tmulti_talent = {
+\t\t\tdescription = "test",
+\t\t\tpassive = {
+\t\t\t\tbuff_template_name = { "buff_a", "buff_b", "buff_c" },
+\t\t\t},
+\t\t},
+\t},
 }
-return talents
+return archetype_talents
 `;
     const links = extractTalentBuffLinks(talentLua);
     assert.deepEqual(links.get("multi_talent"), ["buff_a", "buff_b", "buff_c"]);
@@ -284,13 +295,18 @@ return talents
 
   it("skips talents without passive.buff_template_name", () => {
     const talentLua = `
-local talents = {}
-talents.no_buff = {
-  passive = {
-    identifier = "just_passive",
-  },
+local archetype_talents = {
+\tarchetype = "test",
+\ttalents = {
+\t\tno_buff = {
+\t\t\tdescription = "test",
+\t\t\tpassive = {
+\t\t\t\tidentifier = "just_passive",
+\t\t\t},
+\t\t},
+\t},
 }
-return talents
+return archetype_talents
 `;
     const links = extractTalentBuffLinks(talentLua);
     assert.equal(links.has("no_buff"), false);

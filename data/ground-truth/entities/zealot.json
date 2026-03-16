@@ -63,7 +63,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_flame_grenade_thrown"
+      ]
+    }
   },
   {
     "id": "zealot.ability.zealot_improved_stun_grenade",
@@ -85,7 +89,24 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "explosion_radius_modifier_shock",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_improved_stun_grenade"
+      ]
+    }
   },
   {
     "id": "zealot.ability.zealot_stealth",
@@ -129,7 +150,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_passive_replenish_throwing_knives_from_melee_kills"
+      ]
+    }
   },
   {
     "id": "zealot.aura.zealot_corruption_healing_coherency_improved",
@@ -200,7 +225,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_improved_toughness_on_aura_tracking_buff"
+      ]
+    }
   },
   {
     "id": "zealot.keystone.zealot_fanatic_rage",
@@ -222,7 +251,24 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.75,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_fanatic_rage"
+      ]
+    }
   },
   {
     "id": "zealot.keystone.zealot_martyrdom",
@@ -244,7 +290,24 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": null,
+          "magnitude_expr": "martyrdom_max_stacks * martyrdom_damage_step",
+          "magnitude_min": 0,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "zealot_passive_buff",
+      "buff_template_names": [
+        "zealot_martyrdom_base"
+      ]
+    }
   },
   {
     "id": "zealot.keystone.zealot_quickness_passive",
@@ -266,7 +329,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_quickness_passive"
+      ]
+    }
   },
   {
     "id": "zealot.talent_modifier.zealot_additional_charge_of_ability",
@@ -310,7 +377,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_combat_ability_weakspot_backstab_hit_cooldown"
+      ]
+    }
   },
   {
     "id": "zealot.talent_modifier.zealot_channel_grants_damage",
@@ -386,7 +457,24 @@
       "tree_widget_name": "node_ccd0b423-3a44-4f74-8339-7c7b65ba2d63",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "corruption_taken_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "martyrdom_max_stacks * corruption_taken_multiplier_per_stack",
+          "magnitude_min": 1,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_corruption_resistance_stacking"
+      ]
+    }
   },
   {
     "id": "zealot.talent_modifier.zealot_crits_grant_cd",
@@ -408,7 +496,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_combat_ability_crits_reduce_cooldown"
+      ]
+    }
   },
   {
     "id": "zealot.talent_modifier.zealot_fanatic_rage_improved",
@@ -540,7 +632,25 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_attack_speed",
+          "magnitude": null,
+          "magnitude_expr": "martyrdom_max_stacks * attack_speed",
+          "magnitude_min": 0,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "zealot_martyrdom_attack_speed"
+      ]
+    }
   },
   {
     "id": "zealot.talent_modifier.zealot_martyrdom_grants_toughness",
@@ -562,7 +672,25 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_modifier",
+          "magnitude": null,
+          "magnitude_expr": "toughness_reduction_per_stack * martyrdom_max_stacks",
+          "magnitude_min": 0,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "zealot_martyrdom_toughness"
+      ]
+    }
   },
   {
     "id": "zealot.talent_modifier.zealot_martyrdom_toughness_modifier",
@@ -584,7 +712,25 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_replenish_modifier",
+          "magnitude": null,
+          "magnitude_expr": "toughness_modifier_per_stack * martyrdom_max_stacks",
+          "magnitude_min": 0,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "zealot_martyrdom_toughness_modifier"
+      ]
+    }
   },
   {
     "id": "zealot.talent_modifier.zealot_momentum_toughness_replenish",
@@ -682,7 +828,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_cooldown_based_on_health"
+      ]
+    }
   },
   {
     "id": "zealot.talent_modifier.zealot_shared_fanatic_rage",
@@ -731,7 +881,11 @@
       "tree_widget_name": "node_de287eb8-d0e5-46ab-98c2-d71496a3bd4a",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_stealth_cooldown_regeneration"
+      ]
+    }
   },
   {
     "id": "zealot.talent.base_melee_damage_node_buff_medium_1",
@@ -758,7 +912,24 @@
       "tree_widget_name": "node_ac2f3e1c-641a-4132-98f5-5e13c199a21a",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_melee_damage_node_buff_medium_1"
+      ]
+    }
   },
   {
     "id": "zealot.talent.base_melee_damage_node_buff_medium_4",
@@ -785,7 +956,24 @@
       "tree_widget_name": "node_cf60d947-e174-49d8-881d-79aaa602cc4d",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_melee_damage_node_buff_medium_4"
+      ]
+    }
   },
   {
     "id": "zealot.talent.base_movement_speed_node_buff_low_4",
@@ -812,7 +1000,24 @@
       "tree_widget_name": "node_94333107-ec28-44ca-b37e-2f714fc57ed5",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_movement_speed_node_buff_low_4"
+      ]
+    }
   },
   {
     "id": "zealot.talent.base_toughness_damage_reduction_node_buff_medium_1",
@@ -839,7 +1044,24 @@
       "tree_widget_name": "node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_modifier",
+          "magnitude": -0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_damage_reduction_node_buff_medium_1"
+      ]
+    }
   },
   {
     "id": "zealot.talent.base_toughness_node_buff_medium_2",
@@ -866,7 +1088,24 @@
       "tree_widget_name": "node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness",
+          "magnitude": 15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_medium_2"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_additional_wounds",
@@ -888,7 +1127,25 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "extra_max_amount_of_wounds",
+          "magnitude": 2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "zealot_preacher_more_segments"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_ally_damage_taken_reduced",
@@ -910,7 +1167,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_preacher_ally_defensive"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_attack_speed",
@@ -932,7 +1193,24 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_attack_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_increased_melee_attack_speed"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_backstab_damage",
@@ -954,7 +1232,38 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "backstab_damage",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "flanking_damage",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "keywords": [
+        "allow_backstabbing",
+        "allow_flanking"
+      ],
+      "buff_template_names": [
+        "zealot_backstab_damage"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_backstab_periodic_damage",
@@ -976,7 +1285,27 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "backstab_damage",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "active_and_unknown",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "keywords": [
+        "allow_backstabbing"
+      ],
+      "buff_template_names": [
+        "zealot_backstab_periodic_damage"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_bled_enemies_take_more_damage",
@@ -998,7 +1327,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_bled_enemies_take_more_damage"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_block_dodging_synergy",
@@ -1025,7 +1358,11 @@
       "tree_widget_name": "node_2a5c7e89-6bfb-4394-ad08-a7aa014c2cc5",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_block_dodging_synergy"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_crits_apply_bleed",
@@ -1047,7 +1384,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_bleeding_crits"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_crits_reduce_toughness_damage",
@@ -1069,7 +1410,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_reduced_toughness_damage_taken_on_critical_strike_hits"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_damage_boosts_movement",
@@ -1091,7 +1436,29 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_damage_taken",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "keywords": [
+        "slowdown_immune",
+        "stun_immune"
+      ],
+      "buff_template_names": [
+        "zealot_movement_enhanced"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_damage_vs_elites",
@@ -1113,7 +1480,24 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_vs_elites",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_damage_vs_elites"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_damage_vs_nonthreat",
@@ -1135,7 +1519,24 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_vs_nonthreat",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_damage_vs_nonthreat"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_defensive_knockback",
@@ -1157,7 +1558,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_preacher_push_on_hit"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_elite_kills_empowers",
@@ -1179,7 +1584,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_elite_kills_empowers"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_heal_part_of_damage_taken",
@@ -1201,7 +1610,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_recuperate_a_portion_of_damage_taken"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_hits_grant_stacking_damage",
@@ -1223,7 +1636,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_stacking_melee_damage"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_improved_weapon_handling_after_dodge",
@@ -1245,7 +1662,36 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "spread_modifier",
+          "magnitude": -0.75,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_successful_dodge",
+          "type": "proc_stat_buff"
+        },
+        {
+          "stat": "recoil_modifier",
+          "magnitude": -0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_successful_dodge",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "active_duration": 3,
+      "buff_template_names": [
+        "zealot_improved_weapon_handling_after_dodge"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_increase_ranged_close_damage",
@@ -1267,7 +1713,24 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_near",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "slot_secondary",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_close_ranged_damage"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
@@ -1289,7 +1752,25 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "finesse_modifier_bonus",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_successful_dodge",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": 3,
+      "buff_template_names": [
+        "zealot_critstrike_damage_on_dodge"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_increased_damage_vs_resilient",
@@ -1311,7 +1792,37 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "disgustingly_resilient_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "resistant_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "keywords": [
+        "zealot_toughness"
+      ],
+      "buff_template_names": [
+        "zealot_preacher_damage_vs_disgusting"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_increased_stagger_on_weakspot_melee",
@@ -1338,7 +1849,24 @@
       "tree_widget_name": "node_2aa8cb10-8d27-4716-b001-85aa3bf9cc41",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_weakspot_impact_modifier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_pious_stabguy_increased_weaskpot_impact"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_melee_crits_restore_stamina",
@@ -1365,7 +1893,11 @@
       "tree_widget_name": "node_5832cbce-960a-4303-b772-3f8813fde6d0",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_melee_crits_restore_stamina"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_more_damage_when_low_on_stamina",
@@ -1392,7 +1924,24 @@
       "tree_widget_name": "node_cb819666-6781-499a-bb33-9a43ed61b4b3",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.zealot_more_damage_when_low_on_stamina.melee_damage",
+          "magnitude_min": 0,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_more_power_when_low_on_stamina"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_more_toughness_on_melee",
@@ -1414,7 +1963,24 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_melee_replenish",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_increased_toughness_recovery_from_kills"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_multi_hits_grant_impact_and_uninterruptible",
@@ -1441,7 +2007,11 @@
       "tree_widget_name": "node_6ab8617d-6ddd-4d56-a6c3-7ead4e4f1648",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_multi_hits_increase_impact"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_multi_hits_increase_damage",
@@ -1463,7 +2033,24 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings_3.offensive_1.melee_damage * talent_settings_3.offensive_1.max_stacks",
+          "magnitude_min": 0,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_preacher_melee_increase_next_melee_proc"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_offensive_vs_many",
@@ -1485,7 +2072,34 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": null,
+          "magnitude_expr": "zealot_offensive_vs_many_max_stack * talent_settings.zealot_offensive_vs_many.damage",
+          "magnitude_min": 0,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        },
+        {
+          "stat": "max_hit_mass_attack_modifier",
+          "magnitude": null,
+          "magnitude_expr": "zealot_offensive_vs_many_max_stack * talent_settings.zealot_offensive_vs_many.cleave",
+          "magnitude_min": 0,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_offensive_vs_many"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_push_attacks_attack_speed",
@@ -1512,7 +2126,25 @@
       "tree_widget_name": "node_e6beb408-b6d9-4b1b-b30c-91e9a92d0590",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_attack_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "zealot_push_attacks_attack_speed"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_reduced_damage_after_dodge",
@@ -1534,7 +2166,25 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 0.75,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_successful_dodge",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": 2.5,
+      "buff_template_names": [
+        "zealot_damage_reduction_after_dodge"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_reduced_damage_on_wound",
@@ -1556,7 +2206,28 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "health_segment_damage_taken_multiplier",
+          "magnitude": 0.6,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "keywords": [
+        "health_segment_breaking_reduce_damage_taken"
+      ],
+      "buff_template_names": [
+        "zealot_preacher_segment_breaking_half_damage"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_reload_from_backstab",
@@ -1583,7 +2254,11 @@
       "tree_widget_name": "node_d98a3747-d645-472e-8188-38903a86cf0e",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_reload_from_backstab"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_resist_death",
@@ -1605,7 +2280,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_resist_death"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_resist_death_healing",
@@ -1627,7 +2306,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_resist_death_improved_with_leech"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_revive_speed",
@@ -1649,7 +2332,24 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "revive_speed_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_revive_speed"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_sprint_improvements",
@@ -1676,7 +2376,34 @@
       "tree_widget_name": "node_72f07a65-a83f-4264-99fe-6d3551d135e1",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "sprinting_cost_multiplier",
+          "magnitude": 0.9,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "sprint_movement_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_sprint_improvements"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_stacking_melee_damage_after_dodge",
@@ -1698,7 +2425,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_stacking_melee_damage_after_dodge"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_stamina_on_block_break",
@@ -1725,7 +2456,11 @@
       "tree_widget_name": "node_d80353e9-c157-4d7d-b736-33b0666def5e",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_stamina_on_block_break"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_suppress_on_backstab_kill",
@@ -1752,7 +2487,11 @@
       "tree_widget_name": "node_09a97b15-e79d-4953-a189-f24beac4a40d",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_suppress_on_backstab_kill"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_toughness_in_melee",
@@ -1774,7 +2513,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_toughness_regen_in_melee"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_toughness_on_dodge",
@@ -1796,7 +2539,11 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_toughness_on_dodge"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_toughness_on_heavy_kills",
@@ -1823,7 +2570,11 @@
       "tree_widget_name": "node_b71544c5-61d9-4c06-8de3-0b834357c0c9",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_toughness_on_heavy_kills"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_toughness_on_ranged_kill",
@@ -1850,7 +2601,11 @@
       "tree_widget_name": "node_b5ef81ae-d72f-4e83-8fd4-077fad7f6fe0",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_toughness_on_ranged_kill"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_uninterruptible_no_slow_heavies",
@@ -1877,7 +2632,24 @@
       "tree_widget_name": "node_4afa8c9e-b961-4078-8231-963c3c9cbeab",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "weapon_action_movespeed_reduction_multiplier",
+          "magnitude": 0,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_uninterruptible_no_slow_heavies"
+      ]
+    }
   },
   {
     "id": "zealot.talent.zealot_weakspot_damage_reduction",
@@ -1899,6 +2671,10 @@
     ],
     "source_snapshot_id": "darktide-source.dbe7035",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "zealot_weakspot_damage_reduction"
+      ]
+    }
   }
 ]

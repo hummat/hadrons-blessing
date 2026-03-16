@@ -3823,5 +3823,995 @@
     },
     "calc": {},
     "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.base_toughness_node_buff_medium_4--grants_buff--psyker.buff.player_toughness_node_buff_medium_4",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.base_toughness_node_buff_medium_4",
+    "to_entity_id": "psyker.buff.player_toughness_node_buff_medium_4",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.base_toughness_node_buff_medium_5--grants_buff--psyker.buff.player_toughness_node_buff_medium_5",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.base_toughness_node_buff_medium_5",
+    "to_entity_id": "psyker.buff.player_toughness_node_buff_medium_5",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.base_toughness_damage_reduction_node_buff_low_4--grants_buff--psyker.buff.player_toughness_damage_reduction_node_buff_low_4",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.base_toughness_damage_reduction_node_buff_low_4",
+    "to_entity_id": "psyker.buff.player_toughness_damage_reduction_node_buff_low_4",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.base_melee_damage_node_buff_medium_4--grants_buff--psyker.buff.player_melee_damage_node_buff_medium_4",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.base_melee_damage_node_buff_medium_4",
+    "to_entity_id": "psyker.buff.player_melee_damage_node_buff_medium_4",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.base_ranged_damage_node_buff_medium_4--grants_buff--psyker.buff.player_ranged_damage_node_buff_medium_4",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.base_ranged_damage_node_buff_medium_4",
+    "to_entity_id": "psyker.buff.player_ranged_damage_node_buff_medium_4",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.base_stamina_node_buff_low_1--grants_buff--psyker.buff.player_stamina_node_buff_low_1",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.base_stamina_node_buff_low_1",
+    "to_entity_id": "psyker.buff.player_stamina_node_buff_low_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.base_movement_speed_node_buff_low_1--grants_buff--psyker.buff.player_movement_speed_node_buff_low_1",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.base_movement_speed_node_buff_low_1",
+    "to_entity_id": "psyker.buff.player_movement_speed_node_buff_low_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.base_warp_charge_node_buff_medium_3--grants_buff--psyker.buff.player_warp_charge_node_buff_medium_3",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.base_warp_charge_node_buff_medium_3",
+    "to_entity_id": "psyker.buff.player_warp_charge_node_buff_medium_3",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.ability.psyker_combat_ability_stance--grants_buff--psyker.buff.psyker_overcharge_reduced_toughness_damage_taken",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.ability.psyker_combat_ability_stance",
+    "to_entity_id": "psyker.buff.psyker_overcharge_reduced_toughness_damage_taken",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.ability.psyker_grenade_throwing_knives--grants_buff--psyker.buff.psyker_knife_replenishment",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.ability.psyker_grenade_throwing_knives",
+    "to_entity_id": "psyker.buff.psyker_knife_replenishment",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.ability.psyker_grenade_chain_lightning--grants_buff--psyker.buff.psyker_kills_during_smite_tracking",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.ability.psyker_grenade_chain_lightning",
+    "to_entity_id": "psyker.buff.psyker_kills_during_smite_tracking",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.ability.psyker_grenade_chain_lightning--grants_buff--psyker.buff.psyker_increased_chain_lightning_size",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.ability.psyker_grenade_chain_lightning",
+    "to_entity_id": "psyker.buff.psyker_increased_chain_lightning_size",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.ability.psyker_brain_burst_improved--grants_buff--psyker.buff.psyker_brain_burst_improved",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.ability.psyker_brain_burst_improved",
+    "to_entity_id": "psyker.buff.psyker_brain_burst_improved",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_shout_reduces_warp_charge_generation--grants_buff--psyker.buff.psyker_shout_reduces_warp_generation",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_shout_reduces_warp_charge_generation",
+    "to_entity_id": "psyker.buff.psyker_shout_reduces_warp_generation",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.keystone.psyker_passive_souls_from_elite_kills--grants_buff--psyker.buff.psyker_souls_increase_damage",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.keystone.psyker_passive_souls_from_elite_kills",
+    "to_entity_id": "psyker.buff.psyker_souls_increase_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.keystone.psyker_passive_souls_from_elite_kills--grants_buff--psyker.buff.psyker_passive_souls_from_elite_kills",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.keystone.psyker_passive_souls_from_elite_kills",
+    "to_entity_id": "psyker.buff.psyker_passive_souls_from_elite_kills",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_chance_to_vent_on_kill--grants_buff--psyker.buff.psyker_chance_to_vent_on_kill",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_chance_to_vent_on_kill",
+    "to_entity_id": "psyker.buff.psyker_chance_to_vent_on_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_overcharge_reduced_warp_charge--grants_buff--psyker.buff.psyker_overcharge_reduced_warp_charge",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_overcharge_reduced_warp_charge",
+    "to_entity_id": "psyker.buff.psyker_overcharge_reduced_warp_charge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_overcharge_increased_movement_speed--grants_buff--psyker.buff.psyker_overcharge_increased_movement_speed",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_overcharge_increased_movement_speed",
+    "to_entity_id": "psyker.buff.psyker_overcharge_increased_movement_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.keystone.psyker_empowered_ability--grants_buff--psyker.buff.psyker_empowered_grenades_passive",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.keystone.psyker_empowered_ability",
+    "to_entity_id": "psyker.buff.psyker_empowered_grenades_passive",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_throwing_knives_piercing--grants_buff--psyker.buff.psyker_throwing_knives_piercing",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_throwing_knives_piercing",
+    "to_entity_id": "psyker.buff.psyker_throwing_knives_piercing",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_throwing_knives_cast_speed--grants_buff--psyker.buff.psyker_reduced_throwing_knife_cooldown",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_throwing_knives_cast_speed",
+    "to_entity_id": "psyker.buff.psyker_reduced_throwing_knife_cooldown",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_toughness_on_warp_kill--grants_buff--psyker.buff.psyker_toughness_on_warp_kill",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_toughness_on_warp_kill",
+    "to_entity_id": "psyker.buff.psyker_toughness_on_warp_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_toughness_on_vent--grants_buff--psyker.buff.psyker_toughness_on_vent",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_toughness_on_vent",
+    "to_entity_id": "psyker.buff.psyker_toughness_on_vent",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_toughness_on_vent--grants_buff--psyker.buff.psyker_toughness_on_warp_generation",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_toughness_on_vent",
+    "to_entity_id": "psyker.buff.psyker_toughness_on_warp_generation",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_toughness_on_melee--grants_buff--psyker.buff.psyker_toughness_on_melee",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_toughness_on_melee",
+    "to_entity_id": "psyker.buff.psyker_toughness_on_melee",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_increased_vent_speed--grants_buff--psyker.buff.psyker_increased_vent_speed",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_increased_vent_speed",
+    "to_entity_id": "psyker.buff.psyker_increased_vent_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_guaranteed_crit_on_multiple_weakspot_hits--grants_buff--psyker.buff.psyker_guaranteed_crit_on_multiple_weakspot_hits",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_guaranteed_crit_on_multiple_weakspot_hits",
+    "to_entity_id": "psyker.buff.psyker_guaranteed_crit_on_multiple_weakspot_hits",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_kills_stack_other_weapon_damage--grants_buff--psyker.buff.psyker_kills_stack_other_weapon_damage",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_kills_stack_other_weapon_damage",
+    "to_entity_id": "psyker.buff.psyker_kills_stack_other_weapon_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_crits_empower_next_attack--grants_buff--psyker.buff.psyker_crits_empower_warp",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_crits_empower_next_attack",
+    "to_entity_id": "psyker.buff.psyker_crits_empower_warp",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_damage_based_on_warp_charge--grants_buff--psyker.buff.psyker_warp_charge_increase_force_weapon_damage",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_damage_based_on_warp_charge",
+    "to_entity_id": "psyker.buff.psyker_warp_charge_increase_force_weapon_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_reduced_warp_charge_cost_and_venting_speed--grants_buff--psyker.buff.psyker_reduced_warp_charge_cost_and_venting_speed",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_reduced_warp_charge_cost_and_venting_speed",
+    "to_entity_id": "psyker.buff.psyker_reduced_warp_charge_cost_and_venting_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_elite_kills_add_warpfire--grants_buff--psyker.buff.psyker_elite_kills_add_warpfire",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_elite_kills_add_warpfire",
+    "to_entity_id": "psyker.buff.psyker_elite_kills_add_warpfire",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_shield_stun_passive--grants_buff--psyker.buff.psyker_shield_stun_passive",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_shield_stun_passive",
+    "to_entity_id": "psyker.buff.psyker_shield_stun_passive",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_coherency_aura_size_increase--grants_buff--psyker.buff.psyker_coherency_aura_size_increase",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_coherency_aura_size_increase",
+    "to_entity_id": "psyker.buff.psyker_coherency_aura_size_increase",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_aura_souls_on_kill--grants_buff--psyker.buff.psyker_aura_souls_on_kill",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_aura_souls_on_kill",
+    "to_entity_id": "psyker.buff.psyker_aura_souls_on_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_2_tier_3_name_2--grants_buff--psyker.buff.psyker_aura_cooldown_reduction_on_elite_kill",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_2_tier_3_name_2",
+    "to_entity_id": "psyker.buff.psyker_aura_cooldown_reduction_on_elite_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_dodge_after_crits--grants_buff--psyker.buff.psyker_dodge_after_crits",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_dodge_after_crits",
+    "to_entity_id": "psyker.buff.psyker_dodge_after_crits",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_crits_regen_toughness_movement_speed--grants_buff--psyker.buff.psyker_crits_regen_toughness_movement_speed",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_crits_regen_toughness_movement_speed",
+    "to_entity_id": "psyker.buff.psyker_crits_regen_toughness_movement_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_improved_dodge--grants_buff--psyker.buff.psyker_improved_dodge",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_improved_dodge",
+    "to_entity_id": "psyker.buff.psyker_improved_dodge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_block_costs_warp_charge--grants_buff--psyker.buff.psyker_block_costs_warp_charge",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_block_costs_warp_charge",
+    "to_entity_id": "psyker.buff.psyker_block_costs_warp_charge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken--grants_buff--psyker.buff.psyker_warp_charge_reduces_toughness_damage_taken",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
+    "to_entity_id": "psyker.buff.psyker_warp_charge_reduces_toughness_damage_taken",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_venting_improvements--grants_buff--psyker.buff.psyker_venting_improvements",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_venting_improvements",
+    "to_entity_id": "psyker.buff.psyker_venting_improvements",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_smite_on_hit--grants_buff--psyker.buff.psyker_smite_on_hit",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_smite_on_hit",
+    "to_entity_id": "psyker.buff.psyker_smite_on_hit",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_empowered_grenades_passive_improved--grants_buff--psyker.buff.psyker_empowered_grenades_passive_improved",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_empowered_grenades_passive_improved",
+    "to_entity_id": "psyker.buff.psyker_empowered_grenades_passive_improved",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_warpfire_on_shout--grants_buff--psyker.buff.psyker_shout_applies_warpfire",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_warpfire_on_shout",
+    "to_entity_id": "psyker.buff.psyker_shout_applies_warpfire",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_warpfire_generate_souls--grants_buff--psyker.buff.psyker_soul_on_warpfire_kill",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_warpfire_generate_souls",
+    "to_entity_id": "psyker.buff.psyker_soul_on_warpfire_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_ability_increase_brain_burst_speed--grants_buff--psyker.buff.psyker_ability_increase_brain_burst_speed",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_ability_increase_brain_burst_speed",
+    "to_entity_id": "psyker.buff.psyker_ability_increase_brain_burst_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_shield_extra_charge--grants_buff--psyker.buff.psyker_combat_ability_extra_charge",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_shield_extra_charge",
+    "to_entity_id": "psyker.buff.psyker_combat_ability_extra_charge",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.keystone.psyker_new_mark_passive--grants_buff--psyker.buff.psyker_marked_enemies_passive",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.keystone.psyker_new_mark_passive",
+    "to_entity_id": "psyker.buff.psyker_marked_enemies_passive",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_melee_attack_speed--grants_buff--psyker.buff.psyker_melee_attack_speed",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_melee_attack_speed",
+    "to_entity_id": "psyker.buff.psyker_melee_attack_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_cleave_from_peril--grants_buff--psyker.buff.psyker_cleave_from_peril",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_cleave_from_peril",
+    "to_entity_id": "psyker.buff.psyker_cleave_from_peril",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_melee_weaving--grants_buff--psyker.buff.psyker_melee_weaving",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_melee_weaving",
+    "to_entity_id": "psyker.buff.psyker_melee_weaving",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_killing_enemy_with_warpfire_boosts--grants_buff--psyker.buff.psyker_killing_enemy_with_warpfire_boosts",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_killing_enemy_with_warpfire_boosts",
+    "to_entity_id": "psyker.buff.psyker_killing_enemy_with_warpfire_boosts",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_warp_attacks_rending--grants_buff--psyker.buff.psyker_warp_attacks_rending",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_warp_attacks_rending",
+    "to_entity_id": "psyker.buff.psyker_warp_attacks_rending",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_warp_glass_cannon--grants_buff--psyker.buff.psyker_warp_glass_cannon",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_warp_glass_cannon",
+    "to_entity_id": "psyker.buff.psyker_warp_glass_cannon",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_ranged_crits_vent--grants_buff--psyker.buff.psyker_ranged_crits_vent",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_ranged_crits_vent",
+    "to_entity_id": "psyker.buff.psyker_ranged_crits_vent",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_reload_speed_warp_charge--grants_buff--psyker.buff.psyker_reload_speed_warp",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_reload_speed_warp_charge",
+    "to_entity_id": "psyker.buff.psyker_reload_speed_warp",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent_modifier.psyker_chain_lightning_heavy_attacks--grants_buff--psyker.buff.psyker_chain_lightning_heavy_attacks",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent_modifier.psyker_chain_lightning_heavy_attacks",
+    "to_entity_id": "psyker.buff.psyker_chain_lightning_heavy_attacks",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_force_staff_quick_attack_bonus--grants_buff--psyker.buff.psyker_force_staff_quick_attack_bonus",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_force_staff_quick_attack_bonus",
+    "to_entity_id": "psyker.buff.psyker_force_staff_quick_attack_bonus",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_damage_to_peril_conversion--grants_buff--psyker.buff.psyker_damage_to_peril_conversion",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_damage_to_peril_conversion",
+    "to_entity_id": "psyker.buff.psyker_damage_to_peril_conversion",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_damage_resistance_stun_immunity--grants_buff--psyker.buff.psyker_damage_resistance_stun_immunity",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_damage_resistance_stun_immunity",
+    "to_entity_id": "psyker.buff.psyker_damage_resistance_stun_immunity",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_stat_mix--grants_buff--psyker.buff.psyker_stat_mix",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_stat_mix",
+    "to_entity_id": "psyker.buff.psyker_stat_mix",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_damage_vs_ogryns_and_monsters--grants_buff--psyker.buff.psyker_damage_vs_ogryns_and_monsters",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_damage_vs_ogryns_and_monsters",
+    "to_entity_id": "psyker.buff.psyker_damage_vs_ogryns_and_monsters",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_alternative_peril_explosion--grants_buff--psyker.buff.psyker_alternative_peril_explosion",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_alternative_peril_explosion",
+    "to_entity_id": "psyker.buff.psyker_alternative_peril_explosion",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "psyker.talent.psyker_force_staff_bonus--grants_buff--psyker.buff.psyker_force_staff_bonus",
+    "type": "grants_buff",
+    "from_entity_id": "psyker.talent.psyker_force_staff_bonus",
+    "to_entity_id": "psyker.buff.psyker_force_staff_bonus",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
   }
 ]

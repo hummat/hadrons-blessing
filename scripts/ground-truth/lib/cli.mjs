@@ -7,6 +7,8 @@ const SETUP_HINTS = {
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run canonicalize -- scripts/builds/08-gandalf-melee-wizard.json",
   "edges:build":
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run edges:build",
+  "effects:build":
+    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run effects:build",
   "index:build":
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run index:build",
   report:

@@ -3958,5 +3958,1055 @@
     },
     "calc": {},
     "evidence_ids": []
+  },
+  {
+    "id": "arbites.ability.adamant_charge--grants_buff--arbites.buff.adamant_charge_passive_buff",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.ability.adamant_charge",
+    "to_entity_id": "arbites.buff.adamant_charge_passive_buff",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_charge_cooldown_reduction--grants_buff--arbites.buff.adamant_charge_cooldown_buff",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent_modifier.adamant_charge_cooldown_reduction",
+    "to_entity_id": "arbites.buff.adamant_charge_cooldown_buff",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_charge_toughness--grants_buff--arbites.buff.adamant_charge_toughness_buff",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent_modifier.adamant_charge_toughness",
+    "to_entity_id": "arbites.buff.adamant_charge_toughness_buff",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_charge_longer_distance--grants_buff--arbites.buff.adamant_charge_increased_distance",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent_modifier.adamant_charge_longer_distance",
+    "to_entity_id": "arbites.buff.adamant_charge_increased_distance",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_stance_dog_bloodlust--grants_buff--arbites.buff.adamant_hunt_stance_dog_bloodlust",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent_modifier.adamant_stance_dog_bloodlust",
+    "to_entity_id": "arbites.buff.adamant_hunt_stance_dog_bloodlust",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.ability.adamant_whistle--grants_buff--arbites.buff.adamant_whistle_replenishment",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.ability.adamant_whistle",
+    "to_entity_id": "arbites.buff.adamant_whistle_replenishment",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.ability.adamant_grenade_improved--grants_buff--arbites.buff.adamant_grenade_cluster_kills_tracking_buff",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.ability.adamant_grenade_improved",
+    "to_entity_id": "arbites.buff.adamant_grenade_cluster_kills_tracking_buff",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.aura.adamant_reload_speed_aura--grants_buff--arbites.buff.adamant_no_companion_coherency",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.aura.adamant_reload_speed_aura",
+    "to_entity_id": "arbites.buff.adamant_no_companion_coherency",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.aura.adamant_damage_vs_staggered_aura--grants_buff--arbites.buff.adamant_no_companion_coherency",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.aura.adamant_damage_vs_staggered_aura",
+    "to_entity_id": "arbites.buff.adamant_no_companion_coherency",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.aura.adamant_companion_coherency--grants_buff--arbites.buff.adamant_companion_counts_for_coherency",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.aura.adamant_companion_coherency",
+    "to_entity_id": "arbites.buff.adamant_companion_counts_for_coherency",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.keystone.adamant_disable_companion--grants_buff--arbites.buff.adamant_disable_companion_buff",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.keystone.adamant_disable_companion",
+    "to_entity_id": "arbites.buff.adamant_disable_companion_buff",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.keystone.adamant_disable_companion--grants_buff--arbites.buff.adamant_grenade_replenishment",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.keystone.adamant_disable_companion",
+    "to_entity_id": "arbites.buff.adamant_grenade_replenishment",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_elite_special_kills_offensive_boost--grants_buff--arbites.buff.adamant_elite_special_kills_offensive_boost",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_elite_special_kills_offensive_boost",
+    "to_entity_id": "arbites.buff.adamant_elite_special_kills_offensive_boost",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_damage_reduction_after_elite_kill--grants_buff--arbites.buff.adamant_damage_reduction_after_elite_kill",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_damage_reduction_after_elite_kill",
+    "to_entity_id": "arbites.buff.adamant_damage_reduction_after_elite_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_toughness_regen_near_companion--grants_buff--arbites.buff.adamant_toughness_regen_near_companion",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_toughness_regen_near_companion",
+    "to_entity_id": "arbites.buff.adamant_toughness_regen_near_companion",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_perfect_block_damage_boost--grants_buff--arbites.buff.adamant_perfect_block_damage_boost",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_perfect_block_damage_boost",
+    "to_entity_id": "arbites.buff.adamant_perfect_block_damage_boost",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_staggers_reduce_damage_taken--grants_buff--arbites.buff.adamant_staggers_reduce_damage_taken",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_staggers_reduce_damage_taken",
+    "to_entity_id": "arbites.buff.adamant_staggers_reduce_damage_taken",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_damage_after_reloading--grants_buff--arbites.buff.adamant_damage_after_reloading",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_damage_after_reloading",
+    "to_entity_id": "arbites.buff.adamant_damage_after_reloading",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_multiple_hits_attack_speed--grants_buff--arbites.buff.adamant_multiple_hits_attack_speed",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_multiple_hits_attack_speed",
+    "to_entity_id": "arbites.buff.adamant_multiple_hits_attack_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_elite_special_kills_replenish_toughness--grants_buff--arbites.buff.adamant_elite_special_kills_replenish_toughness",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_elite_special_kills_replenish_toughness",
+    "to_entity_id": "arbites.buff.adamant_elite_special_kills_replenish_toughness",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_close_kills_restore_toughness--grants_buff--arbites.buff.adamant_close_kills_restore_toughness",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_close_kills_restore_toughness",
+    "to_entity_id": "arbites.buff.adamant_close_kills_restore_toughness",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_staggers_replenish_toughness--grants_buff--arbites.buff.adamant_staggers_replenish_toughness",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_staggers_replenish_toughness",
+    "to_entity_id": "arbites.buff.adamant_staggers_replenish_toughness",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_dog_attacks_electrocute--grants_buff--arbites.buff.adamant_dog_attacks_electrocute",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_dog_attacks_electrocute",
+    "to_entity_id": "arbites.buff.adamant_dog_attacks_electrocute",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_limit_dmg_taken_from_hits--grants_buff--arbites.buff.adamant_limit_dmg_taken_from_hits",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_limit_dmg_taken_from_hits",
+    "to_entity_id": "arbites.buff.adamant_limit_dmg_taken_from_hits",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_armor--grants_buff--arbites.buff.adamant_armor",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_armor",
+    "to_entity_id": "arbites.buff.adamant_armor",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_plasteel_plates--grants_buff--arbites.buff.adamant_plasteel_plates",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_plasteel_plates",
+    "to_entity_id": "arbites.buff.adamant_plasteel_plates",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_ammo_belt--grants_buff--arbites.buff.adamant_ammo_belt",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_ammo_belt",
+    "to_entity_id": "arbites.buff.adamant_ammo_belt",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_rebreather--grants_buff--arbites.buff.adamant_rebreather",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_rebreather",
+    "to_entity_id": "arbites.buff.adamant_rebreather",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_shield_plates--grants_buff--arbites.buff.adamant_shield_plates",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_shield_plates",
+    "to_entity_id": "arbites.buff.adamant_shield_plates",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_cleave_after_push--grants_buff--arbites.buff.adamant_cleave_after_push",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_cleave_after_push",
+    "to_entity_id": "arbites.buff.adamant_cleave_after_push",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_melee_attacks_on_staggered_rend--grants_buff--arbites.buff.adamant_melee_attacks_on_staggered_rend",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_melee_attacks_on_staggered_rend",
+    "to_entity_id": "arbites.buff.adamant_melee_attacks_on_staggered_rend",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_heavy_attacks_increase_damage--grants_buff--arbites.buff.adamant_heavy_attacks_increase_damage",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_heavy_attacks_increase_damage",
+    "to_entity_id": "arbites.buff.adamant_heavy_attacks_increase_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_dog_damage_after_ability--grants_buff--arbites.buff.adamant_dog_damage_after_ability",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent_modifier.adamant_dog_damage_after_ability",
+    "to_entity_id": "arbites.buff.adamant_dog_damage_after_ability",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_hitting_multiple_gives_tdr--grants_buff--arbites.buff.adamant_hitting_multiple_gives_tdr",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_hitting_multiple_gives_tdr",
+    "to_entity_id": "arbites.buff.adamant_hitting_multiple_gives_tdr",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_dog_pounces_bleed_nearby--grants_buff--arbites.buff.adamant_dog_pounces_bleed_nearby",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_dog_pounces_bleed_nearby",
+    "to_entity_id": "arbites.buff.adamant_dog_pounces_bleed_nearby",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_dog_applies_brittleness--grants_buff--arbites.buff.adamant_dog_applies_brittleness",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_dog_applies_brittleness",
+    "to_entity_id": "arbites.buff.adamant_dog_applies_brittleness",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.keystone.adamant_forceful--grants_buff--arbites.buff.adamant_forceful",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.keystone.adamant_forceful",
+    "to_entity_id": "arbites.buff.adamant_forceful",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_forceful_stagger_on_low_high--grants_buff--arbites.buff.adamant_forceful_stagger",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent_modifier.adamant_forceful_stagger_on_low_high",
+    "to_entity_id": "arbites.buff.adamant_forceful_stagger",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.keystone.adamant_terminus_warrant--grants_buff--arbites.buff.adamant_terminus_warrant",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.keystone.adamant_terminus_warrant",
+    "to_entity_id": "arbites.buff.adamant_terminus_warrant",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.keystone.adamant_execution_order--grants_buff--arbites.buff.adamant_execution_order",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.keystone.adamant_execution_order",
+    "to_entity_id": "arbites.buff.adamant_execution_order",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_crit_chance_on_kill--grants_buff--arbites.buff.adamant_crit_chance_on_kill",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_crit_chance_on_kill",
+    "to_entity_id": "arbites.buff.adamant_crit_chance_on_kill",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_crits_rend--grants_buff--arbites.buff.adamant_crits_rend",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_crits_rend",
+    "to_entity_id": "arbites.buff.adamant_crits_rend",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.keystone.adamant_companion_focus_ranged--grants_buff--arbites.buff.adamant_companion_focus_ranged",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.keystone.adamant_companion_focus_ranged",
+    "to_entity_id": "arbites.buff.adamant_companion_focus_ranged",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.keystone.adamant_companion_focus_elite--grants_buff--arbites.buff.adamant_companion_focus_elite",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.keystone.adamant_companion_focus_elite",
+    "to_entity_id": "arbites.buff.adamant_companion_focus_elite",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_damage_vs_suppressed--grants_buff--arbites.buff.adamant_damage_vs_suppressed",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_damage_vs_suppressed",
+    "to_entity_id": "arbites.buff.adamant_damage_vs_suppressed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_clip_size--grants_buff--arbites.buff.adamant_clip_size",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_clip_size",
+    "to_entity_id": "arbites.buff.adamant_clip_size",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_stacking_damage--grants_buff--arbites.buff.adamant_stacking_damage",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_stacking_damage",
+    "to_entity_id": "arbites.buff.adamant_stacking_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_staggering_enemies_take_more_damage--grants_buff--arbites.buff.adamant_staggering_increases_damage_taken",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_staggering_enemies_take_more_damage",
+    "to_entity_id": "arbites.buff.adamant_staggering_increases_damage_taken",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_staggered_enemies_deal_less_damage--grants_buff--arbites.buff.adamant_staggered_enemies_deal_less_damage",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_staggered_enemies_deal_less_damage",
+    "to_entity_id": "arbites.buff.adamant_staggered_enemies_deal_less_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_melee_weakspot_hits_count_as_stagger--grants_buff--arbites.buff.adamant_melee_weakspot_hits_count_as_stagger",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_melee_weakspot_hits_count_as_stagger",
+    "to_entity_id": "arbites.buff.adamant_melee_weakspot_hits_count_as_stagger",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_increased_damage_to_high_health--grants_buff--arbites.buff.adamant_increased_damage_to_high_health",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_increased_damage_to_high_health",
+    "to_entity_id": "arbites.buff.adamant_increased_damage_to_high_health",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_movement_speed_on_block--grants_buff--arbites.buff.adamant_movement_speed_on_block",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_movement_speed_on_block",
+    "to_entity_id": "arbites.buff.adamant_movement_speed_on_block",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_elite_special_kills_reload_speed--grants_buff--arbites.buff.adamant_elite_special_kills_reload_speed",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_elite_special_kills_reload_speed",
+    "to_entity_id": "arbites.buff.adamant_elite_special_kills_reload_speed",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_dodge_grants_damage--grants_buff--arbites.buff.adamant_dodge_grants_damage",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_dodge_grants_damage",
+    "to_entity_id": "arbites.buff.adamant_dodge_grants_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_stacking_weakspot_strength--grants_buff--arbites.buff.adamant_stacking_weakspot_strength",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_stacking_weakspot_strength",
+    "to_entity_id": "arbites.buff.adamant_stacking_weakspot_strength",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_ranged_damage_on_melee_stagger--grants_buff--arbites.buff.adamant_ranged_damage_on_melee_stagger",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_ranged_damage_on_melee_stagger",
+    "to_entity_id": "arbites.buff.adamant_ranged_damage_on_melee_stagger",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_dodge_improvement--grants_buff--arbites.buff.adamant_dodge_improvement",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_dodge_improvement",
+    "to_entity_id": "arbites.buff.adamant_dodge_improvement",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_stamina_spent_replenish_toughness--grants_buff--arbites.buff.adamant_stamina_spent_replenish_toughness",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_stamina_spent_replenish_toughness",
+    "to_entity_id": "arbites.buff.adamant_stamina_spent_replenish_toughness",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_monster_hunter--grants_buff--arbites.buff.adamant_monster_hunter",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_monster_hunter",
+    "to_entity_id": "arbites.buff.adamant_monster_hunter",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_first_melee_hit_increased_damage--grants_buff--arbites.buff.adamant_first_melee_hit_increased_damage",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_first_melee_hit_increased_damage",
+    "to_entity_id": "arbites.buff.adamant_first_melee_hit_increased_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_pinning_dog_bonus_moving_towards--grants_buff--arbites.buff.adamant_pinning_dog_bonus_moving_towards",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent_modifier.adamant_pinning_dog_bonus_moving_towards",
+    "to_entity_id": "arbites.buff.adamant_pinning_dog_bonus_moving_towards",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_pinning_dog_elite_damage--grants_buff--arbites.buff.adamant_pinning_dog_elite_damage",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_pinning_dog_elite_damage",
+    "to_entity_id": "arbites.buff.adamant_pinning_dog_elite_damage",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_pinning_dog_kills_buff_allies--grants_buff--arbites.buff.adamant_pinning_dog_kills_buff_allies",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_pinning_dog_kills_buff_allies",
+    "to_entity_id": "arbites.buff.adamant_pinning_dog_kills_buff_allies",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_sprinting_sliding--grants_buff--arbites.buff.adamant_sprinting_sliding",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_sprinting_sliding",
+    "to_entity_id": "arbites.buff.adamant_sprinting_sliding",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.adamant_sprinting_sliding--grants_buff--arbites.buff.adamant_sprinting_sliding_kills",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.adamant_sprinting_sliding",
+    "to_entity_id": "arbites.buff.adamant_sprinting_sliding_kills",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.base_toughness_damage_reduction_node_buff_medium_1--grants_buff--arbites.buff.player_toughness_damage_reduction_node_buff_medium_1",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.base_toughness_damage_reduction_node_buff_medium_1",
+    "to_entity_id": "arbites.buff.player_toughness_damage_reduction_node_buff_medium_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.base_impact_node_buff_medium_1--grants_buff--arbites.buff.player_impact_node_buff_medium_1",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.base_impact_node_buff_medium_1",
+    "to_entity_id": "arbites.buff.player_impact_node_buff_medium_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.base_cleave_node_buff_medium_1--grants_buff--arbites.buff.player_cleave_node_buff_medium_1",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.base_cleave_node_buff_medium_1",
+    "to_entity_id": "arbites.buff.player_cleave_node_buff_medium_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.base_melee_damage_node_buff_medium_1--grants_buff--arbites.buff.player_melee_damage_node_buff_medium_1",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.base_melee_damage_node_buff_medium_1",
+    "to_entity_id": "arbites.buff.player_melee_damage_node_buff_medium_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.talent.base_ranged_damage_node_buff_medium_1--grants_buff--arbites.buff.player_ranged_damage_node_buff_medium_1",
+    "type": "grants_buff",
+    "from_entity_id": "arbites.talent.base_ranged_damage_node_buff_medium_1",
+    "to_entity_id": "arbites.buff.player_ranged_damage_node_buff_medium_1",
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
   }
 ]

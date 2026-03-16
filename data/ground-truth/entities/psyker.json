@@ -24,7 +24,24 @@
       "tree_widget_name": "node_58a8d92f-0b8c-43c4-ac80-f0c597fffc54",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "smite_damage_multiplier",
+          "magnitude": 1.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_brain_burst_improved"
+      ]
+    }
   },
   {
     "id": "psyker.ability.psyker_combat_ability_force_field",
@@ -102,7 +119,24 @@
       "tree_widget_name": "node_2a022d3f-fddf-4faf-a79d-c8fe6a18fe36",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "active_and_unknown",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_overcharge_reduced_toughness_damage_taken"
+      ]
+    }
   },
   {
     "id": "psyker.ability.psyker_grenade_chain_lightning",
@@ -129,7 +163,45 @@
       "tree_widget_name": "node_88eb687e-bd2e-449e-b198-1bd2318eeda1",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "chain_lightning_max_jumps",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "chain_lightning_max_radius",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "chain_lightning_max_angle",
+          "magnitude": 0,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_kills_during_smite_tracking",
+        "psyker_increased_chain_lightning_size"
+      ]
+    }
   },
   {
     "id": "psyker.ability.psyker_grenade_smite",
@@ -180,7 +252,11 @@
       "tree_widget_name": "node_35ce2086-9081-49c7-9703-f3c07eb0be86",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_knife_replenishment"
+      ]
+    }
   },
   {
     "id": "psyker.ability.psyker_shout_vent_warp_charge",
@@ -339,7 +415,11 @@
       "tree_widget_name": "node_8d367c1d-ce78-44f3-a7b8-6a4b55341929",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_empowered_grenades_passive"
+      ]
+    }
   },
   {
     "id": "psyker.keystone.psyker_new_mark_passive",
@@ -366,7 +446,11 @@
       "tree_widget_name": "node_44ce21ca-9b23-46b9-a6df-eae7ee03114b",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_marked_enemies_passive"
+      ]
+    }
   },
   {
     "id": "psyker.keystone.psyker_passive_souls_from_elite_kills",
@@ -393,7 +477,35 @@
       "tree_widget_name": "node_25c8ee81-d16b-4d5b-b0fa-fc1e7b40c26f",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings_2.passive_1.damage",
+          "magnitude_min": 0,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        },
+        {
+          "stat": "toughness_replenish_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings_2.defensive_2.toughness_replenish_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "unknown_condition",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "psyker_passive_buff",
+      "buff_template_names": [
+        "psyker_souls_increase_damage",
+        "psyker_passive_souls_from_elite_kills"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_ability_increase_brain_burst_speed",
@@ -420,7 +532,11 @@
       "tree_widget_name": "node_d0f28c39-50b3-4f6f-893f-52e71aaba392",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_ability_increase_brain_burst_speed"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_aura_souls_on_kill",
@@ -447,7 +563,11 @@
       "tree_widget_name": "node_b5482701-b516-444a-92d4-df82bc410afd",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_aura_souls_on_kill"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_boost_allies_in_sphere",
@@ -501,7 +621,11 @@
       "tree_widget_name": "node_d958faa6-e3ea-4c79-bc84-3477063b09f7",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_chain_lightning_heavy_attacks"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_chain_lightning_improved_target_buff",
@@ -663,7 +787,11 @@
       "tree_widget_name": "node_0bb80aeb-f367-4e65-bcb5-04e91aad3c23",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_empowered_grenades_passive_improved"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_increased_max_souls",
@@ -825,7 +953,24 @@
       "tree_widget_name": "node_229f2961-ef6f-4ccb-942e-8c4945f1f90f",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "active_and_unknown",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_overcharge_increased_movement_speed"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_overcharge_reduced_warp_charge",
@@ -852,7 +997,34 @@
       "tree_widget_name": "node_79ffb5f6-b82f-47c0-8eeb-5e28dcb2766a",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "warp_charge_amount",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "active_and_unknown",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "vent_warp_charge_speed",
+          "magnitude": 0.7,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "active_and_unknown",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_overcharge_reduced_warp_charge"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_overcharge_stance_infinite_casting",
@@ -933,7 +1105,24 @@
       "tree_widget_name": "node_3879efd1-ebac-4cd2-b004-8c7927d16924",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "warp_charge_amount",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings_2.offensive_1_2.warp_charge_capacity",
+          "magnitude_min": 1,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_reduced_warp_charge_cost_and_venting_speed"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_shield_extra_charge",
@@ -960,7 +1149,25 @@
       "tree_widget_name": "node_959bd205-bf6c-48fc-ab14-f59364fedd6c",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ability_extra_charges",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "psyker_combat_ability_extra_charge"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_shield_stun_passive",
@@ -987,7 +1194,11 @@
       "tree_widget_name": "node_a10c7d87-9c54-4268-b6be-ca862dcc59ae",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_shield_stun_passive"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_shout_reduces_warp_charge_generation",
@@ -1014,7 +1225,11 @@
       "tree_widget_name": "node_b6b57be7-9aa8-483b-a127-6c1815d452a4",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_shout_reduces_warp_generation"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_smite_on_hit",
@@ -1041,7 +1256,11 @@
       "tree_widget_name": "node_fbf53cbf-026b-4076-aa50-08813d53dbb6",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_smite_on_hit"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_sphere_shield",
@@ -1095,7 +1314,24 @@
       "tree_widget_name": "node_a0e99f21-5abe-407d-a328-c955e9cc27f2",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "grenade_ability_cooldown_modifier",
+          "magnitude": -0.3,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_reduced_throwing_knife_cooldown"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_throwing_knives_piercing",
@@ -1122,7 +1358,34 @@
       "tree_widget_name": "node_df9852a3-36e2-40ab-bd6b-c8ce430cfaa4",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "psyker_smite_max_hit_mass_attack_modifier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "psyker_smite_max_hit_mass_impact_modifier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_throwing_knives_piercing"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_toughness_on_soul",
@@ -1176,7 +1439,11 @@
       "tree_widget_name": "node_97a70547-63e0-473c-9e2f-79096161d4e5",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_soul_on_warpfire_kill"
+      ]
+    }
   },
   {
     "id": "psyker.talent_modifier.psyker_warpfire_on_shout",
@@ -1203,7 +1470,11 @@
       "tree_widget_name": "node_400d79d6-4aaa-47e4-b9c4-127b79ef639a",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_shout_applies_warpfire"
+      ]
+    }
   },
   {
     "id": "psyker.talent.base_crit_chance_node_buff_low_1",
@@ -1226,7 +1497,24 @@
       "tree_widget_name": "node_c48ce8da-ed42-4327-9db7-a4b6533e431a",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_crit_chance_node_buff_low_1"
+      ]
+    }
   },
   {
     "id": "psyker.talent.base_melee_damage_node_buff_medium_4",
@@ -1249,7 +1537,24 @@
       "tree_widget_name": "node_3f52126e-dbc7-492b-912d-26e4cc53a80e",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_melee_damage_node_buff_medium_4"
+      ]
+    }
   },
   {
     "id": "psyker.talent.base_movement_speed_node_buff_low_1",
@@ -1272,7 +1577,24 @@
       "tree_widget_name": "node_3f08eb1a-09e8-4213-ab90-84032e51f7ae",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_movement_speed_node_buff_low_1"
+      ]
+    }
   },
   {
     "id": "psyker.talent.base_ranged_damage_node_buff_medium_4",
@@ -1295,7 +1617,24 @@
       "tree_widget_name": "node_15ffb139-928c-406e-a4b5-71c9d5bebadc",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_ranged_damage_node_buff_medium_4"
+      ]
+    }
   },
   {
     "id": "psyker.talent.base_stamina_node_buff_low_1",
@@ -1318,7 +1657,24 @@
       "tree_widget_name": "node_bad7157a-70c9-4b5a-80c5-c4930b8c16d8",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "stamina_modifier",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_stamina_node_buff_low_1"
+      ]
+    }
   },
   {
     "id": "psyker.talent.base_toughness_damage_reduction_node_buff_low_4",
@@ -1341,7 +1697,24 @@
       "tree_widget_name": "node_8f13724d-f213-4559-969e-74dcf1053468",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_modifier",
+          "magnitude": -0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_damage_reduction_node_buff_low_4"
+      ]
+    }
   },
   {
     "id": "psyker.talent.base_toughness_damage_reduction_node_buff_medium_1",
@@ -1364,7 +1737,24 @@
       "tree_widget_name": "node_9049de9c-7aef-4bda-bc26-2892d147c486",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_modifier",
+          "magnitude": -0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_damage_reduction_node_buff_medium_1"
+      ]
+    }
   },
   {
     "id": "psyker.talent.base_toughness_node_buff_medium_4",
@@ -1387,7 +1777,24 @@
       "tree_widget_name": "node_7b4e0ecc-fba4-418c-a34c-8ae1739e341c",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness",
+          "magnitude": 15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_medium_4"
+      ]
+    }
   },
   {
     "id": "psyker.talent.base_toughness_node_buff_medium_5",
@@ -1410,7 +1817,24 @@
       "tree_widget_name": "node_0bbf73c4-d47e-4205-b8a3-1ee5879708cb",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness",
+          "magnitude": 15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_medium_5"
+      ]
+    }
   },
   {
     "id": "psyker.talent.base_warp_charge_node_buff_medium_3",
@@ -1433,7 +1857,24 @@
       "tree_widget_name": "node_50f4db9f-a576-43cf-b4a3-a96996f103a6",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "warp_charge_amount",
+          "magnitude": 0.9,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_warp_charge_node_buff_medium_3"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_2_tier_3_name_2",
@@ -1460,7 +1901,11 @@
       "tree_widget_name": "node_25cef95d-234f-4299-a964-2ca42056cb5a",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_aura_cooldown_reduction_on_elite_kill"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_alternative_peril_explosion",
@@ -1487,7 +1932,44 @@
       "tree_widget_name": "node_25ffe424-4f39-4206-8304-66333fe44fa5",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "overheat_explosion_speed_modifier",
+          "magnitude": 1.65,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "overheat_explosion_damage_modifier",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "overheat_explosion_radius_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_alternative_peril_explosion"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_block_costs_warp_charge",
@@ -1514,7 +1996,24 @@
       "tree_widget_name": "node_59a39703-43ce-432e-b853-c80517a08947",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "warp_charge_block_cost",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "threshold:warp_charge",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_block_costs_warp_charge"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_chance_to_vent_on_kill",
@@ -1541,7 +2040,24 @@
       "tree_widget_name": "node_a665def4-3336-44eb-b7ed-1023d01cfd99",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "warp_charge_amount",
+          "magnitude": 0.9,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_chance_to_vent_on_kill"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_cleave_from_peril",
@@ -1568,7 +2084,24 @@
       "tree_widget_name": "node_c648889c-ff07-4664-81b7-b9fafcd93a04",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "max_hit_mass_attack_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.cleave_from_peril.min",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_cleave_from_peril"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_coherency_aura_size_increase",
@@ -1595,7 +2128,24 @@
       "tree_widget_name": "node_b2a9dab7-310f-4938-a070-97187d356f75",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "coherency_radius_modifier",
+          "magnitude": 0.75,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_coherency_aura_size_increase"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_crits_empower_next_attack",
@@ -1622,7 +2172,11 @@
       "tree_widget_name": "node_70bf8f4f-c0be-4c83-9c62-4b47ef5e3300",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_crits_empower_warp"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_crits_regen_toughness_movement_speed",
@@ -1649,7 +2203,11 @@
       "tree_widget_name": "node_a9e156c8-8c1a-4421-a5de-ec60da158b5d",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_crits_regen_toughness_movement_speed"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_damage_based_on_warp_charge",
@@ -1676,7 +2234,24 @@
       "tree_widget_name": "node_502ba655-95d9-419a-a825-c688915e2983",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings_2.offensive_1_1.damage_min",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_warp_charge_increase_force_weapon_damage"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_damage_resistance_stun_immunity",
@@ -1703,7 +2278,24 @@
       "tree_widget_name": "node_fb6fc9c4-aed8-46c8-88a2-0ec1fa8e1eb0",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 0.9,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_damage_resistance_stun_immunity"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_damage_to_peril_conversion",
@@ -1730,7 +2322,24 @@
       "tree_widget_name": "node_eaba4084-d11f-424a-872b-69ee649bdd44",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 0.75,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "threshold:warp_charge",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_damage_to_peril_conversion"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_damage_vs_ogryns_and_monsters",
@@ -1757,7 +2366,24 @@
       "tree_widget_name": "node_42b4a214-4619-4b7a-9a92-b17b8ed1f10f",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_vs_ogryn_and_monsters",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_damage_vs_ogryns_and_monsters"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_dodge_after_crits",
@@ -1784,7 +2410,11 @@
       "tree_widget_name": "node_1c28e8f1-c647-401d-80f1-38263a6b616b",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_dodge_after_crits"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_elite_kills_add_warpfire",
@@ -1811,7 +2441,11 @@
       "tree_widget_name": "node_dbf51b8d-f6d8-418b-a1dc-29435eea34b0",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_elite_kills_add_warpfire"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_force_staff_bonus",
@@ -1838,7 +2472,11 @@
       "tree_widget_name": "node_f0bb8060-6afc-4ae9-954d-3817cc054b35",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_force_staff_bonus"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_force_staff_quick_attack_bonus",
@@ -1865,7 +2503,11 @@
       "tree_widget_name": "node_de28df8a-4aed-426c-8122-73893a04aa5b",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_force_staff_quick_attack_bonus"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_guaranteed_crit_on_multiple_weakspot_hits",
@@ -1892,7 +2534,11 @@
       "tree_widget_name": "node_9674b583-7566-4f0c-a334-99e83f4715b2",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_guaranteed_crit_on_multiple_weakspot_hits"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_improved_dodge",
@@ -1919,7 +2565,34 @@
       "tree_widget_name": "node_b64d3e49-d2d6-4565-8195-fba8f68d014c",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "dodge_linger_time_modifier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "extra_consecutive_dodges",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_improved_dodge"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_increased_vent_speed",
@@ -1946,7 +2619,24 @@
       "tree_widget_name": "node_57581786-6c2f-45d1-a396-8e58299d84d8",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "vent_warp_charge_speed",
+          "magnitude": 0.7,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_increased_vent_speed"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_killing_enemy_with_warpfire_boosts",
@@ -1973,7 +2663,11 @@
       "tree_widget_name": "node_4315ba13-1c64-4293-981d-9bd75a1c6612",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_killing_enemy_with_warpfire_boosts"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_kills_stack_other_weapon_damage",
@@ -2000,7 +2694,11 @@
       "tree_widget_name": "node_8e7a1179-6cbd-4f0d-9992-a0ca5282b30b",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_kills_stack_other_weapon_damage"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_melee_attack_speed",
@@ -2027,7 +2725,34 @@
       "tree_widget_name": "node_f33e4491-1a9b-444b-b4f8-835aa37a6a87",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_attack_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "ranged_attack_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_melee_attack_speed"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_melee_weaving",
@@ -2054,7 +2779,25 @@
       "tree_widget_name": "node_3d79a0fe-26e0-4ff4-9ecd-6b5d4b228404",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "warp_charge_amount",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "psyker_melee_weaving"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_ranged_crits_vent",
@@ -2081,7 +2824,11 @@
       "tree_widget_name": "node_237fc277-fe42-473b-aeda-70d82fc2d9e8",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_ranged_crits_vent"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_reload_speed_warp_charge",
@@ -2108,7 +2855,24 @@
       "tree_widget_name": "node_e3d09295-0206-4166-91c4-2371e8abf9e3",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "reload_speed",
+          "magnitude": 0.3,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "threshold:warp_charge",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_reload_speed_warp"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_spread_warpfire_on_kill",
@@ -2162,7 +2926,44 @@
       "tree_widget_name": "node_61959df9-adf1-45a9-9e2f-4d9e3c7f8e00",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "warp_charge_dissipation_multiplier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "stamina_modifier",
+          "magnitude": 2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "toughness_replenish_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_stat_mix"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_toughness_on_melee",
@@ -2189,7 +2990,11 @@
       "tree_widget_name": "node_aeefc406-9103-4749-a827-a90a0525baea",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_toughness_on_melee"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_toughness_on_vent",
@@ -2216,7 +3021,12 @@
       "tree_widget_name": "node_0866df78-dac3-46dc-9af6-30119a64acbe",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_toughness_on_vent",
+        "psyker_toughness_on_warp_generation"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_toughness_on_warp_kill",
@@ -2243,7 +3053,11 @@
       "tree_widget_name": "node_5cdd458f-bbfc-40a3-ac1f-4a229ddbbb6a",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "psyker_toughness_on_warp_kill"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_venting_improvements",
@@ -2270,7 +3084,34 @@
       "tree_widget_name": "node_dafc9b1b-859e-44df-bea9-33fecbd3afc7",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "vent_warp_charge_decrease_movement_reduction",
+          "magnitude": 0,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "reload_decrease_movement_reduction",
+          "magnitude": 0,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_venting_improvements"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_warp_attacks_rending",
@@ -2297,7 +3138,24 @@
       "tree_widget_name": "node_1a3b8fd0-026d-4a46-b89e-6c1889f85a78",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "warp_attacks_rending_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.warp_attacks_rending.warp_rending",
+          "magnitude_min": 0,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_warp_attacks_rending"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
@@ -2324,7 +3182,24 @@
       "tree_widget_name": "node_1943527f-b930-43f0-98b6-340d14d596d5",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings_2.defensive_2.min_toughness_damage_multiplier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_warp_charge_reduces_toughness_damage_taken"
+      ]
+    }
   },
   {
     "id": "psyker.talent.psyker_warp_glass_cannon",
@@ -2351,6 +3226,33 @@
       "tree_widget_name": "node_427cefce-0443-4754-becd-ae4967e84f5a",
       "exclusive_group": null
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "warp_charge_amount",
+          "magnitude": 0.6,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "toughness_replenish_multiplier",
+          "magnitude": 0.7,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_warp_glass_cannon"
+      ]
+    }
   }
 ]

@@ -594,7 +594,11 @@ function extractTemplateBlocks(luaSource) {
           // Extract just the table literal from the full line
           const eqIdx = tableText.indexOf("=");
           const tableStr = tableText.slice(eqIdx + 1).trim();
-          block.patches[field] = parseLuaTable(tableStr);
+          try {
+            block.patches[field] = parseLuaTable(tableStr);
+          } catch {
+            // Unparseable table-valued patch — skip
+          }
           i = j;
           continue;
         }
@@ -667,7 +671,11 @@ function extractTemplateBlocks(luaSource) {
           const baseRef = afterTable.startsWith(",") ? afterTable.slice(1).trim() : afterTable;
 
           const block = getOrCreateBlock(name, "merge");
-          block.mergeInline = parseLuaTable(inlineTableStr);
+          try {
+            block.mergeInline = parseLuaTable(inlineTableStr);
+          } catch {
+            block.mergeInline = {};
+          }
           block.mergeBase = baseRef;
           i = j;
           continue;
@@ -692,7 +700,11 @@ function extractTemplateBlocks(luaSource) {
           const eqIdx = tableText.indexOf("=");
           const tableStr = tableText.slice(eqIdx + 1).trim();
           const block = getOrCreateBlock(name, "inline");
-          block.parsed = parseLuaTable(tableStr);
+          try {
+            block.parsed = parseLuaTable(tableStr);
+          } catch {
+            block.parsed = {};
+          }
           i = j;
           continue;
         }
