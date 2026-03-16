@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
-import { parseLuaTable } from "./ground-truth/lib/lua-data-reader.mjs";
+import { parseLuaTable, extractTemplateBlocks } from "./ground-truth/lib/lua-data-reader.mjs";
 
 describe("parseLuaTable", () => {
   it("parses simple key-value pairs", () => {
@@ -153,5 +153,152 @@ describe("parseLuaTable", () => {
     const result = parseLuaTable(lua);
     assert.equal(result.class_name, "buff");
     assert.equal(result.max_stacks, 3);
+  });
+});
+
+describe("extractTemplateBlocks", () => {
+  it("extracts inline table definitions", () => {
+    const lua = `
+local templates = {}
+templates.foo_buff = {
+  class_name = "buff",
+  max_stacks = 1,
+}
+return templates
+`;
+    const { blocks } = extractTemplateBlocks(lua);
+    assert.equal(blocks.length, 1);
+    assert.equal(blocks[0].name, "foo_buff");
+    assert.equal(blocks[0].type, "inline");
+    assert.equal(blocks[0].parsed.class_name, "buff");
+  });
+
+  it("extracts table.clone statements with local sources", () => {
+    const lua = `
+local templates = {}
+templates.foo = { class_name = "buff" }
+templates.bar = table.clone(templates.foo)
+return templates
+`;
+    const { blocks } = extractTemplateBlocks(lua);
+    const bar = blocks.find((b) => b.name === "bar");
+    assert.equal(bar.type, "clone");
+    assert.equal(bar.cloneSource, "foo");
+    assert.equal(bar.cloneExternal, false);
+  });
+
+  it("extracts table.clone statements with external base refs", () => {
+    const lua = `
+local templates = {}
+templates.baz = table.clone(BaseWeaponTraitBuffTemplates.toughness_on_kills)
+return templates
+`;
+    const { blocks } = extractTemplateBlocks(lua);
+    const baz = blocks.find((b) => b.name === "baz");
+    assert.equal(baz.type, "clone");
+    assert.equal(baz.cloneSource, "BaseWeaponTraitBuffTemplates.toughness_on_kills");
+    assert.equal(baz.cloneExternal, true);
+  });
+
+  it("extracts table.merge with both inline and base", () => {
+    const lua = `
+local templates = {}
+templates.baz = table.merge({
+  max_stacks = 3,
+  class_name = "proc_buff",
+}, BaseTemplates.some_base)
+return templates
+`;
+    const { blocks } = extractTemplateBlocks(lua);
+    const baz = blocks.find((b) => b.name === "baz");
+    assert.equal(baz.type, "merge");
+    assert.equal(baz.mergeInline.max_stacks, 3);
+    assert.equal(baz.mergeInline.class_name, "proc_buff");
+    assert.equal(baz.mergeBase, "BaseTemplates.some_base");
+  });
+
+  it("extracts post-construction scalar patches", () => {
+    const lua = `
+local templates = {}
+templates.foo = table.clone(templates.base)
+templates.foo.duration = 5
+templates.foo.child_buff_template = "foo_child"
+return templates
+`;
+    const { blocks } = extractTemplateBlocks(lua);
+    const foo = blocks.find((b) => b.name === "foo");
+    assert.deepEqual(foo.patches, {
+      duration: 5,
+      child_buff_template: "foo_child",
+    });
+  });
+
+  it("extracts post-construction table-valued patches", () => {
+    const lua = `
+local templates = {}
+templates.foo = table.clone(templates.base)
+templates.foo.stat_buffs = {
+  [stat_buffs.damage] = 0.5,
+}
+return templates
+`;
+    const { blocks } = extractTemplateBlocks(lua);
+    const foo = blocks.find((b) => b.name === "foo");
+    assert.deepEqual(foo.patches.stat_buffs, {
+      "stat_buffs.damage": 0.5,
+    });
+  });
+
+  it("extracts local function definitions", () => {
+    const lua = `
+local _my_condition = function(template_data, template_context)
+  return template_data.active
+end
+local templates = {}
+templates.foo = {
+  conditional_stat_buffs_func = _my_condition,
+}
+return templates
+`;
+    const { blocks, localFunctions } = extractTemplateBlocks(lua);
+    assert.equal(blocks[0].parsed.conditional_stat_buffs_func.$ref, "_my_condition");
+    assert.ok(localFunctions._my_condition.includes("template_data.active"));
+  });
+
+  it("extracts TalentSettings alias declarations", () => {
+    const lua = `
+local talent_settings = TalentSettings.psyker
+local talent_settings_2 = TalentSettings.psyker_2
+local stimm_talent_settings = TalentSettings.broker
+local templates = {}
+return templates
+`;
+    const { aliases } = extractTemplateBlocks(lua);
+    assert.equal(aliases.talent_settings, "psyker");
+    assert.equal(aliases.talent_settings_2, "psyker_2");
+    assert.equal(aliases.stimm_talent_settings, "broker");
+  });
+
+  it("auto-detects the template table variable name", () => {
+    const lua = `
+local base_templates = {}
+base_templates.foo = { class_name = "buff" }
+return base_templates
+`;
+    const { blocks } = extractTemplateBlocks(lua);
+    assert.equal(blocks.length, 1);
+    assert.equal(blocks[0].name, "foo");
+  });
+
+  it("ignores table.make_unique calls", () => {
+    const lua = `
+local templates = {}
+table.make_unique(templates)
+templates.foo = { class_name = "buff" }
+return templates
+`;
+    const { blocks } = extractTemplateBlocks(lua);
+    assert.equal(blocks.length, 1);
+    assert.equal(blocks[0].name, "foo");
   });
 });

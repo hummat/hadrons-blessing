@@ -457,4 +457,281 @@ function parseLuaTable(luaText) {
   return result;
 }
 
-export { parseLuaTable };
+// -- Block extraction ---------------------------------------------------------
+
+/**
+ * Extract named template definitions from a Lua buff template file.
+ *
+ * Scans for:
+ * - `local <var> = TalentSettings.<ns>` → aliases
+ * - `local <name> = function(...) ... end` → localFunctions
+ * - `<tableVar>.<name> = { ... }` → inline block
+ * - `<tableVar>.<name> = table.clone(<src>)` → clone block
+ * - `<tableVar>.<name> = table.merge({...}, <base>)` → merge block
+ * - `<tableVar>.<name>.<field> = <value>` → post-construction patch
+ * - `table.make_unique(...)` → skip
+ *
+ * @param {string} luaSource - Full Lua source text
+ * @returns {{ blocks: Array, aliases: Object, localFunctions: Object }}
+ */
+function extractTemplateBlocks(luaSource) {
+  const cleaned = stripComments(luaSource);
+  const lines = cleaned.split("\n");
+
+  const aliases = {};
+  const localFunctions = {};
+  const blocksByName = new Map(); // name → block object
+  const blockOrder = []; // insertion-ordered names
+
+  // Auto-detect the template table variable name:
+  // First `local <var> = {}` is the template table.
+  let tableVar = "templates";
+  for (const line of lines) {
+    const emptyTableMatch = line.match(/^\s*local\s+(\w+)\s*=\s*\{\s*\}\s*$/);
+    if (emptyTableMatch) {
+      tableVar = emptyTableMatch[1];
+      break;
+    }
+  }
+
+  /** Get or create a block entry, registering insertion order. */
+  function getOrCreateBlock(name, type) {
+    if (!blocksByName.has(name)) {
+      const block = { name, type, patches: {} };
+      blocksByName.set(name, block);
+      blockOrder.push(name);
+      return block;
+    }
+    return blocksByName.get(name);
+  }
+
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    // Skip blank lines and `return`
+    if (!trimmed || trimmed.startsWith("return ")) { i++; continue; }
+
+    // Skip `local <tableVar> = {}`
+    if (trimmed === `local ${tableVar} = {}`) { i++; continue; }
+
+    // Skip `table.make_unique(...)`
+    if (trimmed.startsWith("table.make_unique(")) { i++; continue; }
+
+    // 1. TalentSettings alias: `local <var> = TalentSettings.<ns>`
+    const aliasMatch = trimmed.match(/^local\s+(\w+)\s*=\s*TalentSettings\.(\w+)\s*$/);
+    if (aliasMatch) {
+      aliases[aliasMatch[1]] = aliasMatch[2];
+      i++;
+      continue;
+    }
+
+    // 2. Local function: `local <name> = function(...) ... end`
+    const funcMatch = trimmed.match(/^local\s+(\w+)\s*=\s*function\s*\(/);
+    if (funcMatch) {
+      const funcName = funcMatch[1];
+      // Collect lines until we find the closing `end` at depth 0
+      let depth = 1;
+      const bodyLines = [lines[i]];
+      i++;
+      while (i < lines.length && depth > 0) {
+        const fl = lines[i].trim();
+        bodyLines.push(lines[i]);
+        // Count block openers/closers on this line
+        // Simple keyword-based depth tracking
+        const words = fl.match(/\b(function|if|do|for|while|end)\b/g) || [];
+        for (const w of words) {
+          if (w === "end") depth--;
+          else depth++;
+        }
+        i++;
+      }
+      // Store everything between `function(` and the final `end`
+      const fullText = bodyLines.join("\n");
+      // Extract body: from after "function(" to before final "end"
+      const funcBodyStart = fullText.indexOf("function");
+      const funcBodyStr = fullText.slice(funcBodyStart);
+      // Strip the `local name = ` prefix and the final `end`
+      const afterFunc = funcBodyStr.slice("function".length).trim();
+      // Remove the trailing "end"
+      const endIdx = afterFunc.lastIndexOf("end");
+      const body = afterFunc.slice(0, endIdx).trim();
+      localFunctions[funcName] = body;
+      continue;
+    }
+
+    // Patterns starting with `<tableVar>.`
+    const tvPrefix = `${tableVar}.`;
+
+    // 3–6: template assignments
+    if (trimmed.startsWith(tvPrefix)) {
+      const afterPrefix = trimmed.slice(tvPrefix.length);
+
+      // Check for post-construction patch: <tableVar>.<name>.<field> = <value>
+      const patchMatch = afterPrefix.match(/^(\w+)\.(\w+)\s*=\s*(.+)$/);
+      if (patchMatch) {
+        const [, blockName, field, valueStr] = patchMatch;
+        const block = getOrCreateBlock(blockName, "clone"); // must already exist in practice
+
+        // Check if value starts with `{` — table-valued patch
+        const valTrimmed = valueStr.trim();
+        if (valTrimmed.startsWith("{")) {
+          // Collect until balanced braces
+          let braceDepth = 0;
+          let tableText = "";
+          let j = i;
+          while (j < lines.length) {
+            const tl = lines[j];
+            for (const ch of tl) {
+              if (ch === "{") braceDepth++;
+              if (ch === "}") braceDepth--;
+            }
+            tableText += (tableText ? "\n" : "") + tl;
+            j++;
+            if (braceDepth === 0) break;
+          }
+          // Extract just the table literal from the full line
+          const eqIdx = tableText.indexOf("=");
+          const tableStr = tableText.slice(eqIdx + 1).trim();
+          block.patches[field] = parseLuaTable(tableStr);
+          i = j;
+          continue;
+        }
+
+        // Scalar patch
+        block.patches[field] = parseScalar(valTrimmed);
+        i++;
+        continue;
+      }
+
+      // Assignment: <tableVar>.<name> = <rhs>
+      const assignMatch = afterPrefix.match(/^(\w+)\s*=\s*(.+)$/);
+      if (assignMatch) {
+        const [, name, rhs] = assignMatch;
+        const rhsTrimmed = rhs.trim();
+
+        // table.clone(...)
+        const cloneMatch = rhsTrimmed.match(/^table\.clone\((.+)\)\s*$/);
+        if (cloneMatch) {
+          const src = cloneMatch[1].trim();
+          const block = getOrCreateBlock(name, "clone");
+          if (src.startsWith(tvPrefix)) {
+            block.cloneSource = src.slice(tvPrefix.length);
+            block.cloneExternal = false;
+          } else {
+            block.cloneSource = src;
+            block.cloneExternal = true;
+          }
+          i++;
+          continue;
+        }
+
+        // table.merge({...}, <base>)
+        if (rhsTrimmed.startsWith("table.merge(")) {
+          // Collect lines until we have balanced parens for the merge call
+          let parenDepth = 0;
+          let mergeText = "";
+          let j = i;
+          while (j < lines.length) {
+            const ml = lines[j];
+            for (const ch of ml) {
+              if (ch === "(") parenDepth++;
+              if (ch === ")") parenDepth--;
+            }
+            mergeText += (mergeText ? "\n" : "") + ml;
+            j++;
+            if (parenDepth === 0) break;
+          }
+          // Parse the merge call: table.merge({...}, BaseRef)
+          // Extract content between outer parens
+          const outerStart = mergeText.indexOf("table.merge(") + "table.merge(".length;
+          const outerEnd = mergeText.lastIndexOf(")");
+          const innerContent = mergeText.slice(outerStart, outerEnd).trim();
+
+          // Find the inline table: from first `{` to its balanced `}`
+          const braceStart = innerContent.indexOf("{");
+          let braceDepth = 0;
+          let braceEnd = -1;
+          for (let k = braceStart; k < innerContent.length; k++) {
+            if (innerContent[k] === "{") braceDepth++;
+            if (innerContent[k] === "}") {
+              braceDepth--;
+              if (braceDepth === 0) { braceEnd = k; break; }
+            }
+          }
+          const inlineTableStr = innerContent.slice(braceStart, braceEnd + 1);
+          // Base ref is everything after the closing `}` and the comma
+          const afterTable = innerContent.slice(braceEnd + 1).trim();
+          // Strip leading comma
+          const baseRef = afterTable.startsWith(",") ? afterTable.slice(1).trim() : afterTable;
+
+          const block = getOrCreateBlock(name, "merge");
+          block.mergeInline = parseLuaTable(inlineTableStr);
+          block.mergeBase = baseRef;
+          i = j;
+          continue;
+        }
+
+        // Inline table: { ... }
+        if (rhsTrimmed.startsWith("{")) {
+          let braceDepth = 0;
+          let tableText = "";
+          let j = i;
+          while (j < lines.length) {
+            const tl = lines[j];
+            for (const ch of tl) {
+              if (ch === "{") braceDepth++;
+              if (ch === "}") braceDepth--;
+            }
+            tableText += (tableText ? "\n" : "") + tl;
+            j++;
+            if (braceDepth === 0) break;
+          }
+          // Extract the table literal from the full collected text
+          const eqIdx = tableText.indexOf("=");
+          const tableStr = tableText.slice(eqIdx + 1).trim();
+          const block = getOrCreateBlock(name, "inline");
+          block.parsed = parseLuaTable(tableStr);
+          i = j;
+          continue;
+        }
+
+        // Fallback: unknown RHS — skip
+        i++;
+        continue;
+      }
+    }
+
+    // Unrecognized line — skip
+    i++;
+  }
+
+  const blocks = blockOrder.map((name) => blocksByName.get(name));
+  return { blocks, aliases, localFunctions };
+}
+
+/**
+ * Parse a scalar value from a Lua assignment RHS.
+ * Handles numbers, quoted strings, booleans, nil, and identifier refs.
+ */
+function parseScalar(text) {
+  // Number
+  if (/^-?[0-9]/.test(text)) {
+    return Number(text);
+  }
+  // Quoted string (double or single)
+  const strMatch = text.match(/^"(.*)"$/) || text.match(/^'(.*)'$/);
+  if (strMatch) {
+    return strMatch[1];
+  }
+  // Boolean
+  if (text === "true") return true;
+  if (text === "false") return false;
+  // Nil
+  if (text === "nil") return null;
+  // Identifier reference
+  return { $ref: text };
+}
+
+export { parseLuaTable, extractTemplateBlocks };
