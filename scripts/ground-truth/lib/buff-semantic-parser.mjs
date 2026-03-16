@@ -13,6 +13,7 @@
  */
 
 import { tagCondition } from "./condition-tagger.mjs";
+import { extractTemplateBlocks } from "./lua-data-reader.mjs";
 
 // -- Helpers ------------------------------------------------------------------
 
@@ -481,4 +482,40 @@ export function resolveTemplateChain(blocks, externalTemplates = new Map()) {
   }
 
   return resolved;
+}
+
+// -- Talent-to-buff linking ---------------------------------------------------
+
+/**
+ * Extract talent → buff template links from a talent definition Lua file.
+ *
+ * Scans each talent block for `passive.buff_template_name`, which may be
+ * a single string or an array of strings.
+ *
+ * @param {string} talentLuaSource - Full Lua source text of a talent file
+ * @returns {Map<string, string[]>} Map from talent internal name to buff template name(s)
+ */
+export function extractTalentBuffLinks(talentLuaSource) {
+  const { blocks } = extractTemplateBlocks(talentLuaSource);
+  /** @type {Map<string, string[]>} */
+  const links = new Map();
+
+  for (const block of blocks) {
+    const parsed = block.parsed;
+    if (!parsed || typeof parsed !== "object") continue;
+
+    const passive = parsed.passive;
+    if (!passive || typeof passive !== "object") continue;
+
+    const buffName = passive.buff_template_name;
+    if (buffName === undefined || buffName === null) continue;
+
+    if (typeof buffName === "string") {
+      links.set(block.name, [buffName]);
+    } else if (Array.isArray(buffName)) {
+      links.set(block.name, buffName);
+    }
+  }
+
+  return links;
 }

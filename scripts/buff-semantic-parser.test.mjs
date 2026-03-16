@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
-import { extractEffects, extractTiers, resolveTemplateChain } from "./ground-truth/lib/buff-semantic-parser.mjs";
+import { extractEffects, extractTiers, resolveTemplateChain, extractTalentBuffLinks } from "./ground-truth/lib/buff-semantic-parser.mjs";
 
 describe("extractEffects", () => {
   it("extracts flat stat_buffs with literal magnitudes", () => {
@@ -250,5 +250,49 @@ describe("resolveTemplateChain", () => {
     const resolved = resolveTemplateChain(blocks);
     assert.equal(resolved.get("merged").max_stacks, 3);
     assert.equal(resolved.get("merged").class_name, "proc_buff");
+  });
+});
+
+describe("extractTalentBuffLinks", () => {
+  it("extracts single buff_template_name", () => {
+    const talentLua = `
+local talents = {}
+talents.my_talent = {
+  passive = {
+    buff_template_name = "my_talent_buff",
+  },
+}
+return talents
+`;
+    const links = extractTalentBuffLinks(talentLua);
+    assert.deepEqual(links.get("my_talent"), ["my_talent_buff"]);
+  });
+
+  it("extracts array buff_template_name", () => {
+    const talentLua = `
+local talents = {}
+talents.multi_talent = {
+  passive = {
+    buff_template_name = { "buff_a", "buff_b", "buff_c" },
+  },
+}
+return talents
+`;
+    const links = extractTalentBuffLinks(talentLua);
+    assert.deepEqual(links.get("multi_talent"), ["buff_a", "buff_b", "buff_c"]);
+  });
+
+  it("skips talents without passive.buff_template_name", () => {
+    const talentLua = `
+local talents = {}
+talents.no_buff = {
+  passive = {
+    identifier = "just_passive",
+  },
+}
+return talents
+`;
+    const links = extractTalentBuffLinks(talentLua);
+    assert.equal(links.has("no_buff"), false);
   });
 });
