@@ -8,7 +8,7 @@
  * Unresolvable constructs are represented as typed sentinel nodes:
  *   { $ref: "dotted.name" }   — identifier / enum reference
  *   { $func: "<body>" }       — inline function literal
- *   { $expr: "<text>" }       — arithmetic expression
+ *   { $expr: "<text>", $op: "op" } — arithmetic expression
  *   { $call: "Name", $args: [...] } — function call
  */
 
@@ -352,7 +352,11 @@ function parseLuaTable(luaText) {
         throw new Error(`Unexpected RHS in expression: ${rightTok.type}`);
       }
 
-      return { $expr: `${leftText} ${op} ${rightText}` };
+      // Derive left-side text from $ref value if leftText is not a string
+      // (guards against callers passing the value object instead of text)
+      const lhs = typeof leftText === "string" ? leftText : leftVal.$ref ?? String(leftVal);
+
+      return { $expr: `${lhs} ${op} ${rightText}`, $op: op };
     }
     return leftVal;
   }

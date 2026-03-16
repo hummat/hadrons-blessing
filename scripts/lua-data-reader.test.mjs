@@ -98,6 +98,7 @@ describe("parseLuaTable", () => {
     const result = parseLuaTable(lua);
     const val = result["stat_buffs.ranged_damage"];
     assert.equal(val.$expr, "talent_settings_2.a.b - talent_settings_2.c.d");
+    assert.equal(val.$op, "-");
   });
 
   it("parses negative number literals", () => {
@@ -140,5 +141,17 @@ describe("parseLuaTable", () => {
     const result = parseLuaTable(lua);
     assert.equal(result.class_name, "buff");
     assert.equal(result.max_stacks, 1);
+  });
+
+  it("ignores Lua block comments inside tables", () => {
+    const lua = `{
+      --[[ this is a
+      multi-line block comment ]]
+      class_name = "buff",
+      --[[ another block comment ]] max_stacks = 3,
+    }`;
+    const result = parseLuaTable(lua);
+    assert.equal(result.class_name, "buff");
+    assert.equal(result.max_stacks, 3);
   });
 });
