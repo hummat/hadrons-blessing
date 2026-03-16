@@ -16,7 +16,7 @@ This model bridges raw buff data (#7) and user-facing scoring (#9) / recommendat
 |--------|-------|--------|
 | Entities with `calc.effects` | 435 of 1735 | `data/ground-truth/entities/` |
 | Top-level effects | 551 | across 4 populated effect types |
-| Unique stat names | 138 | `calc.effects[].stat` |
+| Unique stat names | 144 | `calc.effects[].stat` (including tier effects) |
 | Unique triggers | 13 | `calc.effects[].trigger` |
 | `grants_buff` edges | 385 | `data/ground-truth/edges/` |
 | Weapon traits with tiers | 44 (31 with non-empty tier effects) | `shared-weapons.json` |
@@ -51,18 +51,19 @@ Notable: gadget traits have 100% calc coverage. Named gameplay talents are at 48
 
 ### Per-build effective coverage
 
-For build 08 (psyker, 48 resolved selections): **21 selections (44%) have usable calc.effects.** Composition by field:
+For build 08 (psyker, 52 resolved selections): **21 selections (40%) have usable calc.effects.** Composition by field:
 
 | Field | With calc | Without calc |
 |-------|-----------|-------------|
 | ability + blitz | 2 | 0 |
 | aura + keystone | 0 | 2 |
 | talents | 7 | 19 |
+| blessings (name_family) | 0 | 4 |
 | weapon names | 0 | 2 |
 | weapon perks | 0 | 4 |
 | curio perks (gadget_trait) | 12 | 0 |
 
-The 21 include: 12 curio perks (gadget_traits, 100% coverage), 7 talents (mix of base_* stat nodes and named gameplay talents with calc), ability, and blitz. The 27 without calc are primarily named gameplay talents (19), weapon entities, and weapon perks.
+The 21 include: 12 curio perks (gadget_traits, 100% coverage), 7 talents (mix of base_* stat nodes and named gameplay talents with calc), ability, and blitz. The 31 without calc are primarily named gameplay talents (19), blessings (4), weapon entities, and weapon perks.
 
 ### Edge traversal adds nothing
 
@@ -82,7 +83,7 @@ Builds store family-level IDs (`shared.stat_node.toughness_boost`) but calc live
 
 ### Implication for design
 
-The model operates on ~44% of build selections directly. This breaks into two categories:
+The model operates on ~40% of build selections directly. This breaks into two categories:
 1. **Gadget traits and base_* stat-node talents** — high-coverage entity kinds that define the build's numerical stat profile (toughness, damage, crit, etc.)
 2. **Named gameplay talents with calc** — about half of named talents have extracted effects, covering simpler proc and stat-buff behaviors
 
@@ -123,7 +124,7 @@ scripts/
 
 ### Module responsibilities
 
-**`synergy-stat-families.mjs`** — Static mapping of all 138 known stat names to 11 stat families. Each stat maps to a set of family names. Stats can belong to multiple families (multi-membership). Unmapped stats are flagged as `uncategorized`.
+**`synergy-stat-families.mjs`** — Static mapping of all 144 known stat names to 11 stat families. Each stat maps to a set of family names. Stats can belong to multiple families (multi-membership). Unmapped stats are flagged as `uncategorized`.
 
 **`synergy-rules.mjs`** — Five rule implementations, each a pure function: `(selections, index) → edges[]`. Rules run independently, no rule depends on another's output.
 
@@ -139,7 +140,7 @@ scripts/
 
 ## Stat Family Taxonomy
 
-11 families grouping all 138 known stat names by combat role:
+11 families grouping all 144 known stat names by combat role:
 
 | Family | Representative stats | Purpose |
 |--------|---------------------|---------|
@@ -148,14 +149,14 @@ scripts/
 | `general_offense` | `damage`, `power_level_modifier`, `rending_multiplier`, `damage_near`, `damage_vs_ogryn_and_monsters` | Slot-agnostic damage amplification |
 | `crit` | `critical_strike_chance`, `critical_strike_damage`, `melee_critical_strike_chance`, `ranged_critical_strike_chance` | Critical hit scaling |
 | `toughness` | `toughness`, `toughness_damage_taken_modifier`, `toughness_damage_taken_multiplier`, `toughness_replenish_modifier`, `toughness_regen_delay` | Toughness pool and recovery |
-| `damage_reduction` | `damage_taken_multiplier`, `corruption_taken_multiplier`, `block_cost_modifier`, `push_cost_modifier` | Incoming damage mitigation |
+| `damage_reduction` | `damage_taken_multiplier`, `corruption_taken_multiplier`, `block_cost_multiplier`, `push_cost_modifier` | Incoming damage mitigation |
 | `mobility` | `movement_speed`, `sprint_speed`, `dodge_speed`, `extra_consecutive_dodges` | Movement and positioning |
 | `warp_resource` | `warp_charge_amount`, `warp_charge_block_cost`, `peril_*`, `smite_*` | Psyker warp charge economy |
 | `grenade` | `extra_max_amount_of_grenades`, `grenade_*` | Grenade capacity and cooldown |
 | `stamina` | `stamina_modifier`, `stamina_*` | Stamina pool and costs |
 | `utility` | `coherency_radius_modifier`, `wield_speed`, `suppression_dealt`, `stagger_*` | Misc tactical utility |
 
-**Multi-membership:** Stats can belong to multiple families. `critical_strike_chance` is in both `crit` and `general_offense`. `block_cost_modifier` is in both `stamina` and `damage_reduction`. This is intentional — it means a crit chance buff synergizes with both crit damage talents and general offense builds.
+**Multi-membership:** Stats can belong to multiple families. `critical_strike_chance` is in both `crit` and `general_offense`. `block_cost_multiplier` is in both `stamina` and `damage_reduction`. This is intentional — it means a crit chance buff synergizes with both crit damage talents and general offense builds.
 
 **Slot affinity:** `melee_offense` and `ranged_offense` are slot-specific families. `general_offense` stats amplify whichever weapon the player uses — treated as universal amplifiers. `slot_balance` (see Stat Aggregator) only counts `melee_offense` and `ranged_offense` in their respective slots; `general_offense` contributes to both; `crit` contributes to both; other families (`toughness`, `mobility`, etc.) are slot-independent and not counted in slot balance.
 
