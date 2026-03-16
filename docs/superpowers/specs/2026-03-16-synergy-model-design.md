@@ -40,6 +40,8 @@ Calc coverage varies dramatically by entity kind. The synergy model must be hone
 | Gadget trait | 14 | 14 | 100% |
 | Ability | 5 | 38 | 13% |
 | Keystone | 6 | 21 | 29% |
+| Aura | 1 | 19 | 5% |
+| Talent modifier | 19 | 136 | 14% |
 | Weapon perk | 3 | 15 | 20% |
 | Weapon | 0 | 48 | 0% |
 | Name family (blessing label) | 0 | 46 | 0% |
@@ -68,7 +70,11 @@ Investigation confirmed that `grants_buff` edges are dead-ends for calc discover
 - Stat-node `base_*` buffs have effects that are **identical** to the talent's own calc — traversal adds no new data.
 - Named talent → buff chains terminate at buff entities with **empty calc** — the extraction pipeline didn't parse their complex Lua patterns.
 
-Blessing traversal (`name_family` ← `instance_of` ← `weapon_trait`) is sparse: only 8 of 46 name_families have any weapon_trait instance with non-empty effects. Build 08: 1 of 4 blessings reachable.
+Blessing traversal (`name_family` ← `instance_of` ← `weapon_trait`) coverage depends on whether tier effects are included:
+- Top-level `calc.effects` only: 8 of 46 name_families (17%)
+- Including `calc.tiers` with non-empty tier effects: 27 of 46 name_families (59%)
+
+Since the model treats tier effects as valid calc data (see per-kind table), blessing traversal is a viable path for 59% of blessing families. Build 08 specifically: 1 of 4 blessings reachable (the others' weapon_trait instances lack both top-level and tier effects).
 
 ### Stat-node family resolution gap
 
@@ -122,11 +128,12 @@ scripts/
 **`synergy-rules.mjs`** — Five rule implementations, each a pure function: `(selections, index) → edges[]`. Rules run independently, no rule depends on another's output.
 
 **`synergy-model.mjs`** — Orchestrates:
-1. Loads build + index
+1. Loads build + index (entities, edges)
 2. Resolves selections to entities
 3. For stat_node family IDs, resolves to per-class instances to retrieve calc data (see "Stat-node family resolution gap")
-4. Uses direct `calc.effects` on entities — no edge traversal (traversal adds nothing, see above)
-5. Runs all rules, runs stat aggregation, assembles output
+4. For blessing selections (name_family entities), traverses `instance_of` edges to weapon_trait instances and uses tier-4 effects as representative calc values (59% of blessing families reachable)
+5. For all other entities, uses direct `calc.effects` — `grants_buff` traversal is skipped (adds nothing, see above)
+6. Runs all rules, runs stat aggregation, assembles output
 
 **`analyze-synergy.mjs`** — CLI: `npm run synergy -- <build.json> [--json]`. Default human-readable text output. `--json` for structured output. Supports batch mode on directories.
 
@@ -308,7 +315,7 @@ Selection IDs are canonical entity IDs from the ground-truth index, not raw labe
 |----------------|---------------------|--------|
 | `talent_coherence` | `coverage.concentration` + synergy edge density among talent selections | **Achievable** — stat-node talents have calc |
 | `role_coverage` | `coverage.build_identity` + `coverage.coverage_gaps` | **Achievable** — family profile from available calc |
-| `blessing_synergy` | Would require blessing calc data | **Blocked** — 0% name_family calc coverage, sparse weapon_trait traversal (8/46). Requires extraction pipeline improvements |
+| `blessing_synergy` | Synergy edges between blessing effects and talent effects, via `instance_of` → weapon_trait tier traversal | **Partial** — 27/46 blessing families (59%) reachable via tier effects. The model traverses `instance_of` edges from name_family to weapon_trait instances and uses tier-4 effects as representative values. Remaining 41% of blessings have no extractable effects. |
 | `breakpoint_relevance` | Requires numeric damage math | **Deferred** to #5 (calculator layer) |
 | `difficulty_scaling` | Requires enemy data | **Deferred** — not in scope |
 
@@ -352,4 +359,3 @@ Issue #8 acceptance criteria vs spec coverage:
 - PvP or difficulty-specific weighting
 - Resolving the 68 opaque conditions (separate extraction improvement)
 - Weapon-proficiency keyword affinity (requires data modeling work — see Deferred section)
-- Blessing synergy scoring (blocked on calc coverage — see Mapping section)
