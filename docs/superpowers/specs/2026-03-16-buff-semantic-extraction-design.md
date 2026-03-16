@@ -176,6 +176,7 @@ Read scripts/settings/buff/weapon_traits_buff_templates/*.lua  (includes weapon 
 Read scripts/settings/buff/gadget_buff_templates.lua
 Read scripts/settings/buff/player_buff_templates.lua
 Read scripts/settings/buff/common_buff_templates.lua
+Read scripts/settings/buff/weapon_buff_templates.lua
   ──→  Parsed + resolved buff templates (with clone/merge chains materialized)
         │
 Read scripts/settings/ability/archetype_talents/talents/*_talents.lua
