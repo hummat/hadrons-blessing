@@ -15,14 +15,80 @@ This model bridges raw buff data (#7) and user-facing scoring (#9) / recommendat
 | Signal | Count | Source |
 |--------|-------|--------|
 | Entities with `calc.effects` | 435 of 1735 | `data/ground-truth/entities/` |
-| Top-level effects | 551 | across 6 effect types |
-| Unique stat names | 156 | `calc.effects[].stat` |
+| Top-level effects | 551 | across 4 populated effect types |
+| Unique stat names | 138 | `calc.effects[].stat` |
 | Unique triggers | 13 | `calc.effects[].trigger` |
 | `grants_buff` edges | 385 | `data/ground-truth/edges/` |
-| Weapon traits with tier data | 44 | `shared-weapons.json` |
+| Weapon traits with tiers | 44 (31 with non-empty tier effects) | `shared-weapons.json` |
 | Buff keywords | 8 unique values | `calc.keywords` |
 
-**Known gaps:** 68 effects have opaque conditions (`unknown_condition` or `active_and_unknown`). 14 `stat_node` entities have empty `calc`. These are accepted limitations — the model operates at ~85% effect visibility and reports gaps honestly via metadata.
+**Effect types in use:** `stat_buff` (332), `conditional_stat_buff` (100), `proc_stat_buff` (79), `lerped_stat_buff` (40). Two schema-declared types (`stepped_stat_buff`, `conditional_lerped_stat_buff`) have zero instances.
+
+## Coverage reality
+
+Calc coverage varies dramatically by entity kind. The synergy model must be honest about what it can and cannot see.
+
+### Per-kind calc coverage
+
+| Entity kind | With calc | Total | Rate |
+|-------------|-----------|-------|------|
+| Talent (stat-node `base_*`) | 44 | 44 | 100% |
+| Talent (named gameplay) | 135 | 284 | 48% |
+| Buff | 198 | 388 | 51% |
+| Weapon trait (top-level effects) | 10 | 54 | 19% |
+| Weapon trait (non-empty tier effects) | 31 | 44 w/ tiers | 70% |
+| Gadget trait | 14 | 14 | 100% |
+| Ability | 5 | 38 | 13% |
+| Keystone | 6 | 21 | 29% |
+| Weapon perk | 3 | 15 | 20% |
+| Weapon | 0 | 48 | 0% |
+| Name family (blessing label) | 0 | 46 | 0% |
+| Stat node (family-level) | 0 | 14 | 0% |
+
+Notable: gadget traits have 100% calc coverage. Named gameplay talents are at 48% — better than expected, though the other half includes important proc-based talents.
+
+### Per-build effective coverage
+
+For build 08 (psyker, 48 resolved selections): **21 selections (44%) have usable calc.effects.** Composition by field:
+
+| Field | With calc | Without calc |
+|-------|-----------|-------------|
+| ability + blitz | 2 | 0 |
+| aura + keystone | 0 | 2 |
+| talents | 7 | 19 |
+| weapon names | 0 | 2 |
+| weapon perks | 0 | 4 |
+| curio perks (gadget_trait) | 12 | 0 |
+
+The 21 include: 12 curio perks (gadget_traits, 100% coverage), 7 talents (mix of base_* stat nodes and named gameplay talents with calc), ability, and blitz. The 27 without calc are primarily named gameplay talents (19), weapon entities, and weapon perks.
+
+### Edge traversal adds nothing
+
+Investigation confirmed that `grants_buff` edges are dead-ends for calc discovery:
+- Stat-node `base_*` buffs have effects that are **identical** to the talent's own calc — traversal adds no new data.
+- Named talent → buff chains terminate at buff entities with **empty calc** — the extraction pipeline didn't parse their complex Lua patterns.
+
+Blessing traversal (`name_family` ← `instance_of` ← `weapon_trait`) is sparse: only 8 of 46 name_families have any weapon_trait instance with non-empty effects. Build 08: 1 of 4 blessings reachable.
+
+### Stat-node family resolution gap
+
+Builds store family-level IDs (`shared.stat_node.toughness_boost`) but calc lives on per-class instances (`psyker.talent.base_toughness_node_buff_medium_4`). The synergy model resolves families by looking up per-class talent entities whose `attributes.family` matches the stat_node's family identifier. This retrieves representative magnitudes for stat-node selections that would otherwise appear as dead-ends.
+
+### Implication for design
+
+The model operates on ~44% of build selections directly. This breaks into two categories:
+1. **Gadget traits and base_* stat-node talents** — high-coverage entity kinds that define the build's numerical stat profile (toughness, damage, crit, etc.)
+2. **Named gameplay talents with calc** — about half of named talents have extracted effects, covering simpler proc and stat-buff behaviors
+
+The stat-node family resolution strategy (above) fills in stat-node family IDs that would otherwise be dead-ends, improving effective coverage for the stat aggregator.
+
+Named gameplay talents without calc (the other ~52%) are primarily complex proc-based talents whose Lua patterns the extraction pipeline couldn't fully parse. The model reports these honestly via metadata and does not guess at their effects.
+
+All analysis outputs include `metadata.entities_with_calc`, `metadata.entities_without_calc`, and `metadata.calc_coverage_pct` so downstream consumers know the confidence level.
+
+### Duplicate selection handling
+
+Builds may contain the same entity ID multiple times (e.g., the same gadget_trait across 3 curios). The model **deduplicates by entity ID** before running rules and aggregation — a trait appearing on 3 curios represents one distinct effect source, not three. The metadata reports both `entities_analyzed` (pre-dedup) and `unique_entities_with_calc` (post-dedup).
 
 ## Approach
 
@@ -43,7 +109,7 @@ This model bridges raw buff data (#7) and user-facing scoring (#9) / recommendat
 ```
 scripts/ground-truth/lib/
   synergy-model.mjs          # Main entry: analyzeBuild(build, index) → analysis
-  synergy-rules.mjs          # 6 rule implementations (pure functions)
+  synergy-rules.mjs          # 5 rule implementations (pure functions)
   synergy-stat-families.mjs  # STAT_FAMILIES map + family lookup helpers
 scripts/
   analyze-synergy.mjs        # CLI entry point
@@ -51,17 +117,22 @@ scripts/
 
 ### Module responsibilities
 
-**`synergy-stat-families.mjs`** — Static mapping of 156 stat names to 11 stat families. Stats can belong to multiple families (multi-membership). Unmapped stats are flagged as `uncategorized`.
+**`synergy-stat-families.mjs`** — Static mapping of all 138 known stat names to 11 stat families. Each stat maps to a set of family names. Stats can belong to multiple families (multi-membership). Unmapped stats are flagged as `uncategorized`.
 
-**`synergy-rules.mjs`** — Six rule implementations, each a pure function: `(selections, index) → edges[]`. Rules run independently, no rule depends on another's output.
+**`synergy-rules.mjs`** — Five rule implementations, each a pure function: `(selections, index) → edges[]`. Rules run independently, no rule depends on another's output.
 
-**`synergy-model.mjs`** — Orchestrates: loads build + index, resolves selections to entities with calc data, runs all rules, runs stat aggregation, assembles output.
+**`synergy-model.mjs`** — Orchestrates:
+1. Loads build + index
+2. Resolves selections to entities
+3. For stat_node family IDs, resolves to per-class instances to retrieve calc data (see "Stat-node family resolution gap")
+4. Uses direct `calc.effects` on entities — no edge traversal (traversal adds nothing, see above)
+5. Runs all rules, runs stat aggregation, assembles output
 
 **`analyze-synergy.mjs`** — CLI: `npm run synergy -- <build.json> [--json]`. Default human-readable text output. `--json` for structured output. Supports batch mode on directories.
 
 ## Stat Family Taxonomy
 
-11 families grouping 156 stat names by combat role:
+11 families grouping all 138 known stat names by combat role:
 
 | Family | Representative stats | Purpose |
 |--------|---------------------|---------|
@@ -79,26 +150,26 @@ scripts/
 
 **Multi-membership:** Stats can belong to multiple families. `critical_strike_chance` is in both `crit` and `general_offense`. `block_cost_modifier` is in both `stamina` and `damage_reduction`. This is intentional — it means a crit chance buff synergizes with both crit damage talents and general offense builds.
 
-**Slot affinity:** `melee_offense` stats only matter if the build uses its melee weapon offensively. `general_offense` stats amplify whichever weapon the player uses — treated as universal amplifiers that align with either slot.
+**Slot affinity:** `melee_offense` and `ranged_offense` are slot-specific families. `general_offense` stats amplify whichever weapon the player uses — treated as universal amplifiers. `slot_balance` (see Stat Aggregator) only counts `melee_offense` and `ranged_offense` in their respective slots; `general_offense` contributes to both; `crit` contributes to both; other families (`toughness`, `mobility`, etc.) are slot-independent and not counted in slot balance.
 
 ## Synergy Rules
 
-Six declarative rules matching the issue spec:
+Five declarative rules. Rule 4 (keyword affinity) from the issue is deferred — see "Deferred: Keyword affinity" below.
 
 ### Rule 1: Stat-family alignment
 
 **Input:** Two selections with `calc.effects`.
 **Signal:** Both have effects in the same stat family.
 **Output:** Synergy edge with strength:
-- **strong (3):** Same stat family, same effect type (e.g., both `stat_buff` on `crit`)
-- **moderate (2):** Same stat family, different effect types (one `stat_buff`, one `proc_stat_buff`)
+- **strong (3):** Same stat family, same effect category. Categories: "persistent" (`stat_buff`, `conditional_stat_buff`) and "dynamic" (`proc_stat_buff`, `lerped_stat_buff`). Two persistent buffs on the same family = strong.
+- **moderate (2):** Same stat family, different effect categories (one persistent, one dynamic).
 - **weak (1):** Overlapping families via multi-membership only (e.g., `damage` ↔ `melee_damage` connected through `general_offense`)
 
 ### Rule 2: Slot coverage
 
 **Input:** All selections.
 **Signal:** `melee_offense` vs `ranged_offense` family presence per weapon slot.
-**Output:** Coverage metric per slot — which families support it, total strength. Identifies unbuffed slots.
+**Output:** Coverage metric per slot — which families support it, total strength. Identifies unbuffed slots and slot imbalance.
 
 ### Rule 3: Trigger-target chain
 
@@ -106,23 +177,34 @@ Six declarative rules matching the issue spec:
 **Signal:** A's trigger (e.g., `on_kill`) produces an action that B's condition requires, or vice versa. For example, "on melee kill → +ranged damage" + a ranged weapon.
 **Output:** Synergy edge describing the chain.
 
-### Rule 4: Keyword affinity
+**Feasibility note:** The current condition vocabulary is sparse — only `wielded`, `slot_secondary`, and `threshold:*` variants are resolved; the remaining 68 are opaque. Productive trigger→condition pairings in v1 are limited:
+- `threshold:warp_charge` conditions pair with any trigger that co-occurs with `warp_charge_amount` stat effects (producer triggers)
+- `slot_secondary` condition pairs with selections that reference the secondary weapon slot
+- `wielded` is always-true when the weapon is held — no trigger pairing needed
 
-**Input:** A talent/buff and a weapon.
-**Signal:** Talent buff's `calc.keywords` or weapon proficiency pattern matches equipped weapon's template family.
-**Output:** Synergy edge (match) or anti-synergy (proficiency talent with no matching weapon).
+Beyond these, this rule will primarily detect **trigger co-occurrence** (two selections sharing the same trigger type, suggesting they activate in the same gameplay moment) rather than formal trigger→condition chains. Full chain analysis requires enriching condition semantics in a future extraction pass.
 
-### Rule 5: Resource flow
+### Rule 4: Resource flow
 
 **Input:** All selections.
-**Signal:** Producer effects (warp charge generation, grenade regen) vs consumer effects (warp charge spending, grenade use).
-**Output:** Flow analysis: producers, consumers, and orphaned consumers with no producer.
+**Signal:** Producer effects (warp charge generation, grenade regen) vs consumer effects (warp charge spending, grenade use). Resource types: `warp_charge`, `grenade`, `stamina`.
+**Classification:** Effects are classified by stat name prefix and magnitude sign. Positive magnitude on a resource stat (e.g., `warp_charge_amount: +0.25`) = producer/capacity increase. Negative magnitude or cost-type stats (e.g., `warp_charge_block_cost`) = consumer. Stats are mapped to resource types by prefix: `warp_charge_*` → `warp_charge`, `grenade_*` / `extra_max_amount_of_grenades` → `grenade`, `stamina_*` → `stamina`.
+**Output:** Flow analysis: producers, consumers, and orphaned consumers with no producer. Resource orphans are routed to the `orphans[]` output array (not `anti_synergies[]`).
 
-### Rule 6: Orphan detection
+### Rule 5: Orphan detection
 
 **Input:** A selection + full build context.
 **Signal:** Selection's condition or trigger has no possible activator in the build.
-**Output:** Orphan entry with reason. Opaque conditions (`unknown_condition`) are reported as `unresolvable_condition` rather than guessed.
+**Output:** Orphan entry with reason. Opaque conditions (`unknown_condition`) are reported as `{ reason: "unresolvable_condition" }` rather than guessed.
+
+### Deferred: Keyword affinity (issue #8 Rule 4)
+
+The issue describes weapon-proficiency keyword matching (`bolter_proficiency` ↔ `bolter`). Investigation revealed:
+- The 8 existing `calc.keywords` are mechanical behavior flags (`allow_backstabbing`, `stun_immune`, etc.), not weapon-family proficiency markers.
+- Zero entities contain "proficiency" in any field.
+- No `weapon_affinity` attribute or edge type exists in the data.
+
+This rule requires new data modeling work: either explicit proficiency→weapon_family mappings in ground-truth data, or investigation of the decompiled source for how proficiency talents are encoded. Deferred to a follow-up.
 
 ## Stat Aggregator
 
@@ -133,7 +215,7 @@ Build-wide coverage analysis. Not pairwise — operates over the full selection 
 ```json
 {
   "family_profile": {
-    "<family>": { "count": 5, "total_magnitude": 1.8, "selections": ["entity.id", ...] }
+    "<family>": { "count": 5, "total_magnitude": 1.8, "selections": ["entity.id", "..."] }
   },
   "slot_balance": {
     "melee": { "families": ["melee_offense", "crit"], "strength": 8 },
@@ -145,20 +227,26 @@ Build-wide coverage analysis. Not pairwise — operates over the full selection 
 }
 ```
 
-**Family profile:** Per-family selection count, summed magnitude, and contributing selection IDs.
+**Family profile:** Per-family selection count, summed magnitude (where numeric magnitude is available), and contributing selection IDs.
 
-**Slot balance:** Partition melee vs ranged family contributions. A build with 8 melee talents and 1 ranged talent is melee-focused — the ranged weapon is a utility slot.
+**Slot balance:** Counts `melee_offense` contributions in `melee`, `ranged_offense` in `ranged`. `general_offense` and `crit` contribute to both slots. Other families are slot-independent and excluded from slot_balance. The `strength` value is the count of unique selections contributing to that slot via the listed families.
 
-**Build identity:** Top 2-3 families by selection count.
+**Build identity:** Top 2-3 families by selection count, forming a human-readable build archetype label.
 
-**Coverage gaps:** Families the build should care about but doesn't. Heuristic rules:
-- Melee-focused build → needs `toughness` or `damage_reduction`
-- Warp resource consumers present → needs warp resource producers
-- Crit damage buffs present → needs crit chance source
+**Coverage gaps:** Families the build should care about but doesn't. Defined as predicates:
+- **Missing survivability:** `build_identity` includes `melee_offense` as top family AND `family_profile.toughness.count == 0` AND `family_profile.damage_reduction.count == 0` → gap: `"toughness"` or `"damage_reduction"`
+- **Missing crit source:** `family_profile.crit.count > 0` AND no selection has `critical_strike_chance` stat → gap: `"crit_chance_source"`
+- **Missing resource producer:** `warp_resource` consumers present (effects with `warp_charge` stat that decrease it or conditions requiring it) AND no warp_charge producers → gap: `"warp_charge_producer"`
 
 Gaps are flags, not penalties. The scoring layer (#9) decides weighting.
 
-**Concentration:** Normalized Herfindahl index over family selection counts. High = focused build, low = spread build. Neither is inherently good or bad.
+**Concentration:** Normalized Herfindahl–Hirschman Index (NHHI) over family selection counts.
+
+Formula: `NHHI = (HHI - 1/N) / (1 - 1/N)` where `HHI = Σ(count_i / total)²` and N = number of families with at least one selection.
+
+Multi-membership: a selection contributing effects to K families is counted once in each of those K families. `total` is the sum of all family counts (not the number of unique selections).
+
+Range: 0 (maximally spread) to 1 (all effects in one family). Neither extreme is inherently good or bad.
 
 ## Output Schema
 
@@ -170,16 +258,16 @@ Full synergy analysis output:
   "class": "<class>",
   "synergy_edges": [
     {
-      "type": "stat_alignment | trigger_target | keyword_affinity",
+      "type": "stat_alignment | trigger_target",
       "selections": ["<entity_id>", "<entity_id>"],
       "families": ["<family>"],
-      "strength": 1-3,
+      "strength": 1,
       "explanation": "<human-readable>"
     }
   ],
   "anti_synergies": [
     {
-      "type": "keyword_mismatch | slot_imbalance | resource_orphan",
+      "type": "slot_imbalance",
       "selections": ["<entity_id>"],
       "reason": "<human-readable>",
       "severity": "high | medium | low"
@@ -202,24 +290,29 @@ Full synergy analysis output:
   },
   "metadata": {
     "entities_analyzed": 0,
-    "entities_with_calc": 0,
+    "unique_entities_with_calc": 0,
     "entities_without_calc": 0,
-    "opaque_conditions": 0
+    "opaque_conditions": 0,
+    "calc_coverage_pct": 0.0
   }
 }
 ```
 
 Selection IDs are canonical entity IDs from the ground-truth index, not raw labels.
 
+**Routing rule:** Resource orphans (from Rule 4: resource flow) go in `orphans[]`. `anti_synergies[]` is reserved for structural conflicts where selections are present and conflicting (e.g., slot imbalance — heavy melee buffing with an unbuffed ranged weapon the build relies on).
+
 ## Mapping to scorecard stubs
 
-| Scorecard field | Synergy model source |
-|----------------|---------------------|
-| `blessing_synergy` | Synergy edges of type `stat_alignment` and `keyword_affinity` between weapon blessings and talents |
-| `talent_coherence` | `coverage.concentration` + synergy edge density among talents |
-| `role_coverage` | `coverage.build_identity` + `coverage.coverage_gaps` |
-| `breakpoint_relevance` | Deferred to #5 (calculator layer) — requires numeric damage math |
-| `difficulty_scaling` | Deferred — requires enemy data not in scope |
+| Scorecard field | Synergy model source | Status |
+|----------------|---------------------|--------|
+| `talent_coherence` | `coverage.concentration` + synergy edge density among talent selections | **Achievable** — stat-node talents have calc |
+| `role_coverage` | `coverage.build_identity` + `coverage.coverage_gaps` | **Achievable** — family profile from available calc |
+| `blessing_synergy` | Would require blessing calc data | **Blocked** — 0% name_family calc coverage, sparse weapon_trait traversal (8/46). Requires extraction pipeline improvements |
+| `breakpoint_relevance` | Requires numeric damage math | **Deferred** to #5 (calculator layer) |
+| `difficulty_scaling` | Requires enemy data | **Deferred** — not in scope |
+
+The model does not produce a top-level "overall coherence score." That synthesis is the responsibility of #9 (build scoring), which combines synergy signals with other factors. This model provides the raw signals: edges, orphans, coverage metrics.
 
 ## CLI interface
 
@@ -231,9 +324,20 @@ npm run synergy -- scripts/builds/                                       # batch
 
 ## Testing strategy
 
-1. **Unit tests per rule:** Synthetic selections with known calc data, verify edge output. Cover each of the 6 rules.
+1. **Unit tests per rule:** Synthetic selections with known calc data, verify edge output. Cover each of the 5 rules plus orphan detection.
 2. **Golden output tests:** Full synergy analysis for 3-5 builds from `scripts/builds/` covering each synergy type. Frozen snapshots, re-frozen when model changes.
-3. **Stat family coverage test:** Verify all 156 known stats are mapped. Fail on unmapped stats appearing in entity data.
+3. **Stat family coverage test:** Verify all 138 known stats are mapped. Fail on unmapped stats appearing in entity data.
+
+## Requirements traceability
+
+Issue #8 acceptance criteria vs spec coverage:
+
+| Criterion | Status | Spec coverage |
+|-----------|--------|--------------|
+| Identify stat-family alignment between any two selections | **Met** | Rule 1 (stat-family alignment) |
+| Detect orphaned talents (condition can never fire) | **Met** | Rule 5 (orphan detection) |
+| Detect weapon keyword mismatches | **Deferred** | Keyword affinity rule dropped from v1 — no proficiency data in current index (see Deferred section) |
+| Structured output consumable by #9 and #10 | **Met** | Output schema with typed edges, orphans, coverage metrics |
 
 ## Dependencies
 
@@ -247,3 +351,5 @@ npm run synergy -- scripts/builds/                                       # batch
 - User-facing recommendations (that's #10)
 - PvP or difficulty-specific weighting
 - Resolving the 68 opaque conditions (separate extraction improvement)
+- Weapon-proficiency keyword affinity (requires data modeling work — see Deferred section)
+- Blessing synergy scoring (blocked on calc coverage — see Mapping section)
