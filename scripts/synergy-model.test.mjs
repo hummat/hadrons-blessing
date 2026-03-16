@@ -337,3 +337,30 @@ describe("analyzeBuild", () => {
     assert.ok(result.coverage.build_identity.length > 0);
   });
 });
+
+describe("golden tests", () => {
+  const goldenDir = "tests/fixtures/ground-truth/synergy";
+  const goldenFiles = readdirSync(goldenDir).filter((f) => f.endsWith(".synergy.json"));
+  const index = loadIndex();
+
+  for (const gf of goldenFiles) {
+    it(`matches frozen snapshot for ${gf}`, () => {
+      const expected = JSON.parse(readFileSync(join(goldenDir, gf), "utf-8"));
+      const buildNum = gf.split(".")[0];
+      const buildFiles = readdirSync("scripts/builds").filter((f) => f.startsWith(`${buildNum}-`));
+      assert.ok(buildFiles.length === 1, `Expected one build file for ${buildNum}`);
+
+      const build = JSON.parse(readFileSync(join("scripts/builds", buildFiles[0]), "utf-8"));
+      const actual = analyzeBuild(build, index);
+
+      // Compare structure — ignore explanation text (may change)
+      assert.equal(actual.synergy_edges.length, expected.synergy_edges.length, "synergy_edges count mismatch");
+      assert.equal(actual.anti_synergies.length, expected.anti_synergies.length, "anti_synergies count mismatch");
+      assert.equal(actual.orphans.length, expected.orphans.length, "orphans count mismatch");
+      assert.deepStrictEqual(actual.coverage.build_identity, expected.coverage.build_identity);
+      assert.deepStrictEqual(actual.coverage.coverage_gaps, expected.coverage.coverage_gaps);
+      assert.equal(actual.coverage.concentration, expected.coverage.concentration);
+      assert.deepStrictEqual(actual.metadata, expected.metadata);
+    });
+  }
+});

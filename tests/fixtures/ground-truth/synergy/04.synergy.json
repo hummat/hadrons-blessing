@@ -1,0 +1,791 @@
+{
+  "build": "SPICY'S META HAVOC 40 ZEALOT",
+  "class": "zealot",
+  "synergy_edges": [
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.keystone.zealot_fanatic_rage",
+        "shared.stat_node.toughness_damage_reduction"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.keystone.zealot_fanatic_rage",
+        "shared.stat_node.toughness_boost"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.keystone.zealot_fanatic_rage",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_backstab_damage",
+        "zealot.talent.zealot_increased_damage_vs_resilient"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_backstab_damage",
+        "zealot.talent.zealot_increase_ranged_close_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_backstab_damage",
+        "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_backstab_damage",
+        "zealot.talent.zealot_damage_vs_elites"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_backstab_damage",
+        "zealot.talent.zealot_offensive_vs_many"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_backstab_damage",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_backstab_damage",
+        "shared.weapon_perk.melee.weapon_trait_increase_damage_elites"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_backstab_damage",
+        "shared.name_family.blessing.blaze_away"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increased_damage_vs_resilient",
+        "zealot.talent.zealot_increase_ranged_close_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increased_damage_vs_resilient",
+        "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increased_damage_vs_resilient",
+        "zealot.talent.zealot_damage_vs_elites"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increased_damage_vs_resilient",
+        "zealot.talent.zealot_offensive_vs_many"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increased_damage_vs_resilient",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increased_damage_vs_resilient",
+        "shared.weapon_perk.melee.weapon_trait_increase_damage_elites"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increased_damage_vs_resilient",
+        "shared.name_family.blessing.blaze_away"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increase_ranged_close_damage",
+        "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increase_ranged_close_damage",
+        "zealot.talent.zealot_damage_vs_elites"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increase_ranged_close_damage",
+        "zealot.talent.zealot_offensive_vs_many"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increase_ranged_close_damage",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increase_ranged_close_damage",
+        "shared.weapon_perk.melee.weapon_trait_increase_damage_elites"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increase_ranged_close_damage",
+        "shared.name_family.blessing.blaze_away"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+        "zealot.talent.zealot_reduced_damage_after_dodge"
+      ],
+      "strength": 2,
+      "trigger": "on_successful_dodge"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+        "zealot.talent.zealot_damage_vs_elites"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+        "zealot.talent.zealot_offensive_vs_many"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute dynamic effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "crit"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the crit family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+        "shared.weapon_perk.melee.weapon_trait_increase_damage_elites"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+        "shared.name_family.blessing.blaze_away"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_reduced_damage_after_dodge",
+        "shared.gadget_trait.gadget_block_cost_reduction"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the damage_reduction family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_reduced_damage_after_dodge",
+        "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the damage_reduction family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_reduced_damage_after_dodge",
+        "shared.gadget_trait.gadget_health_increase"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the damage_reduction family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_attack_speed",
+        "shared.stat_node.melee_damage_boost"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_attack_speed",
+        "zealot.talent.zealot_offensive_vs_many"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.melee_damage_boost",
+        "zealot.talent.zealot_offensive_vs_many"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.toughness_damage_reduction",
+        "shared.stat_node.toughness_boost"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.toughness_damage_reduction",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.toughness_boost",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_revive_speed",
+        "shared.gadget_trait.gadget_cooldown_reduction"
+      ],
+      "families": [
+        "utility"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the utility family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_damage_vs_elites",
+        "zealot.talent.zealot_offensive_vs_many"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_damage_vs_elites",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_damage_vs_elites",
+        "shared.weapon_perk.melee.weapon_trait_increase_damage_elites"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_damage_vs_elites",
+        "shared.name_family.blessing.blaze_away"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_offensive_vs_many",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_offensive_vs_many",
+        "shared.weapon_perk.melee.weapon_trait_increase_damage_elites"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_offensive_vs_many",
+        "shared.name_family.blessing.blaze_away"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.cranial_grounding",
+        "shared.weapon_perk.melee.weapon_trait_increase_damage_elites"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.cranial_grounding",
+        "shared.name_family.blessing.blaze_away"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_increase_damage_elites",
+        "shared.name_family.blessing.blaze_away"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.gadget_trait.gadget_block_cost_reduction",
+        "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.gadget_trait.gadget_block_cost_reduction",
+        "shared.gadget_trait.gadget_health_increase"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.gadget_trait.gadget_block_cost_reduction",
+        "shared.gadget_trait.gadget_stamina_regeneration"
+      ],
+      "families": [
+        "stamina"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the stamina family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+        "shared.gadget_trait.gadget_health_increase"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
+    }
+  ],
+  "anti_synergies": [],
+  "orphans": [
+    {
+      "selection": "zealot.keystone.zealot_fanatic_rage",
+      "reason": "unresolvable_condition",
+      "condition": "unknown_condition"
+    }
+  ],
+  "coverage": {
+    "family_profile": {
+      "toughness": {
+        "count": 4,
+        "total_magnitude": 15.7,
+        "selections": [
+          "zealot.keystone.zealot_fanatic_rage",
+          "shared.stat_node.toughness_damage_reduction",
+          "shared.stat_node.toughness_boost",
+          "shared.gadget_trait.gadget_toughness_increase"
+        ]
+      },
+      "general_offense": {
+        "count": 9,
+        "total_magnitude": 1.96,
+        "selections": [
+          "zealot.talent.zealot_backstab_damage",
+          "zealot.talent.zealot_increased_damage_vs_resilient",
+          "zealot.talent.zealot_increase_ranged_close_damage",
+          "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+          "zealot.talent.zealot_damage_vs_elites",
+          "zealot.talent.zealot_offensive_vs_many",
+          "shared.name_family.blessing.cranial_grounding",
+          "shared.weapon_perk.melee.weapon_trait_increase_damage_elites",
+          "shared.name_family.blessing.blaze_away"
+        ]
+      },
+      "crit": {
+        "count": 2,
+        "total_magnitude": 0.54,
+        "selections": [
+          "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+          "shared.name_family.blessing.cranial_grounding"
+        ]
+      },
+      "mobility": {
+        "count": 1,
+        "total_magnitude": 0.15,
+        "selections": [
+          "zealot.talent.zealot_damage_boosts_movement"
+        ]
+      },
+      "damage_reduction": {
+        "count": 4,
+        "total_magnitude": 4,
+        "selections": [
+          "zealot.talent.zealot_reduced_damage_after_dodge",
+          "shared.gadget_trait.gadget_block_cost_reduction",
+          "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "shared.gadget_trait.gadget_health_increase"
+        ]
+      },
+      "melee_offense": {
+        "count": 3,
+        "total_magnitude": 0.2,
+        "selections": [
+          "zealot.talent.zealot_attack_speed",
+          "shared.stat_node.melee_damage_boost",
+          "zealot.talent.zealot_offensive_vs_many"
+        ]
+      },
+      "utility": {
+        "count": 2,
+        "total_magnitude": 0.2,
+        "selections": [
+          "zealot.talent.zealot_revive_speed",
+          "shared.gadget_trait.gadget_cooldown_reduction"
+        ]
+      },
+      "ranged_offense": {
+        "count": 1,
+        "total_magnitude": 0.94,
+        "selections": [
+          "shared.name_family.blessing.cranial_grounding"
+        ]
+      },
+      "stamina": {
+        "count": 2,
+        "total_magnitude": 1,
+        "selections": [
+          "shared.gadget_trait.gadget_block_cost_reduction",
+          "shared.gadget_trait.gadget_stamina_regeneration"
+        ]
+      }
+    },
+    "slot_balance": {
+      "melee": {
+        "families": [
+          "general_offense",
+          "crit",
+          "melee_offense"
+        ],
+        "strength": 11
+      },
+      "ranged": {
+        "families": [
+          "general_offense",
+          "crit",
+          "ranged_offense"
+        ],
+        "strength": 9
+      }
+    },
+    "build_identity": [
+      "general_offense",
+      "toughness",
+      "damage_reduction"
+    ],
+    "coverage_gaps": [
+      "crit_chance_source"
+    ],
+    "concentration": 0.07
+  },
+  "metadata": {
+    "entities_analyzed": 52,
+    "unique_entities_with_calc": 23,
+    "entities_without_calc": 22,
+    "opaque_conditions": 1,
+    "calc_coverage_pct": 0.51
+  }
+}

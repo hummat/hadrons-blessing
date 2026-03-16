@@ -22,6 +22,8 @@
     "effects:build": "node scripts/extract-buff-effects.mjs",
     "report": "node scripts/report-build.mjs",
     "export:bot-weapons": "node scripts/export-bot-weapons.mjs",
+    "synergy": "node scripts/analyze-synergy.mjs",
+    "synergy:freeze": "for f in tests/fixtures/ground-truth/synergy/*.synergy.json; do b=$(basename \"$f\" .synergy.json); node scripts/analyze-synergy.mjs \"scripts/builds/${b}-\"*.json --json > \"$f\"; done",
     "check": "npm run index:build && npm test && npm run index:check"
   },
   "repository": {

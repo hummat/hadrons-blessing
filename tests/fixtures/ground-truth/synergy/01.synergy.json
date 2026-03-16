@@ -1,0 +1,604 @@
+{
+  "build": "Veteran: Squad Leader",
+  "class": "veteran",
+  "synergy_edges": [
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_crits_apply_rending",
+        "veteran.talent.veteran_increase_damage_vs_elites"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_crits_apply_rending",
+        "veteran.talent.veteran_increased_weakspot_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_crits_apply_rending",
+        "veteran.talent.veteran_big_game_hunter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_crits_apply_rending",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_crits_apply_rending",
+        "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
+        "veteran.talent.veteran_attack_speed"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
+        "shared.stat_node.melee_damage_boost"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "crit"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the crit family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
+        "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "crit"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the crit family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_attack_speed",
+        "shared.stat_node.melee_damage_boost"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increase_damage_vs_elites",
+        "veteran.talent.veteran_increased_weakspot_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increase_damage_vs_elites",
+        "veteran.talent.veteran_big_game_hunter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increase_damage_vs_elites",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increase_damage_vs_elites",
+        "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
+        "veteran.talent.veteran_tdr_on_high_toughness"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
+        "shared.stat_node.toughness_boost"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increased_damage_based_on_range",
+        "shared.stat_node.ranged_damage_boost"
+      ],
+      "families": [
+        "ranged_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the ranged_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increased_damage_based_on_range",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "ranged_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the ranged_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increased_damage_based_on_range",
+        "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "ranged_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the ranged_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increased_damage_based_on_range",
+        "shared.name_family.blessing.gets_hot"
+      ],
+      "families": [
+        "ranged_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the ranged_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increased_weakspot_damage",
+        "veteran.talent.veteran_big_game_hunter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increased_weakspot_damage",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increased_weakspot_damage",
+        "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_big_game_hunter",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_big_game_hunter",
+        "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_tdr_on_high_toughness",
+        "shared.stat_node.toughness_boost"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_tdr_on_high_toughness",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.toughness_boost",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.ranged_damage_boost",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "ranged_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the ranged_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.ranged_damage_boost",
+        "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "ranged_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the ranged_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.ranged_damage_boost",
+        "shared.name_family.blessing.gets_hot"
+      ],
+      "families": [
+        "ranged_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the ranged_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.cranial_grounding",
+        "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.cranial_grounding",
+        "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "crit"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the crit family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.cranial_grounding",
+        "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "ranged_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the ranged_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.cranial_grounding",
+        "shared.name_family.blessing.gets_hot"
+      ],
+      "families": [
+        "ranged_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the ranged_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.rising_heat",
+        "shared.name_family.blessing.gets_hot"
+      ],
+      "families": [
+        "ranged_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the ranged_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.gadget_trait.gadget_damage_reduction_vs_snipers",
+        "shared.gadget_trait.gadget_health_increase"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.gadget_trait.gadget_damage_reduction_vs_snipers",
+        "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.gadget_trait.gadget_health_increase",
+        "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
+    }
+  ],
+  "anti_synergies": [],
+  "orphans": [
+    {
+      "selection": "veteran.talent.veteran_tdr_on_high_toughness",
+      "reason": "unresolvable_condition",
+      "condition": "unknown_condition"
+    }
+  ],
+  "coverage": {
+    "family_profile": {
+      "general_offense": {
+        "count": 6,
+        "total_magnitude": 0.9,
+        "selections": [
+          "veteran.talent.veteran_crits_apply_rending",
+          "veteran.talent.veteran_increase_damage_vs_elites",
+          "veteran.talent.veteran_increased_weakspot_damage",
+          "veteran.talent.veteran_big_game_hunter",
+          "shared.name_family.blessing.cranial_grounding",
+          "shared.name_family.blessing.rising_heat"
+        ]
+      },
+      "crit": {
+        "count": 3,
+        "total_magnitude": 0.41,
+        "selections": [
+          "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
+          "shared.name_family.blessing.cranial_grounding",
+          "shared.name_family.blessing.rising_heat"
+        ]
+      },
+      "melee_offense": {
+        "count": 3,
+        "total_magnitude": 0.5,
+        "selections": [
+          "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
+          "veteran.talent.veteran_attack_speed",
+          "shared.stat_node.melee_damage_boost"
+        ]
+      },
+      "grenade": {
+        "count": 1,
+        "total_magnitude": 2.25,
+        "selections": [
+          "veteran.talent.veteran_improved_grenades"
+        ]
+      },
+      "toughness": {
+        "count": 4,
+        "total_magnitude": 8.05,
+        "selections": [
+          "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
+          "veteran.talent.veteran_tdr_on_high_toughness",
+          "shared.stat_node.toughness_boost",
+          "shared.gadget_trait.gadget_toughness_increase"
+        ]
+      },
+      "ranged_offense": {
+        "count": 5,
+        "total_magnitude": 1.8,
+        "selections": [
+          "veteran.talent.veteran_increased_damage_based_on_range",
+          "shared.stat_node.ranged_damage_boost",
+          "shared.name_family.blessing.cranial_grounding",
+          "shared.name_family.blessing.rising_heat",
+          "shared.name_family.blessing.gets_hot"
+        ]
+      },
+      "stamina": {
+        "count": 1,
+        "total_magnitude": 1,
+        "selections": [
+          "shared.stat_node.stamina_boost"
+        ]
+      },
+      "damage_reduction": {
+        "count": 3,
+        "total_magnitude": 3.25,
+        "selections": [
+          "shared.gadget_trait.gadget_damage_reduction_vs_snipers",
+          "shared.gadget_trait.gadget_health_increase",
+          "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
+        ]
+      }
+    },
+    "slot_balance": {
+      "melee": {
+        "families": [
+          "general_offense",
+          "crit",
+          "melee_offense"
+        ],
+        "strength": 9
+      },
+      "ranged": {
+        "families": [
+          "general_offense",
+          "crit",
+          "ranged_offense"
+        ],
+        "strength": 10
+      }
+    },
+    "build_identity": [
+      "general_offense",
+      "ranged_offense",
+      "toughness"
+    ],
+    "coverage_gaps": [],
+    "concentration": 0.04
+  },
+  "metadata": {
+    "entities_analyzed": 52,
+    "unique_entities_with_calc": 21,
+    "entities_without_calc": 22,
+    "opaque_conditions": 1,
+    "calc_coverage_pct": 0.49
+  }
+}

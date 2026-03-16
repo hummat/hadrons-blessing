@@ -1,0 +1,559 @@
+{
+  "build": "Gandalf: Melee Wizard (Updated for Bound by Duty)",
+  "class": "psyker",
+  "synergy_edges": [
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.ability.psyker_combat_ability_stance",
+        "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.ability.psyker_combat_ability_stance",
+        "shared.stat_node.toughness_boost"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.ability.psyker_combat_ability_stance",
+        "shared.stat_node.toughness_damage_reduction"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.ability.psyker_combat_ability_stance",
+        "psyker.talent.psyker_stat_mix"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.ability.psyker_combat_ability_stance",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.ability.psyker_brain_burst_improved",
+        "psyker.talent.psyker_chance_to_vent_on_kill"
+      ],
+      "families": [
+        "warp_resource"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the warp_resource family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.ability.psyker_brain_burst_improved",
+        "psyker.talent.psyker_block_costs_warp_charge"
+      ],
+      "families": [
+        "warp_resource"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the warp_resource family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.ability.psyker_brain_burst_improved",
+        "psyker.talent.psyker_stat_mix"
+      ],
+      "families": [
+        "warp_resource"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the warp_resource family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_chance_to_vent_on_kill",
+        "psyker.talent.psyker_block_costs_warp_charge"
+      ],
+      "families": [
+        "warp_resource"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the warp_resource family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "psyker.talent.psyker_chance_to_vent_on_kill",
+        "psyker.talent.psyker_block_costs_warp_charge"
+      ],
+      "strength": 3,
+      "resource": "threshold:warp_charge"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_chance_to_vent_on_kill",
+        "psyker.talent.psyker_stat_mix"
+      ],
+      "families": [
+        "warp_resource"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the warp_resource family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
+        "shared.stat_node.toughness_boost"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
+        "shared.stat_node.toughness_damage_reduction"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
+        "psyker.talent.psyker_stat_mix"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_damage_based_on_warp_charge",
+        "psyker.talent.psyker_cleave_from_peril"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute dynamic effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_damage_based_on_warp_charge",
+        "shared.stat_node.critical_chance_boost"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_damage_based_on_warp_charge",
+        "shared.name_family.blessing.warp_nexus"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_block_costs_warp_charge",
+        "psyker.talent.psyker_stat_mix"
+      ],
+      "families": [
+        "warp_resource"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the warp_resource family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.movement_speed_boost",
+        "shared.gadget_trait.gadget_sprint_cost_reduction"
+      ],
+      "families": [
+        "mobility"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the mobility family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_melee_attack_speed",
+        "psyker.talent.psyker_cleave_from_peril"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_melee_attack_speed",
+        "shared.stat_node.melee_damage_boost"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_cleave_from_peril",
+        "shared.stat_node.melee_damage_boost"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_cleave_from_peril",
+        "shared.stat_node.critical_chance_boost"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_cleave_from_peril",
+        "shared.name_family.blessing.warp_nexus"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.toughness_boost",
+        "shared.stat_node.toughness_damage_reduction"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.toughness_boost",
+        "psyker.talent.psyker_stat_mix"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.toughness_boost",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.stamina_boost",
+        "psyker.talent.psyker_stat_mix"
+      ],
+      "families": [
+        "stamina"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the stamina family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.stamina_boost",
+        "shared.gadget_trait.gadget_stamina_regeneration"
+      ],
+      "families": [
+        "stamina"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the stamina family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.toughness_damage_reduction",
+        "psyker.talent.psyker_stat_mix"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.toughness_damage_reduction",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_stat_mix",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_stat_mix",
+        "shared.gadget_trait.gadget_stamina_regeneration"
+      ],
+      "families": [
+        "stamina"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the stamina family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.critical_chance_boost",
+        "shared.name_family.blessing.warp_nexus"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.critical_chance_boost",
+        "shared.name_family.blessing.warp_nexus"
+      ],
+      "families": [
+        "crit"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the crit family"
+    }
+  ],
+  "anti_synergies": [],
+  "orphans": [
+    {
+      "selection": "psyker.ability.psyker_combat_ability_stance",
+      "reason": "unresolvable_condition",
+      "condition": "active_and_unknown"
+    }
+  ],
+  "coverage": {
+    "family_profile": {
+      "toughness": {
+        "count": 6,
+        "total_magnitude": 16.05,
+        "selections": [
+          "psyker.ability.psyker_combat_ability_stance",
+          "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
+          "shared.stat_node.toughness_boost",
+          "shared.stat_node.toughness_damage_reduction",
+          "psyker.talent.psyker_stat_mix",
+          "shared.gadget_trait.gadget_toughness_increase"
+        ]
+      },
+      "warp_resource": {
+        "count": 4,
+        "total_magnitude": 2.85,
+        "selections": [
+          "psyker.ability.psyker_brain_burst_improved",
+          "psyker.talent.psyker_chance_to_vent_on_kill",
+          "psyker.talent.psyker_block_costs_warp_charge",
+          "psyker.talent.psyker_stat_mix"
+        ]
+      },
+      "general_offense": {
+        "count": 4,
+        "total_magnitude": 0.07,
+        "selections": [
+          "psyker.talent.psyker_damage_based_on_warp_charge",
+          "psyker.talent.psyker_cleave_from_peril",
+          "shared.stat_node.critical_chance_boost",
+          "shared.name_family.blessing.warp_nexus"
+        ]
+      },
+      "mobility": {
+        "count": 2,
+        "total_magnitude": 0.85,
+        "selections": [
+          "shared.stat_node.movement_speed_boost",
+          "shared.gadget_trait.gadget_sprint_cost_reduction"
+        ]
+      },
+      "melee_offense": {
+        "count": 3,
+        "total_magnitude": 0.2,
+        "selections": [
+          "psyker.talent.psyker_melee_attack_speed",
+          "psyker.talent.psyker_cleave_from_peril",
+          "shared.stat_node.melee_damage_boost"
+        ]
+      },
+      "ranged_offense": {
+        "count": 1,
+        "total_magnitude": 0.1,
+        "selections": [
+          "psyker.talent.psyker_melee_attack_speed"
+        ]
+      },
+      "stamina": {
+        "count": 3,
+        "total_magnitude": 3.2,
+        "selections": [
+          "shared.stat_node.stamina_boost",
+          "psyker.talent.psyker_stat_mix",
+          "shared.gadget_trait.gadget_stamina_regeneration"
+        ]
+      },
+      "crit": {
+        "count": 2,
+        "total_magnitude": 0.07,
+        "selections": [
+          "shared.stat_node.critical_chance_boost",
+          "shared.name_family.blessing.warp_nexus"
+        ]
+      },
+      "utility": {
+        "count": 1,
+        "total_magnitude": -0.05,
+        "selections": [
+          "shared.gadget_trait.gadget_cooldown_reduction"
+        ]
+      }
+    },
+    "slot_balance": {
+      "melee": {
+        "families": [
+          "general_offense",
+          "melee_offense",
+          "crit"
+        ],
+        "strength": 6
+      },
+      "ranged": {
+        "families": [
+          "general_offense",
+          "ranged_offense",
+          "crit"
+        ],
+        "strength": 5
+      }
+    },
+    "build_identity": [
+      "toughness",
+      "warp_resource",
+      "general_offense"
+    ],
+    "coverage_gaps": [],
+    "concentration": 0.03
+  },
+  "metadata": {
+    "entities_analyzed": 52,
+    "unique_entities_with_calc": 20,
+    "entities_without_calc": 23,
+    "opaque_conditions": 1,
+    "calc_coverage_pct": 0.47
+  }
+}

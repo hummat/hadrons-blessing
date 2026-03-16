@@ -1,0 +1,249 @@
+{
+  "build": "[EXECUTION ORDER] Nuncio-Aquila Arbites",
+  "class": "arbites",
+  "synergy_edges": [
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_damage_after_reloading",
+        "arbites.talent.adamant_ammo_belt"
+      ],
+      "families": [
+        "ranged_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the ranged_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_armor",
+        "arbites.talent.adamant_hitting_multiple_gives_tdr"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_armor",
+        "arbites.talent.adamant_plasteel_plates"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_armor",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_hitting_multiple_gives_tdr",
+        "arbites.talent.adamant_damage_reduction_after_elite_kill"
+      ],
+      "strength": 2,
+      "trigger": "on_hit"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_hitting_multiple_gives_tdr",
+        "arbites.talent.adamant_plasteel_plates"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_hitting_multiple_gives_tdr",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_damage_reduction_after_elite_kill",
+        "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the damage_reduction family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_damage_reduction_after_elite_kill",
+        "shared.gadget_trait.gadget_health_increase"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the damage_reduction family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_plasteel_plates",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_dodge_grants_damage",
+        "shared.name_family.blessing.high_voltage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_dodge_grants_damage",
+        "shared.name_family.blessing.full_bore"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute dynamic effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.high_voltage",
+        "shared.name_family.blessing.full_bore"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+        "shared.gadget_trait.gadget_health_increase"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
+    }
+  ],
+  "anti_synergies": [],
+  "orphans": [],
+  "coverage": {
+    "family_profile": {
+      "ranged_offense": {
+        "count": 2,
+        "total_magnitude": 0.4,
+        "selections": [
+          "arbites.talent.adamant_damage_after_reloading",
+          "arbites.talent.adamant_ammo_belt"
+        ]
+      },
+      "toughness": {
+        "count": 4,
+        "total_magnitude": 50.85,
+        "selections": [
+          "arbites.talent.adamant_armor",
+          "arbites.talent.adamant_hitting_multiple_gives_tdr",
+          "arbites.talent.adamant_plasteel_plates",
+          "shared.gadget_trait.gadget_toughness_increase"
+        ]
+      },
+      "damage_reduction": {
+        "count": 3,
+        "total_magnitude": 3.2,
+        "selections": [
+          "arbites.talent.adamant_damage_reduction_after_elite_kill",
+          "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "shared.gadget_trait.gadget_health_increase"
+        ]
+      },
+      "general_offense": {
+        "count": 3,
+        "total_magnitude": 0.85,
+        "selections": [
+          "arbites.talent.adamant_dodge_grants_damage",
+          "shared.name_family.blessing.high_voltage",
+          "shared.name_family.blessing.full_bore"
+        ]
+      },
+      "utility": {
+        "count": 1,
+        "total_magnitude": 0.5,
+        "selections": [
+          "arbites.keystone.adamant_companion_focus_elite"
+        ]
+      }
+    },
+    "slot_balance": {
+      "melee": {
+        "families": [
+          "general_offense"
+        ],
+        "strength": 3
+      },
+      "ranged": {
+        "families": [
+          "ranged_offense",
+          "general_offense"
+        ],
+        "strength": 5
+      }
+    },
+    "build_identity": [
+      "toughness",
+      "damage_reduction",
+      "general_offense"
+    ],
+    "coverage_gaps": [],
+    "concentration": 0.04
+  },
+  "metadata": {
+    "entities_analyzed": 52,
+    "unique_entities_with_calc": 13,
+    "entities_without_calc": 30,
+    "opaque_conditions": 0,
+    "calc_coverage_pct": 0.3
+  }
+}
