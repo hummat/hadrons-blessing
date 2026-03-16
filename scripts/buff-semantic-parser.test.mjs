@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
-import { extractEffects } from "./ground-truth/lib/buff-semantic-parser.mjs";
+import { extractEffects, extractTiers, resolveTemplateChain } from "./ground-truth/lib/buff-semantic-parser.mjs";
 
 describe("extractEffects", () => {
   it("extracts flat stat_buffs with literal magnitudes", () => {
@@ -148,5 +148,107 @@ describe("extractEffects", () => {
     };
     const calc = extractEffects(template, new Map(), { localFunctions });
     assert.equal(calc.effects[0].condition, "active");
+  });
+});
+
+describe("extractTiers", () => {
+  it("extracts 4-tier blessing data with per-tier metadata", () => {
+    const tierData = [
+      { stat_buffs: { "stat_buffs.melee_power_level_modifier": 0.24 }, child_duration: 3.5 },
+      { stat_buffs: { "stat_buffs.melee_power_level_modifier": 0.28 }, child_duration: 3.5 },
+      { stat_buffs: { "stat_buffs.melee_power_level_modifier": 0.32 }, child_duration: 3.5 },
+      { stat_buffs: { "stat_buffs.melee_power_level_modifier": 0.36 }, child_duration: 3.5 },
+    ];
+    const tiers = extractTiers(tierData, new Map());
+    assert.equal(tiers.length, 4);
+    assert.equal(tiers[0].effects[0].stat, "melee_power_level_modifier");
+    assert.equal(tiers[0].effects[0].magnitude, 0.24);
+    assert.equal(tiers[0].child_duration, 3.5);
+  });
+
+  it("handles mixed stat_buffs + conditional_stat_buffs per tier", () => {
+    const tierData = [
+      {
+        stat_buffs: { "stat_buffs.spread_modifier": -0.3 },
+        conditional_stat_buffs: { "stat_buffs.damage_near": 0.06 },
+      },
+      {
+        stat_buffs: { "stat_buffs.spread_modifier": -0.3 },
+        conditional_stat_buffs: { "stat_buffs.damage_near": 0.09 },
+      },
+      {
+        stat_buffs: { "stat_buffs.spread_modifier": -0.3 },
+        conditional_stat_buffs: { "stat_buffs.damage_near": 0.12 },
+      },
+      {
+        stat_buffs: { "stat_buffs.spread_modifier": -0.3 },
+        conditional_stat_buffs: { "stat_buffs.damage_near": 0.15 },
+      },
+    ];
+    const tiers = extractTiers(tierData, new Map());
+    assert.equal(tiers[0].effects.length, 2);
+    assert.equal(tiers[0].effects[0].type, "stat_buff");
+    assert.equal(tiers[0].effects[1].type, "conditional_stat_buff");
+    assert.equal(tiers[3].effects[1].magnitude, 0.15);
+  });
+});
+
+describe("resolveTemplateChain", () => {
+  it("resolves table.clone chains with patches", () => {
+    const blocks = [
+      { name: "base", type: "inline", parsed: { class_name: "buff", max_stacks: 1, stat_buffs: { "stat_buffs.toughness": 0.1 } }, patches: {} },
+      { name: "derived", type: "clone", cloneSource: "base", cloneExternal: false, patches: { duration: 5 } },
+    ];
+    const resolved = resolveTemplateChain(blocks);
+    assert.equal(resolved.get("derived").class_name, "buff");
+    assert.equal(resolved.get("derived").max_stacks, 1);
+    assert.equal(resolved.get("derived").duration, 5);
+    assert.deepEqual(resolved.get("derived").stat_buffs, { "stat_buffs.toughness": 0.1 });
+  });
+
+  it("resolves transitive clones (A → B → C)", () => {
+    const blocks = [
+      { name: "root", type: "inline", parsed: { class_name: "buff", max_stacks: 2 }, patches: {} },
+      { name: "mid", type: "clone", cloneSource: "root", cloneExternal: false, patches: { duration: 3 } },
+      { name: "leaf", type: "clone", cloneSource: "mid", cloneExternal: false, patches: { max_stacks: 5 } },
+    ];
+    const resolved = resolveTemplateChain(blocks);
+    assert.equal(resolved.get("leaf").class_name, "buff");
+    assert.equal(resolved.get("leaf").duration, 3);
+    assert.equal(resolved.get("leaf").max_stacks, 5);
+  });
+
+  it("resolves table.merge with second-arg-wins semantics", () => {
+    const blocks = [
+      { name: "base_tmpl", type: "inline", parsed: { class_name: "buff", max_stacks: 1 }, patches: {} },
+      {
+        name: "merged",
+        type: "merge",
+        mergeInline: { max_stacks: 3, class_name: "proc_buff" },
+        mergeBase: "base_tmpl",
+        mergeBaseExternal: false,
+        patches: {},
+      },
+    ];
+    const resolved = resolveTemplateChain(blocks);
+    // Second arg (base_tmpl) wins on collision: class_name → "buff", max_stacks → 1
+    assert.equal(resolved.get("merged").class_name, "buff");
+    assert.equal(resolved.get("merged").max_stacks, 1);
+  });
+
+  it("uses mergeInline data when mergeBase is external and unresolvable", () => {
+    const blocks = [
+      {
+        name: "merged",
+        type: "merge",
+        mergeInline: { max_stacks: 3, class_name: "proc_buff" },
+        mergeBase: "ExternalModule.some_base",
+        mergeBaseExternal: true,
+        patches: {},
+      },
+    ];
+    const resolved = resolveTemplateChain(blocks);
+    assert.equal(resolved.get("merged").max_stacks, 3);
+    assert.equal(resolved.get("merged").class_name, "proc_buff");
   });
 });

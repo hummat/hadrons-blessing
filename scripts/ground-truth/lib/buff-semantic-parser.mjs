@@ -8,6 +8,8 @@
  *
  * Exports:
  *   extractEffects(parsedTemplate, talentSettingsMap, options?) → calc object
+ *   extractTiers(tierArray, settingsMap, options?) → array of tier objects
+ *   resolveTemplateChain(blocks, externalTemplates?) → Map<name, resolvedTemplate>
  */
 
 import { tagCondition } from "./condition-tagger.mjs";
@@ -334,4 +336,149 @@ export function extractEffects(parsedTemplate, talentSettingsMap, options = {}) 
   }
 
   return calc;
+}
+
+// -- Tier extraction ----------------------------------------------------------
+
+/** Metadata fields to preserve per tier when present. */
+const TIER_METADATA_FIELDS = ["active_duration", "child_duration", "max_stacks", "duration"];
+
+/**
+ * Extract structured tier data from a blessing's per-tier array.
+ *
+ * Each tier object has the same shape as a buff template (stat_buffs,
+ * conditional_stat_buffs, etc.) plus optional metadata fields. This calls
+ * extractEffects on each tier and preserves per-tier metadata.
+ *
+ * @param {object[]} tierArray - Array of tier objects (typically 4).
+ * @param {Map<string, number>} settingsMap - TalentSettings flat map.
+ * @param {object} [options={}] - Forwarded to extractEffects.
+ * @returns {object[]} Array of tier objects, each with { effects, ...metadata }.
+ */
+export function extractTiers(tierArray, settingsMap, options = {}) {
+  return tierArray.map((tierObj) => {
+    const calc = extractEffects(tierObj, settingsMap, options);
+    const tier = { effects: calc.effects };
+    for (const field of TIER_METADATA_FIELDS) {
+      if (tierObj[field] !== undefined) {
+        tier[field] = tierObj[field];
+      }
+    }
+    return tier;
+  });
+}
+
+// -- Template chain resolution ------------------------------------------------
+
+/**
+ * Deep-copy a plain object (no functions, no circular refs).
+ * @param {object} obj
+ * @returns {object}
+ */
+function deepCopy(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+/**
+ * Resolve template inheritance chains (table.clone / table.merge) into
+ * concrete template objects.
+ *
+ * @param {object[]} blocks - Array of block descriptors:
+ *   - inline: { name, type: "inline", parsed, patches }
+ *   - clone:  { name, type: "clone", cloneSource, cloneExternal, patches }
+ *   - merge:  { name, type: "merge", mergeInline, mergeBase, mergeBaseExternal, patches }
+ * @param {Map<string, object>} [externalTemplates=new Map()] - Pre-resolved external templates.
+ * @returns {Map<string, object>} Map from block name to resolved template object.
+ */
+export function resolveTemplateChain(blocks, externalTemplates = new Map()) {
+  /** @type {Map<string, object>} */
+  const blockMap = new Map();
+  for (const block of blocks) {
+    blockMap.set(block.name, block);
+  }
+
+  /** @type {Map<string, object>} Memoized resolved templates. */
+  const resolved = new Map();
+
+  /** @type {Set<string>} Cycle detection. */
+  const resolving = new Set();
+
+  /**
+   * Lazily resolve a block by name.
+   * @param {string} name
+   * @returns {object|null} The resolved template, or null if unresolvable.
+   */
+  function resolve(name) {
+    if (resolved.has(name)) {
+      return resolved.get(name);
+    }
+
+    // Check external templates
+    if (externalTemplates.has(name)) {
+      const ext = deepCopy(externalTemplates.get(name));
+      resolved.set(name, ext);
+      return ext;
+    }
+
+    const block = blockMap.get(name);
+    if (!block) {
+      return null;
+    }
+
+    // Cycle guard
+    if (resolving.has(name)) {
+      return null;
+    }
+    resolving.add(name);
+
+    let template;
+
+    if (block.type === "inline") {
+      template = deepCopy(block.parsed);
+      Object.assign(template, block.patches);
+    } else if (block.type === "clone") {
+      if (block.cloneExternal) {
+        // Look up in external templates
+        const source = externalTemplates.has(block.cloneSource)
+          ? deepCopy(externalTemplates.get(block.cloneSource))
+          : {};
+        template = source;
+      } else {
+        const source = resolve(block.cloneSource);
+        template = source ? deepCopy(source) : {};
+      }
+      Object.assign(template, block.patches);
+    } else if (block.type === "merge") {
+      // Start with inline data
+      template = deepCopy(block.mergeInline);
+      // Resolve base and overwrite (second-arg-wins)
+      if (block.mergeBaseExternal) {
+        const base = externalTemplates.has(block.mergeBase)
+          ? deepCopy(externalTemplates.get(block.mergeBase))
+          : null;
+        if (base) {
+          Object.assign(template, base);
+        }
+      } else {
+        const base = resolve(block.mergeBase);
+        if (base) {
+          Object.assign(template, deepCopy(base));
+        }
+      }
+      Object.assign(template, block.patches);
+    } else {
+      template = {};
+    }
+
+    resolving.delete(name);
+    resolved.set(name, template);
+    return template;
+  }
+
+  // Resolve all blocks
+  for (const block of blocks) {
+    resolve(block.name);
+  }
+
+  return resolved;
 }
