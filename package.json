@@ -8,7 +8,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node --test scripts/canonical-build.test.mjs scripts/extract-build.test.mjs scripts/reresolve-builds.test.mjs scripts/ground-truth.test.mjs scripts/cli-contract.test.mjs scripts/coverage.test.mjs scripts/inspect.test.mjs scripts/score-build.test.mjs scripts/export-bot-weapons.test.mjs scripts/tree-edges.test.mjs scripts/build-report.test.mjs scripts/report-formatter.test.mjs scripts/lua-data-reader.test.mjs scripts/talent-settings-parser.test.mjs scripts/condition-tagger.test.mjs scripts/buff-semantic-parser.test.mjs scripts/extract-buff-effects.test.mjs scripts/synergy-model.test.mjs scripts/build-scoring.test.mjs",
+    "test": "node --test scripts/canonical-build.test.mjs scripts/extract-build.test.mjs scripts/reresolve-builds.test.mjs scripts/ground-truth.test.mjs scripts/cli-contract.test.mjs scripts/coverage.test.mjs scripts/inspect.test.mjs scripts/score-build.test.mjs scripts/export-bot-weapons.test.mjs scripts/tree-edges.test.mjs scripts/build-report.test.mjs scripts/report-formatter.test.mjs scripts/lua-data-reader.test.mjs scripts/talent-settings-parser.test.mjs scripts/condition-tagger.test.mjs scripts/buff-semantic-parser.test.mjs scripts/extract-buff-effects.test.mjs scripts/synergy-model.test.mjs scripts/build-scoring.test.mjs scripts/build-recommendations.test.mjs",
     "resolve": "node scripts/resolve-ground-truth.mjs",
     "audit": "node scripts/audit-build-names.mjs",
     "canonicalize": "node scripts/canonicalize-build.mjs",
@@ -25,6 +25,8 @@
     "synergy": "node scripts/analyze-synergy.mjs",
     "synergy:freeze": "for f in tests/fixtures/ground-truth/synergy/*.synergy.json; do b=$(basename \"$f\" .synergy.json); node scripts/analyze-synergy.mjs \"scripts/builds/${b}-\"*.json --json > \"$f\"; done",
     "score:freeze": "node scripts/freeze-scores.mjs",
+    "score": "node scripts/score-build.mjs",
+    "recommend": "node scripts/recommend-build.mjs",
     "check": "npm run index:build && npm test && npm run index:check"
   },
   "repository": {
