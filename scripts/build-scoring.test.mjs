@@ -158,6 +158,88 @@ describe("build-scoring", () => {
       assert.equal(result.blessing_synergy.score, 1);
     });
   });
+
+  describe("role_coverage", () => {
+    it("scores 5 for 9+ active families with no gaps", () => {
+      const synergy = makeSynergyOutput({
+        talentIds: ["t.talent.a"],
+        blessingIds: [],
+        talentEdges: 0,
+        blessingEdges: 0,
+        orphans: [],
+        concentration: 0.03,
+        familyCount: 9,
+        coverageGaps: [],
+        slotBalance: { melee: 5, ranged: 5 },
+      });
+      const result = scoreFromSynergy(synergy);
+      assert.equal(result.role_coverage.score, 5);
+    });
+
+    it("penalizes coverage gaps", () => {
+      const synergy = makeSynergyOutput({
+        talentIds: ["t.talent.a"],
+        blessingIds: [],
+        talentEdges: 0,
+        blessingEdges: 0,
+        orphans: [],
+        concentration: 0.03,
+        familyCount: 9,
+        coverageGaps: ["survivability"],
+        slotBalance: { melee: 5, ranged: 5 },
+      });
+      const result = scoreFromSynergy(synergy);
+      assert.equal(result.role_coverage.score, 4);  // 5 - 1 gap
+    });
+
+    it("penalizes severe slot imbalance", () => {
+      const synergy = makeSynergyOutput({
+        talentIds: ["t.talent.a"],
+        blessingIds: [],
+        talentEdges: 0,
+        blessingEdges: 0,
+        orphans: [],
+        concentration: 0.03,
+        familyCount: 9,
+        coverageGaps: [],
+        slotBalance: { melee: 10, ranged: 1 },  // ratio 0.1 < 0.3
+      });
+      const result = scoreFromSynergy(synergy);
+      assert.equal(result.role_coverage.score, 4);  // 5 - 1 imbalance
+    });
+
+    it("treats zero/zero slot balance as ratio 1.0", () => {
+      const synergy = makeSynergyOutput({
+        talentIds: ["t.talent.a"],
+        blessingIds: [],
+        talentEdges: 0,
+        blessingEdges: 0,
+        orphans: [],
+        concentration: 0.03,
+        familyCount: 9,
+        coverageGaps: [],
+        slotBalance: { melee: 0, ranged: 0 },
+      });
+      const result = scoreFromSynergy(synergy);
+      assert.equal(result.role_coverage.breakdown.slot_balance_ratio, 1.0);
+    });
+
+    it("scores low for few families", () => {
+      const synergy = makeSynergyOutput({
+        talentIds: ["t.talent.a"],
+        blessingIds: [],
+        talentEdges: 0,
+        blessingEdges: 0,
+        orphans: [],
+        concentration: 0.03,
+        familyCount: 3,
+        coverageGaps: [],
+        slotBalance: { melee: 2, ranged: 2 },
+      });
+      const result = scoreFromSynergy(synergy);
+      assert.equal(result.role_coverage.score, 2);
+    });
+  });
 });
 
 function makeSynergyOutput({

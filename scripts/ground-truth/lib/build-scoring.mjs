@@ -280,12 +280,74 @@ function scoreBlessingSynergy(synergyOutput) {
 
 /**
  * Score how well the build covers key role-level stat families.
- * Stub — not yet implemented.
- * @param {object} _synergyOutput
+ *
+ * Algorithm:
+ *   1. active_families = Object.keys(coverage.family_profile).length
+ *   2. Base score: >= 9 → 5, >= 7 → 4, >= 5 → 3, >= 3 → 2, else → 1
+ *   3. Penalty: each coverage_gap → -1
+ *   4. Slot balance ratio: min(melee, ranged) / max(melee, ranged). Both 0 → 1.0. Ratio < 0.3 → -1
+ *   5. Clamp [1, 5], round to nearest integer
+ *
+ * @param {object} synergyOutput
  * @returns {{ score: number, breakdown: object, explanations: string[] }}
  */
-function scoreRoleCoverage(_synergyOutput) {
-  return { score: 1, breakdown: {}, explanations: [] };
+function scoreRoleCoverage(synergyOutput) {
+  const { coverage = {} } = synergyOutput;
+  const family_profile = coverage.family_profile ?? {};
+  const coverage_gaps = coverage.coverage_gaps ?? [];
+  const slot_balance = coverage.slot_balance ?? {};
+
+  const active_families = Object.keys(family_profile).length;
+
+  // Base score from active family count
+  let base_score;
+  if (active_families >= 9) {
+    base_score = 5;
+  } else if (active_families >= 7) {
+    base_score = 4;
+  } else if (active_families >= 5) {
+    base_score = 3;
+  } else if (active_families >= 3) {
+    base_score = 2;
+  } else {
+    base_score = 1;
+  }
+
+  // Gap penalty
+  const gap_penalty = coverage_gaps.length * -1;
+
+  // Slot balance ratio
+  const melee = slot_balance.melee?.strength ?? 0;
+  const ranged = slot_balance.ranged?.strength ?? 0;
+  let slot_balance_ratio;
+  if (melee === 0 && ranged === 0) {
+    slot_balance_ratio = 1.0;
+  } else {
+    slot_balance_ratio = Math.min(melee, ranged) / Math.max(melee, ranged);
+  }
+  const imbalance_penalty = slot_balance_ratio < 0.3 ? -1 : 0;
+
+  const raw = base_score + gap_penalty + imbalance_penalty;
+  const score = Math.round(Math.min(5, Math.max(1, raw)));
+
+  const explanations = [];
+  if (coverage_gaps.length > 0) {
+    explanations.push(`Coverage gaps: ${coverage_gaps.join(", ")} (-1 each)`);
+  }
+  if (imbalance_penalty < 0) {
+    explanations.push(`Severe slot imbalance (ratio ${slot_balance_ratio.toFixed(2)}) -1`);
+  }
+
+  return {
+    score,
+    breakdown: {
+      active_families,
+      total_families: 11,
+      coverage_gaps,
+      slot_balance_ratio,
+    },
+    explanations,
+  };
 }
 
 /**
