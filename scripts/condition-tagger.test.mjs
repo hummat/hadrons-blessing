@@ -93,6 +93,25 @@ describe("tagCondition", () => {
     assert.equal(tagCondition(node), "ads_active");
   });
 
+  it("tags $ref ConditionalFunctions.is_alternative_fire as ads_active", () => {
+    // Named reference path (CONDITIONAL_TAGS) — same game state as inline alternate_fire checks
+    assert.equal(
+      tagCondition({ $ref: "ConditionalFunctions.is_alternative_fire" }),
+      "ads_active"
+    );
+  });
+
+  it("local alias of alternate_fire is_active falls through to unknown (known limitation)", () => {
+    // When the component is stored in a local before the return, the specific
+    // `alternate_fire_component` pattern doesn't match (it needs the full chain),
+    // and the generic `active` regex doesn't cover `is_active` in the wrapped form.
+    // This is a known limitation — the semantics are correct at the buff level.
+    const node = {
+      $func: "function (template_data, template_context)\n\tlocal afc = template_data.alternate_fire_component\n\treturn afc.is_active\nend",
+    };
+    assert.equal(tagCondition(node), "unknown_condition");
+  });
+
   it("tags toughness_percent > threshold as threshold:toughness_high", () => {
     // Veteran/Zealot pattern: current_toughness_percent() > 0.75
     const node = {

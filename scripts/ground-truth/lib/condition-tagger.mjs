@@ -13,7 +13,7 @@ const CONDITIONAL_TAGS = {
   "ConditionalFunctions.is_blocking": "blocking",
   "ConditionalFunctions.is_lunging": "lunging",
   "ConditionalFunctions.is_reloading": "reloading",
-  "ConditionalFunctions.is_alternative_fire": "alt_fire",
+  "ConditionalFunctions.is_alternative_fire": "ads_active", // ADS / braced fire — same game state as inline alternate_fire_component checks
   "ConditionalFunctions.has_full_toughness": "full_toughness",
   "ConditionalFunctions.has_stamina": "has_stamina",
   "ConditionalFunctions.has_empty_clip": "empty_clip",
@@ -102,9 +102,9 @@ function tagInlineFunc(body) {
     return "threshold:stamina_high";
   }
 
-  // Health threshold — low health (<) vs generic health
+  // Health threshold — low health (< comparison on health) vs generic health
   if (/current_health|health_percent/.test(body)) {
-    if (/</.test(body)) {
+    if (/health_percent\s*\(\s*\)\s*<|current_health[^>]*</.test(body)) {
       return "threshold:health_low";
     }
     return "threshold:health";
