@@ -1508,7 +1508,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -1704,7 +1704,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "threshold:stamina_high",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -2869,7 +2869,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "threshold:health",
+          "condition": "threshold:health_low",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -3012,7 +3012,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "during_windup",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -3051,7 +3051,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "during_windup",
           "trigger": null,
           "type": "conditional_stat_buff"
         }

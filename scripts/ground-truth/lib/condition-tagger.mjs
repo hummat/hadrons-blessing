@@ -61,9 +61,62 @@ function tagInlineFunc(body) {
     return `weapon_keyword:${keywordMatch[1]}`;
   }
 
-  // Health threshold
+  // ADS / alternate fire / braced fire
+  if (/alternate_fire_component[.\w]*\.is_active/.test(body)) {
+    return "ads_active";
+  }
+
+  // Windup (melee charge) — action_settings.kind == "windup"
+  if (/kind\s*==\s*"windup"/.test(body)) {
+    return "during_windup";
+  }
+
+  // Reload — is_reloading flag or reload action kinds
+  if (/is_reloading|reload_shotgun|reload_state|ranged_load_special/.test(body)) {
+    return "during_reload";
+  }
+
+  // Toughness threshold (high) — current_toughness_percent() > threshold
+  if (/current_toughness_percent/.test(body)) {
+    return "threshold:toughness_high";
+  }
+
+  // Stamina threshold — current_fraction with comparison
+  // Distinguish full stamina (conditional_threshold pattern) from high stamina (explicit threshold)
+  if (/stamina.*current_fraction|current_stamina_fraction/.test(body)) {
+    if (/conditional_threshold/.test(body)) {
+      return "threshold:stamina_full";
+    }
+    return "threshold:stamina_high";
+  }
+
+  // Health threshold — low health (<) vs generic health
   if (/current_health|health_percent/.test(body)) {
+    if (/</.test(body)) {
+      return "threshold:health_low";
+    }
     return "threshold:health";
+  }
+
+  // Ability active — has_keyword for combat ability or has_unique_buff_id for ability buffs
+  if (/has_keyword\s*\(\s*keywords\.\w*combat_ability/.test(body) ||
+      /has_unique_buff_id\s*\(\s*".*invisibility"/.test(body)) {
+    return "ability_active";
+  }
+
+  // Perfect blocking
+  if (/is_perfect_blocking/.test(body)) {
+    return "perfect_block";
+  }
+
+  // Sliding — movement_state_component.method == "sliding"
+  if (/method\s*==\s*"sliding"/.test(body)) {
+    return "sliding";
+  }
+
+  // Standing still — velocity check
+  if (/velocity.*STANDING_STILL|standing_still/.test(body)) {
+    return "standing_still";
   }
 
   // Warp charge threshold

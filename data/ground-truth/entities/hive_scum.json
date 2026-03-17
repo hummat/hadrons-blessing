@@ -1675,7 +1675,7 @@
           "magnitude_expr": "talent_settings.broker_passive_improved_dodges_at_full_stamina.dodge_cooldown_reset_modifier",
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "threshold:stamina_full",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -2252,7 +2252,7 @@
           "magnitude_expr": "talent_settings.broker_passive_reduce_swap_time.recoil_modifier",
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -2262,7 +2262,7 @@
           "magnitude_expr": "talent_settings.broker_passive_reduce_swap_time.spread_modifier",
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -2337,7 +2337,7 @@
           "magnitude_expr": "talent_settings.broker_passive_reduced_toughness_damage_during_reload.toughness_damage_taken_modifier",
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "during_reload",
           "trigger": null,
           "type": "conditional_stat_buff"
         }

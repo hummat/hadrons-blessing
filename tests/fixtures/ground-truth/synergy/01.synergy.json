@@ -484,13 +484,7 @@
     }
   ],
   "anti_synergies": [],
-  "orphans": [
-    {
-      "selection": "veteran.talent.veteran_tdr_on_high_toughness",
-      "reason": "unresolvable_condition",
-      "condition": "unknown_condition"
-    }
-  ],
+  "orphans": [],
   "coverage": {
     "family_profile": {
       "general_offense": {
@@ -594,11 +588,56 @@
     "coverage_gaps": [],
     "concentration": 0.04
   },
+  "_resolvedIds": [
+    "veteran.ability.veteran_combat_ability_stagger_nearby_enemies",
+    "veteran.ability.veteran_grenade_apply_bleed",
+    "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
+    "veteran.keystone.veteran_improved_tag",
+    "veteran.talent.veteran_crits_apply_rending",
+    "veteran.talent.veteran_increase_damage_after_sprinting",
+    "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
+    "veteran.talent.veteran_dodging_grants_crit",
+    "veteran.talent.veteran_hits_cause_bleed",
+    "veteran.talent.veteran_attack_speed",
+    "veteran.talent.veteran_replenish_toughness_outside_melee",
+    "veteran.talent.veteran_replenish_toughness_on_weakspot_kill",
+    "veteran.talent.veteran_improved_grenades",
+    "veteran.talent.veteran_allies_in_coherency_share_toughness_gain",
+    "veteran.talent.veteran_replenish_grenades",
+    "veteran.talent.veteran_increase_damage_vs_elites",
+    "veteran.talent.veteran_elite_kills_reduce_cooldown",
+    "veteran.talent.veteran_elite_kills_replenish_toughness",
+    "veteran.talent_modifier.veteran_combat_ability_increase_and_restore_toughness_to_coherency",
+    "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
+    "veteran.talent.veteran_increased_damage_based_on_range",
+    "veteran.talent.veteran_increased_weakspot_damage",
+    "veteran.talent.veteran_big_game_hunter",
+    "veteran.talent.veteran_tdr_on_high_toughness",
+    "shared.stat_node.toughness_boost",
+    "shared.stat_node.stamina_boost",
+    "veteran.talent_modifier.veteran_improved_tag_dead_coherency_bonus",
+    "shared.stat_node.melee_damage_boost",
+    "shared.stat_node.ranged_damage_boost",
+    "shared.weapon.powersword_p2_m1",
+    "shared.name_family.blessing.cranial_grounding",
+    "shared.name_family.blessing.heatsink",
+    "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+    "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
+    "shared.weapon.plasmagun_p1_m1",
+    "shared.name_family.blessing.rising_heat",
+    "shared.name_family.blessing.gets_hot",
+    "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+    "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+    "shared.gadget_trait.gadget_toughness_increase",
+    "shared.gadget_trait.gadget_damage_reduction_vs_snipers",
+    "shared.gadget_trait.gadget_health_increase",
+    "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
+  ],
   "metadata": {
     "entities_analyzed": 52,
     "unique_entities_with_calc": 21,
     "entities_without_calc": 22,
-    "opaque_conditions": 1,
+    "opaque_conditions": 0,
     "calc_coverage_pct": 0.49
   }
 }

@@ -489,11 +489,6 @@
       "selection": "ogryn.talent.ogryn_blocking_reduces_push_cost",
       "reason": "unresolvable_condition",
       "condition": "active_and_unknown"
-    },
-    {
-      "selection": "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
-      "reason": "unresolvable_condition",
-      "condition": "unknown_condition"
     }
   ],
   "coverage": {
@@ -581,11 +576,55 @@
     "coverage_gaps": [],
     "concentration": 0.03
   },
+  "_resolvedIds": [
+    "ogryn.ability.ogryn_longer_charge",
+    "ogryn.ability.ogryn_grenade_friend_rock",
+    "ogryn.aura.ogryn_melee_damage_coherency_improved",
+    "ogryn.keystone.ogryn_passive_heavy_hitter",
+    "ogryn.talent.ogryn_multi_heavy_toughness",
+    "ogryn.talent.ogryn_single_heavy_toughness",
+    "ogryn.talent.ogryn_ogryn_killer",
+    "shared.stat_node.toughness_boost",
+    "ogryn.talent.ogryn_melee_stagger",
+    "ogryn.talent.ogryn_targets_recieve_damage_taken_increase_debuff",
+    "shared.stat_node.rending_boost",
+    "ogryn.talent.ogryn_heavy_bleeds",
+    "ogryn.talent.ogryn_nearby_bleeds_reduce_damage_taken",
+    "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_attack_speed",
+    "shared.stat_node.toughness_damage_reduction",
+    "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown",
+    "ogryn.talent_modifier.ogryn_charge_toughness",
+    "ogryn.talent.ogryn_blocking_reduces_push_cost",
+    "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
+    "shared.stat_node.melee_damage_boost",
+    "ogryn.talent_modifier.ogryn_replenish_rock_on_miss",
+    "ogryn.talent.ogryn_protect_allies",
+    "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
+    "ogryn.talent.ogryn_stacking_attack_speed",
+    "ogryn.talent.ogryn_melee_damage_after_heavy",
+    "ogryn.talent_modifier.ogryn_heavy_hitter_stagger",
+    "ogryn.talent.ogryn_wield_speed_increase",
+    "ogryn.talent.ogryn_weakspot_damage",
+    "shared.weapon.ogryn_club_p1_m1",
+    "shared.name_family.blessing.skullcrusher",
+    "shared.name_family.blessing.thunderous",
+    "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+    "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+    "shared.weapon.ogryn_rippergun_p1_m3",
+    "shared.name_family.blessing.inspiring_barrage",
+    "shared.name_family.blessing.blaze_away",
+    "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+    "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+    "shared.gadget_trait.gadget_health_increase",
+    "shared.gadget_trait.gadget_revive_speed_increase",
+    "shared.gadget_trait.gadget_toughness_increase",
+    "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
+  ],
   "metadata": {
     "entities_analyzed": 52,
     "unique_entities_with_calc": 19,
     "entities_without_calc": 23,
-    "opaque_conditions": 2,
+    "opaque_conditions": 1,
     "calc_coverage_pct": 0.45
   }
 }

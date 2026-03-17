@@ -3002,7 +3002,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "threshold:toughness_high",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
