@@ -22,7 +22,7 @@ hadrons-blessing has 435 entities with extracted stat modifiers (talents, blessi
 
 ```
 Build-time extraction (npm run):
-  profiles:build  → generated/damage-profiles.json   (~108 profiles, ~150KB)
+  profiles:build  → generated/damage-profiles.json   (200–400 profiles, est. ~200KB)
   breeds:build    → generated/breed-data.json         (~30 breeds, ~30KB)
 
 Prerequisite:
@@ -42,44 +42,77 @@ CLI:
 
 ### `profiles:build` — Weapon Damage Profile Extraction
 
-**Source:** `scripts/settings/equipment/weapon_templates/{family}/settings_templates/*_damage_profile_templates.lua` (28 weapon families) + `scripts/settings/damage/damage_profile_settings.lua` (lerp lookup tables, cleave presets, crit/finesse tables).
+**Source paths:** Damage profiles are aggregated from two locations:
+1. Per-weapon family: `scripts/settings/equipment/weapon_templates/{family}/settings_templates/*_damage_profile_templates.lua` (~40 weapon families with `settings_templates/` subdirectories out of ~60 total weapon template directories)
+2. Archetype/role-based: `scripts/settings/damage/damage_profiles/` (shared profiles like `linesman_`, `smiter_`, `ninjafencer_` used across weapon families)
 
-**Implementation:** Reuses `lua-data-reader.mjs`. First loads the lerp lookup table from `damage_profile_settings.lua` to resolve `lerp_X` references (e.g. `lerp_0_75` → `{ min: 0, max: 0.75 }`), then parses each family's damage profile templates.
+The pipeline must follow the same aggregation as the source's `damage_profile_templates.lua` which imports from both locations.
 
-**Action mapping:** Each weapon template's `action_inputs` table maps input sequences (`light_attack`, `heavy_attack`, `weapon_special`) to chains of actions, each referencing a named damage profile. The pipeline extracts this mapping so the calculator knows which profiles apply to which attack types.
+**Lerp resolution:** ADM values in damage profiles reference named pairs from `scripts/settings/damage/damage_profile_settings.lua` (e.g. `lerp_0_75` → `{ min: 0, max: 0.75 }`). The pipeline loads this lookup table first, then resolves all `damage_lerp_values.lerp_X` references during extraction. The resolved `[min, max]` pairs represent item quality range — the calculator lerps between them using a quality parameter (0–1, default 0.8).
+
+**Implementation:** Reuses `lua-data-reader.mjs` for parsing.
+
+**Action-to-profile mapping:** The indirection chain from user input to damage profile is:
+1. `action_inputs` (e.g. `light_attack`) → action name chain
+2. `actions[action_name]` → action definition with `fire_configuration` (ranged) or `damage_profile` (melee)
+3. For ranged: `fire_configuration.hit_scan_template` → `HitScanTemplates` → `damage.impact.damage_profile = DamageProfileTemplates.<name>`
+4. For melee: `damage_profile = DamageProfileTemplates.<name>` directly on the action
+
+The pipeline resolves this chain to produce a flat action → profile mapping per weapon.
 
 **Output shape per profile:**
 
+Melee and ranged profiles have different ADM structures:
+
 ```jsonc
+// Melee profile
+{
+  "id": "thunderhammer_2h_p1_m1_heavy",
+  "weapon_template": "thunderhammer_2h_p1_m1",
+  "damage_type": "blunt_thunder",
+  "power_distribution": { "attack": 100, "impact": 60 },
+  "armor_damage_modifier": {
+    "attack": { "unarmored": [1.0, 1.2], "armored": [0.8, 1.0], "...": "..." },
+    "impact": { "unarmored": [1.0, 1.0], "armored": [0.5, 0.7], "...": "..." }
+  },
+  "cleave_distribution": { "attack": [2.5, 5.0], "impact": [2.5, 5.0] },
+  "finesse_boost": { "unarmored": 0.5, "armored": 0.5, "...": "..." },
+  "crit_boost": 0.5,
+  "boost_curve": null,
+  "melee_attack_strength": "heavy",
+  "charge_level_scaler": null,
+  "stagger_category": "killshot",
+  "targets": [{ "...": "per-target overrides (power_distribution, ADM, boost_curve)" }]
+}
+
+// Ranged profile
 {
   "id": "autogun_p1_m1_default",
   "weapon_template": "autogun_p1_m1",
   "damage_type": "auto_bullet",
-  "power_distribution": {
-    "attack": { "min": 30, "max": 70 },
-    "impact": { "min": 5, "max": 15 }
-  },
-  "armor_damage_modifier": {
-    "attack": {
-      "near": { "unarmored": [1.0, 1.2], "armored": [0.5, 0.8], "...": "..." },
-      "far":  { "unarmored": [0.8, 1.0], "armored": [0.3, 0.5], "...": "..." }
+  "power_distribution": { "attack": 50, "impact": 15 },
+  "armor_damage_modifier_ranged": {
+    "near": {
+      "attack": { "unarmored": [1.0, 1.2], "armored": [0.5, 0.8], "...": "..." },
+      "impact": { "unarmored": [1.0, 1.0], "armored": [0.3, 0.5], "...": "..." }
+    },
+    "far": {
+      "attack": { "unarmored": [0.8, 1.0], "armored": [0.3, 0.5], "...": "..." },
+      "impact": { "unarmored": [0.8, 0.8], "armored": [0.2, 0.3], "...": "..." }
     }
   },
-  "cleave_distribution": {
-    "attack": { "min": 2.5, "max": 5.0 },
-    "impact": { "min": 2.5, "max": 5.0 }
-  },
+  "cleave_distribution": { "attack": [0.001, 0.001], "impact": [0.001, 0.001] },
   "finesse_boost": { "unarmored": 0.5, "armored": 0.5, "...": "..." },
   "crit_boost": 0.5,
-  "boost_curve": [0, 0.3, 0.6, 0.8, 1],
-  "melee_attack_strength": "heavy",
+  "boost_curve": null,
+  "melee_attack_strength": null,
   "charge_level_scaler": null,
   "stagger_category": "killshot",
   "targets": [{ "...": "per-target overrides" }]
 }
 ```
 
-ADM values are `[min_quality, max_quality]` pairs. The calculator accepts a quality parameter (0–1, default 0.8 for typical max-level gear) and lerps between them.
+Note: `power_distribution.attack` and `.impact` are flat numbers (not min/max pairs). The `[min, max]` pairs are only in ADM values (lerped by item quality). All example values are illustrative — actual values are extracted from the source.
 
 **Action map output shape:**
 
@@ -96,7 +129,11 @@ ADM values are `[min_quality, max_quality]` pairs. The calculator accepts a qual
 
 ### `breeds:build` — Enemy Breed Data Extraction
 
-**Source:** `scripts/settings/breed/breeds/{breed_name}.lua` + `scripts/settings/difficulty/minion_difficulty_settings.lua` + hitzone data from breed definitions.
+**Source:** `scripts/settings/breed/breeds/{faction}/{breed_name}_breed.lua` + `scripts/settings/difficulty/minion_difficulty_settings.lua` + hitzone data from breed definitions.
+
+**Hitzone armor overrides:** Many breeds have `hitzone_armor_override` that changes the armor type for specific body parts. For example, `renegade_berzerker` (Rager) has base `armor_type = armored` (Flak) but overrides `torso` and `center_mass` to `super_armor` (Carapace). The breed data must capture these overrides per-hitzone, as they critically affect damage calculations — a body shot on a Rager hits Carapace armor, not Flak.
+
+**Hitzone model:** The source defines 9+ hit zones per breed (head, torso, upper_left_arm, lower_left_arm, upper_right_arm, lower_right_arm, upper_left_leg, lower_left_leg, upper_right_leg, lower_right_leg, center_mass, afro). Each has per-attack-type damage multipliers (`hitzone_damage_multiplier.ranged/melee`) and optional armor type overrides. The extraction preserves the full hitzone set. The calculator API groups them for convenience but the underlying data is complete.
 
 **Output shape per breed:**
 
@@ -104,25 +141,42 @@ ADM values are `[min_quality, max_quality]` pairs. The calculator accepts a qual
 {
   "id": "renegade_berzerker",
   "display_name": "Rager",
-  "community_armor_name": "Maniac",
-  "base_health": 350,
-  "armor_type": "berserker",
+  "base_armor_type": "armored",
+  "community_armor_name": "Flak",
   "tags": ["elite", "melee"],
   "hit_zones": {
-    "head": { "type": "unarmored", "multiplier": { "melee": 2.0, "ranged": 2.0 } },
-    "body": { "type": "berserker", "multiplier": { "melee": 1.0, "ranged": 1.0 } }
+    "head":        { "armor_type": "unarmored",  "multiplier": { "melee": 2.0, "ranged": 2.0 } },
+    "torso":       { "armor_type": "super_armor", "multiplier": { "melee": 1.0, "ranged": 1.0 } },
+    "center_mass": { "armor_type": "super_armor", "multiplier": { "melee": 1.0, "ranged": 1.0 } },
+    "upper_left_arm":  { "armor_type": "armored", "multiplier": { "melee": 0.8, "ranged": 0.8 } },
+    "lower_left_arm":  { "armor_type": "armored", "multiplier": { "melee": 0.5, "ranged": 0.5 } },
+    "...": "..."
   },
   "difficulty_health": {
-    "sedition": 350,
-    "malice": 525,
-    "heresy": 700,
-    "damnation": 1050,
-    "auric": 1400
+    "uprising":    850,
+    "malice":     1000,
+    "heresy":     1250,
+    "damnation":  1875,
+    "auric":      2500
   }
 }
 ```
 
-Includes a `community_armor_name` field mapping internal armor types to community terminology (armored → Flak, berserker → Maniac, super_armor → Carapace, resistant → Unyielding, disgustingly_resilient → Infested) since players use these names universally.
+Note: there is no `base_health` field — health is entirely determined by `minion_difficulty_settings.lua` per breed per difficulty. The `difficulty_health` map captures the resolved values directly. Health values vary per-breed; some use shared step arrays (e.g. `_elite_health_steps`) while others have custom arrays.
+
+**Community armor name mapping:**
+
+| Internal armor type | Community name |
+|---|---|
+| unarmored | Unarmored |
+| armored | Flak |
+| berserker | Maniac |
+| super_armor | Carapace |
+| resistant | Unyielding |
+| disgustingly_resilient | Infested |
+| void_shield | Void Shield |
+
+`player` armor type is irrelevant for this calculator (PvE only).
 
 ### `make check` Integration
 
@@ -164,11 +218,11 @@ loadCalculatorData() → { profiles, breeds, index }
 // Single hit calculation — the core 13-stage pipeline
 computeHit({
   profile,          // damage profile object (from profiles.json)
-  hitZone,          // "head" | "body" | "limb"
+  hitZone,          // full hitzone name (e.g. "head", "torso", "upper_left_arm")
   breed,            // breed object (from breeds.json)
-  difficulty,       // "sedition" | "malice" | "heresy" | "damnation" | "auric"
+  difficulty,       // "uprising" | "malice" | "heresy" | "damnation" | "auric"
   flags,            // scenario flags (see below)
-  buffStack,        // aggregated stat_buffs map
+  buffStack,        // aggregated stat_buffs map (from assembleBuildBuffStack)
   quality,          // weapon quality 0–1, default 0.8
   distance,         // meters, default 0 (melee)
   chargeLevel,      // 0–1, default 1
@@ -177,10 +231,11 @@ computeHit({
   hitsToKill,                // ceil(enemy_hp / damage)
   baseDamage,                // stage 1 output
   buffMultiplier,            // stage 2 output
-  armorDamageModifier,       // stage 3 ADM used
+  armorDamageModifier,       // stage 3 ADM used (resolved per-hitzone armor type)
   rendingApplied,            // stage 4 rending amount
   finesseBoost,              // stage 5 finesse multiplier
   hitZoneMultiplier,         // stage 7 multiplier
+  effectiveArmorType,        // resolved armor type for this hitzone (may differ from base)
   damageEfficiency,          // "full" | "reduced" | "negated"
   stagesApplied: [1..13],    // which stages contributed
 }
@@ -215,6 +270,38 @@ computeBreakpoints(build, index, profiles, breeds) → {
 summarizeBreakpoints(matrix) → per-weapon best-case hits-to-kill for key enemies
 ```
 
+### `assembleBuildBuffStack` — Buff Stack Assembly
+
+This function bridges the entity/effects model (435 entities with extracted `calc.effects`) to the flat `stat_buffs` map consumed by the 13-stage pipeline.
+
+**Algorithm:**
+1. Iterate all resolved selections in the build (talents, blessings, perks, gadget traits)
+2. For each selection, look up `calc.effects` from the index
+3. Filter effects by scenario flags using the condition-to-flag mapping:
+   - `stat_buff` type: always included (unconditional)
+   - `conditional_stat_buff` type: include if the effect's `condition` matches an active flag
+   - `proc_stat_buff` type: include if `flags.proc_stacks > 0`; scale magnitude by `min(flags.proc_stacks, max_stacks)` if stacking
+   - `lerped_stat_buff` type: scale magnitude by the corresponding flag value (e.g. `warp_charge: 0.7` → 70% of max magnitude)
+4. Accumulate per-stat:
+   - **Additive stats** (the majority): each `(value - 1)` added to a running sum starting at 1. This matches the source's `damage_stat_buffs = 1 + (stat_buffs.X or 1) - 1 + ...` pattern.
+   - **Multiplicative stats** (`smite_damage_multiplier`, `companion_damage_multiplier`, and all `damage_taken_*_multiplier` target-side buffs): multiplied into a separate product, applied after the additive sum.
+5. Output: flat `{ stat_name: accumulated_value, ... }` map matching the shape `_calculate_damage_buff` expects.
+
+**Condition-to-flag mapping:**
+
+| Condition tag | Flag field | Match logic |
+|---|---|---|
+| `threshold:health_low` | `health_state` | active when `"low"` |
+| `threshold:toughness_high` | `health_state` | active when `"full"` |
+| `threshold:warp_charge` | `warp_charge` | lerp magnitude by value 0–1 |
+| `threshold:stamina_high` | (always true in calc) | conservative: assume stamina available |
+| `ads_active` | `ads_active` | direct flag match |
+| `ability_active` | `ability_active` | direct flag match |
+| `during_heavy` | derived from action type | active for heavy attack profiles |
+| `during_reload` | `during_reload` | direct flag match |
+| `wielded` | (always true for that weapon's slot) | self-sufficient condition |
+| `slot_secondary` | (active when computing secondary weapon) | self-sufficient condition |
+
 ### Scenario Flags
 
 The engine accepts a flat flags object. The scoring layer composes named scenarios from these.
@@ -233,6 +320,7 @@ const FLAGS = {
   target_status: [],        // ["burning", "bleeding", "electrocuted"]
   ads_active: false,
   ability_active: false,
+  during_reload: false,
 }
 ```
 
@@ -248,19 +336,53 @@ const FLAGS = {
 
 Direct port of `damage_calculation.lua` to JS. All stages implemented as individual pure functions composed in sequence:
 
-1. **Power Level → Base Damage**: `powerLevel × powerDistribution[attack]` → clamp 0–10000 → map to 0–20 via damage output table
-2. **Buff Multiplier Stack**: Sum all applicable `stat_buffs` from `assembleBuildBuffStack()` (40+ additive terms), then multiply by multiplicative terms. Target-side multipliers applied separately.
-3. **Armor Damage Modifier (ADM)**: Per armor type scalar from damage profile. Ranged weapons lerp near/far ADM by `√(dropoff_scalar)`. Quality lerps within `[min, max]`.
-4. **Rending**: Sum all rending sources from buff stack, multiply by `rending_armor_type_multiplier[armor_type]`. Overdamage past ADM=1.0 at 25% efficiency.
-5. **Finesse Boost**: Weakspot and/or crit bonus through boost curve `{0, 0.3, 0.6, 0.8, 1}`. Crit minimum ADM of 0.25 vs all armor types.
-6. **Positional**: `backstab_damage` + `flanking_damage` (additive).
-7. **Hitzone Multiplier**: Per-breed per-body-part per-attack-type multiplier from breed data.
-8. **Armor-Type Stat Buffs**: `unarmored_damage`, `armored_damage`, etc. from attacker + target buffs.
+1. **Power Level → Base Damage**: `powerLevel × powerDistribution[attack]` → clamp 0–10000 → map to 0–20 via damage output table per armor type
+2. **Buff Multiplier Stack**: See detailed breakdown below. ~40 additive terms summed, then multiplicative terms applied separately. Target-side multipliers (additive modifiers × multiplicative multipliers) applied to final buff.
+3. **Armor Damage Modifier (ADM)**: Per armor type scalar from damage profile, **using the hitzone's resolved armor type** (not the breed's base type). Ranged weapons lerp near/far ADM by `√(dropoff_scalar)`. Quality lerps within `[min, max]`.
+4. **Rending**: Sum all rending sources from buff stack, multiply by `rending_armor_type_multiplier[armor_type]` (1.0 for armored/super_armor/resistant/berserker, 0 for others). Overdamage past ADM=1.0 at `overdamage_rending_multiplier[armor_type]` efficiency (0.25 for armored/super_armor/resistant/berserker, 0 for unarmored/disgustingly_resilient/void_shield).
+5. **Finesse Boost**: Weakspot and/or crit bonus through boost curve (default `[0, 0.3, 0.6, 0.8, 1]`). Crit boost is a flat 0.5 (`default_crit_boost_amount`). Finesse (weakspot) boost is **per-armor-type** (`default_finesse_boost_amount[armor_type]`). Combined finesse amount clamped to 1.0 before curve lookup. Crit minimum ADM of 0.25 vs all armor types.
+6. **Positional**: `backstab_damage` + `flanking_damage` (additive to damage).
+7. **Hitzone Multiplier**: Per-breed per-hitzone per-attack-type multiplier from breed data. Uses the full hitzone name, not the simplified 3-zone model.
+8. **Armor-Type Stat Buffs**: `unarmored_damage`, `armored_damage`, `resistant_damage`, `berserker_damage`, `super_armor_damage`, `disgustingly_resilient_damage` from both attacker and target stat buffs.
 9. **Diminishing Returns**: Only if breed sets `diminishing_returns_damage`. easeInCubic of health%.
 10. **Force Field Short-Circuit**: Force field targets → base damage only. (Static calc: skip — no force fields in breakpoint analysis.)
 11. **Damage Efficiency**: UI classification (negated/reduced/full) based on ADM thresholds.
 12. **Toughness/Health Split**: Toughness absorption, shield gate, bleedthrough. (Computed but not primary — breakpoints use raw health damage.)
 13. **Final Application**: Leech, resist_death, death/knockdown resolution. (Computed for completeness; breakpoints use pre-stage-13 damage.)
+
+#### Stage 2 Stat Buff Categories
+
+The `_calculate_damage_buff` function in the source accumulates ~40 terms. The calculator must handle all of them, categorized as:
+
+**Attacker-side additive** (each `(value - 1)` added to running sum starting at 1):
+- Generic: `damage`
+- Weapon type: `melee_damage`, `ranged_damage`, `melee_heavy_damage`, `melee_fully_charged_damage`, `first_target_melee_damage_modifier`
+- Distance: `damage_near`, `damage_far`, `ranged_damage_far` (lerped by √distance)
+- Crit conversion: `critical_strike_chance_to_damage_convert × crit_chance × critical_strike_damage`
+- Target category: `damage_vs_elites`, `damage_vs_specials`, `damage_vs_horde`, `damage_vs_ogryn`, `damage_vs_ogryn_and_monsters`, `damage_vs_monsters`, `damage_vs_captains`
+- Target state: `damage_vs_staggered`, `damage_vs_heavy_staggered`, `damage_vs_medium_staggered`, `damage_vs_electrocuted`, `damage_vs_burning`, `damage_vs_bleeding`, `damage_vs_healthy`, `damage_vs_unaggroed`, `damage_vs_nonthreat`, `damage_vs_suppressed`
+- Weapon-specific: `force_weapon_damage`, `psyker_throwing_knives_damage_multiplier`, `force_staff_single_target_damage`, `force_staff_secondary_damage`, `force_staff_melee_damage`, `shout_damage`, `smite_damage`, `chain_lightning_damage`, `warp_damage`, `finesse_ability_multiplier`
+- Stagger count: `stagger_count_damage × clamp(stagger_count, 0, 7)`
+- Companion: `companion_damage_modifier`, `companion_damage_vs_elites`, `companion_damage_vs_special`, `companion_damage_vs_ranged`, `companion_damage_vs_melee`
+- From damage profile: `damage_profile.stat_buffs[]` (arbitrary additional stat names per profile)
+
+**Attacker-side multiplicative** (multiplied into separate `damage_multiplier` product):
+- `smite_damage_multiplier`
+- `companion_damage_multiplier`
+
+**Target-side additive modifiers** (summed into `damage_taken_modifiers`):
+- `damage_taken_modifier`, `melee_damage_taken_modifier`
+
+**Target-side multiplicative** (multiplied into `damage_taken_multipliers` product):
+- `damage_taken_multiplier`, `ranged_damage_taken_multiplier`, `melee_damage_taken_multiplier`
+- `monster_damage_taken_multiplier`, `ogryn_damage_taken_multiplier`
+- `warp_damage_taken_multiplier`, `non_warp_damage_taken_multiplier`
+- `damage_taken_from_toxic_gas_multiplier`
+- `damage_taken_by_{breed}_multiplier` (per-breed)
+- `damage_taken_from_explosions`, `damage_taken_from_burning`, `damage_taken_from_toxin`, `damage_taken_from_bleeding`, `damage_taken_from_electrocution`, `damage_taken_from_kinetic`
+- `damage_taken_vs_taunted`
+
+**Final assembly:** `buff_damage = base_damage × (additive_sum × damage_multiplier × (target_additive_modifiers × target_multiplicative)) - 1)`
 
 **Key constants** (from `power_level_settings.lua`, `armor_settings.lua`, `damage_settings.lua`):
 
@@ -268,9 +390,11 @@ Direct port of `damage_calculation.lua` to JS. All stages implemented as individ
 |----------|-------|--------|
 | Default power level | 500 | `PowerLevelSettings.default_power_level` |
 | Damage output range | 0–20 (all armor types) | `PowerLevelSettings.damage_output[armor].{min,max}` |
-| Default crit/weakspot boost | 0.5 each | `PowerLevelSettings.default_crit_boost_amount`, `default_finesse_boost_amount` |
+| Default crit boost | 0.5 (flat) | `PowerLevelSettings.default_crit_boost_amount` |
+| Default finesse (weakspot) boost | Per armor type | `PowerLevelSettings.default_finesse_boost_amount[armor]` |
 | Min crit ADM | 0.25 | `PowerLevelSettings.min_crit_armor_damage_modifier` |
-| Overdamage rending multiplier | 0.25 | `ArmorSettings.overdamage_rending_multiplier` |
+| Overdamage rending multiplier | Per armor type (0.25 for armored/super_armor/resistant/berserker, 0 for others) | `ArmorSettings.overdamage_rending_multiplier[armor]` |
+| Rending armor type multiplier | Per armor type (1.0 for armored/super_armor/resistant/berserker, 0 for others) | `ArmorSettings.rending_armor_type_multiplier[armor]` |
 | Close range | 12.5m | `DamageSettings.ranged_close` |
 | Far range | 30m | `DamageSettings.ranged_far` |
 | Default boost curve | `[0, 0.3, 0.6, 0.8, 1]` | `PowerLevelSettings.boost_curves.default` |
@@ -285,10 +409,10 @@ Fixed checklist approach. Evaluates the build's weapons against ~10 critical bre
 
 | Breakpoint | Enemy | Difficulty | Hits | Scenario | Weight |
 |-----------|-------|------------|------|----------|--------|
-| One-shot Rager body | renegade_berzerker | Damnation | 1 | sustained | High |
 | One-shot Rager head | renegade_berzerker | Damnation | 1 | aimed | High |
+| Two-hit Rager body | renegade_berzerker | Damnation | 2 | sustained | High |
 | Two-hit Crusher | chaos_ogryn_executor | Damnation | 2 | aimed | High |
-| One-shot Trapper | chaos_poxwalker_trapper | Damnation | 1 | aimed | Medium |
+| One-shot Trapper | renegade_netgunner | Damnation | 1 | aimed | Medium |
 | One-shot Hound | chaos_hound | Damnation | 1 | aimed | Medium |
 | One-shot Bomber body | chaos_poxwalker_bomber | Damnation | 1 | sustained | Medium |
 | Horde one-shot body | poxwalker | Damnation | 1 | sustained | Medium |
@@ -296,9 +420,9 @@ Fixed checklist approach. Evaluates the build's weapons against ~10 critical bre
 | Two-hit Bulwark | chaos_ogryn_bulwark | Damnation | 2 | aimed | Low |
 | One-shot Sniper | renegade_sniper | Damnation | 1 | aimed | Low |
 
-Scoring: weighted sum of breakpoints hit by the build's best weapon action for each scenario, normalized to 1–5 scale. A build with no weapon data scores null (graceful degradation).
+Note: Breed IDs in the checklist will be verified against the extracted breed data during implementation. The checklist is defined in a separate data file (`breakpoint-checklist.json`) so entries and weights can be tuned without code changes.
 
-The specific checklist entries and weights are defined in a separate data file (`breakpoint-checklist.json`) so they can be tuned without code changes.
+Scoring: weighted sum of breakpoints hit by the build's best weapon action for each scenario, normalized to 1–5 scale. A build with no weapon data scores null (graceful degradation).
 
 ### `difficulty_scaling` (1–5)
 
@@ -312,7 +436,9 @@ The population baseline is computed lazily and cached. It updates when reference
 
 ### Composite Score Recalibration
 
-With 5/7 dimensions now scored (was 3/7), the composite maximum rises from an effective /25 to /35 (true maximum when #5 damage calculator is complete but `breakpoint_relevance` and `difficulty_scaling` are blocked on this work). Letter grade thresholds may shift — re-evaluate after running across all 23 builds. `score:freeze` regenerates golden snapshots.
+With `breakpoint_relevance` and `difficulty_scaling` now scored, the composite uses 5/7 dimensions (was 3/7: talent_coherence, blessing_synergy, role_coverage). The existing 2 mechanical dimensions (`perk_optimality`, `curio_efficiency`) were already scored, making this 5 qualitative+mechanical out of 7 total. The remaining 2 dimensions (`breakpoint_relevance_mechanical`, `difficulty_scaling_mechanical`) are blocked on this work — wait, those ARE the two new ones. So: 3 existing qualitative + 2 existing mechanical + 2 new from this work = 7/7. All dimensions scored.
+
+Letter grade thresholds will need recalibration — re-evaluate after running across all 23 builds. `score:freeze` regenerates golden snapshots.
 
 ## Component 5: CLI — `npm run calc`
 
@@ -326,21 +452,23 @@ npm run calc -- scripts/builds/                          # batch mode
 
 ### Text Output (default)
 
-Per-weapon summary table. Shows hits-to-kill for key enemies at Damnation across the three named scenarios. Uses community armor names (Flak, Maniac, Carapace, Unyielding, Infested) alongside internal names.
+Per-weapon summary table. Shows hits-to-kill for key enemies at Damnation across the three named scenarios. Uses community armor names alongside internal names.
 
 ```
 ═══ Kantrael MG XIIa (ranged) ═══
 
-                    Sustained    Aimed (head)    Burst
-  Rager (Maniac)        2            1             1    ✓ aimed breakpoint
-  Crusher (Carapace)    8            4             2    ✓ burst breakpoint
-  Trapper (Maniac)      3            1             1    ✓ aimed breakpoint
-  Hound (Infested)      2            1             1    ✓ aimed breakpoint
-  Poxwalker (Infested)  1            1             1    ✓ sustained breakpoint
-  Mauler (Flak)         5            3             2
+                      Sustained    Aimed (head)    Burst
+  Rager (Flak)            3            1             1    ✓ aimed breakpoint
+  Crusher (Carapace)      8            4             2    ✓ burst breakpoint
+  Trapper (Maniac)        3            1             1    ✓ aimed breakpoint
+  Hound (Infested)        2            1             1    ✓ aimed breakpoint
+  Poxwalker (Infested)    1            1             1    ✓ sustained breakpoint
+  Mauler (Flak)           5            3             2
 
   Breakpoints hit: 5/10 (aimed: 4, sustained: 1)
 ```
+
+Note: Rager displays as "Flak" (its base armor type), though body shots hit Carapace due to hitzone overrides — the detailed `--json` output shows per-hitzone breakdown.
 
 ### JSON Output
 
