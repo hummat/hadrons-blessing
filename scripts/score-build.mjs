@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 import { ALIASES_ROOT, ENTITIES_ROOT, listJsonFiles, loadJsonFile } from "./ground-truth/lib/load.mjs";
 import { normalizeText } from "./ground-truth/lib/normalize.mjs";
+import { scoreFromSynergy } from "./ground-truth/lib/build-scoring.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_PATH = join(__dirname, "build-scoring-data.json");
@@ -679,9 +680,10 @@ export function scoreCurios(curios, className) {
  * Calls scoreWeaponPerks, scoreBlessings, scoreCurios and assembles the result.
  *
  * @param {{ title: string, class: string, weapons: Array, curios: Array, talents: object }} build
+ * @param {object|null} [synergyOutput=null] - Output from analyzeBuild() in synergy-model.mjs
  * @returns {object} Scorecard object
  */
-export function generateScorecard(build) {
+export function generateScorecard(build, synergyOutput = null) {
   const weaponResults = [];
   const perkScores = [];
   const normalizedClassName = selectionLabel(build.class);
@@ -728,20 +730,52 @@ export function generateScorecard(build) {
       ? Math.round(perkScores.reduce((a, b) => a + b, 0) / perkScores.length)
       : 1;
 
+  // Populate qualitative scores from synergy output when available
+  const qualitative = {
+    blessing_synergy: null,
+    talent_coherence: null,
+    breakpoint_relevance: null,
+    role_coverage: null,
+    difficulty_scaling: null,
+  };
+
+  if (synergyOutput != null) {
+    const scores = scoreFromSynergy(synergyOutput);
+    qualitative.talent_coherence = scores.talent_coherence;
+    qualitative.blessing_synergy = scores.blessing_synergy;
+    qualitative.role_coverage = scores.role_coverage;
+  }
+
+  // Composite score: average non-null dimension scores, projected to /35
+  const dimensionScores = [
+    perkOptimality,
+    curioResult.score,
+    qualitative.talent_coherence?.score,
+    qualitative.blessing_synergy?.score,
+    qualitative.role_coverage?.score,
+  ].filter((s) => s != null);
+
+  const scoredCount = dimensionScores.length;
+  const rawSum = dimensionScores.reduce((a, b) => a + b, 0);
+  const compositeScore = Math.round(rawSum * 7 / scoredCount);
+
+  let letterGrade;
+  if (compositeScore >= 32) letterGrade = "S";
+  else if (compositeScore >= 27) letterGrade = "A";
+  else if (compositeScore >= 22) letterGrade = "B";
+  else if (compositeScore >= 17) letterGrade = "C";
+  else letterGrade = "D";
+
   return {
     title: build.title,
     class: normalizedClassName,
     perk_optimality: perkOptimality,
     curio_efficiency: curioResult.score,
+    composite_score: compositeScore,
+    letter_grade: letterGrade,
     weapons: weaponResults,
     curios: curioResult,
-    qualitative: {
-      blessing_synergy: null,
-      talent_coherence: null,
-      breakpoint_relevance: null,
-      role_coverage: null,
-      difficulty_scaling: null,
-    },
+    qualitative,
     bot_flags: [],
   };
 }
@@ -796,11 +830,26 @@ function formatScorecardText(card) {
   }
 
   lines.push("");
-  lines.push("QUALITATIVE (fill manually):");
-  lines.push("  Blessing Synergy:     _/5");
-  lines.push("  Talent Coherence:     _/5");
-  lines.push("  Role Coverage:        _/5");
-  lines.push("  Difficulty Scaling:   _/5");
+  if (card.qualitative.talent_coherence != null || card.qualitative.blessing_synergy != null || card.qualitative.role_coverage != null) {
+    lines.push("QUALITATIVE SCORES:");
+    const tc = card.qualitative.talent_coherence;
+    const bs = card.qualitative.blessing_synergy;
+    const rc = card.qualitative.role_coverage;
+    lines.push(`  Talent Coherence:     ${tc ? tc.score + "/5" : "-/5"}`);
+    lines.push(`  Blessing Synergy:     ${bs ? bs.score + "/5" : "-/5"}`);
+    lines.push(`  Role Coverage:        ${rc ? rc.score + "/5" : "-/5"}`);
+    lines.push("  Breakpoint Relevance: -/5  (requires calculator)");
+    lines.push("  Difficulty Scaling:   -/5  (requires calculator)");
+  } else {
+    lines.push("QUALITATIVE (fill manually):");
+    lines.push("  Blessing Synergy:     _/5");
+    lines.push("  Talent Coherence:     _/5");
+    lines.push("  Role Coverage:        _/5");
+    lines.push("  Difficulty Scaling:   _/5");
+  }
+
+  lines.push("");
+  lines.push(`COMPOSITE: ${card.composite_score}/35 (${card.letter_grade})`);
 
   lines.push("");
   lines.push("BOT FLAGS: (fill manually)");
@@ -833,7 +882,18 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   }
 
   const build = JSON.parse(readFileSync(buildPath, "utf-8"));
-  const card = generateScorecard(build);
+
+  // Load synergy for qualitative scoring (dynamic import to keep module lightweight for library consumers)
+  let synergyOutput = null;
+  try {
+    const { analyzeBuild, loadIndex } = await import("./ground-truth/lib/synergy-model.mjs");
+    const index = loadIndex();
+    synergyOutput = analyzeBuild(build, index);
+  } catch {
+    // Synergy unavailable (e.g. missing GROUND_TRUTH_SOURCE_ROOT) — proceed without qualitative scores
+  }
+
+  const card = generateScorecard(build, synergyOutput);
 
   if (values.text) {
     console.log(formatScorecardText(card));

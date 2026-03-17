@@ -2,6 +2,7 @@ import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { readFileSync } from "node:fs";
 import { parsePerkString, scorePerk, scoreWeaponPerks, scoreBlessings, scoreCurios, generateScorecard } from "./score-build.mjs";
+import { analyzeBuild, loadIndex } from "./ground-truth/lib/synergy-model.mjs";
 
 describe("parsePerkString", () => {
   it("parses percentage range perk", () => {
@@ -518,5 +519,76 @@ describe("end-to-end", () => {
     assert.ok(card.perk_optimality >= 3, "Veteran Squad Leader should score well on perks");
     assert.ok(card.curio_efficiency >= 3, "Live sample curios should still score above neutral");
     assert.equal(card.weapons.length, 2);
+  });
+});
+
+describe("generateScorecard composite score", () => {
+  it("includes composite_score and letter_grade without synergy", () => {
+    const build = {
+      title: "Composite Test",
+      class: "veteran",
+      weapons: [
+        { name: "M35 Magnacore Mk II Plasma Gun", perks: ["20-25% Damage (Unyielding)"], blessings: [] },
+      ],
+      curios: [],
+      talents: [],
+    };
+    const card = generateScorecard(build);
+    assert.ok(typeof card.composite_score === "number");
+    assert.ok(typeof card.letter_grade === "string");
+    assert.ok(["S", "A", "B", "C", "D"].includes(card.letter_grade));
+  });
+});
+
+const HAS_SOURCE = !!process.env.GROUND_TRUTH_SOURCE_ROOT;
+
+describe("generateScorecard qualitative scores", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_SOURCE_ROOT" }, () => {
+  let index;
+  function getSynergy(build) {
+    if (!index) index = loadIndex();
+    return analyzeBuild(build, index);
+  }
+
+  it("populates talent_coherence, blessing_synergy, role_coverage when synergy passed", () => {
+    const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const synergy = getSynergy(build);
+    const card = generateScorecard(build, synergy);
+    assert.notEqual(card.qualitative.talent_coherence, null);
+    assert.notEqual(card.qualitative.blessing_synergy, null);
+    assert.notEqual(card.qualitative.role_coverage, null);
+    assert.ok(card.qualitative.talent_coherence.score >= 1);
+    assert.ok(card.qualitative.talent_coherence.score <= 5);
+  });
+
+  it("keeps qualitative null when no synergy passed", () => {
+    const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const card = generateScorecard(build);
+    assert.equal(card.qualitative.talent_coherence, null);
+    assert.equal(card.qualitative.blessing_synergy, null);
+  });
+
+  it("keeps breakpoint_relevance and difficulty_scaling null", () => {
+    const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const synergy = getSynergy(build);
+    const card = generateScorecard(build, synergy);
+    assert.equal(card.qualitative.breakpoint_relevance, null);
+    assert.equal(card.qualitative.difficulty_scaling, null);
+  });
+
+  it("includes composite score and letter grade", () => {
+    const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const synergy = getSynergy(build);
+    const card = generateScorecard(build, synergy);
+    assert.ok(typeof card.composite_score === "number");
+    assert.ok(typeof card.letter_grade === "string");
+    assert.ok(["S", "A", "B", "C", "D"].includes(card.letter_grade));
+  });
+
+  it("does not change perk_optimality or curio_efficiency", () => {
+    const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const synergy = getSynergy(build);
+    const card = generateScorecard(build, synergy);
+    assert.ok(typeof card.perk_optimality === "number");
+    assert.ok(typeof card.curio_efficiency === "number");
   });
 });
