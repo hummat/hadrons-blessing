@@ -1,7 +1,7 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { readFileSync } from "node:fs";
-import { analyzeGaps, validateTreeReachability } from "./ground-truth/lib/build-recommendations.mjs";
+import { analyzeGaps, validateTreeReachability, swapTalent } from "./ground-truth/lib/build-recommendations.mjs";
 import { loadIndex, analyzeBuild } from "./ground-truth/lib/synergy-model.mjs";
 import { generateScorecard } from "./score-build.mjs";
 
@@ -145,6 +145,49 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
       );
       assert.equal(result.reachable, true);
       assert.equal(result.reason, "no tree mapping for talent");
+    });
+  });
+
+  describe("swapTalent", () => {
+    it("returns valid delta for a legal talent swap", () => {
+      const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      // psyker_crits_empower_next_attack and base_toughness_node_buff_medium_5 are siblings
+      const result = swapTalent(
+        build, getIndex(),
+        "psyker.talent.psyker_crits_empower_next_attack",
+        "psyker.talent.base_toughness_node_buff_medium_5"
+      );
+      assert.equal(result.valid, true);
+      assert.ok(typeof result.score_delta.talent_coherence === "number");
+      assert.ok(typeof result.score_delta.blessing_synergy === "number");
+      assert.ok(typeof result.score_delta.role_coverage === "number");
+      assert.ok(typeof result.score_delta.composite === "number");
+      assert.ok(Array.isArray(result.gained_edges));
+      assert.ok(Array.isArray(result.lost_edges));
+      assert.ok(Array.isArray(result.resolved_orphans));
+      assert.ok(Array.isArray(result.new_orphans));
+    });
+
+    it("returns invalid for talent not in build", () => {
+      const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const result = swapTalent(
+        build, getIndex(),
+        "psyker.talent.not_in_this_build",
+        "psyker.talent.base_toughness_node_buff_medium_5"
+      );
+      assert.equal(result.valid, false);
+      assert.ok(result.reason.includes("not found"));
+    });
+
+    it("returns invalid for unreachable new talent", () => {
+      const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      // base_crit_chance_node_buff_low_1's parent (psyker_spread_warpfire_on_kill) is not in the build
+      const result = swapTalent(
+        build, getIndex(),
+        "psyker.talent.psyker_crits_empower_next_attack",
+        "psyker.talent.base_crit_chance_node_buff_low_1"
+      );
+      assert.equal(result.valid, false);
     });
   });
 });

@@ -2,6 +2,7 @@
 // Gap analysis for build recommendations (#10).
 
 import { analyzeBuild } from "./synergy-model.mjs";
+import { scoreFromSynergy } from "./build-scoring.mjs";
 import { generateScorecard } from "../../score-build.mjs";
 
 // Map coverage_gap names to descriptive reason strings and suggested families.
@@ -208,5 +209,143 @@ export function validateTreeReachability(build, index, newTalentId) {
   return {
     reachable: false,
     reason: `parent not in build: ${parentTalent ?? parentNode} required`,
+  };
+}
+
+/**
+ * Create a stable key for a synergy edge (order-independent selections).
+ * @param {object} edge
+ * @returns {string}
+ */
+function edgeKey(edge) {
+  const sels = [...(edge.selections ?? [])].sort().join(",");
+  return `${edge.type}::${sels}`;
+}
+
+/**
+ * Find which build slot contains a given entity ID.
+ *
+ * Returns { location: "talents"|"ability"|"blitz"|"aura"|"keystone", index?: number }
+ * or null if not found.
+ *
+ * @param {object} build
+ * @param {string} entityId
+ * @returns {{ location: string, index?: number } | null}
+ */
+function findSlot(build, entityId) {
+  for (const slot of ["ability", "blitz", "aura", "keystone"]) {
+    if (build[slot]?.canonical_entity_id === entityId) {
+      return { location: slot };
+    }
+  }
+  const talents = build.talents ?? [];
+  for (let i = 0; i < talents.length; i++) {
+    if (talents[i].canonical_entity_id === entityId) {
+      return { location: "talents", index: i };
+    }
+  }
+  return null;
+}
+
+/**
+ * Evaluate the impact of swapping one talent for another in a build.
+ *
+ * Validates the swap is legal (old talent exists, new talent is reachable),
+ * then computes score deltas, gained/lost synergy edges, and orphan changes.
+ *
+ * @param {object} build - Canonical build JSON
+ * @param {{ entities: Map<string, object>, edges: Array<object> }} index - Loaded index
+ * @param {string} oldId - Entity ID of the talent to remove
+ * @param {string} newId - Entity ID of the talent to add
+ * @returns {{ valid: boolean, reason?: string, score_delta?: object, gained_edges?: Array, lost_edges?: Array, resolved_orphans?: Array, new_orphans?: Array }}
+ */
+export function swapTalent(build, index, oldId, newId) {
+  // 1. Validate oldId is in the build
+  const slot = findSlot(build, oldId);
+  if (!slot) {
+    return { valid: false, reason: "old talent not found in build" };
+  }
+
+  // 2. Build a clone without oldId, then check reachability
+  const buildWithoutOld = JSON.parse(JSON.stringify(build));
+  if (slot.location === "talents") {
+    buildWithoutOld.talents.splice(slot.index, 1);
+  } else {
+    buildWithoutOld[slot.location] = null;
+  }
+
+  const reachability = validateTreeReachability(buildWithoutOld, index, newId);
+  if (!reachability.reachable) {
+    return { valid: false, reason: reachability.reason };
+  }
+
+  // 3. Deep-clone the build and swap in the new talent
+  const modifiedBuild = JSON.parse(JSON.stringify(build));
+  if (slot.location === "talents") {
+    modifiedBuild.talents[slot.index] = {
+      canonical_entity_id: newId,
+      raw_label: newId,
+      resolution_status: "resolved",
+    };
+  } else {
+    modifiedBuild[slot.location] = {
+      canonical_entity_id: newId,
+      raw_label: newId,
+      resolution_status: "resolved",
+    };
+  }
+
+  // 4 & 5. Run synergy + scoring on both builds
+  const originalSynergy = analyzeBuild(build, index);
+  const modifiedSynergy = analyzeBuild(modifiedBuild, index);
+
+  const originalScores = scoreFromSynergy(originalSynergy);
+  const modifiedScores = scoreFromSynergy(modifiedSynergy);
+
+  // 6. Score deltas
+  const tcDelta = modifiedScores.talent_coherence.score - originalScores.talent_coherence.score;
+  const bsDelta = modifiedScores.blessing_synergy.score - originalScores.blessing_synergy.score;
+  const rcDelta = modifiedScores.role_coverage.score - originalScores.role_coverage.score;
+
+  const score_delta = {
+    talent_coherence: tcDelta,
+    blessing_synergy: bsDelta,
+    role_coverage: rcDelta,
+    composite: tcDelta + bsDelta + rcDelta,
+  };
+
+  // 7. Diff synergy edges
+  const originalEdgeKeys = new Set(originalSynergy.synergy_edges.map(edgeKey));
+  const modifiedEdgeKeys = new Set(modifiedSynergy.synergy_edges.map(edgeKey));
+
+  const gained_edges = modifiedSynergy.synergy_edges.filter(
+    (e) => !originalEdgeKeys.has(edgeKey(e))
+  );
+  const lost_edges = originalSynergy.synergy_edges.filter(
+    (e) => !modifiedEdgeKeys.has(edgeKey(e))
+  );
+
+  // 8. Diff orphans
+  const originalOrphanKeys = new Set(
+    (originalSynergy.orphans ?? []).map((o) => `${o.selection}::${o.resource ?? o.condition}`)
+  );
+  const modifiedOrphanKeys = new Set(
+    (modifiedSynergy.orphans ?? []).map((o) => `${o.selection}::${o.resource ?? o.condition}`)
+  );
+
+  const resolved_orphans = (originalSynergy.orphans ?? []).filter(
+    (o) => !modifiedOrphanKeys.has(`${o.selection}::${o.resource ?? o.condition}`)
+  );
+  const new_orphans = (modifiedSynergy.orphans ?? []).filter(
+    (o) => !originalOrphanKeys.has(`${o.selection}::${o.resource ?? o.condition}`)
+  );
+
+  return {
+    valid: true,
+    score_delta,
+    gained_edges,
+    lost_edges,
+    resolved_orphans,
+    new_orphans,
   };
 }
