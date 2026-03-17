@@ -1,7 +1,7 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { readFileSync } from "node:fs";
-import { analyzeGaps } from "./ground-truth/lib/build-recommendations.mjs";
+import { analyzeGaps, validateTreeReachability } from "./ground-truth/lib/build-recommendations.mjs";
 import { loadIndex, analyzeBuild } from "./ground-truth/lib/synergy-model.mjs";
 import { generateScorecard } from "./score-build.mjs";
 
@@ -57,6 +57,94 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
 
       const result = analyzeGaps(build, idx, { synergy, scorecard });
       assert.ok(result.scorecard === scorecard); // same reference, not recomputed
+    });
+  });
+
+  describe("validateTreeReachability", () => {
+    it("validates a reachable talent (parent in build)", () => {
+      // psyker_ability_increase_brain_burst_speed's parent is psyker_brain_burst_improved (in Gandalf build)
+      const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const result = validateTreeReachability(
+        build, getIndex(),
+        "psyker.talent_modifier.psyker_ability_increase_brain_burst_speed"
+      );
+      assert.equal(result.reachable, true);
+      assert.equal(result.reason, "parent selected in build");
+    });
+
+    it("rejects unreachable talent (parent not in build)", () => {
+      // base_crit_chance_node_buff_low_1's parent is psyker_spread_warpfire_on_kill (NOT in Gandalf build)
+      const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const result = validateTreeReachability(
+        build, getIndex(),
+        "psyker.talent.base_crit_chance_node_buff_low_1"
+      );
+      assert.equal(result.reachable, false);
+      assert.ok(result.reason.includes("parent not in build"));
+      assert.ok(result.reason.includes("psyker.talent.psyker_spread_warpfire_on_kill"));
+    });
+
+    it("rejects unreachable talent on empty build", () => {
+      // Deep talent with no parents selected
+      const emptyBuild = {
+        class: { canonical_entity_id: "shared.class.psyker", raw_label: "psyker", resolution_status: "resolved" },
+        talents: [], ability: null, blitz: null, aura: null, keystone: null,
+        weapons: [], curios: [],
+      };
+      const result = validateTreeReachability(
+        emptyBuild, getIndex(),
+        "psyker.talent_modifier.psyker_ability_increase_brain_burst_speed"
+      );
+      assert.equal(result.reachable, false);
+      assert.ok(result.reason.includes("parent not in build"));
+    });
+
+    it("treats root-adjacent talents as always reachable", () => {
+      // psyker_toughness_on_warp_kill is a direct child of the structural root (no talent on root)
+      // Use empty build — should still be reachable since parent is structural root
+      const emptyBuild = {
+        class: { canonical_entity_id: "shared.class.psyker", raw_label: "psyker", resolution_status: "resolved" },
+        talents: [], ability: null, blitz: null, aura: null, keystone: null,
+        weapons: [], curios: [],
+      };
+      const result = validateTreeReachability(
+        emptyBuild, getIndex(),
+        "psyker.talent.psyker_toughness_on_warp_kill"
+      );
+      assert.equal(result.reachable, true);
+      assert.equal(result.reason, "parent is structural root");
+    });
+
+    it("rejects talent with exclusive_with conflict", () => {
+      // Build with psyker_crits_regen_toughness_movement_speed selected;
+      // psyker_toughness_on_vent is exclusive_with it
+      const build = {
+        class: { canonical_entity_id: "shared.class.psyker", raw_label: "psyker", resolution_status: "resolved" },
+        talents: [{
+          canonical_entity_id: "psyker.talent.psyker_crits_regen_toughness_movement_speed",
+          raw_label: "Crits Regen Toughness",
+          resolution_status: "resolved",
+        }],
+        ability: null, blitz: null, aura: null, keystone: null,
+        weapons: [], curios: [],
+      };
+      const result = validateTreeReachability(
+        build, getIndex(),
+        "psyker.talent.psyker_toughness_on_vent"
+      );
+      assert.equal(result.reachable, false);
+      assert.ok(result.reason.includes("exclusive_with conflict"));
+      assert.ok(result.reason.includes("psyker.talent.psyker_crits_regen_toughness_movement_speed"));
+    });
+
+    it("returns reachable for talent with no tree mapping", () => {
+      const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const result = validateTreeReachability(
+        build, getIndex(),
+        "psyker.talent.nonexistent_xyz"
+      );
+      assert.equal(result.reachable, true);
+      assert.equal(result.reason, "no tree mapping for talent");
     });
   });
 });

@@ -84,3 +84,129 @@ export function analyzeGaps(build, index, precomputed = null) {
     scorecard,
   };
 }
+
+/**
+ * Validate whether a talent can be legally added to a build's talent tree.
+ *
+ * Checks two constraints:
+ * 1. The talent's tree node parent must be selected in the build (reachability).
+ *    Root-adjacent nodes (parent has no talent mapping or parent has no parent) are always reachable.
+ * 2. The talent must not be exclusive_with any currently selected build talent.
+ *
+ * Fails open: unknown talents or missing tree mappings return reachable: true.
+ *
+ * @param {object} build - Canonical build JSON
+ * @param {{ entities: Map<string, object>, edges: Array<object> }} index - Loaded index
+ * @param {string} newTalentId - Entity ID of the talent to validate
+ * @returns {{ reachable: boolean, reason: string }}
+ */
+export function validateTreeReachability(build, index, newTalentId) {
+  // 1. Extract class domain
+  const classId = build.class?.canonical_entity_id ?? "";
+  const domain = classId.replace(/^shared\.class\./, "");
+  if (!domain) {
+    return { reachable: true, reason: "no class domain on build" };
+  }
+
+  // 2. Filter edges for this domain
+  const domainEdges = index.edges.filter(
+    (e) => e.from_entity_id.startsWith(domain + ".") || e.to_entity_id.startsWith(domain + ".")
+  );
+
+  // 3. Build lookup maps
+  const talentToTreeNode = new Map();
+  const treeNodeChildren = new Map();
+  const treeNodeParent = new Map();
+  const exclusivePairs = new Map();
+
+  for (const e of domainEdges) {
+    if (e.type === "belongs_to_tree_node") {
+      talentToTreeNode.set(e.from_entity_id, e.to_entity_id);
+    } else if (e.type === "parent_of") {
+      if (!treeNodeChildren.has(e.from_entity_id)) {
+        treeNodeChildren.set(e.from_entity_id, new Set());
+      }
+      treeNodeChildren.get(e.from_entity_id).add(e.to_entity_id);
+      treeNodeParent.set(e.to_entity_id, e.from_entity_id);
+    } else if (e.type === "exclusive_with") {
+      if (!exclusivePairs.has(e.from_entity_id)) {
+        exclusivePairs.set(e.from_entity_id, new Set());
+      }
+      exclusivePairs.get(e.from_entity_id).add(e.to_entity_id);
+      if (!exclusivePairs.has(e.to_entity_id)) {
+        exclusivePairs.set(e.to_entity_id, new Set());
+      }
+      exclusivePairs.get(e.to_entity_id).add(e.from_entity_id);
+    }
+  }
+
+  // 4. Find the new talent's tree node
+  const newNode = talentToTreeNode.get(newTalentId);
+  if (!newNode) {
+    return { reachable: true, reason: "no tree mapping for talent" };
+  }
+
+  // 5. Collect tree nodes occupied by current build selections
+  const buildSlots = [
+    ...(build.talents ?? []),
+    build.ability,
+    build.blitz,
+    build.aura,
+    build.keystone,
+  ].filter(Boolean);
+
+  const buildEntityIds = new Set(
+    buildSlots.map((s) => s.canonical_entity_id).filter(Boolean)
+  );
+  const buildTreeNodes = new Set();
+  for (const id of buildEntityIds) {
+    const node = talentToTreeNode.get(id);
+    if (node) buildTreeNodes.add(node);
+  }
+
+  // 6. Check exclusive_with: new node must not conflict with any build node
+  const exclusivePartners = exclusivePairs.get(newNode);
+  if (exclusivePartners) {
+    for (const partner of exclusivePartners) {
+      if (buildTreeNodes.has(partner)) {
+        // Find the conflicting talent for the reason message
+        const conflictTalent = [...buildEntityIds].find(
+          (id) => talentToTreeNode.get(id) === partner
+        );
+        return {
+          reachable: false,
+          reason: `exclusive_with conflict: ${newTalentId} conflicts with ${conflictTalent ?? "unknown"}`,
+        };
+      }
+    }
+  }
+
+  // 7. Check parent reachability
+  const parentNode = treeNodeParent.get(newNode);
+  if (!parentNode) {
+    // Root node or root-adjacent — always reachable
+    return { reachable: true, reason: "root node" };
+  }
+
+  // If parent node has no talent mapping, it's a structural root — always reachable
+  const parentHasTalent = [...talentToTreeNode.entries()].some(
+    ([, node]) => node === parentNode
+  );
+  if (!parentHasTalent) {
+    return { reachable: true, reason: "parent is structural root" };
+  }
+
+  // Parent must be selected in the build
+  if (buildTreeNodes.has(parentNode)) {
+    return { reachable: true, reason: "parent selected in build" };
+  }
+
+  // Find which talent owns the parent node for the reason message
+  const parentTalent = [...talentToTreeNode.entries()].find(
+    ([, node]) => node === parentNode
+  )?.[0];
+  return {
+    reachable: false,
+    reason: `parent not in build: ${parentTalent ?? parentNode} required`,
+  };
+}
