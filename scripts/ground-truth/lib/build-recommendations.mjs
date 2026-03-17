@@ -349,3 +349,165 @@ export function swapTalent(build, index, oldId, newId) {
     new_orphans,
   };
 }
+
+/**
+ * Evaluate the impact of swapping one weapon for another in a build.
+ *
+ * Determines blessing compatibility (same-family retains, cross-family removes),
+ * computes score deltas, and diffs synergy edges.
+ *
+ * @param {object} build - Canonical build JSON
+ * @param {{ entities: Map<string, object>, edges: Array<object> }} index - Loaded index
+ * @param {string} oldId - Entity ID of the weapon to remove
+ * @param {string} newId - Entity ID of the weapon to add
+ * @returns {{ valid: boolean, reason?: string, score_delta?: object, blessing_impact?: object, gained_edges?: Array, lost_edges?: Array }}
+ */
+export function swapWeapon(build, index, oldId, newId) {
+  // 1. Find the weapon entry in build.weapons[]
+  const weapons = build.weapons ?? [];
+  const weaponIdx = weapons.findIndex((w) => w.name?.canonical_entity_id === oldId);
+  if (weaponIdx === -1) {
+    return { valid: false, reason: "weapon not found in build" };
+  }
+
+  // 2. Resolve old and new weapon entities
+  const oldEntity = index.entities.get(oldId);
+  const newEntity = index.entities.get(newId);
+  const oldFamily = oldEntity?.attributes?.weapon_family ?? null;
+  const newFamily = newEntity?.attributes?.weapon_family ?? null;
+
+  // 3. Determine blessing compatibility
+  const oldBlessings = (weapons[weaponIdx].blessings ?? [])
+    .map((b) => b.canonical_entity_id)
+    .filter(Boolean);
+
+  let retained = [];
+  let removed = [];
+
+  if (oldFamily && newFamily && oldFamily === newFamily) {
+    // Same family: retain all blessings
+    retained = [...oldBlessings];
+  } else {
+    // Different family: check trait pool edges for compatibility
+    const newWeaponTraitPool = new Set(
+      index.edges
+        .filter((e) => e.type === "weapon_has_trait_pool" && e.from_entity_id === newId)
+        .map((e) => e.to_entity_id)
+    );
+
+    if (newWeaponTraitPool.size > 0) {
+      // Build reverse mapping: name_family → weapon_traits that are instance_of it
+      const instanceOfEdges = index.edges.filter((e) => e.type === "instance_of");
+
+      for (const blessingId of oldBlessings) {
+        // Check if any weapon_trait in the new pool is an instance_of this blessing family
+        const compatible = instanceOfEdges.some(
+          (e) => newWeaponTraitPool.has(e.from_entity_id) && e.to_entity_id === blessingId
+        );
+        if (compatible) {
+          retained.push(blessingId);
+        } else {
+          removed.push(blessingId);
+        }
+      }
+    } else {
+      // No trait pool data for new weapon — conservatively remove all
+      removed = [...oldBlessings];
+    }
+  }
+
+  // Compute available blessings for the new weapon
+  const available = computeAvailableBlessings(newId, newFamily, index);
+
+  const blessing_impact = { retained, removed, available };
+
+  // 4. Deep-clone build and replace weapon entry
+  const modifiedBuild = JSON.parse(JSON.stringify(build));
+  const modifiedWeapon = modifiedBuild.weapons[weaponIdx];
+  modifiedWeapon.name.canonical_entity_id = newId;
+  modifiedWeapon.name.raw_label = newId;
+
+  // Keep retained blessings, remove removed ones
+  if (removed.length > 0) {
+    const removedSet = new Set(removed);
+    modifiedWeapon.blessings = (modifiedWeapon.blessings ?? []).filter(
+      (b) => !removedSet.has(b.canonical_entity_id)
+    );
+  }
+
+  // 5. Run synergy → scoring on both builds
+  const originalSynergy = analyzeBuild(build, index);
+  const modifiedSynergy = analyzeBuild(modifiedBuild, index);
+
+  const originalScores = scoreFromSynergy(originalSynergy);
+  const modifiedScores = scoreFromSynergy(modifiedSynergy);
+
+  // 6. Score deltas
+  const tcDelta = modifiedScores.talent_coherence.score - originalScores.talent_coherence.score;
+  const bsDelta = modifiedScores.blessing_synergy.score - originalScores.blessing_synergy.score;
+  const rcDelta = modifiedScores.role_coverage.score - originalScores.role_coverage.score;
+
+  const score_delta = {
+    talent_coherence: tcDelta,
+    blessing_synergy: bsDelta,
+    role_coverage: rcDelta,
+    composite: tcDelta + bsDelta + rcDelta,
+  };
+
+  // 7. Diff synergy edges
+  const originalEdgeKeys = new Set(originalSynergy.synergy_edges.map(edgeKey));
+  const modifiedEdgeKeys = new Set(modifiedSynergy.synergy_edges.map(edgeKey));
+
+  const gained_edges = modifiedSynergy.synergy_edges.filter(
+    (e) => !originalEdgeKeys.has(edgeKey(e))
+  );
+  const lost_edges = originalSynergy.synergy_edges.filter(
+    (e) => !modifiedEdgeKeys.has(edgeKey(e))
+  );
+
+  return {
+    valid: true,
+    score_delta,
+    blessing_impact,
+    gained_edges,
+    lost_edges,
+  };
+}
+
+/**
+ * Find all blessing name_families available for a given weapon.
+ *
+ * Uses weapon_has_trait_pool edges (weapon → weapon_trait) and instance_of edges
+ * (weapon_trait → name_family) to trace available blessings. Falls back to
+ * family-prefix matching on instance_of edges if no trait pool edges exist.
+ *
+ * @param {string} weaponId - Weapon entity ID
+ * @param {string | null} weaponFamily - Weapon family string
+ * @param {{ entities: Map<string, object>, edges: Array<object> }} index
+ * @returns {string[]} - Blessing name_family entity IDs
+ */
+function computeAvailableBlessings(weaponId, weaponFamily, index) {
+  // Try direct trait pool edges first
+  const traitPoolIds = index.edges
+    .filter((e) => e.type === "weapon_has_trait_pool" && e.from_entity_id === weaponId)
+    .map((e) => e.to_entity_id);
+
+  if (traitPoolIds.length > 0) {
+    const poolSet = new Set(traitPoolIds);
+    return index.edges
+      .filter((e) => e.type === "instance_of" && poolSet.has(e.from_entity_id))
+      .map((e) => e.to_entity_id);
+  }
+
+  // Fallback: match instance_of edges where the weapon_trait ID contains the family prefix
+  if (weaponFamily) {
+    const familyPattern = `weapon_trait_bespoke_${weaponFamily}`;
+    return index.edges
+      .filter(
+        (e) => e.type === "instance_of" && e.from_entity_id.includes(familyPattern)
+      )
+      .map((e) => e.to_entity_id);
+  }
+
+  return [];
+}

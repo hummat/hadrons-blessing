@@ -1,7 +1,7 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { readFileSync } from "node:fs";
-import { analyzeGaps, validateTreeReachability, swapTalent } from "./ground-truth/lib/build-recommendations.mjs";
+import { analyzeGaps, validateTreeReachability, swapTalent, swapWeapon } from "./ground-truth/lib/build-recommendations.mjs";
 import { loadIndex, analyzeBuild } from "./ground-truth/lib/synergy-model.mjs";
 import { generateScorecard } from "./score-build.mjs";
 
@@ -188,6 +188,88 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
         "psyker.talent.base_crit_chance_node_buff_low_1"
       );
       assert.equal(result.valid, false);
+    });
+  });
+
+  describe("swapWeapon", () => {
+    it("returns delta with blessing impact for same-family swap", () => {
+      const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      // forcesword_2h_p1_m1 → forcesword_2h_p1_m2 (both forcesword_2h family)
+      const result = swapWeapon(
+        build, getIndex(),
+        "shared.weapon.forcesword_2h_p1_m1",
+        "shared.weapon.forcesword_2h_p1_m2"
+      );
+      assert.equal(result.valid, true);
+      assert.ok(result.blessing_impact);
+      assert.ok(Array.isArray(result.blessing_impact.retained));
+      assert.ok(Array.isArray(result.blessing_impact.removed));
+      assert.ok(Array.isArray(result.blessing_impact.available));
+      // Same family = all blessings retained, none removed
+      assert.equal(result.blessing_impact.removed.length, 0);
+      assert.equal(result.blessing_impact.retained.length, 2);
+    });
+
+    it("removes blessings for cross-family swap", () => {
+      const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      // forcesword_2h_p1_m1 (forcesword_2h) → powersword_2h_p1_m1 (powersword_2h) — different families
+      const result = swapWeapon(
+        build, getIndex(),
+        "shared.weapon.forcesword_2h_p1_m1",
+        "shared.weapon.powersword_2h_p1_m1"
+      );
+      assert.equal(result.valid, true);
+      assert.ok(result.blessing_impact.removed.length > 0);
+    });
+
+    it("returns score delta", () => {
+      const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      // Same-family swap for predictable results
+      const result = swapWeapon(
+        build, getIndex(),
+        "shared.weapon.forcesword_2h_p1_m1",
+        "shared.weapon.forcesword_2h_p1_m2"
+      );
+      assert.ok(typeof result.score_delta.blessing_synergy === "number");
+      assert.ok(typeof result.score_delta.talent_coherence === "number");
+      assert.ok(typeof result.score_delta.role_coverage === "number");
+      assert.ok(typeof result.score_delta.composite === "number");
+    });
+
+    it("returns invalid for weapon not in build", () => {
+      const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const result = swapWeapon(
+        build, getIndex(),
+        "shared.weapon.fake_weapon",
+        "shared.weapon.also_fake"
+      );
+      assert.equal(result.valid, false);
+      assert.ok(result.reason.includes("not found"));
+    });
+
+    it("returns gained/lost synergy edges", () => {
+      const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const result = swapWeapon(
+        build, getIndex(),
+        "shared.weapon.forcesword_2h_p1_m1",
+        "shared.weapon.powersword_2h_p1_m1"
+      );
+      assert.equal(result.valid, true);
+      assert.ok(Array.isArray(result.gained_edges));
+      assert.ok(Array.isArray(result.lost_edges));
+    });
+
+    it("populates available blessings for new weapon", () => {
+      const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      // forcesword_2h_p1_m2 has weapon_has_trait_pool edges → should have available blessings
+      const result = swapWeapon(
+        build, getIndex(),
+        "shared.weapon.forcesword_2h_p1_m1",
+        "shared.weapon.forcesword_2h_p1_m2"
+      );
+      assert.equal(result.valid, true);
+      assert.ok(Array.isArray(result.blessing_impact.available));
+      assert.ok(result.blessing_impact.available.length > 0);
     });
   });
 });
