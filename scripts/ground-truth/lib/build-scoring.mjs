@@ -43,14 +43,18 @@ export function classifySelection(id) {
  * @returns {{ score: number, breakdown: object, explanations: string[] }}
  */
 function scoreTalentCoherence(synergyOutput) {
-  const { synergy_edges = [], coverage = {}, _talentSideIds } = synergyOutput;
+  const { synergy_edges = [], coverage = {}, _resolvedIds, _talentSideIds } = synergyOutput;
   const concentration = coverage.concentration ?? 0;
 
   // --- Collect talent-side ID population ---
-  // Prefer the explicit _talentSideIds hint (populated by makeSynergyOutput and
-  // future integration plumbing). Fall back to extracting from edge participants.
+  // Priority:
+  //   1. _resolvedIds from real analyzeBuild() output — filter by classifySelection
+  //   2. _talentSideIds from test helper (already pre-filtered to talent-side)
+  //   3. Extract from edge participants (fallback — misses isolated talents)
   let talentPopulation;
-  if (_talentSideIds && _talentSideIds.length > 0) {
+  if (_resolvedIds && _resolvedIds.length > 0) {
+    talentPopulation = new Set(_resolvedIds.filter((id) => classifySelection(id) === "talent"));
+  } else if (_talentSideIds && _talentSideIds.length > 0) {
     talentPopulation = new Set(_talentSideIds.filter((id) => classifySelection(id) === "talent"));
   } else {
     talentPopulation = new Set();

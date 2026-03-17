@@ -410,6 +410,7 @@ export function analyzeBuild(build, index) {
     anti_synergies,
     orphans,
     coverage,
+    _resolvedIds: allResolved.map((s) => s.id),
     metadata: {
       entities_analyzed: totalSelections,
       unique_entities_with_calc: withEffects.length,

@@ -114,30 +114,34 @@ function makeSynergyOutput({
     });
   }
 
-  for (let i = 0; i < blessingEdges; i++) {
-    const bl = blessingIds[i % (blessingIds.length || 1)];
-    const t = talentIds[i % (talentIds.length || 1)];
-    if (bl && t) {
-      synergy_edges.push({
-        type: "stat_alignment",
-        selections: [bl, t],
-        families: ["general_offense"],
-        strength: 3,
-        explanation: `blessing-talent edge ${i}`,
-      });
+  if (blessingIds.length > 0) {
+    for (let i = 0; i < blessingEdges; i++) {
+      const bl = blessingIds[i % blessingIds.length];
+      const t = talentIds[i % (talentIds.length || 1)];
+      if (bl && t) {
+        synergy_edges.push({
+          type: "stat_alignment",
+          selections: [bl, t],
+          families: ["general_offense"],
+          strength: 3,
+          explanation: `blessing-talent edge ${i}`,
+        });
+      }
     }
   }
 
-  for (let i = 0; i < blessingBlessingEdges; i++) {
-    const a = blessingIds[i % blessingIds.length];
-    const b = blessingIds[(i + 1) % blessingIds.length];
-    synergy_edges.push({
-      type: "stat_alignment",
-      selections: [a, b],
-      families: ["general_offense"],
-      strength: 3,
-      explanation: `blessing-blessing edge ${i}`,
-    });
+  if (blessingIds.length >= 2) {
+    for (let i = 0; i < blessingBlessingEdges; i++) {
+      const a = blessingIds[i % blessingIds.length];
+      const b = blessingIds[(i + 1) % blessingIds.length];
+      synergy_edges.push({
+        type: "stat_alignment",
+        selections: [a, b],
+        families: ["general_offense"],
+        strength: 3,
+        explanation: `blessing-blessing edge ${i}`,
+      });
+    }
   }
 
   const families = [
