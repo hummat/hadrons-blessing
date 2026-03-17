@@ -11,7 +11,7 @@ Two modules that answer "is this build good?" and "what should I change?" Both c
 ## Design Decisions
 
 - **7 original rubric dimensions preserved.** Issue #9 mentioned `weapon_talent_fit` as a potential 4th dimension, but investigation showed weapon entities have zero `calc.effects` — the weapon-talent signal is entirely captured by blessing-talent synergy edges and slot balance. Adding a separate dimension would double-count.
-- **Three dimensions partition the signal space cleanly.** Blessing-involved edges are ~96% offense families; talent-only edges split between defense and offense. No overlap or double-counting.
+- **Three dimensions partition the signal space cleanly.** Blessing-involved edges are predominantly offense families; talent-only edges split between defense and offense. No overlap or double-counting.
 - **Scoring in a separate module from `score-build.mjs`.** The existing file (843 lines) mixes mechanical scoring with weapon resolution. Synergy-based scoring has different inputs (synergy output, not perk tier tables). New module keeps each file under 500 lines.
 - **Recommendations import scoring as a library.** One-directional dependency: recommendations → scoring. Scoring has no knowledge of recommendations. Each recommendation function internally runs the full synergy → scoring → diff pipeline.
 - **Structured JSON core + formatter layer.** Same pattern as `report-build.mjs` + `report-formatter.mjs`. Serves both CLI users and future website (#6).
@@ -42,14 +42,14 @@ export function scoreFromSynergy(synergyOutput) { ... }
 
 Primary signal: talent-talent synergy edge density.
 
-- Count synergy edges where both participants are talents or stat_nodes (not blessings, not gadget traits).
+- Count synergy edges where both participants are talents, stat_nodes, talent_modifiers, or abilities (not blessings, not gadget traits). Abilities and talent_modifiers are included because they are structural talent-side selections that participate in synergy edges.
 - Compute `edges_per_talent = talent_edges / talent_count`.
 - Map to 1–5 via thresholds calibrated from the 23-build corpus (range: 1–23 talent-talent edges, median ~10).
-- Penalty: each orphaned talent costs 0.5 points.
+- Penalty: each **graph-isolated talent** (talent-side selection with zero synergy edges in `synergy_edges`) costs 0.5 points. Note: this is distinct from `synergy_output.orphans`, which tracks condition-orphaned selections (unresolvable triggers). Graph isolation is computed by scanning `synergy_edges` for each talent-side selection.
 - Bonus: concentration (NHHI) > 0.06 adds 0.5 — rewards focused archetypes.
 - Clamp to [1, 5], round to nearest integer.
 
-Breakdown: `{ talent_edges, talent_count, edges_per_talent, orphan_count, concentration, penalties, bonuses }`.
+Breakdown: `{ talent_edges, talent_count, edges_per_talent, graph_isolated_count, concentration, penalties, bonuses }`.
 
 Explanations reference specific entity names: "psyker_warp_charge_reduces_toughness_damage_taken and psyker_combat_ability_stance both contribute to toughness family".
 
@@ -61,7 +61,7 @@ Primary signal: blessing-X synergy edge density.
 - Compute `edges_per_blessing = blessing_edges / blessing_count`.
 - Typical builds have 4 blessings; range across 23 builds is 2–16 blessing edges.
 - Bonus: blessing-blessing edges exist (+0.5) — blessings amplify each other.
-- Penalty: orphaned blessings with zero synergy edges (-1 each).
+- Penalty: **graph-isolated blessings** (blessings with zero synergy edges in `synergy_edges`) cost -1 each. Same graph-isolation concept as talent_coherence — computed by scanning edges, not from `synergy_output.orphans`.
 - Clamp to [1, 5].
 
 Breakdown: `{ blessing_edges, blessing_count, edges_per_blessing, blessing_blessing_edges, orphaned_blessings }`.
@@ -72,7 +72,7 @@ Primary signal: active stat family count out of 11.
 
 - Map family count to base score: 9+ → 5, 7–8 → 4, 5–6 → 3, 3–4 → 2, <3 → 1.
 - Penalty: each `coverage_gap` costs 1 point.
-- Penalty: severe slot imbalance (min/max ratio < 0.3) costs 1 point.
+- Penalty: severe slot imbalance (min/max ratio < 0.3) costs 1 point. When both melee and ranged strength are 0, ratio is treated as 1.0 (no imbalance — the build simply has no offense coverage, which is already penalized by low family count).
 - Clamp to [1, 5].
 
 Breakdown: `{ active_families, total_families, coverage_gaps, slot_balance_ratio }`.
@@ -81,7 +81,7 @@ Breakdown: `{ active_families, total_families, coverage_gaps, slot_balance_ratio
 
 `generateScorecard()` gains an optional second parameter for pre-computed synergy output. If not provided, it runs `analyzeBuild()` internally. The three `qualitative` fields get populated. `breakpoint_relevance` and `difficulty_scaling` remain null.
 
-Composite score = sum of all non-null dimensions. Letter grade computed from the sum, scaled proportionally to /35 (i.e., if only 5 of 7 dimensions are scored, the /25 sum is mapped to the /35 grade scale).
+Composite score = sum of all non-null dimensions. Letter grade uses the thresholds from `docs/build-scoring-rubric.md`, scaled proportionally: if only 5 of 7 dimensions are scored, the /25 sum is mapped to the /35 scale before applying grade thresholds (S: 32–35, A: 27–31, B: 22–26, C: 17–21, D: <17). The composite score and letter grade appear in the scorecard output alongside the existing `perk_optimality` and `curio_efficiency` fields.
 
 ## #10 — Modification Recommendations
 
@@ -93,7 +93,7 @@ Composite score = sum of all non-null dimensions. Letter grade computed from the
 
 #### `analyzeGaps(build, index)` — "What's missing from this build?"
 
-Reads the synergy model's coverage data. Reports which defensive/offensive/utility families are absent or weak, and what the slot balance looks like.
+Internally runs `analyzeBuild()` + `scoreFromSynergy()`, then reads the synergy model's coverage data. Reports which defensive/offensive/utility families are absent or weak, and what the slot balance looks like. Accepts an optional pre-computed `{ synergy, scorecard }` to avoid redundant computation.
 
 Output:
 ```js
@@ -139,9 +139,11 @@ Output when valid:
 
 Same pipeline as `swapTalent`, but the modification cascades:
 1. Replace weapon entity ID.
-2. Clear old blessings (they belong to the old weapon's trait pool).
-3. Carry over blessings if the new weapon shares the same trait pool (`weapon_has_trait_pool` edges in shared.json) — otherwise mark blessings as removed.
+2. Determine blessing compatibility: check if old and new weapons share the same `weapon_family` attribute (from entity records). Weapons in the same family share a trait pool.
+3. If same family: retain all blessings. If different family: check `weapon_has_trait_pool` edges (available for some weapons); if no edge data, check if the blessing's `name_family` has `instance_of` edges to weapon_trait entities in the new weapon's trait namespace. As a final fallback, mark blessings as removed.
 4. Re-run synergy → re-score → diff.
+
+**Known limitation:** `weapon_has_trait_pool` edges currently cover only 4 of 48 weapons (force weapons). The `weapon_family` check handles most cases, but cross-family weapon swaps will conservatively report all blessings as removed unless `instance_of` edges confirm compatibility. This is the safe default — false "removed" is better than false "retained".
 
 Output adds `blessing_impact`:
 ```js
