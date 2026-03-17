@@ -352,12 +352,12 @@ Shows breakpoint deltas between two builds. Highlights gained/lost breakpoints. 
 
 ## Deferred / Out of Scope
 
-| Item | Reason |
-|------|--------|
-| Toughness/survivability calculator | Separate concern (defender-side stages 12–13). Different consumers and inputs. Future issue. |
-| Stagger calculator | Parallel to damage (uses `impact` power distribution). Same pipeline shape but different output. Future issue. |
-| Cleave multi-target simulation | Data is extracted (cleave budgets + hit mass) but modeling "how many poxwalkers per heavy?" is combinatorial. Future issue. |
-| `suggest-improvement` v1.1 | Brute-force breakpoint optimization uses the calculator but is a recommendations feature (#10). |
+| Item | Issue | Reason |
+|------|-------|--------|
+| Toughness/survivability calculator | #11 | Separate concern (defender-side stages 12–13). Different consumers and inputs. |
+| Stagger calculator | #12 | Parallel to damage (uses `impact` power distribution). Same pipeline shape but different output. |
+| Cleave multi-target simulation | #13 | Data is extracted (cleave budgets + hit mass) but modeling "how many poxwalkers per heavy?" is combinatorial. |
+| `suggest-improvement` v1.1 | #10 | Brute-force breakpoint optimization uses the calculator but is a recommendations feature. |
 | Weapon quality UI slider | Website feature (#6). Engine accepts quality parameter; CLI defaults to 0.8. |
 | Per-class scenario presets | E.g. Psyker scenarios auto-include `warp_charge` flag. Nice-to-have, not blocking. |
 
