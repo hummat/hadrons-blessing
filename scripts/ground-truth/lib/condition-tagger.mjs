@@ -26,12 +26,19 @@ const CONDITIONAL_TAGS = {
 
 /**
  * Tag an inline $func body using heuristic pattern matching.
+ *
+ * Note: $func bodies captured by the tokenizer do NOT include the outer
+ * `function` keyword or closing `end` — they start with the parameter list.
+ *
  * @param {string} body - The Lua function body string.
  * @returns {string} A semantic tag.
  */
 function tagInlineFunc(body) {
-  // Pure "return template_data.active" / "return td.active"
-  if (/^\s*function\s*\([^)]*\)\s*\n?\s*return\s+\w+\.active\s*\n?\s*end\s*$/.test(body)) {
+  // Pure "return <something>.active" or "return <something>.is_active"
+  // The body starts with the parameter list, not the "function" keyword.
+  // Match both with and without the "function...end" wrapper for robustness.
+  if (/return\s+\w+\.(?:is_)?active\s*$/.test(body.trim()) ||
+      /^\s*function\s*\([^)]*\)\s*\n?\s*return\s+\w+\.active\s*\n?\s*end\s*$/.test(body)) {
     return "active";
   }
 
@@ -47,6 +54,11 @@ function tagInlineFunc(body) {
     if (stripped.length > 0) {
       return "active_and_unknown";
     }
+  }
+
+  // Heavy melee attack — params.is_heavy or melee_attack_strength == "heavy"
+  if (/params\.is_heavy\b|melee_attack_strength\s*==\s*"heavy"/.test(body)) {
+    return "during_heavy";
   }
 
   // wielded_slot with slot name extraction

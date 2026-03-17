@@ -198,9 +198,40 @@ describe("tagCondition", () => {
     };
     assert.equal(tagCondition(node), "perfect_block");
   });
+
+  it("tags return template_data.is_active (no function wrapper) as active", () => {
+    // The tokenizer strips the outer "function...end" wrapper; the body starts
+    // with the parameter list. veteran_ranged_power_out_of_melee is the
+    // canonical example: conditional_stat_buffs_func returns a precomputed
+    // template_data.is_active flag set by update_func.
+    // Source: veteran_buff_templates.lua, templates.veteran_ranged_power_out_of_melee
+    const node = {
+      $func: "(template_data, template_context)\n\t\treturn template_data.is_active",
+    };
+    assert.equal(tagCondition(node), "active");
+  });
 });
 
 describe("tagCheckProc", () => {
+  it("tags inline check_proc_func with params.is_heavy as during_heavy", () => {
+    // Ogryn pattern: ogryn_melee_damage_after_heavy check_proc_func checks params.is_heavy.
+    // Source: ogryn_buff_templates.lua, templates.ogryn_melee_damage_after_heavy
+    const node = {
+      $func: "(params, template_data, template_context)\n\t\tlocal num_hit_units = params.num_hit_units\n\n\t\tif num_hit_units == 0 then\n\t\t\treturn false\n\t\tend\n\n\t\tlocal is_heavy = params.is_heavy\n\n\t\tif not is_heavy then\n\t\t\treturn false\n\t\tend\n\n\t\treturn true",
+    };
+    assert.equal(tagCheckProc(node), "during_heavy");
+  });
+
+  it("tags inline check_proc_func with melee_attack_strength heavy as during_heavy", () => {
+    // Adamant pattern: adamant_heavy_attacks_increase_damage check_proc_func uses
+    // params.is_heavy or params.melee_attack_strength == "heavy".
+    // Source: adamant_buff_templates.lua, templates.adamant_heavy_attacks_increase_damage
+    const node = {
+      $func: "(params, template_data, template_context)\n\t\tlocal is_heavy = params.is_heavy or params.melee_attack_strength == \"heavy\"\n\n\t\tif not params.is_heavy then\n\t\t\treturn false\n\t\tend\n\n\t\treturn params.num_hit_units > 0",
+    };
+    assert.equal(tagCheckProc(node), "during_heavy");
+  });
+
   it("tags named CheckProcFunctions by stripping prefix", () => {
     assert.equal(tagCheckProc({ $ref: "CheckProcFunctions.on_kill" }), "on_kill");
     assert.equal(tagCheckProc({ $ref: "CheckProcFunctions.on_melee_hit" }), "on_melee_hit");

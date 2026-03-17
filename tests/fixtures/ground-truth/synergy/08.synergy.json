@@ -434,13 +434,7 @@
     }
   ],
   "anti_synergies": [],
-  "orphans": [
-    {
-      "selection": "psyker.ability.psyker_combat_ability_stance",
-      "reason": "unresolvable_condition",
-      "condition": "active_and_unknown"
-    }
-  ],
+  "orphans": [],
   "coverage": {
     "family_profile": {
       "toughness": {
@@ -599,7 +593,7 @@
     "entities_analyzed": 52,
     "unique_entities_with_calc": 20,
     "entities_without_calc": 23,
-    "opaque_conditions": 1,
+    "opaque_conditions": 0,
     "calc_coverage_pct": 0.47
   }
 }
