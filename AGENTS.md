@@ -118,9 +118,9 @@ All records are validated against JSON schemas in `data/ground-truth/schemas/`. 
 
 ## Build Fixtures
 
-`scripts/builds/` contains 20 representative build JSON files (builds 01–20, all 6 classes) in canonical build shape. Each build stores `schema_version`, `title`, `class`, `provenance`, `ability`, `blitz`, `aura`, `keystone`, `talents[]`, `weapons[]`, and `curios[]`. Every selection carries `raw_label`, `canonical_entity_id`, and `resolution_status` (`resolved` / `unresolved` / `non_canonical`).
+`scripts/builds/` contains 23 representative build JSON files (builds 01–23, all 6 classes) in canonical build shape. Each build stores `schema_version`, `title`, `class`, `provenance`, `ability`, `blitz`, `aura`, `keystone`, `talents[]`, `weapons[]`, and `curios[]`. Every selection carries `raw_label`, `canonical_entity_id`, and `resolution_status` (`resolved` / `unresolved` / `non_canonical`).
 
-All 20 builds have been re-extracted from live GL pages with full talent trees. 1089 resolved, 60 unresolved (all curio cosmetic names — backend-only, see below), 1 non_canonical (multi-option guide label).
+All 23 builds have been re-extracted from live GL pages with full talent trees. 1089 resolved, 60 unresolved (all curio cosmetic names — backend-only, see below), 1 non_canonical (multi-option guide label).
 
 Frozen audit snapshots live in `tests/fixtures/ground-truth/audits/`. When the index or audit logic changes, re-freeze all snapshots with `npm run audit:freeze`. Do NOT use `npm run audit -- <file> > snapshot.json` — npm's stderr banner contaminates the JSON output.
 
@@ -148,7 +148,7 @@ The canonical build format is the single shared shape consumed by `audit`, `scor
 
 **Output consumed by:** #9 (scoring) and #10 (recommendations). Design spec: `docs/superpowers/specs/2026-03-16-synergy-model-design.md`.
 
-**Deferred:** Keyword affinity rule (no proficiency data in index), weak (1) strength edges, 68 opaque conditions.
+**Deferred:** Keyword affinity rule (no proficiency data in index), weak (1) strength edges, ~58 opaque conditions (reduced from 68 by condition tagger expansion in #5).
 
 Frozen synergy snapshots in `tests/fixtures/ground-truth/synergy/`. Re-freeze with `npm run synergy:freeze`.
 
@@ -204,14 +204,22 @@ Key paths for entity work:
 - `scripts/settings/equipment/weapons/` — weapon templates
 - `scripts/settings/equipment/weapon_traits/` — blessing/perk templates
 - `scripts/backend/item_definitions/` — backend item IDs
-- `scripts/utilities/attack/damage_calculation.lua` — 13-stage damage pipeline (needed for #5)
+- `scripts/utilities/attack/damage_calculation.lua` — 13-stage damage pipeline (#5)
+- `scripts/settings/damage/power_level_settings.lua` — scaling constants, ADM defaults, boost curves (#5)
+- `scripts/settings/damage/armor_settings.lua` — armor types, rending multipliers (#5)
+- `scripts/settings/damage/damage_profile_settings.lua` — lerp tables, cleave presets (#5)
+- `scripts/settings/breed/breeds/{faction}/*_breed.lua` — breed HP, armor, hitzones (#5)
+- `scripts/settings/difficulty/minion_difficulty_settings.lua` — difficulty scaling (#5)
 
 ## Open Issues
 
 - `#1` TypeScript migration for CLI and library
 - `#3` Build-oriented CLI commands (browse, compare)
-- `#5` Calculator and dataflow layer (prior research in `../BetterBots/docs/knowledge/damage-system.md`)
+- `#5` Calculator and dataflow layer — **in progress** (Task 1/10 complete; design spec + plan at `docs/superpowers/specs/` and `docs/superpowers/plans/`; see `HANDOFF.md`)
 - `#6` Website architecture
+- `#11` Toughness and survivability calculator (defender-side, depends on #5)
+- `#12` Stagger calculator (impact pipeline, depends on #5)
+- `#13` Cleave multi-target simulation (depends on #5)
 
 ## Completed Issues
 
@@ -219,7 +227,7 @@ Key paths for entity work:
 - `#7` Buff semantic extraction (`effects:build` pipeline)
 - `#8` Synergy model (`synergy` CLI, 5 rules, stat aggregator)
 - `#9` Build quality scoring (3 qualitative dimensions: talent_coherence, blessing_synergy, role_coverage; composite /35 + letter grade)
-- `#10` Modification recommendations v1 (analyze-gaps, swap-talent, swap-weapon; suggest-improvement deferred to v1.1)
+- `#10` Modification recommendations v1 (analyze-gaps, swap-talent, swap-weapon; suggest-improvement deferred to v1.1, depends on #5)
 
 ## BetterBots Integration
 
