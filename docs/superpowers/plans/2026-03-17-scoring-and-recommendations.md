@@ -295,11 +295,13 @@ describe("blessing_synergy", () => {
   });
 
   it("penalizes graph-isolated blessings", () => {
+    // Manually construct synergy output where blessing.y has zero edges.
+    // Can't rely on makeSynergyOutput cycling — build edges manually.
     const synergy = makeSynergyOutput({
       talentIds: ["t.talent.a"],
       blessingIds: ["shared.name_family.blessing.x", "shared.name_family.blessing.y"],
       talentEdges: 0,
-      blessingEdges: 2,  // only x has edges
+      blessingEdges: 0,  // no auto-generated blessing edges
       blessingBlessingEdges: 0,
       orphans: [],
       concentration: 0.05,
@@ -307,10 +309,13 @@ describe("blessing_synergy", () => {
       coverageGaps: [],
       slotBalance: { melee: 5, ranged: 5 },
     });
-    // Need to ensure only blessing.x participates in edges, blessing.y is isolated
-    // Adjust makeSynergyOutput to control which blessings get edges
+    // Manually add 2 edges only for blessing.x, leaving blessing.y isolated
+    synergy.synergy_edges.push(
+      { type: "stat_alignment", selections: ["shared.name_family.blessing.x", "t.talent.a"], families: ["general_offense"], strength: 3, explanation: "test" },
+      { type: "stat_alignment", selections: ["shared.name_family.blessing.x", "t.talent.a"], families: ["crit"], strength: 2, explanation: "test" },
+    );
     const result = scoreFromSynergy(synergy);
-    assert.ok(result.blessing_synergy.breakdown.orphaned_blessings >= 0);
+    assert.equal(result.blessing_synergy.breakdown.orphaned_blessings, 1);  // blessing.y is isolated
   });
 
   it("gives bonus for blessing-blessing edges", () => {
@@ -522,10 +527,24 @@ git commit -m "Add role_coverage scoring with gap and imbalance penalties (#9)"
 Add to `scripts/score-build.test.mjs`:
 
 ```js
-describe("generateScorecard qualitative scores", () => {
-  it("populates talent_coherence, blessing_synergy, role_coverage", () => {
+import { analyzeBuild, loadIndex } from "./ground-truth/lib/synergy-model.mjs";
+
+// These tests require the ground-truth index (synergy analysis needs entities + edges).
+// Skip when GROUND_TRUTH_SOURCE_ROOT is not set, like the synergy tests do.
+const HAS_SOURCE = !!process.env.GROUND_TRUTH_SOURCE_ROOT;
+
+describe("generateScorecard qualitative scores", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_SOURCE_ROOT" }, () => {
+  // Load index once for this describe block
+  let index;
+  function getSynergy(build) {
+    if (!index) index = loadIndex();
+    return analyzeBuild(build, index);
+  }
+
+  it("populates talent_coherence, blessing_synergy, role_coverage when synergy passed", () => {
     const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
-    const card = generateScorecard(build);
+    const synergy = getSynergy(build);
+    const card = generateScorecard(build, synergy);
     assert.notEqual(card.qualitative.talent_coherence, null);
     assert.notEqual(card.qualitative.blessing_synergy, null);
     assert.notEqual(card.qualitative.role_coverage, null);
@@ -533,16 +552,25 @@ describe("generateScorecard qualitative scores", () => {
     assert.ok(card.qualitative.talent_coherence.score <= 5);
   });
 
+  it("keeps qualitative null when no synergy passed", () => {
+    const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const card = generateScorecard(build);  // no synergy argument
+    assert.equal(card.qualitative.talent_coherence, null);
+    assert.equal(card.qualitative.blessing_synergy, null);
+  });
+
   it("keeps breakpoint_relevance and difficulty_scaling null", () => {
     const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
-    const card = generateScorecard(build);
+    const synergy = getSynergy(build);
+    const card = generateScorecard(build, synergy);
     assert.equal(card.qualitative.breakpoint_relevance, null);
     assert.equal(card.qualitative.difficulty_scaling, null);
   });
 
   it("includes composite score and letter grade", () => {
     const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
-    const card = generateScorecard(build);
+    const synergy = getSynergy(build);
+    const card = generateScorecard(build, synergy);
     assert.ok(typeof card.composite_score === "number");
     assert.ok(typeof card.letter_grade === "string");
     assert.ok(["S", "A", "B", "C", "D"].includes(card.letter_grade));
@@ -550,8 +578,8 @@ describe("generateScorecard qualitative scores", () => {
 
   it("does not change perk_optimality or curio_efficiency", () => {
     const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
-    const card = generateScorecard(build);
-    // These should still be numbers computed from mechanical scoring
+    const synergy = getSynergy(build);
+    const card = generateScorecard(build, synergy);
     assert.ok(typeof card.perk_optimality === "number");
     assert.ok(typeof card.curio_efficiency === "number");
   });
@@ -586,7 +614,7 @@ In `scripts/score-build.mjs`:
    - This keeps `generateScorecard` synchronous and backward-compatible. The CLI entry point at the bottom of the file is the only place that runs the full pipeline (load index → analyze → score).
    - Keep `breakpoint_relevance: null, difficulty_scaling: null`.
 3. Compute composite score: sum of all non-null dimension scores. Only dimensions with non-null values are counted. If qualitative scores are null (no synergy passed), composite only includes perk_optimality + curio_efficiency.
-4. Scale to /35: `scaled = composite * (35 / scoredDimensionCount * 7)`. Apply letter grade thresholds from rubric: `>= 32 → S, >= 27 → A, >= 22 → B, >= 17 → C, else → D`.
+4. Scale to /35: `scaled = Math.round(composite * 7 / scoredDimensionCount)` (average per dimension × 7 total dimensions). With 5 scored dims and max 25, this maps to 35. Apply letter grade thresholds from rubric: `>= 32 → S, >= 27 → A, >= 22 → B, >= 17 → C, else → D`.
 5. Add `composite_score` and `letter_grade` fields to the returned scorecard.
 6. Update the CLI entry point to load synergy modules and pass synergy output to `generateScorecard`.
 7. Update `formatScorecardText()` to display the qualitative scores and letter grade.
@@ -631,27 +659,32 @@ Actually — simpler approach: write a small freeze helper inline in the test or
 mkdir -p tests/fixtures/ground-truth/scores
 ```
 
-Write a small `scripts/freeze-scores.mjs`:
+Write a small `scripts/freeze-scores.mjs`. This requires `GROUND_TRUTH_SOURCE_ROOT` to be set (same as `synergy:freeze`), since it runs the full synergy pipeline:
+
 ```js
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { generateScorecard } from "./score-build.mjs";
+import { analyzeBuild, loadIndex } from "./ground-truth/lib/synergy-model.mjs";
 
 const BUILDS = ["01", "04", "08", "13", "15"];
 const BUILDS_DIR = "scripts/builds";
 const OUT_DIR = "tests/fixtures/ground-truth/scores";
 
+const index = loadIndex();
+
 for (const prefix of BUILDS) {
   const file = readdirSync(BUILDS_DIR).find(f => f.startsWith(prefix) && f.endsWith(".json"));
   if (!file) { console.error(`No build for prefix ${prefix}`); continue; }
   const build = JSON.parse(readFileSync(join(BUILDS_DIR, file), "utf-8"));
-  const card = generateScorecard(build);
+  const synergy = analyzeBuild(build, index);
+  const card = generateScorecard(build, synergy);
   writeFileSync(join(OUT_DIR, `${prefix}.score.json`), JSON.stringify(card, null, 2) + "\n");
   console.log(`Frozen: ${prefix} → ${card.letter_grade} (${card.composite_score})`);
 }
 ```
 
-Run: `node scripts/freeze-scores.mjs`
+Run: `GROUND_TRUTH_SOURCE_ROOT=$(cat .source-root) node scripts/freeze-scores.mjs`
 
 - [ ] **Step 3: Add golden snapshot regression test**
 
@@ -660,10 +693,14 @@ In `scripts/build-scoring.test.mjs`, add:
 ```js
 import { readdirSync, readFileSync } from "node:fs";
 import { generateScorecard } from "./score-build.mjs";
+import { analyzeBuild, loadIndex } from "./ground-truth/lib/synergy-model.mjs";
 
-describe("golden score snapshots", () => {
+const HAS_SOURCE = !!process.env.GROUND_TRUTH_SOURCE_ROOT;
+
+describe("golden score snapshots", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_SOURCE_ROOT" }, () => {
   const SCORES_DIR = "tests/fixtures/ground-truth/scores";
   const files = readdirSync(SCORES_DIR).filter(f => f.endsWith(".score.json"));
+  const index = loadIndex();
 
   for (const file of files) {
     const prefix = file.replace(".score.json", "");
@@ -671,7 +708,8 @@ describe("golden score snapshots", () => {
       const expected = JSON.parse(readFileSync(`${SCORES_DIR}/${file}`, "utf-8"));
       const buildFile = readdirSync("scripts/builds").find(f => f.startsWith(prefix) && f.endsWith(".json"));
       const build = JSON.parse(readFileSync(`scripts/builds/${buildFile}`, "utf-8"));
-      const actual = generateScorecard(build);
+      const synergy = analyzeBuild(build, index);
+      const actual = generateScorecard(build, synergy);
 
       // Compare qualitative scores
       assert.equal(actual.qualitative.talent_coherence.score, expected.qualitative.talent_coherence.score);
@@ -971,15 +1009,39 @@ git commit -m "Add swapTalent recommendation operation (#10)"
 - Modify: `scripts/ground-truth/lib/build-recommendations.mjs`
 - Modify: `scripts/build-recommendations.test.mjs`
 
-- [ ] **Step 1: Write failing tests for `swapWeapon`**
+- [ ] **Step 0: Research weapon swap test IDs**
+
+```bash
+# Find weapons in the Gandalf build with their families
+node -e "
+const b=JSON.parse(require('fs').readFileSync('scripts/builds/08-gandalf-melee-wizard.json','utf-8'));
+b.weapons.forEach(w => console.log(w.name?.canonical_entity_id, w.blessings?.map(bl=>bl.canonical_entity_id)));
+"
+
+# Find another weapon in the same family (for same-family swap test)
+node -e "
+const entities=require('./data/ground-truth/entities/shared.json');
+const weapons=entities.filter(e=>e.kind==='weapon');
+const families={};
+weapons.forEach(w => { const f=w.attributes?.weapon_family; if(f) { families[f]=families[f]||[]; families[f].push(w.id); }});
+// Print families with 2+ weapons (swap candidates)
+for (const [f,ids] of Object.entries(families)) { if(ids.length>=2) console.log(f+':', ids.join(', ')); }
+"
+
+# Find a weapon in a different family (for cross-family swap test)
+```
+
+Record: `BUILD_WEAPON_ID`, `SAME_FAMILY_WEAPON_ID`, `DIFF_FAMILY_WEAPON_ID`.
+
+- [ ] **Step 1: Write failing tests for `swapWeapon` using real IDs**
 
 ```js
 describe("swapWeapon", () => {
   it("returns delta with blessing impact for same-family swap", () => {
     const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
     const index = loadIndex();
-    // Swap weapon for another in same family — blessings should be retained
-    const result = swapWeapon(build, index, "OLD_WEAPON_ID", "NEW_WEAPON_SAME_FAMILY");
+    // REPLACE with IDs from Step 0
+    const result = swapWeapon(build, index, "FILL_BUILD_WEAPON", "FILL_SAME_FAMILY");
     assert.ok(result.valid);
     assert.ok(result.blessing_impact);
     assert.ok(Array.isArray(result.blessing_impact.retained));
@@ -988,18 +1050,18 @@ describe("swapWeapon", () => {
   it("removes blessings for cross-family swap", () => {
     const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
     const index = loadIndex();
-    const result = swapWeapon(build, index, "OLD_WEAPON_ID", "NEW_WEAPON_DIFF_FAMILY");
+    // REPLACE with IDs from Step 0
+    const result = swapWeapon(build, index, "FILL_BUILD_WEAPON", "FILL_DIFF_FAMILY");
     assert.ok(result.valid);
-    assert.ok(result.blessing_impact.removed.length > 0 || result.blessing_impact.retained.length > 0);
+    assert.ok(result.blessing_impact.removed.length > 0);
   });
 
   it("returns score delta", () => {
     const build = JSON.parse(readFileSync("scripts/builds/08-gandalf-melee-wizard.json", "utf-8"));
     const index = loadIndex();
-    const result = swapWeapon(build, index, "OLD_WEAPON_ID", "NEW_WEAPON_ID");
-    if (result.valid) {
-      assert.ok(typeof result.score_delta.blessing_synergy === "number");
-    }
+    // REPLACE with IDs from Step 0
+    const result = swapWeapon(build, index, "FILL_BUILD_WEAPON", "FILL_SAME_FAMILY");
+    assert.ok(typeof result.score_delta.blessing_synergy === "number");
   });
 });
 ```
