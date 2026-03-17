@@ -1,0 +1,162 @@
+{
+  "title": "Arby's OP Melee Meta Havoc-40",
+  "class": "arbites",
+  "perk_optimality": 3,
+  "curio_efficiency": 2,
+  "composite_score": 15,
+  "letter_grade": "D",
+  "weapons": [
+    {
+      "name": "Branx Mk III Arbites Shock Maul",
+      "slot": "melee",
+      "canonical_entity_id": "shared.weapon.powermaul_p2_m1",
+      "internal_name": "powermaul_p2_m1",
+      "weapon_family": "powermaul_p2",
+      "resolution_source": "ground_truth",
+      "perks": {
+        "score": 1,
+        "perks": [
+          null,
+          null
+        ]
+      },
+      "blessings": {
+        "valid": null,
+        "blessings": []
+      }
+    },
+    {
+      "name": "Exaction Mk III Exterminator Shotgun",
+      "slot": "ranged",
+      "canonical_entity_id": "shared.weapon.shotgun_p4_m1",
+      "internal_name": "shotgun_p4_m1",
+      "weapon_family": "shotgun_p4",
+      "resolution_source": "ground_truth",
+      "perks": {
+        "score": 5,
+        "perks": [
+          null,
+          {
+            "name": "Damage (Maniacs)",
+            "tier": 4,
+            "value": 0.25
+          }
+        ]
+      },
+      "blessings": {
+        "valid": null,
+        "blessings": []
+      }
+    }
+  ],
+  "curios": {
+    "score": 2,
+    "perks": [
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Combat Ability Regeneration",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Revive Speed (Ally)",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Stamina Regeneration",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Combat Ability Regeneration",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Revive Speed (Ally)",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Stamina Regeneration",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Combat Ability Regeneration",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Revive Speed (Ally)",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Stamina Regeneration",
+        "tier": 4,
+        "rating": "good"
+      }
+    ]
+  },
+  "qualitative": {
+    "blessing_synergy": {
+      "score": 1,
+      "breakdown": {
+        "blessing_edges": 4,
+        "blessing_count": 4,
+        "edges_per_blessing": 1,
+        "blessing_blessing_edges": 0,
+        "orphaned_blessings": 3
+      },
+      "explanations": [
+        "Blessings with synergy edges: high_voltage",
+        "3 blessing(s) participate in no synergy edges (-1 each)"
+      ]
+    },
+    "talent_coherence": {
+      "score": 1,
+      "breakdown": {
+        "talent_edges": 10,
+        "talent_count": 27,
+        "edges_per_talent": 0.37,
+        "graph_isolated_count": 19,
+        "concentration": 0.07,
+        "penalties": -9.5,
+        "bonuses": 0.5
+      },
+      "explanations": [
+        "19 talent(s) participate in no synergy edges (-0.5 each)",
+        "High stat concentration (0.070) +0.5"
+      ]
+    },
+    "breakpoint_relevance": null,
+    "role_coverage": {
+      "score": 4,
+      "breakdown": {
+        "active_families": 8,
+        "total_families": 11,
+        "coverage_gaps": [],
+        "slot_balance_ratio": 0.8571428571428571
+      },
+      "explanations": []
+    },
+    "difficulty_scaling": null
+  },
+  "bot_flags": []
+}

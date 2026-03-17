@@ -1,0 +1,172 @@
+{
+  "title": "Shovel Ogryn",
+  "class": "ogryn",
+  "perk_optimality": 3,
+  "curio_efficiency": 2,
+  "composite_score": 14,
+  "letter_grade": "D",
+  "weapons": [
+    {
+      "name": "Brute-Brainer Mk III Latrine Shovel",
+      "slot": "melee",
+      "canonical_entity_id": "shared.weapon.ogryn_club_p1_m1",
+      "internal_name": "ogryn_club_p1_m1",
+      "weapon_family": "ogryn_club",
+      "resolution_source": "ground_truth",
+      "perks": {
+        "score": 1,
+        "perks": [
+          null,
+          null
+        ]
+      },
+      "blessings": {
+        "valid": null,
+        "blessings": []
+      }
+    },
+    {
+      "name": "Foe-Rend Mk V Ripper Gun",
+      "slot": "ranged",
+      "canonical_entity_id": null,
+      "internal_name": null,
+      "weapon_family": "ogryn_rippergun",
+      "resolution_source": "provisional_family",
+      "perks": {
+        "score": 5,
+        "perks": [
+          null,
+          {
+            "name": "Damage (Maniacs)",
+            "tier": 4,
+            "value": 0.25
+          }
+        ]
+      },
+      "blessings": {
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Inspiring Barrage",
+            "known": true,
+            "internal": "inspiring_barrage"
+          },
+          {
+            "name": "Blaze Away",
+            "known": true,
+            "internal": "blaze_away"
+          }
+        ]
+      }
+    }
+  ],
+  "curios": {
+    "score": 2,
+    "perks": [
+      {
+        "name": "Max Health",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Revive Speed (Ally)",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Damage Resistance (Gunners)",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Revive Speed (Ally)",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Health",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Revive Speed (Ally)",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Health",
+        "tier": 4,
+        "rating": "good"
+      }
+    ]
+  },
+  "qualitative": {
+    "blessing_synergy": {
+      "score": 1,
+      "breakdown": {
+        "blessing_edges": 9,
+        "blessing_count": 4,
+        "edges_per_blessing": 2.25,
+        "blessing_blessing_edges": 0,
+        "orphaned_blessings": 2
+      },
+      "explanations": [
+        "Blessings with synergy edges: blaze_away, thunderous",
+        "2 blessing(s) participate in no synergy edges (-1 each)"
+      ]
+    },
+    "talent_coherence": {
+      "score": 1,
+      "breakdown": {
+        "talent_edges": 21,
+        "talent_count": 26,
+        "edges_per_talent": 0.808,
+        "graph_isolated_count": 13,
+        "concentration": 0.03,
+        "penalties": -6.5,
+        "bonuses": 0
+      },
+      "explanations": [
+        "13 talent(s) participate in no synergy edges (-0.5 each)"
+      ]
+    },
+    "breakpoint_relevance": null,
+    "role_coverage": {
+      "score": 3,
+      "breakdown": {
+        "active_families": 6,
+        "total_families": 11,
+        "coverage_gaps": [],
+        "slot_balance_ratio": 0.45454545454545453
+      },
+      "explanations": []
+    },
+    "difficulty_scaling": null
+  },
+  "bot_flags": []
+}

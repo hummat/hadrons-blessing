@@ -1,0 +1,177 @@
+{
+  "title": "Veteran: Squad Leader",
+  "class": "veteran",
+  "perk_optimality": 5,
+  "curio_efficiency": 3,
+  "composite_score": 25,
+  "letter_grade": "B",
+  "weapons": [
+    {
+      "name": "Lawbringer Mk IIb Power Falchion",
+      "slot": "melee",
+      "canonical_entity_id": "shared.weapon.powersword_p2_m1",
+      "internal_name": "powersword_p2_m1",
+      "weapon_family": "powersword_p2",
+      "resolution_source": "ground_truth",
+      "perks": {
+        "score": 5,
+        "perks": [
+          null,
+          {
+            "name": "Damage (Maniacs)",
+            "tier": 4,
+            "value": 0.25
+          }
+        ]
+      },
+      "blessings": {
+        "valid": null,
+        "blessings": []
+      }
+    },
+    {
+      "name": "M35 Magnacore Mk II Plasma Gun",
+      "slot": "ranged",
+      "canonical_entity_id": "shared.weapon.plasmagun_p1_m1",
+      "internal_name": "plasmagun_p1_m1",
+      "weapon_family": "plasmagun",
+      "resolution_source": "ground_truth",
+      "perks": {
+        "score": 5,
+        "perks": [
+          {
+            "name": "Damage (Maniacs)",
+            "tier": 4,
+            "value": 0.25
+          },
+          null
+        ]
+      },
+      "blessings": {
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Rising Heat",
+            "known": true,
+            "internal": "crit_chance_scaled_on_heat"
+          },
+          {
+            "name": "Gets Hot!",
+            "known": true,
+            "internal": "reduced_overheat_on_critical_strike"
+          }
+        ]
+      }
+    }
+  ],
+  "curios": {
+    "score": 3,
+    "perks": [
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Damage Resistance (Snipers)",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Health",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Damage Resistance (Gunners)",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Health",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Max Health",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Damage Resistance (Gunners)",
+        "tier": 0,
+        "rating": "neutral"
+      },
+      {
+        "name": "Health",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      }
+    ]
+  },
+  "qualitative": {
+    "blessing_synergy": {
+      "score": 5,
+      "breakdown": {
+        "blessing_edges": 21,
+        "blessing_count": 4,
+        "edges_per_blessing": 5.25,
+        "blessing_blessing_edges": 5,
+        "orphaned_blessings": 1
+      },
+      "explanations": [
+        "Blessings with synergy edges: cranial_grounding, rising_heat, gets_hot",
+        "5 blessing-blessing edge(s) +0.5",
+        "1 blessing(s) participate in no synergy edges (-1 each)"
+      ]
+    },
+    "talent_coherence": {
+      "score": 1,
+      "breakdown": {
+        "talent_edges": 13,
+        "talent_count": 27,
+        "edges_per_talent": 0.481,
+        "graph_isolated_count": 15,
+        "concentration": 0.04,
+        "penalties": -7.5,
+        "bonuses": 0
+      },
+      "explanations": [
+        "15 talent(s) participate in no synergy edges (-0.5 each)"
+      ]
+    },
+    "breakpoint_relevance": null,
+    "role_coverage": {
+      "score": 4,
+      "breakdown": {
+        "active_families": 8,
+        "total_families": 11,
+        "coverage_gaps": [],
+        "slot_balance_ratio": 0.9
+      },
+      "explanations": []
+    },
+    "difficulty_scaling": null
+  },
+  "bot_flags": []
+}

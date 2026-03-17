@@ -1,7 +1,12 @@
 // scripts/build-scoring.test.mjs
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
+import { readdirSync, readFileSync } from "node:fs";
 import { scoreFromSynergy } from "./ground-truth/lib/build-scoring.mjs";
+import { generateScorecard } from "./score-build.mjs";
+import { analyzeBuild, loadIndex } from "./ground-truth/lib/synergy-model.mjs";
+
+const HAS_SOURCE = !!process.env.GROUND_TRUTH_SOURCE_ROOT;
 
 describe("build-scoring", () => {
   describe("talent_coherence", () => {
@@ -240,6 +245,34 @@ describe("build-scoring", () => {
       assert.equal(result.role_coverage.score, 2);
     });
   });
+});
+
+describe("golden score snapshots", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_SOURCE_ROOT" }, () => {
+  const SCORES_DIR = "tests/fixtures/ground-truth/scores";
+  const files = readdirSync(SCORES_DIR).filter(f => f.endsWith(".score.json"));
+  const index = loadIndex();
+
+  for (const file of files) {
+    const prefix = file.replace(".score.json", "");
+    it(`matches snapshot for build ${prefix}`, () => {
+      const expected = JSON.parse(readFileSync(`${SCORES_DIR}/${file}`, "utf-8"));
+      const buildFile = readdirSync("scripts/builds").find(f => f.startsWith(prefix) && f.endsWith(".json"));
+      const build = JSON.parse(readFileSync(`scripts/builds/${buildFile}`, "utf-8"));
+      const synergy = analyzeBuild(build, index);
+      const actual = generateScorecard(build, synergy);
+
+      // Compare qualitative scores
+      assert.equal(actual.qualitative.talent_coherence.score, expected.qualitative.talent_coherence.score);
+      assert.equal(actual.qualitative.blessing_synergy.score, expected.qualitative.blessing_synergy.score);
+      assert.equal(actual.qualitative.role_coverage.score, expected.qualitative.role_coverage.score);
+      assert.equal(actual.composite_score, expected.composite_score);
+      assert.equal(actual.letter_grade, expected.letter_grade);
+
+      // Mechanical scores unchanged
+      assert.equal(actual.perk_optimality, expected.perk_optimality);
+      assert.equal(actual.curio_efficiency, expected.curio_efficiency);
+    });
+  }
 });
 
 function makeSynergyOutput({
