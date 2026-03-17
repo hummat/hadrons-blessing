@@ -146,12 +146,136 @@ function scoreTalentCoherence(synergyOutput) {
 
 /**
  * Score blessing-to-talent and blessing-to-blessing synergy.
- * Stub — not yet implemented.
- * @param {object} _synergyOutput
+ *
+ * Algorithm:
+ *   1. Collect all blessing IDs from _resolvedIds (preferred) or edge participants (fallback).
+ *   2. Count edges where at least one participant is a blessing (blessing_edges).
+ *   3. Count edges where BOTH participants are blessings (blessing_blessing_edges).
+ *   4. edges_per_blessing = blessing_edges / blessing_count. If 0 blessings → score 1.
+ *   5. Map to 1–5 base score:
+ *        >= 3.5 → 5, >= 2.5 → 4, >= 1.5 → 3, >= 0.5 → 2, else → 1
+ *   6. Bonus: blessing_blessing_edges > 0 → +0.5.
+ *   7. Penalty: graph-isolated blessings (appear in zero synergy edges) → -1 each.
+ *   8. Clamp [1, 5], round to nearest integer.
+ *
+ * @param {object} synergyOutput
  * @returns {{ score: number, breakdown: object, explanations: string[] }}
  */
-function scoreBlessingSynergy(_synergyOutput) {
-  return { score: 1, breakdown: {}, explanations: [] };
+function scoreBlessingSynergy(synergyOutput) {
+  const { synergy_edges = [], _resolvedIds } = synergyOutput;
+
+  // --- Collect blessing population ---
+  // Priority: _resolvedIds filtered by classifySelection, then edge participants.
+  let blessingPopulation;
+  if (_resolvedIds && _resolvedIds.length > 0) {
+    blessingPopulation = new Set(_resolvedIds.filter((id) => classifySelection(id) === "blessing"));
+  } else {
+    blessingPopulation = new Set();
+    for (const edge of synergy_edges) {
+      for (const id of edge.selections ?? []) {
+        if (classifySelection(id) === "blessing") {
+          blessingPopulation.add(id);
+        }
+      }
+    }
+  }
+
+  const blessing_count = blessingPopulation.size;
+  if (blessing_count === 0) {
+    return {
+      score: 1,
+      breakdown: {
+        blessing_edges: 0,
+        blessing_count: 0,
+        edges_per_blessing: 0,
+        blessing_blessing_edges: 0,
+        orphaned_blessings: 0,
+      },
+      explanations: [],
+    };
+  }
+
+  // --- Count edges involving blessings ---
+  const blessingsInAnyEdge = new Set();
+  let blessing_edges = 0;
+  let blessing_blessing_edges = 0;
+
+  for (const edge of synergy_edges) {
+    const { type, selections = [] } = edge;
+    if (type !== "stat_alignment" && type !== "trigger_target") continue;
+
+    const edgeBlessingIds = selections.filter((id) => classifySelection(id) === "blessing");
+    if (edgeBlessingIds.length === 0) continue;
+
+    // Track blessings participating in any edge.
+    for (const id of edgeBlessingIds) {
+      blessingsInAnyEdge.add(id);
+    }
+
+    // Any edge where at least one participant is a blessing.
+    blessing_edges++;
+
+    // Edge where both participants are blessings.
+    if (selections.length >= 2 && edgeBlessingIds.length === selections.length) {
+      blessing_blessing_edges++;
+    }
+  }
+
+  // --- Graph isolation ---
+  let orphaned_blessings = 0;
+  for (const id of blessingPopulation) {
+    if (!blessingsInAnyEdge.has(id)) {
+      orphaned_blessings++;
+    }
+  }
+
+  // --- Base score from edges_per_blessing ---
+  const edges_per_blessing = blessing_edges / blessing_count;
+  let base_score;
+  if (edges_per_blessing >= 3.5) {
+    base_score = 5;
+  } else if (edges_per_blessing >= 2.5) {
+    base_score = 4;
+  } else if (edges_per_blessing >= 1.5) {
+    base_score = 3;
+  } else if (edges_per_blessing >= 0.5) {
+    base_score = 2;
+  } else {
+    base_score = 1;
+  }
+
+  // --- Bonus and penalties ---
+  const bonus = blessing_blessing_edges > 0 ? 0.5 : 0;
+  const penalty = orphaned_blessings * -1;
+
+  const raw = base_score + bonus + penalty;
+  const score = Math.round(Math.min(5, Math.max(1, raw)));
+
+  // --- Explanations ---
+  const explanations = [];
+  const connectedBlessings = [...blessingsInAnyEdge];
+  if (connectedBlessings.length > 0) {
+    const names = connectedBlessings.map((id) => id.split(".").at(-1)).join(", ");
+    explanations.push(`Blessings with synergy edges: ${names}`);
+  }
+  if (blessing_blessing_edges > 0) {
+    explanations.push(`${blessing_blessing_edges} blessing-blessing edge(s) +0.5`);
+  }
+  if (orphaned_blessings > 0) {
+    explanations.push(`${orphaned_blessings} blessing(s) participate in no synergy edges (-1 each)`);
+  }
+
+  return {
+    score,
+    breakdown: {
+      blessing_edges,
+      blessing_count,
+      edges_per_blessing: Math.round(edges_per_blessing * 1000) / 1000,
+      blessing_blessing_edges,
+      orphaned_blessings,
+    },
+    explanations,
+  };
 }
 
 /**

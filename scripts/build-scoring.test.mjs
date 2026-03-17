@@ -71,6 +71,93 @@ describe("build-scoring", () => {
       assert.equal(result.talent_coherence.breakdown.talent_count, 3);
     });
   });
+
+  describe("blessing_synergy", () => {
+    it("scores high for many blessing-talent edges", () => {
+      const synergy = makeSynergyOutput({
+        talentIds: ["t.talent.a", "t.talent.b", "t.talent.c"],
+        blessingIds: ["shared.name_family.blessing.x", "shared.name_family.blessing.y"],
+        talentEdges: 3,
+        blessingEdges: 8,
+        blessingBlessingEdges: 1,
+        orphans: [],
+        concentration: 0.05,
+        familyCount: 8,
+        coverageGaps: [],
+        slotBalance: { melee: 5, ranged: 5 },
+      });
+      const result = scoreFromSynergy(synergy);
+      assert.ok(result.blessing_synergy.score >= 4);
+    });
+
+    it("penalizes graph-isolated blessings", () => {
+      const synergy = makeSynergyOutput({
+        talentIds: ["t.talent.a"],
+        blessingIds: ["shared.name_family.blessing.x", "shared.name_family.blessing.y"],
+        talentEdges: 0,
+        blessingEdges: 0,
+        blessingBlessingEdges: 0,
+        orphans: [],
+        concentration: 0.05,
+        familyCount: 8,
+        coverageGaps: [],
+        slotBalance: { melee: 5, ranged: 5 },
+      });
+      // Manually add edges only for blessing.x, leaving blessing.y isolated
+      synergy.synergy_edges.push(
+        { type: "stat_alignment", selections: ["shared.name_family.blessing.x", "t.talent.a"], families: ["general_offense"], strength: 3, explanation: "test" },
+        { type: "stat_alignment", selections: ["shared.name_family.blessing.x", "t.talent.a"], families: ["crit"], strength: 2, explanation: "test" },
+      );
+      const result = scoreFromSynergy(synergy);
+      assert.equal(result.blessing_synergy.breakdown.orphaned_blessings, 1);
+    });
+
+    it("gives bonus for blessing-blessing edges", () => {
+      const withBB = makeSynergyOutput({
+        talentIds: ["t.talent.a"],
+        blessingIds: ["shared.name_family.blessing.x", "shared.name_family.blessing.y"],
+        talentEdges: 0,
+        blessingEdges: 4,
+        blessingBlessingEdges: 1,
+        orphans: [],
+        concentration: 0.05,
+        familyCount: 8,
+        coverageGaps: [],
+        slotBalance: { melee: 5, ranged: 5 },
+      });
+      const withoutBB = makeSynergyOutput({
+        talentIds: ["t.talent.a"],
+        blessingIds: ["shared.name_family.blessing.x", "shared.name_family.blessing.y"],
+        talentEdges: 0,
+        blessingEdges: 4,
+        blessingBlessingEdges: 0,
+        orphans: [],
+        concentration: 0.05,
+        familyCount: 8,
+        coverageGaps: [],
+        slotBalance: { melee: 5, ranged: 5 },
+      });
+      const resultWith = scoreFromSynergy(withBB);
+      const resultWithout = scoreFromSynergy(withoutBB);
+      assert.ok(resultWith.blessing_synergy.score >= resultWithout.blessing_synergy.score);
+    });
+
+    it("scores 1 when no blessings present", () => {
+      const synergy = makeSynergyOutput({
+        talentIds: ["t.talent.a"],
+        blessingIds: [],
+        talentEdges: 0,
+        blessingEdges: 0,
+        orphans: [],
+        concentration: 0.05,
+        familyCount: 8,
+        coverageGaps: [],
+        slotBalance: { melee: 5, ranged: 5 },
+      });
+      const result = scoreFromSynergy(synergy);
+      assert.equal(result.blessing_synergy.score, 1);
+    });
+  });
 });
 
 function makeSynergyOutput({
@@ -178,5 +265,6 @@ function makeSynergyOutput({
       calc_coverage_pct: 1.0,
     },
     _talentSideIds: talentIds,
+    _resolvedIds: [...talentIds, ...blessingIds],
   };
 }
