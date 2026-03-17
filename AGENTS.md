@@ -48,7 +48,12 @@ npm run export:bot-weapons                        # regenerate data/exports/bot-
 npm run report -- scripts/builds/08-gandalf-melee-wizard.json           # human-readable text report
 npm run report -- scripts/builds/08-gandalf-melee-wizard.json --format md  # markdown report
 npm run report -- scripts/builds/                                       # batch report (all builds)
-node scripts/score-build.mjs scripts/builds/08-gandalf-melee-wizard.json --json  # provisional
+npm run score -- scripts/builds/08-gandalf-melee-wizard.json --json             # build scoring (with qualitative)
+npm run score -- scripts/builds/08-gandalf-melee-wizard.json --text             # build scoring (human-readable)
+npm run recommend -- analyze-gaps scripts/builds/08-gandalf-melee-wizard.json   # coverage gap analysis
+npm run recommend -- swap-talent scripts/builds/08-gandalf-melee-wizard.json --from <id> --to <id>  # talent swap delta
+npm run recommend -- swap-weapon scripts/builds/08-gandalf-melee-wizard.json --from <id> --to <id>  # weapon swap delta
+npm run score:freeze                                                            # regenerate golden score snapshots
 node scripts/extract-build.mjs <gl-url> --json    # live GL scrape → canonical (requires Playwright)
 node scripts/extract-build.mjs <gl-url> --raw-json # live GL scrape → pre-canonical raw shape
 ```
@@ -147,6 +152,33 @@ The canonical build format is the single shared shape consumed by `audit`, `scor
 
 Frozen synergy snapshots in `tests/fixtures/ground-truth/synergy/`. Re-freeze with `npm run synergy:freeze`.
 
+## Build Scoring
+
+`npm run score -- <build.json> [--json|--text]` produces a full scorecard with mechanical + qualitative dimensions.
+
+**Mechanical (from hardcoded data):** `perk_optimality`, `curio_efficiency` — scored from perk tier tables in `build-scoring-data.json`.
+
+**Qualitative (from synergy model):** `talent_coherence` (talent-talent edge density + graph isolation), `blessing_synergy` (blessing-X edge density + blessing-blessing bonus), `role_coverage` (stat family breadth + coverage gaps + slot balance). Each 1–5.
+
+**Blocked on #5:** `breakpoint_relevance`, `difficulty_scaling` remain null until the damage calculator provides numeric precision.
+
+**Composite:** Sum of non-null dimensions, scaled to /35. Letter grades: S (32+), A (27+), B (22+), C (17+), D (<17).
+
+Module: `scripts/ground-truth/lib/build-scoring.mjs`. Frozen score snapshots in `tests/fixtures/ground-truth/scores/`. Re-freeze with `npm run score:freeze`.
+
+## Build Recommendations
+
+`npm run recommend -- <operation> <build.json> [--from <id> --to <id>] [--json]`
+
+Three operations:
+- `analyze-gaps` — coverage gap diagnosis (survivability, crit_chance_source, warp_charge_producer, slot_imbalance) + underinvested families
+- `swap-talent` — score delta + gained/lost synergy edges + tree reachability validation (parent_of + exclusive_with)
+- `swap-weapon` — score delta + blessing cascade (same-family retains, cross-family removes) + available trait pool
+
+**Deferred to v1.1:** `suggest-improvement` (brute-force candidate enumeration).
+
+Module: `scripts/ground-truth/lib/build-recommendations.mjs`. Formatter: `scripts/ground-truth/lib/recommend-formatter.mjs`. Design spec: `docs/superpowers/specs/2026-03-17-scoring-and-recommendations-design.md`.
+
 ## Classification Registry
 
 `scripts/ground-truth/lib/build-classification-registry.mjs` maps GL talent slugs to canonical build slots. Only slot-routing nodes need entries (abilities, blitz, auras, keystones, modifiers). Regular talents flow through to `talents[]` without registry entries. The registry is populated per-class from the decompiled source tree.
@@ -180,14 +212,14 @@ Key paths for entity work:
 - `#3` Build-oriented CLI commands (browse, compare)
 - `#5` Calculator and dataflow layer (prior research in `../BetterBots/docs/knowledge/damage-system.md`)
 - `#6` Website architecture
-- `#9` Build quality scoring (replace null stubs in score-build.mjs — consumes synergy model)
-- `#10` Modification recommendations (weapon swap analysis — consumes scores + tree edges)
 
 ## Completed Issues
 
 - `#4` BetterBots integration contract
 - `#7` Buff semantic extraction (`effects:build` pipeline)
 - `#8` Synergy model (`synergy` CLI, 5 rules, stat aggregator)
+- `#9` Build quality scoring (3 qualitative dimensions: talent_coherence, blessing_synergy, role_coverage; composite /35 + letter grade)
+- `#10` Modification recommendations v1 (analyze-gaps, swap-talent, swap-weapon; suggest-improvement deferred to v1.1)
 
 ## BetterBots Integration
 
