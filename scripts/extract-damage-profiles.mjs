@@ -84,8 +84,12 @@ await runCliMain("profiles:build", async () => {
   const constants = parseConstants(sourceRoot);
   console.log(`Parsed pipeline constants`);
 
+  // -- Phase 2b: Parse preset ADM variables from damage_profile_settings.lua --
+  const presetAdmVars = parsePresetAdmVariables(sourceRoot, lerpValues);
+  console.log(`Parsed ${presetAdmVars.size} preset ADM variables`);
+
   // -- Phase 3: Parse all damage profile template files -----------------------
-  const profiles = parseAllDamageProfiles(sourceRoot, lerpValues, cleavePresets);
+  const profiles = parseAllDamageProfiles(sourceRoot, lerpValues, cleavePresets, presetAdmVars);
   profiles.sort((a, b) => a.id.localeCompare(b.id));
   console.log(`Parsed ${profiles.length} damage profiles`);
 
@@ -205,7 +209,7 @@ function parseConstants(sourceRoot) {
   const asLua = readFileSync(asPath, "utf8");
 
   // default_power_level
-  const defaultPl = extractNumber(plsLua, /default_power_level\s*=\s*(\d+)/);
+  const defaultPl = extractNumber(plsLua, /default_power_level\s*=\s*(\d+)/, { critical: true });
 
   // damage_output: all armor types have {min: 0, max: 20}
   const damageOutput = parseArmorTypeTable(plsLua, "damage_output", (block) => {
@@ -285,9 +289,10 @@ function parseConstants(sourceRoot) {
  * @param {string} sourceRoot
  * @param {Record<string, [number, number]>} lerpValues
  * @param {Record<string, object>} cleavePresets
+ * @param {Map<string, object>} presetAdmVars
  * @returns {object[]}
  */
-function parseAllDamageProfiles(sourceRoot, lerpValues, cleavePresets) {
+function parseAllDamageProfiles(sourceRoot, lerpValues, cleavePresets, presetAdmVars) {
   const profiles = [];
   const seenIds = new Set();
 
@@ -318,7 +323,7 @@ function parseAllDamageProfiles(sourceRoot, lerpValues, cleavePresets) {
   for (const filePath of allFiles) {
     const lua = readFileSync(filePath, "utf8");
     const sourceFile = basename(filePath);
-    const fileProfiles = parseDamageProfileFile(lua, sourceFile, lerpValues, cleavePresets);
+    const fileProfiles = parseDamageProfileFile(lua, sourceFile, lerpValues, cleavePresets, presetAdmVars);
     for (const p of fileProfiles) {
       if (!seenIds.has(p.id)) {
         seenIds.add(p.id);
@@ -359,19 +364,36 @@ function collectDamageProfileFiles(dir) {
 /**
  * Parse a single damage profile template file.
  *
- * Extracts all `damage_templates.X = { ... }` definitions.
+ * Extracts all `damage_templates.X = { ... }` definitions and
+ * `damage_templates.X = table.clone(damage_templates.Y)` clones.
  *
  * @param {string} lua
  * @param {string} sourceFile
  * @param {Record<string, [number, number]>} lerpValues
  * @param {Record<string, object>} cleavePresets
+ * @param {Map<string, object>} presetAdmVars
  * @returns {object[]}
  */
-function parseDamageProfileFile(lua, sourceFile, lerpValues, cleavePresets) {
+function parseDamageProfileFile(lua, sourceFile, lerpValues, cleavePresets, presetAdmVars = new Map()) {
   const profiles = [];
+  const profileMap = new Map(); // id -> profile for clone lookups
 
-  // Parse file-level local variables that define near/far ADM structures
+  // Parse file-level local variables that define ADM structures
   const localAdmVars = parseLocalAdmVariables(lua, lerpValues);
+
+  // Merge preset ADM vars as fallback: local aliases like
+  // `local flat_one_armor_mod = DamageProfileSettings.flat_one_armor_mod`
+  // resolve via the local name in localAdmVars already if they define inline tables.
+  // For aliases that reference DamageProfileSettings.X, parse them here.
+  const localAliasRe = /^local\s+(\w+)\s*=\s*DamageProfileSettings\.(\w+)/gm;
+  let aliasMatch;
+  while ((aliasMatch = localAliasRe.exec(lua)) !== null) {
+    const localName = aliasMatch[1];
+    const presetName = aliasMatch[2];
+    if (!localAdmVars.has(localName) && presetAdmVars.has(presetName)) {
+      localAdmVars.set(localName, presetAdmVars.get(presetName));
+    }
+  }
 
   // Find all top-level damage_templates.X = { assignments
   // Use a state machine to find balanced braces
@@ -391,13 +413,115 @@ function parseDamageProfileFile(lua, sourceFile, lerpValues, cleavePresets) {
       const profile = parseProfileBlock(profileName, block, sourceFile, lerpValues, cleavePresets, localAdmVars);
       if (profile) {
         profiles.push(profile);
+        profileMap.set(profileName, profile);
       }
     } catch (err) {
       console.warn(`Warning: failed to parse profile ${profileName} in ${sourceFile}: ${err.message}`);
     }
   }
 
+  // Second pass: handle table.clone(damage_templates.Y) definitions
+  const cloneRe = /^damage_templates\.(\w+)\s*=\s*table\.clone\(damage_templates\.(\w+)\)/gm;
+  let cloneMatch;
+  while ((cloneMatch = cloneRe.exec(lua)) !== null) {
+    const cloneName = cloneMatch[1];
+    const parentName = cloneMatch[2];
+    if (profileMap.has(cloneName)) continue; // already parsed as a block definition
+
+    const parent = profileMap.get(parentName);
+    if (!parent) continue;
+
+    // Deep clone the parent
+    const cloned = JSON.parse(JSON.stringify(parent));
+    cloned.id = cloneName;
+    cloned.source_file = sourceFile;
+
+    // Apply subsequent field overrides: damage_templates.X.field = value
+    applyCloneOverrides(cloned, cloneName, lua, lerpValues);
+
+    profiles.push(cloned);
+    profileMap.set(cloneName, cloned);
+  }
+
   return profiles;
+}
+
+/**
+ * Apply field overrides to a cloned profile.
+ * Matches patterns like:
+ *   damage_templates.X.field = value
+ *   damage_templates.X.targets[1].power_distribution.attack = 380
+ *   damage_templates.X.power_distribution.attack = 0.175
+ *
+ * @param {object} profile - The cloned profile to mutate
+ * @param {string} name - Profile name
+ * @param {string} lua - Full file source
+ * @param {Record<string, [number, number]>} lerpValues
+ */
+function applyCloneOverrides(profile, name, lua, lerpValues) {
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const overrideRe = new RegExp(
+    `^damage_templates\\.${escapedName}\\.([\\w.\\[\\]]+)\\s*=\\s*(.+)`,
+    "gm",
+  );
+  let m;
+  while ((m = overrideRe.exec(lua)) !== null) {
+    const path = m[1].trim();
+    const valueStr = m[2].trim().replace(/,\s*$/, "");
+
+    // Handle simple scalar overrides on direct profile fields
+    if (path === "ragdoll_push_force" || path === "suppression_value") {
+      // Skip non-calculation fields
+      continue;
+    }
+
+    // Handle power_distribution.attack / power_distribution.impact
+    if (path === "power_distribution.attack" || path === "power_distribution.impact") {
+      const channel = path.split(".")[1];
+      const num = Number(valueStr);
+      if (!isNaN(num) && profile.power_distribution) {
+        profile.power_distribution[channel] = num;
+      }
+      continue;
+    }
+
+    // Handle cleave_distribution.attack / cleave_distribution.impact
+    if (path === "cleave_distribution.attack" || path === "cleave_distribution.impact") {
+      const channel = path.split(".")[1];
+      const num = Number(valueStr);
+      if (!isNaN(num) && profile.cleave_distribution) {
+        profile.cleave_distribution[channel] = num;
+      }
+      continue;
+    }
+
+    // Handle damage_type override
+    if (path === "damage_type") {
+      const dtMatch = valueStr.match(/damage_types\.(\w+)/);
+      if (dtMatch) profile.damage_type = dtMatch[1];
+      continue;
+    }
+
+    // Handle stagger_category override
+    if (path === "stagger_category") {
+      const scMatch = valueStr.match(/"(\w+)"/);
+      if (scMatch) profile.stagger_category = scMatch[1];
+      continue;
+    }
+
+    // Handle gibbing_power override (skip — not in our schema)
+    if (path === "gibbing_power") continue;
+
+    // Handle armor_damage_modifier_ranged = { near = { ... complex inline override
+    if (path === "armor_damage_modifier_ranged") {
+      // Complex block override — skip for now; these are rare and already captured
+      // by the main parser if the block is re-defined inline
+      continue;
+    }
+
+    // targets[N].field.subfield overrides — not worth the complexity for clone deltas
+    // (most clones override simple scalars; targets array overrides are rare)
+  }
 }
 
 /**
@@ -437,12 +561,15 @@ function parseProfileBlock(id, block, sourceFile, lerpValues, cleavePresets, loc
   // Extract armor_damage_modifier_ranged (for ranged profiles)
   const admRanged = parseArmorDamageModifierRanged(block, lerpValues, localAdmVars);
 
-  // Extract first target entry from targets array
-  const firstTarget = parseFirstTarget(block, lerpValues);
+  // Extract profile-level armor_damage_modifier (inline or variable reference)
+  const profileAdm = parseProfileLevelAdm(block, lerpValues, localAdmVars);
 
-  // Determine final values: prefer first target data, fall back to top-level
+  // Extract first target entry from targets array
+  const firstTarget = parseFirstTarget(block, lerpValues, localAdmVars);
+
+  // Determine final values: prefer first target data, fall back to profile-level
   const finalPowerDist = firstTarget?.power_distribution || powerDistribution;
-  const finalAdm = firstTarget?.armor_damage_modifier || null;
+  const finalAdm = firstTarget?.armor_damage_modifier || profileAdm;
   const boostCurveMultFinesse = firstTarget?.boost_curve_multiplier_finesse ?? null;
   const finesseBoost = firstTarget?.finesse_boost || null;
 
@@ -466,6 +593,94 @@ function parseProfileBlock(id, block, sourceFile, lerpValues, cleavePresets, loc
     cleave_distribution: cleaveDistribution,
     ranges,
   };
+}
+
+/**
+ * Parse profile-level armor_damage_modifier from a profile block.
+ * Handles inline `{ attack = { ... }, impact = { ... } }` blocks,
+ * variable references like `armor_damage_modifier = cutting_am,`, and
+ * channel-level variable references like `{ attack = flat_one_armor_mod, ... }`.
+ *
+ * @param {string} block
+ * @param {Record<string, [number, number]>} lerpValues
+ * @param {Map<string, object>} localAdmVars
+ * @returns {object|null}
+ */
+function parseProfileLevelAdm(block, lerpValues, localAdmVars) {
+  // Find the shallowest armor_damage_modifier = { ... } occurrence (not _ranged)
+  // We need to distinguish `armor_damage_modifier = {` from `armor_damage_modifier_ranged = {`
+  const re = /armor_damage_modifier\s*=\s*\{/g;
+  let m;
+  let bestMatch = null;
+  let bestDepth = Infinity;
+
+  while ((m = re.exec(block)) !== null) {
+    // Skip if this is actually armor_damage_modifier_ranged
+    const prefix = block.slice(Math.max(0, m.index - 1), m.index);
+    if (prefix === "_") continue;
+    const suffix = block.slice(m.index, m.index + 30);
+    if (suffix.startsWith("armor_damage_modifier_ranged")) continue;
+
+    const depth = countBraceDepth(block, m.index);
+    if (depth < bestDepth) {
+      bestDepth = depth;
+      bestMatch = m;
+    }
+  }
+
+  if (bestMatch) {
+    const braceStart = bestMatch.index + bestMatch[0].length - 1;
+    const braceEnd = findBalancedBrace(block, braceStart);
+    if (braceEnd !== -1) {
+      const admBlock = block.slice(braceStart, braceEnd + 1);
+      const result = {};
+
+      for (const channel of ["attack", "impact"]) {
+        // Try inline block: attack = { [armor_types.X] = ... }
+        const chStart = admBlock.indexOf(`${channel} = {`);
+        if (chStart !== -1) {
+          const chBraceStart = chStart + `${channel} = `.length;
+          const chBraceEnd = findBalancedBrace(admBlock, chBraceStart);
+          if (chBraceEnd !== -1) {
+            const chBlock = admBlock.slice(chBraceStart, chBraceEnd + 1);
+            result[channel] = parseArmorTypeValues(chBlock, lerpValues);
+            continue;
+          }
+        }
+
+        // Try variable reference: attack = varname,
+        const chVarMatch = admBlock.match(
+          new RegExp(`${channel}\\s*=\\s*(\\w+)\\s*,`),
+        );
+        if (chVarMatch) {
+          const varName = chVarMatch[1];
+          if (localAdmVars.has(varName)) {
+            const resolved = localAdmVars.get(varName);
+            if (resolved && !resolved.attack && !resolved.impact) {
+              result[channel] = resolved;
+            }
+          }
+        }
+      }
+
+      if (result.attack || result.impact) return result;
+    }
+  }
+
+  // Check for variable reference: armor_damage_modifier = varname,
+  // Must not match armor_damage_modifier_ranged
+  const varRefMatch = block.match(
+    /(?:^|[^_])armor_damage_modifier\s*=\s*(\w+)\s*,/m,
+  );
+  if (varRefMatch && varRefMatch[1] !== "nil" && varRefMatch[1] !== "{") {
+    // Extract just the variable name (group 1 may include prefix char)
+    const varName = varRefMatch[1];
+    if (localAdmVars.has(varName)) {
+      return localAdmVars.get(varName);
+    }
+  }
+
+  return null;
 }
 
 /**
@@ -660,20 +875,21 @@ function parseNearFarAdm(admBlock, lerpValues) {
 }
 
 /**
- * Parse file-level local variable definitions that hold near/far ADM structures.
+ * Parse file-level local variable definitions that hold ADM structures.
  *
- * Matches patterns like:
- *   local assault_armor_mod = { near = { attack = { ... }, impact = { ... } }, far = { ... } }
- *   local armor_modifiers = { p1_m1 = { near = { ... }, far = { ... } }, ... }
+ * Handles three patterns:
+ * 1. Ranged near/far ADM: `local x = { near = { attack = { ... }, impact = { ... } }, far = { ... } }`
+ * 2. Melee attack/impact ADM: `local x = { attack = { [armor_types.X] = ... }, impact = { ... } }`
+ * 3. Tables of named sub-entries containing either pattern
  *
  * @param {string} lua - Full file source
  * @param {Record<string, [number, number]>} lerpValues
- * @returns {Map<string, object>} varName (or table.field) -> parsed near/far ADM
+ * @returns {Map<string, object>} varName (or table.field) -> parsed ADM
  */
 function parseLocalAdmVariables(lua, lerpValues) {
   const vars = new Map();
 
-  // Match: local varName = { ... } where the block contains near/far
+  // Match: local varName = { ... }
   const localRe = /^local\s+(\w+)\s*=\s*\{/gm;
   let m;
   while ((m = localRe.exec(lua)) !== null) {
@@ -684,10 +900,8 @@ function parseLocalAdmVariables(lua, lerpValues) {
 
     const block = lua.slice(braceStart, braceEnd + 1);
 
-    // Check if this looks like a near/far ADM block
+    // Check if this looks like a near/far ADM block (ranged)
     if (block.includes("near = {") && block.includes("far = {")) {
-      // Could be a direct near/far block, or a table of named near/far blocks
-      // First try direct parse
       const parsed = parseNearFarAdm(block, lerpValues);
       if (parsed) {
         vars.set(varName, parsed);
@@ -695,8 +909,26 @@ function parseLocalAdmVariables(lua, lerpValues) {
       }
     }
 
-    // Check if this is a table of named sub-entries that each have near/far
-    // e.g., local armor_modifiers = { p1_m1 = { near = { ... }, far = { ... } }, ... }
+    // Check if this looks like a melee ADM block: { attack = { [armor_types.X] = ... }, impact = { ... } }
+    if (block.includes("attack = {") && block.includes("armor_types.")) {
+      const parsed = parseMeleeAdm(block, lerpValues);
+      if (parsed) {
+        vars.set(varName, parsed);
+        continue;
+      }
+    }
+
+    // Check if this is a flat channel-level armor type map: { [armor_types.X] = ... }
+    // (e.g., flat_one_armor_mod, default_armor_mod — no attack/impact wrapper)
+    if (block.includes("armor_types.") && !block.includes("attack = {")) {
+      const parsed = parseArmorTypeValues(block, lerpValues);
+      if (parsed && Object.keys(parsed).length > 0) {
+        vars.set(varName, parsed);
+        continue;
+      }
+    }
+
+    // Check if this is a table of named sub-entries that each have near/far or attack/impact
     const subRe = /(\w+)\s*=\s*\{/g;
     let sub;
     while ((sub = subRe.exec(block)) !== null) {
@@ -717,6 +949,11 @@ function parseLocalAdmVariables(lua, lerpValues) {
         if (parsed) {
           vars.set(`${varName}.${subName}`, parsed);
         }
+      } else if (subBlock.includes("attack = {") && subBlock.includes("armor_types.")) {
+        const parsed = parseMeleeAdm(subBlock, lerpValues);
+        if (parsed) {
+          vars.set(`${varName}.${subName}`, parsed);
+        }
       }
     }
   }
@@ -725,13 +962,82 @@ function parseLocalAdmVariables(lua, lerpValues) {
 }
 
 /**
- * Parse the first target entry from the `targets` array of a profile block.
+ * Parse a melee-style ADM block: { attack = { [armor_types.X] = val, ... }, impact = { ... } }
  *
  * @param {string} block
  * @param {Record<string, [number, number]>} lerpValues
  * @returns {object|null}
  */
-function parseFirstTarget(block, lerpValues) {
+function parseMeleeAdm(block, lerpValues) {
+  const result = {};
+  for (const channel of ["attack", "impact"]) {
+    const chStart = block.indexOf(`${channel} = {`);
+    if (chStart === -1) continue;
+    const chBraceStart = chStart + `${channel} = `.length;
+    const chBraceEnd = findBalancedBrace(block, chBraceStart);
+    if (chBraceEnd === -1) continue;
+    const chBlock = block.slice(chBraceStart, chBraceEnd + 1);
+    result[channel] = parseArmorTypeValues(chBlock, lerpValues);
+  }
+  if (!result.attack && !result.impact) return null;
+  return result;
+}
+
+/**
+ * Parse well-known preset ADM variables from damage_profile_settings.lua.
+ *
+ * These are global presets like `flat_one_armor_mod`, `default_armor_mod`,
+ * `crit_armor_mod`, `crit_impact_armor_mod`, `base_crit_mod`, etc.
+ * Files import them as `local flat_one_armor_mod = DamageProfileSettings.flat_one_armor_mod`.
+ *
+ * @param {string} sourceRoot
+ * @param {Record<string, [number, number]>} lerpValues
+ * @returns {Map<string, object>} presetName -> parsed ADM (either flat channel map or full attack/impact)
+ */
+function parsePresetAdmVariables(sourceRoot, lerpValues) {
+  const presets = new Map();
+  const filePath = join(sourceRoot, "scripts", "settings", "damage", "damage_profile_settings.lua");
+  const lua = readFileSync(filePath, "utf8");
+
+  // Match: damage_profile_settings.name = { ... }
+  const presetRe = /damage_profile_settings\.(\w+(?:_armor_mod|_crit_mod)\w*)\s*=\s*\{/g;
+  let m;
+  while ((m = presetRe.exec(lua)) !== null) {
+    const name = m[1];
+    const braceStart = m.index + m[0].length - 1;
+    const braceEnd = findBalancedBrace(lua, braceStart);
+    if (braceEnd === -1) continue;
+
+    const block = lua.slice(braceStart, braceEnd + 1);
+
+    // Check if this has attack/impact structure (e.g., base_crit_mod)
+    if (block.includes("attack = {") && block.includes("impact = {")) {
+      const parsed = parseMeleeAdm(block, lerpValues);
+      if (parsed) {
+        presets.set(name, parsed);
+        continue;
+      }
+    }
+
+    // Otherwise it's a flat channel-level map (e.g., flat_one_armor_mod)
+    const parsed = parseArmorTypeValues(block, lerpValues);
+    if (parsed && Object.keys(parsed).length > 0) {
+      presets.set(name, parsed);
+    }
+  }
+
+  return presets;
+}
+
+/**
+ * Parse the first target entry from the `targets` array of a profile block.
+ *
+ * @param {string} block
+ * @param {Record<string, [number, number]>} lerpValues
+ * @param {Map<string, object>} localAdmVars
+ * @returns {object|null}
+ */
+function parseFirstTarget(block, lerpValues, localAdmVars = new Map()) {
   const targetsStart = block.indexOf("targets = {");
   if (targetsStart === -1) return null;
 
@@ -775,7 +1081,7 @@ function parseFirstTarget(block, lerpValues) {
 
   const entryBlock = targetsBlock.slice(firstEntryStart, firstEntryEnd + 1);
 
-  return parseTargetEntry(entryBlock, lerpValues);
+  return parseTargetEntry(entryBlock, lerpValues, localAdmVars);
 }
 
 /**
@@ -783,9 +1089,10 @@ function parseFirstTarget(block, lerpValues) {
  *
  * @param {string} entryBlock
  * @param {Record<string, [number, number]>} lerpValues
+ * @param {Map<string, object>} localAdmVars
  * @returns {object}
  */
-function parseTargetEntry(entryBlock, lerpValues) {
+function parseTargetEntry(entryBlock, lerpValues, localAdmVars = new Map()) {
   const result = {};
 
   // power_distribution
@@ -800,7 +1107,7 @@ function parseTargetEntry(entryBlock, lerpValues) {
     }
   }
 
-  // armor_damage_modifier (melee -- flat numbers)
+  // armor_damage_modifier (melee -- flat numbers or variable references)
   const admStart = entryBlock.indexOf("armor_damage_modifier = {");
   if (admStart !== -1) {
     const admBraceStart = admStart + "armor_damage_modifier = ".length;
@@ -810,13 +1117,46 @@ function parseTargetEntry(entryBlock, lerpValues) {
       result.armor_damage_modifier = {};
 
       for (const channel of ["attack", "impact"]) {
+        // First try inline block: attack = { [armor_types.X] = ... }
         const chStart = admBlock.indexOf(`${channel} = {`);
-        if (chStart === -1) continue;
-        const chBraceStart = chStart + `${channel} = `.length;
-        const chBraceEnd = findBalancedBrace(admBlock, chBraceStart);
-        if (chBraceEnd === -1) continue;
-        const chBlock = admBlock.slice(chBraceStart, chBraceEnd + 1);
-        result.armor_damage_modifier[channel] = parseArmorTypeValues(chBlock, lerpValues);
+        if (chStart !== -1) {
+          const chBraceStart = chStart + `${channel} = `.length;
+          const chBraceEnd = findBalancedBrace(admBlock, chBraceStart);
+          if (chBraceEnd !== -1) {
+            const chBlock = admBlock.slice(chBraceStart, chBraceEnd + 1);
+            result.armor_damage_modifier[channel] = parseArmorTypeValues(chBlock, lerpValues);
+            continue;
+          }
+        }
+
+        // Check for variable reference: attack = flat_one_armor_mod,
+        const chVarMatch = admBlock.match(
+          new RegExp(`${channel}\\s*=\\s*(\\w+)\\s*,`),
+        );
+        if (chVarMatch) {
+          const varName = chVarMatch[1];
+          if (localAdmVars.has(varName)) {
+            const resolved = localAdmVars.get(varName);
+            // If the resolved var is a flat armor type map (not wrapped in attack/impact),
+            // use it directly as the channel value
+            if (resolved && !resolved.attack && !resolved.impact) {
+              result.armor_damage_modifier[channel] = resolved;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // If no inline ADM block found, check for variable reference: armor_damage_modifier = varname,
+  if (!result.armor_damage_modifier) {
+    const admVarMatch = entryBlock.match(
+      /armor_damage_modifier\s*=\s*(\w+)\s*,/,
+    );
+    if (admVarMatch && admVarMatch[1] !== "nil") {
+      const varName = admVarMatch[1];
+      if (localAdmVars.has(varName)) {
+        result.armor_damage_modifier = localAdmVars.get(varName);
       }
     }
   }
@@ -1106,17 +1446,20 @@ function classifyAction(actionName) {
   if (actionName.includes("shoot_braced") || actionName.includes("braced_shoot")) return "shoot_braced";
   if (actionName.includes("charge_shoot") || actionName.includes("shoot_charged") || actionName.includes("charged_shoot")) return "shoot_charged";
 
+  // Push followup (must check before "light" — action_pushfollow_light would match "light" first)
+  if (actionName.includes("pushfollow")) return "push_followup";
+
   // Melee light attacks
-  if (actionName.includes("light")) {
-    if (actionName.includes("pushfollow")) return "push_followup";
-    return "light_attack";
-  }
+  if (actionName.includes("light")) return "light_attack";
+  if (actionName.includes("stab") || actionName.includes("slash")) return "light_attack";
+  if (actionName.includes("swipe") || actionName.includes("fling")) return "light_attack";
 
   // Melee heavy attacks
   if (actionName.includes("heavy")) return "heavy_attack";
 
   // Weapon special
   if (actionName.includes("special") || actionName.includes("parry")) return "weapon_special";
+  if (actionName.includes("bash") || actionName.includes("pistol_whip")) return "weapon_special";
 
   // Push
   if (actionName === "action_push" || (actionName.includes("push") && !actionName.includes("pushfollow"))) return "push";
@@ -1145,6 +1488,9 @@ function parseArmorTypeValues(block, lerpValues) {
   const lerpRe = /\[armor_types\.(\w+)\]\s*=\s*damage_lerp_values\.(\w+)/g;
   let m;
   while ((m = lerpRe.exec(block)) !== null) {
+    if (!lerpValues[m[2]]) {
+      console.warn(`Warning: unknown lerp value '${m[2]}' for armor type '${m[1]}', defaulting to [0, 0]`);
+    }
     result[m[1]] = lerpValues[m[2]] || [0, 0];
   }
 
@@ -1337,11 +1683,19 @@ function parseDefaultArmorDamageModifier(lua) {
  * Extract a number from a regex match.
  * @param {string} lua
  * @param {RegExp} re
+ * @param {{ critical?: boolean }} options
  * @returns {number}
  */
-function extractNumber(lua, re) {
+function extractNumber(lua, re, { critical = false } = {}) {
   const m = lua.match(re);
-  return m ? Number(m[1]) : 0;
+  if (!m) {
+    if (critical) {
+      throw new Error(`Critical constant not found: ${re.source}`);
+    }
+    console.warn(`Warning: extractNumber failed for pattern ${re.source}, defaulting to 0`);
+    return 0;
+  }
+  return Number(m[1]);
 }
 
 /**
