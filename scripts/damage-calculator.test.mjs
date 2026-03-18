@@ -233,7 +233,7 @@ describe("stage 3: resolveArmorDamageModifier", () => {
     approx(adm, 1.5);
   });
 
-  it("lerps ranged ADM by sqrt(dropoffScalar)", () => {
+  it("lerps ranged ADM by sqrt(distance-based dropoff)", () => {
     const adm = resolveArmorDamageModifier({
       profile: {
         armor_damage_modifier_ranged: {
@@ -244,7 +244,7 @@ describe("stage 3: resolveArmorDamageModifier", () => {
       armorType: "armored",
       quality: 1.0,
       isRanged: true,
-      dropoffScalar: 0.25,
+      distance: 16.875, // dropoff = (16.875 - 12.5) / (30 - 12.5) = 0.25
       constants: { ranged_close: 12.5, ranged_far: 30 },
     });
     // near_adm = lerp(0.5, 0.8, 1.0) = 0.8
@@ -253,7 +253,7 @@ describe("stage 3: resolveArmorDamageModifier", () => {
     approx(adm, 0.6);
   });
 
-  it("returns near ADM at zero dropoff", () => {
+  it("returns near ADM at close distance", () => {
     const adm = resolveArmorDamageModifier({
       profile: {
         armor_damage_modifier_ranged: {
@@ -264,13 +264,14 @@ describe("stage 3: resolveArmorDamageModifier", () => {
       armorType: "armored",
       quality: 0.5,
       isRanged: true,
-      dropoffScalar: 0,
+      distance: 5, // below ranged_close (12.5), clamps to dropoff=0
+      constants: { ranged_close: 12.5, ranged_far: 30 },
     });
     // sqrt(0) = 0, lerp(0.8, 0.3, 0) = 0.8
     approx(adm, 0.8);
   });
 
-  it("returns far ADM at full dropoff", () => {
+  it("returns far ADM at max distance", () => {
     const adm = resolveArmorDamageModifier({
       profile: {
         armor_damage_modifier_ranged: {
@@ -281,7 +282,8 @@ describe("stage 3: resolveArmorDamageModifier", () => {
       armorType: "armored",
       quality: 0.5,
       isRanged: true,
-      dropoffScalar: 1.0,
+      distance: 30, // at ranged_far, dropoff=1.0
+      constants: { ranged_close: 12.5, ranged_far: 30 },
     });
     // sqrt(1) = 1, lerp(0.8, 0.3, 1) = 0.3
     approx(adm, 0.3);

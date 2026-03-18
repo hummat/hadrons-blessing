@@ -154,7 +154,7 @@ export function calculateDamageBuff({ baseDamage, buffStack }) {
  * @param {string} params.armorType - Target armor type
  * @param {number} params.quality - Weapon modifier quality (0–1 lerp value)
  * @param {boolean} params.isRanged - Whether ranged attack
- * @param {number} [params.dropoffScalar] - Ranged dropoff (0=near, 1=far)
+ * @param {number} [params.distance] - Distance to target in meters (ranged only)
  * @param {object} [params.constants] - { ranged_close, ranged_far }
  * @param {object} [params.defaultADM] - Fallback ADM table if profile lacks entry
  * @returns {number} Armor damage modifier (typically 0–2)
@@ -164,7 +164,7 @@ export function resolveArmorDamageModifier({
   armorType,
   quality,
   isRanged,
-  dropoffScalar,
+  distance,
   constants,
   defaultADM,
 }) {
@@ -176,9 +176,12 @@ export function resolveArmorDamageModifier({
     const nearADM = lerpADMEntry(nearEntry, quality);
     const farADM = lerpADMEntry(farEntry, quality);
 
+    // Compute dropoff scalar from distance using ranged_close/ranged_far
     // Source: damage_profile.lua:190
-    const ds = dropoffScalar ?? 0;
-    return lerp(nearADM, farADM, Math.sqrt(ds));
+    const close = constants?.ranged_close ?? 12.5;
+    const far = constants?.ranged_far ?? 30;
+    const dropoffScalar = clamp((distance ?? 0) - close, 0, far - close) / (far - close);
+    return lerp(nearADM, farADM, Math.sqrt(dropoffScalar));
   }
 
   // Melee path
