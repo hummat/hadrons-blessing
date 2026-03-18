@@ -1,6 +1,9 @@
 // @ts-check
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
+import { readFileSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   powerLevelToDamage,
   calculateDamageBuff,
@@ -15,7 +18,12 @@ import {
   classifyDamageEfficiency,
   computeHit,
   assembleBuildBuffStack,
+  loadCalculatorData,
+  computeBreakpoints,
+  summarizeBreakpoints,
 } from "./ground-truth/lib/damage-calculator.mjs";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // ---------- helpers ----------
 const approx = (actual, expected, tol = 0.001) =>
@@ -1597,5 +1605,480 @@ describe("assembleBuildBuffStack", () => {
 
     const stackLow = assembleBuildBuffStack(build, mockIndex, { health_state: "low" });
     assert.equal(stackLow.additive_sum, 1); // excluded
+  });
+});
+
+// ---------- computeBreakpoints (unit tests with mock data) ----------
+
+const MOCK_CONSTANTS = {
+  default_power_level: 500,
+  min_power_level: 0,
+  max_power_level: 10000,
+  damage_output: {
+    unarmored: { min: 0, max: 20 },
+    armored: { min: 0, max: 15 },
+    super_armor: { min: 0, max: 10 },
+    resistant: { min: 0, max: 18 },
+    berserker: { min: 0, max: 20 },
+    disgustingly_resilient: { min: 0, max: 16 },
+    void_shield: { min: 0, max: 5 },
+    player: { min: 0, max: 20 },
+  },
+  default_finesse_boost_amount: { unarmored: 0.5, armored: 0.5, super_armor: 0.25, resistant: 0.5, berserker: 0.5, disgustingly_resilient: 0.5 },
+  default_crit_boost_amount: 0.5,
+  boost_curves: { default: [0, 0.3, 0.6, 0.8, 1] },
+  rending_armor_type_multiplier: { unarmored: 0, armored: 1, super_armor: 1, resistant: 0.5, berserker: 0, disgustingly_resilient: 0, void_shield: 0 },
+  overdamage_rending_multiplier: { unarmored: 0, armored: 0.5, super_armor: 0.5, resistant: 0.25, berserker: 0, disgustingly_resilient: 0, void_shield: 0 },
+  default_armor_damage_modifier: { attack: { unarmored: 1, armored: 1, super_armor: 0.25, resistant: 1, berserker: 1, disgustingly_resilient: 1, void_shield: 0.5 } },
+};
+
+const MOCK_PROFILES = [
+  {
+    id: "mock_light_melee",
+    source_file: "test",
+    damage_type: "metal_slashing_light",
+    stagger_category: "melee",
+    melee_attack_strength: "light",
+    power_distribution: { attack: 80, impact: 5 },
+    armor_damage_modifier: { attack: { unarmored: 1.2, armored: 0.5, super_armor: 0.1, resistant: 0.8, berserker: 1.0, disgustingly_resilient: 0.9 } },
+  },
+  {
+    id: "mock_heavy_melee",
+    source_file: "test",
+    damage_type: "metal_slashing_heavy",
+    stagger_category: "melee",
+    melee_attack_strength: "heavy",
+    power_distribution: { attack: 120, impact: 10 },
+    armor_damage_modifier: { attack: { unarmored: 1.5, armored: 0.8, super_armor: 0.3, resistant: 1.0, berserker: 1.2, disgustingly_resilient: 1.0 } },
+  },
+  {
+    id: "mock_ranged_shot",
+    source_file: "test",
+    damage_type: "auto_bullet",
+    stagger_category: "killshot",
+    melee_attack_strength: null,
+    power_distribution: { attack: 60, impact: 2 },
+    armor_damage_modifier_ranged: {
+      near: { attack: { unarmored: 1.0, armored: 0.6, super_armor: 0.05, resistant: 0.9, berserker: 1.0, disgustingly_resilient: 0.8 } },
+      far: { attack: { unarmored: 0.8, armored: 0.4, super_armor: 0.02, resistant: 0.7, berserker: 0.8, disgustingly_resilient: 0.6 } },
+    },
+  },
+];
+
+const MOCK_ACTION_MAPS = [
+  {
+    weapon_template: "combatsword_p1_m1",
+    actions: {
+      light_attack: ["mock_light_melee"],
+      heavy_attack: ["mock_heavy_melee"],
+    },
+  },
+  {
+    weapon_template: "autogun_p1_m1",
+    actions: {
+      shoot_hip: ["mock_ranged_shot"],
+    },
+  },
+];
+
+const MOCK_BREEDS = [
+  {
+    id: "chaos_poxwalker",
+    display_name: "Poxwalker",
+    faction: "chaos",
+    base_armor_type: "unarmored",
+    tags: ["horde"],
+    difficulty_health: { uprising: 50, malice: 63, heresy: 75, damnation: 100, auric: 125 },
+    hit_zones: {
+      head: { armor_type: "unarmored", weakspot: true, damage_multiplier: { melee: 2.0, ranged: 2.0 } },
+      torso: { armor_type: "unarmored", weakspot: false, damage_multiplier: { melee: 1.0, ranged: 1.0 } },
+    },
+  },
+  {
+    id: "renegade_berzerker",
+    display_name: "Berzerker",
+    faction: "renegade",
+    base_armor_type: "armored",
+    tags: ["elite"],
+    difficulty_health: { uprising: 850, malice: 1000, heresy: 1250, damnation: 1875, auric: 2500 },
+    hit_zones: {
+      head: { armor_type: "armored", weakspot: true, damage_multiplier: { melee: 1.0, ranged: 1.0 } },
+      torso: { armor_type: "super_armor", weakspot: false, damage_multiplier: { melee: 1.0, ranged: 1.0 } },
+    },
+  },
+];
+
+const MOCK_CALC_DATA = {
+  profiles: MOCK_PROFILES,
+  actionMaps: MOCK_ACTION_MAPS,
+  constants: MOCK_CONSTANTS,
+  breeds: MOCK_BREEDS,
+};
+
+const MOCK_INDEX = {
+  entities: new Map(),
+  edges: [],
+};
+
+const MOCK_BUILD = {
+  class: { raw_label: "veteran", canonical_entity_id: "shared.class.veteran", resolution_status: "resolved" },
+  ability: null,
+  blitz: null,
+  aura: null,
+  keystone: null,
+  talents: [],
+  weapons: [
+    {
+      slot: "melee",
+      name: { raw_label: "Combat Sword", canonical_entity_id: "shared.weapon.combatsword_p1_m1", resolution_status: "resolved" },
+      blessings: [],
+      perks: [],
+    },
+    {
+      slot: "ranged",
+      name: { raw_label: "Autogun", canonical_entity_id: "shared.weapon.autogun_p1_m1", resolution_status: "resolved" },
+      blessings: [],
+      perks: [],
+    },
+  ],
+  curios: [],
+};
+
+describe("computeBreakpoints (unit)", () => {
+  it("produces a matrix with correct structure", () => {
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
+
+    assert.equal(matrix.weapons.length, 2, "should have 2 weapons");
+    assert.equal(matrix.metadata.quality, 0.8);
+    assert.deepEqual(matrix.metadata.scenarios, ["sustained", "aimed", "burst"]);
+    assert.ok(matrix.metadata.timestamp, "should have timestamp");
+  });
+
+  it("melee weapon has light and heavy actions", () => {
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
+    const melee = matrix.weapons.find(w => w.entityId === "shared.weapon.combatsword_p1_m1");
+    assert.ok(melee, "melee weapon should be in matrix");
+    assert.equal(melee.slot, 0);
+
+    const actionTypes = melee.actions.map(a => a.type);
+    assert.ok(actionTypes.includes("light_attack"), "should have light_attack");
+    assert.ok(actionTypes.includes("heavy_attack"), "should have heavy_attack");
+  });
+
+  it("ranged weapon has shoot_hip action", () => {
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
+    const ranged = matrix.weapons.find(w => w.entityId === "shared.weapon.autogun_p1_m1");
+    assert.ok(ranged, "ranged weapon should be in matrix");
+    assert.equal(ranged.slot, 1);
+
+    const actionTypes = ranged.actions.map(a => a.type);
+    assert.ok(actionTypes.includes("shoot_hip"), "should have shoot_hip");
+  });
+
+  it("each action has all 3 scenarios", () => {
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
+    for (const weapon of matrix.weapons) {
+      for (const action of weapon.actions) {
+        assert.ok(action.scenarios.sustained, `${action.type} missing sustained`);
+        assert.ok(action.scenarios.aimed, `${action.type} missing aimed`);
+        assert.ok(action.scenarios.burst, `${action.type} missing burst`);
+      }
+    }
+  });
+
+  it("each scenario has breeds × difficulties entries", () => {
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
+    const expectedCount = MOCK_BREEDS.length * 5; // 2 breeds × 5 difficulties
+    for (const weapon of matrix.weapons) {
+      for (const action of weapon.actions) {
+        for (const scenarioName of ["sustained", "aimed", "burst"]) {
+          const scenario = action.scenarios[scenarioName];
+          assert.equal(scenario.breeds.length, expectedCount,
+            `${action.type}/${scenarioName} should have ${expectedCount} breed entries`);
+        }
+      }
+    }
+  });
+
+  it("all breed entries have numeric hitsToKill", () => {
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
+    for (const weapon of matrix.weapons) {
+      for (const action of weapon.actions) {
+        for (const [scenarioName, scenario] of Object.entries(action.scenarios)) {
+          for (const entry of scenario.breeds) {
+            assert.ok(
+              typeof entry.hitsToKill === "number",
+              `${weapon.entityId}/${action.type}/${scenarioName}/${entry.breed_id}/${entry.difficulty}: hitsToKill is ${typeof entry.hitsToKill}`,
+            );
+            assert.ok(
+              !Number.isNaN(entry.hitsToKill),
+              `${weapon.entityId}/${action.type}/${scenarioName}/${entry.breed_id}/${entry.difficulty}: hitsToKill is NaN`,
+            );
+          }
+        }
+      }
+    }
+  });
+
+  it("all breed entries have positive damage", () => {
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
+    for (const weapon of matrix.weapons) {
+      for (const action of weapon.actions) {
+        for (const [scenarioName, scenario] of Object.entries(action.scenarios)) {
+          for (const entry of scenario.breeds) {
+            assert.ok(
+              typeof entry.damage === "number" && !Number.isNaN(entry.damage),
+              `${weapon.entityId}/${action.type}/${scenarioName}/${entry.breed_id}: damage is ${entry.damage}`,
+            );
+          }
+        }
+      }
+    }
+  });
+
+  it("hitsToKill is higher for tougher enemies at same difficulty", () => {
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
+    const melee = matrix.weapons[0];
+    const light = melee.actions.find(a => a.type === "light_attack");
+    const sustained = light.scenarios.sustained;
+
+    const poxDamn = sustained.breeds.find(b => b.breed_id === "chaos_poxwalker" && b.difficulty === "damnation");
+    const berDamn = sustained.breeds.find(b => b.breed_id === "renegade_berzerker" && b.difficulty === "damnation");
+
+    assert.ok(berDamn.hitsToKill > poxDamn.hitsToKill,
+      `berzerker (${berDamn.hitsToKill}) should take more hits than poxwalker (${poxDamn.hitsToKill})`);
+  });
+
+  it("burst scenario does more damage than sustained (headshots + crit)", () => {
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
+    const melee = matrix.weapons[0];
+    const light = melee.actions.find(a => a.type === "light_attack");
+
+    // Pick the same breed and difficulty, compare sustained vs burst damage
+    // Note: sustained targets torso (no weakspot), burst targets head (weakspot + crit)
+    const poxSustained = light.scenarios.sustained.breeds.find(
+      b => b.breed_id === "chaos_poxwalker" && b.difficulty === "damnation"
+    );
+    const poxBurst = light.scenarios.burst.breeds.find(
+      b => b.breed_id === "chaos_poxwalker" && b.difficulty === "damnation"
+    );
+
+    // burst should do more (crit + weakspot + head hitzone mult of 2.0)
+    assert.ok(poxBurst.damage > poxSustained.damage,
+      `burst (${poxBurst.damage}) should do more than sustained (${poxSustained.damage})`);
+  });
+
+  it("builds summary with bestLight and bestHeavy for melee weapon", () => {
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
+    const melee = matrix.weapons.find(w => w.entityId === "shared.weapon.combatsword_p1_m1");
+    assert.ok(melee.summary, "should have summary");
+    assert.ok(melee.summary.bestLight, "should have bestLight");
+    assert.ok(melee.summary.bestHeavy, "should have bestHeavy");
+    assert.equal(melee.summary.bestLight.actionType, "light_attack");
+    assert.equal(melee.summary.bestHeavy.actionType, "heavy_attack");
+    assert.ok(melee.summary.bestLight.damnation, "bestLight should have damnation breakpoints");
+  });
+
+  it("skips weapons with unresolved names", () => {
+    const build = {
+      ...MOCK_BUILD,
+      weapons: [
+        { slot: "melee", name: { raw_label: "Unknown", canonical_entity_id: null, resolution_status: "unresolved" }, blessings: [], perks: [] },
+      ],
+    };
+    const matrix = computeBreakpoints(build, MOCK_INDEX, MOCK_CALC_DATA);
+    assert.equal(matrix.weapons.length, 0, "should skip unresolved weapons");
+  });
+
+  it("skips weapons without action maps", () => {
+    const build = {
+      ...MOCK_BUILD,
+      weapons: [
+        { slot: "melee", name: { raw_label: "Unknown Sword", canonical_entity_id: "shared.weapon.unknown_sword_p1_m1", resolution_status: "resolved" }, blessings: [], perks: [] },
+      ],
+    };
+    const matrix = computeBreakpoints(build, MOCK_INDEX, MOCK_CALC_DATA);
+    assert.equal(matrix.weapons.length, 0, "should skip weapons without action maps");
+  });
+
+  it("handles array power_distribution with quality lerp", () => {
+    const profiles = [
+      {
+        id: "mock_lerp_profile",
+        source_file: "test",
+        damage_type: "test",
+        stagger_category: "melee",
+        melee_attack_strength: "light",
+        power_distribution: { attack: [50, 150], impact: [2, 8] },
+        armor_damage_modifier: { attack: { unarmored: 1.0 } },
+      },
+    ];
+    const actionMaps = [
+      { weapon_template: "test_weapon_m1", actions: { light_attack: ["mock_lerp_profile"] } },
+    ];
+    const build = {
+      ...MOCK_BUILD,
+      weapons: [
+        { slot: "melee", name: { raw_label: "Test", canonical_entity_id: "shared.weapon.test_weapon_m1", resolution_status: "resolved" }, blessings: [], perks: [] },
+      ],
+    };
+    const calcData = { ...MOCK_CALC_DATA, profiles, actionMaps };
+    const matrix = computeBreakpoints(build, MOCK_INDEX, calcData);
+
+    assert.equal(matrix.weapons.length, 1);
+    assert.ok(matrix.weapons[0].actions.length > 0);
+    // With quality 0.8: attack = lerp(50, 150, 0.8) = 130
+    // Damage should be positive and finite
+    const entry = matrix.weapons[0].actions[0].scenarios.sustained.breeds[0];
+    assert.ok(Number.isFinite(entry.damage) && entry.damage > 0,
+      `damage should be finite positive, got ${entry.damage}`);
+  });
+});
+
+// ---------- summarizeBreakpoints (unit) ----------
+
+describe("summarizeBreakpoints (unit)", () => {
+  it("extracts key breakpoints for each weapon/scenario/category", () => {
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
+    const summaries = summarizeBreakpoints(matrix);
+
+    assert.ok(summaries.length > 0, "should have at least one summary entry");
+
+    // Check that each summary has the expected shape
+    for (const s of summaries) {
+      assert.ok(s.weaponId, "should have weaponId");
+      assert.ok(s.scenario, "should have scenario");
+      assert.ok(s.category, "should have category");
+      assert.ok(s.bestAction, "should have bestAction");
+      assert.ok(s.bestAction.type, "bestAction should have type");
+      assert.ok(s.bestAction.profileId, "bestAction should have profileId");
+      assert.ok(s.keyBreakpoints, "should have keyBreakpoints");
+    }
+  });
+
+  it("includes key breeds in breakpoints", () => {
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
+    const summaries = summarizeBreakpoints(matrix);
+
+    // Find a melee light summary
+    const meleeLight = summaries.find(
+      s => s.weaponId === "shared.weapon.combatsword_p1_m1" && s.category === "light" && s.scenario === "sustained"
+    );
+    assert.ok(meleeLight, "should have melee light sustained summary");
+    assert.ok("renegade_berzerker" in meleeLight.keyBreakpoints, "should include renegade_berzerker");
+    assert.ok("chaos_poxwalker" in meleeLight.keyBreakpoints, "should include chaos_poxwalker");
+  });
+
+  it("returns null for missing key breeds", () => {
+    // Build with only 1 breed (poxwalker), missing berzerker and bulwark
+    const singleBreedData = {
+      ...MOCK_CALC_DATA,
+      breeds: [MOCK_BREEDS[0]], // only poxwalker
+    };
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, singleBreedData);
+    const summaries = summarizeBreakpoints(matrix);
+
+    const entry = summaries.find(s => s.scenario === "sustained" && s.category === "light");
+    assert.ok(entry, "should have a summary");
+    // chaos_ogryn_bulwark and renegade_berzerker are not in data → null
+    assert.equal(entry.keyBreakpoints.chaos_ogryn_bulwark, null, "missing breed should be null");
+    assert.equal(entry.keyBreakpoints.renegade_berzerker, null, "missing breed should be null");
+    // poxwalker should have a numeric value
+    assert.ok(typeof entry.keyBreakpoints.chaos_poxwalker === "number", "present breed should be numeric");
+  });
+
+  it("covers all scenarios", () => {
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
+    const summaries = summarizeBreakpoints(matrix);
+    const scenarios = new Set(summaries.map(s => s.scenario));
+    assert.ok(scenarios.has("sustained"), "should cover sustained");
+    assert.ok(scenarios.has("aimed"), "should cover aimed");
+    assert.ok(scenarios.has("burst"), "should cover burst");
+  });
+});
+
+// ---------- computeBreakpoints (integration — requires source root) ----------
+
+const HAS_SOURCE = !!process.env.GROUND_TRUTH_SOURCE_ROOT;
+
+describe("computeBreakpoints (integration)", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_SOURCE_ROOT" }, () => {
+  it("produces a breakpoint matrix for a psyker build", async () => {
+    const { loadIndex } = await import("./ground-truth/lib/synergy-model.mjs");
+    const build = JSON.parse(readFileSync(join(__dirname, "builds", "08-gandalf-melee-wizard.json"), "utf-8"));
+    const index = loadIndex();
+    const calcData = loadCalculatorData();
+    const matrix = computeBreakpoints(build, index, calcData);
+
+    assert.ok(matrix.weapons.length > 0, "no weapons in matrix");
+    assert.ok(matrix.weapons[0].actions.length > 0, "no actions");
+    assert.ok(matrix.weapons[0].actions[0].scenarios.sustained, "missing sustained scenario");
+    assert.ok(matrix.weapons[0].summary, "missing summary");
+    assert.equal(matrix.metadata.quality, 0.8);
+
+    // Log stats for the report
+    let totalActions = 0;
+    let totalBreedEntries = 0;
+    for (const w of matrix.weapons) {
+      totalActions += w.actions.length;
+      for (const a of w.actions) {
+        for (const s of Object.values(a.scenarios)) {
+          totalBreedEntries += s.breeds.length;
+        }
+      }
+    }
+    console.log(`  [integration] weapons=${matrix.weapons.length} actions=${totalActions} breedEntries=${totalBreedEntries}`);
+    console.log(`  [integration] breeds=${calcData.breeds.length} difficulties=5 scenarios=3`);
+  });
+
+  it("all breed entries have numeric hitsToKill", async () => {
+    const { loadIndex } = await import("./ground-truth/lib/synergy-model.mjs");
+    const build = JSON.parse(readFileSync(join(__dirname, "builds", "08-gandalf-melee-wizard.json"), "utf-8"));
+    const index = loadIndex();
+    const calcData = loadCalculatorData();
+    const matrix = computeBreakpoints(build, index, calcData);
+
+    let checked = 0;
+    for (const weapon of matrix.weapons) {
+      for (const action of weapon.actions) {
+        for (const [scenarioName, scenario] of Object.entries(action.scenarios)) {
+          for (const entry of scenario.breeds) {
+            assert.ok(
+              typeof entry.hitsToKill === "number" && !Number.isNaN(entry.hitsToKill),
+              `${weapon.entityId}/${action.type}/${scenarioName}/${entry.breed_id}/${entry.difficulty}: hitsToKill is ${entry.hitsToKill}`,
+            );
+            assert.ok(
+              typeof entry.damage === "number" && !Number.isNaN(entry.damage),
+              `${weapon.entityId}/${action.type}/${scenarioName}/${entry.breed_id}/${entry.difficulty}: damage is ${entry.damage}`,
+            );
+            checked++;
+          }
+        }
+      }
+    }
+    console.log(`  [integration] verified ${checked} breed entries`);
+  });
+
+  it("summarizeBreakpoints returns valid summaries", async () => {
+    const { loadIndex } = await import("./ground-truth/lib/synergy-model.mjs");
+    const build = JSON.parse(readFileSync(join(__dirname, "builds", "08-gandalf-melee-wizard.json"), "utf-8"));
+    const index = loadIndex();
+    const calcData = loadCalculatorData();
+    const matrix = computeBreakpoints(build, index, calcData);
+    const summaries = summarizeBreakpoints(matrix);
+
+    assert.ok(summaries.length > 0, "should have summaries");
+    for (const s of summaries) {
+      assert.ok(s.weaponId, "should have weaponId");
+      assert.ok(s.scenario, "should have scenario");
+      assert.ok(s.category, "should have category");
+      assert.ok(s.bestAction.type, "should have bestAction.type");
+      for (const [breedId, htk] of Object.entries(s.keyBreakpoints)) {
+        if (htk !== null) {
+          assert.ok(typeof htk === "number" && !Number.isNaN(htk),
+            `${s.weaponId}/${s.scenario}/${s.category}/${breedId}: hitsToKill is ${htk}`);
+        }
+      }
+    }
+    console.log(`  [integration] ${summaries.length} summary entries`);
   });
 });

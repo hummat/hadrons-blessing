@@ -1,5 +1,6 @@
 /**
- * Damage calculator engine — all 13 pipeline stages + computeHit orchestrator.
+ * Damage calculator engine — all 13 pipeline stages + computeHit orchestrator,
+ * breakpoint matrix computation, and summary extraction.
  *
  * Direct port of Darktide's damage_calculation.lua (13-stage pipeline).
  * Each stage is a pure function with no side effects.
@@ -11,6 +12,13 @@
  *             scripts/settings/damage/armor_settings.lua
  *             scripts/settings/damage/attack_settings.lua
  */
+
+import { readFileSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const GENERATED_DIR = join(__dirname, "..", "..", "..", "data", "ground-truth", "generated");
 
 // ── Utilities ───────────────────────────────────────────────────────
 
@@ -939,4 +947,422 @@ export function assembleBuildBuffStack(build, index, flags) {
     target_modifier: targetModifier,
     ...individualStats,
   };
+}
+
+// ── Data Loading ─────────────────────────────────────────────────────
+
+/**
+ * Loads the two generated JSON files (damage-profiles.json & breed-data.json)
+ * and returns a bundled object for use by computeBreakpoints.
+ *
+ * @returns {{ profiles: object[], actionMaps: object[], constants: object, breeds: object[] }}
+ */
+export function loadCalculatorData() {
+  const profileData = JSON.parse(readFileSync(join(GENERATED_DIR, "damage-profiles.json"), "utf-8"));
+  const breedData = JSON.parse(readFileSync(join(GENERATED_DIR, "breed-data.json"), "utf-8"));
+  return {
+    profiles: profileData.profiles,
+    actionMaps: profileData.action_maps,
+    constants: profileData.constants,
+    breeds: breedData.breeds,
+  };
+}
+
+// ── Breakpoint Matrix ────────────────────────────────────────────────
+
+/**
+ * Action type categories for summary grouping.
+ * Maps action_map action names to light/heavy/special/push.
+ */
+const ACTION_CATEGORY = {
+  light_attack: "light",
+  action_swing: "light",
+  action_swing_right: "light",
+  action_swing_up: "light",
+  push_followup: "light",
+  heavy_attack: "heavy",
+  shoot_hip: "light",
+  shoot_zoomed: "light",
+  shoot_charged: "heavy",
+  weapon_special: "special",
+  push: "push",
+  action_overheat_explode: "special",
+};
+
+const DIFFICULTIES = ["uprising", "malice", "heresy", "damnation", "auric"];
+
+const SCENARIO_PRESETS = {
+  sustained: { health_state: "full" },
+  aimed: { is_weakspot: true, health_state: "full" },
+  burst: { is_crit: true, is_weakspot: true, proc_stacks: Infinity, health_state: "low" },
+};
+
+const SCENARIO_HITZONES = {
+  sustained: "torso",
+  aimed: "head",
+  burst: "head",
+};
+
+/**
+ * Adapts the generated breed-data.json hit_zones format to the shape
+ * expected by computeHit.
+ *
+ * Generated format:
+ *   hit_zones: { head: { armor_type, weakspot, damage_multiplier: { ranged, melee } }, ... }
+ *
+ * computeHit expects:
+ *   hit_zones: { head: { armor_type, weakspot }, ... }
+ *   hitzone_damage_multiplier: { ranged: { head: 1.5 }, melee: { head: 1 }, default: { head: 1 } }
+ *
+ * @param {object} rawBreed - Breed record from breed-data.json
+ * @returns {object} Breed record with hitzone_damage_multiplier added
+ */
+function adaptBreed(rawBreed) {
+  if (!rawBreed.hit_zones) return rawBreed;
+
+  const hzm = { default: {}, melee: {}, ranged: {} };
+  const adaptedHitZones = {};
+
+  for (const [zone, data] of Object.entries(rawBreed.hit_zones)) {
+    adaptedHitZones[zone] = {
+      armor_type: data.armor_type,
+      weakspot: data.weakspot ?? false,
+    };
+    const dm = data.damage_multiplier;
+    if (dm) {
+      if (dm.melee != null) hzm.melee[zone] = dm.melee;
+      if (dm.ranged != null) hzm.ranged[zone] = dm.ranged;
+      hzm.default[zone] = dm.melee ?? dm.ranged ?? 1;
+    }
+  }
+
+  return {
+    ...rawBreed,
+    hit_zones: adaptedHitZones,
+    hitzone_damage_multiplier: hzm,
+  };
+}
+
+/**
+ * Lerps array-valued profile fields by quality. If the value is already
+ * a scalar, returns it unchanged.
+ *
+ * @param {number|number[]} entry - Scalar or [min, max] array
+ * @param {number} quality - 0-1 lerp factor
+ * @returns {number} Resolved scalar value
+ */
+function lerpProfileEntry(entry, quality) {
+  if (Array.isArray(entry)) {
+    return entry[0] + (entry[1] - entry[0]) * quality;
+  }
+  return entry;
+}
+
+/**
+ * Resolves a damage profile's power_distribution for a specific quality,
+ * lerping any [min, max] arrays down to scalars.
+ *
+ * @param {object} profile - Raw damage profile from profiles.json
+ * @param {number} quality - Weapon quality 0-1
+ * @returns {object} Profile with scalar power_distribution.attack
+ */
+function resolveProfileForQuality(profile, quality) {
+  const pd = profile.power_distribution;
+  if (!pd) return profile;
+
+  const resolved = { ...pd };
+  if (Array.isArray(pd.attack)) {
+    resolved.attack = lerpProfileEntry(pd.attack, quality);
+  }
+  if (Array.isArray(pd.impact)) {
+    resolved.impact = lerpProfileEntry(pd.impact, quality);
+  }
+
+  return { ...profile, power_distribution: resolved };
+}
+
+/**
+ * Determines whether a weapon is ranged based on its slot or template name.
+ *
+ * @param {object} weapon - Build weapon entry
+ * @param {string} templateName - Internal weapon template name
+ * @returns {boolean}
+ */
+function isWeaponRanged(weapon, templateName) {
+  if (weapon.slot === "ranged") return true;
+  if (weapon.slot === "melee") return false;
+  // Heuristic: if the template has action_maps with shoot_ actions, it's ranged
+  // But we don't have that info here, so fall back to melee
+  return false;
+}
+
+/**
+ * Computes a breakpoint matrix for all weapons in a build.
+ *
+ * For each weapon × action × scenario × breed × difficulty, runs computeHit
+ * and stores the result. Also builds per-weapon summaries with best actions
+ * per category at damnation difficulty.
+ *
+ * @param {object} build - Canonical build JSON
+ * @param {object} index - { entities: Map, edges: Array } from loadIndex()
+ * @param {object} calcData - From loadCalculatorData()
+ * @returns {object} Breakpoint matrix (see output shape in docs)
+ */
+export function computeBreakpoints(build, index, calcData) {
+  const quality = 0.8;
+
+  // Build profile lookup map
+  const profileMap = new Map();
+  for (const p of calcData.profiles) {
+    profileMap.set(p.id, p);
+  }
+
+  // Build action map lookup by weapon template
+  const actionMapByTemplate = new Map();
+  for (const am of calcData.actionMaps) {
+    actionMapByTemplate.set(am.weapon_template, am);
+  }
+
+  // Pre-adapt all breeds
+  const breeds = calcData.breeds.map(adaptBreed);
+
+  // Pre-build buff stacks per scenario
+  const buffStacks = {};
+  for (const [name, flags] of Object.entries(SCENARIO_PRESETS)) {
+    buffStacks[name] = assembleBuildBuffStack(build, index, flags);
+  }
+
+  const weaponResults = [];
+
+  for (let slot = 0; slot < (build.weapons ?? []).length; slot++) {
+    const weapon = build.weapons[slot];
+    const entityId = weapon.name?.canonical_entity_id;
+    if (!entityId || weapon.name?.resolution_status !== "resolved") continue;
+
+    // Extract internal template name: shared.weapon.autogun_p1_m1 → autogun_p1_m1
+    const templateName = entityId.split(".").pop();
+    const actionMap = actionMapByTemplate.get(templateName);
+    if (!actionMap) continue; // No action map for this weapon — skip
+
+    const isRanged = isWeaponRanged(weapon, templateName);
+    const distance = isRanged ? 20 : 0;
+
+    const actionResults = [];
+
+    for (const [actionType, profileIds] of Object.entries(actionMap.actions)) {
+      for (const profileId of profileIds) {
+        const rawProfile = profileMap.get(profileId);
+        if (!rawProfile) continue;
+
+        const profile = resolveProfileForQuality(rawProfile, quality);
+
+        const scenarios = {};
+
+        for (const scenarioName of Object.keys(SCENARIO_PRESETS)) {
+          const hitZone = SCENARIO_HITZONES[scenarioName];
+          const buffStack = buffStacks[scenarioName];
+          const flags = SCENARIO_PRESETS[scenarioName];
+          const breedResults = [];
+
+          for (const breed of breeds) {
+            for (const diff of DIFFICULTIES) {
+              const result = computeHit({
+                profile,
+                hitZone,
+                breed,
+                difficulty: diff,
+                flags,
+                buffStack,
+                quality,
+                distance,
+                constants: calcData.constants,
+              });
+
+              breedResults.push({
+                breed_id: breed.id,
+                difficulty: diff,
+                hitsToKill: result.hitsToKill,
+                damage: result.damage,
+                hitZone,
+                effectiveArmorType: result.effectiveArmorType,
+                damageEfficiency: result.damageEfficiency,
+              });
+            }
+          }
+
+          scenarios[scenarioName] = { breeds: breedResults };
+        }
+
+        actionResults.push({
+          type: actionType,
+          profileId,
+          scenarios,
+        });
+      }
+    }
+
+    // Build summary: best action per category at damnation for sustained scenario
+    const summary = buildActionSummary(actionResults);
+
+    weaponResults.push({
+      entityId,
+      slot,
+      actions: actionResults,
+      summary,
+    });
+  }
+
+  return {
+    weapons: weaponResults,
+    metadata: {
+      quality,
+      scenarios: Object.keys(SCENARIO_PRESETS),
+      timestamp: new Date().toISOString(),
+    },
+  };
+}
+
+/**
+ * Builds a per-weapon summary: bestLight, bestHeavy, bestSpecial.
+ * Picks the action with the lowest average hitsToKill at damnation for each category.
+ *
+ * @param {object[]} actionResults - Array of action results from computeBreakpoints
+ * @returns {{ bestLight: object|null, bestHeavy: object|null, bestSpecial: object|null }}
+ */
+function buildActionSummary(actionResults) {
+  const categoryBest = { light: null, heavy: null, special: null };
+
+  for (const action of actionResults) {
+    const category = ACTION_CATEGORY[action.type] ?? null;
+    if (!category || category === "push") continue;
+    if (!categoryBest.hasOwnProperty(category)) continue;
+
+    // Compute average hitsToKill at damnation across all breeds for sustained scenario
+    const sustained = action.scenarios.sustained;
+    if (!sustained) continue;
+
+    const damnationEntries = sustained.breeds.filter(b => b.difficulty === "damnation");
+    if (damnationEntries.length === 0) continue;
+
+    // Use sum of finite hitsToKill; treat Infinity as very large
+    const totalHTK = damnationEntries.reduce((sum, b) => {
+      return sum + (Number.isFinite(b.hitsToKill) ? b.hitsToKill : 9999);
+    }, 0);
+    const avgHTK = totalHTK / damnationEntries.length;
+
+    // Build per-breed breakdown at damnation
+    const damnationBreakpoints = {};
+    for (const entry of damnationEntries) {
+      damnationBreakpoints[entry.breed_id] = entry.hitsToKill;
+    }
+
+    const candidate = {
+      actionType: action.type,
+      profileId: action.profileId,
+      damnation: damnationBreakpoints,
+      _avgHTK: avgHTK,
+    };
+
+    const current = categoryBest[category];
+    if (!current || avgHTK < current._avgHTK) {
+      categoryBest[category] = candidate;
+    }
+  }
+
+  // Strip internal _avgHTK from output
+  const clean = (entry) => {
+    if (!entry) return null;
+    const { _avgHTK, ...rest } = entry;
+    return rest;
+  };
+
+  return {
+    bestLight: clean(categoryBest.light),
+    bestHeavy: clean(categoryBest.heavy),
+    bestSpecial: clean(categoryBest.special),
+  };
+}
+
+// ── Breakpoint Summary ───────────────────────────────────────────────
+
+/** Key breed IDs for breakpoint summary: elite, armored heavy, horde. */
+const KEY_BREEDS = ["renegade_berzerker", "chaos_ogryn_bulwark", "chaos_poxwalker"];
+
+/**
+ * Extracts per-weapon best-case hits-to-kill for key enemies at damnation.
+ * Used by the scoring layer.
+ *
+ * For each weapon, for each scenario, picks the best action per category
+ * (light/heavy/special) by lowest hitsToKill for key enemies.
+ *
+ * @param {object} matrix - Output from computeBreakpoints
+ * @returns {object[]} Array of summary entries
+ */
+export function summarizeBreakpoints(matrix) {
+  const summaries = [];
+
+  for (const weapon of matrix.weapons) {
+    for (const scenarioName of matrix.metadata.scenarios) {
+      // Group actions by category
+      const categoryActions = { light: [], heavy: [], special: [] };
+
+      for (const action of weapon.actions) {
+        const category = ACTION_CATEGORY[action.type] ?? null;
+        if (!category || category === "push") continue;
+        if (!categoryActions.hasOwnProperty(category)) continue;
+        categoryActions[category].push(action);
+      }
+
+      for (const [category, actions] of Object.entries(categoryActions)) {
+        if (actions.length === 0) continue;
+
+        // Pick action with lowest average hitsToKill across key breeds at damnation
+        let bestAction = null;
+        let bestAvg = Infinity;
+
+        for (const action of actions) {
+          const scenario = action.scenarios[scenarioName];
+          if (!scenario) continue;
+
+          const keyEntries = scenario.breeds.filter(
+            b => b.difficulty === "damnation" && KEY_BREEDS.includes(b.breed_id)
+          );
+          if (keyEntries.length === 0) continue;
+
+          const avg = keyEntries.reduce((sum, b) => {
+            return sum + (Number.isFinite(b.hitsToKill) ? b.hitsToKill : 9999);
+          }, 0) / keyEntries.length;
+
+          if (avg < bestAvg) {
+            bestAvg = avg;
+            bestAction = action;
+          }
+        }
+
+        if (!bestAction) continue;
+
+        const scenario = bestAction.scenarios[scenarioName];
+        const keyBreakpoints = {};
+        for (const breedId of KEY_BREEDS) {
+          const entry = scenario.breeds.find(
+            b => b.breed_id === breedId && b.difficulty === "damnation"
+          );
+          keyBreakpoints[breedId] = entry?.hitsToKill ?? null;
+        }
+
+        summaries.push({
+          weaponId: weapon.entityId,
+          scenario: scenarioName,
+          category,
+          bestAction: {
+            type: bestAction.type,
+            profileId: bestAction.profileId,
+          },
+          keyBreakpoints,
+        });
+      }
+    }
+  }
+
+  return summaries;
 }
