@@ -634,6 +634,8 @@ describe("real build perk normalization (integration)", () => {
     ["+6-15% Corruption Resistance", "Corruption Resistance"],
     ["+6-12% Block Efficiency", "Block Efficiency"],
     ["6-15% Sprint Efficiency", "Sprint Efficiency"],
+    ["+1 Wound(s)", "Wound(s)"],
+    ["+1-3 Max Stamina", "Max Stamina"],
   ];
 
   for (const [raw, expectedName] of CURIO_PERK_EXPECTATIONS) {

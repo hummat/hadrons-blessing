@@ -56,6 +56,8 @@
     "DR vs Bombers": { "stat": "dr_vs_bombers", "tiers": [0.05, 0.10, 0.15, 0.20] },
     "DR vs Mutants": { "stat": "dr_vs_mutants", "tiers": [0.05, 0.10, 0.15, 0.20] },
     "DR vs Pox Hounds": { "stat": "dr_vs_pox_hounds", "tiers": [0.05, 0.10, 0.15, 0.20] },
+    "Wound(s)": { "stat": "wounds", "tiers": [1, 1, 1, 1] },
+    "Max Stamina": { "stat": "max_stamina", "tiers": [1, 1.5, 2, 3] },
     "Experience": { "stat": "experience", "tiers": [0.02, 0.04, 0.06, 0.10] },
     "Ordo Dockets": { "stat": "ordo_dockets", "tiers": [0.04, 0.06, 0.08, 0.10] },
     "Curio Drop Chance": { "stat": "curio_drop_chance", "tiers": [0.05, 0.10, 0.15, 0.20] }
@@ -281,7 +283,7 @@
   },
   "curio_ratings": {
     "_universal_optimal": ["DR vs Gunners", "DR vs Snipers", "Toughness"],
-    "_universal_good": ["Health", "Combat Ability Regen", "Stamina Regeneration", "Corruption Resistance"],
+    "_universal_good": ["Health", "Combat Ability Regen", "Stamina Regeneration", "Corruption Resistance", "Wound(s)"],
     "_universal_avoid": ["Experience", "Ordo Dockets", "Curio Drop Chance"],
     "veteran": { "optimal": ["DR vs Gunners", "DR vs Snipers", "Combat Ability Regen"], "good": ["Stamina Regeneration", "Toughness"] },
     "zealot": { "optimal": ["DR vs Gunners", "DR vs Snipers", "Toughness"], "good": ["Stamina Regeneration", "Sprint Efficiency"] },
