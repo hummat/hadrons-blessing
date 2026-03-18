@@ -2,7 +2,8 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { readdirSync, readFileSync } from "node:fs";
-import { scoreFromSynergy } from "./ground-truth/lib/build-scoring.mjs";
+import { scoreFromSynergy, scoreFromCalculator } from "./ground-truth/lib/build-scoring.mjs";
+import { scoreBreakpointRelevance, scoreDifficultyScaling } from "./ground-truth/lib/breakpoint-checklist.mjs";
 import { generateScorecard } from "./score-build.mjs";
 import { analyzeBuild, loadIndex } from "./ground-truth/lib/synergy-model.mjs";
 
@@ -274,6 +275,246 @@ describe("golden score snapshots", { skip: !HAS_SOURCE && "requires GROUND_TRUTH
     });
   }
 });
+
+// ── Breakpoint checklist tests ──────────────────────────────────────
+
+describe("breakpoint_relevance", () => {
+  it("scores higher when more checklist breakpoints are hit", () => {
+    // Matrix where all weapons hit all breakpoints (1 hit for everything)
+    const goodMatrix = makeMatrix({
+      hitsToKill: 1,
+      breeds: ["renegade_berzerker", "chaos_ogryn_executor", "renegade_netgunner",
+        "chaos_hound", "chaos_poxwalker_bomber", "chaos_poxwalker",
+        "renegade_executor", "chaos_ogryn_bulwark", "renegade_sniper"],
+    });
+    // Matrix where no weapon hits any breakpoint
+    const badMatrix = makeMatrix({
+      hitsToKill: 99,
+      breeds: ["renegade_berzerker", "chaos_ogryn_executor", "renegade_netgunner",
+        "chaos_hound", "chaos_poxwalker_bomber", "chaos_poxwalker",
+        "renegade_executor", "chaos_ogryn_bulwark", "renegade_sniper"],
+    });
+
+    const good = scoreBreakpointRelevance(goodMatrix);
+    const bad = scoreBreakpointRelevance(badMatrix);
+    assert.ok(good.score > bad.score, `good ${good.score} should be > bad ${bad.score}`);
+    assert.ok(good.score >= 4);
+    assert.equal(bad.score, 1);
+  });
+
+  it("scores in 1-5 range", () => {
+    const matrix = makeMatrix({
+      hitsToKill: 2,
+      breeds: ["renegade_berzerker", "chaos_ogryn_executor", "renegade_netgunner",
+        "chaos_hound", "chaos_poxwalker_bomber", "chaos_poxwalker",
+        "renegade_executor", "chaos_ogryn_bulwark", "renegade_sniper"],
+    });
+    const result = scoreBreakpointRelevance(matrix);
+    assert.ok(result.score >= 1 && result.score <= 5);
+  });
+
+  it("returns null when matrix has no weapons", () => {
+    const result = scoreBreakpointRelevance({ weapons: [], metadata: { scenarios: ["sustained", "aimed", "burst"] } });
+    assert.equal(result, null);
+  });
+
+  it("returns null for null matrix", () => {
+    assert.equal(scoreBreakpointRelevance(null), null);
+  });
+});
+
+describe("difficulty_scaling", () => {
+  it("scores higher when breakpoints hold at auric", () => {
+    // Weapon hits everything at both damnation and auric
+    const resilient = makeMatrix({
+      hitsToKill: 1,
+      breeds: ["renegade_berzerker", "chaos_ogryn_executor"],
+      difficulties: ["damnation", "auric"],
+    });
+    // Weapon hits at damnation but not auric
+    const degraded = makeMatrixWithDifficulties({
+      breeds: ["renegade_berzerker", "chaos_ogryn_executor"],
+      damnationHTK: 1,
+      auricHTK: 99,
+    });
+
+    const rScore = scoreDifficultyScaling(resilient);
+    const dScore = scoreDifficultyScaling(degraded);
+    assert.ok(rScore.score > dScore.score, `resilient ${rScore.score} should > degraded ${dScore.score}`);
+  });
+
+  it("scores lower when breakpoints lost at damnation", () => {
+    const bad = makeMatrix({
+      hitsToKill: 99,
+      breeds: ["renegade_berzerker", "chaos_ogryn_executor"],
+      difficulties: ["damnation", "auric"],
+    });
+    const result = scoreDifficultyScaling(bad);
+    assert.equal(result.score, 1);
+  });
+
+  it("returns null when matrix has no weapons", () => {
+    const result = scoreDifficultyScaling({ weapons: [], metadata: { scenarios: ["sustained", "aimed", "burst"] } });
+    assert.equal(result, null);
+  });
+});
+
+describe("generateScorecard with calcOutput", () => {
+  it("includes breakpoint_relevance when calcOutput provided", () => {
+    const build = makeMinimalBuild();
+    const matrix = makeMatrix({
+      hitsToKill: 1,
+      breeds: ["renegade_berzerker", "chaos_ogryn_executor", "renegade_netgunner",
+        "chaos_hound", "chaos_poxwalker_bomber", "chaos_poxwalker",
+        "renegade_executor", "chaos_ogryn_bulwark", "renegade_sniper"],
+    });
+    const card = generateScorecard(build, null, { matrix });
+    assert.ok(card.qualitative.breakpoint_relevance != null);
+    assert.ok(card.qualitative.breakpoint_relevance.score >= 1);
+    assert.ok(card.qualitative.breakpoint_relevance.score <= 5);
+    assert.ok(card.qualitative.difficulty_scaling != null);
+    assert.ok(card.qualitative.difficulty_scaling.score >= 1);
+    assert.ok(card.qualitative.difficulty_scaling.score <= 5);
+  });
+
+  it("gracefully degrades when calcOutput is null", () => {
+    const build = makeMinimalBuild();
+    const card = generateScorecard(build, null, null);
+    assert.equal(card.qualitative.breakpoint_relevance, null);
+    assert.equal(card.qualitative.difficulty_scaling, null);
+  });
+
+  it("still works with only 2 args (backward compat)", () => {
+    const build = makeMinimalBuild();
+    const card = generateScorecard(build);
+    assert.equal(card.qualitative.breakpoint_relevance, null);
+    assert.equal(card.qualitative.difficulty_scaling, null);
+  });
+});
+
+describe("scoreFromCalculator", () => {
+  it("returns both dimensions from matrix", () => {
+    const matrix = makeMatrix({
+      hitsToKill: 1,
+      breeds: ["renegade_berzerker", "chaos_ogryn_executor", "renegade_netgunner",
+        "chaos_hound", "chaos_poxwalker_bomber", "chaos_poxwalker",
+        "renegade_executor", "chaos_ogryn_bulwark", "renegade_sniper"],
+    });
+    const result = scoreFromCalculator({ matrix });
+    assert.ok(result.breakpoint_relevance != null);
+    assert.ok(result.difficulty_scaling != null);
+  });
+
+  it("returns null dimensions for empty matrix", () => {
+    const result = scoreFromCalculator({ matrix: { weapons: [] } });
+    assert.equal(result.breakpoint_relevance, null);
+    assert.equal(result.difficulty_scaling, null);
+  });
+});
+
+// ── Matrix test helpers ────────────────────────────────────────────
+
+function makeMinimalBuild() {
+  return {
+    title: "Test Build",
+    class: "veteran",
+    weapons: [],
+    curios: [],
+    talents: [],
+  };
+}
+
+/**
+ * Creates a mock breakpoint matrix with uniform hitsToKill for all
+ * breed/difficulty/scenario combinations.
+ */
+function makeMatrix({ hitsToKill, breeds, difficulties = ["damnation", "auric"] }) {
+  const scenarios = ["sustained", "aimed", "burst"];
+  const hitZoneMap = { sustained: "torso", aimed: "head", burst: "head" };
+
+  const breedResults = {};
+  for (const scenario of scenarios) {
+    const entries = [];
+    for (const breedId of breeds) {
+      for (const diff of difficulties) {
+        entries.push({
+          breed_id: breedId,
+          difficulty: diff,
+          hitsToKill,
+          damage: 100,
+          hitZone: hitZoneMap[scenario],
+          effectiveArmorType: "unarmored",
+          damageEfficiency: 1.0,
+        });
+      }
+    }
+    breedResults[scenario] = { breeds: entries };
+  }
+
+  return {
+    weapons: [{
+      entityId: "shared.weapon.test_weapon_m1",
+      slot: 0,
+      actions: [{
+        type: "light_attack",
+        profileId: "test_profile",
+        scenarios: breedResults,
+      }],
+      summary: { bestLight: null, bestHeavy: null, bestSpecial: null },
+    }],
+    metadata: { quality: 0.8, scenarios, timestamp: "2026-01-01T00:00:00Z" },
+  };
+}
+
+/**
+ * Creates a mock matrix with different HTK at damnation vs auric.
+ */
+function makeMatrixWithDifficulties({ breeds, damnationHTK, auricHTK }) {
+  const scenarios = ["sustained", "aimed", "burst"];
+  const hitZoneMap = { sustained: "torso", aimed: "head", burst: "head" };
+
+  const breedResults = {};
+  for (const scenario of scenarios) {
+    const entries = [];
+    for (const breedId of breeds) {
+      entries.push({
+        breed_id: breedId,
+        difficulty: "damnation",
+        hitsToKill: damnationHTK,
+        damage: 100,
+        hitZone: hitZoneMap[scenario],
+        effectiveArmorType: "unarmored",
+        damageEfficiency: 1.0,
+      });
+      entries.push({
+        breed_id: breedId,
+        difficulty: "auric",
+        hitsToKill: auricHTK,
+        damage: 50,
+        hitZone: hitZoneMap[scenario],
+        effectiveArmorType: "unarmored",
+        damageEfficiency: 0.5,
+      });
+    }
+    breedResults[scenario] = { breeds: entries };
+  }
+
+  return {
+    weapons: [{
+      entityId: "shared.weapon.test_weapon_m1",
+      slot: 0,
+      actions: [{
+        type: "light_attack",
+        profileId: "test_profile",
+        scenarios: breedResults,
+      }],
+      summary: { bestLight: null, bestHeavy: null, bestSpecial: null },
+    }],
+    metadata: { quality: 0.8, scenarios, timestamp: "2026-01-01T00:00:00Z" },
+  };
+}
+
+// ── Synergy test helpers ───────────────────────────────────────────
 
 function makeSynergyOutput({
   talentIds = [],
