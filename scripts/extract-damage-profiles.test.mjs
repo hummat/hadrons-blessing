@@ -1,8 +1,6 @@
 /**
- * Tests for the damage profile extraction pipeline output.
- *
- * Validates the shape and contents of data/ground-truth/generated/damage-profiles.json
- * produced by `npm run profiles:build`.
+ * Tests for the damage profile extraction pipeline output and
+ * unit tests for Lua profile parser functions.
  */
 
 import { describe, it } from "node:test";
@@ -10,6 +8,13 @@ import { strict as assert } from "node:assert";
 import { readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  findBalancedBrace,
+  countBraceDepth,
+  parseArmorTypeValues,
+  parseAttackImpactPair,
+  applyCloneOverrides,
+} from "./extract-damage-profiles.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const GENERATED_DIR = join(__dirname, "..", "data", "ground-truth", "generated");
@@ -123,5 +128,145 @@ describe("profiles:build output", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
     assert.ok(c.boost_damage_armor_conversion, "missing boost_damage_armor_conversion");
     assert.ok(c.rending_boost_amount, "missing rending_boost_amount");
     assert.ok(c.default_armor_damage_modifier, "missing default_armor_damage_modifier");
+  });
+});
+
+// ── Lua parser unit tests ─────────────────────────────────────────────
+
+describe("findBalancedBrace", () => {
+  it("finds closing brace in simple block", () => {
+    const s = "{ a = 1, b = 2 }";
+    assert.equal(findBalancedBrace(s, 0), s.length - 1);
+  });
+
+  it("handles nested braces", () => {
+    const s = "{ a = { b = 1 }, c = 2 }";
+    assert.equal(findBalancedBrace(s, 0), s.length - 1);
+  });
+
+  it("skips line comments containing braces", () => {
+    const s = '{ a = 1, -- { this is a comment }\nb = 2 }';
+    assert.equal(findBalancedBrace(s, 0), s.length - 1);
+  });
+
+  it("skips string literals containing braces", () => {
+    const s = '{ a = "{not a brace}", b = 1 }';
+    assert.equal(findBalancedBrace(s, 0), s.length - 1);
+  });
+
+  it("skips multiline comments --[[ ... ]]", () => {
+    const s = '{ a = 1, --[[ { nested } { braces } ]] b = 2 }';
+    assert.equal(findBalancedBrace(s, 0), s.length - 1);
+  });
+
+  it("skips long strings [[ ... ]]", () => {
+    const s = '{ a = [[ { not a brace } ]], b = 1 }';
+    assert.equal(findBalancedBrace(s, 0), s.length - 1);
+  });
+
+  it("returns -1 when not starting at brace", () => {
+    assert.equal(findBalancedBrace("abc", 0), -1);
+  });
+
+  it("returns -1 for unbalanced braces", () => {
+    assert.equal(findBalancedBrace("{ a = 1", 0), -1);
+  });
+});
+
+describe("countBraceDepth", () => {
+  it("counts depth at position", () => {
+    const s = "{ a = { b = 1 }, c = 2 }";
+    assert.equal(countBraceDepth(s, 0), 0);
+    assert.equal(countBraceDepth(s, 1), 1);
+    assert.equal(countBraceDepth(s, 7), 2);
+    assert.equal(countBraceDepth(s, 16), 1);
+  });
+
+  it("skips braces in line comments", () => {
+    const s = "{ -- {\n}";
+    assert.equal(countBraceDepth(s, s.length), 0);
+  });
+
+  it("skips braces in multiline comments", () => {
+    const s = "{ --[[ { } ]] }";
+    assert.equal(countBraceDepth(s, s.length), 0);
+  });
+
+  it("skips braces in strings", () => {
+    const s = '{ "}" }';
+    assert.equal(countBraceDepth(s, s.length), 0);
+  });
+});
+
+describe("parseArmorTypeValues", () => {
+  it("parses lerp value references", () => {
+    const lerpValues = { lerp_100: [0.5, 1.0], lerp_200: [0.2, 0.8] };
+    const block = `{
+      [armor_types.unarmored] = damage_lerp_values.lerp_100,
+      [armor_types.armored] = damage_lerp_values.lerp_200,
+    }`;
+    const result = parseArmorTypeValues(block, lerpValues);
+    assert.deepEqual(result.unarmored, [0.5, 1.0]);
+    assert.deepEqual(result.armored, [0.2, 0.8]);
+  });
+
+  it("parses literal numeric values", () => {
+    const block = `{
+      [armor_types.unarmored] = 1.5,
+      [armor_types.super_armor] = 0.1,
+    }`;
+    const result = parseArmorTypeValues(block, {});
+    assert.equal(result.unarmored, 1.5);
+    assert.equal(result.super_armor, 0.1);
+  });
+
+  it("defaults unknown lerp to [1, 1] (neutral)", () => {
+    const block = `{ [armor_types.armored] = damage_lerp_values.nonexistent }`;
+    const result = parseArmorTypeValues(block, {});
+    assert.deepEqual(result.armored, [1, 1]);
+  });
+});
+
+describe("parseAttackImpactPair", () => {
+  it("parses scalar attack and impact values", () => {
+    const block = "{ attack = 0.6, impact = 0.4 }";
+    const result = parseAttackImpactPair(block);
+    assert.equal(result.attack, 0.6);
+    assert.equal(result.impact, 0.4);
+  });
+
+  it("parses array form { min, max }", () => {
+    const block = "{ attack = { 0.25, 0.5 }, impact = 0.3 }";
+    const result = parseAttackImpactPair(block);
+    assert.deepEqual(result.attack, [0.25, 0.5]);
+    assert.equal(result.impact, 0.3);
+  });
+});
+
+describe("applyCloneOverrides", () => {
+  it("overrides power_distribution.attack scalar", () => {
+    const profile = {
+      id: "base",
+      power_distribution: { attack: 0.5, impact: 0.3 },
+    };
+    const lua = `damage_templates.clone_x.power_distribution.attack = 0.175`;
+    applyCloneOverrides(profile, "clone_x", lua, {});
+    assert.equal(profile.power_distribution.attack, 0.175);
+    assert.equal(profile.power_distribution.impact, 0.3); // unchanged
+  });
+
+  it("overrides damage_type", () => {
+    const profile = { id: "base", damage_type: "kinetic" };
+    const lua = `damage_templates.clone_y.damage_type = damage_types.burning`;
+    applyCloneOverrides(profile, "clone_y", lua, {});
+    assert.equal(profile.damage_type, "burning");
+  });
+
+  it("skips ragdoll and suppression overrides", () => {
+    const profile = { id: "base" };
+    const lua = `damage_templates.clone_z.ragdoll_push_force = 100\ndamage_templates.clone_z.suppression_value = 5`;
+    applyCloneOverrides(profile, "clone_z", lua, {});
+    // Should not add any fields
+    assert.deepEqual(Object.keys(profile), ["id"]);
   });
 });

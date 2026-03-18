@@ -113,7 +113,7 @@ await runCliMain("breeds:build", async () => {
  * @param {string} sourceRoot
  * @returns {Map<string, number[]>} breedName -> [uprising, malice, heresy, damnation, auric]
  */
-function parseDifficultyHealth(sourceRoot) {
+export function parseDifficultyHealth(sourceRoot) {
   const filePath = join(
     sourceRoot,
     "scripts",
@@ -185,7 +185,7 @@ function parseDifficultyHealth(sourceRoot) {
  * @param {string} luaSource
  * @returns {Map<string, number[]>} helperName -> multiplier array
  */
-function parseHealthHelpers(luaSource) {
+export function parseHealthHelpers(luaSource) {
   const helpers = new Map();
 
   const helperRe =
@@ -216,7 +216,7 @@ function parseHealthHelpers(luaSource) {
  * @param {string} sourceRoot
  * @returns {string[]}
  */
-function collectBreedFiles(sourceRoot) {
+export function collectBreedFiles(sourceRoot) {
   const breedsDir = join(sourceRoot, "scripts", "settings", "breed", "breeds");
   const files = [];
 
@@ -250,7 +250,7 @@ function collectBreedFiles(sourceRoot) {
  * @param {string} luaSource
  * @returns {object|null}
  */
-function parseBreedFile(luaSource) {
+export function parseBreedFile(luaSource) {
   // Extract the breed_name local variable
   const breedNameMatch = luaSource.match(
     /local\s+breed_name\s*=\s*"(\w+)"/,
@@ -349,7 +349,7 @@ function parseBreedFile(luaSource) {
  * @param {string} luaSource
  * @returns {string[]}
  */
-function parseTags(luaSource) {
+export function parseTags(luaSource) {
   const tagsMatch = luaSource.match(/\btags\s*=\s*\{([\s\S]*?)\}/);
   if (!tagsMatch) return [];
 
@@ -369,7 +369,7 @@ function parseTags(luaSource) {
  * @param {string} luaSource
  * @returns {string[]}
  */
-function parseHitZoneNames(luaSource) {
+export function parseHitZoneNames(luaSource) {
   // Find the hit_zones array block
   const hzStart = luaSource.indexOf("hit_zones = {");
   if (hzStart === -1) return [];
@@ -403,7 +403,7 @@ function parseHitZoneNames(luaSource) {
  * @param {string} luaSource
  * @returns {Map<string, string>} zoneName -> armorType
  */
-function parseHitzoneArmorOverride(luaSource) {
+export function parseHitzoneArmorOverride(luaSource) {
   const overrides = new Map();
   const blockMatch = luaSource.match(
     /hitzone_armor_override\s*=\s*\{([\s\S]*?)\}/,
@@ -427,7 +427,7 @@ function parseHitzoneArmorOverride(luaSource) {
  * @param {string} luaSource
  * @returns {{ ranged: Map<string, number>, melee: Map<string, number>, default: Map<string, number> }}
  */
-function parseHitzoneDamageMultiplier(luaSource) {
+export function parseHitzoneDamageMultiplier(luaSource) {
   const result = {
     ranged: new Map(),
     melee: new Map(),
@@ -473,7 +473,7 @@ function parseHitzoneDamageMultiplier(luaSource) {
  * @param {string} luaSource
  * @returns {Set<string>} set of zone names that are weakspots
  */
-function parseWeakspotTypes(luaSource) {
+export function parseWeakspotTypes(luaSource) {
   const weakspots = new Set();
   const blockMatch = luaSource.match(
     /hit_zone_weakspot_types\s*=\s*\{([\s\S]*?)\}/,

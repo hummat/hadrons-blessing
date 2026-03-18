@@ -1,11 +1,21 @@
 /**
- * Tests for the breeds:build pipeline output (breed-data.json).
+ * Tests for the breeds:build pipeline output (breed-data.json) and
+ * unit tests for Lua breed parser functions.
  */
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  parseHealthHelpers,
+  parseBreedFile,
+  parseTags,
+  parseHitZoneNames,
+  parseHitzoneArmorOverride,
+  parseHitzoneDamageMultiplier,
+  parseWeakspotTypes,
+} from "./extract-breed-data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const GENERATED_DIR = join(__dirname, "..", "data", "ground-truth", "generated");
@@ -106,5 +116,158 @@ describe("breeds:build output", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_SO
     // head has default 1.0 for both
     assert.equal(rager.hit_zones.head.damage_multiplier.ranged, 1.0);
     assert.equal(rager.hit_zones.head.damage_multiplier.melee, 1.0);
+  });
+});
+
+// ── Lua parser unit tests ─────────────────────────────────────────────
+
+const approx = (actual, expected, tol = 0.001) =>
+  assert.ok(Math.abs(actual - expected) < tol, `expected ≈${expected}, got ${actual}`);
+
+describe("parseHealthHelpers", () => {
+  it("extracts multiplier arrays from helper functions", () => {
+    const lua = `
+local function _elite_health_steps(health)
+  local health_steps = { health * 0.5, health * 0.75, health * 1, health * 1.5, health * 2 }
+  return health_steps
+end`;
+    const helpers = parseHealthHelpers(lua);
+    assert.equal(helpers.size, 1);
+    assert.deepEqual(helpers.get("_elite_health_steps"), [0.5, 0.75, 1, 1.5, 2]);
+  });
+
+  it("ignores helpers with fewer than 5 multipliers", () => {
+    const lua = `
+local function _short_health_steps(health)
+  local health_steps = { health * 0.5, health * 1 }
+  return health_steps
+end`;
+    assert.equal(parseHealthHelpers(lua).size, 0);
+  });
+});
+
+describe("parseBreedFile", () => {
+  const MINIMAL_BREED = `
+local breed_name = "renegade_berzerker"
+local breed_data = {
+\tdisplay_name = "loc_breed_display_name_renegade_berzerker",
+\tsub_faction_name = "renegade",
+\tarmor_type = armor_types.berserker,
+\thit_zones = {
+\t\t{ name = hit_zone_names.head, actors = {} },
+\t\t{ name = hit_zone_names.torso, actors = {} },
+\t},
+\thitzone_armor_override = {
+\t\t[hit_zone_names.head] = armor_types.armored,
+\t},
+\thitzone_damage_multiplier = {
+\t\tranged = { [hit_zone_names.head] = 1.5 },
+\t\tmelee = { [hit_zone_names.head] = 1.2 },
+\t},
+\thit_zone_weakspot_types = {
+\t\t[hit_zone_names.head] = weakspot_types.headshot,
+\t},
+\ttags = { elite = true, melee = true },
+}`;
+
+  it("parses a complete breed file", () => {
+    const breed = parseBreedFile(MINIMAL_BREED);
+    assert.ok(breed);
+    assert.equal(breed.id, "renegade_berzerker");
+    assert.equal(breed.base_armor_type, "berserker");
+    assert.equal(breed.faction, "renegade");
+    assert.deepEqual(breed.tags, ["elite", "melee"]);
+    assert.equal(breed.hit_zones.head.armor_type, "armored");
+    assert.equal(breed.hit_zones.head.weakspot, true);
+    assert.equal(breed.hit_zones.torso.armor_type, "berserker");
+    assert.equal(breed.hit_zones.torso.weakspot, false);
+    approx(breed.hit_zones.head.damage_multiplier.ranged, 1.5);
+    approx(breed.hit_zones.head.damage_multiplier.melee, 1.2);
+  });
+
+  it("returns null when breed_name is missing", () => {
+    assert.equal(parseBreedFile(`local breed_data = {}`), null);
+  });
+
+  it("returns null when armor_type is missing", () => {
+    const lua = `local breed_name = "test"\nlocal breed_data = { hit_zones = { { name = hit_zone_names.head } } }`;
+    assert.equal(parseBreedFile(lua), null);
+  });
+
+  it("returns null when no hit zones found", () => {
+    const lua = `local breed_name = "test"\nlocal breed_data = { armor_type = armor_types.unarmored }`;
+    assert.equal(parseBreedFile(lua), null);
+  });
+
+  it("detects name override in breed_data", () => {
+    const lua = `local breed_name = "chaos_hound_mutator"\nlocal breed_data = {\n\tname = "chaos_hound",\n\tarmor_type = armor_types.unarmored,\n\thit_zones = { { name = hit_zone_names.torso } },\n}`;
+    const breed = parseBreedFile(lua);
+    assert.ok(breed);
+    assert.equal(breed.id, "chaos_hound");
+  });
+});
+
+describe("parseTags", () => {
+  it("extracts sorted tags", () => {
+    assert.deepEqual(parseTags(`tags = { elite = true, melee = true, aggressive = true }`), ["aggressive", "elite", "melee"]);
+  });
+
+  it("returns empty array when no tags", () => {
+    assert.deepEqual(parseTags("nothing"), []);
+  });
+});
+
+describe("parseHitZoneNames", () => {
+  it("extracts unique zone names from hit_zones block", () => {
+    const lua = `hit_zones = {\n  { name = hit_zone_names.head },\n  { name = hit_zone_names.torso },\n}`;
+    assert.deepEqual(parseHitZoneNames(lua), ["head", "torso"]);
+  });
+
+  it("deduplicates repeated names", () => {
+    const lua = `hit_zones = {\n  { name = hit_zone_names.head },\n  { name = hit_zone_names.head },\n}`;
+    assert.deepEqual(parseHitZoneNames(lua), ["head"]);
+  });
+
+  it("returns empty when no block", () => {
+    assert.deepEqual(parseHitZoneNames("nothing"), []);
+  });
+});
+
+describe("parseHitzoneArmorOverride", () => {
+  it("extracts armor overrides", () => {
+    const lua = `hitzone_armor_override = {\n  [hit_zone_names.head] = armor_types.armored,\n}`;
+    const m = parseHitzoneArmorOverride(lua);
+    assert.equal(m.get("head"), "armored");
+  });
+
+  it("returns empty map when no overrides", () => {
+    assert.equal(parseHitzoneArmorOverride("nothing").size, 0);
+  });
+});
+
+describe("parseHitzoneDamageMultiplier", () => {
+  it("extracts ranged and melee multipliers", () => {
+    const lua = `hitzone_damage_multiplier = {\n  ranged = { [hit_zone_names.head] = 2.0 },\n  melee = { [hit_zone_names.head] = 1.5 },\n}`;
+    const result = parseHitzoneDamageMultiplier(lua);
+    assert.equal(result.ranged.get("head"), 2.0);
+    assert.equal(result.melee.get("head"), 1.5);
+  });
+
+  it("returns empty maps when no block", () => {
+    const result = parseHitzoneDamageMultiplier("nothing");
+    assert.equal(result.ranged.size, 0);
+  });
+});
+
+describe("parseWeakspotTypes", () => {
+  it("extracts weakspot zones", () => {
+    const lua = `hit_zone_weakspot_types = {\n  [hit_zone_names.head] = weakspot_types.headshot,\n}`;
+    const ws = parseWeakspotTypes(lua);
+    assert.ok(ws.has("head"));
+    assert.equal(ws.size, 1);
+  });
+
+  it("returns empty set when no block", () => {
+    assert.equal(parseWeakspotTypes("nothing").size, 0);
   });
 });

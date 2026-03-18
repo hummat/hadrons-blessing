@@ -201,7 +201,7 @@ function parseLerpValues(sourceRoot) {
  * @param {string} sourceRoot
  * @returns {object}
  */
-function parseConstants(sourceRoot) {
+export function parseConstants(sourceRoot) {
   const plsPath = join(sourceRoot, "scripts", "settings", "damage", "power_level_settings.lua");
   const plsLua = readFileSync(plsPath, "utf8");
 
@@ -263,10 +263,16 @@ function parseConstants(sourceRoot) {
   const rendingArmorTypeMult = parseSimpleArmorTypeMapFromLocal(asLua, "rending_armor_type_multiplier");
 
   // Validate critical constant tables are non-empty
-  const EXPECTED_ARMOR_TYPES = ["unarmored", "armored", "resistant", "berserker", "super_armor", "disgustingly_resilient"];
-  for (const tableName of ["damage_output", "overdamage_rending_multiplier", "rending_armor_type_multiplier"]) {
-    const table = { damage_output: damageOutput, overdamage_rending_multiplier: overdamageRendingMult, rending_armor_type_multiplier: rendingArmorTypeMult }[tableName];
-    const missing = EXPECTED_ARMOR_TYPES.filter((at) => !(at in table));
+  const ALL_ARMOR_TYPES = ["unarmored", "armored", "resistant", "berserker", "super_armor", "disgustingly_resilient"];
+  // Rending tables only contain the 4 types where rending applies (not unarmored/DR)
+  const RENDING_ARMOR_TYPES = ["armored", "resistant", "berserker", "super_armor"];
+  const validationTargets = [
+    ["damage_output", damageOutput, ALL_ARMOR_TYPES],
+    ["overdamage_rending_multiplier", overdamageRendingMult, RENDING_ARMOR_TYPES],
+    ["rending_armor_type_multiplier", rendingArmorTypeMult, RENDING_ARMOR_TYPES],
+  ];
+  for (const [tableName, table, expectedTypes] of validationTargets) {
+    const missing = expectedTypes.filter((at) => !(at in table));
     if (missing.length > 0) {
       throw new Error(`Critical constant table '${tableName}' missing armor types: ${missing.join(", ")}`);
     }
@@ -428,6 +434,10 @@ function parseDamageProfileFile(lua, sourceFile, lerpValues, cleavePresets, pres
         profileMap.set(profileName, profile);
       }
     } catch (err) {
+      // Re-throw code bugs (TypeError, RangeError) — only catch Lua parse failures
+      if (err instanceof RangeError || (err instanceof TypeError && !err.message.includes("Cannot read"))) {
+        throw err;
+      }
       console.warn(`Warning: failed to parse profile ${profileName} in ${sourceFile}: ${err.message}`);
     }
   }
@@ -470,7 +480,7 @@ function parseDamageProfileFile(lua, sourceFile, lerpValues, cleavePresets, pres
  * @param {string} lua - Full file source
  * @param {Record<string, [number, number]>} lerpValues
  */
-function applyCloneOverrides(profile, name, lua, lerpValues) {
+export function applyCloneOverrides(profile, name, lua, lerpValues) {
   const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const overrideRe = new RegExp(
     `^damage_templates\\.${escapedName}\\.([\\w.\\[\\]]+)\\s*=\\s*(.+)`,
@@ -547,7 +557,7 @@ function applyCloneOverrides(profile, name, lua, lerpValues) {
  * @param {Map<string, object>} [localAdmVars] - File-level local ADM variable definitions
  * @returns {object|null}
  */
-function parseProfileBlock(id, block, sourceFile, lerpValues, cleavePresets, localAdmVars = new Map()) {
+export function parseProfileBlock(id, block, sourceFile, lerpValues, cleavePresets, localAdmVars = new Map()) {
   // Extract stagger_category
   const staggerMatch = block.match(/stagger_category\s*=\s*"(\w+)"/);
   const staggerCategory = staggerMatch ? staggerMatch[1] : null;
@@ -1499,7 +1509,7 @@ function classifyAction(actionName) {
  * @param {Record<string, [number, number]>} lerpValues
  * @returns {Record<string, number|[number,number]>}
  */
-function parseArmorTypeValues(block, lerpValues) {
+export function parseArmorTypeValues(block, lerpValues) {
   const result = {};
 
   // Match [armor_types.X] = damage_lerp_values.lerp_Y
@@ -1530,7 +1540,7 @@ function parseArmorTypeValues(block, lerpValues) {
  * @param {string} block
  * @returns {object}
  */
-function parseAttackImpactPair(block) {
+export function parseAttackImpactPair(block) {
   const result = {};
 
   for (const channel of ["attack", "impact"]) {
@@ -1563,7 +1573,7 @@ function parseAttackImpactPair(block) {
  * @param {string} settingName
  * @returns {Record<string, number>}
  */
-function parseSimpleArmorTypeMap(lua, settingName) {
+export function parseSimpleArmorTypeMap(lua, settingName) {
   const re = new RegExp(
     `power_level_settings\\.${settingName}\\s*=\\s*\\{([\\s\\S]*?)\\}`,
   );
@@ -1723,17 +1733,31 @@ function extractNumber(lua, re, { critical = false } = {}) {
  * @param {number} startIdx - Index of the opening `{`
  * @returns {number} Index of the matching `}`, or -1 if not found
  */
-function findBalancedBrace(str, startIdx) {
+export function findBalancedBrace(str, startIdx) {
   if (str[startIdx] !== "{") return -1;
   let depth = 0;
-  // Skip string literals and comments
+  // Skip string literals, line comments, multiline comments, and long strings
   for (let i = startIdx; i < str.length; i++) {
     const ch = str[i];
     if (ch === "-" && str[i + 1] === "-") {
+      if (str[i + 2] === "[" && str[i + 3] === "[") {
+        // Skip multiline comment --[[ ... ]]
+        const closing = str.indexOf("]]", i + 4);
+        if (closing === -1) return -1;
+        i = closing + 1;
+        continue;
+      }
       // Skip line comment
       const newline = str.indexOf("\n", i);
       if (newline === -1) return -1;
       i = newline;
+      continue;
+    }
+    if (ch === "[" && str[i + 1] === "[") {
+      // Skip long string [[ ... ]]
+      const closing = str.indexOf("]]", i + 2);
+      if (closing === -1) return -1;
+      i = closing + 1;
       continue;
     }
     if (ch === '"') {
@@ -1759,19 +1783,31 @@ function findBalancedBrace(str, startIdx) {
  * @param {number} position
  * @returns {number}
  */
-function countBraceDepth(str, position) {
+export function countBraceDepth(str, position) {
   let depth = 0;
   for (let i = 0; i < position; i++) {
     const ch = str[i];
     if (ch === "-" && str[i + 1] === "-") {
+      if (str[i + 2] === "[" && str[i + 3] === "[") {
+        const closing = str.indexOf("]]", i + 4);
+        if (closing === -1 || closing >= position) break;
+        i = closing + 1;
+        continue;
+      }
       const newline = str.indexOf("\n", i);
-      if (newline === -1) break;
+      if (newline === -1 || newline >= position) break;
       i = newline;
+      continue;
+    }
+    if (ch === "[" && str[i + 1] === "[") {
+      const closing = str.indexOf("]]", i + 2);
+      if (closing === -1 || closing >= position) break;
+      i = closing + 1;
       continue;
     }
     if (ch === '"') {
       const closing = str.indexOf('"', i + 1);
-      if (closing === -1) break;
+      if (closing === -1 || closing >= position) break;
       i = closing;
       continue;
     }
