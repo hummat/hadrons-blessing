@@ -15,6 +15,8 @@ const SETUP_HINTS = {
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run report -- scripts/builds/08-gandalf-melee-wizard.json",
   "breeds:build":
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run breeds:build",
+  "profiles:build":
+    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run profiles:build",
 };
 
 function errorMessage(error) {
