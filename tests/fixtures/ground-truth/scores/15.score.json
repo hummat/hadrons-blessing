@@ -1,10 +1,10 @@
 {
   "title": "Arby's OP Melee Meta Havoc-40",
   "class": "arbites",
-  "perk_optimality": 3,
+  "perk_optimality": 5,
   "curio_efficiency": 2,
-  "composite_score": 15,
-  "letter_grade": "D",
+  "composite_score": 18,
+  "letter_grade": "C",
   "weapons": [
     {
       "name": "Branx Mk III Arbites Shock Maul",
@@ -14,10 +14,18 @@
       "weapon_family": "powermaul_p2",
       "resolution_source": "ground_truth",
       "perks": {
-        "score": 1,
+        "score": 5,
         "perks": [
-          null,
-          null
+          {
+            "name": "Damage (Flak Armoured)",
+            "tier": 4,
+            "value": 0.25
+          },
+          {
+            "name": "Damage (Carapace)",
+            "tier": 4,
+            "value": 0.25
+          }
         ]
       },
       "blessings": {
@@ -35,7 +43,11 @@
       "perks": {
         "score": 5,
         "perks": [
-          null,
+          {
+            "name": "Damage (Flak Armoured)",
+            "tier": 4,
+            "value": 0.25
+          },
           {
             "name": "Damage (Maniacs)",
             "tier": 4,

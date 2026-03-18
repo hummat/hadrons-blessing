@@ -1,10 +1,10 @@
 {
   "title": "Gandalf: Melee Wizard (Updated for Bound by Duty)",
   "class": "psyker",
-  "perk_optimality": 1,
+  "perk_optimality": 5,
   "curio_efficiency": 3,
-  "composite_score": 15,
-  "letter_grade": "D",
+  "composite_score": 21,
+  "letter_grade": "C",
   "weapons": [
     {
       "name": "Covenant Mk VI Blaze Force Greatsword",
@@ -14,10 +14,18 @@
       "weapon_family": "forcesword_2h",
       "resolution_source": "ground_truth",
       "perks": {
-        "score": 1,
+        "score": 5,
         "perks": [
-          null,
-          null
+          {
+            "name": "Damage (Unyielding)",
+            "tier": 4,
+            "value": 0.25
+          },
+          {
+            "name": "Damage (Carapace)",
+            "tier": 4,
+            "value": 0.25
+          }
         ]
       },
       "blessings": {
@@ -33,10 +41,18 @@
       "weapon_family": "forcestaff_p4",
       "resolution_source": "ground_truth",
       "perks": {
-        "score": 1,
+        "score": 5,
         "perks": [
-          null,
-          null
+          {
+            "name": "Damage (Carapace)",
+            "tier": 4,
+            "value": 0.25
+          },
+          {
+            "name": "Damage (Flak Armoured)",
+            "tier": 4,
+            "value": 0.25
+          }
         ]
       },
       "blessings": {

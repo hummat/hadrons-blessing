@@ -1,10 +1,10 @@
 {
   "title": "Shovel Ogryn",
   "class": "ogryn",
-  "perk_optimality": 3,
+  "perk_optimality": 5,
   "curio_efficiency": 2,
-  "composite_score": 14,
-  "letter_grade": "D",
+  "composite_score": 17,
+  "letter_grade": "C",
   "weapons": [
     {
       "name": "Brute-Brainer Mk III Latrine Shovel",
@@ -14,10 +14,18 @@
       "weapon_family": "ogryn_club",
       "resolution_source": "ground_truth",
       "perks": {
-        "score": 1,
+        "score": 5,
         "perks": [
-          null,
-          null
+          {
+            "name": "Damage (Flak Armoured)",
+            "tier": 4,
+            "value": 0.25
+          },
+          {
+            "name": "Damage (Unyielding)",
+            "tier": 4,
+            "value": 0.25
+          }
         ]
       },
       "blessings": {
@@ -35,7 +43,11 @@
       "perks": {
         "score": 5,
         "perks": [
-          null,
+          {
+            "name": "Damage (Flak Armoured)",
+            "tier": 4,
+            "value": 0.25
+          },
           {
             "name": "Damage (Maniacs)",
             "tier": 4,

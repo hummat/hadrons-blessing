@@ -195,7 +195,7 @@ export function parsePerkString(str) {
     return {
       min: parseFloat(m[1]) / 100,
       max: parseFloat(m[2]) / 100,
-      name: m[3],
+      name: normalizePerkName(m[3]),
     };
   }
 
@@ -203,7 +203,7 @@ export function parsePerkString(str) {
   m = str.match(/^\+?(\d+(?:\.\d+)?)%\s+(.+)$/);
   if (m) {
     const val = parseFloat(m[1]) / 100;
-    return { min: val, max: val, name: m[2] };
+    return { min: val, max: val, name: normalizePerkName(m[2]) };
   }
 
   // Pattern 3: flat range — "+1-2 Name"
@@ -212,7 +212,7 @@ export function parsePerkString(str) {
     return {
       min: parseFloat(m[1]),
       max: parseFloat(m[2]),
-      name: m[3],
+      name: normalizePerkName(m[3]),
     };
   }
 
@@ -220,10 +220,25 @@ export function parsePerkString(str) {
   m = str.match(/^\+(\d+(?:\.\d+)?)\s+(.+)$/);
   if (m) {
     const val = parseFloat(m[1]);
-    return { min: val, max: val, name: m[2] };
+    return { min: val, max: val, name: normalizePerkName(m[2]) };
   }
 
   return null;
+}
+
+/**
+ * Normalize GL perk display names to match scoring data catalog keys.
+ *
+ * GL scraper produces: "Damage (Flak Armoured Enemies)", "Damage (Carapace Armoured Enemies)"
+ * Scoring catalog uses: "Damage (Flak Armoured)", "Damage (Carapace)"
+ *
+ * Also normalizes: "Melee Damage (Elites)" → "Damage (Elites)"
+ */
+function normalizePerkName(name) {
+  return name
+    .replace(/ Enemies\)$/, ")")                  // "Damage (Flak Armoured Enemies)" → "Damage (Flak Armoured)"
+    .replace(/\(Carapace Armoured\)/, "(Carapace)")  // "Damage (Carapace Armoured)" → "Damage (Carapace)"
+    .replace(/^(?:Melee|Ranged) /, "");           // "Melee Damage (Elites)" → "Damage (Elites)"
 }
 
 /**

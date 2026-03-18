@@ -1,10 +1,10 @@
 {
   "title": "SPICY'S META HAVOC 40 ZEALOT",
   "class": "zealot",
-  "perk_optimality": 1,
+  "perk_optimality": 5,
   "curio_efficiency": 2,
-  "composite_score": 17,
-  "letter_grade": "C",
+  "composite_score": 22,
+  "letter_grade": "B",
   "weapons": [
     {
       "name": "Munitorum Mk X Relic Blade",
@@ -14,10 +14,18 @@
       "weapon_family": "powersword_2h",
       "resolution_source": "provisional_family",
       "perks": {
-        "score": 1,
+        "score": 5,
         "perks": [
-          null,
-          null
+          {
+            "name": "Damage (Carapace)",
+            "tier": 4,
+            "value": 0.25
+          },
+          {
+            "name": "Damage (Elites)",
+            "tier": 4,
+            "value": 0.1
+          }
         ]
       },
       "blessings": {
@@ -44,10 +52,18 @@
       "weapon_family": "flamer",
       "resolution_source": "ground_truth",
       "perks": {
-        "score": 1,
+        "score": 5,
         "perks": [
-          null,
-          null
+          {
+            "name": "Damage (Carapace)",
+            "tier": 4,
+            "value": 0.25
+          },
+          {
+            "name": "Damage (Flak Armoured)",
+            "tier": 4,
+            "value": 0.25
+          }
         ]
       },
       "blessings": {

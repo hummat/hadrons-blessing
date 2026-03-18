@@ -16,7 +16,11 @@
       "perks": {
         "score": 5,
         "perks": [
-          null,
+          {
+            "name": "Damage (Flak Armoured)",
+            "tier": 4,
+            "value": 0.25
+          },
           {
             "name": "Damage (Maniacs)",
             "tier": 4,
@@ -44,7 +48,11 @@
             "tier": 4,
             "value": 0.25
           },
-          null
+          {
+            "name": "Damage (Unyielding)",
+            "tier": 4,
+            "value": 0.25
+          }
         ]
       },
       "blessings": {
