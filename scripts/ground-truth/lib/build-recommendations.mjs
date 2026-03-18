@@ -55,13 +55,13 @@ export function analyzeGaps(build, index, precomputed = null) {
     };
   });
 
-  // Slot imbalance gap: min/max ratio < 0.3 (both-zero treated as ratio 1.0)
+  // Slot imbalance gap: min/max ratio < 0.3 (both-zero = no data, not perfect)
   const melee = slot_balance.melee?.strength ?? 0;
   const ranged = slot_balance.ranged?.strength ?? 0;
 
   let slot_balance_ratio;
   if (melee === 0 && ranged === 0) {
-    slot_balance_ratio = 1.0;
+    slot_balance_ratio = 0.5; // no data → neutral
   } else {
     slot_balance_ratio = Math.min(melee, ranged) / Math.max(melee, ranged);
   }

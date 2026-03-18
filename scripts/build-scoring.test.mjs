@@ -214,7 +214,7 @@ describe("build-scoring", () => {
       assert.equal(result.role_coverage.score, 4);  // 5 - 1 imbalance
     });
 
-    it("treats zero/zero slot balance as ratio 1.0", () => {
+    it("treats zero/zero slot balance as neutral (0.5) not perfect", () => {
       const synergy = makeSynergyOutput({
         talentIds: ["t.talent.a"],
         blessingIds: [],
@@ -227,7 +227,7 @@ describe("build-scoring", () => {
         slotBalance: { melee: 0, ranged: 0 },
       });
       const result = scoreFromSynergy(synergy);
-      assert.equal(result.role_coverage.breakdown.slot_balance_ratio, 1.0);
+      assert.equal(result.role_coverage.breakdown.slot_balance_ratio, 0.5);
     });
 
     it("scores low for few families", () => {

@@ -720,12 +720,19 @@ export function generateScorecard(build, synergyOutput = null, calcOutput = null
     if (slot) {
       perkResult = scoreWeaponPerks(normalizedWeapon, slot);
     } else {
-      // Try ranged first, then melee — pick whichever has more resolved perks
-      const rangedResult = scoreWeaponPerks(normalizedWeapon, "ranged");
-      const meleeResult = scoreWeaponPerks(normalizedWeapon, "melee");
-      const rangedResolved = rangedResult.perks.filter((p) => p !== null).length;
-      const meleeResolved = meleeResult.perks.filter((p) => p !== null).length;
-      perkResult = rangedResolved >= meleeResolved ? rangedResult : meleeResult;
+      // Slot unknown — try both catalogs, pick whichever resolves more perks.
+      // This can misclassify if a weapon has perks common to both slots.
+      // Prefer weapon.slot from build data when available.
+      const buildSlot = weapon.slot;
+      if (buildSlot === "melee" || buildSlot === "ranged") {
+        perkResult = scoreWeaponPerks(normalizedWeapon, buildSlot);
+      } else {
+        const rangedResult = scoreWeaponPerks(normalizedWeapon, "ranged");
+        const meleeResult = scoreWeaponPerks(normalizedWeapon, "melee");
+        const rangedResolved = rangedResult.perks.filter((p) => p !== null).length;
+        const meleeResolved = meleeResult.perks.filter((p) => p !== null).length;
+        perkResult = rangedResolved >= meleeResolved ? rangedResult : meleeResult;
+      }
     }
 
     perkScores.push(perkResult.score);

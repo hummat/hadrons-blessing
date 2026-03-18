@@ -318,12 +318,12 @@ function scoreRoleCoverage(synergyOutput) {
   // Gap penalty
   const gap_penalty = coverage_gaps.length * -1;
 
-  // Slot balance ratio
+  // Slot balance ratio (both-zero = no coverage data, not "perfect balance")
   const melee = slot_balance.melee?.strength ?? 0;
   const ranged = slot_balance.ranged?.strength ?? 0;
   let slot_balance_ratio;
   if (melee === 0 && ranged === 0) {
-    slot_balance_ratio = 1.0;
+    slot_balance_ratio = 0.5; // no data → neutral rather than perfect
   } else {
     slot_balance_ratio = Math.min(melee, ranged) / Math.max(melee, ranged);
   }
