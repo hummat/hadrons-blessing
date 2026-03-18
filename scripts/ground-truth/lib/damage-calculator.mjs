@@ -678,3 +678,265 @@ export function computeHit({
     stagesApplied: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11],
   };
 }
+
+// ── Buff Stack Assembly ─────────────────────────────────────────────
+
+/**
+ * Known multiplicative stats — their magnitudes are multiplied together
+ * rather than summed.
+ */
+const MULTIPLICATIVE_STATS = new Set([
+  "smite_damage_multiplier",
+  "companion_damage_multiplier",
+]);
+
+/**
+ * Known target-side multiplier stats — combined into target_modifier.
+ */
+const TARGET_MULTIPLIER_STATS = new Set([
+  "damage_taken_multiplier",
+  "damage_taken_melee_multiplier",
+  "damage_taken_ranged_multiplier",
+]);
+
+/**
+ * Stats stored individually on the buff stack for use by specific pipeline
+ * stages (rending, positional, armor-type). They do NOT contribute to
+ * additive_sum.
+ */
+const INDIVIDUAL_STATS = new Set([
+  "rending_multiplier",
+  "backstab_damage",
+  "flanking_damage",
+  "unarmored_damage",
+  "armored_damage",
+  "super_armor_damage",
+  "resistant_damage",
+  "berserker_damage",
+  "disgustingly_resilient_damage",
+]);
+
+/**
+ * Checks whether a conditional effect is active given the current flags.
+ *
+ * @param {string|null} condition - Condition tag from the effect
+ * @param {object} flags - Scenario flags
+ * @returns {{ active: boolean, scale?: number }}
+ *   active=true means include the effect; scale (if present) means
+ *   multiply magnitude by this value (for lerped conditions).
+ */
+function isConditionActive(condition, flags) {
+  if (!condition) return { active: true };
+
+  switch (condition) {
+    case "threshold:health_low":
+      return { active: flags.health_state === "low" };
+    case "threshold:toughness_high":
+      return { active: flags.health_state === "full" };
+    case "threshold:warp_charge":
+      // Lerped: scale magnitude by warp_charge fraction (0-1)
+      return {
+        active: (flags.warp_charge ?? 0) > 0,
+        scale: flags.warp_charge ?? 0,
+      };
+    case "threshold:stamina_high":
+    case "threshold:stamina_full":
+      return { active: true }; // conservative: assume stamina is high
+    case "ads_active":
+      return { active: flags.ads_active === true };
+    case "ability_active":
+      return { active: flags.ability_active === true };
+    case "during_heavy":
+      // Always include — filtering happens at computeHit level
+      return { active: true };
+    case "during_reload":
+      return { active: flags.during_reload === true };
+    case "wielded":
+    case "active":
+      return { active: true }; // self-sufficient when equipped
+    case "unknown_condition":
+      return { active: false }; // conservative: exclude
+    default:
+      return { active: false }; // unrecognized → exclude
+  }
+}
+
+/**
+ * Assembles a buff stack from a canonical build, entity index, and scenario flags.
+ *
+ * Collects all resolved entity IDs from the build (talents, structural slots,
+ * weapon blessings/perks, curio perks), looks up their calc.effects in the index,
+ * filters by condition flags, and accumulates into a flat buff stack object
+ * consumed by computeHit.
+ *
+ * For name_family entities (blessings), traverses instance_of edges to find
+ * a weapon_trait with effects or tiered effects (using last tier).
+ *
+ * @param {object} build - Canonical build JSON
+ * @param {object} index - { entities: Map<string, entity>, edges: Array<edge> }
+ * @param {object} flags - Scenario flags (health_state, warp_charge, ads_active, etc.)
+ * @returns {object} Flat buff stack with additive_sum, multiplicative_product,
+ *   target_modifier, and individual per-stat values.
+ */
+export function assembleBuildBuffStack(build, index, flags) {
+  const _flags = flags ?? {};
+  const entities = index.entities;
+  const edges = index.edges ?? [];
+
+  // ── Step 1: Collect all resolved entity IDs ──
+  const entityIds = [];
+
+  // Structural slots
+  for (const field of ["ability", "blitz", "aura", "keystone"]) {
+    const slot = build[field];
+    if (
+      slot?.canonical_entity_id &&
+      slot.resolution_status === "resolved"
+    ) {
+      entityIds.push(slot.canonical_entity_id);
+    }
+  }
+
+  // Flat talents
+  for (const t of build.talents ?? []) {
+    if (
+      t.canonical_entity_id &&
+      t.resolution_status === "resolved"
+    ) {
+      entityIds.push(t.canonical_entity_id);
+    }
+  }
+
+  // Weapons: blessings + perks
+  for (const w of build.weapons ?? []) {
+    for (const b of w.blessings ?? []) {
+      if (
+        b.canonical_entity_id &&
+        b.resolution_status === "resolved"
+      ) {
+        entityIds.push(b.canonical_entity_id);
+      }
+    }
+    for (const p of w.perks ?? []) {
+      if (
+        p.canonical_entity_id &&
+        p.resolution_status === "resolved"
+      ) {
+        entityIds.push(p.canonical_entity_id);
+      }
+    }
+  }
+
+  // Curios: perks
+  for (const c of build.curios ?? []) {
+    for (const p of c.perks ?? []) {
+      if (
+        p.canonical_entity_id &&
+        p.resolution_status === "resolved"
+      ) {
+        entityIds.push(p.canonical_entity_id);
+      }
+    }
+  }
+
+  // ── Build instance_of reverse index for name_family traversal ──
+  const instanceOfIndex = new Map();
+  for (const edge of edges) {
+    if (edge.type !== "instance_of") continue;
+    if (!instanceOfIndex.has(edge.to_entity_id)) {
+      instanceOfIndex.set(edge.to_entity_id, []);
+    }
+    instanceOfIndex.get(edge.to_entity_id).push(edge.from_entity_id);
+  }
+
+  // ── Step 2-3: Look up effects, filter, accumulate ──
+  let additiveSum = 0;
+  let multiplicativeProduct = 1;
+  let targetModifier = 1;
+  const individualStats = {};
+
+  for (const entityId of entityIds) {
+    const entity = entities.get(entityId);
+    if (!entity) continue;
+
+    // Resolve effects — direct or via name_family traversal
+    let effects = [];
+
+    if (entity.calc?.effects?.length > 0) {
+      effects = entity.calc.effects;
+    } else if (entity.kind === "name_family") {
+      // Traverse instance_of edges to find a weapon_trait with effects
+      const fromIds = instanceOfIndex.get(entityId) ?? [];
+      for (const fromId of fromIds) {
+        const fromEntity = entities.get(fromId);
+        if (!fromEntity) continue;
+        if (fromEntity.calc?.effects?.length > 0) {
+          effects = fromEntity.calc.effects;
+          break;
+        }
+        if (fromEntity.calc?.tiers?.length > 0) {
+          const lastTier =
+            fromEntity.calc.tiers[fromEntity.calc.tiers.length - 1];
+          effects = lastTier.effects ?? [];
+          break;
+        }
+      }
+    }
+
+    // Filter and accumulate each effect
+    for (const effect of effects) {
+      if (effect.magnitude == null) continue; // skip expression-based
+
+      const { stat, magnitude, type, condition } = effect;
+      if (!stat) continue;
+
+      // ── Filter by type + flags ──
+      let effectiveMagnitude = magnitude;
+
+      if (type === "stat_buff") {
+        // Unconditional — always included
+      } else if (type === "conditional_stat_buff") {
+        const result = isConditionActive(condition, _flags);
+        if (!result.active) continue;
+        if (result.scale != null) {
+          effectiveMagnitude = magnitude * result.scale;
+        }
+      } else if (type === "proc_stat_buff") {
+        if ((_flags.proc_stacks ?? 0) <= 0) continue;
+      } else if (type === "lerped_stat_buff") {
+        // Lerped: if magnitude_min/magnitude_max present, interpolate
+        const { magnitude_min, magnitude_max } = effect;
+        if (magnitude_min != null && magnitude_max != null) {
+          // Use warp_charge as the lerp factor (most common lerped buff)
+          const t = _flags.warp_charge ?? 0;
+          effectiveMagnitude = magnitude_min + (magnitude_max - magnitude_min) * t;
+        }
+        // Otherwise use magnitude directly (already set)
+      } else {
+        // Unknown effect type — skip conservatively
+        continue;
+      }
+
+      // ── Accumulate ──
+      if (INDIVIDUAL_STATS.has(stat)) {
+        // Individual stats accumulate additively into their own slot
+        // Stored as 1 + sum(magnitudes) for direct use as multipliers
+        individualStats[stat] = (individualStats[stat] ?? 1) + effectiveMagnitude;
+      } else if (MULTIPLICATIVE_STATS.has(stat)) {
+        multiplicativeProduct *= 1 + effectiveMagnitude;
+      } else if (TARGET_MULTIPLIER_STATS.has(stat)) {
+        targetModifier *= 1 + effectiveMagnitude;
+      } else {
+        // Default: additive damage stat
+        additiveSum += effectiveMagnitude;
+      }
+    }
+  }
+
+  return {
+    additive_sum: 1 + additiveSum,
+    multiplicative_product: multiplicativeProduct,
+    target_modifier: targetModifier,
+    ...individualStats,
+  };
+}

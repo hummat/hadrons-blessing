@@ -14,6 +14,7 @@ import {
   applyDiminishingReturns,
   classifyDamageEfficiency,
   computeHit,
+  assembleBuildBuffStack,
 } from "./ground-truth/lib/damage-calculator.mjs";
 
 // ---------- helpers ----------
@@ -1019,5 +1020,582 @@ describe("computeHit", () => {
       constants: FIXTURE_CONSTANTS,
     });
     assert.equal(result.finesseBoost, 1, "finesse should not apply on non-weakspot zone");
+  });
+});
+
+// ---------- assembleBuildBuffStack ----------
+
+describe("assembleBuildBuffStack", () => {
+  it("accumulates unconditional stat_buffs additively", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [{ stat: "damage", magnitude: 0.1, type: "stat_buff" }] } }],
+        ["t.talent.b", { calc: { effects: [{ stat: "damage", magnitude: 0.05, type: "stat_buff" }] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+        { canonical_entity_id: "t.talent.b", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    // additive_sum = 1 + 0.1 + 0.05 = 1.15
+    approx(stack.additive_sum, 1.15);
+  });
+
+  it("excludes conditional effects when flag is not set", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.2, type: "conditional_stat_buff", condition: "threshold:health_low" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, { health_state: "full" });
+    assert.equal(stack.additive_sum, 1); // not included
+  });
+
+  it("includes conditional effects when flag matches", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.2, type: "conditional_stat_buff", condition: "threshold:health_low" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, { health_state: "low" });
+    approx(stack.additive_sum, 1.2);
+  });
+
+  it("skips unresolved selections", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [{ stat: "damage", magnitude: 0.5, type: "stat_buff" }] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "unresolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    assert.equal(stack.additive_sum, 1); // unresolved → skipped
+  });
+
+  it("collects rending_multiplier separately", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "rending_multiplier", magnitude: 0.1, type: "stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    approx(stack.rending_multiplier, 1.1); // 1 + 0.1
+    assert.equal(stack.additive_sum, 1); // not in additive sum
+  });
+
+  it("collects per-armor-type damage stats separately", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "armored_damage", magnitude: 0.15, type: "stat_buff" },
+          { stat: "unarmored_damage", magnitude: 0.1, type: "stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    approx(stack.armored_damage, 1.15);
+    approx(stack.unarmored_damage, 1.1);
+    assert.equal(stack.additive_sum, 1); // not in additive sum
+  });
+
+  it("skips effects with null magnitude", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: null, type: "stat_buff" },
+          { stat: "damage", magnitude: 0.1, type: "stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    approx(stack.additive_sum, 1.1); // only the non-null one
+  });
+
+  it("handles empty build gracefully", () => {
+    const mockIndex = { entities: new Map(), edges: [] };
+    const build = { talents: [], weapons: [], curios: [] };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    assert.equal(stack.additive_sum, 1);
+    assert.equal(stack.multiplicative_product, 1);
+    assert.equal(stack.target_modifier, 1);
+  });
+
+  it("treats 'active' and 'wielded' conditions as always-true", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.1, type: "conditional_stat_buff", condition: "active" },
+        ] } }],
+        ["t.talent.b", { calc: { effects: [
+          { stat: "damage", magnitude: 0.05, type: "conditional_stat_buff", condition: "wielded" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+        { canonical_entity_id: "t.talent.b", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    approx(stack.additive_sum, 1.15); // both included
+  });
+
+  it("excludes unknown_condition effects", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.5, type: "conditional_stat_buff", condition: "unknown_condition" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    assert.equal(stack.additive_sum, 1); // excluded
+  });
+
+  it("accumulates multiplicative stats as product", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "smite_damage_multiplier", magnitude: 0.2, type: "stat_buff" },
+        ] } }],
+        ["t.talent.b", { calc: { effects: [
+          { stat: "companion_damage_multiplier", magnitude: 0.3, type: "stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+        { canonical_entity_id: "t.talent.b", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    // (1 + 0.2) * (1 + 0.3) = 1.2 * 1.3 = 1.56
+    approx(stack.multiplicative_product, 1.56);
+    assert.equal(stack.additive_sum, 1);
+  });
+
+  it("accumulates target-side multipliers into target_modifier", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage_taken_multiplier", magnitude: 0.15, type: "stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    approx(stack.target_modifier, 1.15);
+    assert.equal(stack.additive_sum, 1);
+  });
+
+  it("collects weapon perk and blessing effects", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["s.perk.a", { calc: { effects: [
+          { stat: "armored_damage", magnitude: 0.1, type: "conditional_stat_buff", condition: "wielded" },
+        ] } }],
+        ["s.blessing.b", { calc: { effects: [
+          { stat: "damage", magnitude: 0.2, type: "stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [],
+      weapons: [{
+        perks: [{ canonical_entity_id: "s.perk.a", resolution_status: "resolved" }],
+        blessings: [{ canonical_entity_id: "s.blessing.b", resolution_status: "resolved" }],
+      }],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    approx(stack.armored_damage, 1.1);
+    approx(stack.additive_sum, 1.2);
+  });
+
+  it("collects curio perk effects", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["s.curio.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.05, type: "stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [],
+      weapons: [],
+      curios: [{
+        perks: [{ canonical_entity_id: "s.curio.a", resolution_status: "resolved" }],
+      }],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    approx(stack.additive_sum, 1.05);
+  });
+
+  it("collects structural slot effects (ability, blitz, aura, keystone)", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["c.ability.x", { calc: { effects: [{ stat: "damage", magnitude: 0.1, type: "stat_buff" }] } }],
+        ["c.keystone.y", { calc: { effects: [{ stat: "damage", magnitude: 0.2, type: "stat_buff" }] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      ability: { canonical_entity_id: "c.ability.x", resolution_status: "resolved" },
+      blitz: null,
+      aura: null,
+      keystone: { canonical_entity_id: "c.keystone.y", resolution_status: "resolved" },
+      talents: [],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    approx(stack.additive_sum, 1.3); // 1 + 0.1 + 0.2
+  });
+
+  it("traverses name_family entities via instance_of edges", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["shared.name_family.blessing.test", { kind: "name_family", calc: {} }],
+        ["shared.weapon_trait.melee.test_t4", {
+          calc: {
+            tiers: [
+              { effects: [{ stat: "damage", magnitude: 0.05, type: "stat_buff" }] },
+              { effects: [{ stat: "damage", magnitude: 0.15, type: "stat_buff" }] },
+            ],
+          },
+        }],
+      ]),
+      edges: [
+        { type: "instance_of", from_entity_id: "shared.weapon_trait.melee.test_t4", to_entity_id: "shared.name_family.blessing.test" },
+      ],
+    };
+    const build = {
+      talents: [],
+      weapons: [{
+        blessings: [{ canonical_entity_id: "shared.name_family.blessing.test", resolution_status: "resolved" }],
+        perks: [],
+      }],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    // Should use last tier's effects: magnitude 0.15
+    approx(stack.additive_sum, 1.15);
+  });
+
+  it("includes proc_stat_buff when proc_stacks > 0", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.1, type: "proc_stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+
+    const stackOff = assembleBuildBuffStack(build, mockIndex, {});
+    assert.equal(stackOff.additive_sum, 1); // proc_stacks not set → excluded
+
+    const stackOn = assembleBuildBuffStack(build, mockIndex, { proc_stacks: 3 });
+    approx(stackOn.additive_sum, 1.1); // included
+  });
+
+  it("scales warp_charge threshold by flags.warp_charge", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.3, type: "conditional_stat_buff", condition: "threshold:warp_charge" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+
+    // No warp charge → excluded
+    const stackNone = assembleBuildBuffStack(build, mockIndex, { warp_charge: 0 });
+    assert.equal(stackNone.additive_sum, 1);
+
+    // Half warp charge → magnitude * 0.5 = 0.15
+    const stackHalf = assembleBuildBuffStack(build, mockIndex, { warp_charge: 0.5 });
+    approx(stackHalf.additive_sum, 1.15);
+
+    // Full warp charge → magnitude * 1.0 = 0.3
+    const stackFull = assembleBuildBuffStack(build, mockIndex, { warp_charge: 1.0 });
+    approx(stackFull.additive_sum, 1.3);
+  });
+
+  it("handles lerped_stat_buff with magnitude_min/magnitude_max", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.2, magnitude_min: 0.05, magnitude_max: 0.25, type: "lerped_stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    // warp_charge=0.5 → lerp(0.05, 0.25, 0.5) = 0.15
+    const stack = assembleBuildBuffStack(build, mockIndex, { warp_charge: 0.5 });
+    approx(stack.additive_sum, 1.15);
+  });
+
+  it("handles lerped_stat_buff with only magnitude (no min/max)", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.2, magnitude_min: null, magnitude_max: null, type: "lerped_stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    approx(stack.additive_sum, 1.2); // uses magnitude directly
+  });
+
+  it("includes during_heavy condition unconditionally", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.25, type: "conditional_stat_buff", condition: "during_heavy" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    approx(stack.additive_sum, 1.25); // always included
+  });
+
+  it("includes ads_active condition only when flag is true", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.1, type: "conditional_stat_buff", condition: "ads_active" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+
+    const stackOff = assembleBuildBuffStack(build, mockIndex, {});
+    assert.equal(stackOff.additive_sum, 1);
+
+    const stackOn = assembleBuildBuffStack(build, mockIndex, { ads_active: true });
+    approx(stackOn.additive_sum, 1.1);
+  });
+
+  it("skips entities not found in index", () => {
+    const mockIndex = {
+      entities: new Map(), // empty — entity not found
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.missing", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    assert.equal(stack.additive_sum, 1); // gracefully skipped
+  });
+
+  it("skips entities with no calc or no effects", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: {} }], // no effects
+        ["t.talent.b", {}], // no calc at all
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+        { canonical_entity_id: "t.talent.b", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    assert.equal(stack.additive_sum, 1);
+  });
+
+  it("handles missing build fields gracefully", () => {
+    const mockIndex = { entities: new Map(), edges: [] };
+    // Minimal build — no talents, weapons, or curios keys
+    const build = {};
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    assert.equal(stack.additive_sum, 1);
+    assert.equal(stack.multiplicative_product, 1);
+    assert.equal(stack.target_modifier, 1);
+  });
+
+  it("stacks multiple individual stats from different sources", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "backstab_damage", magnitude: 0.1, type: "stat_buff" },
+        ] } }],
+        ["t.talent.b", { calc: { effects: [
+          { stat: "backstab_damage", magnitude: 0.05, type: "stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+        { canonical_entity_id: "t.talent.b", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    approx(stack.backstab_damage, 1.15); // 1 + 0.1 + 0.05
+  });
+
+  it("includes toughness_high condition when health_state is full", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.1, type: "conditional_stat_buff", condition: "threshold:toughness_high" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+
+    const stackFull = assembleBuildBuffStack(build, mockIndex, { health_state: "full" });
+    approx(stackFull.additive_sum, 1.1);
+
+    const stackLow = assembleBuildBuffStack(build, mockIndex, { health_state: "low" });
+    assert.equal(stackLow.additive_sum, 1); // excluded
   });
 });
