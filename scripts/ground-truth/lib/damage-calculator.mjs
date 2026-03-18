@@ -1032,7 +1032,7 @@ const SCENARIO_HITZONES = {
  * @param {object} rawBreed - Breed record from breed-data.json
  * @returns {object} Breed record with hitzone_damage_multiplier added
  */
-function adaptBreed(rawBreed) {
+export function adaptBreed(rawBreed) {
   if (!rawBreed.hit_zones) return rawBreed;
 
   const hzm = { default: {}, melee: {}, ranged: {} };

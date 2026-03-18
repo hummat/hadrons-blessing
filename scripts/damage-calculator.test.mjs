@@ -21,6 +21,7 @@ import {
   loadCalculatorData,
   computeBreakpoints,
   summarizeBreakpoints,
+  adaptBreed,
 } from "./ground-truth/lib/damage-calculator.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -2085,6 +2086,232 @@ describe("computeBreakpoints (integration)", { skip: !HAS_SOURCE && "requires GR
 });
 
 // ── Golden calc snapshot regression tests ──────────────────────────────
+
+// ── adaptBreed unit tests ──────────────────────────────────────────────
+
+describe("adaptBreed", () => {
+  it("transforms breed-data.json shape to computeHit shape", () => {
+    const raw = {
+      id: "test_breed",
+      base_armor_type: "armored",
+      hit_zones: {
+        head: { armor_type: "armored", weakspot: true, damage_multiplier: { ranged: 1.5, melee: 1.2 } },
+        torso: { armor_type: "super_armor", weakspot: false, damage_multiplier: { ranged: 1.0, melee: 0.8 } },
+      },
+      difficulty_health: { damnation: 1000 },
+    };
+
+    const adapted = adaptBreed(raw);
+
+    // hit_zones should strip damage_multiplier
+    assert.deepEqual(adapted.hit_zones.head, { armor_type: "armored", weakspot: true });
+    assert.deepEqual(adapted.hit_zones.torso, { armor_type: "super_armor", weakspot: false });
+
+    // hitzone_damage_multiplier should be populated
+    assert.equal(adapted.hitzone_damage_multiplier.ranged.head, 1.5);
+    assert.equal(adapted.hitzone_damage_multiplier.ranged.torso, 1.0);
+    assert.equal(adapted.hitzone_damage_multiplier.melee.head, 1.2);
+    assert.equal(adapted.hitzone_damage_multiplier.melee.torso, 0.8);
+    assert.equal(adapted.hitzone_damage_multiplier.default.head, 1.2); // melee preferred for default
+    assert.equal(adapted.hitzone_damage_multiplier.default.torso, 0.8);
+
+    // Original fields preserved
+    assert.equal(adapted.id, "test_breed");
+    assert.equal(adapted.base_armor_type, "armored");
+    assert.equal(adapted.difficulty_health.damnation, 1000);
+  });
+
+  it("returns breed unchanged when hit_zones is missing", () => {
+    const raw = { id: "no_hz", base_armor_type: "unarmored" };
+    const adapted = adaptBreed(raw);
+    assert.deepEqual(adapted, raw);
+  });
+
+  it("handles missing damage_multiplier gracefully", () => {
+    const raw = {
+      id: "test",
+      base_armor_type: "unarmored",
+      hit_zones: {
+        head: { armor_type: "unarmored", weakspot: true },
+      },
+    };
+    const adapted = adaptBreed(raw);
+    assert.deepEqual(adapted.hit_zones.head, { armor_type: "unarmored", weakspot: true });
+    // No damage_multiplier data → empty maps
+    assert.deepEqual(adapted.hitzone_damage_multiplier.ranged, {});
+    assert.deepEqual(adapted.hitzone_damage_multiplier.melee, {});
+    assert.deepEqual(adapted.hitzone_damage_multiplier.default, {});
+  });
+});
+
+// ── void_shield through computeHit ─────────────────────────────────────
+
+describe("computeHit with void_shield", () => {
+  const voidShieldConstants = {
+    ...FIXTURE_CONSTANTS,
+    damage_output: {
+      ...FIXTURE_CONSTANTS.damage_output,
+      void_shield: { min: 0, max: 0.5 },
+    },
+    rending_armor_type_multiplier: {
+      ...FIXTURE_CONSTANTS.rending_armor_type_multiplier,
+      void_shield: 0,
+    },
+    overdamage_rending_multiplier: {
+      ...FIXTURE_CONSTANTS.overdamage_rending_multiplier,
+      void_shield: 0,
+    },
+  };
+
+  const voidBreed = {
+    id: "void_shield_enemy",
+    base_armor_type: "void_shield",
+    hit_zones: {
+      body: { armor_type: "void_shield", weakspot: false },
+    },
+    difficulty_health: { damnation: 1000 },
+  };
+
+  it("classifies void_shield as negated", () => {
+    const result = computeHit({
+      profile: FIXTURE_MELEE_PROFILE,
+      hitZone: "body",
+      breed: voidBreed,
+      difficulty: "damnation",
+      flags: {},
+      buffStack: {},
+      quality: 0.8,
+      constants: voidShieldConstants,
+    });
+    assert.equal(result.damageEfficiency, "negated");
+    // Damage should be very low due to void_shield max=0.5
+    assert.ok(result.damage < 50, `expected low damage, got ${result.damage}`);
+  });
+});
+
+// ── chargeLevel parameter documentation test ───────────────────────────
+
+describe("chargeLevel parameter", () => {
+  it("has no effect on damage (not yet wired into any stage)", () => {
+    const baseResult = computeHit({
+      profile: FIXTURE_MELEE_PROFILE,
+      hitZone: "head",
+      breed: FIXTURE_RAGER_BREED,
+      difficulty: "damnation",
+      flags: {},
+      buffStack: {},
+      quality: 0.8,
+      constants: FIXTURE_CONSTANTS,
+      chargeLevel: 1.0,
+    });
+
+    const halfChargeResult = computeHit({
+      profile: FIXTURE_MELEE_PROFILE,
+      hitZone: "head",
+      breed: FIXTURE_RAGER_BREED,
+      difficulty: "damnation",
+      flags: {},
+      buffStack: {},
+      quality: 0.8,
+      constants: FIXTURE_CONSTANTS,
+      chargeLevel: 0.5,
+    });
+
+    // chargeLevel is accepted but not consumed by any stage currently
+    assert.equal(baseResult.damage, halfChargeResult.damage,
+      "chargeLevel should have no effect until wired in");
+  });
+});
+
+// ── Rending exact boundary test ────────────────────────────────────────
+
+describe("rending at exact boundary (adm + rending == 1.0)", () => {
+  const constants = {
+    rending_armor_type_multiplier: { armored: 1 },
+    overdamage_rending_multiplier: { armored: 0.25 },
+  };
+
+  it("case 3 fires at exact boundary: adm=0.5, rending=0.5", () => {
+    // adm_lost = max(1 - 0.5, 0) = 0.5
+    // admLost(0.5) NOT < rending(0.5) → case 3 (simple addition)
+    // rended = 0.5 + 0.5 = 1.0
+    const result = calculateRending({
+      rendingSources: 0.5,
+      armorDamageModifier: 0.5,
+      armorType: "armored",
+      constants,
+    });
+    approx(result.rendedADM, 1.0);
+  });
+
+  it("case 2 fires just above boundary: adm=0.5, rending=0.501", () => {
+    // adm_lost = 0.5, rending = 0.501
+    // 0.5 < 0.501 → case 2: rended = 1 + (0.501 - 0.5) * 0.25 = 1.00025
+    const result = calculateRending({
+      rendingSources: 0.501,
+      armorDamageModifier: 0.5,
+      armorType: "armored",
+      constants,
+    });
+    approx(result.rendedADM, 1.00025);
+  });
+});
+
+// ── lerped_stat_buff warp_charge assumption test ───────────────────────
+
+describe("lerped_stat_buff lerp factor", () => {
+  it("uses warp_charge as the lerp factor (hardwired assumption)", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.2, magnitude_min: 0.0, magnitude_max: 1.0, type: "lerped_stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+
+    // warp_charge = 0 → lerp(0.0, 1.0, 0) = 0.0
+    const stack0 = assembleBuildBuffStack(build, mockIndex, { warp_charge: 0 });
+    approx(stack0.additive_sum, 1.0);
+
+    // warp_charge = 1 → lerp(0.0, 1.0, 1) = 1.0
+    const stack1 = assembleBuildBuffStack(build, mockIndex, { warp_charge: 1 });
+    approx(stack1.additive_sum, 2.0);
+
+    // warp_charge = 0.25 → lerp(0.0, 1.0, 0.25) = 0.25
+    const stack025 = assembleBuildBuffStack(build, mockIndex, { warp_charge: 0.25 });
+    approx(stack025.additive_sum, 1.25);
+  });
+
+  it("defaults to warp_charge=0 when flag is missing", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.2, magnitude_min: 0.1, magnitude_max: 0.5, type: "lerped_stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+
+    // No warp_charge flag → defaults to 0 → lerp(0.1, 0.5, 0) = 0.1
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    approx(stack.additive_sum, 1.1);
+  });
+});
 
 import { readdirSync } from "node:fs";
 
