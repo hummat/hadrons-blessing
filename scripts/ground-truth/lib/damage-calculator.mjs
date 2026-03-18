@@ -35,6 +35,7 @@ const GENERATED_DIR = join(__dirname, "..", "..", "..", "data", "ground-truth", 
 export function boostCurveMultiplier(curve, percent) {
   const n = curve.length - 1;
   if (n <= 0) return curve[0] ?? 0;
+  percent = clamp(percent, 0, 1);
   const curveT = n * percent;
   const lowerIndex = Math.floor(curveT);
   const upperIndex = Math.min(lowerIndex + 1, n);
@@ -82,6 +83,9 @@ export function powerLevelToDamage({
   const minPL = constants.min_power_level ?? 0;
   const maxPL = constants.max_power_level ?? 10000;
   const plRange = maxPL - minPL;
+  if (plRange <= 0) {
+    throw new Error(`Invalid power level range: min=${minPL}, max=${maxPL} (plRange must be > 0)`);
+  }
 
   let powerMultiplier;
 
@@ -114,6 +118,9 @@ export function powerLevelToDamage({
 
   // Source: damage_calculation.lua:216-222
   const dmgTable = constants.damage_output[armorType];
+  if (!dmgTable) {
+    throw new Error(`Unknown armor type '${armorType}' — not found in damage_output constants`);
+  }
   const dmgMin = dmgTable.min;
   const dmgMax = dmgTable.max;
   return dmgMin + (dmgMax - dmgMin) * percentage;
@@ -186,11 +193,12 @@ export function resolveArmorDamageModifier({
     const farADM = lerpADMEntry(farEntry, quality);
 
     // Compute dropoff scalar from distance using ranged_close/ranged_far
-    // Source: damage_profile.lua:190
+    // Source: DamageProfile.dropoff_scalar (damage_profile.lua:234-243)
     const close = constants?.ranged_close ?? 12.5;
     const far = constants?.ranged_far ?? 30;
     const dropoffScalar = clamp((distance ?? 0) - close, 0, far - close) / (far - close);
-    return lerp(nearADM, farADM, Math.sqrt(dropoffScalar));
+    // Source: damage_profile.lua:190 — ADM uses linear lerp (not sqrt)
+    return lerp(nearADM, farADM, dropoffScalar);
   }
 
   // Melee path
@@ -276,8 +284,11 @@ export function calculateRending({
 /**
  * Calculates the finesse (crit + weakspot) boost multiplier.
  *
- * Source: _finesse_boost_damage (damage_calculation.lua:646-757)
- *         ui_finesse_multiplier (damage_calculation.lua:135-167)
+ * Source: ui_finesse_multiplier (damage_calculation.lua:135-167)
+ * Simplified from the full _finesse_boost_damage (646-757) which also applies
+ * weakspot/crit stat buff multipliers, base_boost_damage scaling, and
+ * boost_curve_multiplier_finesse. These finesse buff multipliers are not yet
+ * modeled in the static calculator.
  *
  * The finesse amount is the sum of weakspot + crit contributions, clamped to [0, 1],
  * then passed through the boost curve to produce a multiplier.
@@ -414,6 +425,8 @@ export function hitZoneDamageMultiplier({ breed, hitZone, attackType }) {
  *
  * Source: _apply_armor_type_buffs_to_damage (damage_calculation.lua:196-201)
  *         ARMOR_TYPE_TO_STAT_BUFF lookup (damage_calculation.lua:187-194)
+ * Note: Source applies this twice (attacker + target stat buffs). Static
+ * calculator only models attacker side.
  *
  * @param {object} params
  * @param {number} params.damage - Current damage
@@ -528,7 +541,8 @@ export function classifyDamageEfficiency({
 // ── Orchestrator: computeHit ───────────────────────────────────────
 
 /**
- * Composes all 13 pipeline stages into a single hit computation.
+ * Composes the active pipeline stages (1-9, 11) into a single hit computation.
+ * Stages 10, 12, 13 are no-ops in the static calculator (deferred to #11).
  *
  * This is the primary public API for the damage calculator. It takes a
  * damage profile, target breed, difficulty, and buff state, then runs
@@ -574,7 +588,8 @@ export function computeHit({
   const isRanged = !profile.melee_attack_strength;
 
   // ── Compute dropoff scalar for ranged ──
-  // Source: damage_profile.lua:190
+  // Source: DamageProfile.dropoff_scalar (damage_profile.lua:234-243)
+  // Simplified: uses fixed ranged_close/ranged_far instead of per-profile ranges.
   let dropoffScalar;
   if (isRanged) {
     const close = constants.ranged_close ?? 12.5;
@@ -1091,8 +1106,7 @@ function resolveProfileForQuality(profile, quality) {
 function isWeaponRanged(weapon, templateName) {
   if (weapon.slot === "ranged") return true;
   if (weapon.slot === "melee") return false;
-  // Heuristic: if the template has action_maps with shoot_ actions, it's ranged
-  // But we don't have that info here, so fall back to melee
+  console.warn(`Warning: weapon '${templateName}' has no slot — defaulting to melee`);
   return false;
 }
 
@@ -1212,6 +1226,15 @@ export function computeBreakpoints(build, index, calcData) {
     });
   }
 
+  if (weaponResults.length === 0 && (build.weapons ?? []).length > 0) {
+    const skipped = (build.weapons ?? []).map((w, i) => {
+      const eid = w.name?.canonical_entity_id;
+      const status = w.name?.resolution_status;
+      return `  slot ${i}: ${eid ?? "no entity ID"} (${status ?? "unknown"})`;
+    });
+    console.warn(`Warning: all ${build.weapons.length} weapon(s) skipped in breakpoint calc:\n${skipped.join("\n")}`);
+  }
+
   return {
     weapons: weaponResults,
     metadata: {
@@ -1285,7 +1308,7 @@ function buildActionSummary(actionResults) {
 
 // ── Breakpoint Summary ───────────────────────────────────────────────
 
-/** Key breed IDs for breakpoint summary: elite, armored heavy, horde. */
+/** Key breed IDs for breakpoint summary: rager (berzerker), armored heavy (bulwark), horde (poxwalker). */
 const KEY_BREEDS = ["renegade_berzerker", "chaos_ogryn_bulwark", "chaos_poxwalker"];
 
 /**

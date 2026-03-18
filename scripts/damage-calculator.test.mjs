@@ -245,7 +245,7 @@ describe("stage 3: resolveArmorDamageModifier", () => {
     approx(adm, 1.5);
   });
 
-  it("lerps ranged ADM by sqrt(distance-based dropoff)", () => {
+  it("lerps ranged ADM by linear distance-based dropoff", () => {
     const adm = resolveArmorDamageModifier({
       profile: {
         armor_damage_modifier_ranged: {
@@ -261,8 +261,9 @@ describe("stage 3: resolveArmorDamageModifier", () => {
     });
     // near_adm = lerp(0.5, 0.8, 1.0) = 0.8
     // far_adm = lerp(0.2, 0.4, 1.0) = 0.4
-    // ADM = lerp(0.8, 0.4, sqrt(0.25)) = lerp(0.8, 0.4, 0.5) = 0.6
-    approx(adm, 0.6);
+    // Source: damage_profile.lua:190 — ADM uses linear lerp (not sqrt)
+    // ADM = lerp(0.8, 0.4, 0.25) = 0.8 + (0.4 - 0.8) * 0.25 = 0.7
+    approx(adm, 0.7);
   });
 
   it("returns near ADM at close distance", () => {
