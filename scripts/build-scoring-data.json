@@ -95,7 +95,8 @@
       "blessings": {
         "Riposte": { "internal": "staggered_targets_receive_increased_damage_debuff", "t4": "4 stacks" },
         "Shred": { "internal": "increased_melee_damage_on_multiple_hits", "t4": "+36% power" },
-        "Headtaker": { "internal": "infinite_melee_cleave_on_crit", "t4": "+80% cleave" }
+        "Headtaker": { "internal": "infinite_melee_cleave_on_crit", "t4": "+80% cleave" },
+        "Uncanny Strike": { "internal": "stacking_rending_on_weakspot", "t4": "+24%/stack (5 stacks)" }
       }
     },
     "Artemia Mk III Purgation Flamer": {
@@ -118,7 +119,8 @@
       "blessings": {
         "Blazing Spirit": { "internal": "warp_charge_power_bonus", "t4": "+5%/warp charge (max 20%)" },
         "Uncanny Strike": { "internal": "stacking_rending_on_weakspot", "t4": "+24%/stack (5 stacks)" },
-        "Riposte": { "internal": "can_block_ranged", "t4": "-30% block cost" },
+        "Deflector": { "internal": "can_block_ranged", "t4": "-30% block cost" },
+        "Riposte": { "internal": "dodge_grants_critical_strike_chance", "t4": "+20% crit on dodge" },
         "Shred": { "internal": "increase_power_on_kill", "t4": "+8%/stack" }
       }
     },
@@ -223,7 +225,8 @@
       "blessings": {
         "Run 'n' Gun": { "internal": "hipfire_while_sprinting", "t4": "-30% spread, +15% near dmg" },
         "Speedload": { "internal": "reload_speed_on_slide", "t4": "+10%/stack" },
-        "Flanking Fire": { "internal": "allow_flanking_and_increased_damage_when_flanking", "t4": "+40% flanking dmg" }
+        "Flanking Fire": { "internal": "allow_flanking_and_increased_damage_when_flanking", "t4": "+40% flanking dmg" },
+        "Pinning Fire": { "internal": "stacking_power_bonus_on_staggering_enemies", "t4": "+6%/stack (5 stacks)" }
       }
     },
     "Zarona Stub Revolver": {
