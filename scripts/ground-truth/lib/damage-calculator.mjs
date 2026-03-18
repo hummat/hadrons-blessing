@@ -1,5 +1,5 @@
 /**
- * Damage calculator engine — core pipeline stages 1–8.
+ * Damage calculator engine — all 13 pipeline stages + computeHit orchestrator.
  *
  * Direct port of Darktide's damage_calculation.lua (13-stage pipeline).
  * Each stage is a pure function with no side effects.
@@ -9,6 +9,7 @@
  *             scripts/utilities/attack/damage_profile.lua
  *             scripts/settings/damage/power_level_settings.lua
  *             scripts/settings/damage/armor_settings.lua
+ *             scripts/settings/damage/attack_settings.lua
  */
 
 // ── Utilities ───────────────────────────────────────────────────────
@@ -417,4 +418,263 @@ export function applyArmorTypeBuffs({ damage, armorType, buffStack }) {
   const statName = `${armorType}_damage`;
   const mult = buffStack[statName] ?? 1;
   return damage * mult;
+}
+
+// ── Stage 9: Diminishing Returns ───────────────────────────────────
+
+/**
+ * Applies diminishing returns scaling based on target's current health.
+ *
+ * Source: _apply_diminishing_returns_to_damage (damage_calculation.lua:759-767)
+ *
+ * Only applies when breed.diminishing_returns_damage is truthy.
+ * Uses easeInCubic(healthPercent) to scale damage — at full health (1.0)
+ * this is a no-op (1^3 = 1). At lower health, damage is reduced cubically.
+ *
+ * For static breakpoint analysis, healthPercent defaults to 1.0 (full health),
+ * making this effectively a no-op. Implemented for correctness and future use
+ * in multi-hit simulations.
+ *
+ * @param {object} params
+ * @param {number} params.damage - Current damage value
+ * @param {object|null} params.breed - Breed data (needs diminishing_returns_damage flag)
+ * @param {number} params.healthPercent - Target's current health as fraction 0–1
+ * @returns {number} Damage after diminishing returns
+ */
+export function applyDiminishingReturns({ damage, breed, healthPercent }) {
+  if (!breed || !breed.diminishing_returns_damage) {
+    return damage;
+  }
+
+  // Source: math.easeInCubic(x) = x^3
+  // Source: math.lerp(0, damage, easeInCubic(healthPercent))
+  const eased = healthPercent * healthPercent * healthPercent;
+  return lerp(0, damage, eased);
+}
+
+// ── Stage 10: Force Field (no-op) ──────────────────────────────────
+// Force field short-circuit — skip in static calculator.
+// Force fields are dynamic ability effects (e.g. Psyker dome) that
+// negate all damage. Not relevant for breakpoint analysis.
+// Deferred to #11 (toughness/survivability calculator).
+
+// ── Stage 11: Damage Efficiency Classification ─────────────────────
+
+/**
+ * Classifies the damage efficiency of an attack based on ADM and armor type.
+ *
+ * Source: armor_damage_modifier_to_damage_efficiency (attack_settings.lua:26-34)
+ *
+ * Three categories:
+ * - "negated": (armored or super_armor) with ADM <= 0.1 and no rending damage,
+ *              or void_shield targets
+ * - "full": ADM > 0.6
+ * - "reduced": everything else
+ *
+ * @param {object} params
+ * @param {number} params.armorDamageModifier - Effective ADM (after rending)
+ * @param {string} params.armorType - Target armor type
+ * @param {number} [params.rendingDamage] - Amount of rending damage applied (default 0)
+ * @returns {"negated"|"reduced"|"full"} Damage efficiency category
+ */
+export function classifyDamageEfficiency({
+  armorDamageModifier,
+  armorType,
+  rendingDamage,
+}) {
+  const rending = rendingDamage ?? 0;
+
+  // Source: attack_settings.lua:27
+  if (
+    (armorType === "super_armor" || armorType === "armored") &&
+    armorDamageModifier <= 0.1 &&
+    rending === 0
+  ) {
+    return "negated";
+  }
+
+  // Source: attack_settings.lua:27 (void_shield clause)
+  if (armorType === "void_shield") {
+    return "negated";
+  }
+
+  // Source: attack_settings.lua:29
+  if (armorDamageModifier > 0.6) {
+    return "full";
+  }
+
+  // Source: attack_settings.lua:31
+  return "reduced";
+}
+
+// ── Stage 12: Toughness/Health Split (no-op) ───────────────────────
+// Toughness vs health damage allocation — skip in static calculator.
+// Breakpoint analysis uses raw health damage (pre-toughness).
+// Deferred to #11 (toughness/survivability calculator).
+
+// ── Stage 13: Final Application (no-op) ────────────────────────────
+// Leech, resist_death, and other post-damage hooks — skip in static
+// calculator. Breakpoint analysis uses pre-stage-13 damage.
+// Deferred to #11 (toughness/survivability calculator).
+
+// ── Orchestrator: computeHit ───────────────────────────────────────
+
+/**
+ * Composes all 13 pipeline stages into a single hit computation.
+ *
+ * This is the primary public API for the damage calculator. It takes a
+ * damage profile, target breed, difficulty, and buff state, then runs
+ * the full pipeline to produce final damage and hits-to-kill.
+ *
+ * @param {object} params
+ * @param {object} params.profile - Damage profile (from damage-profiles.json)
+ * @param {string} params.hitZone - Hit zone name ("head", "torso", etc.)
+ * @param {object} params.breed - Breed data (from breed-data.json)
+ * @param {string} params.difficulty - "uprising"|"malice"|"heresy"|"damnation"|"auric"
+ * @param {object} [params.flags] - { is_crit, is_weakspot, is_backstab, is_flanking }
+ * @param {object} [params.buffStack] - Pre-assembled buff stack
+ * @param {number} [params.quality] - Weapon modifier quality 0–1 (default 0.8)
+ * @param {number} [params.distance] - Distance in meters (default 0 = melee)
+ * @param {number} [params.chargeLevel] - Charge level 0–1 (default 1)
+ * @param {object} params.constants - Pipeline constants from damage-profiles.json
+ * @returns {object} Hit result with damage, hitsToKill, and stage outputs
+ */
+export function computeHit({
+  profile,
+  hitZone,
+  breed,
+  difficulty,
+  flags,
+  buffStack,
+  quality,
+  distance,
+  chargeLevel,
+  constants,
+}) {
+  const _flags = flags ?? {};
+  const _buffStack = buffStack ?? {};
+  const _quality = quality ?? 0.8;
+  const _distance = distance ?? 0;
+
+  // ── Resolve effective armor type for this hitzone ──
+  // hitzone_armor_override takes precedence over base_armor_type
+  const hitZoneData = breed.hit_zones?.[hitZone] ?? {};
+  const effectiveArmorType = hitZoneData.armor_type ?? breed.base_armor_type;
+  const isHitZoneWeakspot = hitZoneData.weakspot ?? false;
+
+  // ── Determine if ranged ──
+  const isRanged = !profile.melee_attack_strength;
+
+  // ── Compute dropoff scalar for ranged ──
+  // Source: damage_profile.lua:190
+  let dropoffScalar;
+  if (isRanged) {
+    const close = constants.ranged_close ?? 12.5;
+    const far = constants.ranged_far ?? 30;
+    dropoffScalar = clamp((_distance - close) / (far - close), 0, 1);
+  }
+
+  // ── Stage 1: Power level → base damage ──
+  const baseDamage = powerLevelToDamage({
+    powerLevel: constants.default_power_level,
+    powerDistribution: profile.power_distribution,
+    powerDistributionRanged: profile.power_distribution_ranged,
+    armorType: effectiveArmorType,
+    constants,
+    isRanged,
+    dropoffScalar,
+  });
+
+  // ── Stage 2: Buff multiplier ──
+  const buffedDamage = calculateDamageBuff({ baseDamage, buffStack: _buffStack });
+
+  // ── Stage 3: Armor damage modifier ──
+  const adm = resolveArmorDamageModifier({
+    profile,
+    armorType: effectiveArmorType,
+    quality: _quality,
+    isRanged,
+    distance: _distance,
+    constants,
+    defaultADM: constants.default_armor_damage_modifier,
+  });
+
+  // ── Stage 4: Rending ──
+  const rendingSources = _buffStack.rending_multiplier ?? 0;
+  const { rendedADM } = calculateRending({
+    rendingSources,
+    armorDamageModifier: adm,
+    armorType: effectiveArmorType,
+    constants,
+  });
+
+  // Apply ADM to buffed damage
+  let damage = buffedDamage * rendedADM;
+
+  // ── Stage 5: Finesse boost ──
+  // Both the flag and the hitzone must agree for weakspot finesse
+  const effectiveWeakspot = (_flags.is_weakspot ?? false) && isHitZoneWeakspot;
+
+  const finesseBoost = calculateFinesseBoost({
+    isCrit: _flags.is_crit ?? false,
+    isWeakspot: effectiveWeakspot,
+    armorType: effectiveArmorType,
+    constants,
+    profileBoostCurve: profile.boost_curve,
+    profileFinesseBoost: profile.finesse_boost,
+    profileCritBoost: profile.crit_boost,
+  });
+  damage *= finesseBoost;
+
+  // ── Stage 6: Positional ──
+  damage = calculatePositional({
+    damage,
+    isBackstab: _flags.is_backstab ?? false,
+    isFlanking: _flags.is_flanking ?? false,
+    buffStack: _buffStack,
+    backstabBonus: profile.backstab_bonus,
+  });
+
+  // ── Stage 7: Hitzone multiplier ──
+  const attackType = isRanged ? "ranged" : "melee";
+  const hzMult = hitZoneDamageMultiplier({ breed, hitZone, attackType });
+  damage *= hzMult;
+
+  // ── Stage 8: Armor-type stat buffs (attacker side) ──
+  damage = applyArmorTypeBuffs({ damage, armorType: effectiveArmorType, buffStack: _buffStack });
+
+  // ── Stage 9: Diminishing returns ──
+  damage = applyDiminishingReturns({ damage, breed, healthPercent: 1.0 });
+
+  // Stage 10: Force field — skip (not relevant for breakpoint analysis)
+  // Stage 12: Toughness/health split — skip (breakpoints use raw health damage)
+  // Stage 13: Final application — skip (breakpoints use pre-stage-13 damage)
+
+  // ── Stage 11: Damage efficiency classification ──
+  // Source passes pre-rending ADM to the efficiency classifier (line 107)
+  // and rending_damage = damage * (rended_adm - raw_adm) (line 81)
+  const rendingDamage = rendedADM > adm ? (rendedADM - adm) * buffedDamage : 0;
+  const damageEfficiency = classifyDamageEfficiency({
+    armorDamageModifier: adm,
+    armorType: effectiveArmorType,
+    rendingDamage,
+  });
+
+  // ── Compute hits to kill ──
+  const enemyHP = breed.difficulty_health?.[difficulty] ?? 0;
+  const hitsToKill = enemyHP > 0 && damage > 0 ? Math.ceil(enemyHP / damage) : Infinity;
+
+  return {
+    damage,
+    hitsToKill,
+    baseDamage,
+    buffMultiplier: baseDamage > 0 ? buffedDamage / baseDamage : 1,
+    armorDamageModifier: rendedADM,
+    rendingApplied: rendedADM - adm,
+    finesseBoost,
+    hitZoneMultiplier: hzMult,
+    effectiveArmorType,
+    damageEfficiency,
+    stagesApplied: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11],
+  };
 }

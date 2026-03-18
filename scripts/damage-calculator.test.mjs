@@ -11,6 +11,9 @@ import {
   hitZoneDamageMultiplier,
   applyArmorTypeBuffs,
   boostCurveMultiplier,
+  applyDiminishingReturns,
+  classifyDamageEfficiency,
+  computeHit,
 } from "./ground-truth/lib/damage-calculator.mjs";
 
 // ---------- helpers ----------
@@ -702,5 +705,319 @@ describe("stage 8: applyArmorTypeBuffs", () => {
       buffStack: { disgustingly_resilient_damage: 1.2 },
     });
     approx(result, 120);
+  });
+});
+
+// ---------- Stage 9: applyDiminishingReturns ----------
+describe("stage 9: applyDiminishingReturns", () => {
+  it("returns unmodified damage when breed has no diminishing returns", () => {
+    const result = applyDiminishingReturns({
+      damage: 100,
+      breed: { id: "renegade_rifleman" },
+      healthPercent: 0.5,
+    });
+    approx(result, 100);
+  });
+
+  it("applies easeInCubic scaling when breed has diminishing returns", () => {
+    // easeInCubic(0.5) = 0.125
+    // lerp(0, 100, 0.125) = 12.5
+    const result = applyDiminishingReturns({
+      damage: 100,
+      breed: { id: "chaos_ogryn_executor", diminishing_returns_damage: true },
+      healthPercent: 0.5,
+    });
+    approx(result, 12.5);
+  });
+
+  it("returns full damage at 100% health", () => {
+    // easeInCubic(1.0) = 1.0
+    // lerp(0, 100, 1.0) = 100
+    const result = applyDiminishingReturns({
+      damage: 100,
+      breed: { id: "chaos_ogryn_executor", diminishing_returns_damage: true },
+      healthPercent: 1.0,
+    });
+    approx(result, 100);
+  });
+
+  it("returns zero damage at 0% health", () => {
+    // easeInCubic(0) = 0
+    // lerp(0, 100, 0) = 0
+    const result = applyDiminishingReturns({
+      damage: 100,
+      breed: { id: "chaos_ogryn_executor", diminishing_returns_damage: true },
+      healthPercent: 0,
+    });
+    approx(result, 0);
+  });
+
+  it("returns unmodified damage when breed is null", () => {
+    const result = applyDiminishingReturns({
+      damage: 100,
+      breed: null,
+      healthPercent: 0.5,
+    });
+    approx(result, 100);
+  });
+});
+
+// ---------- Stage 11: classifyDamageEfficiency ----------
+describe("stage 11: classifyDamageEfficiency", () => {
+  it("returns 'negated' for ADM <= 0.1 on armored with no rending", () => {
+    const result = classifyDamageEfficiency({
+      armorDamageModifier: 0.05,
+      armorType: "armored",
+      rendingDamage: 0,
+    });
+    assert.equal(result, "negated");
+  });
+
+  it("returns 'negated' for ADM <= 0.1 on super_armor with no rending", () => {
+    const result = classifyDamageEfficiency({
+      armorDamageModifier: 0.1,
+      armorType: "super_armor",
+      rendingDamage: 0,
+    });
+    assert.equal(result, "negated");
+  });
+
+  it("returns 'reduced' for low ADM on armored when rending applied", () => {
+    // ADM <= 0.1 but rending > 0 → not negated, ADM <= 0.6 → reduced
+    const result = classifyDamageEfficiency({
+      armorDamageModifier: 0.05,
+      armorType: "armored",
+      rendingDamage: 5,
+    });
+    assert.equal(result, "reduced");
+  });
+
+  it("returns 'full' for ADM > 0.6", () => {
+    const result = classifyDamageEfficiency({
+      armorDamageModifier: 0.7,
+      armorType: "armored",
+      rendingDamage: 0,
+    });
+    assert.equal(result, "full");
+  });
+
+  it("returns 'reduced' for ADM between 0.1 and 0.6 on armored", () => {
+    const result = classifyDamageEfficiency({
+      armorDamageModifier: 0.4,
+      armorType: "armored",
+      rendingDamage: 0,
+    });
+    assert.equal(result, "reduced");
+  });
+
+  it("returns 'full' for ADM > 0.6 on unarmored", () => {
+    const result = classifyDamageEfficiency({
+      armorDamageModifier: 0.8,
+      armorType: "unarmored",
+      rendingDamage: 0,
+    });
+    assert.equal(result, "full");
+  });
+
+  it("returns 'reduced' for low ADM on unarmored (not negated)", () => {
+    // unarmored with ADM 0.05 → not negated (only armored/super_armor can be negated)
+    // ADM <= 0.6 → reduced
+    const result = classifyDamageEfficiency({
+      armorDamageModifier: 0.05,
+      armorType: "unarmored",
+      rendingDamage: 0,
+    });
+    assert.equal(result, "reduced");
+  });
+
+  it("returns 'negated' for zero ADM on armored", () => {
+    const result = classifyDamageEfficiency({
+      armorDamageModifier: 0,
+      armorType: "armored",
+      rendingDamage: 0,
+    });
+    assert.equal(result, "negated");
+  });
+});
+
+// ---------- computeHit ----------
+
+const FIXTURE_CONSTANTS = {
+  default_power_level: 500,
+  min_power_level: 0,
+  max_power_level: 10000,
+  damage_output: {
+    unarmored: { min: 0, max: 20 },
+    armored: { min: 0, max: 20 },
+    super_armor: { min: 0, max: 20 },
+  },
+  boost_curves: { default: [0, 0.3, 0.6, 0.8, 1] },
+  default_finesse_boost_amount: { unarmored: 0.5, armored: 0.5, super_armor: 0.5 },
+  default_crit_boost_amount: 0.5,
+  default_boost_curve_multiplier: 0.5,
+  rending_armor_type_multiplier: { unarmored: 0, armored: 1, super_armor: 1 },
+  overdamage_rending_multiplier: { unarmored: 0, armored: 0.25, super_armor: 0.25 },
+  ranged_close: 12.5,
+  ranged_far: 30,
+};
+
+const FIXTURE_MELEE_PROFILE = {
+  melee_attack_strength: "heavy",
+  power_distribution: { attack: 0.6, impact: 0.4 },
+  armor_damage_modifier: {
+    attack: {
+      unarmored: [0.8, 1.2],
+      armored: [0.4, 0.7],
+      super_armor: [0, 0.1],
+    },
+  },
+  boost_curve_multiplier_finesse: 0.25,
+};
+
+const FIXTURE_RAGER_BREED = {
+  id: "renegade_berzerker",
+  base_armor_type: "armored",
+  hit_zones: {
+    head: { armor_type: "armored", weakspot: true, damage_multiplier: { ranged: 1.0, melee: 1.0 } },
+    torso: { armor_type: "super_armor", weakspot: false, damage_multiplier: { ranged: 1.0, melee: 1.0 } },
+  },
+  difficulty_health: {
+    uprising: 850,
+    malice: 1000,
+    heresy: 1250,
+    damnation: 1875,
+    auric: 2500,
+  },
+};
+
+describe("computeHit", () => {
+  it("computes full pipeline for a melee headshot", () => {
+    const result = computeHit({
+      profile: FIXTURE_MELEE_PROFILE,
+      hitZone: "head",
+      breed: FIXTURE_RAGER_BREED,
+      difficulty: "damnation",
+      flags: { is_crit: false, is_weakspot: true },
+      buffStack: { additive_sum: 1.15, multiplicative_product: 1.0, target_modifier: 1.0 },
+      quality: 0.8,
+      distance: 0,
+      chargeLevel: 1,
+      constants: FIXTURE_CONSTANTS,
+    });
+    assert.ok(result.damage > 0, "damage should be positive");
+    assert.ok(result.hitsToKill >= 1, "hitsToKill should be at least 1");
+    assert.equal(result.effectiveArmorType, "armored"); // head = armored (berzerker)
+    assert.ok(result.baseDamage > 0, "baseDamage should be positive");
+    // ADM = lerp(0.4, 0.7, 0.8) = 0.64 > 0.6 threshold → "full"
+    assert.equal(result.damageEfficiency, "full");
+  });
+
+  it("returns Infinity hitsToKill for zero damage", () => {
+    const result = computeHit({
+      profile: FIXTURE_MELEE_PROFILE,
+      hitZone: "torso",
+      breed: FIXTURE_RAGER_BREED,
+      difficulty: "damnation",
+      flags: {},
+      buffStack: { additive_sum: 1.0, multiplicative_product: 1.0, target_modifier: 1.0 },
+      quality: 0.0, // min quality → ADM at [0, 0.1] min = 0
+      distance: 0,
+      constants: FIXTURE_CONSTANTS,
+    });
+    assert.equal(result.effectiveArmorType, "super_armor");
+    // With quality 0, super_armor ADM = lerp(0, 0.1, 0) = 0 → damage = 0 → hitsToKill = Infinity
+    assert.equal(result.hitsToKill, Infinity);
+  });
+
+  it("includes finesse boost on weakspot headshots", () => {
+    const noWeakspot = computeHit({
+      profile: FIXTURE_MELEE_PROFILE,
+      hitZone: "head",
+      breed: FIXTURE_RAGER_BREED,
+      difficulty: "damnation",
+      flags: { is_weakspot: false },
+      buffStack: { additive_sum: 1.0, multiplicative_product: 1.0, target_modifier: 1.0 },
+      quality: 0.8,
+      distance: 0,
+      constants: FIXTURE_CONSTANTS,
+    });
+    const withWeakspot = computeHit({
+      profile: FIXTURE_MELEE_PROFILE,
+      hitZone: "head",
+      breed: FIXTURE_RAGER_BREED,
+      difficulty: "damnation",
+      flags: { is_weakspot: true },
+      buffStack: { additive_sum: 1.0, multiplicative_product: 1.0, target_modifier: 1.0 },
+      quality: 0.8,
+      distance: 0,
+      constants: FIXTURE_CONSTANTS,
+    });
+    assert.ok(withWeakspot.damage > noWeakspot.damage, "weakspot should do more damage");
+    assert.ok(withWeakspot.finesseBoost > 1, "finesse boost should be > 1");
+    assert.equal(noWeakspot.finesseBoost, 1, "no finesse without weakspot flag");
+  });
+
+  it("reports correct stagesApplied", () => {
+    const result = computeHit({
+      profile: FIXTURE_MELEE_PROFILE,
+      hitZone: "head",
+      breed: FIXTURE_RAGER_BREED,
+      difficulty: "damnation",
+      flags: {},
+      buffStack: { additive_sum: 1.0, multiplicative_product: 1.0, target_modifier: 1.0 },
+      quality: 0.8,
+      distance: 0,
+      constants: FIXTURE_CONSTANTS,
+    });
+    assert.deepEqual(result.stagesApplied, [1, 2, 3, 4, 5, 6, 7, 8, 9, 11]);
+  });
+
+  it("computes hitsToKill correctly", () => {
+    const result = computeHit({
+      profile: FIXTURE_MELEE_PROFILE,
+      hitZone: "head",
+      breed: FIXTURE_RAGER_BREED,
+      difficulty: "uprising", // 850 HP
+      flags: { is_crit: false, is_weakspot: true },
+      buffStack: { additive_sum: 1.0, multiplicative_product: 1.0, target_modifier: 1.0 },
+      quality: 0.8,
+      distance: 0,
+      constants: FIXTURE_CONSTANTS,
+    });
+    // Verify hitsToKill = ceil(HP / damage)
+    const expected = Math.ceil(850 / result.damage);
+    assert.equal(result.hitsToKill, expected);
+  });
+
+  it("handles missing hitzone gracefully (falls back to base_armor_type)", () => {
+    const result = computeHit({
+      profile: FIXTURE_MELEE_PROFILE,
+      hitZone: "left_arm", // not in breed hit_zones
+      breed: FIXTURE_RAGER_BREED,
+      difficulty: "damnation",
+      flags: {},
+      buffStack: { additive_sum: 1.0, multiplicative_product: 1.0, target_modifier: 1.0 },
+      quality: 0.8,
+      distance: 0,
+      constants: FIXTURE_CONSTANTS,
+    });
+    assert.equal(result.effectiveArmorType, "armored"); // falls back to base_armor_type
+    assert.ok(result.damage > 0);
+  });
+
+  it("does not apply finesse when is_weakspot=true but hitzone is not weakspot", () => {
+    // Torso is not a weakspot, so even with is_weakspot flag, finesse shouldn't apply
+    const result = computeHit({
+      profile: FIXTURE_MELEE_PROFILE,
+      hitZone: "torso",
+      breed: FIXTURE_RAGER_BREED,
+      difficulty: "damnation",
+      flags: { is_weakspot: true },
+      buffStack: { additive_sum: 1.0, multiplicative_product: 1.0, target_modifier: 1.0 },
+      quality: 0.8, // super_armor ADM = lerp(0, 0.1, 0.8) = 0.08
+      distance: 0,
+      constants: FIXTURE_CONSTANTS,
+    });
+    assert.equal(result.finesseBoost, 1, "finesse should not apply on non-weakspot zone");
   });
 });
