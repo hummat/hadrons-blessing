@@ -1,0 +1,15 @@
+{
+  "checklist": [
+    { "label": "One-shot Rager head", "breed_id": "renegade_berzerker", "difficulty": "damnation", "max_hits": 1, "hit_zone": "head", "scenario": "aimed", "weight": "high" },
+    { "label": "Two-hit Rager body", "breed_id": "renegade_berzerker", "difficulty": "damnation", "max_hits": 2, "hit_zone": "torso", "scenario": "sustained", "weight": "high" },
+    { "label": "Two-hit Crusher", "breed_id": "chaos_ogryn_executor", "difficulty": "damnation", "max_hits": 2, "hit_zone": "head", "scenario": "aimed", "weight": "high" },
+    { "label": "One-shot Trapper", "breed_id": "renegade_netgunner", "difficulty": "damnation", "max_hits": 1, "hit_zone": "head", "scenario": "aimed", "weight": "medium" },
+    { "label": "One-shot Hound", "breed_id": "chaos_hound", "difficulty": "damnation", "max_hits": 1, "hit_zone": "head", "scenario": "aimed", "weight": "medium" },
+    { "label": "One-shot Bomber body", "breed_id": "chaos_poxwalker_bomber", "difficulty": "damnation", "max_hits": 1, "hit_zone": "torso", "scenario": "sustained", "weight": "medium" },
+    { "label": "Horde one-shot body", "breed_id": "chaos_poxwalker", "difficulty": "damnation", "max_hits": 1, "hit_zone": "torso", "scenario": "sustained", "weight": "medium" },
+    { "label": "Three-hit Mauler", "breed_id": "renegade_executor", "difficulty": "damnation", "max_hits": 3, "hit_zone": "head", "scenario": "aimed", "weight": "low" },
+    { "label": "Two-hit Bulwark", "breed_id": "chaos_ogryn_bulwark", "difficulty": "damnation", "max_hits": 2, "hit_zone": "head", "scenario": "aimed", "weight": "low" },
+    { "label": "One-shot Sniper", "breed_id": "renegade_sniper", "difficulty": "damnation", "max_hits": 1, "hit_zone": "head", "scenario": "aimed", "weight": "low" }
+  ],
+  "weight_values": { "high": 3, "medium": 2, "low": 1 }
+}

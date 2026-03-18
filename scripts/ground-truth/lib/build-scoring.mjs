@@ -1,5 +1,7 @@
 // scripts/ground-truth/lib/build-scoring.mjs
-// Build quality scoring from synergy model output.
+// Build quality scoring from synergy model output and calculator output.
+
+import { scoreBreakpointRelevance, scoreDifficultyScaling } from "./breakpoint-checklist.mjs";
 
 /**
  * Classify a selection ID into a category for scoring purposes.
@@ -361,5 +363,18 @@ export function scoreFromSynergy(synergyOutput) {
     talent_coherence: scoreTalentCoherence(synergyOutput),
     blessing_synergy: scoreBlessingSynergy(synergyOutput),
     role_coverage: scoreRoleCoverage(synergyOutput),
+  };
+}
+
+/**
+ * Compute scoring dimensions from calculator output (breakpoint matrix).
+ *
+ * @param {object} calcOutput - { matrix } from computeBreakpoints()
+ * @returns {{ breakpoint_relevance: object|null, difficulty_scaling: object|null }}
+ */
+export function scoreFromCalculator(calcOutput) {
+  return {
+    breakpoint_relevance: scoreBreakpointRelevance(calcOutput.matrix),
+    difficulty_scaling: scoreDifficultyScaling(calcOutput.matrix),
   };
 }

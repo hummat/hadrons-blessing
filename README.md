@@ -1,8 +1,8 @@
 # Hadron's Blessing
 
 Source-backed Darktide build intelligence. Maps community names to canonical
-game entities, audits builds against decompiled source, and will grow into a
-build planner, calculator, and static web tool.
+game entities, audits builds against decompiled source, computes damage
+breakpoints via a 13-stage calculator, and scores builds across 7 dimensions.
 
 ## Current CLI Contract
 
@@ -23,9 +23,9 @@ Provisional surface:
   shape used by this repo
 - **Re-resolve** — batch refresh unresolved or non-canonical selections in
   canonical build files when resolver coverage expands
-- **Score** — coarse build scoring exists today in `scripts/score-build.mjs`,
-  now accepts canonical build fixtures directly, but is not yet part of the
-  stable CLI contract
+- **Score** — 7-dimension build scoring (2 mechanical + 5 qualitative)
+- **Calc** — 13-stage damage breakpoint calculator with per-weapon per-enemy
+  per-difficulty hits-to-kill matrix
 
 Not yet part of the public CLI contract:
 
@@ -34,8 +34,7 @@ Not yet part of the public CLI contract:
 - **Coverage** — implemented as `npm run coverage`, but not part of the stable
   v1 contract
 
-All stable output is machine-readable JSON. Human-readable reports, richer
-build-oriented commands, and calculator features are follow-up phases.
+All stable output is machine-readable JSON with optional `--text` human-readable mode.
 
 ## Source Root Contract
 
@@ -62,7 +61,9 @@ Current command requirements:
 - `canonicalize` — requires `GROUND_TRUTH_SOURCE_ROOT`
 - `reresolve` — requires `GROUND_TRUTH_SOURCE_ROOT`
 - `index:build` / `index:check` / `test` / `check` — require `GROUND_TRUTH_SOURCE_ROOT`
-- `scripts/score-build.mjs` — does not require `GROUND_TRUTH_SOURCE_ROOT`
+- `breeds:build` / `profiles:build` — require `GROUND_TRUTH_SOURCE_ROOT`
+- `calc` — requires `GROUND_TRUTH_SOURCE_ROOT` (reads generated data from `breeds:build` + `profiles:build`)
+- `score` — does not require `GROUND_TRUTH_SOURCE_ROOT` (but includes breakpoint scoring when calc data available)
 
 If `GROUND_TRUTH_SOURCE_ROOT` is missing or points at the wrong pinned revision,
 resolver/index/test commands fail deliberately with explicit setup guidance.
@@ -120,10 +121,19 @@ Run the full verification flow (index + tests + freshness check):
 GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code make check
 ```
 
-Experimental scorecard output on canonical build fixtures:
+Build scoring on canonical build fixtures:
 
 ```bash
-node scripts/score-build.mjs scripts/builds/08-gandalf-melee-wizard.json --json
+npm run score -- scripts/builds/08-gandalf-melee-wizard.json --json
+npm run score -- scripts/builds/08-gandalf-melee-wizard.json --text
+```
+
+Damage breakpoint calculator:
+
+```bash
+GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run calc -- scripts/builds/08-gandalf-melee-wizard.json
+GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run calc -- scripts/builds/08-gandalf-melee-wizard.json --json
+GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run calc -- scripts/builds/ --json            # batch
 ```
 
 Regenerate tree edges from Lua source (requires source root):
@@ -161,10 +171,10 @@ Current entity coverage (1376 total: 768 non-tree + 608 tree_node):
 Tree edges are generated from Lua source via `npm run edges:build`. Skipped edges reference
 talent entities not yet in ground-truth — they appear automatically as entity coverage grows.
 
-All 20 build fixtures (all 6 classes) are stored in canonical build shape,
+All 23 build fixtures (all 6 classes) are stored in canonical build shape,
 re-extracted from live Games Lantern pages with full talent trees.
 
-Audit totals across all 20 fixtures: **1089 resolved / 60 unresolved / 1
+Audit totals across all 23 fixtures: **1089 resolved / 60 unresolved / 1
 non_canonical / 0 ambiguous**. The 60 unresolved are curio cosmetic item
 names (backend-only, not in the decompiled source).
 
@@ -174,7 +184,7 @@ names (backend-only, not in the decompiled source).
 - `#2` Human-readable audit/report layer
 - `#3` Build-oriented CLI (browse, compare)
 - ~~`#4` BetterBots integration contract~~ (resolved)
-- `#5` Calculator and dataflow layer
+- ~~`#5` Calculator and dataflow layer~~ (resolved)
 - `#6` Website (SvelteKit + Svelte Flow talent tree)
 
 ## License
