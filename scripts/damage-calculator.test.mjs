@@ -2083,3 +2083,95 @@ describe("computeBreakpoints (integration)", { skip: !HAS_SOURCE && "requires GR
     console.log(`  [integration] ${summaries.length} summary entries`);
   });
 });
+
+// ── Golden calc snapshot regression tests ──────────────────────────────
+
+import { readdirSync } from "node:fs";
+
+describe("calc snapshot regression", () => {
+  const snapshotDir = join(__dirname, "..", "tests", "fixtures", "ground-truth", "calc");
+  const buildsDir = join(__dirname, "builds");
+  let snapshots;
+  try {
+    snapshots = readdirSync(snapshotDir).filter((f) => f.endsWith(".calc.json")).sort();
+  } catch {
+    snapshots = [];
+  }
+
+  if (snapshots.length === 0) {
+    it("no calc snapshots found (skip)", { skip: true }, () => {});
+  } else {
+    // Shared state — load once for all snapshot tests
+    let index, calcData;
+
+    it("loads shared calculator data", async () => {
+      const { loadIndex } = await import("./ground-truth/lib/synergy-model.mjs");
+      index = loadIndex();
+      calcData = loadCalculatorData();
+      assert.ok(index, "index loaded");
+      assert.ok(calcData, "calcData loaded");
+    });
+
+    for (const snapshotFile of snapshots) {
+      const buildName = snapshotFile.replace(".calc.json", "");
+      const buildPath = join(buildsDir, `${buildName}.json`);
+
+      it(`matches frozen snapshot: ${buildName}`, () => {
+        assert.ok(index && calcData, "shared data must load first");
+
+        const build = JSON.parse(readFileSync(buildPath, "utf-8"));
+        const matrix = computeBreakpoints(build, index, calcData);
+        const expected = JSON.parse(readFileSync(join(snapshotDir, snapshotFile), "utf-8"));
+
+        // Compare structure: same weapon count
+        assert.equal(
+          matrix.weapons.length,
+          expected.weapons.length,
+          `${buildName}: weapon count mismatch`,
+        );
+
+        // Compare each weapon's damage values
+        for (let w = 0; w < matrix.weapons.length; w++) {
+          const actual = matrix.weapons[w];
+          const exp = expected.weapons[w];
+          assert.equal(actual.entityId, exp.entityId, `${buildName}: weapon ${w} entityId mismatch`);
+          assert.equal(actual.actions.length, exp.actions.length, `${buildName}: weapon ${w} action count mismatch`);
+
+          for (let a = 0; a < actual.actions.length; a++) {
+            const actAction = actual.actions[a];
+            const expAction = exp.actions[a];
+            assert.equal(actAction.type, expAction.type, `${buildName}: weapon ${w} action ${a} type mismatch`);
+
+            for (const scenarioName of Object.keys(expAction.scenarios)) {
+              const actBreeds = actAction.scenarios[scenarioName]?.breeds ?? [];
+              const expBreeds = expAction.scenarios[scenarioName]?.breeds ?? [];
+              assert.equal(
+                actBreeds.length,
+                expBreeds.length,
+                `${buildName}: weapon ${w}/${actAction.type}/${scenarioName} breed count mismatch`,
+              );
+
+              for (let b = 0; b < expBreeds.length; b++) {
+                const ae = actBreeds[b];
+                const ee = expBreeds[b];
+                assert.equal(ae.breed_id, ee.breed_id);
+                assert.equal(ae.difficulty, ee.difficulty);
+                // JSON serializes Infinity as null
+                const expHTK = ee.hitsToKill === null ? Infinity : ee.hitsToKill;
+                assert.equal(ae.hitsToKill, expHTK,
+                  `${buildName}: ${actAction.type}/${scenarioName}/${ee.breed_id}/${ee.difficulty} htk: ${ae.hitsToKill} vs ${expHTK}`);
+                // Compare damage within tolerance (floating point); null damage means 0 in JSON
+                const expDmg = ee.damage ?? 0;
+                const dmgDiff = Math.abs(ae.damage - expDmg);
+                assert.ok(
+                  dmgDiff < 0.01,
+                  `${buildName}: ${actAction.type}/${scenarioName}/${ee.breed_id}/${ee.difficulty} damage: ${ae.damage} vs ${expDmg} (diff ${dmgDiff})`,
+                );
+              }
+            }
+          }
+        }
+      });
+    }
+  }
+});
