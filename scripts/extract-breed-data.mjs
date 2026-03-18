@@ -1,0 +1,501 @@
+/**
+ * Pipeline entry point: extract breed data from Darktide Lua source files.
+ *
+ * Reads breed files and difficulty settings to produce a consolidated
+ * breed-data.json used by the calculator for damage breakpoints.
+ *
+ * Usage: node scripts/extract-breed-data.mjs
+ *        npm run breeds:build
+ */
+
+import { readFileSync, writeFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
+import { validateSourceSnapshot } from "./ground-truth/lib/validate.mjs";
+import { runCliMain } from "./ground-truth/lib/cli.mjs";
+
+const GENERATED_DIR = join(
+  import.meta.dirname,
+  "..",
+  "data",
+  "ground-truth",
+  "generated",
+);
+
+const DIFFICULTY_NAMES = ["uprising", "malice", "heresy", "damnation", "auric"];
+
+const COMMUNITY_ARMOR_NAMES = {
+  unarmored: "Unarmoured",
+  armored: "Flak",
+  resistant: "Infested",
+  berserker: "Maniac",
+  super_armor: "Carapace",
+  disgustingly_resilient: "Unyielding",
+};
+
+/** Factions containing enemy breed files. */
+const BREED_FACTIONS = ["renegade", "cultist", "chaos", "companion"];
+
+await runCliMain("breeds:build", async () => {
+  const snapshot = validateSourceSnapshot();
+  const sourceRoot = snapshot.source_root;
+  const snapshotId = snapshot.id;
+
+  // -- Phase 1: Parse health from minion_difficulty_settings.lua ----------------
+  const healthMap = parseDifficultyHealth(sourceRoot);
+  console.log(`Parsed health for ${healthMap.size} breeds`);
+
+  // -- Phase 2: Parse breed files -----------------------------------------------
+  const breedFiles = collectBreedFiles(sourceRoot);
+  console.log(`Found ${breedFiles.length} breed files`);
+
+  const breeds = [];
+  for (const filePath of breedFiles) {
+    const luaSource = readFileSync(filePath, "utf8");
+    let breed;
+    try {
+      breed = parseBreedFile(luaSource);
+    } catch (err) {
+      console.warn(`Warning: skipping ${filePath} — ${err.message}`);
+      continue;
+    }
+    if (!breed) continue;
+
+    // -- Phase 3: Attach difficulty health ------------------------------------
+    const healthSteps = healthMap.get(breed.id);
+    if (!healthSteps) {
+      console.warn(`Warning: no health data for ${breed.id}, skipping`);
+      continue;
+    }
+    const difficultyHealth = {};
+    for (let i = 0; i < DIFFICULTY_NAMES.length; i++) {
+      difficultyHealth[DIFFICULTY_NAMES[i]] = healthSteps[i];
+    }
+
+    // -- Phase 4: Assemble final record with stable field order ---------------
+    const communityArmorName =
+      COMMUNITY_ARMOR_NAMES[breed.base_armor_type] || breed.base_armor_type;
+
+    breeds.push({
+      id: breed.id,
+      display_name: breed.display_name,
+      faction: breed.faction,
+      base_armor_type: breed.base_armor_type,
+      community_armor_name: communityArmorName,
+      tags: breed.tags,
+      difficulty_health: difficultyHealth,
+      hit_zones: breed.hit_zones,
+    });
+  }
+
+  breeds.sort((a, b) => a.id.localeCompare(b.id));
+
+  // -- Phase 5: Write breed-data.json -------------------------------------------
+  const output = {
+    breeds,
+    source_snapshot_id: snapshotId,
+    generated_at: new Date().toISOString(),
+  };
+  writeFileSync(
+    join(GENERATED_DIR, "breed-data.json"),
+    JSON.stringify(output, null, 2) + "\n",
+  );
+  console.log(`Wrote ${breeds.length} breeds to breed-data.json`);
+});
+
+// -- Parsers ------------------------------------------------------------------
+
+/**
+ * Parse the health table from minion_difficulty_settings.lua.
+ *
+ * Resolves helper function calls like `_elite_health_steps(1000)` into
+ * 5-element arrays, and also handles inline literal arrays.
+ *
+ * @param {string} sourceRoot
+ * @returns {Map<string, number[]>} breedName -> [uprising, malice, heresy, damnation, auric]
+ */
+function parseDifficultyHealth(sourceRoot) {
+  const filePath = join(
+    sourceRoot,
+    "scripts",
+    "settings",
+    "difficulty",
+    "minion_difficulty_settings.lua",
+  );
+  const luaSource = readFileSync(filePath, "utf8");
+
+  // Extract helper function multiplier arrays
+  const helperMultipliers = parseHealthHelpers(luaSource);
+
+  // Extract the health table
+  const healthMatch = luaSource.match(
+    /minion_difficulty_settings\.health\s*=\s*\{([\s\S]*?)\n\}/,
+  );
+  if (!healthMatch) {
+    throw new Error("Could not find minion_difficulty_settings.health table");
+  }
+
+  const healthBlock = healthMatch[1];
+  const healthMap = new Map();
+
+  // Match entries: breed_name = _helper(value) or breed_name = { ... }
+  const entryRe =
+    /(\w+)\s*=\s*(?:(_\w+)\((\d+(?:\.\d+)?)\)|(\{[\s\S]*?\}))\s*,/g;
+  let match;
+  while ((match = entryRe.exec(healthBlock)) !== null) {
+    const breedName = match[1];
+
+    if (match[2]) {
+      // Helper function call: _helper(base)
+      const helperName = match[2];
+      const baseHealth = Number(match[3]);
+      const multipliers = helperMultipliers.get(helperName);
+      if (!multipliers) {
+        console.warn(`Warning: unknown health helper ${helperName} for ${breedName}`);
+        continue;
+      }
+      healthMap.set(
+        breedName,
+        multipliers.map((m) => Math.round(baseHealth * m)),
+      );
+    } else {
+      // Inline literal array: { 850, 1000, 1250, ... }
+      const arrayStr = match[4];
+      const numbers = arrayStr.match(/-?\d+(?:\.\d+)?/g);
+      if (numbers && numbers.length >= 5) {
+        healthMap.set(
+          breedName,
+          numbers.slice(0, 5).map(Number),
+        );
+      }
+    }
+  }
+
+  return healthMap;
+}
+
+/**
+ * Parse health helper functions from the difficulty settings file.
+ *
+ * Each helper has the form:
+ *   local function _helper(health)
+ *     local health_steps = { health * M1, health * M2, ... }
+ *     return health_steps
+ *   end
+ *
+ * @param {string} luaSource
+ * @returns {Map<string, number[]>} helperName -> multiplier array
+ */
+function parseHealthHelpers(luaSource) {
+  const helpers = new Map();
+
+  const helperRe =
+    /local function (_\w+_health_steps)\(health\)\s*local health_steps\s*=\s*\{([\s\S]*?)\}\s*return/g;
+  let match;
+  while ((match = helperRe.exec(luaSource)) !== null) {
+    const name = match[1];
+    const body = match[2];
+    const multipliers = [];
+
+    const mulRe = /health\s*\*\s*(-?\d+(?:\.\d+)?)/g;
+    let m;
+    while ((m = mulRe.exec(body)) !== null) {
+      multipliers.push(Number(m[1]));
+    }
+
+    if (multipliers.length >= 5) {
+      helpers.set(name, multipliers.slice(0, 5));
+    }
+  }
+
+  return helpers;
+}
+
+/**
+ * Collect all breed Lua files from the source root.
+ *
+ * @param {string} sourceRoot
+ * @returns {string[]}
+ */
+function collectBreedFiles(sourceRoot) {
+  const breedsDir = join(sourceRoot, "scripts", "settings", "breed", "breeds");
+  const files = [];
+
+  for (const faction of BREED_FACTIONS) {
+    const factionDir = join(breedsDir, faction);
+    let entries;
+    try {
+      entries = readdirSync(factionDir);
+    } catch {
+      continue;
+    }
+    for (const f of entries.filter((n) => n.endsWith("_breed.lua")).sort()) {
+      files.push(join(factionDir, f));
+    }
+  }
+
+  return files;
+}
+
+/**
+ * Parse a single breed file into the output shape.
+ *
+ * Extracts: id, display_name, faction, base_armor_type, tags, hit_zones,
+ * hitzone_armor_override, hitzone_damage_multiplier, hit_zone_weakspot_types.
+ *
+ * Returns null for breeds that lack essential fields (e.g. no armor_type).
+ *
+ * @param {string} luaSource
+ * @returns {object|null}
+ */
+function parseBreedFile(luaSource) {
+  // Extract the breed_name local variable
+  const breedNameMatch = luaSource.match(
+    /local\s+breed_name\s*=\s*"(\w+)"/,
+  );
+  if (!breedNameMatch) return null;
+  const localBreedName = breedNameMatch[1];
+
+  // Check for `name = "literal"` override at the top level of breed_data.
+  // Mutator breeds sometimes override the name (e.g. chaos_hound_mutator).
+  // The top-level name field is at exactly one-tab indent after `local breed_data = {`.
+  const nameOverrideMatch = luaSource.match(
+    /^\tname\s*=\s*"(\w+)"\s*,/m,
+  );
+  let breedId = localBreedName;
+  if (nameOverrideMatch && nameOverrideMatch[1] !== localBreedName) {
+    breedId = nameOverrideMatch[1];
+  }
+
+  // Extract display_name
+  const displayNameMatch = luaSource.match(
+    /display_name\s*=\s*"([^"]+)"/,
+  );
+  const displayName = displayNameMatch
+    ? displayNameMatch[1]
+    : `loc_breed_display_name_${breedId}`;
+
+  // Extract sub_faction_name (preferred) or infer from breed_name prefix
+  const subFactionMatch = luaSource.match(
+    /sub_faction_name\s*=\s*"(\w+)"/,
+  );
+  const faction = subFactionMatch
+    ? subFactionMatch[1]
+    : inferFaction(breedId);
+
+  // Extract armor_type = armor_types.<type>
+  const armorMatch = luaSource.match(
+    /armor_type\s*=\s*armor_types\.(\w+)/,
+  );
+  if (!armorMatch) return null; // Skip breeds without armor (player breeds, companion_dog)
+  const baseArmorType = armorMatch[1];
+
+  // Extract tags
+  const tags = parseTags(luaSource);
+
+  // Extract hit_zones array
+  const hitZoneNames = parseHitZoneNames(luaSource);
+  if (hitZoneNames.length === 0) return null;
+
+  // Extract hitzone_armor_override
+  const armorOverrides = parseHitzoneArmorOverride(luaSource);
+
+  // Extract hitzone_damage_multiplier
+  const damageMultipliers = parseHitzoneDamageMultiplier(luaSource);
+
+  // Extract hit_zone_weakspot_types
+  const weakspotTypes = parseWeakspotTypes(luaSource);
+
+  // Build hit_zones object
+  const hitZones = {};
+  for (const zoneName of hitZoneNames) {
+    const armorType = armorOverrides.get(zoneName) || baseArmorType;
+    const isWeakspot = weakspotTypes.has(zoneName);
+
+    // Damage multipliers: merge ranged, melee, and default
+    const rangedMult = damageMultipliers.ranged.get(zoneName)
+      ?? damageMultipliers.default.get(zoneName)
+      ?? 1.0;
+    const meleeMult = damageMultipliers.melee.get(zoneName)
+      ?? damageMultipliers.default.get(zoneName)
+      ?? 1.0;
+
+    hitZones[zoneName] = {
+      armor_type: armorType,
+      weakspot: isWeakspot,
+      damage_multiplier: {
+        ranged: rangedMult,
+        melee: meleeMult,
+      },
+    };
+  }
+
+  return {
+    id: breedId,
+    display_name: displayName,
+    faction,
+    base_armor_type: baseArmorType,
+    tags,
+    hit_zones: hitZones,
+  };
+}
+
+/**
+ * Parse the tags table from a breed file.
+ * Tags are structured as `tags = { elite = true, melee = true, ... }`.
+ *
+ * @param {string} luaSource
+ * @returns {string[]}
+ */
+function parseTags(luaSource) {
+  const tagsMatch = luaSource.match(/\btags\s*=\s*\{([\s\S]*?)\}/);
+  if (!tagsMatch) return [];
+
+  const tags = [];
+  const tagRe = /(\w+)\s*=\s*true/g;
+  let m;
+  while ((m = tagRe.exec(tagsMatch[1])) !== null) {
+    tags.push(m[1]);
+  }
+  return tags.sort();
+}
+
+/**
+ * Extract hit zone names from the hit_zones array.
+ * Matches patterns like: `name = hit_zone_names.head`
+ *
+ * @param {string} luaSource
+ * @returns {string[]}
+ */
+function parseHitZoneNames(luaSource) {
+  // Find the hit_zones array block
+  const hzStart = luaSource.indexOf("hit_zones = {");
+  if (hzStart === -1) return [];
+
+  // Find the balanced closing brace
+  let depth = 0;
+  let i = hzStart + "hit_zones = ".length;
+  for (; i < luaSource.length; i++) {
+    if (luaSource[i] === "{") depth++;
+    if (luaSource[i] === "}") {
+      depth--;
+      if (depth === 0) break;
+    }
+  }
+  const block = luaSource.slice(hzStart, i + 1);
+
+  const names = [];
+  const nameRe = /name\s*=\s*hit_zone_names\.(\w+)/g;
+  let m;
+  while ((m = nameRe.exec(block)) !== null) {
+    if (!names.includes(m[1])) {
+      names.push(m[1]);
+    }
+  }
+  return names;
+}
+
+/**
+ * Parse hitzone_armor_override from a breed file.
+ *
+ * @param {string} luaSource
+ * @returns {Map<string, string>} zoneName -> armorType
+ */
+function parseHitzoneArmorOverride(luaSource) {
+  const overrides = new Map();
+  const blockMatch = luaSource.match(
+    /hitzone_armor_override\s*=\s*\{([\s\S]*?)\}/,
+  );
+  if (!blockMatch) return overrides;
+
+  const entryRe =
+    /\[hit_zone_names\.(\w+)\]\s*=\s*armor_types\.(\w+)/g;
+  let m;
+  while ((m = entryRe.exec(blockMatch[1])) !== null) {
+    overrides.set(m[1], m[2]);
+  }
+  return overrides;
+}
+
+/**
+ * Parse hitzone_damage_multiplier from a breed file.
+ *
+ * The structure can have `ranged`, `melee`, and `default` sub-tables.
+ *
+ * @param {string} luaSource
+ * @returns {{ ranged: Map<string, number>, melee: Map<string, number>, default: Map<string, number> }}
+ */
+function parseHitzoneDamageMultiplier(luaSource) {
+  const result = {
+    ranged: new Map(),
+    melee: new Map(),
+    default: new Map(),
+  };
+
+  const blockStart = luaSource.indexOf("hitzone_damage_multiplier = {");
+  if (blockStart === -1) return result;
+
+  // Find balanced closing brace for the outer block
+  let depth = 0;
+  let i = blockStart + "hitzone_damage_multiplier = ".length;
+  for (; i < luaSource.length; i++) {
+    if (luaSource[i] === "{") depth++;
+    if (luaSource[i] === "}") {
+      depth--;
+      if (depth === 0) break;
+    }
+  }
+  const block = luaSource.slice(blockStart, i + 1);
+
+  // Parse sub-tables: ranged = { ... }, melee = { ... }, default = { ... }
+  for (const category of ["ranged", "melee", "default"]) {
+    const subMatch = block.match(
+      new RegExp(`${category}\\s*=\\s*\\{([\\s\\S]*?)\\}`, ""),
+    );
+    if (!subMatch) continue;
+
+    const entryRe =
+      /\[hit_zone_names\.(\w+)\]\s*=\s*(-?\d+(?:\.\d+)?)/g;
+    let m;
+    while ((m = entryRe.exec(subMatch[1])) !== null) {
+      result[category].set(m[1], Number(m[2]));
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Parse hit_zone_weakspot_types from a breed file.
+ *
+ * @param {string} luaSource
+ * @returns {Set<string>} set of zone names that are weakspots
+ */
+function parseWeakspotTypes(luaSource) {
+  const weakspots = new Set();
+  const blockMatch = luaSource.match(
+    /hit_zone_weakspot_types\s*=\s*\{([\s\S]*?)\}/,
+  );
+  if (!blockMatch) return weakspots;
+
+  const entryRe =
+    /\[hit_zone_names\.(\w+)\]\s*=\s*weakspot_types\.(\w+)/g;
+  let m;
+  while ((m = entryRe.exec(blockMatch[1])) !== null) {
+    weakspots.add(m[1]);
+  }
+  return weakspots;
+}
+
+/**
+ * Infer faction from breed ID prefix when sub_faction_name is missing.
+ *
+ * @param {string} breedId
+ * @returns {string}
+ */
+function inferFaction(breedId) {
+  if (breedId.startsWith("renegade_")) return "renegade";
+  if (breedId.startsWith("cultist_")) return "cultist";
+  if (breedId.startsWith("chaos_")) return "chaos";
+  if (breedId.startsWith("companion_")) return "companion";
+  return "unknown";
+}
