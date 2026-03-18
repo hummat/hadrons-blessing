@@ -186,8 +186,13 @@ export function resolveArmorDamageModifier({
 }) {
   if (isRanged && profile.armor_damage_modifier_ranged) {
     const ranged = profile.armor_damage_modifier_ranged;
-    const nearEntry = ranged.near?.attack?.[armorType];
-    const farEntry = ranged.far?.attack?.[armorType];
+    let nearEntry = ranged.near?.attack?.[armorType];
+    let farEntry = ranged.far?.attack?.[armorType];
+
+    // Fall through to defaultADM when ranged table lacks this armor type
+    if (nearEntry == null && farEntry == null && defaultADM?.attack?.[armorType] != null) {
+      return lerpADMEntry(defaultADM.attack[armorType], quality);
+    }
 
     const nearADM = lerpADMEntry(nearEntry, quality);
     const farADM = lerpADMEntry(farEntry, quality);
@@ -805,6 +810,7 @@ export function assembleBuildBuffStack(build, index, flags) {
   const _flags = flags ?? {};
   const entities = index.entities;
   const edges = index.edges ?? [];
+  const classDomain = build.class?.canonical_entity_id?.split(".").pop() ?? null;
 
   // ── Step 1: Collect all resolved entity IDs ──
   const entityIds = [];
@@ -901,6 +907,21 @@ export function assembleBuildBuffStack(build, index, flags) {
           const lastTier =
             fromEntity.calc.tiers[fromEntity.calc.tiers.length - 1];
           effects = lastTier.effects ?? [];
+          break;
+        }
+      }
+    } else if (entity.kind === "stat_node" && entity.internal_name && classDomain) {
+      // Path 3: stat_node — find per-class talent by internal_name prefix match
+      // Mirrors synergy-model.mjs Path 3 (resolveSelections)
+      const prefix = entity.internal_name;
+      for (const [id, e] of entities) {
+        if (
+          e.domain === classDomain &&
+          e.kind === "talent" &&
+          e.internal_name?.startsWith(prefix) &&
+          e.calc?.effects?.length > 0
+        ) {
+          effects = e.calc.effects;
           break;
         }
       }

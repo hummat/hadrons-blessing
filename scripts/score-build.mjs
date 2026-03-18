@@ -236,9 +236,15 @@ export function parsePerkString(str) {
  */
 function normalizePerkName(name) {
   return name
-    .replace(/ Enemies\)$/, ")")                  // "Damage (Flak Armoured Enemies)" → "Damage (Flak Armoured)"
+    // Weapon perk normalization
+    .replace(/ Enemies\)$/, ")")                     // "Damage (Flak Armoured Enemies)" → "Damage (Flak Armoured)"
     .replace(/\(Carapace Armoured\)/, "(Carapace)")  // "Damage (Carapace Armoured)" → "Damage (Carapace)"
-    .replace(/^(?:Melee|Ranged) /, "");           // "Melee Damage (Elites)" → "Damage (Elites)"
+    .replace(/^(?:Melee|Ranged) /, "")               // "Melee Damage (Elites)" → "Damage (Elites)"
+    // Curio perk normalization
+    .replace(/^Damage Resistance \((.+)\)$/, (_, t) => `DR vs ${t.replace("Tox ", "")}`) // "Damage Resistance (Gunners)" → "DR vs Gunners", "Damage Resistance (Tox Flamers)" → "DR vs Flamers"
+    .replace(/^Combat Ability Regeneration$/, "Combat Ability Regen")
+    .replace(/^Revive Speed \(Ally\)$/, "Revive Speed")
+    .replace(/^Max Health$/, "Health");
 }
 
 /**

@@ -2,9 +2,9 @@
   "title": "Veteran: Squad Leader",
   "class": "veteran",
   "perk_optimality": 5,
-  "curio_efficiency": 3,
-  "composite_score": 25,
-  "letter_grade": "B",
+  "curio_efficiency": 4,
+  "composite_score": 27,
+  "letter_grade": "A",
   "weapons": [
     {
       "name": "Lawbringer Mk IIb Power Falchion",
@@ -73,7 +73,7 @@
     }
   ],
   "curios": {
-    "score": 3,
+    "score": 4,
     "perks": [
       {
         "name": "Toughness",
@@ -81,9 +81,9 @@
         "rating": "optimal"
       },
       {
-        "name": "Damage Resistance (Snipers)",
-        "tier": 0,
-        "rating": "neutral"
+        "name": "DR vs Snipers",
+        "tier": 4,
+        "rating": "optimal"
       },
       {
         "name": "Health",
@@ -101,9 +101,9 @@
         "rating": "optimal"
       },
       {
-        "name": "Damage Resistance (Gunners)",
-        "tier": 0,
-        "rating": "neutral"
+        "name": "DR vs Gunners",
+        "tier": 4,
+        "rating": "optimal"
       },
       {
         "name": "Health",
@@ -116,14 +116,14 @@
         "rating": "optimal"
       },
       {
-        "name": "Max Health",
-        "tier": 0,
-        "rating": "neutral"
+        "name": "Health",
+        "tier": 4,
+        "rating": "good"
       },
       {
-        "name": "Damage Resistance (Gunners)",
-        "tier": 0,
-        "rating": "neutral"
+        "name": "DR vs Gunners",
+        "tier": 4,
+        "rating": "optimal"
       },
       {
         "name": "Health",

@@ -2,8 +2,8 @@
   "title": "SPICY'S META HAVOC 40 ZEALOT",
   "class": "zealot",
   "perk_optimality": 5,
-  "curio_efficiency": 2,
-  "composite_score": 22,
+  "curio_efficiency": 4,
+  "composite_score": 25,
   "letter_grade": "B",
   "weapons": [
     {
@@ -84,7 +84,7 @@
     }
   ],
   "curios": {
-    "score": 2,
+    "score": 4,
     "perks": [
       {
         "name": "Toughness",
@@ -97,9 +97,9 @@
         "rating": "optimal"
       },
       {
-        "name": "Combat Ability Regeneration",
-        "tier": 0,
-        "rating": "neutral"
+        "name": "Combat Ability Regen",
+        "tier": 4,
+        "rating": "good"
       },
       {
         "name": "Block Efficiency",
@@ -117,19 +117,14 @@
         "rating": "optimal"
       },
       {
-        "name": "Combat Ability Regeneration",
-        "tier": 0,
-        "rating": "neutral"
+        "name": "Combat Ability Regen",
+        "tier": 4,
+        "rating": "good"
       },
       {
-        "name": "Damage Resistance (Gunners)",
-        "tier": 0,
-        "rating": "neutral"
-      },
-      {
-        "name": "Max Health",
-        "tier": 0,
-        "rating": "neutral"
+        "name": "DR vs Gunners",
+        "tier": 4,
+        "rating": "optimal"
       },
       {
         "name": "Health",
@@ -137,9 +132,14 @@
         "rating": "good"
       },
       {
-        "name": "Combat Ability Regeneration",
-        "tier": 0,
-        "rating": "neutral"
+        "name": "Health",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Combat Ability Regen",
+        "tier": 4,
+        "rating": "good"
       },
       {
         "name": "Stamina Regeneration",

@@ -2,8 +2,8 @@
   "title": "Shovel Ogryn",
   "class": "ogryn",
   "perk_optimality": 5,
-  "curio_efficiency": 2,
-  "composite_score": 17,
+  "curio_efficiency": 3,
+  "composite_score": 18,
   "letter_grade": "C",
   "weapons": [
     {
@@ -73,16 +73,16 @@
     }
   ],
   "curios": {
-    "score": 2,
+    "score": 3,
     "perks": [
       {
-        "name": "Max Health",
-        "tier": 0,
-        "rating": "neutral"
+        "name": "Health",
+        "tier": 4,
+        "rating": "good"
       },
       {
-        "name": "Revive Speed (Ally)",
-        "tier": 0,
+        "name": "Revive Speed",
+        "tier": 3,
         "rating": "neutral"
       },
       {
@@ -91,9 +91,9 @@
         "rating": "optimal"
       },
       {
-        "name": "Damage Resistance (Gunners)",
-        "tier": 0,
-        "rating": "neutral"
+        "name": "DR vs Gunners",
+        "tier": 4,
+        "rating": "optimal"
       },
       {
         "name": "Toughness",
@@ -101,8 +101,8 @@
         "rating": "optimal"
       },
       {
-        "name": "Revive Speed (Ally)",
-        "tier": 0,
+        "name": "Revive Speed",
+        "tier": 3,
         "rating": "neutral"
       },
       {
@@ -121,8 +121,8 @@
         "rating": "optimal"
       },
       {
-        "name": "Revive Speed (Ally)",
-        "tier": 0,
+        "name": "Revive Speed",
+        "tier": 3,
         "rating": "neutral"
       },
       {
