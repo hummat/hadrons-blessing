@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { parsePerkString, scorePerk, scoreWeaponPerks, scoreBlessings, scoreCurios, generateScorecard } from "./score-build.mjs";
 import { analyzeBuild, loadIndex } from "./ground-truth/lib/synergy-model.mjs";
 
@@ -591,4 +591,117 @@ describe("generateScorecard qualitative scores", { skip: !HAS_SOURCE && "require
     assert.ok(typeof card.perk_optimality === "number");
     assert.ok(typeof card.curio_efficiency === "number");
   });
+});
+
+// ── Integration: real build data → scoring pipeline ─────────────────
+
+describe("real build perk normalization (integration)", () => {
+  // These perks represent the full GL naming convention as scraped from live pages.
+  // If normalizePerkName() regresses, these tests catch it with real data.
+
+  const WEAPON_PERK_EXPECTATIONS = [
+    ["10-25% Damage (Flak Armoured Enemies)", "Damage (Flak Armoured)", "melee"],
+    ["10-25% Damage (Carapace Armoured Enemies)", "Damage (Carapace)", "ranged"],
+    ["10-25% Damage (Unarmoured Enemies)", "Damage (Unarmoured)", "melee"],
+    ["10-25% Damage (Unyielding Enemies)", "Damage (Unyielding)", "ranged"],
+    ["10-25% Damage (Infested Enemies)", "Damage (Infested)", "melee"],
+    ["10-25% Damage (Maniacs)", "Damage (Maniacs)", "melee"],
+    ["4-10% Melee Damage (Elites)", "Damage (Elites)", "melee"],
+    ["5-10% Reload Speed", "Reload Speed", "ranged"],
+  ];
+
+  for (const [raw, expectedName, slot] of WEAPON_PERK_EXPECTATIONS) {
+    it(`weapon perk "${raw}" → scorePerk match`, () => {
+      const parsed = parsePerkString(raw);
+      assert.ok(parsed, `parsePerkString failed for "${raw}"`);
+      assert.equal(parsed.name, expectedName);
+      const scored = scorePerk(parsed.name, parsed.max, slot);
+      assert.ok(scored, `scorePerk returned null for "${expectedName}" in ${slot} catalog`);
+      assert.ok(scored.tier >= 1 && scored.tier <= 4, `tier ${scored.tier} out of range`);
+    });
+  }
+
+  const CURIO_PERK_EXPECTATIONS = [
+    ["+5-20% Damage Resistance (Gunners)", "DR vs Gunners"],
+    ["+5-20% Damage Resistance (Snipers)", "DR vs Snipers"],
+    ["+5-20% Damage Resistance (Bombers)", "DR vs Bombers"],
+    ["+5-20% Damage Resistance (Tox Flamers)", "DR vs Flamers"],
+    ["+1-4% Combat Ability Regeneration", "Combat Ability Regen"],
+    ["+4-10% Revive Speed (Ally)", "Revive Speed"],
+    ["+17-21% Max Health", "Health"],
+    ["+2-5% Toughness", "Toughness"],
+    ["+6-12% Stamina Regeneration", "Stamina Regeneration"],
+    ["+6-15% Corruption Resistance", "Corruption Resistance"],
+    ["+6-12% Block Efficiency", "Block Efficiency"],
+    ["6-15% Sprint Efficiency", "Sprint Efficiency"],
+  ];
+
+  for (const [raw, expectedName] of CURIO_PERK_EXPECTATIONS) {
+    it(`curio perk "${raw}" → scorePerk match`, () => {
+      const parsed = parsePerkString(raw);
+      assert.ok(parsed, `parsePerkString failed for "${raw}"`);
+      assert.equal(parsed.name, expectedName);
+      const scored = scorePerk(parsed.name, parsed.max, "curio");
+      assert.ok(scored, `scorePerk returned null for "${expectedName}" in curio catalog`);
+      assert.ok(scored.tier >= 1 && scored.tier <= 4, `tier ${scored.tier} out of range`);
+    });
+  }
+});
+
+describe("real build end-to-end scoring (integration)", () => {
+  const builds = readdirSync("scripts/builds")
+    .filter((f) => f.endsWith(".json"))
+    .sort()
+    .slice(0, 5); // test 5 builds for speed
+
+  const index = loadIndex();
+
+  for (const f of builds) {
+    it(`${f}: all weapon perks resolve to non-null tier`, () => {
+      const build = JSON.parse(readFileSync(`scripts/builds/${f}`, "utf-8"));
+      const synergy = analyzeBuild(build, index);
+      const card = generateScorecard(build, synergy);
+
+      for (const w of card.weapons) {
+        for (const p of w.perks.perks) {
+          if (p === null) continue; // unparseable — checked separately
+          assert.ok(
+            p.tier > 0,
+            `${f}: weapon perk "${p.name}" has tier ${p.tier} (expected > 0)`,
+          );
+        }
+      }
+    });
+
+    it(`${f}: curio DR/toughness perks resolve to correct ratings`, () => {
+      const build = JSON.parse(readFileSync(`scripts/builds/${f}`, "utf-8"));
+      const synergy = analyzeBuild(build, index);
+      const card = generateScorecard(build, synergy);
+
+      for (const p of card.curios.perks) {
+        // DR perks should be "optimal", Toughness should be "optimal"
+        if (p.name === "DR vs Gunners" || p.name === "DR vs Snipers" || p.name === "Toughness") {
+          assert.equal(
+            p.rating,
+            "optimal",
+            `${f}: "${p.name}" should be optimal, got ${p.rating}`,
+          );
+        }
+        // Health, Stamina Regen should be "good" (or "optimal" if class overrides)
+        if (p.name === "Health" || p.name === "Stamina Regeneration") {
+          assert.ok(
+            p.rating === "good" || p.rating === "optimal",
+            `${f}: "${p.name}" should be good or optimal, got ${p.rating}`,
+          );
+        }
+        // These should never be "neutral" or "avoid" — they're in universal good/optimal lists
+        if (p.name === "Combat Ability Regen") {
+          assert.ok(
+            p.rating === "good" || p.rating === "optimal",
+            `${f}: "${p.name}" should be good or optimal, got ${p.rating}`,
+          );
+        }
+      }
+    });
+  }
 });
