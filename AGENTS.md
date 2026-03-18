@@ -111,6 +111,20 @@ Shared cross-class entities use `shared` as domain: `shared.weapon.autogun_p1_m1
 
 **Curio item names** (60 unresolved, 6 unique labels like "Blessed Bullet"): Darktide's item catalog is fetched from Fatshark's authenticated backend at runtime. The decompiled source contains curio rendering code and perk/trait mechanics but not the item catalog itself. Curio *perks* resolve (`shared.gadget_trait.*`); only the cosmetic item *names* are unresolvable from this source. These are the lowest-value unresolved entries — they don't affect build analysis, scoring, or optimization.
 
+## Known Scoring/Calculator Limitations
+
+**Weapon scoring catalog gap:** 23 of 32 unique weapons in builds have scoring data entries in `build-scoring-data.json`. The other 9 weapons lack blessing lists. Perks still score correctly (catalog is weapon-agnostic for perks), but blessing validation returns "unknown" for these weapons.
+
+**talent_coherence uniformly 1/5:** The 0.2 edges_per_talent threshold is too high at ~40% calc coverage. Every build scores 1. Needs threshold recalibration or calc coverage improvement.
+
+**lerped_stat_buff lerp factor:** `assembleBuildBuffStack` hardcodes `warp_charge` as the interpolation factor for all `lerped_stat_buff` effects. Correct for current game data but not validated against non-warp lerped buffs.
+
+**difficulty_health fallback:** If a breed lacks HP for a difficulty level, `difficulty_health?.[difficulty] ?? 0` produces `hitsToKill = Infinity`, which the scoring layer treats as "unkillable" rather than "data missing". Could penalize `difficulty_scaling` for data absence.
+
+**talent population edge-only fallback:** If `_resolvedIds` is absent from synergy output (unlikely in production), the fallback counts only talents that participate in edges — isolated talents are invisible, inflating coherence scores.
+
+**Build 14** (arbites-nuncio-aquila) fails in `computeBreakpoints` due to shield weapon action maps with null profile references. The `calc:freeze` command skips it.
+
 ## Adding New Entity Coverage
 
 1. Add entity records to `data/ground-truth/entities/{domain}.json`
@@ -135,6 +149,8 @@ All 23 builds have been re-extracted from live GL pages with full talent trees. 
 
 Frozen audit snapshots live in `tests/fixtures/ground-truth/audits/`. When the index or audit logic changes, re-freeze all snapshots with `npm run audit:freeze`. Do NOT use `npm run audit -- <file> > snapshot.json` — npm's stderr banner contaminates the JSON output.
 
+Frozen calc snapshots live in `tests/fixtures/ground-truth/calc/`. Regression tests in `damage-calculator.test.mjs` compare fresh `computeBreakpoints` output against these snapshots for every build. Re-freeze with `npm run calc:freeze` after pipeline changes.
+
 ## Canonical Build Shape
 
 The canonical build format is the single shared shape consumed by `audit`, `score`, `canonicalize`, `reresolve`, and future website flows. Key design decisions:
@@ -153,7 +169,7 @@ The canonical build format is the single shared shape consumed by `audit`, `scor
 **Architecture:** 3 modules in `scripts/ground-truth/lib/`:
 - `synergy-stat-families.mjs` — 144 stats mapped to 11 families (melee_offense, ranged_offense, general_offense, crit, toughness, damage_reduction, mobility, warp_resource, grenade, stamina, utility). Multi-membership supported.
 - `synergy-rules.mjs` — 5 pure-function rules: stat-family alignment, slot coverage, trigger-target chains, resource flow, orphan detection
-- `synergy-model.mjs` — orchestrator: selection resolution (direct calc, stat_node prefix match, blessing tier-4 traversal), stat aggregation (NHHI concentration, build identity, coverage gaps), output assembly
+- `synergy-model.mjs` — orchestrator: selection resolution (direct calc, stat_node prefix match, blessing tier-4 traversal), stat aggregation (NHHI concentration, build identity, coverage gaps), output assembly. The stat_node prefix-match resolution path is mirrored in `damage-calculator.mjs:assembleBuildBuffStack` for breakpoint accuracy.
 
 **Coverage:** ~40% per-build calc coverage. Blessing synergy partial (27/46 families via `instance_of` → weapon_trait tier traversal). Named gameplay talents at 48% calc coverage; stat-node talents and gadget traits at 100%.
 
@@ -171,11 +187,15 @@ Frozen synergy snapshots in `tests/fixtures/ground-truth/synergy/`. Re-freeze wi
 
 **Qualitative (from synergy model):** `talent_coherence` (talent-talent edge density + graph isolation), `blessing_synergy` (blessing-X edge density + blessing-blessing bonus), `role_coverage` (stat family breadth + coverage gaps + slot balance). Each 1–5.
 
-**Blocked on #5:** `breakpoint_relevance`, `difficulty_scaling` remain null until the damage calculator provides numeric precision.
+**Calculator-derived (from breakpoint matrix):** `breakpoint_relevance` (weighted checklist of community-standard breakpoints), `difficulty_scaling` (damnation→auric degradation on high-priority breakpoints). Scored via `breakpoint-checklist.mjs` against `data/ground-truth/breakpoint-checklist.json`.
 
-**Composite:** Sum of non-null dimensions, scaled to /35. Letter grades: S (32+), A (27+), B (22+), C (17+), D (<17).
+**Composite:** Sum of all 7 dimensions, scaled to /35. Letter grades: S (32+), A (27+), B (22+), C (17+), D (<17).
+
+**Perk normalization:** GL-scraped perk labels (e.g. `"Damage (Flak Armoured Enemies)"`, `"Damage Resistance (Gunners)"`) are normalized to match scoring catalog keys via `normalizePerkName()` in `score-build.mjs`. Integration tests in `score-build.test.mjs` verify every distinct GL perk format resolves correctly.
 
 Module: `scripts/ground-truth/lib/build-scoring.mjs`. Frozen score snapshots in `tests/fixtures/ground-truth/scores/`. Re-freeze with `npm run score:freeze`.
+
+**Scoring data coverage:** Weapon perks 84/84 (100%), curio perks 273/273 (100%), blessings 30/30 (100%) across all 23 builds. Weapon catalog covers 23/32 unique weapons — 9 weapons appear in builds but lack scoring data entries (blessing lists). When adding new builds, run the coverage audit in `score-build.test.mjs` to catch gaps.
 
 ## Build Recommendations
 
@@ -237,7 +257,7 @@ Key paths for entity work:
 - `#5` Calculator and dataflow layer (13-stage damage pipeline, `breeds:build` + `profiles:build` extraction, breakpoint matrix, scoring integration, `calc` CLI)
 - `#7` Buff semantic extraction (`effects:build` pipeline)
 - `#8` Synergy model (`synergy` CLI, 5 rules, stat aggregator)
-- `#9` Build quality scoring (5 qualitative dimensions: talent_coherence, blessing_synergy, role_coverage, breakpoint_relevance, difficulty_scaling; 2 mechanical: perk_optimality, curio_efficiency; composite /35 + letter grade)
+- `#9` Build quality scoring (7 dimensions: 2 mechanical [perk_optimality, curio_efficiency], 3 qualitative [talent_coherence, blessing_synergy, role_coverage], 2 calculator-derived [breakpoint_relevance, difficulty_scaling]; composite /35 + letter grade)
 - `#10` Modification recommendations v1 (analyze-gaps, swap-talent, swap-weapon; suggest-improvement deferred to v1.1)
 
 ## BetterBots Integration
