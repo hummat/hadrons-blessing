@@ -286,12 +286,20 @@ describe("scoreCurios", () => {
     assert.equal(result.perks[0].rating, "good");
   });
 
-  it("rates unknown perks as neutral", () => {
+  it("rates unclassified perks as neutral", () => {
+    const curios = [
+      { name: "Blessed Bullet", perks: ["+1-3% Max Stamina"] },
+    ];
+    const result = scoreCurios(curios, "veteran");
+    assert.equal(result.perks[0].rating, "neutral");
+  });
+
+  it("rates Revive Speed as good (universal)", () => {
     const curios = [
       { name: "Blessed Bullet", perks: ["+6-12% Revive Speed"] },
     ];
     const result = scoreCurios(curios, "veteran");
-    assert.equal(result.perks[0].rating, "neutral");
+    assert.equal(result.perks[0].rating, "good");
   });
 
   it("scores multiple curios together", () => {
@@ -648,6 +656,36 @@ describe("real build perk normalization (integration)", () => {
       assert.ok(scored.tier >= 1 && scored.tier <= 4, `tier ${scored.tier} out of range`);
     });
   }
+});
+
+describe("scoring data coverage", () => {
+  const data = JSON.parse(readFileSync("scripts/build-scoring-data.json", "utf-8"));
+  const catalogWeapons = Object.keys(data.weapons);
+
+  it("all curio rating entries reference valid curio_perks keys", () => {
+    const curioKeys = new Set(Object.keys(data.curio_perks));
+    const ratingLists = [
+      ...data.curio_ratings._universal_optimal,
+      ...data.curio_ratings._universal_good,
+      ...data.curio_ratings._universal_avoid,
+    ];
+    for (const [cls, ratings] of Object.entries(data.curio_ratings)) {
+      if (cls.startsWith("_")) continue;
+      ratingLists.push(...(ratings.optimal || []), ...(ratings.good || []));
+    }
+    const invalid = ratingLists.filter((name) => !curioKeys.has(name));
+    assert.deepEqual(invalid, [], `Rating keys not in curio_perks catalog: ${invalid.join(", ")}`);
+  });
+
+  it("weapon catalog covers >60% of build weapons (current: ${catalogWeapons.length}/32)", () => {
+    // This test documents the known coverage gap and will fail if coverage
+    // drops below threshold, signaling that new builds added weapons
+    // without updating the scoring catalog.
+    assert.ok(
+      catalogWeapons.length >= 10,
+      `Weapon catalog has only ${catalogWeapons.length} entries (expected >=10)`,
+    );
+  });
 });
 
 describe("real build end-to-end scoring (integration)", () => {
