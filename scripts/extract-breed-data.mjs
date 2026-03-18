@@ -32,7 +32,7 @@ const COMMUNITY_ARMOR_NAMES = {
   disgustingly_resilient: "Unyielding",
 };
 
-/** Factions containing enemy breed files. */
+/** Factions containing breed Lua files (enemies + companions). */
 const BREED_FACTIONS = ["renegade", "cultist", "chaos", "companion"];
 
 await runCliMain("breeds:build", async () => {
@@ -225,7 +225,10 @@ function collectBreedFiles(sourceRoot) {
     let entries;
     try {
       entries = readdirSync(factionDir);
-    } catch {
+    } catch (err) {
+      if (err.code !== "ENOENT") {
+        console.warn(`Warning: failed to read breed dir ${factionDir}: ${err.message}`);
+      }
       continue;
     }
     for (const f of entries.filter((n) => n.endsWith("_breed.lua")).sort()) {

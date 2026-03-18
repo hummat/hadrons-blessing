@@ -25,7 +25,8 @@ function loadChecklist() {
 
 /**
  * Action type categories — mirrors ACTION_CATEGORY from damage-calculator.mjs.
- * Used to pick best action per scenario type.
+ * Duplicated (not imported) to keep breakpoint-checklist self-contained and
+ * avoid circular dependency with damage-calculator.mjs.
  */
 const ACTION_CATEGORY = {
   light_attack: "light",

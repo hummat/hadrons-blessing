@@ -241,10 +241,10 @@ function parseConstants(sourceRoot) {
   const defaultFinesseNoBaseDamage = parseSimpleArmorTypeMap(plsLua, "default_finesse_boost_no_base_damage_amount");
 
   // default_crit_boost_amount
-  const defaultCritBoost = extractNumber(plsLua, /default_crit_boost_amount\s*=\s*(-?\d+(?:\.\d+)?)/);
+  const defaultCritBoost = extractNumber(plsLua, /default_crit_boost_amount\s*=\s*(-?\d+(?:\.\d+)?)/, { critical: true });
 
   // default_boost_curve_multiplier
-  const defaultBoostCurveMult = extractNumber(plsLua, /default_boost_curve_multiplier\s*=\s*(-?\d+(?:\.\d+)?)/);
+  const defaultBoostCurveMult = extractNumber(plsLua, /default_boost_curve_multiplier\s*=\s*(-?\d+(?:\.\d+)?)/, { critical: true });
 
   // rending_boost_amount
   const rendingBoostAmount = parseSimpleArmorTypeMap(plsLua, "rending_boost_amount");
@@ -256,11 +256,21 @@ function parseConstants(sourceRoot) {
   const defaultAdm = parseDefaultArmorDamageModifier(plsLua);
 
   // finesse_min_damage_multiplier
-  const finesseMinDamageMult = extractNumber(plsLua, /finesse_min_damage_multiplier\s*=\s*(-?\d+(?:\.\d+)?)/);
+  const finesseMinDamageMult = extractNumber(plsLua, /finesse_min_damage_multiplier\s*=\s*(-?\d+(?:\.\d+)?)/, { critical: true });
 
   // From armor_settings
   const overdamageRendingMult = parseSimpleArmorTypeMapFromLocal(asLua, "overdamage_rending_multiplier");
   const rendingArmorTypeMult = parseSimpleArmorTypeMapFromLocal(asLua, "rending_armor_type_multiplier");
+
+  // Validate critical constant tables are non-empty
+  const EXPECTED_ARMOR_TYPES = ["unarmored", "armored", "resistant", "berserker", "super_armor", "disgustingly_resilient"];
+  for (const tableName of ["damage_output", "overdamage_rending_multiplier", "rending_armor_type_multiplier"]) {
+    const table = { damage_output: damageOutput, overdamage_rending_multiplier: overdamageRendingMult, rending_armor_type_multiplier: rendingArmorTypeMult }[tableName];
+    const missing = EXPECTED_ARMOR_TYPES.filter((at) => !(at in table));
+    if (missing.length > 0) {
+      throw new Error(`Critical constant table '${tableName}' missing armor types: ${missing.join(", ")}`);
+    }
+  }
 
   return {
     damage_output: damageOutput,
@@ -313,8 +323,10 @@ function parseAllDamageProfiles(sourceRoot, lerpValues, cleavePresets, presetAdm
       for (const f of files) {
         weaponFiles.push(join(settingsDir, f));
       }
-    } catch {
-      // directory may not exist
+    } catch (err) {
+      if (err.code !== "ENOENT") {
+        console.warn(`Warning: failed to read ${settingsDir}: ${err.message}`);
+      }
     }
   }
 
@@ -532,6 +544,7 @@ function applyCloneOverrides(profile, name, lua, lerpValues) {
  * @param {string} sourceFile
  * @param {Record<string, [number, number]>} lerpValues
  * @param {Record<string, object>} cleavePresets
+ * @param {Map<string, object>} [localAdmVars] - File-level local ADM variable definitions
  * @returns {object|null}
  */
 function parseProfileBlock(id, block, sourceFile, lerpValues, cleavePresets, localAdmVars = new Map()) {
@@ -1216,8 +1229,10 @@ function parseAllHitscanTemplates(sourceRoot) {
         const lua = readFileSync(join(settingsDir, f), "utf8");
         parseHitscanFile(lua, map);
       }
-    } catch {
-      // skip
+    } catch (err) {
+      if (err.code !== "ENOENT") {
+        console.warn(`Warning: failed to read hitscan dir ${settingsDir}: ${err.message}`);
+      }
     }
   }
 
@@ -1306,7 +1321,10 @@ function parseAllWeaponTemplates(sourceRoot, hitscanMap, profileIds) {
     let entries;
     try {
       entries = readdirSync(familyDir);
-    } catch {
+    } catch (err) {
+      if (err.code !== "ENOENT") {
+        console.warn(`Warning: failed to read weapon dir ${familyDir}: ${err.message}`);
+      }
       continue;
     }
 
@@ -1489,9 +1507,9 @@ function parseArmorTypeValues(block, lerpValues) {
   let m;
   while ((m = lerpRe.exec(block)) !== null) {
     if (!lerpValues[m[2]]) {
-      console.warn(`Warning: unknown lerp value '${m[2]}' for armor type '${m[1]}', defaulting to [0, 0]`);
+      console.warn(`Warning: unknown lerp value '${m[2]}' for armor type '${m[1]}', defaulting to [1, 1] (neutral)`);
     }
-    result[m[1]] = lerpValues[m[2]] || [0, 0];
+    result[m[1]] = lerpValues[m[2]] || [1, 1];
   }
 
   // Match [armor_types.X] = number (only if not already matched as lerp)
@@ -1744,8 +1762,21 @@ function findBalancedBrace(str, startIdx) {
 function countBraceDepth(str, position) {
   let depth = 0;
   for (let i = 0; i < position; i++) {
-    if (str[i] === "{") depth++;
-    if (str[i] === "}") depth--;
+    const ch = str[i];
+    if (ch === "-" && str[i + 1] === "-") {
+      const newline = str.indexOf("\n", i);
+      if (newline === -1) break;
+      i = newline;
+      continue;
+    }
+    if (ch === '"') {
+      const closing = str.indexOf('"', i + 1);
+      if (closing === -1) break;
+      i = closing;
+      continue;
+    }
+    if (ch === "{") depth++;
+    if (ch === "}") depth--;
   }
   return depth;
 }
