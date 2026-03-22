@@ -1,0 +1,62 @@
+{
+  "class": "psyker",
+  "difficulty": "damnation",
+  "base": {
+    "health": 150,
+    "wounds": 2,
+    "toughness": 75,
+    "stamina": 1
+  },
+  "dr_sources": [
+    {
+      "source_entity": "psyker.ability.psyker_combat_ability_stance",
+      "stat": "toughness_damage_taken_multiplier",
+      "value": 0.8,
+      "type": "conditional_stat_buff",
+      "condition": "active"
+    },
+    {
+      "source_entity": "shared.stat_node.toughness_damage_reduction",
+      "stat": "toughness_damage_taken_modifier",
+      "value": -0.05,
+      "type": "stat_buff",
+      "condition": null
+    }
+  ],
+  "total_dr": 0,
+  "max_toughness": 120.75,
+  "effective_toughness": 120.75,
+  "health_pool": 300,
+  "effective_hp": 420.75,
+  "max_health_modifier": 0,
+  "state_modifiers": {
+    "dodging": {
+      "tdr": 0.5,
+      "damage_multiplier": 0.5,
+      "effective_toughness": 241.5
+    },
+    "sliding": {
+      "tdr": 0.5,
+      "damage_multiplier": 0.5,
+      "effective_toughness": 241.5
+    },
+    "sprinting": {
+      "tdr": 0,
+      "damage_multiplier": 1,
+      "effective_toughness": 120.75
+    }
+  },
+  "toughness_regen": {
+    "base_rate": 5,
+    "modified_rate": 5,
+    "delay_seconds": 3,
+    "coherency": {
+      "solo": 0,
+      "one_ally": 2.5,
+      "two_allies": 3.75,
+      "three_allies": 5
+    },
+    "melee_kill_recovery_percent": 0.3,
+    "melee_kill_recovery": 36.22
+  }
+}

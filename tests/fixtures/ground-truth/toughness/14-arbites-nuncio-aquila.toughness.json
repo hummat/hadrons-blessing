@@ -1,0 +1,47 @@
+{
+  "class": "adamant",
+  "difficulty": "damnation",
+  "base": {
+    "health": 200,
+    "wounds": 2,
+    "toughness": 80,
+    "stamina": 3
+  },
+  "dr_sources": [],
+  "total_dr": 0,
+  "max_toughness": 169,
+  "effective_toughness": 169,
+  "health_pool": 460,
+  "effective_hp": 629,
+  "max_health_modifier": 0.15,
+  "state_modifiers": {
+    "dodging": {
+      "tdr": 0.5,
+      "damage_multiplier": 0.5,
+      "effective_toughness": 338
+    },
+    "sliding": {
+      "tdr": 0.5,
+      "damage_multiplier": 0.5,
+      "effective_toughness": 338
+    },
+    "sprinting": {
+      "tdr": 0,
+      "damage_multiplier": 1,
+      "effective_toughness": 169
+    }
+  },
+  "toughness_regen": {
+    "base_rate": 5,
+    "modified_rate": 5,
+    "delay_seconds": 3,
+    "coherency": {
+      "solo": 0,
+      "one_ally": 2.5,
+      "two_allies": 3.75,
+      "three_allies": 5
+    },
+    "melee_kill_recovery_percent": 0.05,
+    "melee_kill_recovery": 8.45
+  }
+}

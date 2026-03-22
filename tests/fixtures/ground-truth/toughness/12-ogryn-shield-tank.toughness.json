@@ -1,0 +1,55 @@
+{
+  "class": "ogryn",
+  "difficulty": "damnation",
+  "base": {
+    "health": 300,
+    "wounds": 3,
+    "toughness": 75,
+    "stamina": 4
+  },
+  "dr_sources": [
+    {
+      "source_entity": "shared.stat_node.toughness_damage_reduction",
+      "stat": "toughness_damage_taken_modifier",
+      "value": -0.05,
+      "type": "stat_buff",
+      "condition": null
+    }
+  ],
+  "total_dr": 0.05,
+  "max_toughness": 126.75,
+  "effective_toughness": 133.42,
+  "health_pool": 900,
+  "effective_hp": 1033.42,
+  "max_health_modifier": 0,
+  "state_modifiers": {
+    "dodging": {
+      "tdr": 0,
+      "damage_multiplier": 0.95,
+      "effective_toughness": 133.42
+    },
+    "sliding": {
+      "tdr": 0,
+      "damage_multiplier": 0.95,
+      "effective_toughness": 133.42
+    },
+    "sprinting": {
+      "tdr": 0,
+      "damage_multiplier": 0.95,
+      "effective_toughness": 133.42
+    }
+  },
+  "toughness_regen": {
+    "base_rate": 5,
+    "modified_rate": 5,
+    "delay_seconds": 3,
+    "coherency": {
+      "solo": 0,
+      "one_ally": 2.5,
+      "two_allies": 3.75,
+      "three_allies": 5
+    },
+    "melee_kill_recovery_percent": 0.05,
+    "melee_kill_recovery": 6.34
+  }
+}

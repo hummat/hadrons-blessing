@@ -36,6 +36,8 @@
     "stagger:freeze": "node scripts/stagger-build.mjs scripts/builds/ --json --freeze",
     "cleave": "node scripts/cleave-build.mjs",
     "cleave:freeze": "node scripts/cleave-build.mjs scripts/builds/ --json --freeze",
+    "toughness": "node scripts/toughness-build.mjs",
+    "toughness:freeze": "node scripts/toughness-build.mjs scripts/builds/ --json --freeze",
     "check": "npm run index:build && npm test && npm run index:check"
   },
   "repository": {
