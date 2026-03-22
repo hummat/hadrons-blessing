@@ -22,6 +22,7 @@
     "effects:build": "node scripts/extract-buff-effects.mjs",
     "breeds:build": "node scripts/extract-breed-data.mjs",
     "profiles:build": "node scripts/extract-damage-profiles.mjs",
+    "stagger:build": "node scripts/extract-stagger-settings.mjs",
     "report": "node scripts/report-build.mjs",
     "export:bot-weapons": "node scripts/export-bot-weapons.mjs",
     "synergy": "node scripts/analyze-synergy.mjs",

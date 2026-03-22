@@ -15,6 +15,8 @@ import {
   parseHitzoneArmorOverride,
   parseHitzoneDamageMultiplier,
   parseWeakspotTypes,
+  parseStaggerData,
+  parseStaggerTypeTable,
 } from "./extract-breed-data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -269,5 +271,202 @@ describe("parseWeakspotTypes", () => {
 
   it("returns empty set when no block", () => {
     assert.equal(parseWeakspotTypes("nothing").size, 0);
+  });
+});
+
+// ── Stagger data parser tests ────────────────────────────────────────
+
+describe("parseStaggerData", () => {
+  it("extracts stagger_resistance scalar", () => {
+    const lua = `\tstagger_resistance = 0.75,\n\tstagger_thresholds = {\n\t\t[stagger_types.light] = 1,\n\t}`;
+    const data = parseStaggerData(lua);
+    assert.equal(data.stagger_resistance, 0.75);
+  });
+
+  it("defaults stagger_resistance to 1 when absent", () => {
+    const lua = `nothing relevant`;
+    const data = parseStaggerData(lua);
+    assert.equal(data.stagger_resistance, 1);
+  });
+
+  it("extracts stagger_reduction and stagger_reduction_ranged", () => {
+    const lua = `\tstagger_reduction = 5,\n\tstagger_reduction_ranged = 15,\n\tstagger_resistance = 1,`;
+    const data = parseStaggerData(lua);
+    assert.equal(data.stagger_reduction, 5);
+    assert.equal(data.stagger_reduction_ranged, 15);
+  });
+
+  it("omits stagger_reduction when absent", () => {
+    const lua = `\tstagger_resistance = 1,`;
+    const data = parseStaggerData(lua);
+    assert.equal(data.stagger_reduction, undefined);
+    assert.equal(data.stagger_reduction_ranged, undefined);
+  });
+
+  it("extracts ignore_stagger_accumulation", () => {
+    const lua = `\tignore_stagger_accumulation = true,\n\tstagger_resistance = 1,`;
+    const data = parseStaggerData(lua);
+    assert.equal(data.ignore_stagger_accumulation, true);
+  });
+
+  it("omits ignore_stagger_accumulation when absent", () => {
+    const lua = `\tstagger_resistance = 1,`;
+    const data = parseStaggerData(lua);
+    assert.equal(data.ignore_stagger_accumulation, undefined);
+  });
+
+  it("extracts stagger_thresholds table", () => {
+    const lua = `\tstagger_thresholds = {\n\t\t[stagger_types.light] = 1,\n\t\t[stagger_types.medium] = 10,\n\t\t[stagger_types.heavy] = 20,\n\t\t[stagger_types.explosion] = 40,\n\t}`;
+    const data = parseStaggerData(lua);
+    assert.deepEqual(data.stagger_thresholds, {
+      light: 1,
+      medium: 10,
+      heavy: 20,
+      explosion: 40,
+    });
+  });
+
+  it("handles negative thresholds (immune)", () => {
+    const lua = `\tstagger_thresholds = {\n\t\t[stagger_types.light] = -1,\n\t\t[stagger_types.medium] = -1,\n\t\t[stagger_types.heavy] = -1,\n\t\t[stagger_types.explosion] = 200,\n\t}`;
+    const data = parseStaggerData(lua);
+    assert.equal(data.stagger_thresholds.light, -1);
+    assert.equal(data.stagger_thresholds.explosion, 200);
+  });
+
+  it("extracts stagger_durations and stagger_immune_times", () => {
+    const lua = `\tstagger_durations = {\n\t\t[stagger_types.light] = 0.5,\n\t\t[stagger_types.medium] = 0.8,\n\t}\n\tstagger_immune_times = {\n\t\t[stagger_types.light] = 0.2,\n\t\t[stagger_types.medium] = 0.2,\n\t}`;
+    const data = parseStaggerData(lua);
+    assert.deepEqual(data.stagger_durations, { light: 0.5, medium: 0.8 });
+    assert.deepEqual(data.stagger_immune_times, { light: 0.2, medium: 0.2 });
+  });
+});
+
+describe("parseStaggerTypeTable", () => {
+  it("returns null when table is not found", () => {
+    assert.equal(parseStaggerTypeTable("nothing", "stagger_thresholds"), null);
+  });
+
+  it("ignores unknown stagger type names", () => {
+    const lua = `stagger_thresholds = {\n\t[stagger_types.bogus_type] = 99,\n\t[stagger_types.light] = 1,\n}`;
+    const result = parseStaggerTypeTable(lua, "stagger_thresholds");
+    assert.deepEqual(result, { light: 1 });
+  });
+
+  it("handles floating point values", () => {
+    const lua = `stagger_durations = {\n\t[stagger_types.sticky] = 1.6666666666666667,\n}`;
+    const result = parseStaggerTypeTable(lua, "stagger_durations");
+    approx(result.sticky, 1.6666666666666667);
+  });
+});
+
+// ── Stagger data in generated breed-data.json ────────────────────────
+
+describe("stagger data in breed-data.json", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_SOURCE_ROOT" }, () => {
+  let breeds;
+  it("loads breed data", () => {
+    breeds = JSON.parse(readFileSync(join(GENERATED_DIR, "breed-data.json"), "utf-8"));
+    assert.ok(breeds.breeds.length >= 25);
+  });
+
+  it("every breed has stagger.stagger_resistance", () => {
+    for (const breed of breeds.breeds) {
+      assert.ok(typeof breed.stagger === "object",
+        `${breed.id} missing stagger object`);
+      assert.ok(typeof breed.stagger.stagger_resistance === "number",
+        `${breed.id} missing stagger_resistance`);
+    }
+  });
+
+  it("chaos_poxwalker has correct stagger values", () => {
+    const pox = breeds.breeds.find(b => b.id === "chaos_poxwalker");
+    assert.equal(pox.stagger.stagger_resistance, 0.75);
+    assert.equal(pox.stagger.stagger_thresholds.light, 1);
+    assert.equal(pox.stagger.stagger_thresholds.medium, 10);
+    assert.equal(pox.stagger.stagger_thresholds.heavy, 20);
+    assert.equal(pox.stagger.stagger_thresholds.light_ranged, 8);
+    assert.equal(pox.stagger.stagger_durations.light, 0.5);
+  });
+
+  it("chaos_plague_ogryn has ignore_stagger_accumulation and stagger_reduction", () => {
+    const po = breeds.breeds.find(b => b.id === "chaos_plague_ogryn");
+    assert.equal(po.stagger.ignore_stagger_accumulation, true);
+    assert.equal(po.stagger.stagger_reduction, 50);
+    assert.equal(po.stagger.stagger_thresholds.explosion, 200);
+    assert.equal(po.stagger.stagger_thresholds.light, -1);
+  });
+
+  it("renegade_melee has standard stagger thresholds", () => {
+    const rm = breeds.breeds.find(b => b.id === "renegade_melee");
+    assert.equal(rm.stagger.stagger_resistance, 1);
+    assert.equal(rm.stagger.stagger_thresholds.medium, 12);
+    assert.equal(rm.stagger.stagger_thresholds.heavy, 30);
+  });
+
+  it("cultist_mutant has very high stagger_resistance", () => {
+    const cm = breeds.breeds.find(b => b.id === "cultist_mutant");
+    assert.equal(cm.stagger.stagger_resistance, 2000);
+  });
+
+  it("breeds with stagger_reduction_ranged have it set", () => {
+    const shocktrooper = breeds.breeds.find(b => b.id === "renegade_shocktrooper");
+    assert.ok(shocktrooper.stagger.stagger_reduction_ranged >= 0,
+      "renegade_shocktrooper should have stagger_reduction_ranged");
+  });
+});
+
+// ── stagger-settings.json tests ──────────────────────────────────────
+
+describe("stagger-settings.json", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_SOURCE_ROOT" }, () => {
+  let settings;
+  it("loads stagger-settings.json", () => {
+    settings = JSON.parse(readFileSync(join(GENERATED_DIR, "stagger-settings.json"), "utf-8"));
+    assert.ok(settings);
+  });
+
+  it("has 14 stagger types", () => {
+    assert.equal(settings.stagger_types.length, 14);
+    assert.ok(settings.stagger_types.includes("light"));
+    assert.ok(settings.stagger_types.includes("explosion"));
+    assert.ok(settings.stagger_types.includes("companion_push"));
+  });
+
+  it("has correct default thresholds", () => {
+    assert.equal(settings.default_stagger_thresholds.light, 1);
+    assert.equal(settings.default_stagger_thresholds.medium, 10);
+    assert.equal(settings.default_stagger_thresholds.heavy, 20);
+    assert.equal(settings.default_stagger_thresholds.explosion, 40);
+    assert.equal(settings.default_stagger_thresholds.light_ranged, 5);
+    assert.equal(settings.default_stagger_thresholds.killshot, 2);
+  });
+
+  it("has stagger categories with correct entries", () => {
+    assert.deepEqual(settings.stagger_categories.melee, ["light", "medium", "heavy"]);
+    assert.deepEqual(settings.stagger_categories.ranged, ["light_ranged", "medium", "heavy"]);
+    assert.deepEqual(settings.stagger_categories.killshot, ["killshot", "medium", "heavy"]);
+  });
+
+  it("has scalar constants", () => {
+    assert.equal(settings.default_stagger_resistance, 1);
+    assert.equal(settings.max_excessive_force, 5);
+    assert.equal(settings.default_stagger_count_multiplier, 1.5);
+    assert.equal(settings.stagger_pool_decay_time, 1);
+    assert.equal(settings.stagger_pool_decay_delay, 0.2);
+    assert.equal(settings.rending_stagger_strength_modifier, 2);
+  });
+
+  it("has duration and length scale arrays", () => {
+    assert.deepEqual(settings.stagger_duration_scale, [0.75, 1.25]);
+    assert.deepEqual(settings.stagger_length_scale, [0.8, 1.2]);
+  });
+
+  it("has impact comparison values", () => {
+    assert.equal(settings.stagger_impact_comparison.explosion, 4);
+    assert.equal(settings.stagger_impact_comparison.heavy, 3);
+    assert.equal(settings.stagger_impact_comparison.medium, 2);
+    assert.equal(settings.stagger_impact_comparison.light, 1);
+  });
+
+  it("has source_snapshot_id", () => {
+    assert.ok(typeof settings.source_snapshot_id === "string");
   });
 });

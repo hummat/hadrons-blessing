@@ -35,6 +35,16 @@ const COMMUNITY_ARMOR_NAMES = {
 /** Factions containing breed Lua files (enemies + companions). */
 const BREED_FACTIONS = ["renegade", "cultist", "chaos", "companion"];
 
+/**
+ * Stagger type names in the order they appear in the Lua enum.
+ * Used to map `stagger_types.X` references in breed files.
+ */
+const STAGGER_TYPE_NAMES = [
+  "light", "medium", "heavy", "light_ranged", "sticky", "electrocuted",
+  "killshot", "shield_block", "shield_heavy_block", "shield_broken",
+  "explosion", "wall_collision", "blinding", "companion_push",
+];
+
 await runCliMain("breeds:build", async () => {
   const snapshot = validateSourceSnapshot();
   const sourceRoot = snapshot.source_root;
@@ -84,6 +94,7 @@ await runCliMain("breeds:build", async () => {
       tags: breed.tags,
       difficulty_health: difficultyHealth,
       hit_zones: breed.hit_zones,
+      stagger: breed.stagger,
     });
   }
 
@@ -308,6 +319,9 @@ export function parseBreedFile(luaSource) {
   // Extract hit_zone_weakspot_types
   const weakspotTypes = parseWeakspotTypes(luaSource);
 
+  // Extract stagger data
+  const staggerData = parseStaggerData(luaSource);
+
   // Build hit_zones object
   const hitZones = {};
   for (const zoneName of hitZoneNames) {
@@ -339,7 +353,107 @@ export function parseBreedFile(luaSource) {
     base_armor_type: baseArmorType,
     tags,
     hit_zones: hitZones,
+    stagger: staggerData,
   };
+}
+
+/**
+ * Parse stagger-related data from a breed file.
+ *
+ * Extracts:
+ * - stagger_resistance (scalar, default 1)
+ * - stagger_reduction (scalar, if present)
+ * - stagger_reduction_ranged (scalar, if present)
+ * - ignore_stagger_accumulation (boolean, if true)
+ * - stagger_thresholds (per stagger type)
+ * - stagger_durations (per stagger type)
+ * - stagger_immune_times (per stagger type)
+ *
+ * @param {string} luaSource
+ * @returns {object} stagger data object
+ */
+export function parseStaggerData(luaSource) {
+  const result = {};
+
+  // Extract scalar fields
+  const resistanceMatch = luaSource.match(
+    /\bstagger_resistance\s*=\s*(-?\d+(?:\.\d+)?)/,
+  );
+  result.stagger_resistance = resistanceMatch ? Number(resistanceMatch[1]) : 1;
+
+  const reductionMatch = luaSource.match(
+    /\bstagger_reduction\s*=\s*(-?\d+(?:\.\d+)?)/,
+  );
+  if (reductionMatch) {
+    result.stagger_reduction = Number(reductionMatch[1]);
+  }
+
+  const reductionRangedMatch = luaSource.match(
+    /\bstagger_reduction_ranged\s*=\s*(-?\d+(?:\.\d+)?)/,
+  );
+  if (reductionRangedMatch) {
+    result.stagger_reduction_ranged = Number(reductionRangedMatch[1]);
+  }
+
+  if (/\bignore_stagger_accumulation\s*=\s*true/.test(luaSource)) {
+    result.ignore_stagger_accumulation = true;
+  }
+
+  // Extract per-stagger-type tables
+  const thresholds = parseStaggerTypeTable(luaSource, "stagger_thresholds");
+  if (thresholds) result.stagger_thresholds = thresholds;
+
+  const durations = parseStaggerTypeTable(luaSource, "stagger_durations");
+  if (durations) result.stagger_durations = durations;
+
+  const immuneTimes = parseStaggerTypeTable(luaSource, "stagger_immune_times");
+  if (immuneTimes) result.stagger_immune_times = immuneTimes;
+
+  return result;
+}
+
+/**
+ * Parse a table of stagger-type-keyed values from a breed file.
+ *
+ * Matches patterns like:
+ *   stagger_thresholds = {
+ *     [stagger_types.light] = 1,
+ *     [stagger_types.medium] = 10,
+ *   }
+ *
+ * @param {string} luaSource
+ * @param {string} tableName  e.g. "stagger_thresholds"
+ * @returns {object|null} { light: 1, medium: 10, ... } or null if not found
+ */
+export function parseStaggerTypeTable(luaSource, tableName) {
+  // Find the start of the table
+  const tableStart = luaSource.indexOf(`${tableName} = {`);
+  if (tableStart === -1) return null;
+
+  // Find the balanced closing brace
+  let depth = 0;
+  let i = tableStart + `${tableName} = `.length;
+  for (; i < luaSource.length; i++) {
+    if (luaSource[i] === "{") depth++;
+    if (luaSource[i] === "}") {
+      depth--;
+      if (depth === 0) break;
+    }
+  }
+  const block = luaSource.slice(tableStart, i + 1);
+
+  const result = {};
+  const entryRe =
+    /\[stagger_types\.(\w+)\]\s*=\s*(-?\d+(?:\.\d+)?(?:e[+-]?\d+)?)/g;
+  let m;
+  while ((m = entryRe.exec(block)) !== null) {
+    const typeName = m[1];
+    if (STAGGER_TYPE_NAMES.includes(typeName)) {
+      result[typeName] = Number(m[2]);
+    }
+  }
+
+  return Object.keys(result).length > 0 ? result : null;
 }
 
 /**
