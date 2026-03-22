@@ -23,6 +23,17 @@ const GENERATED_DIR = join(
 
 const DIFFICULTY_NAMES = ["uprising", "malice", "heresy", "damnation", "auric"];
 
+/**
+ * Challenge-level indices for each named difficulty (from DangerSettings).
+ *
+ * hit_mass arrays in the Lua source have 6 elements, indexed 1-6 in Lua.
+ * The game resolves `get_table_entry_by_challenge(t)` -> `t[challenge]`.
+ * Challenge values: uprising=2, malice=3, heresy=4, damnation=5, auric=5.
+ *
+ * We map to 0-based JS array indices (challenge - 1).
+ */
+const CHALLENGE_LEVELS = [1, 2, 3, 4, 4]; // 0-based indices for [uprising..auric]
+
 const COMMUNITY_ARMOR_NAMES = {
   unarmored: "Unarmoured",
   armored: "Flak",
@@ -54,6 +65,10 @@ await runCliMain("breeds:build", async () => {
   const healthMap = parseDifficultyHealth(sourceRoot);
   console.log(`Parsed health for ${healthMap.size} breeds`);
 
+  // -- Phase 1b: Parse hit_mass from minion_difficulty_settings.lua -------------
+  const hitMassMap = parseDifficultyHitMass(sourceRoot);
+  console.log(`Parsed hit_mass for ${hitMassMap.size} breeds`);
+
   // -- Phase 2: Parse breed files -----------------------------------------------
   const breedFiles = collectBreedFiles(sourceRoot);
   console.log(`Found ${breedFiles.length} breed files`);
@@ -81,11 +96,21 @@ await runCliMain("breeds:build", async () => {
       difficultyHealth[DIFFICULTY_NAMES[i]] = healthSteps[i];
     }
 
-    // -- Phase 4: Assemble final record with stable field order ---------------
+    // -- Phase 4: Attach difficulty hit_mass -----------------------------------
+    const hitMassSteps = hitMassMap.get(breed.id);
+    let difficultyHitMass;
+    if (hitMassSteps) {
+      difficultyHitMass = {};
+      for (let i = 0; i < DIFFICULTY_NAMES.length; i++) {
+        difficultyHitMass[DIFFICULTY_NAMES[i]] = hitMassSteps[i];
+      }
+    }
+
+    // -- Phase 5: Assemble final record with stable field order ---------------
     const communityArmorName =
       COMMUNITY_ARMOR_NAMES[breed.base_armor_type] || breed.base_armor_type;
 
-    breeds.push({
+    const record = {
       id: breed.id,
       display_name: breed.display_name,
       faction: breed.faction,
@@ -95,12 +120,17 @@ await runCliMain("breeds:build", async () => {
       difficulty_health: difficultyHealth,
       hit_zones: breed.hit_zones,
       stagger: breed.stagger,
-    });
+    };
+    if (difficultyHitMass) {
+      record.hit_mass = difficultyHitMass;
+    }
+
+    breeds.push(record);
   }
 
   breeds.sort((a, b) => a.id.localeCompare(b.id));
 
-  // -- Phase 5: Write breed-data.json -------------------------------------------
+  // -- Phase 6: Write breed-data.json -------------------------------------------
   const output = {
     breeds,
     source_snapshot_id: snapshotId,
@@ -182,6 +212,92 @@ export function parseDifficultyHealth(sourceRoot) {
   }
 
   return healthMap;
+}
+
+/**
+ * Parse the hit_mass table from minion_difficulty_settings.lua.
+ *
+ * hit_mass entries can be:
+ * - Scalars: `breed_name = 20` (same across all difficulties)
+ * - Arrays:  `breed_name = { 1.25, 1.25, 1.25, 1.5, 1.5, 1.5 }` (per challenge level, 6 elements)
+ *
+ * For arrays, we map challenge levels 2-5 to [uprising, malice, heresy, damnation, auric]
+ * (auric shares challenge=5 with damnation).
+ *
+ * @param {string} sourceRoot
+ * @returns {Map<string, number[]>} breedName -> [uprising, malice, heresy, damnation, auric]
+ */
+export function parseDifficultyHitMass(sourceRoot) {
+  const filePath = join(
+    sourceRoot,
+    "scripts",
+    "settings",
+    "difficulty",
+    "minion_difficulty_settings.lua",
+  );
+  const luaSource = readFileSync(filePath, "utf8");
+
+  // Find the hit_mass table block
+  const hitMassStart = luaSource.indexOf("minion_difficulty_settings.hit_mass = {");
+  if (hitMassStart === -1) {
+    throw new Error("Could not find minion_difficulty_settings.hit_mass table");
+  }
+
+  // Find balanced closing brace
+  let depth = 0;
+  let i = hitMassStart + "minion_difficulty_settings.hit_mass = ".length;
+  for (; i < luaSource.length; i++) {
+    if (luaSource[i] === "{") depth++;
+    if (luaSource[i] === "}") {
+      depth--;
+      if (depth === 0) break;
+    }
+  }
+  const hitMassBlock = luaSource.slice(hitMassStart, i + 1);
+
+  return parseHitMassBlock(hitMassBlock);
+}
+
+/**
+ * Parse a hit_mass table block into a Map of breed -> 5-element arrays.
+ *
+ * Handles both scalar values (`breed = 20`) and array values
+ * (`breed = { 1.25, 1.25, 1.25, 1.5, 1.5, 1.5 }`).
+ *
+ * @param {string} block  The Lua source block for the hit_mass table
+ * @returns {Map<string, number[]>} breedName -> [uprising, malice, heresy, damnation, auric]
+ */
+export function parseHitMassBlock(block) {
+  const hitMassMap = new Map();
+
+  // Match scalar entries at top indent level: \tbreed_name = 20,
+  const scalarRe = /^\t(\w+)\s*=\s*(-?\d+(?:\.\d+)?)\s*,/gm;
+  let match;
+  while ((match = scalarRe.exec(block)) !== null) {
+    const breedName = match[1];
+    const value = Number(match[2]);
+    // Scalar: same hit_mass at all difficulty levels
+    hitMassMap.set(breedName, DIFFICULTY_NAMES.map(() => value));
+  }
+
+  // Match array entries at top indent level: \tbreed_name = { ... },
+  const arrayRe = /^\t(\w+)\s*=\s*\{([\s\S]*?)\}/gm;
+  while ((match = arrayRe.exec(block)) !== null) {
+    const breedName = match[1];
+    // Skip if already captured as scalar
+    if (hitMassMap.has(breedName)) continue;
+
+    const arrayBody = match[2];
+    const numbers = arrayBody.match(/-?\d+(?:\.\d+)?/g);
+    if (numbers && numbers.length >= 5) {
+      const allValues = numbers.map(Number);
+      // Map challenge levels (1-based Lua) to 0-based JS indices
+      const mapped = CHALLENGE_LEVELS.map((idx) => allValues[idx]);
+      hitMassMap.set(breedName, mapped);
+    }
+  }
+
+  return hitMassMap;
 }
 
 /**

@@ -17,6 +17,7 @@ import {
   parseWeakspotTypes,
   parseStaggerData,
   parseStaggerTypeTable,
+  parseHitMassBlock,
 } from "./extract-breed-data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -356,6 +357,147 @@ describe("parseStaggerTypeTable", () => {
     const lua = `stagger_durations = {\n\t[stagger_types.sticky] = 1.6666666666666667,\n}`;
     const result = parseStaggerTypeTable(lua, "stagger_durations");
     approx(result.sticky, 1.6666666666666667);
+  });
+});
+
+// ── Hit mass parser unit tests ────────────────────────────────────────
+
+describe("parseHitMassBlock", () => {
+  it("parses scalar hit_mass values", () => {
+    const block =
+      "minion_difficulty_settings.hit_mass = {\n" +
+      "\tchaos_beast_of_nurgle = 20,\n" +
+      "\tchaos_hound = 4,\n" +
+      "}";
+    const map = parseHitMassBlock(block);
+    assert.equal(map.size, 2);
+    // Scalar values should repeat for all 5 difficulties
+    assert.deepEqual(map.get("chaos_beast_of_nurgle"), [20, 20, 20, 20, 20]);
+    assert.deepEqual(map.get("chaos_hound"), [4, 4, 4, 4, 4]);
+  });
+
+  it("parses array hit_mass values with challenge-level mapping", () => {
+    // 6-element array: indices [1..4] map to [uprising, malice, heresy, damnation]
+    // auric shares challenge=5 with damnation -> index 4 (0-based)
+    const block =
+      "minion_difficulty_settings.hit_mass = {\n" +
+      "\tchaos_poxwalker = {\n" +
+      "\t\t1.25,\n\t\t1.25,\n\t\t1.25,\n\t\t1.5,\n\t\t1.5,\n\t\t1.5,\n" +
+      "\t},\n" +
+      "}";
+    const map = parseHitMassBlock(block);
+    assert.equal(map.size, 1);
+    // Challenge 2=uprising->idx1, 3=malice->idx2, 4=heresy->idx3, 5=damnation->idx4, 5=auric->idx4
+    assert.deepEqual(map.get("chaos_poxwalker"), [1.25, 1.25, 1.5, 1.5, 1.5]);
+  });
+
+  it("handles mix of scalar and array entries", () => {
+    const block =
+      "minion_difficulty_settings.hit_mass = {\n" +
+      "\tchaos_daemonhost = 20,\n" +
+      "\trenegade_assault = {\n" +
+      "\t\t1.5,\n\t\t1.5,\n\t\t1.5,\n\t\t1.5,\n\t\t1.5,\n\t\t2.5,\n" +
+      "\t},\n" +
+      "}";
+    const map = parseHitMassBlock(block);
+    assert.equal(map.size, 2);
+    assert.deepEqual(map.get("chaos_daemonhost"), [20, 20, 20, 20, 20]);
+    // Array: idx[1]=1.5, idx[2]=1.5, idx[3]=1.5, idx[4]=1.5, idx[4]=1.5
+    assert.deepEqual(map.get("renegade_assault"), [1.5, 1.5, 1.5, 1.5, 1.5]);
+  });
+
+  it("returns empty map for empty block", () => {
+    const block = "minion_difficulty_settings.hit_mass = {\n}";
+    const map = parseHitMassBlock(block);
+    assert.equal(map.size, 0);
+  });
+
+  it("handles arrays where last element differs (havoc tier)", () => {
+    // The 6th element (havoc challenge=6) should NOT affect our 5 outputs
+    const block =
+      "minion_difficulty_settings.hit_mass = {\n" +
+      "\trenegade_gunner = {\n" +
+      "\t\t5,\n\t\t5,\n\t\t5,\n\t\t5,\n\t\t5,\n\t\t8,\n" +
+      "\t},\n" +
+      "}";
+    const map = parseHitMassBlock(block);
+    // indices [1,2,3,4,4] -> [5, 5, 5, 5, 5]
+    assert.deepEqual(map.get("renegade_gunner"), [5, 5, 5, 5, 5]);
+  });
+
+  it("parses floating point scalar values", () => {
+    const block =
+      "minion_difficulty_settings.hit_mass = {\n" +
+      "\tchaos_ogryn_bulwark = 12.5,\n" +
+      "}";
+    const map = parseHitMassBlock(block);
+    assert.deepEqual(map.get("chaos_ogryn_bulwark"), [12.5, 12.5, 12.5, 12.5, 12.5]);
+  });
+});
+
+// ── Hit mass data in generated breed-data.json ───────────────────────
+
+describe("hit_mass in breed-data.json", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_SOURCE_ROOT" }, () => {
+  let breeds;
+  it("loads breed data", () => {
+    breeds = JSON.parse(readFileSync(join(GENERATED_DIR, "breed-data.json"), "utf-8"));
+    assert.ok(breeds.breeds.length >= 25);
+  });
+
+  it("most breeds have hit_mass data", () => {
+    const withHitMass = breeds.breeds.filter(b => b.hit_mass);
+    assert.ok(withHitMass.length >= 25,
+      `expected >=25 breeds with hit_mass, got ${withHitMass.length}`);
+  });
+
+  it("hit_mass has all 5 difficulty levels when present", () => {
+    for (const breed of breeds.breeds) {
+      if (!breed.hit_mass) continue;
+      for (const diff of ["uprising", "malice", "heresy", "damnation", "auric"]) {
+        assert.ok(typeof breed.hit_mass[diff] === "number",
+          `${breed.id} missing hit_mass for ${diff}`);
+      }
+    }
+  });
+
+  it("chaos_beast_of_nurgle has scalar hit_mass = 20 at all difficulties", () => {
+    const bon = breeds.breeds.find(b => b.id === "chaos_beast_of_nurgle");
+    assert.ok(bon, "chaos_beast_of_nurgle not found");
+    assert.equal(bon.hit_mass.uprising, 20);
+    assert.equal(bon.hit_mass.damnation, 20);
+    assert.equal(bon.hit_mass.auric, 20);
+  });
+
+  it("chaos_poxwalker has per-difficulty hit_mass", () => {
+    const pox = breeds.breeds.find(b => b.id === "chaos_poxwalker");
+    assert.ok(pox, "chaos_poxwalker not found");
+    assert.equal(pox.hit_mass.uprising, 1.25);
+    assert.equal(pox.hit_mass.heresy, 1.5);
+    assert.equal(pox.hit_mass.damnation, 1.5);
+    assert.equal(pox.hit_mass.auric, 1.5);
+  });
+
+  it("renegade_berzerker has scalar hit_mass = 10", () => {
+    const rager = breeds.breeds.find(b => b.id === "renegade_berzerker");
+    assert.ok(rager, "renegade_berzerker not found");
+    assert.equal(rager.hit_mass.uprising, 10);
+    assert.equal(rager.hit_mass.auric, 10);
+  });
+
+  it("renegade_gunner has per-difficulty hit_mass", () => {
+    const gunner = breeds.breeds.find(b => b.id === "renegade_gunner");
+    assert.ok(gunner, "renegade_gunner not found");
+    assert.equal(gunner.hit_mass.uprising, 5);
+    assert.equal(gunner.hit_mass.damnation, 5);
+    assert.equal(gunner.hit_mass.auric, 5);
+  });
+
+  it("heavy enemies have higher hit_mass than light ones", () => {
+    const pox = breeds.breeds.find(b => b.id === "chaos_poxwalker");
+    const crusher = breeds.breeds.find(b => b.id === "chaos_ogryn_executor");
+    assert.ok(pox && crusher);
+    assert.ok(crusher.hit_mass.damnation > pox.hit_mass.damnation,
+      `Crusher hit_mass (${crusher.hit_mass.damnation}) should be > Poxwalker (${pox.hit_mass.damnation})`);
   });
 });
 
