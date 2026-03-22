@@ -1016,6 +1016,46 @@ describe("computeHit", () => {
     assert.ok(result.damage > 0);
   });
 
+  it("returns null hitsToKill when breed lacks difficulty_health for the requested difficulty", () => {
+    const breedNoHP = {
+      ...FIXTURE_RAGER_BREED,
+      difficulty_health: {}, // no HP data for any difficulty
+    };
+    const result = computeHit({
+      profile: FIXTURE_MELEE_PROFILE,
+      hitZone: "head",
+      breed: breedNoHP,
+      difficulty: "damnation",
+      flags: { is_crit: false, is_weakspot: true },
+      buffStack: { additive_sum: 1.0, multiplicative_product: 1.0, target_modifier: 1.0 },
+      quality: 0.8,
+      distance: 0,
+      constants: FIXTURE_CONSTANTS,
+    });
+    assert.equal(result.hitsToKill, null, "absent HP data should yield null HTK, not Infinity");
+    assert.ok(result.damage > 0, "damage should still be computed");
+    assert.deepEqual(result.stagesApplied, [1, 2, 3, 4, 5, 6, 7, 8, 9, 11]);
+  });
+
+  it("returns null hitsToKill when breed has no difficulty_health at all", () => {
+    const breedUndefined = {
+      ...FIXTURE_RAGER_BREED,
+      difficulty_health: undefined,
+    };
+    const result = computeHit({
+      profile: FIXTURE_MELEE_PROFILE,
+      hitZone: "head",
+      breed: breedUndefined,
+      difficulty: "damnation",
+      flags: {},
+      buffStack: { additive_sum: 1.0, multiplicative_product: 1.0, target_modifier: 1.0 },
+      quality: 0.8,
+      distance: 0,
+      constants: FIXTURE_CONSTANTS,
+    });
+    assert.equal(result.hitsToKill, null, "undefined difficulty_health should yield null HTK");
+  });
+
   it("does not apply finesse when is_weakspot=true but hitzone is not weakspot", () => {
     // Torso is not a weakspot, so even with is_weakspot flag, finesse shouldn't apply
     const result = computeHit({
@@ -2446,8 +2486,8 @@ describe("calc snapshot regression", () => {
                 const ee = expBreeds[b];
                 assert.equal(ae.breed_id, ee.breed_id);
                 assert.equal(ae.difficulty, ee.difficulty);
-                // JSON serializes Infinity as null
-                const expHTK = ee.hitsToKill === null ? Infinity : ee.hitsToKill;
+                // Infinity is serialized as "Infinity" string; null means data absent
+                const expHTK = ee.hitsToKill === "Infinity" ? Infinity : ee.hitsToKill;
                 assert.equal(ae.hitsToKill, expHTK,
                   `${buildName}: ${actAction.type}/${scenarioName}/${ee.breed_id}/${ee.difficulty} htk: ${ae.hitsToKill} vs ${expHTK}`);
                 // Compare damage within tolerance (floating point); null damage means 0 in JSON

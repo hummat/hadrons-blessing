@@ -58,8 +58,15 @@ function selectionLabel(value) {
 }
 
 function formatHitsToKill(htk) {
+  if (htk == null) return "N/A (no data)";
   if (!Number.isFinite(htk)) return "\u221E (negated)";
   return `${htk} hit${htk !== 1 ? "s" : ""}`;
+}
+
+/** JSON replacer that preserves Infinity as the string "Infinity" (and null stays null). */
+function calcReplacer(_key, value) {
+  if (value === Infinity) return "Infinity";
+  return value;
 }
 
 /**
@@ -309,7 +316,7 @@ await runCliMain("calc", async () => {
         try {
           const { build, matrix } = processFile(join(target, f));
           const prefix = basename(f, ".json");
-          writeFileSync(join(outDir, `${prefix}.calc.json`), JSON.stringify(matrix, null, 2) + "\n");
+          writeFileSync(join(outDir, `${prefix}.calc.json`), JSON.stringify(matrix, calcReplacer, 2) + "\n");
           const weaponCount = matrix.weapons.length;
           console.log(`Frozen: ${prefix} (${weaponCount} weapon${weaponCount !== 1 ? "s" : ""})`);
         } catch (err) {

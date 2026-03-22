@@ -689,8 +689,25 @@ export function computeHit({
   });
 
   // ── Compute hits to kill ──
-  const enemyHP = breed.difficulty_health?.[difficulty] ?? 0;
-  const hitsToKill = enemyHP > 0 && damage > 0 ? Math.ceil(enemyHP / damage) : Infinity;
+  const enemyHP = breed.difficulty_health?.[difficulty];
+  if (enemyHP == null) {
+    // Data absent — breed lacks HP for this difficulty level.
+    // Return null HTK (distinct from Infinity which means damage genuinely negated).
+    return {
+      damage,
+      hitsToKill: null,
+      baseDamage,
+      buffMultiplier: baseDamage > 0 ? buffedDamage / baseDamage : 1,
+      armorDamageModifier: rendedADM,
+      rendingApplied: rendedADM - adm,
+      finesseBoost,
+      hitZoneMultiplier: hzMult,
+      effectiveArmorType,
+      damageEfficiency,
+      stagesApplied: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11],
+    };
+  }
+  const hitsToKill = damage > 0 ? Math.ceil(enemyHP / damage) : Infinity;
 
   return {
     damage,
