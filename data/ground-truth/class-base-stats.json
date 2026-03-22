@@ -1,0 +1,94 @@
+{
+  "_comment": "Per-class base stats extracted from Darktide decompiled source. See _sources for file paths.",
+  "source_snapshot_id": "darktide-source.dbe7035",
+  "_sources": {
+    "health": "scripts/settings/archetype/archetypes/{class}_archetype.lua → archetype_data.health",
+    "base_toughness": "scripts/settings/toughness/archetype_toughness_templates.lua → max",
+    "wounds_by_difficulty": "scripts/settings/difficulty/player_difficulty_settings.lua → archetype_wounds[class]",
+    "toughness_regen": "scripts/settings/toughness/archetype_toughness_templates.lua → regeneration_speed, regeneration_delay",
+    "coherency_toughness_regen": "scripts/settings/buff/player_buff_templates.lua → coherency_toughness_regen.stepped_stat_buffs",
+    "state_damage_modifiers": "scripts/settings/toughness/archetype_toughness_templates.lua → state_damage_modifiers",
+    "melee_kill_toughness_recovery": "scripts/settings/toughness/archetype_toughness_templates.lua → recovery_percentages[melee_kill]",
+    "stamina": "scripts/settings/stamina/archetype_stamina_templates.lua → base_stamina"
+  },
+  "_archetype_name_mapping": {
+    "adamant": "Adeptus Arbites (arbites)",
+    "broker": "Grim Hive Scum (hive_scum)"
+  },
+  "classes": {
+    "veteran": {
+      "base_health": 150,
+      "base_toughness": 100,
+      "wounds_by_difficulty": [4, 3, 3, 2, 2],
+      "base_stamina": 2,
+      "base_critical_strike_chance": 0.1,
+      "knocked_down_health": 1000
+    },
+    "zealot": {
+      "base_health": 200,
+      "base_toughness": 100,
+      "wounds_by_difficulty": [4, 3, 3, 2, 2],
+      "base_stamina": 3,
+      "base_critical_strike_chance": 0.05,
+      "knocked_down_health": 1000
+    },
+    "psyker": {
+      "base_health": 150,
+      "base_toughness": 75,
+      "wounds_by_difficulty": [4, 3, 3, 2, 2],
+      "base_stamina": 1,
+      "base_critical_strike_chance": 0.075,
+      "knocked_down_health": 1000
+    },
+    "ogryn": {
+      "base_health": 300,
+      "base_toughness": 75,
+      "wounds_by_difficulty": [5, 4, 4, 3, 3],
+      "base_stamina": 4,
+      "base_critical_strike_chance": 0.025,
+      "knocked_down_health": 1000
+    },
+    "adamant": {
+      "base_health": 200,
+      "base_toughness": 80,
+      "wounds_by_difficulty": [4, 3, 3, 2, 2],
+      "base_stamina": 3,
+      "base_critical_strike_chance": 0.075,
+      "knocked_down_health": 1000
+    },
+    "broker": {
+      "base_health": 150,
+      "base_toughness": 75,
+      "wounds_by_difficulty": [4, 3, 3, 2, 2],
+      "base_stamina": 3,
+      "base_critical_strike_chance": 0.1,
+      "knocked_down_health": 1000
+    }
+  },
+  "toughness_regen": {
+    "_comment": "Base regen in toughness-per-second, starts after regeneration_delay seconds of not being hit. Coherency multiplier applied on top.",
+    "base_rate_per_second": 5,
+    "regeneration_delay_seconds": 3,
+    "coherency_regen_rate_multipliers": {
+      "_comment": "Stepped buff from coherency_toughness_regen. Index = number of allies in coherency (0-7). Multiplied with base_rate.",
+      "0": 0,
+      "1": 0.5,
+      "2": 0.75,
+      "3": 1.0,
+      "4": 1.25,
+      "5": 1.5,
+      "6": 1.75,
+      "7": 2.0
+    },
+    "melee_kill_recovery_percent": 0.05
+  },
+  "state_damage_modifiers": {
+    "_comment": "Multiplier on toughness damage taken while in each movement state. Lower = less damage = more damage reduction. These are NOT inversion TDR percentages; they are direct damage multipliers.",
+    "veteran": { "dodging": 1.0, "sliding": 0.5, "sprinting": 1.0 },
+    "zealot": { "dodging": 0.5, "sliding": 0.5, "sprinting": 0.5 },
+    "psyker": { "dodging": 0.5, "sliding": 0.5, "sprinting": 1.0 },
+    "ogryn": { "dodging": 1.0, "sliding": 1.0, "sprinting": 1.0 },
+    "adamant": { "dodging": 0.5, "sliding": 0.5, "sprinting": 1.0 },
+    "broker": { "dodging": 1.0, "sliding": 0.5, "sprinting": 1.0 }
+  }
+}
