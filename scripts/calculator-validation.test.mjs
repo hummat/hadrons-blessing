@@ -228,7 +228,7 @@ describe("Task 3: Impact/Stagger/Cleave Data Audit", { skip: !hasGeneratedData &
     assert.equal(
       bad.length,
       0,
-      `${bad.length} profile(s) with non-negative impact violations:\n  ${bad.slice(0, 10).join("\n  ")}`,
+      `${bad.length} profile(s) with invalid impact values (negative/NaN/non-number):\n  ${bad.slice(0, 10).join("\n  ")}`,
     );
   });
 
@@ -302,12 +302,11 @@ describe("Task 3: Impact/Stagger/Cleave Data Audit", { skip: !hasGeneratedData &
         }
       }
     }
-    if (bad.length > 0) {
-      console.log(`  ${bad.length} profile(s) with invalid cleave values:`);
-      for (const b of bad.slice(0, 10)) console.log(`    ${b}`);
-    } else {
-      console.log("  All cleave values are valid non-negative numbers");
-    }
+    assert.equal(
+      bad.length,
+      0,
+      `${bad.length} profile(s) with invalid cleave values (negative/NaN/non-number):\n  ${bad.slice(0, 10).join("\n  ")}`,
+    );
   });
 
   it("reports hit_mass presence in breed data (informational)", () => {
