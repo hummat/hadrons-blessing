@@ -81,7 +81,7 @@ function bestHitsToKill(actions, scenario, breedId, difficulty, hitZone) {
  * <= max_hits for that breed/difficulty/hitZone/scenario. Scores the
  * weighted fraction of met breakpoints on a 1–5 scale.
  *
- * Only considers damage entries (entries without `type` or with `type !== "stagger"`).
+ * Only considers damage entries (entries without a `type` field).
  *
  * @param {object} matrix - Output from computeBreakpoints()
  * @returns {{ score: number, breakdown: object, explanations: string[] } | null}
@@ -93,7 +93,7 @@ export function scoreBreakpointRelevance(matrix) {
   }
 
   const { checklist, weight_values } = loadChecklist();
-  const damageEntries = checklist.filter(e => e.type !== "stagger");
+  const damageEntries = checklist.filter(e => !e.type);
 
   let weightedHits = 0;
   let weightedTotal = 0;
@@ -172,7 +172,7 @@ export function scoreDifficultyScaling(matrix) {
   }
 
   const { checklist, weight_values } = loadChecklist();
-  const highEntries = checklist.filter(e => e.weight === "high" && e.type !== "stagger");
+  const highEntries = checklist.filter(e => e.weight === "high" && !e.type);
 
   if (highEntries.length === 0) {
     return { score: 3, breakdown: { auric_met: 0, damnation_met: 0, total: 0 }, explanations: ["No high-priority checklist entries"] };
@@ -379,6 +379,98 @@ export function scoreStaggerRelevance(staggerMatrix) {
   const metCount = breakdown.filter(b => b.met).length;
   const explanations = [];
   explanations.push(`${metCount}/${staggerEntries.length} stagger targets met (weighted ${weightedHits}/${weightedTotal})`);
+
+  const missedHigh = breakdown.filter(b => !b.met && b.weight === "high");
+  if (missedHigh.length > 0) {
+    explanations.push(`Missed high-priority: ${missedHigh.map(b => b.label).join(", ")}`);
+  }
+
+  return { score, breakdown, explanations };
+}
+
+// ── Cleave scoring ────────────────────────────────────────────────────
+
+/**
+ * Score how many cleave checklist targets the build's weapons can hit.
+ *
+ * For each cleave checklist entry (`type === "cleave"`), finds the best
+ * `targets_killed` across weapon actions whose type matches the entry's
+ * `action_category` for the specified composition. "Met" if
+ * `targets_killed >= min_killed`. Scores the weighted fraction of met
+ * entries on a 1-5 scale (same thresholds as scoreBreakpointRelevance).
+ *
+ * Action category mapping:
+ *   "heavy" -> action types starting with "heavy_attack"
+ *   "light" -> action types starting with "light_attack"
+ *
+ * @param {object} cleaveMatrix - Output from computeCleaveMatrix()
+ * @returns {{ score: number, breakdown: object, explanations: string[] } | null}
+ *   null when the matrix has no weapons.
+ */
+export function scoreCleaveRelevance(cleaveMatrix) {
+  if (!cleaveMatrix || !cleaveMatrix.weapons || cleaveMatrix.weapons.length === 0) {
+    return null;
+  }
+
+  const { checklist, weight_values } = loadChecklist();
+  const cleaveEntries = checklist.filter(e => e.type === "cleave");
+
+  if (cleaveEntries.length === 0) {
+    return null;
+  }
+
+  let weightedHits = 0;
+  let weightedTotal = 0;
+  const breakdown = [];
+
+  for (const entry of cleaveEntries) {
+    const w = weight_values[entry.weight] ?? 1;
+    weightedTotal += w;
+
+    let met = false;
+    let bestKilled = 0;
+
+    for (const weapon of cleaveMatrix.weapons) {
+      for (const action of weapon.actions) {
+        // Match action_category to action type prefix
+        if (entry.action_category === "heavy" && !action.type.startsWith("heavy_attack")) continue;
+        if (entry.action_category === "light" && !action.type.startsWith("light_attack")) continue;
+
+        const compResult = action.compositions?.[entry.composition];
+        if (!compResult) continue;
+
+        if (compResult.targets_killed > bestKilled) {
+          bestKilled = compResult.targets_killed;
+        }
+        if (compResult.targets_killed >= entry.min_killed) {
+          met = true;
+        }
+      }
+    }
+
+    if (met) weightedHits += w;
+
+    breakdown.push({
+      label: entry.label,
+      met,
+      best_killed: bestKilled,
+      min_killed: entry.min_killed,
+      weight: entry.weight,
+    });
+  }
+
+  // Map weighted fraction to 1-5 (same thresholds as damage breakpoints)
+  const ratio = weightedTotal > 0 ? weightedHits / weightedTotal : 0;
+  let score;
+  if (ratio >= 0.85) score = 5;
+  else if (ratio >= 0.65) score = 4;
+  else if (ratio >= 0.45) score = 3;
+  else if (ratio >= 0.25) score = 2;
+  else score = 1;
+
+  const metCount = breakdown.filter(b => b.met).length;
+  const explanations = [];
+  explanations.push(`${metCount}/${cleaveEntries.length} cleave targets met (weighted ${weightedHits}/${weightedTotal})`);
 
   const missedHigh = breakdown.filter(b => !b.met && b.weight === "high");
   if (missedHigh.length > 0) {
