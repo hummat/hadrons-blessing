@@ -965,10 +965,13 @@ export function assembleBuildBuffStack(build, index, flags) {
       } else if (type === "proc_stat_buff") {
         if ((_flags.proc_stacks ?? 0) <= 0) continue;
       } else if (type === "lerped_stat_buff") {
-        // Lerped: if magnitude_min/magnitude_max present, interpolate
+        // Lerped: if magnitude_min/magnitude_max present, interpolate.
+        // All 40 lerped_stat_buff effects in the current entity corpus have null
+        // conditions — they all implicitly use warp_charge as the interpolation
+        // factor. If future entities introduce other lerp variables (e.g. peril,
+        // charge_level), resolve the factor from effect.condition instead.
         const { magnitude_min, magnitude_max } = effect;
         if (magnitude_min != null && magnitude_max != null) {
-          // Use warp_charge as the lerp factor (most common lerped buff)
           const t = _flags.warp_charge ?? 0;
           effectiveMagnitude = magnitude_min + (magnitude_max - magnitude_min) * t;
         }
