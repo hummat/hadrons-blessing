@@ -28,15 +28,17 @@ function calcReplacer(_key, value) {
 function formatDRValue(source) {
   const { stat, value } = source;
   if (stat === "toughness_damage_taken_modifier") {
-    // Additive modifier — magnitude is negative, so -0.05 means 5% DR
+    // Additive modifier — negative means DR, positive means damage increase
     const pct = Math.abs(value) * 100;
     const multiplier = 1 + value;
-    return `${multiplier.toFixed(2)} (${pct.toFixed(0)}% DR, additive)`;
+    const label = value < 0 ? "DR" : "damage increase";
+    return `${multiplier.toFixed(2)} (${pct.toFixed(0)}% ${label}, additive)`;
   }
   // Multiplicative: (1 + value) is the damage multiplier
   const multiplier = 1 + value;
   const pct = Math.abs(value) * 100;
-  return `${multiplier.toFixed(2)} (${pct.toFixed(0)}% DR)`;
+  const label = value < 0 ? "DR" : "damage increase";
+  return `${multiplier.toFixed(2)} (${pct.toFixed(0)}% ${label})`;
 }
 
 // -- Text formatter -----------------------------------------------------------
