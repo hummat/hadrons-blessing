@@ -9,7 +9,10 @@
     { "label": "Horde one-shot body", "breed_id": "chaos_poxwalker", "difficulty": "damnation", "max_hits": 1, "hit_zone": "torso", "scenario": "sustained", "weight": "medium" },
     { "label": "Three-hit Mauler", "breed_id": "renegade_executor", "difficulty": "damnation", "max_hits": 3, "hit_zone": "head", "scenario": "aimed", "weight": "low" },
     { "label": "Two-hit Bulwark", "breed_id": "chaos_ogryn_bulwark", "difficulty": "damnation", "max_hits": 2, "hit_zone": "head", "scenario": "aimed", "weight": "low" },
-    { "label": "One-shot Sniper", "breed_id": "renegade_sniper", "difficulty": "damnation", "max_hits": 1, "hit_zone": "head", "scenario": "aimed", "weight": "low" }
+    { "label": "One-shot Sniper", "breed_id": "renegade_sniper", "difficulty": "damnation", "max_hits": 1, "hit_zone": "head", "scenario": "aimed", "weight": "low" },
+    { "label": "Stagger Crusher melee", "breed_id": "chaos_ogryn_executor", "difficulty": "damnation", "min_tier": "light", "type": "stagger", "weight": "high" },
+    { "label": "Stagger Rager melee", "breed_id": "renegade_berzerker", "difficulty": "damnation", "min_tier": "light", "type": "stagger", "weight": "medium" },
+    { "label": "Stagger Mauler melee", "breed_id": "renegade_executor", "difficulty": "damnation", "min_tier": "light", "type": "stagger", "weight": "medium" }
   ],
   "weight_values": { "high": 3, "medium": 2, "low": 1 }
 }

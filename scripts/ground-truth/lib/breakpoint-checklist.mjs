@@ -81,6 +81,8 @@ function bestHitsToKill(actions, scenario, breedId, difficulty, hitZone) {
  * <= max_hits for that breed/difficulty/hitZone/scenario. Scores the
  * weighted fraction of met breakpoints on a 1–5 scale.
  *
+ * Only considers damage entries (entries without `type` or with `type !== "stagger"`).
+ *
  * @param {object} matrix - Output from computeBreakpoints()
  * @returns {{ score: number, breakdown: object, explanations: string[] } | null}
  *   null when the matrix has no weapons.
@@ -91,12 +93,13 @@ export function scoreBreakpointRelevance(matrix) {
   }
 
   const { checklist, weight_values } = loadChecklist();
+  const damageEntries = checklist.filter(e => e.type !== "stagger");
 
   let weightedHits = 0;
   let weightedTotal = 0;
   const breakdown = [];
 
-  for (const entry of checklist) {
+  for (const entry of damageEntries) {
     const w = weight_values[entry.weight] ?? 1;
     weightedTotal += w;
 
@@ -139,7 +142,7 @@ export function scoreBreakpointRelevance(matrix) {
 
   const metCount = breakdown.filter(b => b.met).length;
   const explanations = [];
-  explanations.push(`${metCount}/${checklist.length} breakpoints met (weighted ${weightedHits}/${weightedTotal})`);
+  explanations.push(`${metCount}/${damageEntries.length} breakpoints met (weighted ${weightedHits}/${weightedTotal})`);
 
   const missedHigh = breakdown.filter(b => !b.met && b.weight === "high");
   if (missedHigh.length > 0) {
@@ -169,7 +172,7 @@ export function scoreDifficultyScaling(matrix) {
   }
 
   const { checklist, weight_values } = loadChecklist();
-  const highEntries = checklist.filter(e => e.weight === "high");
+  const highEntries = checklist.filter(e => e.weight === "high" && e.type !== "stagger");
 
   if (highEntries.length === 0) {
     return { score: 3, breakdown: { auric_met: 0, damnation_met: 0, total: 0 }, explanations: ["No high-priority checklist entries"] };
@@ -245,4 +248,142 @@ export function scoreDifficultyScaling(matrix) {
     },
     explanations,
   };
+}
+
+// ── Stagger tier ordering ─────────────────────────────────────────────
+
+/** Canonical stagger tier rank for comparison. Higher = better. */
+const STAGGER_TIER_RANK = {
+  none: 0,
+  null: 0,
+  light: 1,
+  light_ranged: 1,
+  killshot: 1,
+  sticky: 1,
+  electrocuted: 1,
+  blinding: 1,
+  companion_push: 1,
+  shield_block: 1,
+  medium: 2,
+  shield_heavy_block: 2,
+  heavy: 3,
+  shield_broken: 3,
+  wall_collision: 3,
+  explosion: 4,
+};
+
+/**
+ * For a given weapon's actions at a specific difficulty, find the best
+ * (highest) stagger tier across all melee actions for a breed.
+ *
+ * @param {object[]} actions - Weapon action results from stagger matrix
+ * @param {string} breedId - Target breed_id
+ * @param {string} difficulty - e.g. "damnation"
+ * @returns {string} Best stagger tier ("none" if no match)
+ */
+function bestStaggerTier(actions, breedId, difficulty) {
+  let bestRank = 0;
+  let bestTier = "none";
+
+  for (const action of actions) {
+    for (const entry of action.breeds) {
+      if (entry.breed_id !== breedId) continue;
+      if (entry.difficulty !== difficulty) continue;
+
+      const tier = entry.stagger_tier ?? "none";
+      const rank = STAGGER_TIER_RANK[tier] ?? 0;
+      if (rank > bestRank) {
+        bestRank = rank;
+        bestTier = tier;
+      }
+    }
+  }
+
+  return bestTier;
+}
+
+/**
+ * Score how many stagger checklist targets the build's weapons can hit.
+ *
+ * For each stagger checklist entry (`type === "stagger"`), checks whether
+ * any weapon achieves at least `min_tier` stagger against that breed at
+ * the specified difficulty. Scores the weighted fraction of met entries
+ * on a 1–5 scale (same thresholds as scoreBreakpointRelevance).
+ *
+ * @param {object} staggerMatrix - Output from computeStaggerMatrix()
+ * @returns {{ score: number, breakdown: object, explanations: string[] } | null}
+ *   null when the matrix has no weapons.
+ */
+export function scoreStaggerRelevance(staggerMatrix) {
+  if (!staggerMatrix || !staggerMatrix.weapons || staggerMatrix.weapons.length === 0) {
+    return null;
+  }
+
+  const { checklist, weight_values } = loadChecklist();
+  const staggerEntries = checklist.filter(e => e.type === "stagger");
+
+  if (staggerEntries.length === 0) {
+    return null;
+  }
+
+  let weightedHits = 0;
+  let weightedTotal = 0;
+  const breakdown = [];
+
+  for (const entry of staggerEntries) {
+    const w = weight_values[entry.weight] ?? 1;
+    weightedTotal += w;
+
+    let met = false;
+    let bestAchieved = "none";
+    let bestAchievedRank = 0;
+
+    const minRank = STAGGER_TIER_RANK[entry.min_tier] ?? 0;
+
+    for (const weapon of staggerMatrix.weapons) {
+      const tier = bestStaggerTier(
+        weapon.actions,
+        entry.breed_id,
+        entry.difficulty,
+      );
+      const rank = STAGGER_TIER_RANK[tier] ?? 0;
+      if (rank > bestAchievedRank) {
+        bestAchievedRank = rank;
+        bestAchieved = tier;
+      }
+      if (rank >= minRank) {
+        met = true;
+      }
+    }
+
+    if (met) weightedHits += w;
+
+    breakdown.push({
+      label: entry.label,
+      met,
+      best_tier: bestAchieved,
+      min_tier: entry.min_tier,
+      weight: entry.weight,
+    });
+  }
+
+  // Map weighted fraction to 1–5 (same thresholds as damage breakpoints)
+  const ratio = weightedTotal > 0 ? weightedHits / weightedTotal : 0;
+  let score;
+  if (ratio >= 0.85) score = 5;
+  else if (ratio >= 0.65) score = 4;
+  else if (ratio >= 0.45) score = 3;
+  else if (ratio >= 0.25) score = 2;
+  else score = 1;
+
+  const metCount = breakdown.filter(b => b.met).length;
+  const explanations = [];
+  explanations.push(`${metCount}/${staggerEntries.length} stagger targets met (weighted ${weightedHits}/${weightedTotal})`);
+
+  const missedHigh = breakdown.filter(b => !b.met && b.weight === "high");
+  if (missedHigh.length > 0) {
+    explanations.push(`Missed high-priority: ${missedHigh.map(b => b.label).join(", ")}`);
+  }
+
+  return { score, breakdown, explanations };
 }

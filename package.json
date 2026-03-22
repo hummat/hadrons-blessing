@@ -32,6 +32,8 @@
     "recommend": "node scripts/recommend-build.mjs",
     "calc": "node scripts/calc-build.mjs",
     "calc:freeze": "node scripts/calc-build.mjs scripts/builds/ --json --freeze",
+    "stagger": "node scripts/stagger-build.mjs",
+    "stagger:freeze": "node scripts/stagger-build.mjs scripts/builds/ --json --freeze",
     "check": "npm run index:build && npm test && npm run index:check"
   },
   "repository": {
