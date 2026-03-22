@@ -1935,6 +1935,44 @@ describe("computeBreakpoints (unit)", () => {
     assert.ok(Number.isFinite(entry.damage) && entry.damage > 0,
       `damage should be finite positive, got ${entry.damage}`);
   });
+
+  it("skips profiles with null power_distribution (shield bash / block)", () => {
+    const profiles = [
+      ...MOCK_PROFILES,
+      {
+        id: "mock_shield_bash",
+        source_file: "test",
+        damage_type: "shield_push",
+        stagger_category: "melee",
+        melee_attack_strength: "light",
+        power_distribution: null,
+        armor_damage_modifier: null,
+      },
+    ];
+    const actionMaps = [
+      {
+        weapon_template: "combatsword_p1_m1",
+        actions: {
+          light_attack: ["mock_light_melee", "mock_shield_bash"],
+          heavy_attack: ["mock_heavy_melee"],
+        },
+      },
+      ...MOCK_ACTION_MAPS.filter(am => am.weapon_template !== "combatsword_p1_m1"),
+    ];
+    const calcData = { ...MOCK_CALC_DATA, profiles, actionMaps };
+
+    // Should not throw
+    const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, calcData);
+
+    // The shield bash profile should be silently skipped — only the real light
+    // profile should appear in light_attack actions
+    const melee = matrix.weapons.find(w => w.entityId === "shared.weapon.combatsword_p1_m1");
+    assert.ok(melee, "melee weapon should be in matrix");
+    const lightActions = melee.actions.filter(a => a.type === "light_attack");
+    assert.equal(lightActions.length, 1,
+      "should have only 1 light_attack action (shield bash skipped)");
+    assert.equal(lightActions[0].profileId, "mock_light_melee");
+  });
 });
 
 // ---------- summarizeBreakpoints (unit) ----------
@@ -2082,6 +2120,31 @@ describe("computeBreakpoints (integration)", { skip: !HAS_SOURCE && "requires GR
       }
     }
     console.log(`  [integration] ${summaries.length} summary entries`);
+  });
+
+  it("Build 14 (shield weapon) completes without crashing", async () => {
+    const { loadIndex } = await import("./ground-truth/lib/synergy-model.mjs");
+    const build = JSON.parse(readFileSync(join(__dirname, "builds", "14-arbites-nuncio-aquila.json"), "utf-8"));
+    const index = loadIndex();
+    const calcData = loadCalculatorData();
+
+    // Should not throw — shield profiles with null power_distribution are skipped
+    const matrix = computeBreakpoints(build, index, calcData);
+
+    assert.ok(matrix.weapons.length > 0, "should have weapons in matrix");
+    for (const w of matrix.weapons) {
+      for (const action of w.actions) {
+        for (const [scenarioName, scenario] of Object.entries(action.scenarios)) {
+          for (const entry of scenario.breeds) {
+            assert.ok(
+              typeof entry.hitsToKill === "number" && !Number.isNaN(entry.hitsToKill),
+              `${w.entityId}/${action.type}/${scenarioName}/${entry.breed_id}/${entry.difficulty}: hitsToKill is ${entry.hitsToKill}`,
+            );
+          }
+        }
+      }
+    }
+    console.log(`  [integration] Build 14 OK: ${matrix.weapons.length} weapons, ${matrix.weapons.reduce((n, w) => n + w.actions.length, 0)} actions`);
   });
 });
 

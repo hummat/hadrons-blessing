@@ -1190,6 +1190,7 @@ export function computeBreakpoints(build, index, calcData) {
         if (!rawProfile) continue;
 
         const profile = resolveProfileForQuality(rawProfile, quality);
+        if (!profile.power_distribution) continue;
 
         const scenarios = {};
 
