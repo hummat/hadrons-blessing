@@ -120,7 +120,8 @@ Expected: FAIL — module not found
 `scripts/expand-entity-coverage.mjs`:
 ```js
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
-import { join, basename, relative } from "node:path";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { validateSourceSnapshot } from "./ground-truth/lib/validate.mjs";
 import { ENTITIES_ROOT, EDGES_ROOT, listJsonFiles } from "./ground-truth/lib/load.mjs";
 import { runCliMain } from "./ground-truth/lib/cli.mjs";
@@ -623,13 +624,11 @@ describe("buildConceptFamilyMap", () => {
       id: "shared.weapon_trait.weapon_trait_bespoke_chainsword_2h_p1_guaranteed_melee_crit_on_activated_kill",
       internal_name: "weapon_trait_bespoke_chainsword_2h_p1_guaranteed_melee_crit_on_activated_kill",
       kind: "weapon_trait",
-      attributes: { weapon_family: "chainsword_2h", slot: "melee" },
     }],
     ["shared.weapon_trait.weapon_trait_bespoke_bolter_p1_power_bonus_on_continuous_fire", {
       id: "shared.weapon_trait.weapon_trait_bespoke_bolter_p1_power_bonus_on_continuous_fire",
       internal_name: "weapon_trait_bespoke_bolter_p1_power_bonus_on_continuous_fire",
       kind: "weapon_trait",
-      attributes: { weapon_family: "bolter", slot: "ranged" },
     }],
   ]);
 
@@ -673,6 +672,8 @@ Append to `scripts/expand-entity-coverage.mjs`:
 
 /**
  * Build a Map<conceptSuffix, familySlug> from existing instance_of edges.
+ * Parses family/pSeries directly from internal_name to avoid dependency
+ * on the inconsistent weapon_family attribute in existing data.
  * @param {Array} edges - All edge records from shared.json
  * @param {Map} entityMap - Map<entityId, entity>
  */
@@ -683,14 +684,14 @@ export function buildConceptFamilyMap(edges, entityMap) {
     const fromEntity = entityMap.get(edge.from_entity_id);
     if (!fromEntity || fromEntity.kind !== "weapon_trait") continue;
 
-    const family = fromEntity.attributes.weapon_family;
-    // Derive pSeries from the internal_name: weapon_trait_bespoke_{family}_{pSeries}_...
-    const afterBespoke = fromEntity.internal_name.slice(`weapon_trait_bespoke_${family}_`.length);
-    const pMatch = afterBespoke.match(/^(p\d+)_/);
-    if (!pMatch) continue;
-    const pSeries = pMatch[1];
-
-    const suffix = extractConceptSuffix(fromEntity.internal_name, family, pSeries);
+    // Parse family and pSeries from internal_name directly:
+    // weapon_trait_bespoke_{family}_{pN}_{concept}[_parent]
+    const bespokeMatch = fromEntity.internal_name.match(
+      /^weapon_trait_bespoke_(.+)_(p\d+)_(.+)$/
+    );
+    if (!bespokeMatch) continue;
+    const [, family, pSeries, conceptRaw] = bespokeMatch;
+    const suffix = conceptRaw.replace(/_parent$/, "");
     // Extract family slug from to_entity_id: "shared.name_family.blessing.<slug>"
     const familySlug = edge.to_entity_id.split(".").pop();
     map.set(suffix, familySlug);
@@ -723,8 +724,6 @@ git commit -m "feat(entities:expand): add concept-suffix to name_family map buil
 
 These tests require the Darktide source and are skipped when unavailable. Append to `scripts/expand-entity-coverage.test.mjs`:
 ```js
-import { existsSync } from "node:fs";
-
 const sourceRoot = (() => {
   try { return readFileSync(".source-root", "utf8").trim(); }
   catch { return null; }
@@ -1195,10 +1194,12 @@ export async function expandEntityCoverage() {
 
 Append to `scripts/expand-entity-coverage.mjs`:
 ```js
-// --- CLI ---
-runCliMain("entities:expand", async () => {
-  await expandEntityCoverage();
-});
+// --- CLI (guarded so importing for tests doesn't trigger main) ---
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  runCliMain("entities:expand", async () => {
+    await expandEntityCoverage();
+  });
+}
 ```
 
 - [ ] **Step 3: Add npm script to package.json**
