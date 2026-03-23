@@ -45,7 +45,7 @@ For each source definition not already in `existingEntities`, create an entity r
 
 ```json
 {
-  "id": "shared.<kind>.<internal_name>",
+  "id": "<see ID rules below>",
   "kind": "<weapon|weapon_trait|weapon_perk|gadget_trait>",
   "domain": "shared",
   "internal_name": "<internal_name>",
@@ -60,10 +60,29 @@ For each source definition not already in `existingEntities`, create an entity r
 ```
 
 Attribute rules:
-- **weapon**: `{ "weapon_family": "<family>", "slot": "<melee|ranged>" }`. Family extracted from directory name. Slot determined by checking for `ammo_template` (ranged) vs `"no_ammo"` (melee) — or by the presence of `weapon_template.keywords` containing `"melee"` or `"ranged"`.
+- **weapon**: `{ "weapon_family": "<family>", "slot": "<melee|ranged>" }`. Family extracted from the **weapon template filename** by stripping `_p\d+_m\d+$` (e.g., `combataxe_p1_m1.lua` → `combataxe`). Note: some existing entities include the p-series in `weapon_family` (e.g., `forcestaff_p3`, `lasgun_p2`) while others don't (e.g., `bolter`, `ogryn_powermaul`). New entities should follow the existing convention: include p-series in `weapon_family` only when multiple p-series exist for the same base family with different slot types or fundamentally different weapon behavior. Slot determined by checking for `ammo_template` (ranged) vs `"no_ammo"` (melee) — or by the presence of `weapon_template.keywords` containing `"melee"` or `"ranged"`.
 - **weapon_trait**: `{ "weapon_family": "<family>", "slot": "<melee|ranged>" }`. Family and slot inherited from the bespoke file's weapon family association.
 - **weapon_perk**: `{ "slot": "<melee|ranged>" }`. Slot from filename (`weapon_perks_melee.lua` vs `weapon_perks_ranged.lua`).
 - **gadget_trait**: `{ "slot": "curio" }`.
+
+**Entity ID rules:**
+- **weapon**: `shared.weapon.<internal_name>` (e.g., `shared.weapon.combataxe_p1_m1`)
+- **weapon_trait**: `shared.weapon_trait.<internal_name>` (e.g., `shared.weapon_trait.weapon_trait_bespoke_combataxe_p1_chained_hits_increases_power`)
+- **weapon_perk**: `shared.weapon_perk.<slot>.<internal_name>` (e.g., `shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage`) — note the `<slot>` segment, matching existing convention
+- **gadget_trait**: `shared.gadget_trait.<internal_name>` (e.g., `shared.gadget_trait.gadget_toughness_increase`)
+
+**`_parent` suffix handling for weapon_traits:**
+Some existing weapon_trait entities use a `_parent` suffix (e.g., `weapon_trait_bespoke_dual_shivs_p1_stacking_rending_on_weakspot_parent`). This occurs when the bespoke Lua definition has multiple buff entries (parent + child) and `extract-buff-effects.mjs` resolves the trait's calc data via the parent buff template. The expansion script must:
+1. Extract top-level template keys from bespoke files (these are the canonical trait names, without `_parent`).
+2. During dedup, check for existing entities both with and without `_parent` suffix.
+3. New entities use the **top-level template key** (no `_parent`). The `_parent` suffix is an artifact of how `effects:build` names buff sub-entries, not the canonical trait identity.
+4. If an existing entity uses `_parent`, do NOT create a duplicate without it — treat it as already covered.
+
+**Refs population:**
+- **weapon**: `refs: [{ path: "<relative-lua-path>", line: 1 }]` (file start, matching existing convention)
+- **weapon_trait**: `refs: [{ path: "<relative-bespoke-lua-path>", line: <line of templates.NAME = {> }]`
+- **weapon_perk**: `refs: [{ path: "<relative-perk-lua-path>", line: <line of NAME = {> }]`
+- **gadget_trait**: `refs: [{ path: "<relative-gadget-lua-path>", line: <line of NAME = {> }]`
 
 Append new entities to `shared-weapons.json`.
 
@@ -73,7 +92,8 @@ For each concept suffix found in new weapon_traits that is NOT in the existing c
 1. Create a new `name_family` entity with a temporary slug derived from the concept suffix.
 2. `status: "partially_resolved"`, `internal_name: null`, `loc_key: null`, `ui_name: null`.
 3. `attributes: { "family_type": "blessing" }`.
-4. Append to `shared-names.json`.
+4. `refs`: point to the bespoke file where the concept suffix was first encountered.
+5. Append to `shared-names.json`.
 
 These temporary-slug families need manual community-name assignment later. The script outputs a report listing them.
 
@@ -100,7 +120,7 @@ Edge shape (both types):
   "from_entity_id": "<entity_id>",
   "to_entity_id": "<entity_id>",
   "source_snapshot_id": "<from manifest>",
-  "conditions": { "predicates": [], "aggregation": "all", "stacking_mode": "replace", "exclusive_scope": null },
+  "conditions": { "predicates": [], "aggregation": "additive", "stacking_mode": "binary", "exclusive_scope": null },
   "calc": {},
   "evidence_ids": []
 }
@@ -140,7 +160,15 @@ The bespoke filename encodes the weapon family and p-series: `weapon_traits_besp
 - Parse the filename to extract `{family}` and `{p-series}`
 - All weapon entities matching `{family}_{p-series}_m*` share this trait pool
 
-Edge case: some families have inconsistent naming between the bespoke file and the weapon template directory. The script should validate by checking that at least one weapon entity exists for each bespoke file's family/p-series combination. Mismatches are logged as warnings.
+Edge case: some bespoke files have no corresponding weapon marks (e.g., `ogryn_thumper_p2` has a bespoke file but no mark templates). The script validates by checking that at least one weapon entity exists for each bespoke file's family/p-series combination. Mismatches are logged as warnings (weapon_trait entities are still generated, but no `weapon_has_trait_pool` edges).
+
+### Idempotency
+
+The script is **create-only** — it never modifies existing entities or edges. On re-run:
+- Entities already in `existingEntities` (by ID) are skipped.
+- Edges already in `existingEdges` (by ID) are skipped.
+- The concept→family map is rebuilt from scratch each run, so new `instance_of` edges created by earlier runs are incorporated.
+- To fix an existing entity, edit it directly in the JSON shard. The expansion script does not upsert.
 
 ## Post-Expansion: `npm run effects:build`
 
@@ -170,7 +198,7 @@ Aliases are needed for the website's GL build import flow, not for calculator fu
 
 ## Testing Strategy
 
-1. **Referential integrity**: `npm run build` (index builder) validates all new entities, edges, name_families. This catches ID mismatches, missing refs, schema violations, and dangling edge references.
+1. **Referential integrity**: `npm run index:build` validates all new entities, edges, name_families. This catches ID mismatches, missing refs, schema violations, and dangling edge references.
 2. **Snapshot tests**: golden output of the expansion script's report (entity/edge counts, unmapped suffixes).
 3. **Regression**: full existing test suite (`npm test`) passes after expansion + effects:build.
 4. **Smoke test**: run calculators (damage, stagger, cleave) on 2-3 GL builds that previously failed due to missing entities. Verify they now resolve and produce results.
@@ -183,7 +211,7 @@ Aliases are needed for the website's GL build import flow, not for calculator fu
 - Every gadget trait has a `gadget_trait` entity
 - All weapons have `weapon_has_trait_pool` edges to their blessing pool
 - All weapon_traits have `instance_of` edges to a name_family (some may be temporary-slug families pending manual naming)
-- `npm run build` succeeds (referential integrity)
+- `npm run index:build` succeeds (referential integrity)
 - `npm test` passes with zero failures
 
 ## Out of Scope
