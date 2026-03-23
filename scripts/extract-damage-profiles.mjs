@@ -8,7 +8,7 @@
  *        npm run profiles:build
  */
 
-import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from "node:fs";
 import { join, basename } from "node:path";
 import { validateSourceSnapshot } from "./ground-truth/lib/validate.mjs";
 import { runCliMain } from "./ground-truth/lib/cli.mjs";
@@ -111,6 +111,7 @@ await runCliMain("profiles:build", async () => {
     source_snapshot_id: snapshotId,
     generated_at: new Date().toISOString(),
   };
+  mkdirSync(GENERATED_DIR, { recursive: true });
   writeFileSync(
     join(GENERATED_DIR, "damage-profiles.json"),
     JSON.stringify(output, null, 2) + "\n",

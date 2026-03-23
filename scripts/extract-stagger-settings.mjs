@@ -9,7 +9,7 @@
  *        npm run stagger:build
  */
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { validateSourceSnapshot } from "./ground-truth/lib/validate.mjs";
 import { runCliMain } from "./ground-truth/lib/cli.mjs";
@@ -82,6 +82,7 @@ await runCliMain("stagger:build", async () => {
     generated_at: new Date().toISOString(),
   };
 
+  mkdirSync(GENERATED_DIR, { recursive: true });
   writeFileSync(
     join(GENERATED_DIR, "stagger-settings.json"),
     JSON.stringify(output, null, 2) + "\n",
