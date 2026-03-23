@@ -1,9 +1,10 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
-import { readFileSync } from "node:fs";
+import { readFileSync, mkdtempSync, rmSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { tmpdir } from "node:os";
 import { loadGroundTruthRegistry } from "./ground-truth/lib/registry.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -76,12 +77,18 @@ describe("bot-weapon-recommendations export", () => {
 
 describe("export:bot-weapons CLI", () => {
   it("runs without error", () => {
-    const result = spawnSync(
-      process.execPath,
-      ["scripts/export-bot-weapons.mjs"],
-      { encoding: "utf8", timeout: 10_000 },
-    );
-    assert.equal(result.status, 0, `CLI failed: ${result.stderr}`);
-    assert.ok(result.stdout.includes("Wrote"), `unexpected output: ${result.stdout}`);
+    const tmp = mkdtempSync(join(tmpdir(), "bot-weapons-"));
+    const outPath = join(tmp, "bot-weapon-recommendations.json");
+    try {
+      const result = spawnSync(
+        process.execPath,
+        ["scripts/export-bot-weapons.mjs", outPath],
+        { encoding: "utf8", timeout: 10_000 },
+      );
+      assert.equal(result.status, 0, `CLI failed: ${result.stderr}`);
+      assert.ok(result.stdout.includes("Wrote"), `unexpected output: ${result.stdout}`);
+    } finally {
+      rmSync(tmp, { recursive: true, force: true });
+    }
   });
 });

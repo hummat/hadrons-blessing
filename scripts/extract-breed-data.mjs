@@ -8,7 +8,7 @@
  *        npm run breeds:build
  */
 
-import { readFileSync, writeFileSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { validateSourceSnapshot } from "./ground-truth/lib/validate.mjs";
 import { runCliMain } from "./ground-truth/lib/cli.mjs";
@@ -136,6 +136,7 @@ await runCliMain("breeds:build", async () => {
     source_snapshot_id: snapshotId,
     generated_at: new Date().toISOString(),
   };
+  mkdirSync(GENERATED_DIR, { recursive: true });
   writeFileSync(
     join(GENERATED_DIR, "breed-data.json"),
     JSON.stringify(output, null, 2) + "\n",

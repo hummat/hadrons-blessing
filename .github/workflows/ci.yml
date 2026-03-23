@@ -22,7 +22,13 @@ jobs:
         run: npm ci
 
       - name: Provision pinned Darktide source snapshot
-        run: git clone --depth 1 https://github.com/Aussiemon/Darktide-Source-Code.git ../Darktide-Source-Code
+        run: |
+          PINNED_SHA=$(node -e "console.log(JSON.parse(require('fs').readFileSync('data/ground-truth/source-snapshots/manifest.json','utf8')).git_revision)")
+          git init ../Darktide-Source-Code
+          cd ../Darktide-Source-Code
+          git remote add origin https://github.com/Aussiemon/Darktide-Source-Code.git
+          git fetch --depth 1 origin "$PINNED_SHA"
+          git checkout FETCH_HEAD
 
       - name: Run checks
         env:
