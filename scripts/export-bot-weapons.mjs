@@ -9,7 +9,8 @@ import { fileURLToPath } from "node:url";
 import { loadGroundTruthRegistry } from "./ground-truth/lib/registry.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const OUTPUT_PATH = join(__dirname, "..", "data", "exports", "bot-weapon-recommendations.json");
+const DEFAULT_OUTPUT_PATH = join(__dirname, "..", "data", "exports", "bot-weapon-recommendations.json");
+const OUTPUT_PATH = process.argv[2] || DEFAULT_OUTPUT_PATH;
 
 // Curated per-class weapon selections.
 // Evaluated against BetterBots bot-incompatibility criteria:
