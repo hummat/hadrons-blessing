@@ -96,6 +96,11 @@ describe("detectSlot", () => {
     assert.equal(detectSlot('ammo_template = "no_ammo"'), "melee");
   });
 
+  it("detects ranged from multi-line keywords block", () => {
+    const lua = `weapon_template.keywords = {\n  "ranged",\n  "autogun",\n}`;
+    assert.equal(detectSlot(lua), "ranged");
+  });
+
   it("defaults to melee when no signals", () => {
     assert.equal(detectSlot("-- no weapon signals here"), "melee");
   });

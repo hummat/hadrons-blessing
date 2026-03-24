@@ -31,8 +31,8 @@ export function extractConceptSuffix(internalName, family, pSeries) {
 // --- Slot detection ---
 
 export function detectSlot(luaSource) {
-  if (/keywords\s*=\s*\{[^}]*"ranged"/.test(luaSource)) return "ranged";
-  if (/keywords\s*=\s*\{[^}]*"melee"/.test(luaSource)) return "melee";
+  if (/keywords\s*=\s*\{[^}]*"ranged"/s.test(luaSource)) return "ranged";
+  if (/keywords\s*=\s*\{[^}]*"melee"/s.test(luaSource)) return "melee";
   const ammoMatch = luaSource.match(/ammo_template\s*=\s*"([^"]+)"/);
   if (ammoMatch) return ammoMatch[1] === "no_ammo" ? "melee" : "ranged";
   return "melee";
@@ -114,6 +114,9 @@ export function buildConceptFamilyMap(edges, entityMap) {
     const [, family, pSeries, conceptRaw] = bespokeMatch;
     const suffix = conceptRaw.replace(/_parent$/, "");
     const familySlug = edge.to_entity_id.split(".").pop();
+    if (map.has(suffix) && map.get(suffix) !== familySlug) {
+      console.warn(`  Warning: concept suffix "${suffix}" maps to both "${map.get(suffix)}" and "${familySlug}"`);
+    }
     map.set(suffix, familySlug);
   }
   return map;
