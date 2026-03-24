@@ -208,6 +208,18 @@
       "type": "stat_alignment",
       "selections": [
         "psyker.talent.psyker_damage_based_on_warp_charge",
+        "shared.name_family.blessing.shred"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_damage_based_on_warp_charge",
         "shared.name_family.blessing.warp_nexus"
       ],
       "families": [
@@ -267,6 +279,18 @@
     {
       "type": "stat_alignment",
       "selections": [
+        "psyker.talent.psyker_melee_attack_speed",
+        "shared.name_family.blessing.warp_flurry"
+      ],
+      "families": [
+        "ranged_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the ranged_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
         "psyker.talent.psyker_cleave_from_peril",
         "shared.stat_node.melee_damage_boost"
       ],
@@ -281,6 +305,18 @@
       "selections": [
         "psyker.talent.psyker_cleave_from_peril",
         "shared.stat_node.critical_chance_boost"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_cleave_from_peril",
+        "shared.name_family.blessing.shred"
       ],
       "families": [
         "general_offense"
@@ -412,6 +448,30 @@
       "type": "stat_alignment",
       "selections": [
         "shared.stat_node.critical_chance_boost",
+        "shared.name_family.blessing.shred"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.critical_chance_boost",
+        "shared.name_family.blessing.shred"
+      ],
+      "families": [
+        "crit"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the crit family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.critical_chance_boost",
         "shared.name_family.blessing.warp_nexus"
       ],
       "families": [
@@ -424,6 +484,30 @@
       "type": "stat_alignment",
       "selections": [
         "shared.stat_node.critical_chance_boost",
+        "shared.name_family.blessing.warp_nexus"
+      ],
+      "families": [
+        "crit"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the crit family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.shred",
+        "shared.name_family.blessing.warp_nexus"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.shred",
         "shared.name_family.blessing.warp_nexus"
       ],
       "families": [
@@ -460,12 +544,13 @@
         ]
       },
       "general_offense": {
-        "count": 4,
-        "total_magnitude": 0.07,
+        "count": 5,
+        "total_magnitude": 0.11,
         "selections": [
           "psyker.talent.psyker_damage_based_on_warp_charge",
           "psyker.talent.psyker_cleave_from_peril",
           "shared.stat_node.critical_chance_boost",
+          "shared.name_family.blessing.shred",
           "shared.name_family.blessing.warp_nexus"
         ]
       },
@@ -487,10 +572,11 @@
         ]
       },
       "ranged_offense": {
-        "count": 1,
-        "total_magnitude": 0.1,
+        "count": 2,
+        "total_magnitude": 0.015,
         "selections": [
-          "psyker.talent.psyker_melee_attack_speed"
+          "psyker.talent.psyker_melee_attack_speed",
+          "shared.name_family.blessing.warp_flurry"
         ]
       },
       "stamina": {
@@ -503,10 +589,11 @@
         ]
       },
       "crit": {
-        "count": 2,
-        "total_magnitude": 0.07,
+        "count": 3,
+        "total_magnitude": 0.11,
         "selections": [
           "shared.stat_node.critical_chance_boost",
+          "shared.name_family.blessing.shred",
           "shared.name_family.blessing.warp_nexus"
         ]
       },
@@ -525,7 +612,7 @@
           "melee_offense",
           "crit"
         ],
-        "strength": 6
+        "strength": 7
       },
       "ranged": {
         "families": [
@@ -533,13 +620,13 @@
           "ranged_offense",
           "crit"
         ],
-        "strength": 5
+        "strength": 7
       }
     },
     "build_identity": [
       "toughness",
-      "warp_resource",
-      "general_offense"
+      "general_offense",
+      "warp_resource"
     ],
     "coverage_gaps": [],
     "concentration": 0.03
@@ -591,9 +678,9 @@
   ],
   "metadata": {
     "entities_analyzed": 52,
-    "unique_entities_with_calc": 20,
-    "entities_without_calc": 23,
+    "unique_entities_with_calc": 22,
+    "entities_without_calc": 21,
     "opaque_conditions": 0,
-    "calc_coverage_pct": 0.47
+    "calc_coverage_pct": 0.51
   }
 }

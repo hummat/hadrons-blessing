@@ -147,8 +147,44 @@
     {
       "type": "stat_alignment",
       "selections": [
+        "arbites.talent.adamant_dodge_grants_damage",
+        "shared.name_family.blessing.fire_frenzy"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
         "shared.name_family.blessing.high_voltage",
         "shared.name_family.blessing.full_bore"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.high_voltage",
+        "shared.name_family.blessing.fire_frenzy"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.full_bore",
+        "shared.name_family.blessing.fire_frenzy"
       ],
       "families": [
         "general_offense"
@@ -201,12 +237,13 @@
         ]
       },
       "general_offense": {
-        "count": 3,
-        "total_magnitude": 0.85,
+        "count": 4,
+        "total_magnitude": 0.95,
         "selections": [
           "arbites.talent.adamant_dodge_grants_damage",
           "shared.name_family.blessing.high_voltage",
-          "shared.name_family.blessing.full_bore"
+          "shared.name_family.blessing.full_bore",
+          "shared.name_family.blessing.fire_frenzy"
         ]
       },
       "utility": {
@@ -222,20 +259,20 @@
         "families": [
           "general_offense"
         ],
-        "strength": 3
+        "strength": 4
       },
       "ranged": {
         "families": [
           "ranged_offense",
           "general_offense"
         ],
-        "strength": 5
+        "strength": 6
       }
     },
     "build_identity": [
       "toughness",
-      "damage_reduction",
-      "general_offense"
+      "general_offense",
+      "damage_reduction"
     ],
     "coverage_gaps": [],
     "concentration": 0.04
@@ -287,9 +324,9 @@
   ],
   "metadata": {
     "entities_analyzed": 52,
-    "unique_entities_with_calc": 13,
-    "entities_without_calc": 30,
+    "unique_entities_with_calc": 14,
+    "entities_without_calc": 29,
     "opaque_conditions": 0,
-    "calc_coverage_pct": 0.3
+    "calc_coverage_pct": 0.33
   }
 }

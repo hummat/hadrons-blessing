@@ -3,8 +3,8 @@
   "class": "psyker",
   "perk_optimality": 5,
   "curio_efficiency": 3,
-  "composite_score": 21,
-  "letter_grade": "C",
+  "composite_score": 25,
+  "letter_grade": "B",
   "weapons": [
     {
       "name": "Covenant Mk VI Blaze Force Greatsword",
@@ -128,17 +128,18 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
-        "blessing_edges": 4,
+        "blessing_edges": 11,
         "blessing_count": 4,
-        "edges_per_blessing": 1,
-        "blessing_blessing_edges": 0,
-        "orphaned_blessings": 3
+        "edges_per_blessing": 2.75,
+        "blessing_blessing_edges": 2,
+        "orphaned_blessings": 1
       },
       "explanations": [
-        "Blessings with synergy edges: warp_nexus",
-        "3 blessing(s) participate in no synergy edges (-1 each)"
+        "Blessings with synergy edges: shred, warp_nexus, warp_flurry",
+        "2 blessing-blessing edge(s) +0.5",
+        "1 blessing(s) participate in no synergy edges (-1 each)"
       ]
     },
     "talent_coherence": {
@@ -163,7 +164,7 @@
         "active_families": 9,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.8333333333333334
+        "slot_balance_ratio": 1
       },
       "explanations": []
     },
