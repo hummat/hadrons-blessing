@@ -1,5 +1,6 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
+import { readFileSync } from "node:fs";
 import {
   parseWeaponFilename,
   parseBespokeFilename,
@@ -18,6 +19,10 @@ import {
   makeInstanceOfEdge,
   makeWeaponHasTraitPoolEdge,
   buildConceptFamilyMap,
+  scanWeaponMarks,
+  scanBespokeTraits,
+  scanPerks,
+  scanGadgetTraits,
 } from "./expand-entity-coverage.mjs";
 
 // --- Task 1: Filename parsing helpers ---
@@ -306,5 +311,60 @@ describe("buildConceptFamilyMap", () => {
     assert.equal(map.get("slaughterer"), "slaughterer");
     // There should not be a "slaughterer_parent" key
     assert.equal(map.has("slaughterer_parent"), false);
+  });
+});
+
+// --- Task 6: Source scanners (source-gated) ---
+
+const sourceRoot = (() => {
+  try { return readFileSync(".source-root", "utf8").trim(); }
+  catch { return null; }
+})();
+const skipNoSource = { skip: !sourceRoot };
+
+describe("scanWeaponMarks (source-gated)", skipNoSource, () => {
+  it("discovers all weapon marks from Lua source", () => {
+    const results = scanWeaponMarks(sourceRoot);
+    assert.ok(results.length >= 100, `Expected >=100 marks, got ${results.length}`);
+    const first = results[0];
+    assert.ok(first.internalName);
+    assert.ok(first.family);
+    assert.ok(first.pSeries);
+    assert.ok(first.slot === "melee" || first.slot === "ranged");
+    assert.ok(first.refPath);
+  });
+});
+
+describe("scanBespokeTraits (source-gated)", skipNoSource, () => {
+  it("discovers all bespoke trait definitions", () => {
+    const marks = scanWeaponMarks(sourceRoot);
+    const results = scanBespokeTraits(sourceRoot, marks);
+    assert.ok(results.length >= 400, `Expected >=400 traits, got ${results.length}`);
+    const first = results[0];
+    assert.ok(first.internalName);
+    assert.ok(first.family);
+    assert.ok(first.pSeries);
+    assert.ok(first.refPath);
+    assert.ok(typeof first.refLine === "number");
+  });
+});
+
+describe("scanPerks (source-gated)", skipNoSource, () => {
+  it("discovers all weapon perks", () => {
+    const results = scanPerks(sourceRoot);
+    assert.ok(results.length >= 30, `Expected >=30 perks, got ${results.length}`);
+    const first = results[0];
+    assert.ok(first.internalName);
+    assert.ok(first.slot === "melee" || first.slot === "ranged");
+  });
+});
+
+describe("scanGadgetTraits (source-gated)", skipNoSource, () => {
+  it("discovers all gadget traits", () => {
+    const results = scanGadgetTraits(sourceRoot);
+    assert.ok(results.length >= 20, `Expected >=20 gadget traits, got ${results.length}`);
+    const first = results[0];
+    assert.ok(first.internalName);
+    assert.ok(first.refPath);
   });
 });

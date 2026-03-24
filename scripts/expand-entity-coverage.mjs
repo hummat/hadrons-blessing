@@ -121,3 +121,106 @@ export function buildConceptFamilyMap(edges, entityMap) {
   }
   return map;
 }
+
+// --- Source scanners ---
+
+const WEAPON_TEMPLATES_DIR = "scripts/settings/equipment/weapon_templates";
+const BESPOKE_TRAITS_DIR = "scripts/settings/equipment/weapon_traits";
+const GADGET_TRAITS_FILE = "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua";
+
+export function scanWeaponMarks(sourceRoot) {
+  const results = [];
+  const templatesDir = join(sourceRoot, WEAPON_TEMPLATES_DIR);
+  const familyDirs = readdirSync(templatesDir, { withFileTypes: true })
+    .filter(d => d.isDirectory())
+    .map(d => d.name);
+
+  for (const dirName of familyDirs) {
+    const dirPath = join(templatesDir, dirName);
+    const files = readdirSync(dirPath).filter(f => f.endsWith(".lua")).sort();
+    for (const file of files) {
+      const parsed = parseWeaponFilename(file);
+      if (!parsed) continue;
+      const fullPath = join(dirPath, file);
+      const luaSource = readFileSync(fullPath, "utf8");
+      const slot = detectSlot(luaSource);
+      const refPath = join(WEAPON_TEMPLATES_DIR, dirName, file);
+      results.push({ ...parsed, slot, refPath });
+    }
+  }
+  return results;
+}
+
+export function scanBespokeTraits(sourceRoot, weaponMarks) {
+  const results = [];
+  const traitsDir = join(sourceRoot, BESPOKE_TRAITS_DIR);
+  const bespokeFiles = readdirSync(traitsDir)
+    .filter(f => f.startsWith("weapon_traits_bespoke_") && f.endsWith(".lua"))
+    .sort();
+
+  const familySlotMap = new Map();
+  if (weaponMarks) {
+    for (const w of weaponMarks) {
+      familySlotMap.set(`${w.family}_${w.pSeries}`, w.slot);
+    }
+  }
+
+  for (const file of bespokeFiles) {
+    const parsed = parseBespokeFilename(file);
+    if (!parsed) continue;
+    const { family, pSeries } = parsed;
+    const slot = familySlotMap.get(`${family}_${pSeries}`) || "melee";
+    const fullPath = join(traitsDir, file);
+    const luaSource = readFileSync(fullPath, "utf8");
+    const refPath = join(BESPOKE_TRAITS_DIR, file);
+
+    const lines = luaSource.split("\n");
+    for (let i = 0; i < lines.length; i++) {
+      const match = lines[i].match(/^\s*(?:templates|[\w]+)\.(weapon_trait_bespoke_\w+)\s*=/);
+      if (match) {
+        results.push({
+          internalName: match[1],
+          family, pSeries, slot,
+          refPath, refLine: i + 1,
+        });
+      }
+    }
+  }
+  return results;
+}
+
+export function scanPerks(sourceRoot) {
+  const results = [];
+  const perkFiles = [
+    { file: "weapon_perks_melee.lua", slot: "melee" },
+    { file: "weapon_perks_ranged.lua", slot: "ranged" },
+  ];
+  for (const { file, slot } of perkFiles) {
+    const fullPath = join(sourceRoot, BESPOKE_TRAITS_DIR, file);
+    const luaSource = readFileSync(fullPath, "utf8");
+    const refPath = join(BESPOKE_TRAITS_DIR, file);
+    const lines = luaSource.split("\n");
+    for (let i = 0; i < lines.length; i++) {
+      const match = lines[i].match(/^\s*[\w]+\.(weapon_trait_\w+)\s*=\s*\{/);
+      if (match) {
+        results.push({ internalName: match[1], slot, refPath, refLine: i + 1 });
+      }
+    }
+  }
+  return results;
+}
+
+export function scanGadgetTraits(sourceRoot) {
+  const results = [];
+  const fullPath = join(sourceRoot, GADGET_TRAITS_FILE);
+  const luaSource = readFileSync(fullPath, "utf8");
+  const refPath = GADGET_TRAITS_FILE;
+  const lines = luaSource.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    const match = lines[i].match(/^\s*[\w]+\.(gadget_\w+)\s*=/);
+    if (match) {
+      results.push({ internalName: match[1], refPath, refLine: i + 1 });
+    }
+  }
+  return results;
+}
