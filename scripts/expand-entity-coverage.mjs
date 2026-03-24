@@ -224,3 +224,236 @@ export function scanGadgetTraits(sourceRoot) {
   }
   return results;
 }
+
+// --- Main orchestrator ---
+
+const SHARED_WEAPONS_FILE = join(ENTITIES_ROOT, "shared-weapons.json");
+const SHARED_NAMES_FILE = join(ENTITIES_ROOT, "shared-names.json");
+const SHARED_EDGES_FILE = join(EDGES_ROOT, "shared.json");
+
+export async function expandEntityCoverage() {
+  // --- Phase 1: Inventory ---
+  const snapshot = validateSourceSnapshot();
+  const sourceRoot = snapshot.source_root;
+  const snapshotId = snapshot.id;
+
+  // Load existing entities
+  const existingEntities = new Map();
+  for (const filePath of listJsonFiles(ENTITIES_ROOT)) {
+    const records = JSON.parse(readFileSync(filePath, "utf8"));
+    for (const r of records) existingEntities.set(r.id, r);
+  }
+
+  // Load existing edges
+  const existingEdges = JSON.parse(readFileSync(SHARED_EDGES_FILE, "utf8"));
+  const existingEdgeIds = new Set(existingEdges.map(e => e.id));
+
+  // Build concept → family map
+  const conceptFamilyMap = buildConceptFamilyMap(existingEdges, existingEntities);
+  console.log(`  Concept→family map: ${conceptFamilyMap.size} known mappings`);
+
+  // --- Source scanning ---
+  const weaponMarks = scanWeaponMarks(sourceRoot);
+  const bespokeTraits = scanBespokeTraits(sourceRoot, weaponMarks);
+  const perks = scanPerks(sourceRoot);
+  const gadgetTraits = scanGadgetTraits(sourceRoot);
+  console.log(`  Source scan: ${weaponMarks.length} weapons, ${bespokeTraits.length} traits, ${perks.length} perks, ${gadgetTraits.length} gadget traits`);
+
+  // --- Phase 2: Generate entity shells ---
+  const newWeaponEntities = [];
+  const newTraitEntities = [];
+  const newPerkEntities = [];
+  const newGadgetEntities = [];
+
+  for (const w of weaponMarks) {
+    const id = weaponEntityId(w.internalName);
+    if (existingEntities.has(id)) continue;
+    const entity = makeWeaponEntity(w.internalName, w.family, w.pSeries, w.slot, w.refPath, snapshotId);
+    newWeaponEntities.push(entity);
+    existingEntities.set(id, entity);
+  }
+
+  for (const t of bespokeTraits) {
+    const id = traitEntityId(t.internalName);
+    // Dedup: also check for _parent variant
+    const parentId = traitEntityId(t.internalName + "_parent");
+    if (existingEntities.has(id) || existingEntities.has(parentId)) continue;
+    const entity = makeTraitEntity(t.internalName, t.family, t.pSeries, t.slot, t.refPath, t.refLine, snapshotId);
+    newTraitEntities.push(entity);
+    existingEntities.set(id, entity);
+  }
+
+  for (const p of perks) {
+    const id = perkEntityId(p.internalName, p.slot);
+    if (existingEntities.has(id)) continue;
+    const entity = makePerkEntity(p.internalName, p.slot, p.refPath, p.refLine, snapshotId);
+    newPerkEntities.push(entity);
+    existingEntities.set(id, entity);
+  }
+
+  for (const g of gadgetTraits) {
+    const id = gadgetTraitEntityId(g.internalName);
+    if (existingEntities.has(id)) continue;
+    const entity = makeGadgetTraitEntity(g.internalName, g.refPath, g.refLine, snapshotId);
+    newGadgetEntities.push(entity);
+    existingEntities.set(id, entity);
+  }
+
+  // --- Phase 3: Generate name_family entities ---
+  const newNameFamilies = [];
+  const unmappedSuffixes = [];
+
+  // Build bespoke trait grouping: family_pSeries → [trait, ...]
+  const bespokeByFamilyP = new Map();
+  for (const t of bespokeTraits) {
+    const key = `${t.family}_${t.pSeries}`;
+    if (!bespokeByFamilyP.has(key)) bespokeByFamilyP.set(key, []);
+    bespokeByFamilyP.get(key).push(t);
+  }
+
+  for (const t of bespokeTraits) {
+    const suffix = extractConceptSuffix(t.internalName, t.family, t.pSeries);
+    if (conceptFamilyMap.has(suffix)) continue;
+    // Check if name_family already exists with this suffix as slug
+    if (existingEntities.has(nameFamilyEntityId(suffix))) {
+      conceptFamilyMap.set(suffix, suffix);
+      continue;
+    }
+    // Create new name_family with concept suffix as temporary slug
+    const entity = makeNameFamilyEntity(suffix, t.refPath, t.refLine, snapshotId);
+    newNameFamilies.push(entity);
+    existingEntities.set(entity.id, entity);
+    conceptFamilyMap.set(suffix, suffix);
+    unmappedSuffixes.push(suffix);
+  }
+
+  // --- Phase 4: Generate edges ---
+  const newEdges = [];
+
+  // weapon_has_trait_pool: each weapon → all traits in its bespoke file
+  for (const w of weaponMarks) {
+    const wId = weaponEntityId(w.internalName);
+    if (!existingEntities.has(wId)) continue;
+    const key = `${w.family}_${w.pSeries}`;
+    const traits = bespokeByFamilyP.get(key) || [];
+    for (const t of traits) {
+      // Resolve trait entity ID (check _parent variant too)
+      let tId = traitEntityId(t.internalName);
+      if (!existingEntities.has(tId)) {
+        const parentId = traitEntityId(t.internalName + "_parent");
+        if (existingEntities.has(parentId)) tId = parentId;
+        else continue;
+      }
+      const tInternalName = existingEntities.get(tId).internal_name;
+      const edgeId = `shared.edge.weapon_has_trait_pool.${w.internalName}.${tInternalName}`;
+      if (existingEdgeIds.has(edgeId)) continue;
+      const edge = makeWeaponHasTraitPoolEdge(wId, tId, w.internalName, tInternalName, snapshotId);
+      newEdges.push(edge);
+      existingEdgeIds.add(edgeId);
+    }
+  }
+
+  // instance_of: each trait → its name_family
+  for (const t of bespokeTraits) {
+    let tId = traitEntityId(t.internalName);
+    if (!existingEntities.has(tId)) {
+      const parentId = traitEntityId(t.internalName + "_parent");
+      if (existingEntities.has(parentId)) tId = parentId;
+      else continue;
+    }
+    const tInternalName = existingEntities.get(tId).internal_name;
+    const edgeId = `shared.edge.instance_of.${tInternalName}`;
+    if (existingEdgeIds.has(edgeId)) continue;
+
+    const suffix = extractConceptSuffix(t.internalName, t.family, t.pSeries);
+    const familySlug = conceptFamilyMap.get(suffix);
+    if (!familySlug) continue;
+    const familyId = nameFamilyEntityId(familySlug);
+    if (!existingEntities.has(familyId)) continue;
+
+    const edge = makeInstanceOfEdge(tId, familyId, tInternalName, snapshotId);
+    newEdges.push(edge);
+    existingEdgeIds.add(edgeId);
+  }
+
+  // --- Write-back ---
+  const allNewEntities = [...newWeaponEntities, ...newTraitEntities, ...newPerkEntities, ...newGadgetEntities];
+  if (allNewEntities.length > 0) {
+    const weapons = JSON.parse(readFileSync(SHARED_WEAPONS_FILE, "utf8"));
+    weapons.push(...allNewEntities);
+    writeFileSync(SHARED_WEAPONS_FILE, JSON.stringify(weapons, null, 2) + "\n");
+  }
+
+  if (newNameFamilies.length > 0) {
+    const names = JSON.parse(readFileSync(SHARED_NAMES_FILE, "utf8"));
+    names.push(...newNameFamilies);
+    writeFileSync(SHARED_NAMES_FILE, JSON.stringify(names, null, 2) + "\n");
+  }
+
+  if (newEdges.length > 0) {
+    existingEdges.push(...newEdges);
+    writeFileSync(SHARED_EDGES_FILE, JSON.stringify(existingEdges, null, 2) + "\n");
+  }
+
+  // --- Phase 5: Report ---
+  console.log("\n=== Entity Coverage Expansion Report ===\n");
+  console.log(`Entities generated:`);
+  console.log(`  weapon:       ${newWeaponEntities.length}`);
+  console.log(`  weapon_trait:  ${newTraitEntities.length}`);
+  console.log(`  weapon_perk:   ${newPerkEntities.length}`);
+  console.log(`  gadget_trait:  ${newGadgetEntities.length}`);
+  console.log(`  name_family:   ${newNameFamilies.length}`);
+  console.log(`\nEdges generated:`);
+  const wtpEdges = newEdges.filter(e => e.type === "weapon_has_trait_pool");
+  const ioEdges = newEdges.filter(e => e.type === "instance_of");
+  console.log(`  weapon_has_trait_pool: ${wtpEdges.length}`);
+  console.log(`  instance_of:          ${ioEdges.length}`);
+
+  if (unmappedSuffixes.length > 0) {
+    console.log(`\nUnmapped concept suffixes (need manual name_family assignment):`);
+    for (const s of unmappedSuffixes.sort()) console.log(`  - ${s}`);
+  }
+
+  // Bespoke files with no matching weapon marks
+  const orphanBespoke = [];
+  for (const file of readdirSync(join(sourceRoot, BESPOKE_TRAITS_DIR)).filter(f => f.startsWith("weapon_traits_bespoke_")).sort()) {
+    const parsed = parseBespokeFilename(file);
+    if (!parsed) continue;
+    const hasWeapon = weaponMarks.some(w => w.family === parsed.family && w.pSeries === parsed.pSeries);
+    if (!hasWeapon) orphanBespoke.push(file);
+  }
+  if (orphanBespoke.length > 0) {
+    console.log(`\nBespoke files with no weapon marks (orphan p-series):`);
+    for (const f of orphanBespoke) console.log(`  - ${f}`);
+  }
+
+  // Damage profile gap: weapons with entities but no profiles
+  const PROFILES_FILE = join(ENTITIES_ROOT, "..", "generated", "damage-profiles.json");
+  try {
+    const profiles = JSON.parse(readFileSync(PROFILES_FILE, "utf8"));
+    const profileWeapons = new Set(profiles.map(p => p.source_file).filter(Boolean));
+    const missingProfiles = weaponMarks
+      .filter(w => !profileWeapons.has(w.internalName) && existingEntities.has(weaponEntityId(w.internalName)))
+      .map(w => w.internalName);
+    if (missingProfiles.length > 0) {
+      console.log(`\nWeapons with no damage profiles (profile gap):`);
+      for (const w of missingProfiles.sort()) console.log(`  - ${w}`);
+    }
+  } catch { /* profiles file may not exist */ }
+
+  const totalEntities = existingEntities.size;
+  const totalEdges = existingEdges.length;
+  console.log(`\nTotals: ${totalEntities} entities, ${totalEdges} edges`);
+
+  return {
+    newWeaponEntities, newTraitEntities, newPerkEntities, newGadgetEntities,
+    newNameFamilies, newEdges, unmappedSuffixes, orphanBespoke,
+  };
+}
+
+// --- CLI (guarded so importing for tests doesn't trigger main) ---
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  runCliMain("entities:expand", async () => {
+    await expandEntityCoverage();
+  });
+}

@@ -38,7 +38,8 @@
     "cleave:freeze": "node scripts/cleave-build.mjs scripts/builds/ --json --freeze",
     "toughness": "node scripts/toughness-build.mjs",
     "toughness:freeze": "node scripts/toughness-build.mjs scripts/builds/ --json --freeze",
-    "check": "npm run index:build && npm test && npm run index:check"
+    "check": "npm run index:build && npm test && npm run index:check",
+    "entities:expand": "node scripts/expand-entity-coverage.mjs"
   },
   "repository": {
     "type": "git",
