@@ -918,5 +918,2345 @@
       "family_type": "blessing"
     },
     "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.consecutive_hits_increases_close_damage",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p1.lua",
+        "line": 14
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increase_damage_on_close_kill",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p1.lua",
+        "line": 256
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.suppression_on_close_kill",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p1.lua",
+        "line": 310
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.count_as_dodge_vs_ranged_on_close_kill",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p1.lua",
+        "line": 362
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.reload_speed_on_dodge",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p1.lua",
+        "line": 392
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.allow_flanking_and_increased_damage_when_flanking",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p1.lua",
+        "line": 506
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.followup_shots_ranged_weakspot_damage",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p1.lua",
+        "line": 616
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.improved_sprint_dodge",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p1.lua",
+        "line": 656
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increased_suppression_on_continuous_fire",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p2.lua",
+        "line": 314
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.movement_speed_on_continous_fire",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p2.lua",
+        "line": 378
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.crit_chance_based_on_ammo_left",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p3.lua",
+        "line": 10
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.stacking_crit_chance_on_weakspot",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p3.lua",
+        "line": 50
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.suppression_negation_on_weakspot",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p3.lua",
+        "line": 104
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.count_as_dodge_vs_ranged_on_weakspot",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p3.lua",
+        "line": 134
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.negate_stagger_reduction_on_weakspot",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p3.lua",
+        "line": 164
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.stagger_count_bonus_damage",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p3.lua",
+        "line": 220
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.power_bonus_on_first_shot",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autogun_p3.lua",
+        "line": 358
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.stacking_crit_bonus_on_continuous_fire",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autopistol_p1.lua",
+        "line": 10
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.recoil_reduction_and_suppression_increase_on_close_kills",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_autopistol_p1.lua",
+        "line": 341
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.toughness_on_elite_kills",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_bolter_p1.lua",
+        "line": 192
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.bleed_on_ranged",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_bolter_p1.lua",
+        "line": 426
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.crit_chance_bonus_on_melee_kills",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_boltpistol_p1.lua",
+        "line": 10
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.close_explosion",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_boltpistol_p1.lua",
+        "line": 428
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.bleed_on_activated_hit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_chainaxe_p1.lua",
+        "line": 53
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.movement_speed_on_activation",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_chainaxe_p1.lua",
+        "line": 92
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increase_power_on_hit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_chainaxe_p1.lua",
+        "line": 146
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increase_power_on_kill",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_chainaxe_p1.lua",
+        "line": 206
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.rending_vs_staggered",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_chainaxe_p1.lua",
+        "line": 386
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.chained_hits_increases_melee_cleave",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_chainsword_2h_p1.lua",
+        "line": 327
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.pass_past_armor_on_crit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_chainsword_2h_p1.lua",
+        "line": 427
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.infinite_melee_cleave_on_crit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_chainsword_p1.lua",
+        "line": 136
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.movement_speed_on_activated_hit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_chainsword_p1.lua",
+        "line": 422
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.stacking_rending_on_one_hit_kill",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combataxe_p1.lua",
+        "line": 274
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.power_bonus_on_first_attack",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combataxe_p1.lua",
+        "line": 338
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.power_bonus_scaled_on_stamina",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combataxe_p1.lua",
+        "line": 461
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.guaranteed_melee_crit_after_crit_weakspot_kill",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combataxe_p2.lua",
+        "line": 317
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.weakspot_hit_resets_dodge_count",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combataxe_p2.lua",
+        "line": 424
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.consecutive_hits_increases_stagger",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combataxe_p3.lua",
+        "line": 64
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.stacking_increase_impact_on_hit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combataxe_p3.lua",
+        "line": 277
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increased_weakspot_damage_on_push",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combataxe_p3.lua",
+        "line": 466
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.staggered_targets_receive_increased_stagger_debuff",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combataxe_p3.lua",
+        "line": 516
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.chained_weakspot_hits_increases_power",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combatknife_p1.lua",
+        "line": 74
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.heavy_chained_hits_increases_killing_blow_chance",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combatknife_p1.lua",
+        "line": 134
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.bleed_on_non_weakspot_hit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combatknife_p1.lua",
+        "line": 288
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.bleed_on_crit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combatknife_p1.lua",
+        "line": 327
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.rending_on_backstab",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combatknife_p1.lua",
+        "line": 366
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increased_weakspot_damage_against_bleeding",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combatknife_p1.lua",
+        "line": 406
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increased_crit_chance_on_staggered_weapon_special_hit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combatknife_p1.lua",
+        "line": 446
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increase_stagger_per_hit_in_sweep",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combatsword_p1.lua",
+        "line": 472
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.rending_on_multiple_hits",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combatsword_p2.lua",
+        "line": 326
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increased_crit_chance_on_weakspot_kill",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_combatsword_p2.lua",
+        "line": 452
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.pass_past_armor_on_heavy_attack",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_crowbar_p1.lua",
+        "line": 442
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.elite_kills_grants_stackable_power",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_crowbar_p1.lua",
+        "line": 482
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.targets_receive_rending_debuff_on_weapon_special",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_crowbar_p1.lua",
+        "line": 542
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.crit_chance_on_push",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_crowbar_p1.lua",
+        "line": 612
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.toughness_on_close_range_kills",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_dual_stubpistols_p1.lua",
+        "line": 444
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.faster_reload_on_empty_clip",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_flamer_p1.lua",
+        "line": 98
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.power_scales_with_clip_percentage",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_flamer_p1.lua",
+        "line": 138
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.negate_stagger_reduction_with_primary_on_burning",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_flamer_p1.lua",
+        "line": 182
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.chance_to_explode_elites_on_kill",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_flamer_p1.lua",
+        "line": 240
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.ammo_from_reserve_on_crit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_flamer_p1.lua",
+        "line": 279
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.vents_warpcharge_on_weakspot_hits",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcestaff_p1.lua",
+        "line": 10
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.warp_burninating_on_crits",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcestaff_p1.lua",
+        "line": 196
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.rend_armor_on_aoe_charge",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcestaff_p1.lua",
+        "line": 289
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.uninterruptable_while_charging",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcestaff_p1.lua",
+        "line": 359
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.double_shot_on_crit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcestaff_p1.lua",
+        "line": 451
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increased_max_jumps",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcestaff_p3.lua",
+        "line": 272
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.warp_charge_power_bonus",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_2h_p1.lua",
+        "line": 53
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.wind_slash_crits",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_2h_p1.lua",
+        "line": 190
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.vent_warp_charge_on_multiple_hits",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_2h_p1.lua",
+        "line": 435
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.chained_hits_vents_warpcharge",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_forcesword_p1.lua",
+        "line": 537
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increased_zoom",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_lasgun_p1.lua",
+        "line": 11
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.first_shot_ammo_cost_reduction",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_lasgun_p1.lua",
+        "line": 50
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.burninating_on_crit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_lasgun_p1.lua",
+        "line": 306
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.targets_receive_rending_debuff_on_charged_shots",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_lasgun_p2.lua",
+        "line": 301
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.toughness_on_crit_kills",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_laspistol_p1.lua",
+        "line": 340
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.chained_weakspot_hits_increases_crit_chance",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_laspistol_p1.lua",
+        "line": 421
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increased_crit_chance_on_weapon_special_hit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_club_p1.lua",
+        "line": 342
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.toughness_regen_on_weapon_special_elites",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_club_p2.lua",
+        "line": 417
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increased_power_on_weapon_special_follow_up_hits",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_combatblade_p1.lua",
+        "line": 181
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.chained_melee_hits_increases_power",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_gauntlet_p1.lua",
+        "line": 302
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.melee_power_after_ranged_explosion",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_gauntlet_p1.lua",
+        "line": 362
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.power_bonus_after_weapon_special_multiple",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_gauntlet_p1.lua",
+        "line": 427
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.consecutive_hits_increases_ranged_power",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_heavystubber_p1.lua",
+        "line": 280
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.weapon_trait_bespoke_heavystubber_p1_suppression_on_close_kill",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_heavystubber_p1.lua",
+        "line": 392
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.weapon_trait_bespoke_heavystubber_p1_increase_close_damage_on_close_kill",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_heavystubber_p1.lua",
+        "line": 444
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increase_power_on_weapon_special_hit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_pickaxe_2h_p1.lua",
+        "line": 363
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.toughness_on_hit_based_on_charge_time",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_pickaxe_2h_p1.lua",
+        "line": 484
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.targets_receive_increased_damage_debuff_on_weapon_special",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_pickaxe_2h_p1.lua",
+        "line": 515
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.targets_receive_rending_debuff_on_weapon_special_attacks",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_powermaul_p1.lua",
+        "line": 202
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.block_grants_power_bonus",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_powermaul_slabshield_p1.lua",
+        "line": 282
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.block_break_pushes",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_powermaul_slabshield_p1.lua",
+        "line": 342
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.weapon_special_power_bonus_after_one_shots",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_thumper_p1.lua",
+        "line": 270
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.shot_power_bonus_after_weapon_special_cleave",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_thumper_p1.lua",
+        "line": 385
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.pass_past_armor_on_weapon_special",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_thumper_p1.lua",
+        "line": 447
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.explosion_radius_bonus_on_continuous_fire",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_thumper_p2.lua",
+        "line": 88
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.weakspot_projectile_hit_increases_reload_speed",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_ogryn_thumper_p2.lua",
+        "line": 132
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.lower_overheat_gives_faster_charge",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_plasmagun_p1.lua",
+        "line": 155
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.power_bonus_scaled_on_heat",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_plasmagun_p1.lua",
+        "line": 257
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.reduced_overheat_on_continuous_fire",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_plasmagun_p1.lua",
+        "line": 343
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.charge_level_increases_critical_strike_chance",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_plasmagun_p1.lua",
+        "line": 386
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.block_has_chance_to_stun",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powermaul_p1.lua",
+        "line": 403
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.hitting_electrocuted_spreads",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powermaul_p1.lua",
+        "line": 475
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.staggering_hits_has_chance_to_stun",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powermaul_p1.lua",
+        "line": 533
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.attack_speed_on_perfect_block",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powermaul_shield_p1.lua",
+        "line": 496
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.weapon_trait_bespoke_bespoke_powersword_2h_p1_block_activate_weapon_special",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_2h_p1.lua",
+        "line": 393
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.weapon_trait_bespoke_bespoke_powersword_2h_p1_regain_toughness_on_multiple_hits_by_weapon_special",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_2h_p1.lua",
+        "line": 423
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.weapon_trait_bespoke_bespoke_powersword_2h_p1_regain_stamina_on_weapon_special_hit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_2h_p1.lua",
+        "line": 465
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.trade_overheat_lockout_for_damage",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_2h_p1.lua",
+        "line": 685
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.extended_activation_duration_on_chained_attacks",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_p1.lua",
+        "line": 336
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.weapon_trait_bespoke_bespoke_powersword_p2_regain_toughness_on_multiple_hits_by_weapon_special",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_p2.lua",
+        "line": 339
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.stacking_finesse_on_one_hit_kill",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_p2.lua",
+        "line": 558
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.increased_weakspot_damage_against_toxin_status",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_saw_p1.lua",
+        "line": 383
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.crit_chance_on_hitting_multiple_with_one_shot",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_shotgun_p1.lua",
+        "line": 309
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.cleave_on_crit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_shotgun_p1.lua",
+        "line": 399
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.crit_chance_on_reload",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_shotgun_p2.lua",
+        "line": 462
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.reload_speed_on_ranged_weapon_special_kill",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_shotgun_p2.lua",
+        "line": 576
+      }
+    ],
+    "source_snapshot_id": "darktide-source.dbe7035",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
   }
 ]
