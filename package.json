@@ -8,7 +8,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node --test scripts/canonical-build.test.mjs scripts/extract-build.test.mjs scripts/reresolve-builds.test.mjs scripts/ground-truth.test.mjs scripts/cli-contract.test.mjs scripts/coverage.test.mjs scripts/inspect.test.mjs scripts/score-build.test.mjs scripts/export-bot-weapons.test.mjs scripts/tree-edges.test.mjs scripts/build-report.test.mjs scripts/report-formatter.test.mjs scripts/lua-data-reader.test.mjs scripts/talent-settings-parser.test.mjs scripts/condition-tagger.test.mjs scripts/buff-semantic-parser.test.mjs scripts/extract-buff-effects.test.mjs scripts/synergy-model.test.mjs scripts/build-scoring.test.mjs scripts/build-recommendations.test.mjs scripts/extract-breed-data.test.mjs scripts/extract-damage-profiles.test.mjs scripts/damage-calculator.test.mjs scripts/calc-build.test.mjs scripts/calculator-validation.test.mjs scripts/stagger-calculator.test.mjs scripts/cleave-calculator.test.mjs scripts/class-base-stats.test.mjs scripts/toughness-calculator.test.mjs scripts/expand-entity-coverage.test.mjs",
+    "test": "node --test scripts/canonical-build.test.mjs scripts/extract-build.test.mjs scripts/reresolve-builds.test.mjs scripts/ground-truth.test.mjs scripts/cli-contract.test.mjs scripts/coverage.test.mjs scripts/inspect.test.mjs scripts/score-build.test.mjs scripts/export-bot-weapons.test.mjs scripts/tree-edges.test.mjs scripts/build-report.test.mjs scripts/report-formatter.test.mjs scripts/lua-data-reader.test.mjs scripts/talent-settings-parser.test.mjs scripts/condition-tagger.test.mjs scripts/buff-semantic-parser.test.mjs scripts/extract-buff-effects.test.mjs scripts/synergy-model.test.mjs scripts/build-scoring.test.mjs scripts/build-recommendations.test.mjs scripts/extract-breed-data.test.mjs scripts/extract-damage-profiles.test.mjs scripts/damage-calculator.test.mjs scripts/calc-build.test.mjs scripts/calculator-validation.test.mjs scripts/stagger-calculator.test.mjs scripts/cleave-calculator.test.mjs scripts/class-base-stats.test.mjs scripts/toughness-calculator.test.mjs scripts/expand-entity-coverage.test.mjs scripts/enrich-entity-names.test.mjs",
     "resolve": "node scripts/resolve-ground-truth.mjs",
     "audit": "node scripts/audit-build-names.mjs",
     "canonicalize": "node scripts/canonicalize-build.mjs",
@@ -39,7 +39,8 @@
     "toughness": "node scripts/toughness-build.mjs",
     "toughness:freeze": "node scripts/toughness-build.mjs scripts/builds/ --json --freeze",
     "check": "npm run index:build && npm test && npm run index:check",
-    "entities:expand": "node scripts/expand-entity-coverage.mjs"
+    "entities:expand": "node scripts/expand-entity-coverage.mjs",
+    "entities:enrich": "node scripts/enrich-entity-names.mjs"
   },
   "repository": {
     "type": "git",
