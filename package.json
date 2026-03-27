@@ -39,7 +39,8 @@
     "toughness": "node scripts/toughness-build.mjs",
     "toughness:freeze": "node scripts/toughness-build.mjs scripts/builds/ --json --freeze",
     "check": "npm run index:build && npm test && npm run index:check",
-    "entities:expand": "node scripts/expand-entity-coverage.mjs"
+    "entities:expand": "node scripts/expand-entity-coverage.mjs",
+    "entities:enrich": "node scripts/enrich-entity-names.mjs"
   },
   "repository": {
     "type": "git",

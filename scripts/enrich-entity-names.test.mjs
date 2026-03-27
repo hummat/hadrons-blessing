@@ -8,6 +8,7 @@ import {
   generatePerkAliases,
   enrichGadgetTraits,
   enrichNameFamilies,
+  mergeAliases,
 } from "./enrich-entity-names.mjs";
 
 describe("MELEE_PERK_NAMES", () => {
@@ -235,5 +236,47 @@ describe("enrichNameFamilies", () => {
     const count = enrichNameFamilies(entities);
     assert.equal(count, 0);
     assert.equal(entities[0].ui_name, "Already Set");
+  });
+});
+
+describe("mergeAliases", () => {
+  it("appends new aliases", () => {
+    const existing = [
+      { candidate_entity_id: "a", alias_kind: "guide_name", text: "old" },
+    ];
+    const newAliases = [
+      { candidate_entity_id: "b", alias_kind: "community_name", text: "new" },
+    ];
+    const { merged, added, updated } = mergeAliases(existing, newAliases);
+    assert.equal(merged.length, 2);
+    assert.equal(added, 1);
+    assert.equal(updated, 0);
+  });
+
+  it("updates existing aliases with matching entity+kind", () => {
+    const existing = [
+      { candidate_entity_id: "a", alias_kind: "community_name", text: "old" },
+    ];
+    const newAliases = [
+      { candidate_entity_id: "a", alias_kind: "community_name", text: "updated" },
+    ];
+    const { merged, added, updated } = mergeAliases(existing, newAliases);
+    assert.equal(merged.length, 1);
+    assert.equal(merged[0].text, "updated");
+    assert.equal(added, 0);
+    assert.equal(updated, 1);
+  });
+
+  it("does not overwrite aliases with different kind", () => {
+    const existing = [
+      { candidate_entity_id: "a", alias_kind: "guide_name", text: "guide" },
+    ];
+    const newAliases = [
+      { candidate_entity_id: "a", alias_kind: "community_name", text: "community" },
+    ];
+    const { merged, added, updated } = mergeAliases(existing, newAliases);
+    assert.equal(merged.length, 2);
+    assert.equal(added, 1);
+    assert.equal(updated, 0);
   });
 });

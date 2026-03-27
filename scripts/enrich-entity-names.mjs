@@ -156,6 +156,61 @@ function enrichNameFamilies(entities) {
   return count;
 }
 
+function mergeAliases(existingAliases, newAliases) {
+  const existingByEntity = new Map();
+  for (let i = 0; i < existingAliases.length; i++) {
+    const key = existingAliases[i].candidate_entity_id + "|" + existingAliases[i].alias_kind;
+    existingByEntity.set(key, i);
+  }
+
+  const merged = [...existingAliases];
+  let added = 0;
+  let updated = 0;
+  for (const alias of newAliases) {
+    const key = alias.candidate_entity_id + "|" + alias.alias_kind;
+    const existingIndex = existingByEntity.get(key);
+    if (existingIndex != null) {
+      merged[existingIndex] = alias;
+      updated++;
+    } else {
+      merged.push(alias);
+      added++;
+    }
+  }
+  return { merged, added, updated };
+}
+
+function main() {
+  const ENTITIES_ROOT = resolve(__dirname, "..", "data", "ground-truth", "entities");
+  const ALIASES_ROOT = resolve(__dirname, "..", "data", "ground-truth", "aliases");
+
+  const weaponsPath = resolve(ENTITIES_ROOT, "shared-weapons.json");
+  const namesPath = resolve(ENTITIES_ROOT, "shared-names.json");
+  const aliasesPath = resolve(ALIASES_ROOT, "shared-guides.json");
+
+  const weaponEntities = JSON.parse(readFileSync(weaponsPath, "utf8"));
+  const nameEntities = JSON.parse(readFileSync(namesPath, "utf8"));
+  const existingAliases = JSON.parse(readFileSync(aliasesPath, "utf8"));
+
+  const perkAliases = generatePerkAliases(weaponEntities);
+  const gadgetCount = enrichGadgetTraits(weaponEntities);
+  const blessingCount = enrichNameFamilies(nameEntities);
+  const { merged, added, updated } = mergeAliases(existingAliases, perkAliases);
+
+  writeFileSync(weaponsPath, JSON.stringify(weaponEntities, null, 2) + "\n");
+  writeFileSync(namesPath, JSON.stringify(nameEntities, null, 2) + "\n");
+  writeFileSync(aliasesPath, JSON.stringify(merged, null, 2) + "\n");
+
+  console.log(`Perk aliases: ${added} added, ${updated} updated (${perkAliases.length} total)`);
+  console.log(`Gadget traits: ${gadgetCount} ui_name set`);
+  console.log(`Name families: ${blessingCount} ui_name set`);
+}
+
+const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isMain) {
+  main();
+}
+
 export {
   MELEE_PERK_NAMES,
   RANGED_PERK_NAMES,
@@ -165,4 +220,5 @@ export {
   generatePerkAliases,
   enrichGadgetTraits,
   enrichNameFamilies,
+  mergeAliases,
 };
