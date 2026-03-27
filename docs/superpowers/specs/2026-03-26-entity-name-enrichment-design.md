@@ -16,10 +16,12 @@ The alias system already handles this: `build-ground-truth-index.mjs` auto-gener
 
 | Section | Entries | Join key |
 |---------|---------|----------|
-| `melee_perks` | 18 | `stat` field → entity `internal_name` substring |
-| `ranged_perks` | 16 | `stat` field → entity `internal_name` substring |
-| `curio_perks` | 21 | `stat` field → entity `internal_name` substring |
+| `melee_perks` | 18 | hardcoded `stat` → `entity_internal_name` mapping |
+| `ranged_perks` | 16 | hardcoded `stat` → `entity_internal_name` mapping |
+| `curio_perks` | 21 | hardcoded `stat` → `entity_internal_name` mapping |
 | `weapons[*].blessings` | per-weapon | `internal` field (concept suffix) → name_family ID slug |
+
+Note: the stat-to-entity mapping is not derivable by substring matching (e.g., `"damage"` matches 13+ entities, `"block_cost_multiplier"` doesn't appear in `weapon_trait_reduced_block_cost`). The script uses a hardcoded lookup table.
 
 ## Scope
 
@@ -44,13 +46,9 @@ The alias system already handles this: `build-ground-truth-index.mjs` auto-gener
    - Gloryhunter → `toughness_on_elite_kills`
    - Blazing Spirit → `warp_charge_power_bonus`
 
-4. **Malformed name_family slug fix — 6 entities.** These have bad ID slugs from prefix-stripping failures in the expand script:
-   - 4× `bespoke_bespoke_powersword_2h_p1_*` (doubled prefix)
-   - 2× `heavystubber_p1_*` (legacy naming, should be `ogryn_heavystubber_p1_*`)
-   - Fix: correct entity IDs, update `instance_of` edges referencing them.
+### Out of scope
 
-### Out of scope (Track 2)
-
+- **Malformed name_family slug fix** — deferred to a separate spec. The 6 malformed slugs (`bespoke_bespoke_powersword_2h_p1_*` and `heavystubber_p1_*`) cascade through ~32 records (name_family entities, weapon_trait entities, instance_of edges, weapon_has_trait_pool edges), require merge-vs-rename policy (at least one slug collides with an existing name_family), and need a policy on whether weapon_trait IDs should also be corrected. Too complex to bundle here.
 - Ambiguous blessing names (Headtaker maps to 3 different concept suffixes across weapons — needs alias records with `weapon_family` context constraints)
 - Remaining ~105 unmapped name_families (need GL scrape)
 - Weapon mark display names (~90 unmapped, need GL scrape)
@@ -65,13 +63,14 @@ The alias system already handles this: `build-ground-truth-index.mjs` auto-gener
 **Input:**
 - `scripts/build-scoring-data.json` — display name mappings
 - `data/ground-truth/entities/shared-weapons.json` — perk, gadget trait, name_family entities
-- `data/ground-truth/edges/shared.json` — for malformed slug edge updates
-- `data/ground-truth/aliases/shared-guides.json` — for writing perk alias records
+- `data/ground-truth/entities/shared-names.json` — name_family entities
+- `data/ground-truth/aliases/shared-guides.json` — for appending perk alias records
+- `scripts/ground-truth/lib/normalize.mjs` — `normalizeText` function for alias `normalized_text`
 
 **Output:**
-- Patched `shared-weapons.json` with `ui_name` set on gadget traits and name_families
-- Patched `shared-guides.json` with new alias records for weapon perks
-- Patched `shared.json` edges for malformed slug fixes
+- Patched `shared-weapons.json` with `ui_name` set on gadget traits
+- Patched `shared-names.json` with `ui_name` set on name_families
+- Patched `shared-guides.json` with 36 new alias records for weapon perks
 
 ### Why perks need alias records, not `ui_name`
 
@@ -83,23 +82,27 @@ Gadget traits and name_families have no collision risk (unique display names acr
 
 ### Matching strategy
 
-1. **Weapon perks (36 alias records):** Build a hardcoded `entity_internal_name → display_name` lookup from scoring data. For each entity, emit an alias record with `alias_kind: "community_name"`, `match_mode: "fuzzy_allowed"`, `provenance: "build-scoring-data"`, and `context_constraints: { require_all: [{ key: "slot", value: "melee"|"ranged" }], prefer: [] }`. The slot is determined by whether the internal_name contains `_melee_` or `_ranged_` (or neither — shared perks like `weapon_trait_increase_crit_chance` are melee-only in the entity set).
+1. **Weapon perks (36 alias records):** Build a hardcoded `entity_internal_name → display_name` lookup from scoring data. For each entity, emit a full alias record per `alias.schema.json`:
+   - `text`: display name (e.g., `"Damage (Flak Armoured)"`)
+   - `normalized_text`: computed via project's `normalizeText()` function
+   - `candidate_entity_id`: the entity ID
+   - `alias_kind`: `"community_name"`
+   - `match_mode`: `"fuzzy_allowed"`
+   - `provenance`: `"build-scoring-data"`
+   - `confidence`: `"high"`
+   - `context_constraints`: `{ require_all: [{ key: "slot", value: "melee"|"ranged" }], prefer: [] }`
+   - `rank_weight`: `150` (above synthetic `ui_name` rank of 100 — ensures perk aliases outscore cross-type synthetic matches; see note below)
+   - `notes`: `""`
+
+   The slot is determined by whether the internal_name contains `_melee_` or `_ranged_` (or neither — shared perks like `weapon_trait_increase_crit_chance` are melee-only in the entity set).
 
 2. **Gadget traits (19 `ui_name` updates):** Hardcoded `entity_internal_name → display_name` lookup. Set `ui_name` on the entity directly.
 
 3. **Blessing name_families (10 `ui_name` updates):** Invert the scoring data weapons section to build `concept_suffix → community_name`. For each name_family entity whose ID slug matches a concept suffix, set `ui_name` to the community name. Skip suffixes that map to multiple community names (ambiguous).
 
-**Idempotency:** Re-running produces the same output. Alias records are matched by `candidate_entity_id` to avoid duplicates. Entity `ui_name` is overwritten with the same value. Does not clear existing values set by other means.
+**Cross-type name overlap:** "Block Efficiency" and "Sprint Efficiency" appear in both `curio_perks` and `melee_perks`. Setting `ui_name` on the gadget entities creates synthetic aliases with empty context constraints (`rank_weight: 100`). These are valid candidates when resolving perk context. The perk alias records use `rank_weight: 150` with a `slot` constraint, so they will always outscore the unconstrained gadget synthetics when the resolver has slot context.
 
-### Malformed slug fix
-
-Same script or a dedicated function within it:
-
-1. Read `shared-weapons.json` and `data/ground-truth/edges/shared.json`
-2. Identify entities with malformed ID patterns
-3. Compute corrected IDs (strip doubled prefix, fix family name)
-4. Check for collisions with existing entities
-5. Rename entity IDs and update all edge `source`/`target` references
+**Idempotency:** Re-running produces the same output. Alias records are deduplicated by `candidate_entity_id` — if an alias for that entity already exists in the file, it is updated rather than duplicated. Entity `ui_name` is overwritten with the same value. Does not clear existing values set by other means.
 
 ### npm script
 
@@ -107,18 +110,16 @@ Register as `npm run entities:enrich` in `package.json`.
 
 ## Verification
 
-1. Run `npm run entities:enrich` — should report counts (e.g., "Added 36 weapon_perk aliases, set ui_name on 19 gadget_traits and 10 name_families. Fixed 6 malformed slugs.")
+1. Run `npm run entities:enrich` — should report counts (e.g., "Added 36 weapon_perk aliases, set ui_name on 19 gadget_traits and 10 name_families.")
 2. Run `npm run gt:build` — index builder should materialize ~29 new synthetic aliases (from ui_name) + incorporate 36 hand-authored perk aliases, with no collision errors
 3. Run `npm test` — all existing tests pass
-4. Spot-check: resolve `"Damage (Flak Armoured)"` with context `{ kind: "weapon_perk", slot: "melee" }` — should hit the melee perk entity via the new alias record
-5. Verify the 6 renamed name_family entities have correct `instance_of` edges
+4. Spot-check: resolve `"Damage (Flak Armoured)"` with context `{ kind: "weapon_perk", slot: "melee" }` — should hit the melee perk entity via the new alias record (rank 150), not the ranged variant or a gadget trait
 
 ## Success Criteria
 
-- 36 alias records generated for weapon_perks (with slot context constraints)
+- 36 alias records generated for weapon_perks (with slot context constraints, rank_weight 150)
 - 19/24 gadget_trait entities have `ui_name` set (5 excluded with documented reasons)
 - 10 name_family entities have `ui_name` set
-- 6 malformed name_family slugs are corrected
 - Index builds cleanly with no alias collisions
 - All tests pass
 - `enrich-entity-names` is idempotent on re-run
