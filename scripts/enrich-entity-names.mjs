@@ -73,8 +73,11 @@ const GADGET_TRAIT_NAMES = new Map([
   ["gadget_toughness_regen_delay", "Toughness Regen Speed"],
 ]);
 
-// 10 unambiguous concept_suffix → community_name mappings from scoring data.
-// Only suffixes that map to exactly one community name across all weapons.
+// 9 unambiguous concept_suffix → community_name mappings from scoring data.
+// Only suffixes that map to exactly one community name across all weapons
+// AND do not collide with existing aliases on other name_family entities.
+// Excluded: warp_charge_power_bonus → "Blazing Spirit" collides with
+// shared.name_family.blessing.blazing_spirit (duplicate family, needs merge).
 const BLESSING_NAMES = new Map([
   ["allow_flanking_and_increased_damage_when_flanking", "Flanking Fire"],
   ["bleed_on_non_weakspot_hit", "Lacerate"],
@@ -85,7 +88,6 @@ const BLESSING_NAMES = new Map([
   ["increased_weakspot_damage_against_bleeding", "Flesh Tearer"],
   ["power_bonus_on_first_attack", "Haymaker"],
   ["toughness_on_elite_kills", "Gloryhunter"],
-  ["warp_charge_power_bonus", "Blazing Spirit"],
 ]);
 
 function buildPerkAliasRecord(entityId, displayName, slot) {

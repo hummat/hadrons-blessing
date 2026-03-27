@@ -217,14 +217,14 @@ describe("enrichNameFamilies", () => {
   it("extracts concept suffix from name_family ID", () => {
     const entities = [
       {
-        id: "shared.name_family.blessing.warp_charge_power_bonus",
+        id: "shared.name_family.blessing.toughness_on_elite_kills",
         kind: "name_family",
         ui_name: null,
         attributes: { family_type: "blessing" },
       },
     ];
     enrichNameFamilies(entities);
-    assert.equal(entities[0].ui_name, "Blazing Spirit");
+    assert.equal(entities[0].ui_name, "Gloryhunter");
   });
 
   it("preserves existing ui_name values", () => {
@@ -308,14 +308,21 @@ describe("integration: real data coverage", () => {
   });
 
   it("enrichGadgetTraits matches 19 entities from real data", () => {
+    // Reset ui_name to null so enrichment runs regardless of prior state
     const copy = JSON.parse(JSON.stringify(weaponEntities));
+    for (const e of copy) {
+      if (e.kind === "gadget_trait") e.ui_name = null;
+    }
     const count = enrichGadgetTraits(copy);
     assert.equal(count, 19, `Expected 19 gadget traits enriched, got ${count}`);
   });
 
-  it("enrichNameFamilies matches 10 entities from real data", () => {
+  it("enrichNameFamilies matches 9 entities from real data", () => {
     const copy = JSON.parse(JSON.stringify(nameEntities));
+    for (const e of copy) {
+      if (e.kind === "name_family") e.ui_name = null;
+    }
     const count = enrichNameFamilies(copy);
-    assert.equal(count, 10, `Expected 10 name families enriched, got ${count}`);
+    assert.equal(count, 9, `Expected 9 name families enriched, got ${count}`);
   });
 });
