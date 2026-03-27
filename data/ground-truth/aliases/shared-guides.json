@@ -2844,5 +2844,725 @@
     },
     "rank_weight": 90,
     "notes": "Inferred family mapping from build usage; English mark mapping is build-sourced, not decompiled-source localized."
+  },
+  {
+    "text": "Damage (Flak Armoured)",
+    "normalized_text": "damage flak armoured",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Maniacs)",
+    "normalized_text": "damage maniacs",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Infested)",
+    "normalized_text": "damage infested",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_disgustingly_resilient_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Unyielding)",
+    "normalized_text": "damage unyielding",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Carapace)",
+    "normalized_text": "damage carapace",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Unarmoured)",
+    "normalized_text": "damage unarmoured",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_unarmored_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Elites)",
+    "normalized_text": "damage elites",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_damage_elites",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Flak Armoured)",
+    "normalized_text": "damage flak armoured",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Maniacs)",
+    "normalized_text": "damage maniacs",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Unyielding)",
+    "normalized_text": "damage unyielding",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Reload Speed",
+    "normalized_text": "reload speed",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increased_reload_speed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Carapace)",
+    "normalized_text": "damage carapace",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Unarmoured)",
+    "normalized_text": "damage unarmoured",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Infested)",
+    "normalized_text": "damage infested",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_disgustingly_resilient_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Stamina",
+    "normalized_text": "stamina",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_stamina",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Critical Hit Chance",
+    "normalized_text": "critical hit chance",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_crit_chance",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Critical Hit Damage",
+    "normalized_text": "critical hit damage",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_crit_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Weakspot Damage",
+    "normalized_text": "weakspot damage",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_weakspot_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (flat)",
+    "normalized_text": "damage flat",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Finesse",
+    "normalized_text": "finesse",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_finesse",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Power Level",
+    "normalized_text": "power level",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_power",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Impact",
+    "normalized_text": "impact",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_impact",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Block Efficiency",
+    "normalized_text": "block efficiency",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_reduced_block_cost",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Hordes)",
+    "normalized_text": "damage hordes",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_damage_hordes",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Specialists)",
+    "normalized_text": "damage specialists",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_damage_specials",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Sprint Efficiency",
+    "normalized_text": "sprint efficiency",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_reduce_sprint_cost",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Critical Hit Chance",
+    "normalized_text": "critical hit chance",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_crit_chance",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Critical Hit Damage",
+    "normalized_text": "critical hit damage",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_crit_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Stamina (while active)",
+    "normalized_text": "stamina while active",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_stamina",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Weakspot Damage",
+    "normalized_text": "weakspot damage",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_weakspot_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (flat)",
+    "normalized_text": "damage flat",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Finesse",
+    "normalized_text": "finesse",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_finesse",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Power Level",
+    "normalized_text": "power level",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_power",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Elites)",
+    "normalized_text": "damage elites",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_damage_elites",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Hordes)",
+    "normalized_text": "damage hordes",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_damage_hordes",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
+  },
+  {
+    "text": "Damage (Specialists)",
+    "normalized_text": "damage specialists",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_damage_specials",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-scoring-data",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 150,
+    "notes": ""
   }
 ]
