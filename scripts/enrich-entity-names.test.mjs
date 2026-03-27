@@ -1,5 +1,8 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
+import { readFileSync } from "node:fs";
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   MELEE_PERK_NAMES,
   RANGED_PERK_NAMES,
@@ -278,5 +281,41 @@ describe("mergeAliases", () => {
     assert.equal(merged.length, 2);
     assert.equal(added, 1);
     assert.equal(updated, 0);
+  });
+});
+
+const __test_dirname = dirname(fileURLToPath(import.meta.url));
+
+describe("integration: real data coverage", () => {
+  const ENTITIES_ROOT = resolve(__test_dirname, "..", "data", "ground-truth", "entities");
+  const weaponEntities = JSON.parse(readFileSync(resolve(ENTITIES_ROOT, "shared-weapons.json"), "utf8"));
+  const nameEntities = JSON.parse(readFileSync(resolve(ENTITIES_ROOT, "shared-names.json"), "utf8"));
+
+  it("generatePerkAliases produces 36 alias records from real entities", () => {
+    const aliases = generatePerkAliases(weaponEntities);
+    assert.equal(aliases.length, 36, `Expected 36 perk aliases, got ${aliases.length}`);
+  });
+
+  it("all perk aliases have valid normalized_text", () => {
+    const aliases = generatePerkAliases(weaponEntities);
+    for (const alias of aliases) {
+      assert.ok(alias.normalized_text.length > 0, `Empty normalized_text for ${alias.candidate_entity_id}`);
+      assert.ok(
+        !alias.normalized_text.includes("(") && !alias.normalized_text.includes(")"),
+        `normalized_text should strip parens: ${alias.normalized_text}`,
+      );
+    }
+  });
+
+  it("enrichGadgetTraits matches 19 entities from real data", () => {
+    const copy = JSON.parse(JSON.stringify(weaponEntities));
+    const count = enrichGadgetTraits(copy);
+    assert.equal(count, 19, `Expected 19 gadget traits enriched, got ${count}`);
+  });
+
+  it("enrichNameFamilies matches 10 entities from real data", () => {
+    const copy = JSON.parse(JSON.stringify(nameEntities));
+    const count = enrichNameFamilies(copy);
+    assert.equal(count, 10, `Expected 10 name families enriched, got ${count}`);
   });
 });
