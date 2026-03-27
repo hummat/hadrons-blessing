@@ -106,10 +106,63 @@ function buildPerkAliasRecord(entityId, displayName, slot) {
   };
 }
 
+function slotFromEntityId(entityId) {
+  if (entityId.includes(".melee.")) return "melee";
+  if (entityId.includes(".ranged.")) return "ranged";
+  return null;
+}
+
+function generatePerkAliases(entities) {
+  const aliases = [];
+  for (const entity of entities) {
+    if (entity.kind !== "weapon_perk") continue;
+    const slot = slotFromEntityId(entity.id);
+    if (!slot) continue;
+    const lookupTable = slot === "melee" ? MELEE_PERK_NAMES : RANGED_PERK_NAMES;
+    const displayName = lookupTable.get(entity.internal_name);
+    if (!displayName) continue;
+    aliases.push(buildPerkAliasRecord(entity.id, displayName, slot));
+  }
+  return aliases;
+}
+
+function enrichGadgetTraits(entities) {
+  let count = 0;
+  for (const entity of entities) {
+    if (entity.kind !== "gadget_trait") continue;
+    if (entity.ui_name != null) continue;
+    const displayName = GADGET_TRAIT_NAMES.get(entity.internal_name);
+    if (!displayName) continue;
+    entity.ui_name = displayName;
+    count++;
+  }
+  return count;
+}
+
+const NAME_FAMILY_PREFIX = "shared.name_family.blessing.";
+
+function enrichNameFamilies(entities) {
+  let count = 0;
+  for (const entity of entities) {
+    if (entity.kind !== "name_family") continue;
+    if (entity.ui_name != null) continue;
+    if (!entity.id.startsWith(NAME_FAMILY_PREFIX)) continue;
+    const slug = entity.id.slice(NAME_FAMILY_PREFIX.length);
+    const displayName = BLESSING_NAMES.get(slug);
+    if (!displayName) continue;
+    entity.ui_name = displayName;
+    count++;
+  }
+  return count;
+}
+
 export {
   MELEE_PERK_NAMES,
   RANGED_PERK_NAMES,
   GADGET_TRAIT_NAMES,
   BLESSING_NAMES,
   buildPerkAliasRecord,
+  generatePerkAliases,
+  enrichGadgetTraits,
+  enrichNameFamilies,
 };

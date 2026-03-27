@@ -5,6 +5,9 @@ import {
   RANGED_PERK_NAMES,
   GADGET_TRAIT_NAMES,
   buildPerkAliasRecord,
+  generatePerkAliases,
+  enrichGadgetTraits,
+  enrichNameFamilies,
 } from "./enrich-entity-names.mjs";
 
 describe("MELEE_PERK_NAMES", () => {
@@ -96,5 +99,141 @@ describe("buildPerkAliasRecord", () => {
       "ranged",
     );
     assert.deepEqual(record.context_constraints.require_all, [{ key: "slot", value: "ranged" }]);
+  });
+});
+
+describe("generatePerkAliases", () => {
+  const entities = [
+    {
+      id: "shared.weapon_perk.melee.weapon_trait_increase_crit_chance",
+      kind: "weapon_perk",
+      internal_name: "weapon_trait_increase_crit_chance",
+      ui_name: null,
+    },
+    {
+      id: "shared.weapon_perk.ranged.weapon_trait_ranged_increased_reload_speed",
+      kind: "weapon_perk",
+      internal_name: "weapon_trait_ranged_increased_reload_speed",
+      ui_name: null,
+    },
+    {
+      id: "shared.weapon.combataxe_p1_m1",
+      kind: "weapon",
+      internal_name: "combataxe_p1_m1",
+      ui_name: null,
+    },
+  ];
+
+  it("generates alias records only for weapon_perk entities", () => {
+    const aliases = generatePerkAliases(entities);
+    assert.equal(aliases.length, 2);
+  });
+
+  it("assigns correct slot from entity id", () => {
+    const aliases = generatePerkAliases(entities);
+    const melee = aliases.find((a) => a.text === "Critical Hit Chance");
+    const ranged = aliases.find((a) => a.text === "Reload Speed");
+    assert.deepEqual(melee.context_constraints.require_all, [{ key: "slot", value: "melee" }]);
+    assert.deepEqual(ranged.context_constraints.require_all, [{ key: "slot", value: "ranged" }]);
+  });
+
+  it("skips weapon_perk entities not in lookup tables", () => {
+    const unknownEntities = [
+      {
+        id: "shared.weapon_perk.melee.weapon_trait_unknown",
+        kind: "weapon_perk",
+        internal_name: "weapon_trait_unknown",
+        ui_name: null,
+      },
+    ];
+    const aliases = generatePerkAliases(unknownEntities);
+    assert.equal(aliases.length, 0);
+  });
+});
+
+describe("enrichGadgetTraits", () => {
+  it("sets ui_name on matched gadget_trait entities", () => {
+    const entities = [
+      {
+        id: "shared.gadget_trait.gadget_block_cost_reduction",
+        kind: "gadget_trait",
+        internal_name: "gadget_block_cost_reduction",
+        ui_name: null,
+      },
+      {
+        id: "shared.gadget_trait.gadget_innate_health_increase",
+        kind: "gadget_trait",
+        internal_name: "gadget_innate_health_increase",
+        ui_name: null,
+      },
+    ];
+    const count = enrichGadgetTraits(entities);
+    assert.equal(count, 1);
+    assert.equal(entities[0].ui_name, "Block Efficiency");
+    assert.equal(entities[1].ui_name, null);
+  });
+
+  it("preserves existing ui_name values", () => {
+    const entities = [
+      {
+        id: "shared.gadget_trait.gadget_toughness_increase",
+        kind: "gadget_trait",
+        internal_name: "gadget_toughness_increase",
+        ui_name: "Already Set",
+      },
+    ];
+    const count = enrichGadgetTraits(entities);
+    assert.equal(count, 0);
+    assert.equal(entities[0].ui_name, "Already Set");
+  });
+});
+
+describe("enrichNameFamilies", () => {
+  it("sets ui_name on matched name_family entities", () => {
+    const entities = [
+      {
+        id: "shared.name_family.blessing.toughness_on_elite_kills",
+        kind: "name_family",
+        ui_name: null,
+        attributes: { family_type: "blessing" },
+      },
+      {
+        id: "shared.name_family.blessing.bloodthirsty",
+        kind: "name_family",
+        ui_name: null,
+        attributes: { family_type: "blessing" },
+      },
+    ];
+    const count = enrichNameFamilies(entities);
+    assert.equal(count, 1);
+    assert.equal(entities[0].ui_name, "Gloryhunter");
+    assert.equal(entities[1].ui_name, null);
+  });
+
+  it("extracts concept suffix from name_family ID", () => {
+    const entities = [
+      {
+        id: "shared.name_family.blessing.warp_charge_power_bonus",
+        kind: "name_family",
+        ui_name: null,
+        attributes: { family_type: "blessing" },
+      },
+    ];
+    enrichNameFamilies(entities);
+    assert.equal(entities[0].ui_name, "Blazing Spirit");
+  });
+
+  it("preserves existing ui_name values", () => {
+    const entities = [
+      {
+        id: "shared.name_family.blessing.toughness_on_elite_kills",
+        kind: "name_family",
+        ui_name: "Already Set",
+        attributes: { family_type: "blessing" },
+      },
+    ];
+    const count = enrichNameFamilies(entities);
+    assert.equal(count, 0);
+    assert.equal(entities[0].ui_name, "Already Set");
   });
 });
