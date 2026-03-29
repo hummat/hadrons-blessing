@@ -128,6 +128,13 @@ async function extractBuild(url) {
         return { error: "page_not_found", bodyPreview: bodyText.slice(0, 200) };
       }
 
+      const _diagnostics = {
+        sectionStrategy: "primary",
+        weaponCardStrategy: "primary",
+        weaponCardCount: 0,
+        talentCount: 0,
+      };
+
       const result = {
         url: window.location.href,
         title: "",
@@ -240,10 +247,33 @@ async function extractBuild(url) {
       // Page uses .mt-8.mb-4 headings ("Weapons", "Curios", etc.)
       // followed by sibling content divs until the next heading.
       function getSection(name) {
-        const headings = document.querySelectorAll(".mt-8.mb-4");
-        for (const h of headings) {
+        // Primary: Tailwind utility class selector (current GL layout)
+        for (const h of document.querySelectorAll(".mt-8.mb-4")) {
           if (h.textContent.trim() === name) return h;
         }
+
+        // Fallback: semantic heading elements with matching text
+        for (const el of document.querySelectorAll("h1, h2, h3, h4, h5, h6")) {
+          if (el.textContent.trim() === name) {
+            _diagnostics.sectionStrategy = "fallback";
+            return el;
+          }
+        }
+
+        // Fallback: short-text block elements acting as section headers
+        for (const el of document.querySelectorAll("div, p")) {
+          const text = el.textContent.trim();
+          if (
+            text === name
+            && text.length < 30
+            && el.nextElementSibling
+            && el.children.length <= 2
+          ) {
+            _diagnostics.sectionStrategy = "fallback";
+            return el;
+          }
+        }
+
         return null;
       }
 
@@ -279,9 +309,22 @@ async function extractBuild(url) {
         if (!container) return [];
 
         // Weapon cards use max-w-sm, curio cards use max-w-[330px]
-        const cards = container.querySelectorAll(
+        let cards = container.querySelectorAll(
           ':scope > div[class*="max-w"]'
         );
+
+        if (cards.length === 0) {
+          // Fallback: child divs containing weapon-signature text patterns
+          const WEAPON_SIGNATURE = /Transcendant|Anointed|Profane|Redeemed|\d+-\d+%/;
+          const fallbackCards = [...container.querySelectorAll(":scope > div")].filter(
+            (div) => WEAPON_SIGNATURE.test(div.innerText ?? "")
+          );
+          if (fallbackCards.length > 0) {
+            cards = fallbackCards;
+            _diagnostics.weaponCardStrategy = "fallback";
+          }
+        }
+
         const items = [];
 
         for (const card of cards) {
@@ -371,6 +414,25 @@ async function extractBuild(url) {
       const teaserDescription =
         document.querySelector(".darktide-description")?.innerText?.trim() ?? "";
       result.description = (sectionDescription || teaserDescription).slice(0, 15_000);
+
+      // --- Diagnostics ---
+      _diagnostics.weaponCardCount = result.weapons.length;
+      _diagnostics.talentCount = result.talents.active.length + result.talents.inactive.length;
+      _diagnostics.headings = [
+        ...document.querySelectorAll("h1, h2, h3, h4, h5, h6, .mt-8.mb-4"),
+      ].map((el) => ({
+        tag: el.tagName,
+        classes: el.className.slice(0, 100),
+        text: el.textContent.trim().slice(0, 80),
+      }));
+      _diagnostics.selectorHits = {
+        "section.mt-8.mb-4": document.querySelectorAll(".mt-8.mb-4").length,
+        "cards.max-w": document.querySelectorAll('[class*="max-w"]').length,
+        "talent.ability-active": document.querySelectorAll(".ability-active").length,
+        "talent.ability-inactive": document.querySelectorAll(".ability-inactive").length,
+      };
+      _diagnostics.bodyPreview = (document.body?.innerText ?? "").slice(0, 500);
+      result._diagnostics = _diagnostics;
 
       return result;
     });
