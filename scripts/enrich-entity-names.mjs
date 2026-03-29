@@ -158,6 +158,36 @@ function enrichNameFamilies(entities) {
   return count;
 }
 
+const TITLE_CASE_ARTICLES = new Set([
+  "a", "an", "and", "at", "but", "by", "for", "in", "of", "on", "or", "the", "to", "vs",
+]);
+
+function titleCaseSlug(slug) {
+  return slug
+    .split("_")
+    .map((word, i) => {
+      if (i !== 0 && TITLE_CASE_ARTICLES.has(word)) return word;
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
+}
+
+function enrichBlessingNamesFromSlugs(entities, glBlessings) {
+  const glNames = new Set(glBlessings.map((b) => b.display_name.toLowerCase()));
+  let count = 0;
+  for (const entity of entities) {
+    if (entity.kind !== "name_family") continue;
+    if (entity.ui_name != null) continue;
+    if (!entity.id.startsWith(NAME_FAMILY_PREFIX)) continue;
+    const slug = entity.id.slice(NAME_FAMILY_PREFIX.length);
+    const candidate = titleCaseSlug(slug);
+    if (!glNames.has(candidate.toLowerCase())) continue;
+    entity.ui_name = candidate;
+    count++;
+  }
+  return count;
+}
+
 function enrichWeaponNames(entities, mapping) {
   const nameByTemplateId = new Map(mapping.map((m) => [m.template_id, m.gl_name]));
   let count = 0;
@@ -236,6 +266,14 @@ function main() {
   const perkAliases = generatePerkAliases(weaponEntities);
   const gadgetCount = enrichGadgetTraits(weaponEntities);
   const blessingCount = enrichNameFamilies(nameEntities);
+  let slugBlessingCount = 0;
+  const glCatalogPath = resolve(__dirname, "..", "data", "ground-truth", "generated", "gl-catalog.json");
+  if (existsSync(glCatalogPath)) {
+    const catalog = JSON.parse(readFileSync(glCatalogPath, "utf8"));
+    slugBlessingCount = enrichBlessingNamesFromSlugs(nameEntities, catalog.blessings);
+  } else {
+    console.warn("Warning: gl-catalog.json not found, skipping slug-based blessing enrichment");
+  }
   let allNewAliases = [...perkAliases];
 
   const weaponMappingPath = resolve(__dirname, "..", "data", "ground-truth", "weapon-name-mapping.json");
@@ -259,7 +297,8 @@ function main() {
   console.log(`Aliases merged: ${added} added, ${updated} updated (${allNewAliases.length} total)`);
   console.log(`  - perk aliases: ${perkAliases.length}`);
   console.log(`Gadget traits: ${gadgetCount} ui_name set`);
-  console.log(`Name families: ${blessingCount} ui_name set`);
+  console.log(`Name families: ${blessingCount} ui_name set (hardcoded)`);
+  console.log(`Name families: ${slugBlessingCount} ui_name set (from GL slugs)`);
 }
 
 const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
@@ -276,6 +315,7 @@ export {
   generatePerkAliases,
   enrichGadgetTraits,
   enrichNameFamilies,
+  enrichBlessingNamesFromSlugs,
   enrichWeaponNames,
   generateWeaponAliases,
   mergeAliases,

@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -11,6 +11,7 @@ import {
   generatePerkAliases,
   enrichGadgetTraits,
   enrichNameFamilies,
+  enrichBlessingNamesFromSlugs,
   mergeAliases,
   enrichWeaponNames,
   generateWeaponAliases,
@@ -428,6 +429,62 @@ describe("generateWeaponAliases", () => {
   });
 });
 
+describe("enrichBlessingNamesFromSlugs", () => {
+  it("title-cases community-named slug as ui_name when matched in GL", () => {
+    const entities = [
+      { id: "shared.name_family.blessing.bloodthirsty", kind: "name_family", ui_name: null },
+      { id: "shared.name_family.blessing.blaze_away", kind: "name_family", ui_name: null },
+      { id: "shared.name_family.blessing.brutal_momentum", kind: "name_family", ui_name: null },
+    ];
+    const glBlessings = [
+      { display_name: "Bloodthirsty", effect: "...", weapon_types: [] },
+      { display_name: "Blaze Away", effect: "...", weapon_types: [] },
+      { display_name: "Brutal Momentum", effect: "...", weapon_types: [] },
+    ];
+    const count = enrichBlessingNamesFromSlugs(entities, glBlessings);
+    assert.equal(count, 3);
+    assert.equal(entities[0].ui_name, "Bloodthirsty");
+    assert.equal(entities[1].ui_name, "Blaze Away");
+    assert.equal(entities[2].ui_name, "Brutal Momentum");
+  });
+
+  it("does not set ui_name for concept slugs with no GL match", () => {
+    const entities = [
+      { id: "shared.name_family.blessing.consecutive_hits_increases_close_damage", kind: "name_family", ui_name: null },
+    ];
+    const glBlessings = [
+      { display_name: "Bloodthirsty", effect: "...", weapon_types: [] },
+    ];
+    const count = enrichBlessingNamesFromSlugs(entities, glBlessings);
+    assert.equal(count, 0);
+    assert.equal(entities[0].ui_name, null);
+  });
+
+  it("preserves existing ui_name", () => {
+    const entities = [
+      { id: "shared.name_family.blessing.bloodthirsty", kind: "name_family", ui_name: "Already Set" },
+    ];
+    const glBlessings = [
+      { display_name: "Bloodthirsty", effect: "...", weapon_types: [] },
+    ];
+    const count = enrichBlessingNamesFromSlugs(entities, glBlessings);
+    assert.equal(count, 0);
+    assert.equal(entities[0].ui_name, "Already Set");
+  });
+
+  it("handles multi-word slugs with articles correctly", () => {
+    const entities = [
+      { id: "shared.name_family.blessing.all_or_nothing", kind: "name_family", ui_name: null },
+    ];
+    const glBlessings = [
+      { display_name: "All or Nothing", effect: "...", weapon_types: [] },
+    ];
+    const count = enrichBlessingNamesFromSlugs(entities, glBlessings);
+    assert.equal(count, 1);
+    assert.equal(entities[0].ui_name, "All or Nothing");
+  });
+});
+
 const __test_dirname = dirname(fileURLToPath(import.meta.url));
 
 describe("integration: real data coverage", () => {
@@ -468,5 +525,19 @@ describe("integration: real data coverage", () => {
     }
     const count = enrichNameFamilies(copy);
     assert.equal(count, 9, `Expected 9 name families enriched, got ${count}`);
+  });
+
+  it("enrichBlessingNamesFromSlugs enriches 40+ name_families from real GL data", () => {
+    const catalogPath = resolve(__test_dirname, "..", "data", "ground-truth", "generated", "gl-catalog.json");
+    if (!existsSync(catalogPath)) {
+      return;
+    }
+    const catalog = JSON.parse(readFileSync(catalogPath, "utf8"));
+    const copy = JSON.parse(JSON.stringify(nameEntities));
+    for (const e of copy) {
+      if (e.kind === "name_family") e.ui_name = null;
+    }
+    const count = enrichBlessingNamesFromSlugs(copy, catalog.blessings);
+    assert.ok(count >= 40, `Expected at least 40 slug-enriched name families, got ${count}`);
   });
 });
