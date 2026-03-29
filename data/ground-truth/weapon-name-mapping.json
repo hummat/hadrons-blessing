@@ -1,0 +1,597 @@
+[
+  {
+    "gl_name": "Agripinaa Mk I Infantry Autogun",
+    "template_id": "autogun_p1_m1",
+    "source": "last_remaining"
+  },
+  {
+    "gl_name": "Vraks Mk V Infantry Autogun",
+    "template_id": "autogun_p1_m2",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Columnus Mk VIII Infantry Autogun",
+    "template_id": "autogun_p1_m3",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Agripinaa Mk VIII Braced Autogun",
+    "template_id": "autogun_p2_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Graia Mk IV Braced Autogun",
+    "template_id": "autogun_p2_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Vraks Mk II Braced Autogun",
+    "template_id": "autogun_p2_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Columnus Mk III Vigilant Autogun",
+    "template_id": "autogun_p3_m1",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Graia Mk VII Vigilant Autogun",
+    "template_id": "autogun_p3_m2",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Agripinaa Mk IX Vigilant Autogun",
+    "template_id": "autogun_p3_m3",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Ius Mk IV Shredder Autopistol",
+    "template_id": "autopistol_p1_m1",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Locke Mk III Spearhead Boltgun",
+    "template_id": "bolter_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Locke Mk IIb Spearhead Boltgun",
+    "template_id": "bolter_p1_m2",
+    "source": "last_remaining"
+  },
+  {
+    "gl_name": "Godwyn-Branx Mk IV Bolt Pistol",
+    "template_id": "boltpistol_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Godwyn-Branx Mk VI Bolt Pistol",
+    "template_id": "boltpistol_p1_m2",
+    "source": "last_remaining"
+  },
+  {
+    "gl_name": "Orestes Mk IV Assault Chainaxe",
+    "template_id": "chainaxe_p1_m1",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Orestes Mk XII Assault Chainaxe",
+    "template_id": "chainaxe_p1_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Tigrus Mk III Heavy Eviscerator",
+    "template_id": "chainsword_2h_p1_m1",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Tigrus Mk XV Heavy Eviscerator",
+    "template_id": "chainsword_2h_p1_m2",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Cadia Mk IV Assault Chainsword",
+    "template_id": "chainsword_p1_m1",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Cadia Mk XIIIg Assault Chainsword",
+    "template_id": "chainsword_p1_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Rashad Mk III Combat Axe",
+    "template_id": "combataxe_p1_m1",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Achlys Mk VIII Combat Axe",
+    "template_id": "combataxe_p1_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Antax Mk V Combat Axe",
+    "template_id": "combataxe_p1_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Atrox Mk II Tactical Axe",
+    "template_id": "combataxe_p2_m1",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Atrox Mk IV Tactical Axe",
+    "template_id": "combataxe_p2_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Atrox Mk VII Tactical Axe",
+    "template_id": "combataxe_p2_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Munitorum Mk I Sapper Shovel",
+    "template_id": "combataxe_p3_m1",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Munitorum Mk III Sapper Shovel",
+    "template_id": "combataxe_p3_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Munitorum Mk VII Sapper Shovel",
+    "template_id": "combataxe_p3_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Catachan Mk III Combat Blade",
+    "template_id": "combatknife_p1_m1",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Catachan Mk VI Combat Blade",
+    "template_id": "combatknife_p1_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Maccabian Mk IV Duelling Sword",
+    "template_id": "combatsword_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Maccabian Mk II Duelling Sword",
+    "template_id": "combatsword_p1_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Maccabian Mk V Duelling Sword",
+    "template_id": "combatsword_p1_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Catachan Mk VII \"Devil's Claw\" Sword",
+    "template_id": "combatsword_p2_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Catachan Mk I \"Devil's Claw\" Sword",
+    "template_id": "combatsword_p2_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Catachan Mk IV \"Devil's Claw\" Sword",
+    "template_id": "combatsword_p2_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Turtolsky Mk VI Heavy Sword",
+    "template_id": "combatsword_p3_m1",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Turtolsky Mk VII Heavy Sword",
+    "template_id": "combatsword_p3_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Turtolsky Mk IX Heavy Sword",
+    "template_id": "combatsword_p3_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Enginseer's Mk VI Crowbar",
+    "template_id": "crowbar_p1_m1",
+    "source": "singleton_family"
+  },
+  {
+    "gl_name": "Branx MkIII Dual Autopistols",
+    "template_id": "dual_autopistols_p1_m1",
+    "source": "singleton_family"
+  },
+  {
+    "gl_name": "Improvised Mk I Shivs",
+    "template_id": "dual_shivs_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Improvised Mk III Shivs",
+    "template_id": "dual_shivs_p1_m2",
+    "source": "last_remaining"
+  },
+  {
+    "gl_name": "Branx MkVIII Dual Stub Pistols",
+    "template_id": "dual_stubpistols_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Artemia Mk III Purgation Flamer",
+    "template_id": "flamer_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Equinox Mk IV Voidstrike Force Staff",
+    "template_id": "forcestaff_p1_m1",
+    "source": "singleton_family"
+  },
+  {
+    "gl_name": "Rifthaven Mk II Inferno Force Staff",
+    "template_id": "forcestaff_p2_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Nomanus Mk VI Electrokinetic Force Staff",
+    "template_id": "forcestaff_p3_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Equinox Mk III Voidblast Force Staff",
+    "template_id": "forcestaff_p4_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Covenant Mk VI Blaze Force Greatsword",
+    "template_id": "forcesword_2h_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Covenant Mk VIII Blaze Force Greatsword",
+    "template_id": "forcesword_2h_p1_m2",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Deimos Mk IV Blaze Force Sword",
+    "template_id": "forcesword_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Illisi Mk V Blaze Force Sword",
+    "template_id": "forcesword_p1_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Obscurus Mk II Blaze Force Sword",
+    "template_id": "forcesword_p1_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Kantrael Mk VII Infantry Lasgun",
+    "template_id": "lasgun_p1_m1",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Kantrael Mk IIb Infantry Lasgun",
+    "template_id": "lasgun_p1_m2",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Kantrael Mk IX Infantry Lasgun",
+    "template_id": "lasgun_p1_m3",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Lucius Mk IV Helbore Lasgun",
+    "template_id": "lasgun_p2_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Lucius MK V Helbore Lasgun",
+    "template_id": "lasgun_p2_m2",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Lucius MK IIIa Helbore Lasgun",
+    "template_id": "lasgun_p2_m3",
+    "source": "last_remaining"
+  },
+  {
+    "gl_name": "Accatran Mk VIc Recon Lasgun",
+    "template_id": "lasgun_p3_m1",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Accatran Mk XII Recon Lasgun",
+    "template_id": "lasgun_p3_m2",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Accatran Mk XIV Recon Lasgun",
+    "template_id": "lasgun_p3_m3",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Accatran MG Mk II Heavy Laspistol",
+    "template_id": "laspistol_p1_m1",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Kantrael Mk X Heavy Laspistol",
+    "template_id": "laspistol_p1_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Branx MKII Needle Pistol",
+    "template_id": "needlepistol_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Branx MkVI Needle Pistol",
+    "template_id": "needlepistol_p1_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Brute-Brainer Mk III Latrine Shovel",
+    "template_id": "ogryn_club_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Brute-Brainer Mk V Latrine Shovel",
+    "template_id": "ogryn_club_p1_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Brute-Brainer Mk XIX Latrine Shovel",
+    "template_id": "ogryn_club_p1_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "\"Brunt Special\" Mk I Bully Club",
+    "template_id": "ogryn_club_p2_m1",
+    "source": "manual"
+  },
+  {
+    "gl_name": "\"Brunt's Pride\" Mk II Bully Club",
+    "template_id": "ogryn_club_p2_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "\"Brunt's Basher\" Mk IIIb Bully Club",
+    "template_id": "ogryn_club_p2_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Bull Butcher Mk III Cleaver",
+    "template_id": "ogryn_combatblade_p1_m1",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Krourk Mk IV Cleaver",
+    "template_id": "ogryn_combatblade_p1_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Krourk Mk VI Cleaver",
+    "template_id": "ogryn_combatblade_p1_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Blastoom Mk III Grenadier Gauntlet",
+    "template_id": "ogryn_gauntlet_p1_m1",
+    "source": "singleton_family"
+  },
+  {
+    "gl_name": "Achlys Mk II Heavy Stubber",
+    "template_id": "ogryn_heavystubber_p1_m1",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Gorgonum Mk IIIa Heavy Stubber",
+    "template_id": "ogryn_heavystubber_p1_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Krourk Mk IIa Heavy Stubber",
+    "template_id": "ogryn_heavystubber_p1_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Gorgonum Mk IV Twin-Linked Heavy Stubber",
+    "template_id": "ogryn_heavystubber_p2_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Achlys Mk VII Twin-Linked Heavy Stubber",
+    "template_id": "ogryn_heavystubber_p2_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Krourk Mk V Twin-Linked Heavy Stubber",
+    "template_id": "ogryn_heavystubber_p2_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Branx Mk Ia Delver's Pickaxe",
+    "template_id": "ogryn_pickaxe_2h_p1_m1",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Borovian Mk III Delver's Pickaxe",
+    "template_id": "ogryn_pickaxe_2h_p1_m2",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Karsolas Mk II Delver's Pickaxe",
+    "template_id": "ogryn_pickaxe_2h_p1_m3",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Achlys Mk I Power Maul",
+    "template_id": "ogryn_powermaul_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Orox Mk II & Mk III Battle Maul & Slab Shield",
+    "template_id": "ogryn_powermaul_slabshield_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Foe-Rend Mk II Ripper Gun",
+    "template_id": "ogryn_rippergun_p1_m1",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Foe-Rend Mk VI Ripper Gun",
+    "template_id": "ogryn_rippergun_p1_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Foe-Rend Mk V Ripper Gun",
+    "template_id": "ogryn_rippergun_p1_m3",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Lorenz Mk V Kickback",
+    "template_id": "ogryn_thumper_p1_m1",
+    "source": "last_remaining"
+  },
+  {
+    "gl_name": "Lorenz Mk VI Rumbler",
+    "template_id": "ogryn_thumper_p1_m2",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "M35 Magnacore Mk II Plasma Gun",
+    "template_id": "plasmagun_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Indignatus Mk IVe Crusher",
+    "template_id": "powermaul_2h_p1_m1",
+    "source": "singleton_family"
+  },
+  {
+    "gl_name": "Agni Mk Ia Shock Maul",
+    "template_id": "powermaul_p1_m1",
+    "source": "last_remaining"
+  },
+  {
+    "gl_name": "Munitorum Mk III Shock Maul",
+    "template_id": "powermaul_p1_m2",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Branx Mk III Arbites Shock Maul",
+    "template_id": "powermaul_p2_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Branx Mk VI Shock Maul and Suppression Shield",
+    "template_id": "powermaul_shield_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Branx Mk XI Shock Maul and Suppression Shield",
+    "template_id": "powermaul_shield_p1_m2",
+    "source": "last_remaining"
+  },
+  {
+    "gl_name": "Munitorum Mk II Relic Blade",
+    "template_id": "powersword_2h_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Munitorum Mk X Relic Blade",
+    "template_id": "powersword_2h_p1_m2",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Scandar Mk III Power Sword",
+    "template_id": "powersword_p1_m1",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Achlys Mk VI Power Sword",
+    "template_id": "powersword_p1_m2",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Lawbringer Mk IIb Power Falchion",
+    "template_id": "powersword_p2_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Aridin Mk I Power Falchion",
+    "template_id": "powersword_p2_m2",
+    "source": "last_remaining"
+  },
+  {
+    "gl_name": "Chirurgeon's Mk IV Bone Saw",
+    "template_id": "saw_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Zarona Mk VI Combat Shotgun",
+    "template_id": "shotgun_p1_m1",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Agripinaa Mk VII Combat Shotgun",
+    "template_id": "shotgun_p1_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Accatran Mk IX Combat Shotgun",
+    "template_id": "shotgun_p1_m3",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Crucis Mk XI Double-Barrelled Shotgun",
+    "template_id": "shotgun_p2_m1",
+    "source": "rename_revert_mod"
+  },
+  {
+    "gl_name": "Exaction Mk III Exterminator Shotgun",
+    "template_id": "shotgun_p4_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Exaction Mk VIII Exterminator Shotgun",
+    "template_id": "shotgun_p4_m2",
+    "source": "last_remaining"
+  },
+  {
+    "gl_name": "Judgement Mk IV Subductor Shotpistol and Riot Shield",
+    "template_id": "shotpistol_shield_p1_m1",
+    "source": "existing_alias"
+  },
+  {
+    "gl_name": "Agripinaa Mk XIV Quickdraw Stub Revolver",
+    "template_id": "stubrevolver_p1_m1",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Zarona Mk IIa Quickdraw Stub Revolver",
+    "template_id": "stubrevolver_p1_m2",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Crucis Mk II Thunder Hammer",
+    "template_id": "thunderhammer_2h_p1_m1",
+    "source": "manual"
+  },
+  {
+    "gl_name": "Ironhelm Mk IV Thunder Hammer",
+    "template_id": "thunderhammer_2h_p1_m2",
+    "source": "manual"
+  }
+]
