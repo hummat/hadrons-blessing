@@ -86,6 +86,17 @@ function postProcessTalentNodes(nodes) {
   });
 }
 
+function validateRawScrape(raw) {
+  const problems = [];
+  if (!raw.title) problems.push("title not found");
+  if (!raw.class) problems.push("class not detected");
+  if (raw.weapons.length === 0) problems.push("no weapons extracted");
+  if (raw.talents.active.length === 0 && raw.talents.inactive.length === 0) {
+    problems.push("no talents extracted");
+  }
+  return problems;
+}
+
 async function extractBuild(url) {
   const browser = await chromium.launch({ headless: true });
   try {
@@ -473,4 +484,4 @@ if (import.meta.main) {
   await main();
 }
 
-export { extractBuild, frameTier, main, postProcessTalentNodes, slugToName };
+export { extractBuild, frameTier, main, postProcessTalentNodes, slugToName, validateRawScrape };
