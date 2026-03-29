@@ -122,6 +122,12 @@ async function extractBuild(url) {
     }
 
     return await page.evaluate(() => {
+      // --- Early page validation ---
+      const bodyText = document.body?.innerText?.trim() ?? "";
+      if (/^404\b/i.test(bodyText) || bodyText.length < 50) {
+        return { error: "page_not_found", bodyPreview: bodyText.slice(0, 200) };
+      }
+
       const result = {
         url: window.location.href,
         title: "",
@@ -449,6 +455,14 @@ async function main(argv = process.argv.slice(2)) {
 
   console.error("Extracting build from:", url);
   const rawBuild = await extractBuild(url);
+
+  if (rawBuild.error === "page_not_found") {
+    console.error(
+      "Error: Build page not found — the build may have been deleted from GamesLantern."
+    );
+    console.error(`Page content: ${rawBuild.bodyPreview}`);
+    process.exit(1);
+  }
 
   rawBuild.talents.active = postProcessTalentNodes(rawBuild.talents.active);
   rawBuild.talents.inactive = postProcessTalentNodes(rawBuild.talents.inactive);
