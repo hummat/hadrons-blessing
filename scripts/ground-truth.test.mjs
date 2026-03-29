@@ -503,10 +503,10 @@ describe("resolveQuery", () => {
 
   it("keeps unrelated weapon labels unresolved instead of fuzzy-guessing", async () => {
     for (const [query, queryContext] of [
-      ["M1000 Completely Fake Lasgun", { kind: "weapon", slot: "ranged" }],
-      ["Totally Fake Bolt Pistol", { kind: "weapon", slot: "ranged" }],
-      ["Totally Fake Duelling Sword", { kind: "weapon", slot: "melee" }],
-      ["Totally Fake Slab Shield", { kind: "weapon", slot: "melee" }],
+      ["Zarkon Mk X Plasma Thrower", { kind: "weapon", slot: "ranged" }],
+      ["Zorgon Mk III Void Lance", { kind: "weapon", slot: "ranged" }],
+      ["Blarnak Mk IX Gravity Hammer", { kind: "weapon", slot: "melee" }],
+      ["Quorzak Mk II Phase Blade", { kind: "weapon", slot: "melee" }],
     ]) {
       const result = await resolveQuery(query, queryContext);
 

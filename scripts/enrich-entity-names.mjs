@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { normalizeText } from "./ground-truth/lib/normalize.mjs";
@@ -158,6 +158,75 @@ function enrichNameFamilies(entities) {
   return count;
 }
 
+const TITLE_CASE_ARTICLES = new Set([
+  "a", "an", "and", "at", "but", "by", "for", "in", "of", "on", "or", "the", "to", "vs",
+]);
+
+function titleCaseSlug(slug) {
+  return slug
+    .split("_")
+    .map((word, i) => {
+      if (i !== 0 && TITLE_CASE_ARTICLES.has(word)) return word;
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
+}
+
+function enrichBlessingNamesFromSlugs(entities, glBlessings) {
+  const glNames = new Set(glBlessings.map((b) => b.display_name.toLowerCase()));
+  let count = 0;
+  for (const entity of entities) {
+    if (entity.kind !== "name_family") continue;
+    if (entity.ui_name != null) continue;
+    if (!entity.id.startsWith(NAME_FAMILY_PREFIX)) continue;
+    const slug = entity.id.slice(NAME_FAMILY_PREFIX.length);
+    const candidate = titleCaseSlug(slug);
+    if (!glNames.has(candidate.toLowerCase())) continue;
+    entity.ui_name = candidate;
+    count++;
+  }
+  return count;
+}
+
+function enrichWeaponNames(entities, mapping) {
+  const nameByTemplateId = new Map(mapping.map((m) => [m.template_id, m.gl_name]));
+  let count = 0;
+  for (const entity of entities) {
+    if (entity.kind !== "weapon") continue;
+    if (entity.ui_name != null) continue;
+    const displayName = nameByTemplateId.get(entity.internal_name);
+    if (!displayName) continue;
+    entity.ui_name = displayName;
+    count++;
+  }
+  return count;
+}
+
+function generateWeaponAliases(mapping, entities) {
+  const entityByInternalName = new Map(entities.map((e) => [e.internal_name, e]));
+  const aliases = [];
+  for (const entry of mapping) {
+    const entity = entityByInternalName.get(entry.template_id);
+    if (!entity) continue;
+    aliases.push({
+      text: entry.gl_name,
+      normalized_text: normalizeText(entry.gl_name),
+      candidate_entity_id: entity.id,
+      alias_kind: "gameslantern_name",
+      match_mode: "fuzzy_allowed",
+      provenance: "gl-catalog",
+      confidence: "high",
+      context_constraints: {
+        require_all: [{ key: "slot", value: entity.attributes.slot }],
+        prefer: [],
+      },
+      rank_weight: 120,
+      notes: "",
+    });
+  }
+  return aliases;
+}
+
 function mergeAliases(existingAliases, newAliases) {
   const existingByEntity = new Map();
   for (let i = 0; i < existingAliases.length; i++) {
@@ -197,15 +266,39 @@ function main() {
   const perkAliases = generatePerkAliases(weaponEntities);
   const gadgetCount = enrichGadgetTraits(weaponEntities);
   const blessingCount = enrichNameFamilies(nameEntities);
-  const { merged, added, updated } = mergeAliases(existingAliases, perkAliases);
+  let slugBlessingCount = 0;
+  const glCatalogPath = resolve(__dirname, "..", "data", "ground-truth", "generated", "gl-catalog.json");
+  if (existsSync(glCatalogPath)) {
+    const catalog = JSON.parse(readFileSync(glCatalogPath, "utf8"));
+    slugBlessingCount = enrichBlessingNamesFromSlugs(nameEntities, catalog.blessings);
+  } else {
+    console.warn("Warning: gl-catalog.json not found, skipping slug-based blessing enrichment");
+  }
+  let allNewAliases = [...perkAliases];
+
+  const weaponMappingPath = resolve(__dirname, "..", "data", "ground-truth", "weapon-name-mapping.json");
+  if (existsSync(weaponMappingPath)) {
+    const weaponMapping = JSON.parse(readFileSync(weaponMappingPath, "utf8"));
+    const weaponCount = enrichWeaponNames(weaponEntities, weaponMapping);
+    const weaponAliases = generateWeaponAliases(weaponMapping, weaponEntities);
+    allNewAliases = [...allNewAliases, ...weaponAliases];
+    console.log(`Weapon ui_names: ${weaponCount} set`);
+    console.log(`Weapon aliases: ${weaponAliases.length} generated`);
+  } else {
+    console.warn("Warning: weapon-name-mapping.json not found, skipping weapon enrichment");
+  }
+
+  const { merged, added, updated } = mergeAliases(existingAliases, allNewAliases);
 
   writeFileSync(weaponsPath, JSON.stringify(weaponEntities, null, 2) + "\n");
   writeFileSync(namesPath, JSON.stringify(nameEntities, null, 2) + "\n");
   writeFileSync(aliasesPath, JSON.stringify(merged, null, 2) + "\n");
 
-  console.log(`Perk aliases: ${added} added, ${updated} updated (${perkAliases.length} total)`);
+  console.log(`Aliases merged: ${added} added, ${updated} updated (${allNewAliases.length} total)`);
+  console.log(`  - perk aliases: ${perkAliases.length}`);
   console.log(`Gadget traits: ${gadgetCount} ui_name set`);
-  console.log(`Name families: ${blessingCount} ui_name set`);
+  console.log(`Name families: ${blessingCount} ui_name set (hardcoded)`);
+  console.log(`Name families: ${slugBlessingCount} ui_name set (from GL slugs)`);
 }
 
 const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
@@ -222,5 +315,8 @@ export {
   generatePerkAliases,
   enrichGadgetTraits,
   enrichNameFamilies,
+  enrichBlessingNamesFromSlugs,
+  enrichWeaponNames,
+  generateWeaponAliases,
   mergeAliases,
 };

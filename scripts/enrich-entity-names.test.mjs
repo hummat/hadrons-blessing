@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -11,7 +11,10 @@ import {
   generatePerkAliases,
   enrichGadgetTraits,
   enrichNameFamilies,
+  enrichBlessingNamesFromSlugs,
   mergeAliases,
+  enrichWeaponNames,
+  generateWeaponAliases,
 } from "./enrich-entity-names.mjs";
 
 describe("MELEE_PERK_NAMES", () => {
@@ -284,6 +287,204 @@ describe("mergeAliases", () => {
   });
 });
 
+describe("enrichWeaponNames", () => {
+  const mapping = [
+    { gl_name: "Catachan Mk I Combat Blade", template_id: "combatknife_p1_m1", source: "manual" },
+    { gl_name: "Rashad Mk X Combat Axe", template_id: "combataxe_p1_m1", source: "manual" },
+  ];
+
+  it("sets ui_name on matching weapon entity", () => {
+    const entities = [
+      {
+        id: "shared.weapon.combatknife_p1_m1",
+        kind: "weapon",
+        internal_name: "combatknife_p1_m1",
+        ui_name: null,
+        attributes: { slot: "melee" },
+      },
+    ];
+    const count = enrichWeaponNames(entities, mapping);
+    assert.equal(count, 1);
+    assert.equal(entities[0].ui_name, "Catachan Mk I Combat Blade");
+  });
+
+  it("preserves existing ui_name", () => {
+    const entities = [
+      {
+        id: "shared.weapon.combatknife_p1_m1",
+        kind: "weapon",
+        internal_name: "combatknife_p1_m1",
+        ui_name: "Already Set",
+        attributes: { slot: "melee" },
+      },
+    ];
+    const count = enrichWeaponNames(entities, mapping);
+    assert.equal(count, 0);
+    assert.equal(entities[0].ui_name, "Already Set");
+  });
+
+  it("skips non-weapon entities", () => {
+    const entities = [
+      {
+        id: "shared.weapon_perk.melee.weapon_trait_increase_crit_chance",
+        kind: "weapon_perk",
+        internal_name: "combatknife_p1_m1",
+        ui_name: null,
+        attributes: { slot: "melee" },
+      },
+    ];
+    const count = enrichWeaponNames(entities, mapping);
+    assert.equal(count, 0);
+    assert.equal(entities[0].ui_name, null);
+  });
+
+  it("returns count of updated entities", () => {
+    const entities = [
+      {
+        id: "shared.weapon.combatknife_p1_m1",
+        kind: "weapon",
+        internal_name: "combatknife_p1_m1",
+        ui_name: null,
+        attributes: { slot: "melee" },
+      },
+      {
+        id: "shared.weapon.combataxe_p1_m1",
+        kind: "weapon",
+        internal_name: "combataxe_p1_m1",
+        ui_name: null,
+        attributes: { slot: "melee" },
+      },
+      {
+        id: "shared.weapon.unknown_weapon",
+        kind: "weapon",
+        internal_name: "unknown_weapon",
+        ui_name: null,
+        attributes: { slot: "melee" },
+      },
+    ];
+    const count = enrichWeaponNames(entities, mapping);
+    assert.equal(count, 2);
+  });
+});
+
+describe("generateWeaponAliases", () => {
+  const meleeEntity = {
+    id: "shared.weapon.combatknife_p1_m1",
+    kind: "weapon",
+    internal_name: "combatknife_p1_m1",
+    ui_name: "Catachan Mk I Combat Blade",
+    attributes: { slot: "melee" },
+  };
+  const rangedEntity = {
+    id: "shared.weapon.autogun_p1_m1",
+    kind: "weapon",
+    internal_name: "autogun_p1_m1",
+    ui_name: "Agripinaa Mk I Infantry Autogun",
+    attributes: { slot: "ranged" },
+  };
+  const mapping = [
+    { gl_name: "Catachan Mk I Combat Blade", template_id: "combatknife_p1_m1", source: "manual" },
+    { gl_name: "Agripinaa Mk I Infantry Autogun", template_id: "autogun_p1_m1", source: "manual" },
+    { gl_name: "Orphaned Entry", template_id: "nonexistent_weapon", source: "manual" },
+  ];
+  const entities = [meleeEntity, rangedEntity];
+
+  it("generates alias with correct shape (gameslantern_name alias_kind, gl-catalog provenance, rank_weight 120)", () => {
+    const aliases = generateWeaponAliases(mapping, entities);
+    const alias = aliases.find((a) => a.candidate_entity_id === "shared.weapon.combatknife_p1_m1");
+    assert.ok(alias, "alias for combatknife_p1_m1 not found");
+    assert.equal(alias.text, "Catachan Mk I Combat Blade");
+    assert.equal(alias.normalized_text, "catachan mk i combat blade");
+    assert.equal(alias.alias_kind, "gameslantern_name");
+    assert.equal(alias.match_mode, "fuzzy_allowed");
+    assert.equal(alias.provenance, "gl-catalog");
+    assert.equal(alias.confidence, "high");
+    assert.equal(alias.rank_weight, 120);
+    assert.equal(alias.notes, "");
+  });
+
+  it("uses melee slot constraint for melee weapons", () => {
+    const aliases = generateWeaponAliases(mapping, entities);
+    const alias = aliases.find((a) => a.candidate_entity_id === "shared.weapon.combatknife_p1_m1");
+    assert.deepEqual(alias.context_constraints, {
+      require_all: [{ key: "slot", value: "melee" }],
+      prefer: [],
+    });
+  });
+
+  it("uses ranged slot constraint for ranged weapons", () => {
+    const aliases = generateWeaponAliases(mapping, entities);
+    const alias = aliases.find((a) => a.candidate_entity_id === "shared.weapon.autogun_p1_m1");
+    assert.deepEqual(alias.context_constraints, {
+      require_all: [{ key: "slot", value: "ranged" }],
+      prefer: [],
+    });
+  });
+
+  it("skips mapping entries with no matching entity", () => {
+    const aliases = generateWeaponAliases(mapping, entities);
+    const orphaned = aliases.find((a) => a.text === "Orphaned Entry");
+    assert.equal(orphaned, undefined);
+    assert.equal(aliases.length, 2);
+  });
+});
+
+describe("enrichBlessingNamesFromSlugs", () => {
+  it("title-cases community-named slug as ui_name when matched in GL", () => {
+    const entities = [
+      { id: "shared.name_family.blessing.bloodthirsty", kind: "name_family", ui_name: null },
+      { id: "shared.name_family.blessing.blaze_away", kind: "name_family", ui_name: null },
+      { id: "shared.name_family.blessing.brutal_momentum", kind: "name_family", ui_name: null },
+    ];
+    const glBlessings = [
+      { display_name: "Bloodthirsty", effect: "...", weapon_types: [] },
+      { display_name: "Blaze Away", effect: "...", weapon_types: [] },
+      { display_name: "Brutal Momentum", effect: "...", weapon_types: [] },
+    ];
+    const count = enrichBlessingNamesFromSlugs(entities, glBlessings);
+    assert.equal(count, 3);
+    assert.equal(entities[0].ui_name, "Bloodthirsty");
+    assert.equal(entities[1].ui_name, "Blaze Away");
+    assert.equal(entities[2].ui_name, "Brutal Momentum");
+  });
+
+  it("does not set ui_name for concept slugs with no GL match", () => {
+    const entities = [
+      { id: "shared.name_family.blessing.consecutive_hits_increases_close_damage", kind: "name_family", ui_name: null },
+    ];
+    const glBlessings = [
+      { display_name: "Bloodthirsty", effect: "...", weapon_types: [] },
+    ];
+    const count = enrichBlessingNamesFromSlugs(entities, glBlessings);
+    assert.equal(count, 0);
+    assert.equal(entities[0].ui_name, null);
+  });
+
+  it("preserves existing ui_name", () => {
+    const entities = [
+      { id: "shared.name_family.blessing.bloodthirsty", kind: "name_family", ui_name: "Already Set" },
+    ];
+    const glBlessings = [
+      { display_name: "Bloodthirsty", effect: "...", weapon_types: [] },
+    ];
+    const count = enrichBlessingNamesFromSlugs(entities, glBlessings);
+    assert.equal(count, 0);
+    assert.equal(entities[0].ui_name, "Already Set");
+  });
+
+  it("handles multi-word slugs with articles correctly", () => {
+    const entities = [
+      { id: "shared.name_family.blessing.all_or_nothing", kind: "name_family", ui_name: null },
+    ];
+    const glBlessings = [
+      { display_name: "All or Nothing", effect: "...", weapon_types: [] },
+    ];
+    const count = enrichBlessingNamesFromSlugs(entities, glBlessings);
+    assert.equal(count, 1);
+    assert.equal(entities[0].ui_name, "All or Nothing");
+  });
+});
+
 const __test_dirname = dirname(fileURLToPath(import.meta.url));
 
 describe("integration: real data coverage", () => {
@@ -324,5 +525,19 @@ describe("integration: real data coverage", () => {
     }
     const count = enrichNameFamilies(copy);
     assert.equal(count, 9, `Expected 9 name families enriched, got ${count}`);
+  });
+
+  it("enrichBlessingNamesFromSlugs enriches 40+ name_families from real GL data", () => {
+    const catalogPath = resolve(__test_dirname, "..", "data", "ground-truth", "generated", "gl-catalog.json");
+    if (!existsSync(catalogPath)) {
+      return;
+    }
+    const catalog = JSON.parse(readFileSync(catalogPath, "utf8"));
+    const copy = JSON.parse(JSON.stringify(nameEntities));
+    for (const e of copy) {
+      if (e.kind === "name_family") e.ui_name = null;
+    }
+    const count = enrichBlessingNamesFromSlugs(copy, catalog.blessings);
+    assert.ok(count >= 40, `Expected at least 40 slug-enriched name families, got ${count}`);
   });
 });
