@@ -551,6 +551,16 @@ async function main(argv = process.argv.slice(2)) {
     return;
   }
 
+  const diagnostics = rawBuild._diagnostics;
+  delete rawBuild._diagnostics;
+
+  if (diagnostics?.sectionStrategy === "fallback") {
+    console.error("Warning: primary section heading selector missed — used fallback");
+  }
+  if (diagnostics?.weaponCardStrategy === "fallback") {
+    console.error("Warning: primary weapon card selector missed — used fallback");
+  }
+
   rawBuild.talents.active = postProcessTalentNodes(rawBuild.talents.active);
   rawBuild.talents.inactive = postProcessTalentNodes(rawBuild.talents.inactive);
 
@@ -567,9 +577,21 @@ async function main(argv = process.argv.slice(2)) {
       : null;
   }
 
+  const problems = validateRawScrape(rawBuild);
+  for (const problem of problems) {
+    console.error(`Warning: ${problem}`);
+  }
+
   if (format === "raw-json") {
     console.log(JSON.stringify(rawBuild, null, 2));
     return;
+  }
+
+  if (rawBuild.weapons.length === 0) {
+    console.error(
+      "Error: no weapons extracted — cannot canonicalize. Try --diagnose for page structure."
+    );
+    process.exit(1);
   }
 
   const build = await canonicalizeScrapedBuild(rawBuild);
