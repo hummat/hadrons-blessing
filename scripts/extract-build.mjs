@@ -7,6 +7,7 @@
 //   node scripts/extract-build.mjs <url> --json         # canonical build JSON
 //   node scripts/extract-build.mjs <url> --raw-json     # scrape-shaped JSON before canonicalization
 //   node scripts/extract-build.mjs <url> --markdown     # canonical markdown summary (default)
+//   node scripts/extract-build.mjs <url> --diagnose     # dump page structure for debugging
 //
 // Finding builds:
 //   The main /builds page only shows the top 20 ranked builds (all classes).
@@ -25,7 +26,7 @@ import { chromium } from "playwright";
 import { canonicalizeScrapedBuild } from "./ground-truth/lib/build-canonicalize.mjs";
 import { extractDescriptionSelections } from "./ground-truth/lib/build-classification.mjs";
 
-const USAGE = `Usage: node scripts/extract-build.mjs <gameslantern-build-url> [--json|--raw-json|--markdown]`;
+const USAGE = `Usage: node scripts/extract-build.mjs <gameslantern-build-url> [--json|--raw-json|--markdown|--diagnose]`;
 
 // Slug → display name: "scriers-gaze" → "Scrier's Gaze"
 function slugToName(slug) {
@@ -504,11 +505,13 @@ function formatMarkdown(build) {
 
 async function main(argv = process.argv.slice(2)) {
   const url = argv.find((arg) => !arg.startsWith("--"));
-  const format = argv.includes("--raw-json")
-    ? "raw-json"
-    : argv.includes("--json")
-      ? "json"
-      : "markdown";
+  const format = argv.includes("--diagnose")
+    ? "diagnose"
+    : argv.includes("--raw-json")
+      ? "raw-json"
+      : argv.includes("--json")
+        ? "json"
+        : "markdown";
 
   if (!url || !url.includes("gameslantern.com/builds/")) {
     console.error(USAGE);
@@ -519,11 +522,33 @@ async function main(argv = process.argv.slice(2)) {
   const rawBuild = await extractBuild(url);
 
   if (rawBuild.error === "page_not_found") {
+    if (format === "diagnose") {
+      console.log(JSON.stringify({
+        url,
+        status: "not_found",
+        bodyPreview: rawBuild.bodyPreview,
+      }, null, 2));
+      return;
+    }
     console.error(
       "Error: Build page not found — the build may have been deleted from GamesLantern."
     );
     console.error(`Page content: ${rawBuild.bodyPreview}`);
     process.exit(1);
+  }
+
+  if (format === "diagnose") {
+    console.log(JSON.stringify({
+      url: rawBuild.url,
+      status: "loaded",
+      title: rawBuild.title || "(empty)",
+      class: rawBuild.class || "(empty)",
+      weaponCount: rawBuild.weapons.length,
+      curioCount: rawBuild.curios.length,
+      talentCount: rawBuild.talents.active.length + rawBuild.talents.inactive.length,
+      ...rawBuild._diagnostics,
+    }, null, 2));
+    return;
   }
 
   rawBuild.talents.active = postProcessTalentNodes(rawBuild.talents.active);
