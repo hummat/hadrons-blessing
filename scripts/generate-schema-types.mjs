@@ -43,14 +43,52 @@ const ENTITY_KIND_FILES = [
   "weapon.schema.json",
 ];
 
+async function compileSchema(schema, name, opts, file) {
+  try {
+    return await compile(schema, name, opts);
+  } catch (err) {
+    throw new Error(`Failed to compile ${file}: ${err.message}`, { cause: err });
+  }
+}
+
+/**
+ * Deduplicate export type/interface declarations in a combined TypeScript string.
+ *
+ * Strategy: split the output on `export (type|interface) Name` boundaries,
+ * then for each named block keep only the first occurrence.
+ *
+ * This avoids the fragile brace-counting state machine which silently truncates
+ * multi-line union types with inline object members.
+ */
+function deduplicateDeclarations(source) {
+  // Split at every `export type` / `export interface` declaration start.
+  // The regex uses a lookahead so the delimiter is kept at the start of each chunk.
+  const chunks = source.split(/(?=^export (?:type|interface) \w+)/m);
+
+  const seen = new Set();
+  const kept = [];
+
+  for (const chunk of chunks) {
+    const match = chunk.match(/^export (?:type|interface) (\w+)/);
+    if (match) {
+      const name = match[1];
+      if (seen.has(name)) continue;
+      seen.add(name);
+    }
+    kept.push(chunk);
+  }
+
+  return kept.join("");
+}
+
 async function generateTypes() {
   mkdirSync(OUTPUT_DIR, { recursive: true });
 
-  const parts = [
+  const header = [
     "// Auto-generated from data/ground-truth/schemas/ — do not edit manually.",
     "// Regenerate with: npm run build:types",
     "",
-  ];
+  ].join("\n");
 
   const compileOpts = {
     additionalProperties: false,
@@ -59,65 +97,37 @@ async function generateTypes() {
     cwd: SCHEMAS_DIR,
   };
 
+  const parts = [];
+
   for (const file of SCHEMA_FILES) {
     const schema = JSON.parse(readFileSync(join(SCHEMAS_DIR, file), "utf8"));
-    const ts = await compile(schema, schema.$id || basename(file, ".schema.json"), compileOpts);
+    const ts = await compileSchema(
+      schema,
+      schema.$id || basename(file, ".schema.json"),
+      compileOpts,
+      file,
+    );
     parts.push(ts);
   }
 
   for (const file of ENTITY_KIND_FILES) {
     const schema = JSON.parse(readFileSync(join(ENTITY_KINDS_DIR, file), "utf8"));
-    const ts = await compile(schema, schema.$id || basename(file, ".schema.json"), {
-      ...compileOpts,
-      cwd: ENTITY_KINDS_DIR,
-    });
+    const ts = await compileSchema(
+      schema,
+      schema.$id || basename(file, ".schema.json"),
+      { ...compileOpts, cwd: ENTITY_KINDS_DIR },
+      file,
+    );
     parts.push(ts);
   }
 
   // Deduplicate type declarations that appear multiple times due to $ref resolution.
   // json-schema-to-typescript re-emits referenced types inline when compiling
   // schemas one-at-a-time, so we strip duplicates by tracking seen type names.
-  const seen = new Set();
-  const deduped = [];
-  for (const part of parts) {
-    const lines = part.split("\n");
-    const filtered = [];
-    let skipBlock = false;
-    let braceDepth = 0;
-    for (const line of lines) {
-      const typeMatch = line.match(
-        /^export (?:type|interface)\s+(\w+)/,
-      );
-      if (typeMatch && !skipBlock) {
-        const name = typeMatch[1];
-        if (seen.has(name)) {
-          skipBlock = true;
-          braceDepth = 0;
-        } else {
-          seen.add(name);
-        }
-      }
-      if (skipBlock) {
-        // Count braces to find end of type/interface block
-        for (const ch of line) {
-          if (ch === "{") braceDepth++;
-          if (ch === "}") braceDepth--;
-        }
-        // For type aliases (no braces), the declaration ends at semicolon
-        if (
-          braceDepth <= 0 &&
-          (line.endsWith(";") || line.endsWith("}"))
-        ) {
-          skipBlock = false;
-        }
-        continue;
-      }
-      filtered.push(line);
-    }
-    deduped.push(filtered.join("\n"));
-  }
+  const combined = header + parts.join("\n");
+  const output = deduplicateDeclarations(combined);
 
-  writeFileSync(OUTPUT_FILE, deduped.join("\n"));
+  writeFileSync(OUTPUT_FILE, output);
   console.log(`Generated ${OUTPUT_FILE}`);
 }
 
