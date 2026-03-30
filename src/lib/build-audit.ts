@@ -1,19 +1,82 @@
-// @ts-nocheck
 import { basename } from "node:path";
 import { buildIndex } from "./ground-truth-index.js";
+import type { GroundTruthIndex } from "./ground-truth-index.js";
 import { assertValidCanonicalBuild } from "./build-shape.js";
 import { classifyKnownUnresolved } from "./non-canonical.js";
 import { resolveQuery } from "./resolve.js";
+import type { ResolveResult } from "./resolve.js";
+import type { KnownUnresolvedSchemaJson } from "../generated/schema-types.js";
 
-function isCanonicalBuild(build) {
-  return Number.isInteger(build?.schema_version)
-    && build.schema_version >= 1
-    && build?.provenance != null
-    && Array.isArray(build?.weapons)
-    && Array.isArray(build?.curios);
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+interface AuditEntry {
+  field: string;
+  text: string;
+  resolution_state: string;
+  resolved_entity_id: string | null;
+  proposed_entity_id: string | null;
+  match_type: string | null;
+  confidence: string | null;
+  warnings: string[];
+  non_canonical_kind?: string;
+  provenance?: string;
+  notes?: string;
 }
 
-function createAudit(buildPath) {
+export interface Audit {
+  build: string;
+  resolved: AuditEntry[];
+  ambiguous: AuditEntry[];
+  non_canonical: AuditEntry[];
+  unresolved: AuditEntry[];
+  warnings: string[];
+}
+
+interface Selection {
+  raw_label: string;
+  canonical_entity_id: string | null;
+  resolution_status: string;
+  [key: string]: unknown;
+}
+
+interface CanonicalBuild {
+  schema_version: number;
+  class: Selection;
+  ability?: Selection | null;
+  blitz?: Selection | null;
+  aura?: Selection | null;
+  keystone?: Selection | null;
+  talents: Selection[];
+  weapons: Array<{
+    slot: string;
+    name: Selection;
+    blessings: Selection[];
+    perks: Selection[];
+  }>;
+  curios: Array<{
+    name: Selection;
+    perks: Selection[];
+  }>;
+  provenance?: unknown;
+  [key: string]: unknown;
+}
+
+// ---------------------------------------------------------------------------
+// Core functions
+// ---------------------------------------------------------------------------
+
+function isCanonicalBuild(build: unknown): build is CanonicalBuild {
+  const b = build as Record<string, unknown>;
+  return Number.isInteger(b?.schema_version)
+    && (b.schema_version as number) >= 1
+    && b?.provenance != null
+    && Array.isArray(b?.weapons)
+    && Array.isArray(b?.curios);
+}
+
+function createAudit(buildPath: string): Audit {
   return {
     build: basename(buildPath),
     resolved: [],
@@ -24,7 +87,11 @@ function createAudit(buildPath) {
   };
 }
 
-async function resolveField(field, text, queryContext) {
+async function resolveField(
+  field: string,
+  text: string,
+  queryContext: Record<string, unknown>,
+): Promise<AuditEntry> {
   const result = await resolveQuery(text, queryContext);
 
   return {
@@ -39,7 +106,7 @@ async function resolveField(field, text, queryContext) {
   };
 }
 
-function toNonCanonicalEntry(result, record) {
+function toNonCanonicalEntry(result: AuditEntry, record: KnownUnresolvedSchemaJson): AuditEntry {
   return {
     ...result,
     non_canonical_kind: record.non_canonical_kind,
@@ -49,7 +116,7 @@ function toNonCanonicalEntry(result, record) {
   };
 }
 
-function appendAuditEntry(audit, result, queryContext) {
+function appendAuditEntry(audit: Audit, result: AuditEntry, queryContext: Record<string, unknown>): void {
   if (result.resolution_state === "resolved") {
     audit.resolved.push(result);
     return;
@@ -69,7 +136,7 @@ function appendAuditEntry(audit, result, queryContext) {
   audit.unresolved.push(result);
 }
 
-function finalizeAudit(audit) {
+function finalizeAudit(audit: Audit): Audit {
   audit.warnings = [
     ...new Set(
       [
@@ -87,7 +154,7 @@ function finalizeAudit(audit) {
   return audit;
 }
 
-function inferredWeaponFamily(selection) {
+function inferredWeaponFamily(selection: Selection | null | undefined): string | null {
   const internalName = selection?.canonical_entity_id?.split(".").pop() ?? null;
   if (internalName == null) {
     return null;
@@ -96,7 +163,7 @@ function inferredWeaponFamily(selection) {
   return internalName.replace(/_m\d+$/, "");
 }
 
-function selectionResult(field, selection, overrides = {}) {
+function selectionResult(field: string, selection: Selection, overrides: Partial<AuditEntry> = {}): AuditEntry {
   return {
     field,
     text: selection.raw_label,
@@ -110,7 +177,13 @@ function selectionResult(field, selection, overrides = {}) {
   };
 }
 
-async function auditPersistedSelection(audit, field, selection, queryContext, index) {
+async function auditPersistedSelection(
+  audit: Audit,
+  field: string,
+  selection: Selection | null | undefined,
+  queryContext: Record<string, unknown>,
+  index: GroundTruthIndex,
+): Promise<void> {
   if (selection == null) {
     return;
   }
@@ -163,7 +236,7 @@ async function auditPersistedSelection(audit, field, selection, queryContext, in
   }, queryContext);
 }
 
-async function auditCanonicalBuild(buildPath, build) {
+async function auditCanonicalBuild(buildPath: string, build: CanonicalBuild): Promise<Audit> {
   assertValidCanonicalBuild(build);
   const index = await buildIndex({ check: false });
   const audit = createAudit(buildPath);

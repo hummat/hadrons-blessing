@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { basename, join, resolve, sep } from "node:path";
@@ -20,13 +19,76 @@ import {
   validateEvidenceRecord,
   validateSourceSnapshot,
 } from "./validate.js";
+import type { ValidationResult, SourceSnapshotInfo } from "./validate.js";
+import type {
+  AliasSchemaJson,
+  EdgeSchemaJson,
+  EntityBaseSchemaJson,
+  EvidenceSchemaJson,
+} from "../generated/schema-types.js";
 
 const GENERATED_INDEX_PATH = join(GENERATED_ROOT, "index.json");
 const GENERATED_META_PATH = join(GENERATED_ROOT, "meta.json");
 
-function readShardDirectory(root) {
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+interface ShardResult<T> {
+  files: string[];
+  records: T[];
+}
+
+interface Ref {
+  path: string;
+  line: number;
+}
+
+interface RecordWithId {
+  id: string;
+  source_snapshot_id?: string;
+  refs?: Ref[];
+  [key: string]: unknown;
+}
+
+interface ShardFiles {
+  entities: string[];
+  aliases: string[];
+  edges: string[];
+  evidence: string[];
+}
+
+interface IndexMeta {
+  source_snapshot_id: string;
+  input_fingerprint: string;
+  shard_manifest: {
+    entities: string[];
+    aliases: string[];
+    edges: string[];
+    evidence: string[];
+  };
+}
+
+export interface GroundTruthIndex {
+  meta: IndexMeta;
+  entities: EntityBaseSchemaJson[];
+  aliases: AliasSchemaJson[];
+  edges: EdgeSchemaJson[];
+  evidence: EvidenceSchemaJson[];
+}
+
+interface BuildIndexOptions {
+  check?: boolean;
+  injectBadFixture?: string;
+}
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+function readShardDirectory<T>(root: string): ShardResult<T> {
   const files = listJsonFiles(root);
-  const records = [];
+  const records: T[] = [];
 
   for (const file of files) {
     const payload = loadJsonFile(file);
@@ -34,7 +96,7 @@ function readShardDirectory(root) {
       throw new Error(`Ground-truth shard must be an array: ${file}`);
     }
 
-    for (const record of payload) {
+    for (const record of payload as T[]) {
       records.push(record);
     }
   }
@@ -42,7 +104,11 @@ function readShardDirectory(root) {
   return { files, records };
 }
 
-function validateRecords(records, validateRecord, label) {
+function validateRecords<T extends { id?: string; text?: string }>(
+  records: T[],
+  validateRecord: (record: unknown) => ValidationResult,
+  label: string,
+): void {
   for (const record of records) {
     const result = validateRecord(record);
     if (!result.ok) {
@@ -53,8 +119,8 @@ function validateRecords(records, validateRecord, label) {
   }
 }
 
-function ensureUniqueIds(records, label) {
-  const seen = new Set();
+function ensureUniqueIds<T extends { id: string }>(records: T[], label: string): void {
+  const seen = new Set<string>();
 
   for (const record of records) {
     if (seen.has(record.id)) {
@@ -65,17 +131,21 @@ function ensureUniqueIds(records, label) {
   }
 }
 
-function ensureRecordSnapshotIds(records, label, sourceSnapshotId) {
+function ensureRecordSnapshotIds<T extends { id: string; source_snapshot_id?: string }>(
+  records: T[],
+  label: string,
+  sourceSnapshotId: string,
+): void {
   for (const record of records) {
-    if (record.source_snapshot_id !== sourceSnapshotId) {
+    if ((record as unknown as any).source_snapshot_id !== sourceSnapshotId) {
       throw new Error(
-        `${label} record has mismatched source snapshot id: ${record.id} -> ${record.source_snapshot_id}`,
+        `${label} record has mismatched source snapshot id: ${record.id} -> ${(record as unknown as any).source_snapshot_id}`,
       );
     }
   }
 }
 
-function ensurePathInRoot(root, path) {
+function ensurePathInRoot(root: string, path: string): string {
   const resolvedPath = resolve(root, path);
   const normalizedRoot = root.endsWith(sep) ? root : `${root}${sep}`;
 
@@ -86,7 +156,7 @@ function ensurePathInRoot(root, path) {
   return resolvedPath;
 }
 
-function resolveRefPath(path, roots) {
+function resolveRefPath(path: string, roots: string[]): string | null {
   for (const root of roots) {
     const candidate = ensurePathInRoot(root, path);
     if (existsSync(candidate)) {
@@ -97,10 +167,10 @@ function resolveRefPath(path, roots) {
   return null;
 }
 
-function ensureRefsResolve(records, label, roots) {
-  const lineCountCache = new Map();
+function ensureRefsResolve<T extends { id: string; refs: Ref[] }>(records: T[], label: string, roots: string[]): void {
+  const lineCountCache = new Map<string, number>();
 
-  function lineCountFor(path) {
+  function lineCountFor(path: string): number {
     const cached = lineCountCache.get(path);
     if (cached != null) {
       return cached;
@@ -112,7 +182,7 @@ function ensureRefsResolve(records, label, roots) {
   }
 
   for (const record of records) {
-    for (const ref of record.refs) {
+    for (const ref of record.refs ?? []) {
       const resolvedPath = resolveRefPath(ref.path, roots);
       if (resolvedPath == null) {
         throw new Error(`${label} ref path does not exist: ${record.id} -> ${ref.path}`);
@@ -128,7 +198,12 @@ function ensureRefsResolve(records, label, roots) {
   }
 }
 
-function ensureReferentialIntegrity({ entities, aliases, edges, evidence }) {
+function ensureReferentialIntegrity({ entities, aliases, edges, evidence }: {
+  entities: EntityBaseSchemaJson[];
+  aliases: AliasSchemaJson[];
+  edges: EdgeSchemaJson[];
+  evidence: EvidenceSchemaJson[];
+}): void {
   const entityIds = new Set(entities.map((record) => record.id));
   const edgeMap = new Map(edges.map((record) => [record.id, record]));
   const edgeIds = new Set(edgeMap.keys());
@@ -163,7 +238,7 @@ function ensureReferentialIntegrity({ entities, aliases, edges, evidence }) {
         );
       }
 
-      const evidenceRecord = evidenceMap.get(evidenceId);
+      const evidenceRecord = evidenceMap.get(evidenceId)!;
       if (
         evidenceRecord.subject_type !== "edge" ||
         evidenceRecord.subject_id !== edge.id
@@ -187,14 +262,14 @@ function ensureReferentialIntegrity({ entities, aliases, edges, evidence }) {
       );
     }
 
-    if (record.value_type === "entity_id" && !entityIds.has(record.value)) {
+    if (record.value_type === "entity_id" && !entityIds.has(record.value as string)) {
       throw new Error(
         `Evidence value entity does not exist: ${record.id} -> ${record.value}`,
       );
     }
 
     if (record.subject_type === "edge") {
-      const edge = edgeMap.get(record.subject_id);
+      const edge = edgeMap.get(record.subject_id)!;
       if (!edge.evidence_ids.includes(record.id)) {
         throw new Error(
           `Edge evidence is not referenced by its subject edge: ${record.id} -> ${record.subject_id}`,
@@ -204,16 +279,16 @@ function ensureReferentialIntegrity({ entities, aliases, edges, evidence }) {
   }
 }
 
-function materializeSyntheticAliases(entities) {
-  const aliases = [];
+function materializeSyntheticAliases(entities: EntityBaseSchemaJson[]): AliasSchemaJson[] {
+  const aliases: AliasSchemaJson[] = [];
 
   for (const entity of entities) {
     for (const [field, aliasKind, matchMode] of [
       ["internal_name", "internal_name", "exact_only"],
       ["loc_key", "loc_key", "exact_only"],
       ["ui_name", "ui_name", "fuzzy_allowed"],
-    ]) {
-      const value = entity[field];
+    ] as const) {
+      const value = (entity as any)[field];
       if (typeof value !== "string" || value.length === 0) {
         continue;
       }
@@ -232,14 +307,14 @@ function materializeSyntheticAliases(entities) {
         },
         rank_weight: aliasKind === "ui_name" ? 100 : 120,
         notes: "",
-      });
+      } as AliasSchemaJson);
     }
   }
 
   return aliases;
 }
 
-function normalizeAliasRecord(record) {
+function normalizeAliasRecord(record: AliasSchemaJson): AliasSchemaJson {
   const normalizedText = normalizeText(record.text);
   if (record.normalized_text !== normalizedText) {
     throw new Error(
@@ -253,8 +328,8 @@ function normalizeAliasRecord(record) {
   };
 }
 
-function detectUnsafeAliasCollisions(aliases) {
-  const buckets = new Map();
+function detectUnsafeAliasCollisions(aliases: AliasSchemaJson[]): void {
+  const buckets = new Map<string, AliasSchemaJson[]>();
 
   for (const alias of aliases) {
     if (alias.match_mode !== "fuzzy_allowed") {
@@ -282,7 +357,7 @@ function detectUnsafeAliasCollisions(aliases) {
   }
 }
 
-function injectBadFixture(index, fixtureName) {
+function injectBadFixture(index: GroundTruthIndex, fixtureName: string): void {
   if (fixtureName === "overlapping-fuzzy-collision") {
     const [firstEntity, secondEntity] = index.entities;
     if (!firstEntity || !secondEntity) {
@@ -304,7 +379,7 @@ function injectBadFixture(index, fixtureName) {
         },
         rank_weight: 50,
         notes: "",
-      },
+      } as AliasSchemaJson,
       {
         text: "Collision Alias",
         normalized_text: normalizeText("Collision Alias"),
@@ -319,7 +394,7 @@ function injectBadFixture(index, fixtureName) {
         },
         rank_weight: 50,
         notes: "",
-      },
+      } as AliasSchemaJson,
     );
     return;
   }
@@ -339,7 +414,7 @@ function injectBadFixture(index, fixtureName) {
       },
       calc: {},
       evidence_ids: [],
-    });
+    } as unknown as EdgeSchemaJson);
     return;
   }
 
@@ -355,7 +430,7 @@ function injectBadFixture(index, fixtureName) {
       refs: [],
       confidence: "low",
       source_kind: "test-fixture",
-    });
+    } as unknown as EvidenceSchemaJson);
     return;
   }
 
@@ -371,7 +446,7 @@ function injectBadFixture(index, fixtureName) {
       refs: [],
       confidence: "low",
       source_kind: "test-fixture",
-    });
+    } as unknown as EvidenceSchemaJson);
     return;
   }
 
@@ -390,22 +465,22 @@ function injectBadFixture(index, fixtureName) {
       },
       calc: {},
       evidence_ids: ["missing.evidence"],
-    });
+    } as unknown as EdgeSchemaJson);
     return;
   }
 
   if (fixtureName === "mismatched-entity-source-snapshot-id") {
-    index.entities[0].source_snapshot_id = "darktide-source.bad-fixture";
+    (index.entities[0] as any).source_snapshot_id = "darktide-source.bad-fixture";
     return;
   }
 
   if (fixtureName === "mismatched-edge-source-snapshot-id") {
-    index.edges[0].source_snapshot_id = "darktide-source.bad-fixture";
+    (index.edges[0] as any).source_snapshot_id = "darktide-source.bad-fixture";
     return;
   }
 
   if (fixtureName === "mismatched-evidence-source-snapshot-id") {
-    index.evidence[0].source_snapshot_id = "darktide-source.bad-fixture";
+    (index.evidence[0] as any).source_snapshot_id = "darktide-source.bad-fixture";
     return;
   }
 
@@ -415,8 +490,8 @@ function injectBadFixture(index, fixtureName) {
       throw new Error("Need an edge with evidence ids to inject an evidence subject mismatch");
     }
 
-    const evidenceRecord = index.evidence.find((record) => record.id === edge.evidence_ids[0]);
-    evidenceRecord.subject_id = index.edges.find((record) => record.id !== edge.id)?.id ?? edge.id;
+    const evidenceRecord = index.evidence.find((record) => record.id === edge.evidence_ids[0])!;
+    (evidenceRecord as any).subject_id = index.edges.find((record) => record.id !== edge.id)?.id ?? edge.id;
     return;
   }
 
@@ -426,18 +501,18 @@ function injectBadFixture(index, fixtureName) {
       throw new Error("Need edge-subject evidence to inject an orphaned edge evidence record");
     }
 
-    const edge = index.edges.find((record) => record.id === evidenceRecord.subject_id);
-    edge.evidence_ids = edge.evidence_ids.filter((id) => id !== evidenceRecord.id);
+    const edge = index.edges.find((record) => record.id === evidenceRecord.subject_id)!;
+    (edge as any).evidence_ids = edge.evidence_ids.filter((id: string) => id !== evidenceRecord.id);
     return;
   }
 
   if (fixtureName === "missing-entity-ref-path") {
-    const entity = index.entities.find((record) => record.refs.length > 0);
+    const entity = index.entities.find((record) => (record as any).refs!.length > 0);
     if (!entity) {
       throw new Error("Need an entity with refs to inject a missing entity ref path");
     }
 
-    entity.refs = [{ path: "scripts/missing_ground_truth_fixture.lua", line: 1 }];
+    (entity as any).refs = [{ path: "scripts/missing_ground_truth_fixture.lua", line: 1 }];
     return;
   }
 
@@ -447,17 +522,17 @@ function injectBadFixture(index, fixtureName) {
       throw new Error("Need evidence with refs to inject a missing evidence ref path");
     }
 
-    evidenceRecord.refs = [{ path: "scripts/missing_ground_truth_fixture.lua", line: 1 }];
+    (evidenceRecord as any).refs = [{ path: "scripts/missing_ground_truth_fixture.lua", line: 1 }];
     return;
   }
 
   if (fixtureName === "out-of-range-entity-ref-line") {
-    const entity = index.entities.find((record) => record.refs.length > 0);
+    const entity = index.entities.find((record) => (record as any).refs!.length > 0);
     if (!entity) {
       throw new Error("Need an entity with refs to inject an out-of-range entity ref line");
     }
 
-    entity.refs = [{ ...entity.refs[0], line: 999999 }];
+    (entity as any).refs = [{ ...(entity as any).refs![0], line: 999999 }];
     return;
   }
 
@@ -467,14 +542,17 @@ function injectBadFixture(index, fixtureName) {
       throw new Error("Need evidence with refs to inject an out-of-range evidence ref line");
     }
 
-    evidenceRecord.refs = [{ ...evidenceRecord.refs[0], line: 999999 }];
+    (evidenceRecord as any).refs = [{ ...evidenceRecord.refs[0], line: 999999 }];
     return;
   }
 
   throw new Error(`Unknown bad fixture: ${fixtureName}`);
 }
 
-function buildMeta({ shardFiles, sourceSnapshot }) {
+function buildMeta({ shardFiles, sourceSnapshot }: {
+  shardFiles: ShardFiles;
+  sourceSnapshot: SourceSnapshotInfo;
+}): IndexMeta {
   const hasher = createHash("sha256");
 
   for (const file of [
@@ -501,30 +579,30 @@ function buildMeta({ shardFiles, sourceSnapshot }) {
   };
 }
 
-async function buildIndex(options = {}) {
+async function buildIndex(options: BuildIndexOptions = {}): Promise<GroundTruthIndex> {
   const { check = false, injectBadFixture: badFixtureName } = options;
   const sourceSnapshot = validateSourceSnapshot();
 
-  const entityShards = readShardDirectory(ENTITIES_ROOT);
-  const aliasShards = readShardDirectory(ALIASES_ROOT);
-  const edgeShards = readShardDirectory(EDGES_ROOT);
-  const evidenceShards = readShardDirectory(EVIDENCE_ROOT);
+  const entityShards = readShardDirectory<EntityBaseSchemaJson>(ENTITIES_ROOT);
+  const aliasShards = readShardDirectory<AliasSchemaJson>(ALIASES_ROOT);
+  const edgeShards = readShardDirectory<EdgeSchemaJson>(EDGES_ROOT);
+  const evidenceShards = readShardDirectory<EvidenceSchemaJson>(EVIDENCE_ROOT);
 
-  validateRecords(entityShards.records, validateEntityRecord, "entity");
-  validateRecords(edgeShards.records, validateEdgeRecord, "edge");
-  validateRecords(evidenceShards.records, validateEvidenceRecord, "evidence");
+  validateRecords(entityShards.records as any, validateEntityRecord, "entity");
+  validateRecords(edgeShards.records as any, validateEdgeRecord, "edge");
+  validateRecords(evidenceShards.records as any, validateEvidenceRecord, "evidence");
 
-  const aliases = [
+  const aliases: AliasSchemaJson[] = [
     ...aliasShards.records.map(normalizeAliasRecord),
     ...materializeSyntheticAliases(entityShards.records),
   ];
-  validateRecords(aliases, validateAliasRecord, "alias");
+  validateRecords(aliases as unknown as any, validateAliasRecord, "alias");
 
-  ensureUniqueIds(entityShards.records, "entity");
-  ensureUniqueIds(edgeShards.records, "edge");
-  ensureUniqueIds(evidenceShards.records, "evidence");
+  ensureUniqueIds(entityShards.records as any, "entity");
+  ensureUniqueIds(edgeShards.records as any, "edge");
+  ensureUniqueIds(evidenceShards.records as any, "evidence");
 
-  const index = {
+  const index: GroundTruthIndex = {
     meta: buildMeta({
       shardFiles: {
         entities: entityShards.files,
@@ -544,11 +622,11 @@ async function buildIndex(options = {}) {
     injectBadFixture(index, badFixtureName);
   }
 
-  ensureRecordSnapshotIds(index.entities, "entity", sourceSnapshot.id);
-  ensureRecordSnapshotIds(index.edges, "edge", sourceSnapshot.id);
-  ensureRecordSnapshotIds(index.evidence, "evidence", sourceSnapshot.id);
-  ensureRefsResolve(index.entities, "entity", [REPO_ROOT, sourceSnapshot.source_root]);
-  ensureRefsResolve(index.evidence, "evidence", [REPO_ROOT, sourceSnapshot.source_root]);
+  ensureRecordSnapshotIds(index.entities as any, "entity", sourceSnapshot.id);
+  ensureRecordSnapshotIds(index.edges as any, "edge", sourceSnapshot.id);
+  ensureRecordSnapshotIds(index.evidence as any, "evidence", sourceSnapshot.id);
+  ensureRefsResolve(index.entities as any, "entity", [REPO_ROOT, sourceSnapshot.source_root]);
+  ensureRefsResolve(index.evidence as any, "evidence", [REPO_ROOT, sourceSnapshot.source_root]);
   ensureReferentialIntegrity(index);
   detectUnsafeAliasCollisions(index.aliases);
 

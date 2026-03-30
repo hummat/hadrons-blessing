@@ -1,13 +1,106 @@
-// @ts-nocheck
 import { loadJsonFile } from "./load.js";
 import { classifyKnownUnresolved as defaultClassifyKnownUnresolved } from "./non-canonical.js";
 import { resolveQuery as defaultResolveQuery } from "./resolve.js";
+import type { ResolveResult } from "./resolve.js";
 import { assertValidCanonicalBuild } from "./build-shape.js";
 import { classifySelectedNodes, extractDescriptionSelections } from "./build-classification.js";
 import { BUILD_CLASSIFICATION_REGISTRY, registryForClass } from "./build-classification-registry.js";
+import type { SlotClassification } from "./build-classification-registry.js";
 import { parsePerkString } from "./score-build.js";
+import type { KnownUnresolvedSchemaJson } from "../generated/schema-types.js";
 
-function inferredWeaponFamily(entityId) {
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+interface Selection {
+  raw_label: string;
+  canonical_entity_id: string | null;
+  resolution_status: string;
+  value?: PerkValue | null;
+}
+
+interface PerkValue {
+  min: number;
+  max: number;
+  unit: string;
+}
+
+interface CanonicalWeapon {
+  slot: string;
+  name: Selection;
+  perks: Selection[];
+  blessings: Selection[];
+}
+
+interface CanonicalCurio {
+  name: Selection;
+  perks: Selection[];
+}
+
+interface Provenance {
+  source_kind: string;
+  source_url: string;
+  author: string;
+  scraped_at: string;
+}
+
+interface CanonicalBuild {
+  schema_version: number;
+  title: string;
+  class: Selection;
+  provenance: Provenance;
+  ability: Selection;
+  blitz: Selection;
+  aura: Selection;
+  keystone: Selection | null;
+  talents: Selection[];
+  weapons: CanonicalWeapon[];
+  curios: CanonicalCurio[];
+}
+
+type ClassRegistry = Record<string, SlotClassification>;
+
+type ResolveQueryFn = (text: string, queryContext: unknown) => Promise<ResolveResult>;
+type ClassifyKnownUnresolvedFn = (text: string, queryContext: unknown) => KnownUnresolvedSchemaJson | null;
+
+interface CanonicalizeDeps {
+  resolveQuery?: ResolveQueryFn;
+  classifyKnownUnresolved?: ClassifyKnownUnresolvedFn;
+  value?: PerkValue | null;
+  provenance?: Partial<Provenance>;
+  scrapedAt?: string;
+  classificationRegistry?: Record<string, ClassRegistry>;
+  classifySlugRole?: ((slug: string, node: Record<string, unknown>) => SlotClassification | null) | null;
+}
+
+interface RawBuild {
+  class?: string;
+  title?: string;
+  url?: string;
+  author?: string;
+  description?: string;
+  class_selections?: Record<string, string | null>;
+  talents?: { active?: Array<{ slug?: string; name?: string; [key: string]: unknown }> };
+  weapons?: Array<{
+    name?: string;
+    perks?: string[];
+    blessings?: Array<string | { name?: string; description?: string }>;
+    [key: string]: unknown;
+  }>;
+  curios?: Array<{
+    name?: string;
+    perks?: string[];
+    [key: string]: unknown;
+  }>;
+  [key: string]: unknown;
+}
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+function inferredWeaponFamily(entityId: string | null | undefined): string | null {
   const internalName = entityId?.split(".").pop() ?? null;
   if (internalName == null) {
     return null;
@@ -16,11 +109,11 @@ function inferredWeaponFamily(entityId) {
   return internalName.replace(/_m\d+$/, "");
 }
 
-function valueUnitFromRawLabel(rawLabel) {
+function valueUnitFromRawLabel(rawLabel: string): string {
   return rawLabel.includes("%") ? "percent" : "flat";
 }
 
-function placeholderSelection(rawLabel) {
+function placeholderSelection(rawLabel: string): Selection {
   return {
     raw_label: rawLabel,
     canonical_entity_id: null,
@@ -28,7 +121,11 @@ function placeholderSelection(rawLabel) {
   };
 }
 
-async function toSelection(rawLabel, queryContext, deps = {}) {
+async function toSelection(
+  rawLabel: unknown,
+  queryContext: Record<string, unknown>,
+  deps: CanonicalizeDeps = {},
+): Promise<Selection> {
   const text = String(rawLabel ?? "").trim();
   const {
     resolveQuery = defaultResolveQuery,
@@ -69,18 +166,20 @@ async function toSelection(rawLabel, queryContext, deps = {}) {
   };
 }
 
-async function canonicalizeBlessings(rawBlessings, queryContext, deps = {}) {
-  const selections = [];
+async function canonicalizeBlessings(
+  rawBlessings: Array<string | { name?: string; [key: string]: unknown }> | undefined,
+  queryContext: Record<string, unknown>,
+  deps: CanonicalizeDeps = {},
+): Promise<Selection[]> {
+  const selections: Selection[] = [];
 
   for (const blessing of rawBlessings ?? []) {
-    const label = typeof blessing === "string" ? blessing : blessing?.name;
+    const label = typeof blessing === "string" ? blessing : (blessing as { name?: string })?.name;
     const selection = await toSelection(label, queryContext, deps);
     if (
       selection.resolution_status === "resolved"
-      && !selection.canonical_entity_id.startsWith("shared.name_family.blessing.")
+      && !selection.canonical_entity_id!.startsWith("shared.name_family.blessing.")
     ) {
-      // GL pages sometimes mix weapon perks/stat bonuses into the blessing list.
-      // Reclassify as unresolved rather than crashing — the perk is real but not a blessing.
       selection.resolution_status = "unresolved";
       selection.canonical_entity_id = null;
     }
@@ -90,12 +189,16 @@ async function canonicalizeBlessings(rawBlessings, queryContext, deps = {}) {
   return selections;
 }
 
-async function canonicalizePerks(rawPerks, queryContext, deps = {}) {
-  const selections = [];
+async function canonicalizePerks(
+  rawPerks: string[] | undefined,
+  queryContext: Record<string, unknown>,
+  deps: CanonicalizeDeps = {},
+): Promise<Selection[]> {
+  const selections: Selection[] = [];
 
   for (const perk of rawPerks ?? []) {
     const parsed = parsePerkString(perk);
-    const value = parsed == null
+    const value: PerkValue | null = parsed == null
       ? null
       : {
         min: parsed.min,
@@ -112,7 +215,11 @@ async function canonicalizePerks(rawPerks, queryContext, deps = {}) {
   return selections;
 }
 
-async function canonicalizeWeapon(rawWeapon, slot, deps = {}) {
+async function canonicalizeWeapon(
+  rawWeapon: { name?: string; perks?: string[]; blessings?: Array<string | { name?: string; description?: string }> },
+  slot: string,
+  deps: CanonicalizeDeps = {},
+): Promise<CanonicalWeapon> {
   const nameSelection = await toSelection(rawWeapon.name, { kind: "weapon", slot }, deps);
   const weaponFamily = inferredWeaponFamily(nameSelection.canonical_entity_id);
 
@@ -128,7 +235,11 @@ async function canonicalizeWeapon(rawWeapon, slot, deps = {}) {
   };
 }
 
-async function canonicalizeCurio(rawCurio, className, deps = {}) {
+async function canonicalizeCurio(
+  rawCurio: { name?: string; perks?: string[] },
+  className: string,
+  deps: CanonicalizeDeps = {},
+): Promise<CanonicalCurio> {
   return {
     name: await toSelection(rawCurio.name, {
       kind: "gadget_item",
@@ -142,12 +253,12 @@ async function canonicalizeCurio(rawCurio, className, deps = {}) {
   };
 }
 
-function classifyBuildNodes(rawBuild, deps = {}) {
+function classifyBuildNodes(rawBuild: RawBuild, deps: CanonicalizeDeps = {}): Record<string, unknown> {
   const {
     classificationRegistry = BUILD_CLASSIFICATION_REGISTRY,
     classifySlugRole = null,
   } = deps;
-  const classRegistry = registryForClass(rawBuild.class, classificationRegistry);
+  const classRegistry = registryForClass(rawBuild.class, classificationRegistry as Record<string, Record<string, SlotClassification>>);
   const descriptionSelections = extractDescriptionSelections(rawBuild?.description ?? "");
   const hasDescriptionFallback = Object.values(descriptionSelections).some((value) => value != null);
   const selectedNodes = rawBuild?.talents?.active ?? [];
@@ -158,22 +269,28 @@ function classifyBuildNodes(rawBuild, deps = {}) {
     description: rawBuild?.description ?? "",
     explicitSelections: rawBuild?.class_selections ?? null,
     preserveUnclassifiedAsTalents,
-    classificationRegistry,
+    classificationRegistry: classificationRegistry as Record<string, Record<string, SlotClassification>>,
     ...(classifySlugRole == null ? {} : { classifySlugRole }),
-  });
+  }) as any;
 }
 
-async function canonicalizeScrapedBuild(rawBuild, deps = {}) {
-  const classified = classifyBuildNodes(rawBuild, deps);
+async function canonicalizeScrapedBuild(rawBuild: RawBuild, deps: CanonicalizeDeps = {}): Promise<CanonicalBuild> {
+  const classified = classifyBuildNodes(rawBuild, deps) as {
+    ability: { name: string } | null;
+    blitz: { name: string } | null;
+    aura: { name: string } | null;
+    keystone: { name: string } | null;
+    talents: Array<{ name: string }>;
+  };
   const className = String(rawBuild.class ?? "").trim().toLowerCase();
-  const provenance = {
+  const provenance: Provenance = {
     source_kind: deps.provenance?.source_kind ?? "gameslantern",
     source_url: deps.provenance?.source_url ?? String(rawBuild.url ?? "").trim(),
     author: deps.provenance?.author ?? (String(rawBuild.author ?? "").trim() || "unknown"),
     scraped_at: deps.provenance?.scraped_at ?? deps.scrapedAt ?? new Date().toISOString(),
   };
 
-  const build = {
+  const build: CanonicalBuild = {
     schema_version: 1,
     title: String(rawBuild.title ?? "").trim() || "Untitled Build",
     class: await toSelection(className, { kind: "class", class: className }, deps),
@@ -212,8 +329,8 @@ async function canonicalizeScrapedBuild(rawBuild, deps = {}) {
   return build;
 }
 
-async function canonicalizeBuildFile(inputPath, deps = {}) {
-  const rawBuild = loadJsonFile(inputPath);
+async function canonicalizeBuildFile(inputPath: string, deps: CanonicalizeDeps = {}): Promise<CanonicalBuild> {
+  const rawBuild = loadJsonFile(inputPath) as RawBuild;
   return canonicalizeScrapedBuild(rawBuild, deps);
 }
 

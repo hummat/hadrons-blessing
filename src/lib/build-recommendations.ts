@@ -1,13 +1,109 @@
-// @ts-nocheck
-// scripts/ground-truth/lib/build-recommendations.mjs
 // Gap analysis for build recommendations (#10).
 
 import { analyzeBuild } from "./synergy-model.js";
+import type { SynergyIndex, AnalyzeBuildResult, CoverageResult } from "./synergy-model.js";
+import type { SynergyEdge, OrphanEntry } from "./synergy-rules.js";
 import { scoreFromSynergy } from "./build-scoring.js";
 import { generateScorecard } from "./score-build.js";
 
-// Map coverage_gap names to descriptive reason strings and suggested families.
-const GAP_DESCRIPTORS = {
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+interface GapDescriptor {
+  reason: string;
+  suggested_families: string[];
+}
+
+interface Gap {
+  type: string;
+  reason: string;
+  suggested_families: string[];
+}
+
+interface GapAnalysisResult {
+  gaps: Gap[];
+  underinvested_families: string[];
+  scorecard: Record<string, unknown>;
+}
+
+interface ReachabilityResult {
+  reachable: boolean;
+  reason: string;
+}
+
+interface ScoreDelta {
+  talent_coherence: number;
+  blessing_synergy: number;
+  role_coverage: number;
+  composite: number;
+}
+
+interface SwapTalentResult {
+  valid: boolean;
+  reason?: string;
+  score_delta?: ScoreDelta;
+  gained_edges?: SynergyEdge[];
+  lost_edges?: SynergyEdge[];
+  resolved_orphans?: OrphanEntry[];
+  new_orphans?: OrphanEntry[];
+}
+
+interface BlessingImpact {
+  retained: string[];
+  removed: string[];
+  available: string[];
+}
+
+interface SwapWeaponResult {
+  valid: boolean;
+  reason?: string;
+  score_delta?: ScoreDelta;
+  blessing_impact?: BlessingImpact;
+  gained_edges?: SynergyEdge[];
+  lost_edges?: SynergyEdge[];
+}
+
+interface Precomputed {
+  synergy?: AnalyzeBuildResult;
+  scorecard?: Record<string, unknown>;
+}
+
+// Partial canonical build shape
+interface CanonicalBuild {
+  class?: { canonical_entity_id?: string };
+  ability?: { canonical_entity_id?: string } | null;
+  blitz?: { canonical_entity_id?: string } | null;
+  aura?: { canonical_entity_id?: string } | null;
+  keystone?: { canonical_entity_id?: string } | null;
+  talents?: Array<{ canonical_entity_id?: string; raw_label?: string; resolution_status?: string }>;
+  weapons?: Array<{
+    name?: { canonical_entity_id?: string; raw_label?: string };
+    blessings?: Array<{ canonical_entity_id?: string }>;
+    slot?: string;
+  }>;
+  curios?: Array<Record<string, unknown>>;
+  [key: string]: unknown;
+}
+
+interface EntityBase {
+  id: string;
+  attributes?: { weapon_family?: string };
+  [key: string]: unknown;
+}
+
+interface EdgeBase {
+  type: string;
+  from_entity_id: string;
+  to_entity_id: string;
+  [key: string]: unknown;
+}
+
+// ---------------------------------------------------------------------------
+// Constants
+// ---------------------------------------------------------------------------
+
+const GAP_DESCRIPTORS: Record<string, GapDescriptor> = {
   survivability: {
     reason: "Build primary identity is melee offense with no toughness or damage reduction investment",
     suggested_families: ["toughness", "damage_reduction"],
@@ -22,29 +118,27 @@ const GAP_DESCRIPTORS = {
   },
 };
 
-/**
- * Analyze build gaps and return structured recommendation input.
- *
- * @param {object} build - Canonical build JSON
- * @param {{ entities: Map<string, object>, edges: Array<object> }} index - Loaded index
- * @param {{ synergy?: object, scorecard?: object } | null} [precomputed=null] - Precomputed pipeline output
- * @returns {{ gaps: Array<object>, underinvested_families: string[], scorecard: object }}
- */
-export function analyzeGaps(build, index, precomputed = null) {
-  const synergy = precomputed?.synergy ?? analyzeBuild(build, index);
-  const scorecard = precomputed?.scorecard ?? generateScorecard(build, synergy);
+// ---------------------------------------------------------------------------
+// Gap analysis
+// ---------------------------------------------------------------------------
+
+export function analyzeGaps(
+  build: CanonicalBuild,
+  index: SynergyIndex,
+  precomputed: Precomputed | null = null,
+): GapAnalysisResult {
+  const synergy = precomputed?.synergy ?? analyzeBuild(build as any, index);
+  const scorecard = precomputed?.scorecard ?? generateScorecard(build as Record<string, unknown>, synergy as any);
 
   const family_profile = synergy.coverage?.family_profile ?? {};
   const coverage_gaps = synergy.coverage?.coverage_gaps ?? [];
   const slot_balance = synergy.coverage?.slot_balance ?? {};
 
-  // Underinvested families: present in profile but count <= 1
   const underinvested_families = Object.entries(family_profile)
     .filter(([, data]) => data.count <= 1)
     .map(([family]) => family);
 
-  // Structured gap entries from coverage_gaps
-  const gaps = coverage_gaps.map((gapName) => {
+  const gaps: Gap[] = coverage_gaps.map((gapName) => {
     const descriptor = GAP_DESCRIPTORS[gapName] ?? {
       reason: gapName,
       suggested_families: [],
@@ -56,19 +150,17 @@ export function analyzeGaps(build, index, precomputed = null) {
     };
   });
 
-  // Slot imbalance gap: min/max ratio < 0.3 (both-zero = no data, not perfect)
   const melee = slot_balance.melee?.strength ?? 0;
   const ranged = slot_balance.ranged?.strength ?? 0;
 
-  let slot_balance_ratio;
+  let slot_balance_ratio: number;
   if (melee === 0 && ranged === 0) {
-    slot_balance_ratio = 0.5; // no data → neutral
+    slot_balance_ratio = 0.5;
   } else {
     slot_balance_ratio = Math.min(melee, ranged) / Math.max(melee, ranged);
   }
 
   if (slot_balance_ratio < 0.3) {
-    // Weaker slot's families are what should be invested in
     const weakerSlotFamilies =
       melee <= ranged
         ? (slot_balance.melee?.families ?? [])
@@ -83,43 +175,33 @@ export function analyzeGaps(build, index, precomputed = null) {
   return {
     gaps,
     underinvested_families,
-    scorecard,
+    scorecard: scorecard as Record<string, unknown>,
   };
 }
 
-/**
- * Validate whether a talent can be legally added to a build's talent tree.
- *
- * Checks two constraints:
- * 1. The talent's tree node parent must be selected in the build (reachability).
- *    Root-adjacent nodes (parent has no talent mapping or parent has no parent) are always reachable.
- * 2. The talent must not be exclusive_with any currently selected build talent.
- *
- * Fails open: unknown talents or missing tree mappings return reachable: true.
- *
- * @param {object} build - Canonical build JSON
- * @param {{ entities: Map<string, object>, edges: Array<object> }} index - Loaded index
- * @param {string} newTalentId - Entity ID of the talent to validate
- * @returns {{ reachable: boolean, reason: string }}
- */
-export function validateTreeReachability(build, index, newTalentId) {
-  // 1. Extract class domain
+// ---------------------------------------------------------------------------
+// Tree reachability
+// ---------------------------------------------------------------------------
+
+export function validateTreeReachability(
+  build: CanonicalBuild,
+  index: SynergyIndex,
+  newTalentId: string,
+): ReachabilityResult {
   const classId = build.class?.canonical_entity_id ?? "";
   const domain = classId.replace(/^shared\.class\./, "");
   if (!domain) {
     return { reachable: true, reason: "no class domain on build" };
   }
 
-  // 2. Filter edges for this domain
-  const domainEdges = index.edges.filter(
+  const domainEdges = (index.edges as EdgeBase[]).filter(
     (e) => e.from_entity_id.startsWith(domain + ".") || e.to_entity_id.startsWith(domain + ".")
   );
 
-  // 3. Build lookup maps
-  const talentToTreeNode = new Map();
-  const treeNodeChildren = new Map();
-  const treeNodeParent = new Map();
-  const exclusivePairs = new Map();
+  const talentToTreeNode = new Map<string, string>();
+  const treeNodeChildren = new Map<string, Set<string>>();
+  const treeNodeParent = new Map<string, string>();
+  const exclusivePairs = new Map<string, Set<string>>();
 
   for (const e of domainEdges) {
     if (e.type === "belongs_to_tree_node") {
@@ -128,50 +210,46 @@ export function validateTreeReachability(build, index, newTalentId) {
       if (!treeNodeChildren.has(e.from_entity_id)) {
         treeNodeChildren.set(e.from_entity_id, new Set());
       }
-      treeNodeChildren.get(e.from_entity_id).add(e.to_entity_id);
+      treeNodeChildren.get(e.from_entity_id)!.add(e.to_entity_id);
       treeNodeParent.set(e.to_entity_id, e.from_entity_id);
     } else if (e.type === "exclusive_with") {
       if (!exclusivePairs.has(e.from_entity_id)) {
         exclusivePairs.set(e.from_entity_id, new Set());
       }
-      exclusivePairs.get(e.from_entity_id).add(e.to_entity_id);
+      exclusivePairs.get(e.from_entity_id)!.add(e.to_entity_id);
       if (!exclusivePairs.has(e.to_entity_id)) {
         exclusivePairs.set(e.to_entity_id, new Set());
       }
-      exclusivePairs.get(e.to_entity_id).add(e.from_entity_id);
+      exclusivePairs.get(e.to_entity_id)!.add(e.from_entity_id);
     }
   }
 
-  // 4. Find the new talent's tree node
   const newNode = talentToTreeNode.get(newTalentId);
   if (!newNode) {
     return { reachable: true, reason: "no tree mapping for talent" };
   }
 
-  // 5. Collect tree nodes occupied by current build selections
   const buildSlots = [
     ...(build.talents ?? []),
     build.ability,
     build.blitz,
     build.aura,
     build.keystone,
-  ].filter(Boolean);
+  ].filter(Boolean) as Array<{ canonical_entity_id?: string }>;
 
   const buildEntityIds = new Set(
-    buildSlots.map((s) => s.canonical_entity_id).filter(Boolean)
+    buildSlots.map((s) => s.canonical_entity_id).filter(Boolean) as string[]
   );
-  const buildTreeNodes = new Set();
+  const buildTreeNodes = new Set<string>();
   for (const id of buildEntityIds) {
     const node = talentToTreeNode.get(id);
     if (node) buildTreeNodes.add(node);
   }
 
-  // 6. Check exclusive_with: new node must not conflict with any build node
   const exclusivePartners = exclusivePairs.get(newNode);
   if (exclusivePartners) {
     for (const partner of exclusivePartners) {
       if (buildTreeNodes.has(partner)) {
-        // Find the conflicting talent for the reason message
         const conflictTalent = [...buildEntityIds].find(
           (id) => talentToTreeNode.get(id) === partner
         );
@@ -183,14 +261,11 @@ export function validateTreeReachability(build, index, newTalentId) {
     }
   }
 
-  // 7. Check parent reachability
   const parentNode = treeNodeParent.get(newNode);
   if (!parentNode) {
-    // Root node or root-adjacent — always reachable
     return { reachable: true, reason: "root node" };
   }
 
-  // If parent node has no talent mapping, it's a structural root — always reachable
   const parentHasTalent = [...talentToTreeNode.entries()].some(
     ([, node]) => node === parentNode
   );
@@ -198,12 +273,10 @@ export function validateTreeReachability(build, index, newTalentId) {
     return { reachable: true, reason: "parent is structural root" };
   }
 
-  // Parent must be selected in the build
   if (buildTreeNodes.has(parentNode)) {
     return { reachable: true, reason: "parent selected in build" };
   }
 
-  // Find which talent owns the parent node for the reason message
   const parentTalent = [...talentToTreeNode.entries()].find(
     ([, node]) => node === parentNode
   )?.[0];
@@ -213,29 +286,21 @@ export function validateTreeReachability(build, index, newTalentId) {
   };
 }
 
-/**
- * Create a stable key for a synergy edge (order-independent selections).
- * @param {object} edge
- * @returns {string}
- */
-function edgeKey(edge) {
+// ---------------------------------------------------------------------------
+// Swap helpers
+// ---------------------------------------------------------------------------
+
+function edgeKey(edge: SynergyEdge): string {
   const sels = [...(edge.selections ?? [])].sort().join(",");
   return `${edge.type}::${sels}`;
 }
 
-/**
- * Find which build slot contains a given entity ID.
- *
- * Returns { location: "talents"|"ability"|"blitz"|"aura"|"keystone", index?: number }
- * or null if not found.
- *
- * @param {object} build
- * @param {string} entityId
- * @returns {{ location: string, index?: number } | null}
- */
-function findSlot(build, entityId) {
-  for (const slot of ["ability", "blitz", "aura", "keystone"]) {
-    if (build[slot]?.canonical_entity_id === entityId) {
+function findSlot(
+  build: CanonicalBuild,
+  entityId: string,
+): { location: string; index?: number } | null {
+  for (const slot of ["ability", "blitz", "aura", "keystone"] as const) {
+    if ((build[slot] as { canonical_entity_id?: string } | null | undefined)?.canonical_entity_id === entityId) {
       return { location: slot };
     }
   }
@@ -248,31 +313,26 @@ function findSlot(build, entityId) {
   return null;
 }
 
-/**
- * Evaluate the impact of swapping one talent for another in a build.
- *
- * Validates the swap is legal (old talent exists, new talent is reachable),
- * then computes score deltas, gained/lost synergy edges, and orphan changes.
- *
- * @param {object} build - Canonical build JSON
- * @param {{ entities: Map<string, object>, edges: Array<object> }} index - Loaded index
- * @param {string} oldId - Entity ID of the talent to remove
- * @param {string} newId - Entity ID of the talent to add
- * @returns {{ valid: boolean, reason?: string, score_delta?: object, gained_edges?: Array, lost_edges?: Array, resolved_orphans?: Array, new_orphans?: Array }}
- */
-export function swapTalent(build, index, oldId, newId) {
-  // 1. Validate oldId is in the build
+// ---------------------------------------------------------------------------
+// Talent swap
+// ---------------------------------------------------------------------------
+
+export function swapTalent(
+  build: CanonicalBuild,
+  index: SynergyIndex,
+  oldId: string,
+  newId: string,
+): SwapTalentResult {
   const slot = findSlot(build, oldId);
   if (!slot) {
     return { valid: false, reason: "old talent not found in build" };
   }
 
-  // 2. Build a clone without oldId, then check reachability
-  const buildWithoutOld = JSON.parse(JSON.stringify(build));
+  const buildWithoutOld = JSON.parse(JSON.stringify(build)) as CanonicalBuild;
   if (slot.location === "talents") {
-    buildWithoutOld.talents.splice(slot.index, 1);
+    buildWithoutOld.talents!.splice(slot.index!, 1);
   } else {
-    buildWithoutOld[slot.location] = null;
+    (buildWithoutOld as Record<string, unknown>)[slot.location] = null;
   }
 
   const reachability = validateTreeReachability(buildWithoutOld, index, newId);
@@ -280,42 +340,38 @@ export function swapTalent(build, index, oldId, newId) {
     return { valid: false, reason: reachability.reason };
   }
 
-  // 3. Deep-clone the build and swap in the new talent
-  const modifiedBuild = JSON.parse(JSON.stringify(build));
+  const modifiedBuild = JSON.parse(JSON.stringify(build)) as CanonicalBuild;
   if (slot.location === "talents") {
-    modifiedBuild.talents[slot.index] = {
+    modifiedBuild.talents![slot.index!] = {
       canonical_entity_id: newId,
       raw_label: newId,
       resolution_status: "resolved",
     };
   } else {
-    modifiedBuild[slot.location] = {
+    (modifiedBuild as Record<string, unknown>)[slot.location] = {
       canonical_entity_id: newId,
       raw_label: newId,
       resolution_status: "resolved",
     };
   }
 
-  // 4 & 5. Run synergy + scoring on both builds
-  const originalSynergy = analyzeBuild(build, index);
-  const modifiedSynergy = analyzeBuild(modifiedBuild, index);
+  const originalSynergy = analyzeBuild(build as any, index);
+  const modifiedSynergy = analyzeBuild(modifiedBuild as any, index);
 
-  const originalScores = scoreFromSynergy(originalSynergy);
-  const modifiedScores = scoreFromSynergy(modifiedSynergy);
+  const originalScores = scoreFromSynergy(originalSynergy as any);
+  const modifiedScores = scoreFromSynergy(modifiedSynergy as any);
 
-  // 6. Score deltas
   const tcDelta = modifiedScores.talent_coherence.score - originalScores.talent_coherence.score;
   const bsDelta = modifiedScores.blessing_synergy.score - originalScores.blessing_synergy.score;
   const rcDelta = modifiedScores.role_coverage.score - originalScores.role_coverage.score;
 
-  const score_delta = {
+  const score_delta: ScoreDelta = {
     talent_coherence: tcDelta,
     blessing_synergy: bsDelta,
     role_coverage: rcDelta,
     composite: tcDelta + bsDelta + rcDelta,
   };
 
-  // 7. Diff synergy edges
   const originalEdgeKeys = new Set(originalSynergy.synergy_edges.map(edgeKey));
   const modifiedEdgeKeys = new Set(modifiedSynergy.synergy_edges.map(edgeKey));
 
@@ -326,7 +382,6 @@ export function swapTalent(build, index, oldId, newId) {
     (e) => !modifiedEdgeKeys.has(edgeKey(e))
   );
 
-  // 8. Diff orphans
   const originalOrphanKeys = new Set(
     (originalSynergy.orphans ?? []).map((o) => `${o.selection}::${o.resource ?? o.condition}`)
   );
@@ -351,57 +406,47 @@ export function swapTalent(build, index, oldId, newId) {
   };
 }
 
-/**
- * Evaluate the impact of swapping one weapon for another in a build.
- *
- * Determines blessing compatibility (same-family retains, cross-family removes),
- * computes score deltas, and diffs synergy edges.
- *
- * @param {object} build - Canonical build JSON
- * @param {{ entities: Map<string, object>, edges: Array<object> }} index - Loaded index
- * @param {string} oldId - Entity ID of the weapon to remove
- * @param {string} newId - Entity ID of the weapon to add
- * @returns {{ valid: boolean, reason?: string, score_delta?: object, blessing_impact?: object, gained_edges?: Array, lost_edges?: Array }}
- */
-export function swapWeapon(build, index, oldId, newId) {
-  // 1. Find the weapon entry in build.weapons[]
+// ---------------------------------------------------------------------------
+// Weapon swap
+// ---------------------------------------------------------------------------
+
+export function swapWeapon(
+  build: CanonicalBuild,
+  index: SynergyIndex,
+  oldId: string,
+  newId: string,
+): SwapWeaponResult {
   const weapons = build.weapons ?? [];
   const weaponIdx = weapons.findIndex((w) => w.name?.canonical_entity_id === oldId);
   if (weaponIdx === -1) {
     return { valid: false, reason: "weapon not found in build" };
   }
 
-  // 2. Resolve old and new weapon entities
-  const oldEntity = index.entities.get(oldId);
-  const newEntity = index.entities.get(newId);
+  const oldEntity = (index.entities as Map<string, EntityBase>).get(oldId);
+  const newEntity = (index.entities as Map<string, EntityBase>).get(newId);
   const oldFamily = oldEntity?.attributes?.weapon_family ?? null;
   const newFamily = newEntity?.attributes?.weapon_family ?? null;
 
-  // 3. Determine blessing compatibility
   const oldBlessings = (weapons[weaponIdx].blessings ?? [])
     .map((b) => b.canonical_entity_id)
-    .filter(Boolean);
+    .filter(Boolean) as string[];
 
-  let retained = [];
-  let removed = [];
+  let retained: string[] = [];
+  let removed: string[] = [];
 
   if (oldFamily && newFamily && oldFamily === newFamily) {
-    // Same family: retain all blessings
     retained = [...oldBlessings];
   } else {
-    // Different family: check trait pool edges for compatibility
     const newWeaponTraitPool = new Set(
-      index.edges
+      (index.edges as EdgeBase[])
         .filter((e) => e.type === "weapon_has_trait_pool" && e.from_entity_id === newId)
         .map((e) => e.to_entity_id)
     );
 
     if (newWeaponTraitPool.size > 0) {
-      // Build reverse mapping: name_family → weapon_traits that are instance_of it
-      const instanceOfEdges = index.edges.filter((e) => e.type === "instance_of");
+      const instanceOfEdges = (index.edges as EdgeBase[]).filter((e) => e.type === "instance_of");
 
       for (const blessingId of oldBlessings) {
-        // Check if any weapon_trait in the new pool is an instance_of this blessing family
         const compatible = instanceOfEdges.some(
           (e) => newWeaponTraitPool.has(e.from_entity_id) && e.to_entity_id === blessingId
         );
@@ -412,50 +457,43 @@ export function swapWeapon(build, index, oldId, newId) {
         }
       }
     } else {
-      // No trait pool data for new weapon — conservatively remove all
       removed = [...oldBlessings];
     }
   }
 
-  // Compute available blessings for the new weapon
   const available = computeAvailableBlessings(newId, newFamily, index);
 
-  const blessing_impact = { retained, removed, available };
+  const blessing_impact: BlessingImpact = { retained, removed, available };
 
-  // 4. Deep-clone build and replace weapon entry
-  const modifiedBuild = JSON.parse(JSON.stringify(build));
-  const modifiedWeapon = modifiedBuild.weapons[weaponIdx];
-  modifiedWeapon.name.canonical_entity_id = newId;
-  modifiedWeapon.name.raw_label = newId;
+  const modifiedBuild = JSON.parse(JSON.stringify(build)) as CanonicalBuild;
+  const modifiedWeapon = modifiedBuild.weapons![weaponIdx];
+  (modifiedWeapon.name as Record<string, unknown>).canonical_entity_id = newId;
+  (modifiedWeapon.name as Record<string, unknown>).raw_label = newId;
 
-  // Keep retained blessings, remove removed ones
   if (removed.length > 0) {
     const removedSet = new Set(removed);
     modifiedWeapon.blessings = (modifiedWeapon.blessings ?? []).filter(
-      (b) => !removedSet.has(b.canonical_entity_id)
+      (b) => !removedSet.has(b.canonical_entity_id!)
     );
   }
 
-  // 5. Run synergy → scoring on both builds
-  const originalSynergy = analyzeBuild(build, index);
-  const modifiedSynergy = analyzeBuild(modifiedBuild, index);
+  const originalSynergy = analyzeBuild(build as any, index);
+  const modifiedSynergy = analyzeBuild(modifiedBuild as any, index);
 
-  const originalScores = scoreFromSynergy(originalSynergy);
-  const modifiedScores = scoreFromSynergy(modifiedSynergy);
+  const originalScores = scoreFromSynergy(originalSynergy as any);
+  const modifiedScores = scoreFromSynergy(modifiedSynergy as any);
 
-  // 6. Score deltas
   const tcDelta = modifiedScores.talent_coherence.score - originalScores.talent_coherence.score;
   const bsDelta = modifiedScores.blessing_synergy.score - originalScores.blessing_synergy.score;
   const rcDelta = modifiedScores.role_coverage.score - originalScores.role_coverage.score;
 
-  const score_delta = {
+  const score_delta: ScoreDelta = {
     talent_coherence: tcDelta,
     blessing_synergy: bsDelta,
     role_coverage: rcDelta,
     composite: tcDelta + bsDelta + rcDelta,
   };
 
-  // 7. Diff synergy edges
   const originalEdgeKeys = new Set(originalSynergy.synergy_edges.map(edgeKey));
   const modifiedEdgeKeys = new Set(modifiedSynergy.synergy_edges.map(edgeKey));
 
@@ -475,35 +513,29 @@ export function swapWeapon(build, index, oldId, newId) {
   };
 }
 
-/**
- * Find all blessing name_families available for a given weapon.
- *
- * Uses weapon_has_trait_pool edges (weapon → weapon_trait) and instance_of edges
- * (weapon_trait → name_family) to trace available blessings. Falls back to
- * family-prefix matching on instance_of edges if no trait pool edges exist.
- *
- * @param {string} weaponId - Weapon entity ID
- * @param {string | null} weaponFamily - Weapon family string
- * @param {{ entities: Map<string, object>, edges: Array<object> }} index
- * @returns {string[]} - Blessing name_family entity IDs
- */
-function computeAvailableBlessings(weaponId, weaponFamily, index) {
-  // Try direct trait pool edges first
-  const traitPoolIds = index.edges
+// ---------------------------------------------------------------------------
+// Available blessings
+// ---------------------------------------------------------------------------
+
+function computeAvailableBlessings(
+  weaponId: string,
+  weaponFamily: string | null,
+  index: SynergyIndex,
+): string[] {
+  const traitPoolIds = (index.edges as EdgeBase[])
     .filter((e) => e.type === "weapon_has_trait_pool" && e.from_entity_id === weaponId)
     .map((e) => e.to_entity_id);
 
   if (traitPoolIds.length > 0) {
     const poolSet = new Set(traitPoolIds);
-    return index.edges
+    return (index.edges as EdgeBase[])
       .filter((e) => e.type === "instance_of" && poolSet.has(e.from_entity_id))
       .map((e) => e.to_entity_id);
   }
 
-  // Fallback: match instance_of edges where the weapon_trait ID contains the family prefix
   if (weaponFamily) {
     const familyPattern = `weapon_trait_bespoke_${weaponFamily}`;
-    return index.edges
+    return (index.edges as EdgeBase[])
       .filter(
         (e) => e.type === "instance_of" && e.from_entity_id.includes(familyPattern)
       )

@@ -1,10 +1,78 @@
-// @ts-nocheck
 import { buildIndex } from "./ground-truth-index.js";
+import type { GroundTruthIndex } from "./ground-truth-index.js";
 import { assertAllowedQueryContext, normalizeText } from "./normalize.js";
+import type { QueryContext } from "./normalize.js";
+import type {
+  AliasSchemaJson,
+  EntityBaseSchemaJson,
+  EvidenceSchemaJson,
+  EdgeSchemaJson,
+} from "../generated/schema-types.js";
+
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+interface ContextMatchResult {
+  ok: boolean;
+  matchedPreferCount: number;
+  explanation: string;
+}
+
+interface ScoredAlias {
+  alias: AliasSchemaJson;
+  score: number;
+  matchType: string;
+  contextExplanation: string;
+}
+
+interface RankedCandidate {
+  entity_id: string;
+  entity: EntityBaseSchemaJson | null;
+  score: number;
+  match_type: string;
+  context_match_explanation: string;
+  alias: AliasSchemaJson;
+}
+
+interface CandidateTrace {
+  entity_id: string;
+  score: number;
+  match_type: string;
+  context_match_explanation: string;
+}
+
+interface Ref {
+  path: string;
+  line: number;
+}
+
+export interface ResolveResult {
+  query: string;
+  query_context: QueryContext;
+  resolution_state: string;
+  resolved_entity_id: string | null;
+  proposed_entity_id: string | null;
+  entity: EntityBaseSchemaJson | null;
+  proposed_entity: EntityBaseSchemaJson | null;
+  match_type: string;
+  score: number;
+  score_margin: number;
+  confidence: string;
+  why_this_match: string;
+  candidate_trace: CandidateTrace[];
+  refs: Ref[];
+  supporting_evidence: EvidenceSchemaJson[];
+  warnings: string[];
+}
+
+// ---------------------------------------------------------------------------
+// Internals
+// ---------------------------------------------------------------------------
 
 const FUZZY_STOPWORDS = new Set(["damage"]);
 
-function extractMeaningfulTokens(text) {
+function extractMeaningfulTokens(text: string): Set<string> {
   return new Set(
     normalizeText(text)
       .split(" ")
@@ -17,11 +85,11 @@ function extractMeaningfulTokens(text) {
   );
 }
 
-function getIndex() {
+function getIndex(): Promise<GroundTruthIndex> {
   return buildIndex({ check: false });
 }
 
-function extractTemplateBasename(text) {
+function extractTemplateBasename(text: string): string | null {
   if (typeof text !== "string" || !text.includes("/")) {
     return null;
   }
@@ -30,13 +98,13 @@ function extractTemplateBasename(text) {
   return basename.length > 0 ? basename : null;
 }
 
-function contextMatches(alias, queryContext) {
+function contextMatches(alias: AliasSchemaJson, queryContext: QueryContext): ContextMatchResult {
   const requireAll = alias.context_constraints.require_all;
   const prefer = alias.context_constraints.prefer;
-  const explanations = [];
+  const explanations: string[] = [];
 
   for (const requirement of requireAll) {
-    const actual = queryContext[requirement.key];
+    const actual = (queryContext as Record<string, unknown>)[requirement.key];
     if (actual == null) {
       return {
         ok: false,
@@ -59,7 +127,7 @@ function contextMatches(alias, queryContext) {
   let matchedPreferCount = 0;
 
   for (const preference of prefer) {
-    const actual = queryContext[preference.key];
+    const actual = (queryContext as Record<string, unknown>)[preference.key];
     if (actual === preference.value) {
       matchedPreferCount += 1;
       explanations.push(`preferred ${preference.key}=${preference.value}`);
@@ -73,15 +141,20 @@ function contextMatches(alias, queryContext) {
   };
 }
 
-function allowsFuzzyAliasMatching(alias, queryContext) {
+function allowsFuzzyAliasMatching(alias: AliasSchemaJson, queryContext: QueryContext): boolean {
   return !(
-    queryContext.kind === "weapon" &&
+    (queryContext as Record<string, unknown>).kind === "weapon" &&
     alias.alias_kind === "guide_name" &&
     alias.candidate_entity_id.startsWith("shared.weapon.")
   );
 }
 
-function scoreAlias(alias, query, normalizedQuery, queryContext) {
+function scoreAlias(
+  alias: AliasSchemaJson,
+  query: string,
+  normalizedQuery: string,
+  queryContext: QueryContext,
+): ScoredAlias | null {
   const context = contextMatches(alias, queryContext);
   if (!context.ok) {
     return null;
@@ -140,41 +213,47 @@ function scoreAlias(alias, query, normalizedQuery, queryContext) {
   };
 }
 
-function confidenceForCandidate(candidate, entity) {
+function confidenceForCandidate(
+  candidate: { matchType: string; alias?: AliasSchemaJson; score: number },
+  entity: EntityBaseSchemaJson | null,
+): string {
   if (candidate.matchType === "exact_canonical_id") {
     return "high";
   }
 
   if (candidate.matchType === "exact_alias") {
-    return candidate.alias.confidence;
+    return candidate.alias!.confidence;
   }
 
   if (candidate.matchType === "normalized_alias") {
-    return candidate.alias.confidence === "low" ? "low" : "medium";
+    return candidate.alias!.confidence === "low" ? "low" : "medium";
   }
 
-  if (entity?.status === "partially_resolved") {
+  if ((entity as Record<string, unknown> | null)?.status === "partially_resolved") {
     return "low";
   }
 
   return candidate.score >= 200 ? "medium" : "low";
 }
 
-function warningsFor(entity) {
-  const warnings = [];
+function warningsFor(entity: EntityBaseSchemaJson): string[] {
+  const warnings: string[] = [];
 
   if (entity.kind === "name_family") {
     warnings.push("resolved_to_name_family");
   }
 
-  if (entity.status === "partially_resolved") {
+  if ((entity as any).status === "partially_resolved") {
     warnings.push("partially_resolved_entity");
   }
 
   return warnings;
 }
 
-function collectEvidenceForEntity(entity, index) {
+function collectEvidenceForEntity(
+  entity: EntityBaseSchemaJson,
+  index: GroundTruthIndex,
+): EvidenceSchemaJson[] {
   return index.evidence.filter((record) => {
     if (record.subject_type === "entity" && record.subject_id === entity.id) {
       return true;
@@ -193,8 +272,8 @@ function collectEvidenceForEntity(entity, index) {
   });
 }
 
-function collectRefsForEntity(entity, evidence) {
-  const refs = [...entity.refs];
+function collectRefsForEntity(entity: EntityBaseSchemaJson, evidence: EvidenceSchemaJson[]): Ref[] {
+  const refs: Ref[] = [...(entity as { refs: Ref[] }).refs];
 
   for (const record of evidence) {
     const appliesToEntity =
@@ -215,13 +294,23 @@ function collectRefsForEntity(entity, evidence) {
   return refs;
 }
 
-async function resolveQuery(query, queryContext, options = {}) {
+// ---------------------------------------------------------------------------
+// Public API
+// ---------------------------------------------------------------------------
+
+async function resolveQuery(
+  query: string,
+  queryContext: unknown,
+  _options: Record<string, unknown> = {},
+): Promise<ResolveResult> {
   const safeQueryContext = assertAllowedQueryContext(queryContext);
   const index = await getIndex();
-  const entitiesById = new Map(index.entities.map((entity) => [entity.id, entity]));
+  const entitiesById = new Map<string, EntityBaseSchemaJson>(
+    index.entities.map((entity) => [entity.id, entity]),
+  );
 
   if (entitiesById.has(query)) {
-    const entity = entitiesById.get(query);
+    const entity = entitiesById.get(query)!;
     return {
       query,
       query_context: safeQueryContext,
@@ -249,8 +338,8 @@ async function resolveQuery(query, queryContext, options = {}) {
     };
   }
 
-  function rankAliasCandidates(candidateQuery) {
-    const bestByEntity = new Map();
+  function rankAliasCandidates(candidateQuery: string): RankedCandidate[] {
+    const bestByEntity = new Map<string, ScoredAlias>();
     const normalizedCandidateQuery = normalizeText(candidateQuery);
 
     for (const alias of index.aliases) {
@@ -316,11 +405,11 @@ async function resolveQuery(query, queryContext, options = {}) {
     },
     best.entity,
   );
-  const warnings = warningsFor(best.entity);
+  const warnings = warningsFor(best.entity!);
 
   let resolutionState = "resolved";
-  let resolvedEntityId = best.entity_id;
-  let proposedEntityId = null;
+  let resolvedEntityId: string | null = best.entity_id;
+  let proposedEntityId: string | null = null;
 
   if (
     best.match_type === "fuzzy_alias" &&
@@ -355,8 +444,8 @@ async function resolveQuery(query, queryContext, options = {}) {
       match_type: candidate.match_type,
       context_match_explanation: candidate.context_match_explanation,
     })),
-    refs: collectRefsForEntity(best.entity, index.evidence),
-    supporting_evidence: collectEvidenceForEntity(best.entity, index),
+    refs: collectRefsForEntity(best.entity!, index.evidence),
+    supporting_evidence: collectEvidenceForEntity(best.entity!, index),
     warnings,
   };
 }

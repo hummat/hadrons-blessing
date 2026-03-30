@@ -1,7 +1,44 @@
-// @ts-nocheck
 import { loadGroundTruthRegistry } from "./registry.js";
 
-const DOMAIN_EXPECTATIONS = [
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+interface DomainExpectation {
+  domain: string;
+  expected_kinds: string[];
+  notes: string;
+}
+
+interface DomainReport {
+  domain: string;
+  status: string;
+  expected_kinds: string[];
+  implemented_kinds: string[];
+  entity_count: number;
+  alias_count: number;
+  edge_count: number;
+  evidence_count: number;
+  notes: string;
+}
+
+interface KindReport {
+  kind: string;
+  domains: string[];
+  entity_count: number;
+}
+
+interface CoverageReport {
+  source_snapshot_id: string;
+  domains: DomainReport[];
+  kinds: KindReport[];
+}
+
+// ---------------------------------------------------------------------------
+// Data
+// ---------------------------------------------------------------------------
+
+const DOMAIN_EXPECTATIONS: DomainExpectation[] = [
   {
     domain: "shared",
     expected_kinds: [
@@ -54,7 +91,11 @@ const DOMAIN_EXPECTATIONS = [
   },
 ];
 
-function statusFor(expectedKinds, implementedKinds) {
+// ---------------------------------------------------------------------------
+// Logic
+// ---------------------------------------------------------------------------
+
+function statusFor(expectedKinds: string[], implementedKinds: string[]): string {
   if (implementedKinds.length === 0) {
     return "unsupported";
   }
@@ -65,10 +106,10 @@ function statusFor(expectedKinds, implementedKinds) {
     : "partial";
 }
 
-function buildCoverageReport() {
+function buildCoverageReport(): CoverageReport {
   const registry = loadGroundTruthRegistry();
 
-  const domains = DOMAIN_EXPECTATIONS.map((definition) => {
+  const domains: DomainReport[] = DOMAIN_EXPECTATIONS.map((definition) => {
     const entities = registry.entities.filter((record) => record.domain === definition.domain);
     const entityIds = new Set(entities.map((record) => record.id));
     const implementedKinds = [...new Set(entities.map((record) => record.kind))].sort();
@@ -91,7 +132,7 @@ function buildCoverageReport() {
     };
   });
 
-  const kinds = [...new Set(registry.entities.map((record) => record.kind))]
+  const kinds: KindReport[] = [...new Set(registry.entities.map((record) => record.kind))]
     .sort()
     .map((kind) => {
       const entities = registry.entities.filter((record) => record.kind === kind);

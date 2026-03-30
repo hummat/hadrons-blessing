@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { loadJsonFile } from "./load.js";
 import {
   appendAuditEntry,
@@ -9,7 +8,29 @@ import {
   resolveField,
 } from "./build-audit.js";
 
-async function auditLegacyBuild(buildPath, build) {
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+interface LegacyBuild {
+  class: string;
+  weapons: Array<{
+    name: string;
+    blessings: Array<{ name: string }>;
+    perks: string[];
+  }>;
+  curios: Array<{
+    name: string;
+    perks: string[];
+  }>;
+  [key: string]: unknown;
+}
+
+// ---------------------------------------------------------------------------
+// Logic
+// ---------------------------------------------------------------------------
+
+async function auditLegacyBuild(buildPath: string, build: LegacyBuild) {
   const audit = createAudit(buildPath);
 
   const classResult = await resolveField("class", build.class, {
@@ -100,14 +121,14 @@ async function auditLegacyBuild(buildPath, build) {
   return finalizeAudit(audit);
 }
 
-async function auditBuildFile(buildPath) {
+async function auditBuildFile(buildPath: string) {
   const build = loadJsonFile(buildPath);
 
   if (isCanonicalBuild(build)) {
-    return auditCanonicalBuild(buildPath, build);
+    return auditCanonicalBuild(buildPath, build as any);
   }
 
-  return auditLegacyBuild(buildPath, build);
+  return auditLegacyBuild(buildPath, build as LegacyBuild);
 }
 
 export { auditBuildFile };

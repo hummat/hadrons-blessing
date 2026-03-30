@@ -1,7 +1,28 @@
-// @ts-nocheck
 import { loadGroundTruthRegistry } from "./registry.js";
+import type {
+  AliasSchemaJson,
+  EdgeSchemaJson,
+  EntityBaseSchemaJson,
+  EvidenceSchemaJson,
+} from "../generated/schema-types.js";
 
-function inspectEntity(id) {
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+interface InspectResult {
+  id: string;
+  entity: EntityBaseSchemaJson;
+  aliases: AliasSchemaJson[];
+  evidence: EvidenceSchemaJson[];
+  edges: EdgeSchemaJson[];
+}
+
+// ---------------------------------------------------------------------------
+// Public API
+// ---------------------------------------------------------------------------
+
+function inspectEntity(id: string): InspectResult | null {
   const registry = loadGroundTruthRegistry();
   const entity = registry.entities.find((record) => record.id === id) ?? null;
 

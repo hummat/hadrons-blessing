@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Build report data assembly.
  *
@@ -14,42 +13,138 @@ import { loadJsonFile } from "./load.js";
 import { auditBuildFile } from "./audit-build-file.js";
 import { generateScorecard } from "./score-build.js";
 
-/**
- * Return the display label for a selection (object or plain string).
- */
-function selectionLabel(selection) {
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+interface SlotDescriptor {
+  slot: string;
+  label: string;
+  entity_id: string | null;
+  status: string;
+}
+
+interface TalentDescriptor {
+  label: string;
+  entity_id: string | null;
+  status: string;
+}
+
+interface PerkDescriptor {
+  name: string;
+  tier: number;
+  value: number;
+}
+
+interface BlessingDescriptor {
+  label: string;
+  known: boolean;
+}
+
+interface WeaponReport {
+  name: string;
+  slot: string | null;
+  entity_id: string | null;
+  perk_score: number | null;
+  perks: Array<PerkDescriptor | null>;
+  blessings: BlessingDescriptor[];
+}
+
+interface CurioPerkDescriptor {
+  label: string;
+  tier: number;
+  rating: string;
+}
+
+interface CurioReport {
+  name: string;
+  perks: CurioPerkDescriptor[];
+}
+
+interface Summary {
+  total: number;
+  resolved: number;
+  ambiguous: number;
+  unresolved: number;
+  non_canonical: number;
+  warnings: string[];
+}
+
+interface UnresolvedEntry {
+  field: string;
+  label: string;
+  reason: string;
+}
+
+interface AmbiguousEntry {
+  field: string;
+  label: string;
+  candidates: unknown[];
+}
+
+interface NonCanonicalEntry {
+  field: string;
+  label: string;
+  kind: string | null;
+  notes: string | null;
+}
+
+interface BuildReport {
+  title: string;
+  class: string;
+  provenance: Record<string, unknown> | null;
+  slots: SlotDescriptor[];
+  talents: TalentDescriptor[];
+  weapons: WeaponReport[];
+  curios: CurioReport[];
+  perk_optimality: number;
+  curio_score: number;
+  summary: Summary;
+  unresolved: UnresolvedEntry[];
+  ambiguous: AmbiguousEntry[];
+  non_canonical: NonCanonicalEntry[];
+}
+
+interface BatchReport {
+  summary: {
+    build_count: number;
+    total: number;
+    resolved: number;
+    ambiguous: number;
+    unresolved: number;
+    non_canonical: number;
+  };
+  reports: BuildReport[];
+}
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+function selectionLabel(selection: unknown): string {
   if (typeof selection === "string") return selection;
-  if (selection != null && typeof selection === "object" && typeof selection.raw_label === "string") {
-    return selection.raw_label;
+  if (selection != null && typeof selection === "object" && typeof (selection as { raw_label?: unknown }).raw_label === "string") {
+    return (selection as { raw_label: string }).raw_label;
   }
   return "(unknown)";
 }
 
-/**
- * Return the resolution status for a selection.
- */
-function selectionStatus(selection) {
+function selectionStatus(selection: unknown): string {
   if (typeof selection === "string") return "resolved";
-  if (selection != null && typeof selection === "object" && typeof selection.resolution_status === "string") {
-    return selection.resolution_status;
+  if (selection != null && typeof selection === "object" && typeof (selection as { resolution_status?: unknown }).resolution_status === "string") {
+    return (selection as { resolution_status: string }).resolution_status;
   }
   return "resolved";
 }
 
-/**
- * Return the canonical entity ID for a selection.
- */
-function selectionEntityId(selection) {
-  if (selection != null && typeof selection === "object" && typeof selection.canonical_entity_id === "string") {
-    return selection.canonical_entity_id;
+function selectionEntityId(selection: unknown): string | null {
+  if (selection != null && typeof selection === "object" && typeof (selection as { canonical_entity_id?: unknown }).canonical_entity_id === "string") {
+    return (selection as { canonical_entity_id: string }).canonical_entity_id;
   }
   return null;
 }
 
-/**
- * Build a structural slot descriptor.
- */
-function buildSlot(slotName, selection) {
+function buildSlot(slotName: string, selection: unknown): SlotDescriptor {
   return {
     slot: slotName,
     label: selectionLabel(selection),
@@ -58,24 +153,22 @@ function buildSlot(slotName, selection) {
   };
 }
 
-/**
- * Generate a BuildReport for a canonical build file.
- *
- * @param {string} buildPath - Absolute or relative path to a canonical build JSON file.
- * @returns {Promise<object>} BuildReport object.
- */
-export async function generateReport(buildPath) {
-  const build = loadJsonFile(buildPath);
+// ---------------------------------------------------------------------------
+// Public API
+// ---------------------------------------------------------------------------
+
+export async function generateReport(buildPath: string): Promise<BuildReport> {
+  const build = loadJsonFile(buildPath) as Record<string, unknown>;
   const audit = await auditBuildFile(buildPath);
   const scorecard = generateScorecard(build);
 
   // --- Header ---
   const className = selectionLabel(build.class);
-  const title = build.title;
-  const provenance = build.provenance ?? null;
+  const title = build.title as string;
+  const provenance = (build.provenance as Record<string, unknown>) ?? null;
 
   // --- Structural slots ---
-  const slots = [
+  const slots: SlotDescriptor[] = [
     buildSlot("ability", build.ability),
     buildSlot("blitz", build.blitz),
     buildSlot("aura", build.aura),
@@ -83,31 +176,29 @@ export async function generateReport(buildPath) {
   ];
 
   // --- Talents ---
-  const talents = (build.talents ?? []).map((t) => ({
+  const talents: TalentDescriptor[] = ((build.talents as unknown[]) ?? []).map((t) => ({
     label: selectionLabel(t),
     entity_id: selectionEntityId(t),
     status: selectionStatus(t),
   }));
 
   // --- Weapons ---
-  const weapons = (build.weapons ?? []).map((buildWeapon, weaponIndex) => {
+  const weapons: WeaponReport[] = ((build.weapons as Array<Record<string, unknown>>) ?? []).map((buildWeapon, weaponIndex) => {
     const scorecardWeapon = scorecard.weapons[weaponIndex];
 
-    // Perks: pass through from scorecard (keep .name field as-is)
-    const perks = (scorecardWeapon?.perks?.perks ?? []).map((p) => {
+    const perks: Array<PerkDescriptor | null> = ((scorecardWeapon?.perks?.perks ?? []) as Array<{ name: string; tier: number; value: number } | null>).map((p) => {
       if (p == null) return null;
       return { name: p.name, tier: p.tier, value: p.value };
     });
 
-    // Blessings: normalize from scorecard { name, known, internal } -> { label, known }
-    const blessings = (scorecardWeapon?.blessings?.blessings ?? []).map((b) => ({
+    const blessings: BlessingDescriptor[] = ((scorecardWeapon?.blessings?.blessings ?? []) as Array<{ name: string; known: boolean }>).map((b) => ({
       label: b.name,
       known: b.known,
     }));
 
     return {
       name: selectionLabel(buildWeapon.name),
-      slot: buildWeapon.slot ?? scorecardWeapon?.slot ?? null,
+      slot: (buildWeapon.slot as string) ?? scorecardWeapon?.slot ?? null,
       entity_id: selectionEntityId(buildWeapon.name),
       perk_score: scorecardWeapon?.perks?.score ?? null,
       perks,
@@ -116,12 +207,10 @@ export async function generateReport(buildPath) {
   });
 
   // --- Curios ---
-  // scorecard.curios.perks is FLAT across all curios. Re-group by slicing
-  // using build file's per-curio perk count.
-  const flatCurioPerks = scorecard.curios?.perks ?? [];
+  const flatCurioPerks = (scorecard.curios?.perks ?? []) as Array<{ name: string; tier: number; rating: string }>;
   let perkOffset = 0;
-  const curios = (build.curios ?? []).map((buildCurio) => {
-    const perkCount = (buildCurio.perks ?? []).length;
+  const curios: CurioReport[] = ((build.curios as Array<Record<string, unknown>>) ?? []).map((buildCurio) => {
+    const perkCount = ((buildCurio.perks as unknown[]) ?? []).length;
     const scoredPerks = flatCurioPerks.slice(perkOffset, perkOffset + perkCount);
     perkOffset += perkCount;
 
@@ -146,7 +235,7 @@ export async function generateReport(buildPath) {
   const nonCanonicalCount = audit.non_canonical.length;
   const total = resolvedCount + ambiguousCount + unresolvedCount + nonCanonicalCount;
 
-  const summary = {
+  const summary: Summary = {
     total,
     resolved: resolvedCount,
     ambiguous: ambiguousCount,
@@ -155,18 +244,18 @@ export async function generateReport(buildPath) {
     warnings: audit.warnings ?? [],
   };
 
-  // --- Problem arrays (top-level) ---
-  const unresolved = audit.unresolved.map((entry) => ({
+  // --- Problem arrays ---
+  const unresolved: UnresolvedEntry[] = audit.unresolved.map((entry) => ({
     field: entry.field,
     label: entry.text,
     reason: entry.match_type ?? "none",
   }));
-  const ambiguous = audit.ambiguous.map((entry) => ({
+  const ambiguous: AmbiguousEntry[] = audit.ambiguous.map((entry) => ({
     field: entry.field,
     label: entry.text,
     candidates: [],
   }));
-  const non_canonical = audit.non_canonical.map((entry) => ({
+  const non_canonical: NonCanonicalEntry[] = audit.non_canonical.map((entry) => ({
     field: entry.field,
     label: entry.text,
     kind: entry.non_canonical_kind ?? null,
@@ -190,18 +279,12 @@ export async function generateReport(buildPath) {
   };
 }
 
-/**
- * Generate BuildReports for every JSON file in a directory.
- *
- * @param {string} dirPath - Path to a directory containing canonical build JSON files.
- * @returns {Promise<{summary: object, reports: object[]}>} Batch result with aggregate summary.
- */
-export async function generateBatchReport(dirPath) {
+export async function generateBatchReport(dirPath: string): Promise<BatchReport> {
   const files = readdirSync(dirPath)
     .filter((f) => f.endsWith(".json"))
     .sort();
 
-  const reports = [];
+  const reports: BuildReport[] = [];
   for (const file of files) {
     const report = await generateReport(join(dirPath, file));
     reports.push(report);
