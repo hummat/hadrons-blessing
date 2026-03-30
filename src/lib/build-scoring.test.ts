@@ -1,4 +1,3 @@
-// @ts-nocheck
 // scripts/build-scoring.test.mjs
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";

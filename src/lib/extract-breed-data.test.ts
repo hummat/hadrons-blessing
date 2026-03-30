@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Tests for the breeds:build pipeline output (breed-data.json) and
  * unit tests for Lua breed parser functions.

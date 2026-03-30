@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { parseTalentSettings, loadAllTalentSettings } from "./talent-settings-parser.js";

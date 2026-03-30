@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Tests for the damage profile extraction pipeline output and
  * unit tests for Lua profile parser functions.

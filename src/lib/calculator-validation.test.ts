@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Calculator validation tests — smoke tests, data audits, and known-bug
  * characterization for the damage pipeline across all 23 builds.
