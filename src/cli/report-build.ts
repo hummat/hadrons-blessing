@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { statSync } from "node:fs";
 import { parseArgs } from "node:util";
 import { runCliMain } from "../lib/cli.js";
@@ -28,20 +27,20 @@ if (import.meta.main) {
       throw new Error("Usage: npm run report -- <build.json|directory> [--format text|md|json]");
     }
 
-    const format = values.format;
+    const format = values.format as keyof typeof FORMATTERS;
     if (!FORMATTERS[format]) {
       throw new Error(`Unknown format "${format}". Use: text, md, json`);
     }
 
     const isDir = statSync(target).isDirectory();
-    let output;
+    let output: string;
 
     if (isDir) {
       const batch = await generateBatchReport(target);
-      output = FORMATTERS[format].batch(batch);
+      output = FORMATTERS[format].batch(batch as Parameters<typeof formatBatchText>[0]);
     } else {
       const report = await generateReport(target);
-      output = FORMATTERS[format].single(report);
+      output = FORMATTERS[format].single(report as Parameters<typeof formatText>[0]);
     }
 
     process.stdout.write(output + "\n");

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { parseArgs } from "node:util";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -34,28 +33,33 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const build = JSON.parse(readFileSync(buildPath, "utf-8"));
     const index = loadIndex();
 
-    let result, output;
+    let output: string;
     switch (operation) {
-      case "analyze-gaps":
-        result = analyzeGaps(build, index);
-        output = values.json ? formatGapsJson(result) : formatGapsText(result);
+      case "analyze-gaps": {
+        const gapResult = analyzeGaps(build, index);
+        output = values.json
+          ? formatGapsJson(gapResult as unknown as Parameters<typeof formatGapsJson>[0])
+          : formatGapsText(gapResult as unknown as Parameters<typeof formatGapsText>[0]);
         break;
-      case "swap-talent":
+      }
+      case "swap-talent": {
         if (!values.from || !values.to)
           throw new Error("--from and --to required for swap-talent");
-        result = swapTalent(build, index, values.from, values.to);
+        const talentResult = swapTalent(build, index, values.from, values.to);
         output = values.json
-          ? formatSwapJson(result)
-          : formatSwapText(result, { from: values.from, to: values.to, kind: "talent" });
+          ? formatSwapJson(talentResult as Parameters<typeof formatSwapJson>[0])
+          : formatSwapText(talentResult as Parameters<typeof formatSwapText>[0], { from: values.from, to: values.to, kind: "talent" });
         break;
-      case "swap-weapon":
+      }
+      case "swap-weapon": {
         if (!values.from || !values.to)
           throw new Error("--from and --to required for swap-weapon");
-        result = swapWeapon(build, index, values.from, values.to);
+        const weaponResult = swapWeapon(build, index, values.from, values.to);
         output = values.json
-          ? formatSwapJson(result)
-          : formatSwapText(result, { from: values.from, to: values.to, kind: "weapon" });
+          ? formatSwapJson(weaponResult as Parameters<typeof formatSwapJson>[0])
+          : formatSwapText(weaponResult as Parameters<typeof formatSwapText>[0], { from: values.from, to: values.to, kind: "weapon" });
         break;
+      }
       default:
         throw new Error(
           `Unknown operation: ${operation}. Use: analyze-gaps, swap-talent, swap-weapon`

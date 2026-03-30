@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Pipeline entry point: extract damage profiles from Darktide Lua source files.
  *
@@ -13,6 +12,9 @@ import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 
 import { join, basename } from "node:path";
 import { validateSourceSnapshot } from "../lib/validate.js";
 import { runCliMain } from "../lib/cli.js";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
 
 const GENERATED_DIR = join(
   import.meta.dirname,
@@ -129,7 +131,7 @@ await runCliMain("profiles:build", async () => {
  * @param {string} sourceRoot
  * @returns {{ lerpValues: Record<string, [number, number]>, cleavePresets: Record<string, object> }}
  */
-function parseLerpValues(sourceRoot) {
+function parseLerpValues(sourceRoot: string) {
   const filePath = join(
     sourceRoot,
     "scripts",
@@ -147,7 +149,7 @@ function parseLerpValues(sourceRoot) {
     throw new Error("Could not find damage_lerp_values in damage_profile_settings.lua");
   }
 
-  const lerpValues = {};
+  const lerpValues: AnyRecord = {};
   // Match entries like: lerp_1 = { 0.67, 1.33, }
   const lerpRe = /(\w+)\s*=\s*\{\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*,?\s*\}/g;
   let m;
@@ -156,7 +158,7 @@ function parseLerpValues(sourceRoot) {
   }
 
   // Parse cleave presets: no_cleave, single_cleave, single_plus_cleave, double_cleave, etc.
-  const cleavePresets = {};
+  const cleavePresets: AnyRecord = {};
   const cleaveNames = [
     "no_cleave",
     "single_cleave",
@@ -174,7 +176,7 @@ function parseLerpValues(sourceRoot) {
     );
     const cleaveMatch = lua.match(cleaveRe);
     if (cleaveMatch) {
-      const braceIdx = cleaveMatch.index + cleaveMatch[0].length - 1;
+      const braceIdx = cleaveMatch.index! + cleaveMatch[0].length - 1;
       const endIdx = findBalancedBrace(lua, braceIdx);
       if (endIdx === -1) continue;
       const block = lua.slice(braceIdx, endIdx + 1);
@@ -204,7 +206,7 @@ function parseLerpValues(sourceRoot) {
  * @param {string} sourceRoot
  * @returns {object}
  */
-export function parseConstants(sourceRoot) {
+export function parseConstants(sourceRoot: string) {
   const plsPath = join(sourceRoot, "scripts", "settings", "damage", "power_level_settings.lua");
   const plsLua = readFileSync(plsPath, "utf8");
 
@@ -215,7 +217,7 @@ export function parseConstants(sourceRoot) {
   const defaultPl = extractNumber(plsLua, /default_power_level\s*=\s*(\d+)/, { critical: true });
 
   // damage_output: all armor types have {min: 0, max: 20}
-  const damageOutput = parseArmorTypeTable(plsLua, "damage_output", (block) => {
+  const damageOutput = parseArmorTypeTable(plsLua, "damage_output", (block: string) => {
     const minMatch = block.match(/min\s*=\s*(\d+)/);
     const maxMatch = block.match(/max\s*=\s*(\d+)/);
     return { min: Number(minMatch?.[1] ?? 0), max: Number(maxMatch?.[1] ?? 20) };
@@ -227,7 +229,7 @@ export function parseConstants(sourceRoot) {
   );
   const boostCurves = {
     default: boostCurveMatch
-      ? boostCurveMatch[1].match(/-?\d+(?:\.\d+)?/g).map(Number)
+      ? boostCurveMatch[1].match(/-?\d+(?:\.\d+)?/g)!.map(Number)
       : [0, 0.3, 0.6, 0.8, 1],
   };
 
@@ -275,7 +277,7 @@ export function parseConstants(sourceRoot) {
     ["rending_armor_type_multiplier", rendingArmorTypeMult, RENDING_ARMOR_TYPES],
   ];
   for (const [tableName, table, expectedTypes] of validationTargets) {
-    const missing = expectedTypes.filter((at) => !(at in table));
+    const missing = (expectedTypes as string[]).filter((at) => !(at in (table as object)));
     if (missing.length > 0) {
       throw new Error(`Critical constant table '${tableName}' missing armor types: ${missing.join(", ")}`);
     }
@@ -311,7 +313,7 @@ export function parseConstants(sourceRoot) {
  * @param {Map<string, object>} presetAdmVars
  * @returns {object[]}
  */
-function parseAllDamageProfiles(sourceRoot, lerpValues, cleavePresets, presetAdmVars) {
+function parseAllDamageProfiles(sourceRoot: string, lerpValues: AnyRecord, cleavePresets: AnyRecord, presetAdmVars: AnyRecord) {
   const profiles = [];
   const seenIds = new Set();
 
@@ -332,9 +334,9 @@ function parseAllDamageProfiles(sourceRoot, lerpValues, cleavePresets, presetAdm
       for (const f of files) {
         weaponFiles.push(join(settingsDir, f));
       }
-    } catch (err) {
-      if (err.code !== "ENOENT") {
-        console.warn(`Warning: failed to read ${settingsDir}: ${err.message}`);
+    } catch (err: unknown) {
+      if ((err as NodeJS.ErrnoException).code !== "ENOENT") {
+        console.warn(`Warning: failed to read ${settingsDir}: ${(err as Error).message}`);
       }
     }
   }
@@ -361,8 +363,8 @@ function parseAllDamageProfiles(sourceRoot, lerpValues, cleavePresets, presetAdm
  * @param {string} dir
  * @returns {string[]}
  */
-function collectDamageProfileFiles(dir) {
-  const files = [];
+function collectDamageProfileFiles(dir: string): string[] {
+  const files: string[] = [];
   let entries;
   try {
     entries = readdirSync(dir, { withFileTypes: true });
@@ -395,7 +397,7 @@ function collectDamageProfileFiles(dir) {
  * @param {Map<string, object>} presetAdmVars
  * @returns {object[]}
  */
-function parseDamageProfileFile(lua, sourceFile, lerpValues, cleavePresets, presetAdmVars = new Map()) {
+function parseDamageProfileFile(lua: string, sourceFile: string, lerpValues: AnyRecord, cleavePresets: AnyRecord, presetAdmVars: AnyRecord = new Map()) {
   const profiles = [];
   const profileMap = new Map(); // id -> profile for clone lookups
 
@@ -436,12 +438,12 @@ function parseDamageProfileFile(lua, sourceFile, lerpValues, cleavePresets, pres
         profiles.push(profile);
         profileMap.set(profileName, profile);
       }
-    } catch (err) {
+    } catch (err: unknown) {
       // Re-throw code bugs (TypeError, RangeError) — only catch Lua parse failures
-      if (err instanceof RangeError || (err instanceof TypeError && !err.message.includes("Cannot read"))) {
+      if (err instanceof RangeError || (err instanceof TypeError && !(err as Error).message.includes("Cannot read"))) {
         throw err;
       }
-      console.warn(`Warning: failed to parse profile ${profileName} in ${sourceFile}: ${err.message}`);
+      console.warn(`Warning: failed to parse profile ${profileName} in ${sourceFile}: ${(err as Error).message}`);
     }
   }
 
@@ -483,7 +485,7 @@ function parseDamageProfileFile(lua, sourceFile, lerpValues, cleavePresets, pres
  * @param {string} lua - Full file source
  * @param {Record<string, [number, number]>} lerpValues
  */
-export function applyCloneOverrides(profile, name, lua, lerpValues) {
+export function applyCloneOverrides(profile: AnyRecord, name: string, lua: string, lerpValues: AnyRecord) {
   const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const overrideRe = new RegExp(
     `^damage_templates\\.${escapedName}\\.([\\w.\\[\\]]+)\\s*=\\s*(.+)`,
@@ -560,7 +562,7 @@ export function applyCloneOverrides(profile, name, lua, lerpValues) {
  * @param {Map<string, object>} [localAdmVars] - File-level local ADM variable definitions
  * @returns {object|null}
  */
-export function parseProfileBlock(id, block, sourceFile, lerpValues, cleavePresets, localAdmVars = new Map()) {
+export function parseProfileBlock(id: string, block: string, sourceFile: string, lerpValues: AnyRecord, cleavePresets: AnyRecord, localAdmVars: AnyRecord = new Map()) {
   // Extract stagger_category
   const staggerMatch = block.match(/stagger_category\s*=\s*"(\w+)"/);
   const staggerCategory = staggerMatch ? staggerMatch[1] : null;
@@ -632,7 +634,7 @@ export function parseProfileBlock(id, block, sourceFile, lerpValues, cleavePrese
  * @param {Map<string, object>} localAdmVars
  * @returns {object|null}
  */
-function parseProfileLevelAdm(block, lerpValues, localAdmVars) {
+function parseProfileLevelAdm(block: string, lerpValues: AnyRecord, localAdmVars: AnyRecord) {
   // Find the shallowest armor_damage_modifier = { ... } occurrence (not _ranged)
   // We need to distinguish `armor_damage_modifier = {` from `armor_damage_modifier_ranged = {`
   const re = /armor_damage_modifier\s*=\s*\{/g;
@@ -659,7 +661,7 @@ function parseProfileLevelAdm(block, lerpValues, localAdmVars) {
     const braceEnd = findBalancedBrace(block, braceStart);
     if (braceEnd !== -1) {
       const admBlock = block.slice(braceStart, braceEnd + 1);
-      const result = {};
+      const result: AnyRecord = {};
 
       for (const channel of ["attack", "impact"]) {
         // Try inline block: attack = { [armor_types.X] = ... }
@@ -717,7 +719,7 @@ function parseProfileLevelAdm(block, lerpValues, localAdmVars) {
  * @param {Record<string, object>} cleavePresets
  * @returns {object|null}
  */
-function parseCleaveDistribution(block, cleavePresets) {
+function parseCleaveDistribution(block: string, cleavePresets: AnyRecord) {
   // Check for preset reference: cleave_distribution = single_cleave,
   const presetMatch = block.match(
     /cleave_distribution\s*=\s*(no_cleave|single_cleave|single_plus_cleave|double_cleave|light_cleave|medium_cleave|large_cleave|big_cleave|fold_cleave)\b/,
@@ -745,7 +747,7 @@ function parseCleaveDistribution(block, cleavePresets) {
  * @param {string} block
  * @returns {object|null}
  */
-function parseRanges(block) {
+function parseRanges(block: string) {
   const rangesStart = block.indexOf("ranges = {");
   if (rangesStart === -1) return null;
 
@@ -792,7 +794,7 @@ function parseRanges(block) {
  * @param {string} block
  * @returns {object|null}
  */
-function parsePowerDistribution(block) {
+function parsePowerDistribution(block: string) {
   // Find top-level (shallowest) power_distribution
   return parseShallowField(block, "power_distribution");
 }
@@ -805,7 +807,7 @@ function parsePowerDistribution(block) {
  * @param {string} fieldName
  * @returns {object|null}
  */
-function parseShallowField(block, fieldName) {
+function parseShallowField(block: string, fieldName: string) {
   const re = new RegExp(`${fieldName}\\s*=\\s*\\{`, "g");
   let m;
   let bestMatch = null;
@@ -837,7 +839,7 @@ function parseShallowField(block, fieldName) {
  * @param {Record<string, [number, number]>} lerpValues
  * @returns {object|null}
  */
-function parseArmorDamageModifierRanged(block, lerpValues, localAdmVars = new Map()) {
+function parseArmorDamageModifierRanged(block: string, lerpValues: AnyRecord, localAdmVars: AnyRecord = new Map()) {
   const admStart = block.indexOf("armor_damage_modifier_ranged = {");
   if (admStart !== -1) {
     const braceStart = admStart + "armor_damage_modifier_ranged = ".length;
@@ -870,8 +872,8 @@ function parseArmorDamageModifierRanged(block, lerpValues, localAdmVars = new Ma
  * @param {Record<string, [number, number]>} lerpValues
  * @returns {object|null}
  */
-function parseNearFarAdm(admBlock, lerpValues) {
-  const result = {};
+function parseNearFarAdm(admBlock: string, lerpValues: AnyRecord) {
+  const result: AnyRecord = {};
   for (const distance of ["near", "far"]) {
     const distStart = admBlock.indexOf(`${distance} = {`);
     if (distStart === -1) continue;
@@ -912,7 +914,7 @@ function parseNearFarAdm(admBlock, lerpValues) {
  * @param {Record<string, [number, number]>} lerpValues
  * @returns {Map<string, object>} varName (or table.field) -> parsed ADM
  */
-function parseLocalAdmVariables(lua, lerpValues) {
+function parseLocalAdmVariables(lua: string, lerpValues: AnyRecord) {
   const vars = new Map();
 
   // Match: local varName = { ... }
@@ -994,8 +996,8 @@ function parseLocalAdmVariables(lua, lerpValues) {
  * @param {Record<string, [number, number]>} lerpValues
  * @returns {object|null}
  */
-function parseMeleeAdm(block, lerpValues) {
-  const result = {};
+function parseMeleeAdm(block: string, lerpValues: AnyRecord) {
+  const result: AnyRecord = {};
   for (const channel of ["attack", "impact"]) {
     const chStart = block.indexOf(`${channel} = {`);
     if (chStart === -1) continue;
@@ -1020,7 +1022,7 @@ function parseMeleeAdm(block, lerpValues) {
  * @param {Record<string, [number, number]>} lerpValues
  * @returns {Map<string, object>} presetName -> parsed ADM (either flat channel map or full attack/impact)
  */
-function parsePresetAdmVariables(sourceRoot, lerpValues) {
+function parsePresetAdmVariables(sourceRoot: string, lerpValues: AnyRecord) {
   const presets = new Map();
   const filePath = join(sourceRoot, "scripts", "settings", "damage", "damage_profile_settings.lua");
   const lua = readFileSync(filePath, "utf8");
@@ -1063,7 +1065,7 @@ function parsePresetAdmVariables(sourceRoot, lerpValues) {
  * @param {Map<string, object>} localAdmVars
  * @returns {object|null}
  */
-function parseFirstTarget(block, lerpValues, localAdmVars = new Map()) {
+function parseFirstTarget(block: string, lerpValues: AnyRecord, localAdmVars: AnyRecord = new Map()) {
   const targetsStart = block.indexOf("targets = {");
   if (targetsStart === -1) return null;
 
@@ -1118,8 +1120,8 @@ function parseFirstTarget(block, lerpValues, localAdmVars = new Map()) {
  * @param {Map<string, object>} localAdmVars
  * @returns {object}
  */
-function parseTargetEntry(entryBlock, lerpValues, localAdmVars = new Map()) {
-  const result = {};
+function parseTargetEntry(entryBlock: string, lerpValues: AnyRecord, localAdmVars: AnyRecord = new Map()) {
+  const result: AnyRecord = {};
 
   // power_distribution
   const pdStart = entryBlock.indexOf("power_distribution = {");
@@ -1226,7 +1228,7 @@ function parseTargetEntry(entryBlock, lerpValues, localAdmVars = new Map()) {
  * @param {string} sourceRoot
  * @returns {Map<string, string>} hitscanName -> damageProfileName
  */
-function parseAllHitscanTemplates(sourceRoot) {
+function parseAllHitscanTemplates(sourceRoot: string) {
   const map = new Map();
 
   // Parse per-weapon hitscan template files first (so overrides in main file can reference them)
@@ -1242,9 +1244,9 @@ function parseAllHitscanTemplates(sourceRoot) {
         const lua = readFileSync(join(settingsDir, f), "utf8");
         parseHitscanFile(lua, map);
       }
-    } catch (err) {
-      if (err.code !== "ENOENT") {
-        console.warn(`Warning: failed to read hitscan dir ${settingsDir}: ${err.message}`);
+    } catch (err: unknown) {
+      if ((err as NodeJS.ErrnoException).code !== "ENOENT") {
+        console.warn(`Warning: failed to read hitscan dir ${settingsDir}: ${(err as Error).message}`);
       }
     }
   }
@@ -1266,7 +1268,7 @@ function parseAllHitscanTemplates(sourceRoot) {
  * @param {string} lua
  * @param {Map<string, string>} map
  */
-function parseHitscanFile(lua, map) {
+function parseHitscanFile(lua: string, map: AnyRecord) {
   // Direct templates: hitscan_templates.X = { ... damage_profile = DamageProfileTemplates.Y ... }
   const directRe = /hitscan_templates\.(\w+)\s*=\s*\{/g;
   let m;
@@ -1323,7 +1325,7 @@ function parseHitscanFile(lua, map) {
  * @param {Set<string>} profileIds
  * @returns {object[]}
  */
-function parseAllWeaponTemplates(sourceRoot, hitscanMap, profileIds) {
+function parseAllWeaponTemplates(sourceRoot: string, hitscanMap: AnyRecord, profileIds: Set<string>) {
   const actionMaps = [];
   const weaponBaseDir = join(sourceRoot, "scripts", "settings", "equipment", "weapon_templates");
 
@@ -1334,9 +1336,9 @@ function parseAllWeaponTemplates(sourceRoot, hitscanMap, profileIds) {
     let entries;
     try {
       entries = readdirSync(familyDir);
-    } catch (err) {
-      if (err.code !== "ENOENT") {
-        console.warn(`Warning: failed to read weapon dir ${familyDir}: ${err.message}`);
+    } catch (err: unknown) {
+      if ((err as NodeJS.ErrnoException).code !== "ENOENT") {
+        console.warn(`Warning: failed to read weapon dir ${familyDir}: ${(err as Error).message}`);
       }
       continue;
     }
@@ -1372,8 +1374,8 @@ function parseAllWeaponTemplates(sourceRoot, hitscanMap, profileIds) {
  * @param {Set<string>} profileIds
  * @returns {Record<string, string[]>}
  */
-function parseWeaponActions(lua, hitscanMap, profileIds) {
-  const result = {};
+function parseWeaponActions(lua: string, hitscanMap: AnyRecord, profileIds: Set<string>) {
+  const result: AnyRecord = {};
 
   // Find weapon_template.actions block
   const actionsStart = lua.indexOf("weapon_template.actions = {");
@@ -1426,8 +1428,8 @@ function parseWeaponActions(lua, hitscanMap, profileIds) {
  * @param {Set<string>} profileIds
  * @returns {string[]}
  */
-function extractProfilesFromAction(actionBlock, hitscanMap, profileIds) {
-  const profiles = [];
+function extractProfilesFromAction(actionBlock: string, hitscanMap: AnyRecord, profileIds: Set<string>) {
+  const profiles: string[] = [];
 
   // Direct damage_profile reference (melee)
   const directRe = /(?:^|[^_])damage_profile\s*=\s*DamageProfileTemplates\.(\w+)/g;
@@ -1470,7 +1472,7 @@ function extractProfilesFromAction(actionBlock, hitscanMap, profileIds) {
  * @param {string} actionName
  * @returns {string}
  */
-function classifyAction(actionName) {
+function classifyAction(actionName: string) {
   // Ranged shoot actions
   if (actionName.includes("shoot_hip") || actionName === "action_shoot") return "shoot_hip";
   if (actionName.includes("shoot_zoomed") || actionName.includes("zoom_shoot")) return "shoot_zoomed";
@@ -1512,8 +1514,8 @@ function classifyAction(actionName) {
  * @param {Record<string, [number, number]>} lerpValues
  * @returns {Record<string, number|[number,number]>}
  */
-export function parseArmorTypeValues(block, lerpValues) {
-  const result = {};
+export function parseArmorTypeValues(block: string, lerpValues: AnyRecord) {
+  const result: AnyRecord = {};
 
   // Match [armor_types.X] = damage_lerp_values.lerp_Y
   const lerpRe = /\[armor_types\.(\w+)\]\s*=\s*damage_lerp_values\.(\w+)/g;
@@ -1543,8 +1545,8 @@ export function parseArmorTypeValues(block, lerpValues) {
  * @param {string} block
  * @returns {object}
  */
-export function parseAttackImpactPair(block) {
-  const result = {};
+export function parseAttackImpactPair(block: string) {
+  const result: AnyRecord = {};
 
   for (const channel of ["attack", "impact"]) {
     // Check for array form: attack = { 1, 2 }
@@ -1576,14 +1578,14 @@ export function parseAttackImpactPair(block) {
  * @param {string} settingName
  * @returns {Record<string, number>}
  */
-export function parseSimpleArmorTypeMap(lua, settingName) {
+export function parseSimpleArmorTypeMap(lua: string, settingName: string) {
   const re = new RegExp(
     `power_level_settings\\.${settingName}\\s*=\\s*\\{([\\s\\S]*?)\\}`,
   );
   const match = lua.match(re);
   if (!match) return {};
 
-  const result = {};
+  const result: AnyRecord = {};
   const entryRe = /\[armor_types\.(\w+)\]\s*=\s*(-?\d+(?:\.\d+)?)/g;
   let m;
   while ((m = entryRe.exec(match[1])) !== null) {
@@ -1599,14 +1601,14 @@ export function parseSimpleArmorTypeMap(lua, settingName) {
  * @param {string} varName
  * @returns {Record<string, number>}
  */
-function parseSimpleArmorTypeMapFromLocal(lua, varName) {
+function parseSimpleArmorTypeMapFromLocal(lua: string, varName: string) {
   const re = new RegExp(
     `(?:local\\s+)?${varName}\\s*=\\s*\\{([\\s\\S]*?)\\}`,
   );
   const match = lua.match(re);
   if (!match) return {};
 
-  const result = {};
+  const result: AnyRecord = {};
   const entryRe = /\[armor_types\.(\w+)\]\s*=\s*(-?\d+(?:\.\d+)?)/g;
   let m;
   while ((m = entryRe.exec(match[1])) !== null) {
@@ -1622,20 +1624,20 @@ function parseSimpleArmorTypeMapFromLocal(lua, varName) {
  * @param {function} valueParser
  * @returns {Record<string, object>}
  */
-function parseArmorTypeTable(lua, tableName, valueParser) {
+function parseArmorTypeTable(lua: string, tableName: string, valueParser: (block: string) => AnyRecord) {
   const startRe = new RegExp(
     `power_level_settings\\.${tableName}\\s*=\\s*\\{`,
   );
   const match = lua.match(startRe);
   if (!match) return {};
 
-  const blockStart = match.index + match[0].length - 1;
+  const blockStart = match.index! + match[0].length - 1;
   const blockEnd = findBalancedBrace(lua, blockStart);
   if (blockEnd === -1) return {};
 
   const block = lua.slice(blockStart, blockEnd + 1);
 
-  const result = {};
+  const result: AnyRecord = {};
   // Find [armor_types.X] = { ... } entries
   const entryRe = /\[armor_types\.(\w+)\]\s*=\s*\{/g;
   let m;
@@ -1656,13 +1658,13 @@ function parseArmorTypeTable(lua, tableName, valueParser) {
  * @param {string} lua
  * @returns {Record<string, string>}
  */
-function parseArmorConversionMap(lua) {
+function parseArmorConversionMap(lua: string) {
   const match = lua.match(
     /boost_damage_armor_conversion\s*=\s*\{([\s\S]*?)\}/,
   );
   if (!match) return {};
 
-  const result = {};
+  const result: AnyRecord = {};
   const entryRe = /\[armor_types\.(\w+)\]\s*=\s*armor_types\.(\w+)/g;
   let m;
   while ((m = entryRe.exec(match[1])) !== null) {
@@ -1678,17 +1680,17 @@ function parseArmorConversionMap(lua) {
  * @param {string} lua
  * @returns {object}
  */
-function parseDefaultArmorDamageModifier(lua) {
+function parseDefaultArmorDamageModifier(lua: string) {
   const startRe = /default_armor_damage_modifier\s*=\s*\{/;
   const match = lua.match(startRe);
   if (!match) return {};
 
-  const blockStart = match.index + match[0].length - 1;
+  const blockStart = match.index! + match[0].length - 1;
   const blockEnd = findBalancedBrace(lua, blockStart);
   if (blockEnd === -1) return {};
 
   const block = lua.slice(blockStart, blockEnd + 1);
-  const result = {};
+  const result: AnyRecord = {};
 
   for (const channel of ["attack", "impact"]) {
     const chStart = block.indexOf(`${channel} = {`);
@@ -1698,7 +1700,7 @@ function parseDefaultArmorDamageModifier(lua) {
     if (chBraceEnd === -1) continue;
     const chBlock = block.slice(chBraceStart, chBraceEnd + 1);
 
-    const channelResult = {};
+    const channelResult: AnyRecord = {};
     const entryRe = /\[armor_types\.(\w+)\]\s*=\s*(-?\d+(?:\.\d+)?)/g;
     let m;
     while ((m = entryRe.exec(chBlock)) !== null) {
@@ -1717,7 +1719,7 @@ function parseDefaultArmorDamageModifier(lua) {
  * @param {{ critical?: boolean }} options
  * @returns {number}
  */
-function extractNumber(lua, re, { critical = false } = {}) {
+function extractNumber(lua: string, re: RegExp, { critical = false } = {}) {
   const m = lua.match(re);
   if (!m) {
     if (critical) {
@@ -1736,7 +1738,7 @@ function extractNumber(lua, re, { critical = false } = {}) {
  * @param {number} startIdx - Index of the opening `{`
  * @returns {number} Index of the matching `}`, or -1 if not found
  */
-export function findBalancedBrace(str, startIdx) {
+export function findBalancedBrace(str: string, startIdx: number) {
   if (str[startIdx] !== "{") return -1;
   let depth = 0;
   // Skip string literals, line comments, multiline comments, and long strings
@@ -1786,7 +1788,7 @@ export function findBalancedBrace(str, startIdx) {
  * @param {number} position
  * @returns {number}
  */
-export function countBraceDepth(str, position) {
+export function countBraceDepth(str: string, position: number) {
   let depth = 0;
   for (let i = 0; i < position; i++) {
     const ch = str[i];

@@ -13,7 +13,7 @@ import type { KnownUnresolvedSchemaJson } from "../generated/schema-types.js";
 // Types
 // ---------------------------------------------------------------------------
 
-interface Selection {
+export interface Selection {
   raw_label: string;
   canonical_entity_id: string | null;
   resolution_status: string;
@@ -45,7 +45,7 @@ interface Provenance {
   scraped_at: string;
 }
 
-interface CanonicalBuild {
+export interface CanonicalBuild {
   schema_version: number;
   title: string;
   class: Selection;

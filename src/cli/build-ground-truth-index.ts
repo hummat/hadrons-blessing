@@ -1,8 +1,7 @@
-// @ts-nocheck
 import { runCliMain } from "../lib/cli.js";
 import { buildIndex } from "../lib/ground-truth-index.js";
 
-function parseArgs(argv) {
+function parseArgs(argv: string[]) {
   return {
     check: argv.includes("--check"),
   };

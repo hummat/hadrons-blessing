@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Generate bot weapon recommendations for BetterBots consumption.
 // Reads a curated per-class weapon map, validates against ground-truth entities,
 // and writes data/exports/bot-weapon-recommendations.json.
@@ -88,8 +87,8 @@ function buildExport() {
   const registry = loadGroundTruthRegistry();
   const entityById = new Map(registry.entities.map((e) => [e.id, e]));
 
-  const classes = {};
-  const errors = [];
+  const classes: Record<string, Record<string, unknown>> = {};
+  const errors: string[] = [];
 
   for (const [className, slots] of Object.entries(CURATED_WEAPONS)) {
     classes[className] = {};

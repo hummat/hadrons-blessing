@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Pipeline entry point: extract breed data from Darktide Lua source files.
  *
@@ -13,6 +12,9 @@ import { readFileSync, writeFileSync, readdirSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { validateSourceSnapshot } from "../lib/validate.js";
 import { runCliMain } from "../lib/cli.js";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
 
 const GENERATED_DIR = join(
   import.meta.dirname,
@@ -36,7 +38,7 @@ const DIFFICULTY_NAMES = ["uprising", "malice", "heresy", "damnation", "auric"];
  */
 const CHALLENGE_LEVELS = [1, 2, 3, 4, 4]; // 0-based indices for [uprising..auric]
 
-const COMMUNITY_ARMOR_NAMES = {
+const COMMUNITY_ARMOR_NAMES: Record<string, string> = {
   unarmored: "Unarmoured",
   armored: "Flak",
   resistant: "Infested",
@@ -81,8 +83,8 @@ await runCliMain("breeds:build", async () => {
     let breed;
     try {
       breed = parseBreedFile(luaSource);
-    } catch (err) {
-      console.warn(`Warning: skipping ${filePath} — ${err.message}`);
+    } catch (err: unknown) {
+      console.warn(`Warning: skipping ${filePath} — ${(err as Error).message}`);
       continue;
     }
     if (!breed) continue;
@@ -93,16 +95,16 @@ await runCliMain("breeds:build", async () => {
       console.warn(`Warning: no health data for ${breed.id}, skipping`);
       continue;
     }
-    const difficultyHealth = {};
+    const difficultyHealth: AnyRecord = {};
     for (let i = 0; i < DIFFICULTY_NAMES.length; i++) {
       difficultyHealth[DIFFICULTY_NAMES[i]] = healthSteps[i];
     }
 
     // -- Phase 4: Attach difficulty hit_mass -----------------------------------
     const hitMassSteps = hitMassMap.get(breed.id);
-    let difficultyHitMass;
+    let difficultyHitMass: AnyRecord | undefined;
     if (hitMassSteps) {
-      difficultyHitMass = {};
+      difficultyHitMass = {} as AnyRecord;
       for (let i = 0; i < DIFFICULTY_NAMES.length; i++) {
         difficultyHitMass[DIFFICULTY_NAMES[i]] = hitMassSteps[i];
       }
@@ -112,7 +114,7 @@ await runCliMain("breeds:build", async () => {
     const communityArmorName =
       COMMUNITY_ARMOR_NAMES[breed.base_armor_type] || breed.base_armor_type;
 
-    const record = {
+    const record: AnyRecord = {
       id: breed.id,
       display_name: breed.display_name,
       faction: breed.faction,
@@ -157,7 +159,7 @@ await runCliMain("breeds:build", async () => {
  * @param {string} sourceRoot
  * @returns {Map<string, number[]>} breedName -> [uprising, malice, heresy, damnation, auric]
  */
-export function parseDifficultyHealth(sourceRoot) {
+export function parseDifficultyHealth(sourceRoot: string) {
   const filePath = join(
     sourceRoot,
     "scripts",
@@ -199,7 +201,7 @@ export function parseDifficultyHealth(sourceRoot) {
       }
       healthMap.set(
         breedName,
-        multipliers.map((m) => Math.round(baseHealth * m)),
+        multipliers.map((m: number) => Math.round(baseHealth * m)),
       );
     } else {
       // Inline literal array: { 850, 1000, 1250, ... }
@@ -230,7 +232,7 @@ export function parseDifficultyHealth(sourceRoot) {
  * @param {string} sourceRoot
  * @returns {Map<string, number[]>} breedName -> [uprising, malice, heresy, damnation, auric]
  */
-export function parseDifficultyHitMass(sourceRoot) {
+export function parseDifficultyHitMass(sourceRoot: string) {
   const filePath = join(
     sourceRoot,
     "scripts",
@@ -270,7 +272,7 @@ export function parseDifficultyHitMass(sourceRoot) {
  * @param {string} block  The Lua source block for the hit_mass table
  * @returns {Map<string, number[]>} breedName -> [uprising, malice, heresy, damnation, auric]
  */
-export function parseHitMassBlock(block) {
+export function parseHitMassBlock(block: string) {
   const hitMassMap = new Map();
 
   // Match scalar entries at top indent level: \tbreed_name = 20,
@@ -315,7 +317,7 @@ export function parseHitMassBlock(block) {
  * @param {string} luaSource
  * @returns {Map<string, number[]>} helperName -> multiplier array
  */
-export function parseHealthHelpers(luaSource) {
+export function parseHealthHelpers(luaSource: string) {
   const helpers = new Map();
 
   const helperRe =
@@ -346,7 +348,7 @@ export function parseHealthHelpers(luaSource) {
  * @param {string} sourceRoot
  * @returns {string[]}
  */
-export function collectBreedFiles(sourceRoot) {
+export function collectBreedFiles(sourceRoot: string) {
   const breedsDir = join(sourceRoot, "scripts", "settings", "breed", "breeds");
   const files = [];
 
@@ -355,9 +357,9 @@ export function collectBreedFiles(sourceRoot) {
     let entries;
     try {
       entries = readdirSync(factionDir);
-    } catch (err) {
-      if (err.code !== "ENOENT") {
-        console.warn(`Warning: failed to read breed dir ${factionDir}: ${err.message}`);
+    } catch (err: unknown) {
+      if ((err as NodeJS.ErrnoException).code !== "ENOENT") {
+        console.warn(`Warning: failed to read breed dir ${factionDir}: ${(err as Error).message}`);
       }
       continue;
     }
@@ -380,7 +382,7 @@ export function collectBreedFiles(sourceRoot) {
  * @param {string} luaSource
  * @returns {object|null}
  */
-export function parseBreedFile(luaSource) {
+export function parseBreedFile(luaSource: string) {
   // Extract the breed_name local variable
   const breedNameMatch = luaSource.match(
     /local\s+breed_name\s*=\s*"(\w+)"/,
@@ -442,7 +444,7 @@ export function parseBreedFile(luaSource) {
   const staggerData = parseStaggerData(luaSource);
 
   // Build hit_zones object
-  const hitZones = {};
+  const hitZones: AnyRecord = {};
   for (const zoneName of hitZoneNames) {
     const armorType = armorOverrides.get(zoneName) || baseArmorType;
     const isWeakspot = weakspotTypes.has(zoneName);
@@ -491,8 +493,8 @@ export function parseBreedFile(luaSource) {
  * @param {string} luaSource
  * @returns {object} stagger data object
  */
-export function parseStaggerData(luaSource) {
-  const result = {};
+export function parseStaggerData(luaSource: string) {
+  const result: AnyRecord = {};
 
   // Extract scalar fields
   const resistanceMatch = luaSource.match(
@@ -544,7 +546,7 @@ export function parseStaggerData(luaSource) {
  * @param {string} tableName  e.g. "stagger_thresholds"
  * @returns {object|null} { light: 1, medium: 10, ... } or null if not found
  */
-export function parseStaggerTypeTable(luaSource, tableName) {
+export function parseStaggerTypeTable(luaSource: string, tableName: string) {
   // Find the start of the table
   const tableStart = luaSource.indexOf(`${tableName} = {`);
   if (tableStart === -1) return null;
@@ -561,7 +563,7 @@ export function parseStaggerTypeTable(luaSource, tableName) {
   }
   const block = luaSource.slice(tableStart, i + 1);
 
-  const result = {};
+  const result: Record<string, number> = {};
   const entryRe =
     /\[stagger_types\.(\w+)\]\s*=\s*(-?\d+(?:\.\d+)?(?:e[+-]?\d+)?)/g;
   let m;
@@ -582,7 +584,7 @@ export function parseStaggerTypeTable(luaSource, tableName) {
  * @param {string} luaSource
  * @returns {string[]}
  */
-export function parseTags(luaSource) {
+export function parseTags(luaSource: string) {
   const tagsMatch = luaSource.match(/\btags\s*=\s*\{([\s\S]*?)\}/);
   if (!tagsMatch) return [];
 
@@ -602,7 +604,7 @@ export function parseTags(luaSource) {
  * @param {string} luaSource
  * @returns {string[]}
  */
-export function parseHitZoneNames(luaSource) {
+export function parseHitZoneNames(luaSource: string) {
   // Find the hit_zones array block
   const hzStart = luaSource.indexOf("hit_zones = {");
   if (hzStart === -1) return [];
@@ -619,7 +621,7 @@ export function parseHitZoneNames(luaSource) {
   }
   const block = luaSource.slice(hzStart, i + 1);
 
-  const names = [];
+  const names: string[] = [];
   const nameRe = /name\s*=\s*hit_zone_names\.(\w+)/g;
   let m;
   while ((m = nameRe.exec(block)) !== null) {
@@ -636,7 +638,7 @@ export function parseHitZoneNames(luaSource) {
  * @param {string} luaSource
  * @returns {Map<string, string>} zoneName -> armorType
  */
-export function parseHitzoneArmorOverride(luaSource) {
+export function parseHitzoneArmorOverride(luaSource: string) {
   const overrides = new Map();
   const blockMatch = luaSource.match(
     /hitzone_armor_override\s*=\s*\{([\s\S]*?)\}/,
@@ -660,11 +662,11 @@ export function parseHitzoneArmorOverride(luaSource) {
  * @param {string} luaSource
  * @returns {{ ranged: Map<string, number>, melee: Map<string, number>, default: Map<string, number> }}
  */
-export function parseHitzoneDamageMultiplier(luaSource) {
+export function parseHitzoneDamageMultiplier(luaSource: string) {
   const result = {
-    ranged: new Map(),
-    melee: new Map(),
-    default: new Map(),
+    ranged: new Map<string, number>(),
+    melee: new Map<string, number>(),
+    default: new Map<string, number>(),
   };
 
   const blockStart = luaSource.indexOf("hitzone_damage_multiplier = {");
@@ -693,7 +695,7 @@ export function parseHitzoneDamageMultiplier(luaSource) {
       /\[hit_zone_names\.(\w+)\]\s*=\s*(-?\d+(?:\.\d+)?)/g;
     let m;
     while ((m = entryRe.exec(subMatch[1])) !== null) {
-      result[category].set(m[1], Number(m[2]));
+      result[category as keyof typeof result].set(m[1], Number(m[2]));
     }
   }
 
@@ -706,7 +708,7 @@ export function parseHitzoneDamageMultiplier(luaSource) {
  * @param {string} luaSource
  * @returns {Set<string>} set of zone names that are weakspots
  */
-export function parseWeakspotTypes(luaSource) {
+export function parseWeakspotTypes(luaSource: string) {
   const weakspots = new Set();
   const blockMatch = luaSource.match(
     /hit_zone_weakspot_types\s*=\s*\{([\s\S]*?)\}/,
@@ -728,7 +730,7 @@ export function parseWeakspotTypes(luaSource) {
  * @param {string} breedId
  * @returns {string}
  */
-function inferFaction(breedId) {
+function inferFaction(breedId: string) {
   if (breedId.startsWith("renegade_")) return "renegade";
   if (breedId.startsWith("cultist_")) return "cultist";
   if (breedId.startsWith("chaos_")) return "chaos";

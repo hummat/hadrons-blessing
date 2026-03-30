@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Pipeline entry point: extract buff effects from Darktide Lua source,
  * populate calc fields on existing entities, create buff entities,
@@ -22,6 +21,9 @@ import {
   extractTalentBuffLinks,
 } from "../lib/buff-semantic-parser.js";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
+
 await runCliMain("effects:build", async () => {
   const snapshot = validateSourceSnapshot();
   const sourceRoot = snapshot.source_root;
@@ -43,8 +45,8 @@ await runCliMain("effects:build", async () => {
     let result;
     try {
       result = extractTemplateBlocks(luaSource);
-    } catch (err) {
-      console.warn(`Warning: skipping ${basename(filePath)} — ${err.message}`);
+    } catch (err: unknown) {
+      console.warn(`Warning: skipping ${basename(filePath)} — ${(err as Error).message}`);
       continue;
     }
     const { blocks, aliases, localFunctions } = result;
@@ -67,8 +69,8 @@ await runCliMain("effects:build", async () => {
     let links;
     try {
       links = extractTalentBuffLinks(luaSource);
-    } catch (err) {
-      console.warn(`Warning: skipping talent file ${file} — ${err.message}`);
+    } catch (err: unknown) {
+      console.warn(`Warning: skipping talent file ${file} — ${(err as Error).message}`);
       continue;
     }
     for (const [talentName, buffNames] of links) {
@@ -89,13 +91,13 @@ await runCliMain("effects:build", async () => {
     let result;
     try {
       result = extractTemplateBlocks(luaSource);
-    } catch (err) {
-      console.warn(`Warning: skipping trait file ${file} — ${err.message}`);
+    } catch (err: unknown) {
+      console.warn(`Warning: skipping trait file ${file} — ${(err as Error).message}`);
       continue;
     }
 
     for (const block of result.blocks) {
-      const parsed = block.parsed;
+      const parsed = block.parsed as AnyRecord | null;
       if (!parsed || typeof parsed !== "object") continue;
       if (!parsed.buffs || typeof parsed.buffs !== "object") continue;
 
@@ -136,7 +138,7 @@ await runCliMain("effects:build", async () => {
     const internalName = entity.internal_name;
     if (!internalName) continue;
 
-    let calc = null;
+    let calc: AnyRecord | null = null;
 
     // Strategy 1: Talents — use talentLinks to find buff template names
     if (TALENT_KINDS.has(kind)) {
@@ -144,7 +146,7 @@ await runCliMain("effects:build", async () => {
       if (buffNames && buffNames.length > 0) {
         // Merge effects from all referenced buff templates
         const mergedEffects = [];
-        let mergedMeta = {};
+        let mergedMeta: AnyRecord = {};
         for (const bn of buffNames) {
           const template = resolvedTemplates.get(bn);
           if (!template) continue;
@@ -153,7 +155,7 @@ await runCliMain("effects:build", async () => {
           mergedEffects.push(...c.effects);
           // Carry metadata from last template that has it
           for (const key of ["class_name", "max_stacks", "duration", "active_duration", "keywords"]) {
-            if (c[key] !== undefined) mergedMeta[key] = c[key];
+            if ((c as AnyRecord)[key] !== undefined) mergedMeta[key] = (c as AnyRecord)[key];
           }
         }
         if (mergedEffects.length > 0) {
@@ -214,13 +216,13 @@ await runCliMain("effects:build", async () => {
 
     // Sanitize calc metadata to match schema expectations
     if (calc) {
-      sanitizeCalcMetadata(calc);
+      sanitizeCalcMetadata(calc as AnyRecord);
     }
 
     // Apply calc to entity
     if (calc) {
       // Check if any effects have null magnitude (partial)
-      const hasNullMagnitude = calc.effects?.some((e) =>
+      const hasNullMagnitude = calc.effects?.some((e: AnyRecord) =>
         e.magnitude === null && e.magnitude_expr !== null
       );
       // Only update if there's actual data
@@ -239,14 +241,14 @@ await runCliMain("effects:build", async () => {
   }
 
   // -- Phase 7: Create buff entities ------------------------------------------
-  const newBuffEntities = [];
+  const newBuffEntities: AnyRecord[] = [];
   const buffEntityFile = join(ENTITIES_ROOT, "shared-buffs.json");
   const existingBuffs = entityFileContents.get(buffEntityFile) || [];
 
   for (const [talentName, buffNames] of talentLinks) {
     // Find the talent entity to determine domain
     let talentEntity = null;
-    for (const [eid, entry] of entityIndex) {
+    for (const [, entry] of entityIndex) {
       if (entry.entity.internal_name === talentName && TALENT_KINDS.has(entry.entity.kind)) {
         talentEntity = entry.entity;
         break;
@@ -262,7 +264,7 @@ await runCliMain("effects:build", async () => {
       if (newBuffEntities.some((e) => e.id === buffId)) continue;
 
       // Extract calc from the resolved template if available
-      let buffCalc = {};
+      let buffCalc: AnyRecord = {};
       const template = resolvedTemplates.get(buffName);
       if (template) {
         const ctx = templateFileContext.get(buffName) || { aliases: {}, localFunctions: {} };
@@ -306,8 +308,8 @@ await runCliMain("effects:build", async () => {
 
   // -- Phase 8: Write updated entity files ------------------------------------
   for (const filePath of modifiedFiles) {
-    const records = entityFileContents.get(filePath);
-    writeFileSync(filePath, JSON.stringify(records, null, 2) + "\n");
+    const records = entityFileContents.get(filePath as string);
+    writeFileSync(filePath as string, JSON.stringify(records, null, 2) + "\n");
   }
 
   // -- Phase 9: Generate grants_buff edges ------------------------------------
@@ -317,7 +319,7 @@ await runCliMain("effects:build", async () => {
   for (const [talentName, buffNames] of talentLinks) {
     // Find the talent entity
     let talentEntity = null;
-    for (const [eid, entry] of entityIndex) {
+    for (const [, entry] of entityIndex) {
       if (entry.entity.internal_name === talentName && TALENT_KINDS.has(entry.entity.kind)) {
         talentEntity = entry.entity;
         break;
@@ -369,7 +371,7 @@ await runCliMain("effects:build", async () => {
     }
 
     // Filter out existing grants_buff edges for idempotent re-runs
-    const filtered = existing.filter((e) => e.type !== "grants_buff");
+    const filtered = existing.filter((e: AnyRecord) => e.type !== "grants_buff");
     const merged = [...filtered, ...newEdges];
     writeFileSync(edgeFile, JSON.stringify(merged, null, 2) + "\n");
     totalEdges += newEdges.length;
@@ -394,7 +396,7 @@ await runCliMain("effects:build", async () => {
  *
  * @param {object} calc - The calc object to sanitize in place.
  */
-function sanitizeCalcMetadata(calc) {
+function sanitizeCalcMetadata(calc: AnyRecord) {
   for (const field of ["active_duration", "duration"]) {
     if (field in calc && typeof calc[field] !== "number") {
       calc[field] = null;
@@ -463,7 +465,7 @@ function sanitizeCalcMetadata(calc) {
  * @param {string} sourceRoot
  * @returns {string[]}
  */
-function collectBuffTemplateFiles(sourceRoot) {
+function collectBuffTemplateFiles(sourceRoot: string) {
   const files = [];
   const buffDir = join(sourceRoot, "scripts", "settings", "buff");
 

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { EDGES_ROOT, ENTITIES_ROOT, listJsonFiles } from "../lib/load.js";

@@ -1,50 +1,52 @@
-// @ts-nocheck
 
 import { runCliMain } from "../lib/cli.js";
 import { canonicalizeBuildFile } from "../lib/build-canonicalize.js";
 
-function parseArgs(argv) {
-  const args = {
-    inputPath: null,
-    provenance: {},
-  };
+interface CanonicalizeArgs {
+  inputPath: string;
+  provenance: Record<string, string>;
+}
+
+function parseArgs(argv: string[]): CanonicalizeArgs {
+  let inputPath: string | null = null;
+  const provenance: Record<string, string> = {};
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--source-url") {
-      args.provenance.source_url = argv[index + 1] ?? "";
+      provenance.source_url = argv[index + 1] ?? "";
       index += 1;
       continue;
     }
 
     if (arg === "--author") {
-      args.provenance.author = argv[index + 1] ?? "";
+      provenance.author = argv[index + 1] ?? "";
       index += 1;
       continue;
     }
 
     if (arg === "--scraped-at") {
-      args.provenance.scraped_at = argv[index + 1] ?? "";
+      provenance.scraped_at = argv[index + 1] ?? "";
       index += 1;
       continue;
     }
 
     if (arg === "--source-kind") {
-      args.provenance.source_kind = argv[index + 1] ?? "";
+      provenance.source_kind = argv[index + 1] ?? "";
       index += 1;
       continue;
     }
 
-    if (!arg.startsWith("--") && args.inputPath == null) {
-      args.inputPath = arg;
+    if (!arg.startsWith("--") && inputPath == null) {
+      inputPath = arg;
     }
   }
 
-  if (!args.inputPath) {
+  if (!inputPath) {
     throw new Error("input build path is required");
   }
 
-  return args;
+  return { inputPath, provenance };
 }
 
 if (import.meta.main) {

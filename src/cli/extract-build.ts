@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Extract Darktide build data from GamesLantern URLs.
 // Requires: playwright (npm i playwright)
 //
@@ -26,10 +25,13 @@ import { chromium } from "playwright";
 import { canonicalizeScrapedBuild } from "../lib/build-canonicalize.js";
 import { extractDescriptionSelections } from "../lib/build-classification.js";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
+
 const USAGE = `Usage: node scripts/extract-build.mjs <gameslantern-build-url> [--json|--raw-json|--markdown|--diagnose]`;
 
 // Slug → display name: "scriers-gaze" → "Scrier's Gaze"
-function slugToName(slug) {
+function slugToName(slug: string) {
   const special = {
     "scriers-gaze": "Scrier's Gaze",
     "psykinetics-aura": "Psykinetic's Aura",
@@ -37,7 +39,7 @@ function slugToName(slug) {
     "vultures-mark": "Vulture's Mark",
     "tis-but-a-scratch": "'Tis But a Scratch",
   };
-  if (special[slug]) return special[slug];
+  if (special[slug as keyof typeof special]) return special[slug as keyof typeof special];
   const lowercase = new Set(["a", "an", "and", "at", "but", "by", "for", "in", "of", "on", "or", "the", "to", "vs"]);
   return slug
     .split("-")
@@ -67,7 +69,7 @@ const KEYSTONES = new Set([
 // Frame shape → talent tier.
 // hex_frame = ability section (combat ability + modifiers), NOT passive keystones.
 // Actual keystones use circular_frame and are promoted via the KEYSTONES set.
-function frameTier(href) {
+function frameTier(href: string) {
   if (href.includes("hex_frame")) return "ability";
   if (href.includes("square_frame")) return "notable";
   if (href.includes("circular_small")) return "stat";
@@ -75,7 +77,7 @@ function frameTier(href) {
   return "unknown";
 }
 
-function postProcessTalentNodes(nodes) {
+function postProcessTalentNodes(nodes: AnyRecord[]) {
   return nodes.map((talent) => {
     const baseTier = frameTier(talent.frame ?? "");
     const tier = baseTier === "talent" && KEYSTONES.has(talent.slug) ? "keystone" : baseTier;
@@ -87,7 +89,7 @@ function postProcessTalentNodes(nodes) {
   });
 }
 
-function validateRawScrape(raw) {
+function validateRawScrape(raw: AnyRecord) {
   const problems = [];
   if (!raw.title) problems.push("title not found");
   if (!raw.class) problems.push("class not detected");
@@ -98,7 +100,7 @@ function validateRawScrape(raw) {
   return problems;
 }
 
-async function extractBuild(url) {
+async function extractBuild(url: string) {
   const browser = await chromium.launch({ headless: true });
   try {
     const page = await browser.newPage();
@@ -122,28 +124,28 @@ async function extractBuild(url) {
       console.error("Warning: talent tree not found, extracting other data");
     }
 
-    return await page.evaluate(() => {
+    return await page.evaluate((): AnyRecord => {
       // --- Early page validation ---
       const bodyText = document.body?.innerText?.trim() ?? "";
       if (/^404\b/i.test(bodyText) || bodyText.length < 50) {
         return { error: "page_not_found", bodyPreview: bodyText.slice(0, 200) };
       }
 
-      const _diagnostics = {
+      const _diagnostics: AnyRecord = {
         sectionStrategy: "primary",
         weaponCardStrategy: "primary",
         weaponCardCount: 0,
         talentCount: 0,
       };
 
-      const result = {
+      const result: AnyRecord = {
         url: window.location.href,
         title: "",
         author: "",
         class: "",
-        weapons: [],
-        curios: [],
-        talents: { active: [], inactive: [] },
+        weapons: [] as AnyRecord[],
+        curios: [] as AnyRecord[],
+        talents: { active: [] as AnyRecord[], inactive: [] as AnyRecord[] },
         class_selections: null,
         description: "",
       };
@@ -167,7 +169,7 @@ async function extractBuild(url) {
         'img[src*="_model.webp"]'
       );
       if (classImg) {
-        const match = classImg.src.match(
+        const match = (classImg as HTMLImageElement).src.match(
           /\/([a-z]+(?:-[a-z]+)*)-(?:male|female)_model\.webp/
         );
         if (match) result.class = match[1].replace(/-/g, " ");
@@ -191,13 +193,13 @@ async function extractBuild(url) {
           'img[src*="/darktide/"][src*="_model"]'
         );
         if (anyClassImg) {
-          const m = anyClassImg.src.match(/\/([^/]+)_model/);
+          const m = (anyClassImg as HTMLImageElement).src.match(/\/([^/]+)_model/);
           if (m) result.class = m[1].replace(/-/g, " ");
         }
       }
 
       // --- Talents ---
-      function nodeHref(node) {
+      function nodeHref(node: AnyRecord) {
         return (
           node?.getAttribute?.("href") ||
           node?.getAttribute?.("xlink:href") ||
@@ -206,7 +208,7 @@ async function extractBuild(url) {
         ).trim();
       }
 
-      function extractTalentIcon(anchor, frameHref) {
+      function extractTalentIcon(anchor: AnyRecord, frameHref: string) {
         if (!anchor) {
           return null;
         }
@@ -222,7 +224,7 @@ async function extractBuild(url) {
         return null;
       }
 
-      function extractTalents(selector) {
+      function extractTalents(selector: string) {
         const nodes = [];
         for (const el of document.querySelectorAll(selector)) {
           const anchor = el.closest("a");
@@ -247,7 +249,7 @@ async function extractBuild(url) {
       // --- Sections ---
       // Page uses .mt-8.mb-4 headings ("Weapons", "Curios", etc.)
       // followed by sibling content divs until the next heading.
-      function getSection(name) {
+      function getSection(name: string) {
         // Primary: Tailwind utility class selector (current GL layout)
         for (const h of document.querySelectorAll(".mt-8.mb-4")) {
           if (h.textContent.trim() === name) return h;
@@ -278,18 +280,18 @@ async function extractBuild(url) {
         return null;
       }
 
-      function isSectionHeading(node) {
+      function isSectionHeading(node: AnyRecord) {
         return node?.classList?.contains("mt-8") && node?.classList?.contains("mb-4");
       }
 
-      function collectSectionText(name) {
+      function collectSectionText(name: string) {
         const heading = getSection(name);
         if (!heading) return "";
 
         const parts = [];
         let node = heading.nextElementSibling;
         while (node && !isSectionHeading(node)) {
-          const text = node.innerText?.trim();
+          const text = (node as HTMLElement).innerText?.trim();
           if (text) {
             parts.push(text);
           }
@@ -302,7 +304,7 @@ async function extractBuild(url) {
       // --- Weapons & Curios ---
       // Both live in a flex-wrap container immediately after their heading.
       // Each item card is a div.max-w-sm inside that container.
-      function parseItemCards(sectionName) {
+      function parseItemCards(sectionName: string) {
         const heading = getSection(sectionName);
         if (!heading) return [];
 
@@ -318,10 +320,10 @@ async function extractBuild(url) {
           // Fallback: child divs containing weapon-signature text patterns
           const WEAPON_SIGNATURE = /Transcendant|Anointed|Profane|Redeemed|\d+-\d+%/;
           const fallbackCards = [...container.querySelectorAll(":scope > div")].filter(
-            (div) => WEAPON_SIGNATURE.test(div.innerText ?? "")
+            (div) => WEAPON_SIGNATURE.test((div as HTMLElement).innerText ?? "")
           );
           if (fallbackCards.length > 0) {
-            cards = fallbackCards;
+            cards = fallbackCards as unknown as NodeListOf<Element>;
             _diagnostics.weaponCardStrategy = "fallback";
           }
         }
@@ -329,14 +331,14 @@ async function extractBuild(url) {
         const items = [];
 
         for (const card of cards) {
-          const text = card.innerText;
+          const text = (card as HTMLElement).innerText;
           const lines = text
             .split("\n")
-            .map((l) => l.trim())
+            .map((l: string) => l.trim())
             .filter(Boolean);
           if (lines.length < 2) continue;
 
-          const item = {
+          const item: { name: string; rarity: string; perks: string[]; blessings: { name: string; description: string }[] } = {
             name: lines[0],
             rarity: "",
             perks: [],
@@ -413,7 +415,7 @@ async function extractBuild(url) {
       // --- Description ---
       const sectionDescription = collectSectionText("Description");
       const teaserDescription =
-        document.querySelector(".darktide-description")?.innerText?.trim() ?? "";
+        (document.querySelector(".darktide-description") as HTMLElement | null)?.innerText?.trim() ?? "";
       result.description = (sectionDescription || teaserDescription).slice(0, 15_000);
 
       // --- Diagnostics ---
@@ -442,7 +444,7 @@ async function extractBuild(url) {
   }
 }
 
-function selectionLabel(selection) {
+function selectionLabel(selection: AnyRecord | null) {
   if (!selection) {
     return "None";
   }
@@ -454,7 +456,7 @@ function selectionLabel(selection) {
   return `${selection.raw_label} [${selection.resolution_status}]`;
 }
 
-function formatMarkdown(build) {
+function formatMarkdown(build: AnyRecord) {
   const lines = [];
   lines.push(`# ${build.title || "Untitled Build"}`);
   if (build.provenance.author) lines.push(`By **${build.provenance.author}**`);
@@ -503,7 +505,7 @@ function formatMarkdown(build) {
   return lines.join("\n");
 }
 
-async function main(argv = process.argv.slice(2)) {
+async function main(argv: string[] = process.argv.slice(2)) {
   const url = argv.find((arg) => !arg.startsWith("--"));
   const format = argv.includes("--diagnose")
     ? "diagnose"

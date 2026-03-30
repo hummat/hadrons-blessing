@@ -1,8 +1,10 @@
-// @ts-nocheck
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { normalizeText } from "../lib/normalize.js";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -91,7 +93,7 @@ const BLESSING_NAMES = new Map([
   ["toughness_on_elite_kills", "Gloryhunter"],
 ]);
 
-function buildPerkAliasRecord(entityId, displayName, slot) {
+function buildPerkAliasRecord(entityId: string, displayName: string, slot: string) {
   return {
     text: displayName,
     normalized_text: normalizeText(displayName),
@@ -109,13 +111,13 @@ function buildPerkAliasRecord(entityId, displayName, slot) {
   };
 }
 
-function slotFromEntityId(entityId) {
+function slotFromEntityId(entityId: string) {
   if (entityId.includes(".melee.")) return "melee";
   if (entityId.includes(".ranged.")) return "ranged";
   return null;
 }
 
-function generatePerkAliases(entities) {
+function generatePerkAliases(entities: AnyRecord[]) {
   const aliases = [];
   for (const entity of entities) {
     if (entity.kind !== "weapon_perk") continue;
@@ -129,7 +131,7 @@ function generatePerkAliases(entities) {
   return aliases;
 }
 
-function enrichGadgetTraits(entities) {
+function enrichGadgetTraits(entities: AnyRecord[]) {
   let count = 0;
   for (const entity of entities) {
     if (entity.kind !== "gadget_trait") continue;
@@ -144,7 +146,7 @@ function enrichGadgetTraits(entities) {
 
 const NAME_FAMILY_PREFIX = "shared.name_family.blessing.";
 
-function enrichNameFamilies(entities) {
+function enrichNameFamilies(entities: AnyRecord[]) {
   let count = 0;
   for (const entity of entities) {
     if (entity.kind !== "name_family") continue;
@@ -163,7 +165,7 @@ const TITLE_CASE_ARTICLES = new Set([
   "a", "an", "and", "at", "but", "by", "for", "in", "of", "on", "or", "the", "to", "vs",
 ]);
 
-function titleCaseSlug(slug) {
+function titleCaseSlug(slug: string) {
   return slug
     .split("_")
     .map((word, i) => {
@@ -173,7 +175,7 @@ function titleCaseSlug(slug) {
     .join(" ");
 }
 
-function enrichBlessingNamesFromSlugs(entities, glBlessings) {
+function enrichBlessingNamesFromSlugs(entities: AnyRecord[], glBlessings: AnyRecord[]) {
   const glNames = new Set(glBlessings.map((b) => b.display_name.toLowerCase()));
   let count = 0;
   for (const entity of entities) {
@@ -189,7 +191,7 @@ function enrichBlessingNamesFromSlugs(entities, glBlessings) {
   return count;
 }
 
-function enrichWeaponNames(entities, mapping) {
+function enrichWeaponNames(entities: AnyRecord[], mapping: AnyRecord[]) {
   const nameByTemplateId = new Map(mapping.map((m) => [m.template_id, m.gl_name]));
   let count = 0;
   for (const entity of entities) {
@@ -203,7 +205,7 @@ function enrichWeaponNames(entities, mapping) {
   return count;
 }
 
-function generateWeaponAliases(mapping, entities) {
+function generateWeaponAliases(mapping: AnyRecord[], entities: AnyRecord[]) {
   const entityByInternalName = new Map(entities.map((e) => [e.internal_name, e]));
   const aliases = [];
   for (const entry of mapping) {
@@ -228,7 +230,7 @@ function generateWeaponAliases(mapping, entities) {
   return aliases;
 }
 
-function mergeAliases(existingAliases, newAliases) {
+function mergeAliases(existingAliases: AnyRecord[], newAliases: AnyRecord[]) {
   const existingByEntity = new Map();
   for (let i = 0; i < existingAliases.length; i++) {
     const key = existingAliases[i].candidate_entity_id + "|" + existingAliases[i].alias_kind;

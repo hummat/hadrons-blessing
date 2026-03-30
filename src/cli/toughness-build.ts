@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Toughness/survivability calculator CLI — run on a build or directory of builds.
 // Usage: npm run toughness -- <build.json|dir> [--json|--text] [--freeze]
 
@@ -12,29 +11,28 @@ import { computeSurvivability } from "../lib/toughness-calculator.js";
 
 const __filename = fileURLToPath(import.meta.url);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
+
 // -- Helpers ------------------------------------------------------------------
 
 /** JSON replacer that preserves Infinity as the string "Infinity". */
-function calcReplacer(_key, value) {
+function calcReplacer(_key: string, value: unknown): unknown {
   if (value === Infinity) return "Infinity";
   return value;
 }
 
 /**
  * Format a DR source value as a human-readable percentage.
- * Raw magnitudes are negative (e.g., -0.15 means 15% DR).
- * Multiplier-style stats use (1 + value) as the damage multiplier.
  */
-function formatDRValue(source) {
+function formatDRValue(source: AnyRecord): string {
   const { stat, value } = source;
   if (stat === "toughness_damage_taken_modifier") {
-    // Additive modifier — negative means DR, positive means damage increase
     const pct = Math.abs(value) * 100;
     const multiplier = 1 + value;
     const label = value < 0 ? "DR" : "damage increase";
     return `${multiplier.toFixed(2)} (${pct.toFixed(0)}% ${label}, additive)`;
   }
-  // Multiplicative: (1 + value) is the damage multiplier
   const multiplier = 1 + value;
   const pct = Math.abs(value) * 100;
   const label = value < 0 ? "DR" : "damage increase";
@@ -43,14 +41,13 @@ function formatDRValue(source) {
 
 // -- Text formatter -----------------------------------------------------------
 
-function formatToughnessText(result, build) {
-  const lines = [];
+function formatToughnessText(result: AnyRecord, build: AnyRecord): string {
+  const lines: string[] = [];
   const buildTitle = build.title || "Untitled Build";
 
   lines.push(`\u2550\u2550\u2550 Survivability Analysis: ${buildTitle} \u2550\u2550\u2550`);
   lines.push("");
 
-  // Class + base stats
   lines.push(`Class: ${result.class} (${result.difficulty})`);
   lines.push(`  Base HP: ${result.base.health} \u00d7 ${result.base.wounds} wounds = ${result.health_pool}`);
   lines.push(`  Base Toughness: ${result.base.toughness}`);
@@ -59,12 +56,11 @@ function formatToughnessText(result, build) {
   }
   lines.push("");
 
-  // DR sources
   if (result.dr_sources.length > 0) {
     lines.push("DR Sources:");
     for (const src of result.dr_sources) {
-      const entity = src.source_entity.padEnd(42);
-      const stat = src.stat.padEnd(40);
+      const entity = (src.source_entity as string).padEnd(42);
+      const stat = (src.stat as string).padEnd(40);
       lines.push(`  ${entity} ${stat} ${formatDRValue(src)}`);
     }
     lines.push(`  Total DR: ${(result.total_dr * 100).toFixed(1)}%`);
@@ -74,7 +70,6 @@ function formatToughnessText(result, build) {
     lines.push("");
   }
 
-  // Effective toughness + HP
   lines.push(`Effective Toughness: ${result.effective_toughness} (base ${result.base.toughness}${result.max_toughness !== result.base.toughness ? `, max ${result.max_toughness}` : ""}, / DR multiplier)`);
   lines.push(`Effective HP: ${result.effective_hp}`);
   if (result.max_health_modifier !== 0) {
@@ -82,26 +77,23 @@ function formatToughnessText(result, build) {
   }
   lines.push("");
 
-  // State modifiers
-  const stateLabels = { dodging: "Dodging", sliding: "Sliding", sprinting: "Sprinting" };
-  const stateEntries = Object.entries(result.state_modifiers);
+  const stateLabels: Record<string, string> = { dodging: "Dodging", sliding: "Sliding", sprinting: "Sprinting" };
+  const stateEntries = Object.entries(result.state_modifiers as Record<string, AnyRecord>);
   if (stateEntries.length > 0) {
     lines.push("State Modifiers:");
     for (const [state, mod] of stateEntries) {
       const label = stateLabels[state] ?? state;
-      const tdrPct = (mod.tdr * 100).toFixed(0);
       const dmgMult = (1 - mod.tdr).toFixed(1);
       lines.push(`  ${label}: ${dmgMult}\u00d7 toughness damage \u2192 effective toughness ${mod.effective_toughness}`);
     }
     lines.push("");
   }
 
-  // Toughness regen
   const regen = result.toughness_regen;
   lines.push("Toughness Regen:");
   lines.push(`  Base: ${regen.base_rate.toFixed(1)}/sec (${regen.delay_seconds}s delay after hit)`);
 
-  const coherencyLabels = {
+  const coherencyLabels: Record<string, string> = {
     solo: "Solo",
     one_ally: "1 ally",
     two_allies: "2 allies",
@@ -139,9 +131,9 @@ await runCliMain("toughness", async () => {
 
   const index = loadIndex();
 
-  function processFile(filePath) {
-    const build = JSON.parse(readFileSync(filePath, "utf-8"));
-    const result = computeSurvivability(build, index);
+  function processFile(filePath: string) {
+    const build = JSON.parse(readFileSync(filePath, "utf-8")) as AnyRecord;
+    const result = computeSurvivability(build, index as unknown as Parameters<typeof computeSurvivability>[1]) as AnyRecord;
     return { build, result };
   }
 
@@ -165,7 +157,7 @@ await runCliMain("toughness", async () => {
           );
           console.log(`Frozen: ${prefix}`);
         } catch (err) {
-          console.error(`SKIP ${f}: ${err.message}`);
+          console.error(`SKIP ${f}: ${(err as Error).message}`);
           failures++;
         }
       }
@@ -183,7 +175,7 @@ await runCliMain("toughness", async () => {
           console.log("");
         }
       } catch (err) {
-        console.error(`SKIP ${f}: ${err.message}`);
+        console.error(`SKIP ${f}: ${(err as Error).message}`);
         failures++;
       }
     }

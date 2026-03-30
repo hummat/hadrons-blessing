@@ -1,4 +1,3 @@
-// @ts-nocheck
 
 import { readdirSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -7,8 +6,17 @@ import { assertValidCanonicalBuild } from "../lib/build-shape.js";
 import { toSelection } from "../lib/build-canonicalize.js";
 import { loadJsonFile } from "../lib/load.js";
 
-function expandTargets(targets) {
-  const files = [];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
+
+interface ReresolveOptions {
+  overwriteResolved?: boolean;
+  write?: boolean;
+  [key: string]: unknown;
+}
+
+function expandTargets(targets: string[]): string[] {
+  const files: string[] = [];
 
   for (const target of targets) {
     const stat = statSync(target);
@@ -25,7 +33,7 @@ function expandTargets(targets) {
   return [...new Set(files)];
 }
 
-async function reresolveSelection(selection, queryContext, options = {}) {
+async function reresolveSelection(selection: AnyRecord | null, queryContext: Record<string, unknown>, options: ReresolveOptions = {}) {
   if (selection == null) {
     return null;
   }
@@ -40,7 +48,7 @@ async function reresolveSelection(selection, queryContext, options = {}) {
   });
 }
 
-async function reresolveBuild(build, options = {}) {
+async function reresolveBuild(build: AnyRecord, options: ReresolveOptions = {}) {
   assertValidCanonicalBuild(build);
   const className = build.class.raw_label;
   const nextBuild = structuredClone(build);
@@ -99,12 +107,12 @@ async function reresolveBuild(build, options = {}) {
   return nextBuild;
 }
 
-async function reresolveBuildTargets(targets, options = {}) {
+async function reresolveBuildTargets(targets: string[], options: ReresolveOptions = {}) {
   const files = expandTargets(targets);
-  const results = [];
+  const results: Array<{ path: string; changed: boolean; build: AnyRecord }> = [];
 
   for (const filePath of files) {
-    const build = loadJsonFile(filePath);
+    const build = loadJsonFile(filePath) as AnyRecord;
     const updatedBuild = await reresolveBuild(build, options);
     const changed = JSON.stringify(build) !== JSON.stringify(updatedBuild);
 
@@ -122,8 +130,8 @@ async function reresolveBuildTargets(targets, options = {}) {
   return { files: results };
 }
 
-function parseArgs(argv) {
-  const args = {
+function parseArgs(argv: string[]) {
+  const args: { write: boolean; targets: string[] } = {
     write: false,
     targets: [],
   };

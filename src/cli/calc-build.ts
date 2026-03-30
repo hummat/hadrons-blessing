@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Breakpoint calculator CLI — run on a build or directory of builds.
 // Usage: npm run calc -- <build.json|dir> [--json|--text] [--compare <file>] [--freeze]
 
@@ -28,7 +27,7 @@ const CHECKLIST_BREEDS = [
 ];
 
 /** Human-readable breed names with community armor classification. */
-const BREED_DISPLAY = {
+const BREED_DISPLAY: Record<string, { name: string; armor: string | null }> = {
   renegade_berzerker: { name: "Rager", armor: "Flak" },
   chaos_ogryn_executor: { name: "Crusher", armor: "Carapace" },
   chaos_poxwalker: { name: "Poxwalker", armor: null },
@@ -41,7 +40,7 @@ const BREED_DISPLAY = {
 };
 
 /** Scenario display labels. */
-const SCENARIO_DISPLAY = {
+const SCENARIO_DISPLAY: Record<string, string> = {
   sustained: "Sustained (body)",
   aimed: "Aimed (head)",
   burst: "Burst (head+crit)",
@@ -49,40 +48,43 @@ const SCENARIO_DISPLAY = {
 
 // ── Helpers ───────────────────────────────────────────────────────────
 
-function selectionLabel(value) {
+function selectionLabel(value: unknown): string {
   if (typeof value === "string") return value;
-  if (value != null && typeof value === "object" && typeof value.raw_label === "string") {
-    return value.raw_label;
+  if (value != null && typeof value === "object" && typeof (value as Record<string, unknown>).raw_label === "string") {
+    return (value as Record<string, unknown>).raw_label as string;
   }
   return "";
 }
 
-function formatHitsToKill(htk) {
+function formatHitsToKill(htk: number | null | undefined): string {
   if (htk == null) return "N/A (no data)";
   if (!Number.isFinite(htk)) return "\u221E (negated)";
   return `${htk} hit${htk !== 1 ? "s" : ""}`;
 }
 
 /** JSON replacer that preserves Infinity as the string "Infinity" (and null stays null). */
-function calcReplacer(_key, value) {
+function calcReplacer(_key: string, value: unknown): unknown {
   if (value === Infinity) return "Infinity";
   return value;
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
 
 /**
  * Extract damnation hitsToKill for checklist breeds per scenario from a weapon's summary.
  * Returns Map<breedId, Map<scenario, hitsToKill>>.
  */
-function extractChecklistBreakpoints(weaponResult) {
-  const table = new Map();
+function extractChecklistBreakpoints(weaponResult: AnyRecord): Map<string, Map<string, number>> {
+  const table = new Map<string, Map<string, number>>();
 
   for (const breedId of CHECKLIST_BREEDS) {
-    const scenarioMap = new Map();
+    const scenarioMap = new Map<string, number>();
 
     for (const action of weaponResult.actions) {
-      for (const [scenarioName, scenarioData] of Object.entries(action.scenarios)) {
+      for (const [scenarioName, scenarioData] of Object.entries(action.scenarios) as Array<[string, AnyRecord]>) {
         const entry = scenarioData.breeds.find(
-          (b) => b.breed_id === breedId && b.difficulty === "damnation",
+          (b: AnyRecord) => b.breed_id === breedId && b.difficulty === "damnation",
         );
         if (!entry) continue;
 
@@ -104,15 +106,15 @@ function extractChecklistBreakpoints(weaponResult) {
 
 // ── Text formatter ────────────────────────────────────────────────────
 
-function formatCalcText(matrix, build) {
-  const lines = [];
+function formatCalcText(matrix: AnyRecord, build: AnyRecord): string {
+  const lines: string[] = [];
   const buildTitle = build.title || "Untitled Build";
   const buildClass = selectionLabel(build.class);
 
   lines.push(`\u2550\u2550\u2550 BUILD: ${buildTitle} (${buildClass}) \u2550\u2550\u2550`);
   lines.push("");
 
-  const scenarioNames = matrix.metadata.scenarios;
+  const scenarioNames: string[] = matrix.metadata.scenarios;
 
   for (const weapon of matrix.weapons) {
     const weaponBuild = (build.weapons ?? [])[weapon.slot];
@@ -157,12 +159,12 @@ function formatCalcText(matrix, build) {
   }
 
   // Summary section
-  const summaries = summarizeBreakpoints(matrix);
+  const summaries = summarizeBreakpoints(matrix as Parameters<typeof summarizeBreakpoints>[0]) as AnyRecord[];
   if (summaries.length > 0) {
     lines.push("BREAKPOINT SUMMARY (Damnation):");
 
     for (const weapon of matrix.weapons) {
-      const weaponSummaries = summaries.filter((s) => s.weaponId === weapon.entityId);
+      const weaponSummaries = summaries.filter((s: AnyRecord) => s.weaponId === weapon.entityId);
       if (weaponSummaries.length === 0) continue;
 
       const weaponBuild = (build.weapons ?? [])[weapon.slot];
@@ -170,7 +172,7 @@ function formatCalcText(matrix, build) {
       lines.push(`  ${weaponName}:`);
 
       for (const s of weaponSummaries) {
-        const breedEntries = Object.entries(s.keyBreakpoints)
+        const breedEntries = Object.entries(s.keyBreakpoints as Record<string, number | null>)
           .filter(([, htk]) => htk != null)
           .map(([breedId, htk]) => {
             const name = BREED_DISPLAY[breedId]?.name ?? breedId;
@@ -189,14 +191,14 @@ function formatCalcText(matrix, build) {
 
 // ── Compare formatter ─────────────────────────────────────────────────
 
-function formatCompare(matrixA, buildA, matrixB, buildB) {
-  const lines = [];
+function formatCompare(matrixA: AnyRecord, buildA: AnyRecord, matrixB: AnyRecord, buildB: AnyRecord): string {
+  const lines: string[] = [];
   lines.push(`\u2550\u2550\u2550 COMPARE: ${buildA.title ?? "Build A"} vs ${buildB.title ?? "Build B"} \u2550\u2550\u2550`);
   lines.push("");
 
   // Collect damnation breakpoints per weapon per build
-  function collectBreakpointMap(matrix) {
-    const result = new Map();
+  function collectBreakpointMap(matrix: AnyRecord) {
+    const result = new Map<string, Map<string, Map<string, number>>>();
     for (const weapon of matrix.weapons) {
       const bp = extractChecklistBreakpoints(weapon);
       result.set(weapon.entityId, bp);
@@ -209,7 +211,7 @@ function formatCompare(matrixA, buildA, matrixB, buildB) {
 
   // Compare matching weapons
   const allWeaponIds = new Set([...bpA.keys(), ...bpB.keys()]);
-  const scenarioNames = matrixA.metadata.scenarios;
+  const scenarioNames: string[] = matrixA.metadata.scenarios;
 
   for (const weaponId of allWeaponIds) {
     const wBpA = bpA.get(weaponId);
@@ -237,7 +239,7 @@ function formatCompare(matrixA, buildA, matrixB, buildB) {
       if (!mapA && !mapB) continue;
 
       const displayName = BREED_DISPLAY[breedId]?.name ?? breedId;
-      const diffs = [];
+      const diffs: string[] = [];
 
       for (const scenario of scenarioNames) {
         const htkA = mapA?.get(scenario);
@@ -283,16 +285,16 @@ await runCliMain("calc", async () => {
   const index = loadIndex();
   const calcData = loadCalculatorData();
 
-  function processFile(filePath) {
-    const build = JSON.parse(readFileSync(filePath, "utf-8"));
-    const matrix = computeBreakpoints(build, index, calcData);
+  function processFile(filePath: string) {
+    const build = JSON.parse(readFileSync(filePath, "utf-8")) as AnyRecord;
+    const matrix = computeBreakpoints(build, index as unknown as Parameters<typeof computeBreakpoints>[1], calcData) as AnyRecord;
     return { build, matrix };
   }
 
   // Compare mode
   if (values.compare) {
     const { build: buildA, matrix: matrixA } = processFile(target);
-    const { build: buildB, matrix: matrixB } = processFile(values.compare);
+    const { build: buildB, matrix: matrixB } = processFile(values.compare as string);
 
     if (values.json) {
       console.log(JSON.stringify({ buildA: matrixA, buildB: matrixB }, null, 2));
@@ -317,10 +319,10 @@ await runCliMain("calc", async () => {
           const { build, matrix } = processFile(join(target, f));
           const prefix = basename(f, ".json");
           writeFileSync(join(outDir, `${prefix}.calc.json`), JSON.stringify(matrix, calcReplacer, 2) + "\n");
-          const weaponCount = matrix.weapons.length;
+          const weaponCount = (matrix.weapons as unknown[]).length;
           console.log(`Frozen: ${prefix} (${weaponCount} weapon${weaponCount !== 1 ? "s" : ""})`);
         } catch (err) {
-          console.error(`SKIP ${f}: ${err.message}`);
+          console.error(`SKIP ${f}: ${(err as Error).message}`);
           failures++;
         }
       }
@@ -338,7 +340,7 @@ await runCliMain("calc", async () => {
           console.log("");
         }
       } catch (err) {
-        console.error(`SKIP ${f}: ${err.message}`);
+        console.error(`SKIP ${f}: ${(err as Error).message}`);
         failures++;
       }
     }

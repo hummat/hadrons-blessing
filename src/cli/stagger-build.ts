@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Stagger calculator CLI — run on a build or directory of builds.
 // Usage: npm run stagger -- <build.json|dir> [--json|--text] [--freeze]
 
@@ -12,6 +11,9 @@ import { loadIndex } from "../lib/synergy-model.js";
 import { computeStaggerMatrix, loadStaggerSettings } from "../lib/stagger-calculator.js";
 
 const __filename = fileURLToPath(import.meta.url);
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
 
 // ── Display mappings ──────────────────────────────────────────────────
 
@@ -29,7 +31,7 @@ const CHECKLIST_BREEDS = [
 ];
 
 /** Human-readable breed names. */
-const BREED_DISPLAY = {
+const BREED_DISPLAY: Record<string, string> = {
   renegade_berzerker: "Rager",
   chaos_ogryn_executor: "Crusher",
   chaos_poxwalker: "Poxwalker",
@@ -43,16 +45,16 @@ const BREED_DISPLAY = {
 
 // ── Helpers ───────────────────────────────────────────────────────────
 
-function selectionLabel(value) {
+function selectionLabel(value: unknown): string {
   if (typeof value === "string") return value;
-  if (value != null && typeof value === "object" && typeof value.raw_label === "string") {
-    return value.raw_label;
+  if (value != null && typeof value === "object" && typeof (value as AnyRecord).raw_label === "string") {
+    return (value as AnyRecord).raw_label;
   }
   return "";
 }
 
 /** JSON replacer that preserves Infinity as the string "Infinity". */
-function calcReplacer(_key, value) {
+function calcReplacer(_key: string, value: unknown): unknown {
   if (value === Infinity) return "Infinity";
   return value;
 }
@@ -61,15 +63,15 @@ function calcReplacer(_key, value) {
  * Extract damnation stagger tiers for checklist breeds per action from a weapon's results.
  * Returns Map<breedId, Map<actionType, stagger_tier>>.
  */
-function extractChecklistStagger(weaponResult) {
-  const table = new Map();
+function extractChecklistStagger(weaponResult: AnyRecord): Map<string, Map<string, string>> {
+  const table = new Map<string, Map<string, string>>();
 
   for (const breedId of CHECKLIST_BREEDS) {
-    const actionMap = new Map();
+    const actionMap = new Map<string, string>();
 
     for (const action of weaponResult.actions) {
       const entry = action.breeds.find(
-        (b) => b.breed_id === breedId && b.difficulty === "damnation",
+        (b: AnyRecord) => b.breed_id === breedId && b.difficulty === "damnation",
       );
       if (!entry) continue;
 
@@ -92,8 +94,8 @@ function extractChecklistStagger(weaponResult) {
 /**
  * Collect all unique action types from a weapon's results.
  */
-function collectActionTypes(weaponResult) {
-  const types = new Set();
+function collectActionTypes(weaponResult: AnyRecord): string[] {
+  const types = new Set<string>();
   for (const action of weaponResult.actions) {
     types.add(action.type);
   }
@@ -102,8 +104,8 @@ function collectActionTypes(weaponResult) {
 
 // ── Text formatter ────────────────────────────────────────────────────
 
-function formatStaggerText(matrix, build) {
-  const lines = [];
+function formatStaggerText(matrix: AnyRecord, build: AnyRecord): string {
+  const lines: string[] = [];
   const buildTitle = build.title || "Untitled Build";
 
   lines.push(`\u2550\u2550\u2550 Stagger Analysis: ${buildTitle} \u2550\u2550\u2550`);
@@ -190,9 +192,14 @@ await runCliMain("stagger", async () => {
   const calcData = loadCalculatorData();
   const staggerSettings = loadStaggerSettings();
 
-  function processFile(filePath) {
-    const build = JSON.parse(readFileSync(filePath, "utf-8"));
-    const matrix = computeStaggerMatrix(build, index, calcData, staggerSettings);
+  function processFile(filePath: string) {
+    const build = JSON.parse(readFileSync(filePath, "utf-8")) as AnyRecord;
+    const matrix = computeStaggerMatrix(
+      build as Parameters<typeof computeStaggerMatrix>[0],
+      index as unknown as Parameters<typeof computeStaggerMatrix>[1],
+      calcData as Parameters<typeof computeStaggerMatrix>[2],
+      staggerSettings,
+    ) as AnyRecord;
     return { build, matrix };
   }
 
@@ -214,10 +221,10 @@ await runCliMain("stagger", async () => {
             join(outDir, `${prefix}.stagger.json`),
             JSON.stringify(matrix, calcReplacer, 2) + "\n",
           );
-          const weaponCount = matrix.weapons.length;
+          const weaponCount = (matrix.weapons as unknown[]).length;
           console.log(`Frozen: ${prefix} (${weaponCount} weapon${weaponCount !== 1 ? "s" : ""})`);
         } catch (err) {
-          console.error(`SKIP ${f}: ${err.message}`);
+          console.error(`SKIP ${f}: ${(err as Error).message}`);
           failures++;
         }
       }
@@ -235,7 +242,7 @@ await runCliMain("stagger", async () => {
           console.log("");
         }
       } catch (err) {
-        console.error(`SKIP ${f}: ${err.message}`);
+        console.error(`SKIP ${f}: ${(err as Error).message}`);
         failures++;
       }
     }

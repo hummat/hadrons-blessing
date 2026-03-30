@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Scrape weapon and blessing catalog data from GamesLantern.
 //
 // Usage:
@@ -10,6 +9,9 @@ import { chromium } from "playwright";
 import { writeFileSync, mkdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -24,9 +26,9 @@ const OUT_FILE = resolve(OUT_DIR, "gl-catalog.json");
 /**
  * Parse blessing table rows into structured objects.
  * @param {Array<[string, string, string]>} rows - Each row is [name, effect, weaponTypesRaw]
- * @returns {Array<{ display_name: string, effect: string, weapon_types: string[] }>}
+ * @returns {Array<{ display_name: string, effect, weapon_types: string[] }>}
  */
-function parseBlessingRows(rows) {
+function parseBlessingRows(rows: Array<[string, string, string]>) {
   const result = [];
   for (const [name, effect, weaponTypesRaw] of rows) {
     if (!name || !effect) continue;
@@ -41,10 +43,10 @@ function parseBlessingRows(rows) {
 
 /**
  * Strip url from GL API class objects.
- * @param {Array<{ name: string, url: string, unlock_level: number }>} classes
+ * @param {Array<{ name: string, url, unlock_level: number }>} classes
  * @returns {Array<{ name: string, unlock_level: number }>}
  */
-function parseWeaponClasses(classes) {
+function parseWeaponClasses(classes: AnyRecord[]) {
   return classes.map(({ name, unlock_level }) => ({ name, unlock_level }));
 }
 
@@ -55,7 +57,7 @@ function parseWeaponClasses(classes) {
  * @param {string} url
  * @returns {string}
  */
-function extractUrlSlug(url) {
+function extractUrlSlug(url: string) {
   // pathname segments after /weapons/: ["braced-autogun", "agripinaa-mk-viii-braced-autogun"]
   const match = url.match(/\/weapons\/([^/]+)/);
   return match ? match[1] : "";
@@ -67,13 +69,13 @@ function extractUrlSlug(url) {
  * Navigate to the weapons page and intercept the /api/weapons response.
  * The API requires browser cookies — returns 401 without them.
  * @param {import("playwright").Page} page
- * @returns {Promise<Array<{ gl_id: string, display_name: string, type: string, url_slug: string, classes: Array<{ name: string, unlock_level: number }> }>>}
+ * @returns {Promise<Array<{ gl_id: string, display_name, type: string, url_slug, classes: Array<{ name: string, unlock_level: number }> }>>}
  */
-async function scrapeWeaponsApi(page) {
-  let resolveResponse;
+async function scrapeWeaponsApi(page: AnyRecord) {
+  let resolveResponse: (value: AnyRecord) => void;
   const responsePromise = new Promise((res) => { resolveResponse = res; });
 
-  page.on("response", async (response) => {
+  page.on("response", async (response: AnyRecord) => {
     if (response.url().includes("/api/weapons") && response.status() === 200) {
       try {
         const json = await response.json();
@@ -87,14 +89,14 @@ async function scrapeWeaponsApi(page) {
   console.error(`Navigating to ${WEAPONS_URL} ...`);
   await page.goto(WEAPONS_URL, { waitUntil: "networkidle", timeout: 60_000 });
 
-  const data = await Promise.race([
+  const data = await Promise.race<AnyRecord>([
     responsePromise,
     new Promise((_, reject) =>
       setTimeout(() => reject(new Error("Timeout waiting for /api/weapons response")), 30_000),
     ),
   ]);
 
-  const weapons = (data.data ?? []).map((weapon) => ({
+  const weapons = (data.data ?? []).map((weapon: AnyRecord) => ({
     gl_id: weapon.id ?? weapon.uuid ?? weapon._id ?? "",
     display_name: weapon.name ?? weapon.display_name ?? "",
     type: weapon.type ?? "",
@@ -108,9 +110,9 @@ async function scrapeWeaponsApi(page) {
 /**
  * Navigate to the blessings page, wait for the JS-rendered table, and extract all rows.
  * @param {import("playwright").Page} page
- * @returns {Promise<Array<{ display_name: string, effect: string, weapon_types: string[] }>>}
+ * @returns {Promise<Array<{ display_name: string, effect, weapon_types: string[] }>>}
  */
-async function scrapeBlessingsTable(page) {
+async function scrapeBlessingsTable(page: AnyRecord) {
   console.error(`Navigating to ${BLESSINGS_URL} ...`);
   await page.goto(BLESSINGS_URL, { waitUntil: "domcontentloaded", timeout: 60_000 });
   await page.waitForTimeout(5_000);
@@ -125,7 +127,7 @@ async function scrapeBlessingsTable(page) {
 
   await page.waitForSelector("table", { timeout: 30_000 });
 
-  const rows = await page.evaluate(() => {
+  const rows = await page.evaluate((): Array<string[]> => {
     const table = document.querySelector("table");
     if (!table) return [];
     const trs = Array.from(table.querySelectorAll("tr"));

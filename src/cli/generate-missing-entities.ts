@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * One-time script to generate the 83 missing talent entities from tree data + source files.
  * Reads tree_node entities to find tree metadata, then searches talents lua for loc_keys.
@@ -10,6 +9,9 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseLuaTree } from "../lib/lua-tree-parser.js";
 import { TREE_TYPE_TO_KIND } from "../lib/tree-edge-generator.js";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
 
 const SOURCE_ROOT = readFileSync(".source-root", "utf8").trim();
 const TREE_DIR = "scripts/ui/views/talent_builder_view/layouts";
@@ -32,7 +34,7 @@ const dryRun = process.argv.includes("--dry-run");
 
 // Read existing entity IDs across all non-tree files
 const existingIds = new Set();
-const entityFiles = {};
+const entityFiles: Record<string, { path: string; entities: AnyRecord[] }> = {};
 for (const domain of Object.values(DOMAIN_MAP)) {
   const filePath = join(ENTITIES_ROOT, `${domain}.json`);
   const entities = JSON.parse(readFileSync(filePath, "utf8"));
@@ -157,7 +159,7 @@ console.log(`\nTotal: ${totalGenerated} entities generated${dryRun ? " (dry run)
  * Find the line number where a talent is defined in a Lua source file.
  * Searches for patterns like: talent_name = { or ["talent_name"] =
  */
-function findTalentLine(source, talentName) {
+function findTalentLine(source: string, talentName: string) {
   const lines = source.split("\n");
   // Pattern 1: talent_name = {
   // Pattern 2: ["talent_name"] =
@@ -179,7 +181,7 @@ function findTalentLine(source, talentName) {
  * Find loc_key for a talent in the class talents lua.
  * Searches for loc_talent_ patterns near the talent definition.
  */
-function findLocKey(source, talentName) {
+function findLocKey(source: string, talentName: string) {
   const lines = source.split("\n");
   // Find the talent definition block
   let startLine = -1;

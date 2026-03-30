@@ -1,11 +1,10 @@
-// @ts-nocheck
 // Synergy analysis CLI — run on a build or directory of builds.
 // Usage: npm run synergy -- <build.json|dir> [--json]
 
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
-import { analyzeBuild, loadIndex } from "../lib/synergy-model.js";
+import { analyzeBuild, loadIndex, type AnalyzeBuildResult } from "../lib/synergy-model.js";
 
 const { values, positionals } = parseArgs({
   allowPositionals: true,
@@ -22,13 +21,13 @@ if (!target) {
 
 const index = loadIndex();
 
-function processFile(filePath) {
+function processFile(filePath: string) {
   const build = JSON.parse(readFileSync(filePath, "utf-8"));
   return analyzeBuild(build, index);
 }
 
-function formatText(result) {
-  const lines = [];
+function formatText(result: AnalyzeBuildResult) {
+  const lines: string[] = [];
   lines.push(`=== ${result.build} (${result.class}) ===`);
   lines.push(`Coverage: ${result.metadata.unique_entities_with_calc}/${result.metadata.entities_analyzed} selections (${Math.round(result.metadata.calc_coverage_pct * 100)}%)`);
   lines.push("");
@@ -44,7 +43,7 @@ function formatText(result) {
 
   lines.push("");
   lines.push(`Synergy edges: ${result.synergy_edges.length}`);
-  const byStrength = { 3: 0, 2: 0, 1: 0 };
+  const byStrength: Record<number, number> = { 3: 0, 2: 0, 1: 0 };
   for (const e of result.synergy_edges) byStrength[e.strength] = (byStrength[e.strength] || 0) + 1;
   lines.push(`  Strong (3): ${byStrength[3] || 0}  Moderate (2): ${byStrength[2] || 0}  Weak (1): ${byStrength[1] || 0}`);
 

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Freeze golden score snapshots for 5 representative builds.
 // Usage: GROUND_TRUTH_SOURCE_ROOT=... node scripts/freeze-scores.mjs
 //        or: node scripts/freeze-scores.mjs  (reads from .source-root)
@@ -21,7 +20,7 @@ for (const prefix of BUILDS) {
   if (!file) { console.error(`No build for prefix ${prefix}`); continue; }
   const build = JSON.parse(readFileSync(join(BUILDS_DIR, file), "utf-8"));
   const synergy = analyzeBuild(build, index);
-  const card = generateScorecard(build, synergy);
+  const card = generateScorecard(build, synergy as unknown as Record<string, unknown>);
   writeFileSync(join(OUT_DIR, `${prefix}.score.json`), JSON.stringify(card, null, 2) + "\n");
   console.log(`Frozen: ${prefix} → ${card.letter_grade} (${card.composite_score})`);
 }

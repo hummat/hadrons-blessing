@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Extract global stagger settings from Darktide source.
  *
@@ -14,6 +13,9 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { validateSourceSnapshot } from "../lib/validate.js";
 import { runCliMain } from "../lib/cli.js";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
 
 const GENERATED_DIR = join(
   import.meta.dirname,
@@ -100,7 +102,7 @@ await runCliMain("stagger:build", async () => {
  * @param {string} luaSource
  * @returns {string[]}
  */
-export function parseStaggerTypes(luaSource) {
+export function parseStaggerTypes(luaSource: string) {
   const match = luaSource.match(
     /table\.enum\(([^)]+)\)/,
   );
@@ -128,14 +130,14 @@ export function parseStaggerTypes(luaSource) {
  * @param {string} tableName
  * @returns {object} { light: 1, medium: 10, ... }
  */
-export function parseStaggerTable(luaSource, tableName) {
+export function parseStaggerTable(luaSource: string, tableName: string) {
   const re = new RegExp(
     `stagger_settings\\.${tableName}\\s*=\\s*\\{([\\s\\S]*?)\\}`,
   );
   const match = luaSource.match(re);
   if (!match) return {};
 
-  const result = {};
+  const result: AnyRecord = {};
   const entryRe =
     /\[stagger_types\.(\w+)\]\s*=\s*(-?\d+(?:\.\d+)?)/g;
   let m;
@@ -153,13 +155,13 @@ export function parseStaggerTable(luaSource, tableName) {
  * @param {string} luaSource
  * @returns {object} { melee: ["light", "medium", "heavy"], ... }
  */
-export function parseStaggerCategories(luaSource) {
+export function parseStaggerCategories(luaSource: string) {
   const blockMatch = luaSource.match(
     /stagger_settings\.stagger_categories\s*=\s*\{([\s\S]*?)\n\}/,
   );
   if (!blockMatch) return {};
 
-  const result = {};
+  const result: Record<string, string[]> = {};
   // Match each category: name = { stagger_types.X, ... }
   const catRe = /(\w+)\s*=\s*\{([^}]*)\}/g;
   let cm;
@@ -185,8 +187,8 @@ export function parseStaggerCategories(luaSource) {
  * @param {string} luaSource
  * @returns {object}
  */
-export function parseScalarConstants(luaSource) {
-  const result = {};
+export function parseScalarConstants(luaSource: string) {
+  const result: AnyRecord = {};
   const scalars = [
     "default_stagger_resistance",
     "max_excessive_force",
@@ -211,7 +213,7 @@ export function parseScalarConstants(luaSource) {
     );
     const m = luaSource.match(re);
     if (m) {
-      result[name] = m[1].match(/-?\d+(?:\.\d+)?/g).map(Number);
+      result[name] = m[1].match(/-?\d+(?:\.\d+)?/g)!.map(Number);
     }
   }
 

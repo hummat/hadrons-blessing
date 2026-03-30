@@ -1,8 +1,7 @@
-// @ts-nocheck
 import { runCliMain } from "../lib/cli.js";
 import { inspectEntity } from "../lib/inspect.js";
 
-function parseArgs(argv) {
+function parseArgs(argv: string[]) {
   let id = null;
 
   for (let index = 0; index < argv.length; index += 1) {

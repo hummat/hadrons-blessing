@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Generate weapon-name-mapping.json: GL display names → internal template IDs.
 //
 // Usage:
@@ -9,6 +8,9 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -78,7 +80,7 @@ const SLUG_TO_FAMILY_OVERRIDES = new Map([
  * @param {string} templateId
  * @returns {string}
  */
-function logicalFamily(templateId) {
+function logicalFamily(templateId: string) {
   const match = templateId.match(/^(.+)_m\d+$/);
   return match ? match[1] : templateId;
 }
@@ -90,8 +92,8 @@ function logicalFamily(templateId) {
  * @param {Array} weaponEntities - Entities from shared-weapons.json
  * @returns {Object<string, string[]>} family → [template_id, ...]
  */
-function buildMergedFamilyMarks(weaponEntities) {
-  const result = {};
+function buildMergedFamilyMarks(weaponEntities: AnyRecord[]) {
+  const result: Record<string, string[]> = {};
   for (const entity of weaponEntities) {
     if (entity.kind !== "weapon") continue;
     if (entity.internal_name.startsWith("bot_")) continue;
@@ -107,12 +109,12 @@ function buildMergedFamilyMarks(weaponEntities) {
  * Match existing weapon aliases to GL weapons by exact display name.
  * @param {Array<{text: string, candidate_entity_id: string}>} aliases
  * @param {Array<{display_name: string, url_slug: string}>} glWeapons
- * @returns {Array<{gl_name: string, template_id: string, source: string}>}
+ * @returns {Array<{gl_name: string, template_id, source: string}>}
  */
-function matchByKnownAliases(aliases, glWeapons) {
-  const glByName = new Map(glWeapons.map((w) => [w.display_name, w]));
-  const seen = new Set();
-  const result = [];
+function matchByKnownAliases(aliases: AnyRecord[], glWeapons: AnyRecord[]) {
+  const glByName = new Map(glWeapons.map((w: AnyRecord) => [w.display_name, w]));
+  const seen = new Set<string>();
+  const result: AnyRecord[] = [];
 
   for (const alias of aliases) {
     if (!alias.candidate_entity_id.includes(".weapon.")) continue;
@@ -140,8 +142,8 @@ function matchByKnownAliases(aliases, glWeapons) {
  * @param {Object<string, string[]>} familyMarks - merged family → [template_id, ...]
  * @returns {Map<string, string>} slug → family
  */
-function buildSlugToFamilyMap(knownMappings, glWeapons, familyMarks) {
-  const glByName = new Map(glWeapons.map((w) => [w.display_name, w]));
+function buildSlugToFamilyMap(knownMappings: AnyRecord[], glWeapons: AnyRecord[], familyMarks: Record<string, string[]>) {
+  const glByName = new Map(glWeapons.map((w: AnyRecord) => [w.display_name, w]));
   const result = new Map();
 
   for (const mapping of knownMappings) {
@@ -174,9 +176,9 @@ function buildSlugToFamilyMap(knownMappings, glWeapons, familyMarks) {
  * @param {Object<string, string[]>} familyMarks
  * @param {Array<{display_name: string, url_slug: string}>} glWeapons
  * @param {Map<string, string>} alreadyMapped - template_id → gl_name
- * @returns {Array<{gl_name: string, template_id: string, source: string}>}
+ * @returns {Array<{gl_name: string, template_id, source: string}>}
  */
-function matchSingletonFamilies(slugToFamily, familyMarks, glWeapons, alreadyMapped) {
+function matchSingletonFamilies(slugToFamily: Map<string, string>, familyMarks: Record<string, string[]>, glWeapons: AnyRecord[], alreadyMapped: Map<string, string>) {
   const result = [];
 
   for (const [slug, family] of slugToFamily) {
@@ -209,9 +211,9 @@ function matchSingletonFamilies(slugToFamily, familyMarks, glWeapons, alreadyMap
  * @param {Object<string, string[]>} familyMarks
  * @param {Array<{display_name: string, url_slug: string}>} glWeapons
  * @param {Map<string, string>} alreadyMapped - template_id → gl_name
- * @returns {Array<{gl_name: string, template_id: string, source: string}>}
+ * @returns {Array<{gl_name: string, template_id, source: string}>}
  */
-function deduceLastRemaining(slugToFamily, familyMarks, glWeapons, alreadyMapped) {
+function deduceLastRemaining(slugToFamily: Map<string, string>, familyMarks: Record<string, string[]>, glWeapons: AnyRecord[], alreadyMapped: Map<string, string>) {
   const result = [];
   const mappedNames = new Set(alreadyMapped.values());
 
@@ -254,7 +256,7 @@ function main() {
   let existingManual = [];
   if (existsSync(outputPath)) {
     const existing = JSON.parse(readFileSync(outputPath, "utf8"));
-    existingManual = existing.filter((e) => e.source === "manual");
+    existingManual = existing.filter((e: AnyRecord) => e.source === "manual");
   }
 
   // 5. Build merged familyMarks
@@ -262,11 +264,11 @@ function main() {
 
   // Track all mappings
   const alreadyMapped = new Map(); // template_id → gl_name
-  const allMappings = []; // { gl_name, template_id, source }
+  const allMappings: AnyRecord[] = []; // { gl_name, template_id, source }
 
   const mappedGlNamesSet = new Set(); // track gl_names already taken
 
-  function addMappings(entries) {
+  function addMappings(entries: AnyRecord[]) {
     let added = 0;
     for (const entry of entries) {
       if (alreadyMapped.has(entry.template_id)) continue;
@@ -281,15 +283,15 @@ function main() {
 
   // 6a. Match by known aliases
   const aliasMatches = matchByKnownAliases(
-    aliases.filter((a) => a.candidate_entity_id.includes(".weapon.")),
+    aliases.filter((a: AnyRecord) => a.candidate_entity_id.includes(".weapon.")),
     glWeapons,
   );
   addMappings(aliasMatches);
   console.error(`Pass 1 (existing aliases): ${aliasMatches.length} matched`);
 
   // 6b. Add RENAME_REVERT_MAP entries
-  const glByName = new Map(glWeapons.map((w) => [w.display_name, w]));
-  const revertEntries = [];
+  const glByName = new Map(glWeapons.map((w: AnyRecord) => [w.display_name, w]));
+  const revertEntries: AnyRecord[] = [];
   for (const [templateId, glName] of RENAME_REVERT_MAP) {
     if (glByName.has(glName) && !alreadyMapped.has(templateId)) {
       revertEntries.push({
@@ -351,7 +353,7 @@ function main() {
 
   // 9. Report gaps
   const mappedGlNames = new Set(allMappings.map((m) => m.gl_name));
-  const gaps = glWeapons.filter((w) => !mappedGlNames.has(w.display_name));
+  const gaps = glWeapons.filter((w: AnyRecord) => !mappedGlNames.has(w.display_name));
   if (gaps.length > 0) {
     console.error(`\n${gaps.length} GL weapons still unmapped:`);
     for (const gap of gaps) {

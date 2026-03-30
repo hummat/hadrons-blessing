@@ -1,9 +1,8 @@
-// @ts-nocheck
 import { resolveQuery } from "../lib/resolve.js";
 import { runCliMain } from "../lib/cli.js";
 
-function parseArgs(argv) {
-  const args = {
+function parseArgs(argv: string[]) {
+  const args: { query: string | null; context: Record<string, unknown> } = {
     query: null,
     context: {},
   };
@@ -14,7 +13,7 @@ function parseArgs(argv) {
       args.query = argv[index + 1] ?? null;
       index += 1;
     } else if (arg === "--context") {
-      args.context = JSON.parse(argv[index + 1] ?? "{}");
+      args.context = JSON.parse(argv[index + 1] ?? "{}") as Record<string, unknown>;
       index += 1;
     }
   }
@@ -23,7 +22,7 @@ function parseArgs(argv) {
     throw new Error("--query is required");
   }
 
-  return args;
+  return args as { query: string; context: Record<string, unknown> };
 }
 
 if (import.meta.main) {

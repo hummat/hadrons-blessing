@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Score Darktide build data (output of extract-build.mjs) against build-scoring-data.json.
 // CLI entry point — library functions live in ../lib/score-build.ts.
 
@@ -14,11 +13,14 @@ import {
   generateScorecard,
 } from "../lib/score-build.js";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
+
 /**
  * Format scorecard as human-readable text.
  */
-function formatScorecardText(card) {
-  const lines = [];
+function formatScorecardText(card: AnyRecord): string {
+  const lines: string[] = [];
   lines.push(`=== ${card.title} (${card.class}) ===`);
   lines.push("");
   lines.push("MECHANICAL SCORES:");
@@ -33,7 +35,7 @@ function formatScorecardText(card) {
     lines.push(`  ${slotTag} ${w.name}`);
 
     // Perks line
-    const perkParts = [];
+    const perkParts: string[] = [];
     for (const p of w.perks.perks) {
       if (p === null) {
         perkParts.push("? (unknown)");
@@ -46,7 +48,7 @@ function formatScorecardText(card) {
     }
 
     // Blessings line
-    const blessingParts = [];
+    const blessingParts: string[] = [];
     for (const b of w.blessings.blessings) {
       blessingParts.push(`${b.name} ${b.known ? "\u2713" : "(?)"}`);
     }
@@ -119,21 +121,22 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     process.exit(1);
   }
 
-  const build = JSON.parse(readFileSync(buildPath, "utf-8"));
+  const build = JSON.parse(readFileSync(buildPath, "utf-8")) as Record<string, unknown>;
 
   // Load synergy for qualitative scoring (dynamic import to keep module lightweight for library consumers)
-  let synergyOutput = null;
-  let index = null;
+  let synergyOutput: Record<string, unknown> | null = null;
+  let index: AnyRecord | null = null;
   try {
     const { analyzeBuild, loadIndex } = await import("../lib/synergy-model.js");
     index = loadIndex();
-    synergyOutput = analyzeBuild(build, index);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    synergyOutput = analyzeBuild(build as any, index as any) as unknown as Record<string, unknown>;
   } catch {
     // Synergy unavailable (e.g. missing GROUND_TRUTH_SOURCE_ROOT) — proceed without qualitative scores
   }
 
   // Load calculator output for breakpoint scoring (graceful degradation)
-  let calcOutput = null;
+  let calcOutput: { matrix: unknown } | null = null;
   try {
     const { loadCalculatorData, computeBreakpoints } = await import("../lib/damage-calculator.js");
     if (!index) {
@@ -141,7 +144,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       index = loadIndex();
     }
     const calcData = loadCalculatorData();
-    const matrix = computeBreakpoints(build, index, calcData);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const matrix = computeBreakpoints(build as any, index as any, calcData);
     calcOutput = { matrix };
   } catch {
     // Calculator data not available — proceed without breakpoint scores

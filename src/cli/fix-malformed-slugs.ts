@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -16,7 +15,10 @@ const GOOD_PREFIX = "bespoke_";
  * @param {Array<{id: string, from_entity_id?: string, to_entity_id?: string}>} edges
  * @returns {{ entitiesFixed: number, edgesFixed: number }}
  */
-function fixMalformedSlugs(entities, edges) {
+interface SlugEntity { id: string; internal_name?: string | null; }
+interface SlugEdge { id: string; from_entity_id?: string | null; to_entity_id?: string | null; }
+
+function fixMalformedSlugs(entities: SlugEntity[], edges: SlugEdge[]) {
   // Build set of all existing entity IDs before any changes.
   const existingIds = new Set(entities.map((e) => e.id));
 

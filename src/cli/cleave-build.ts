@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Cleave calculator CLI — run on a build or directory of builds.
 // Usage: npm run cleave -- <build.json|dir> [--json|--text] [--freeze]
 
@@ -13,32 +12,35 @@ import { computeCleaveMatrix } from "../lib/cleave-calculator.js";
 
 const __filename = fileURLToPath(import.meta.url);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
+
 // -- Helpers ------------------------------------------------------------------
 
-function selectionLabel(value) {
+function selectionLabel(value: unknown): string {
   if (typeof value === "string") return value;
-  if (value != null && typeof value === "object" && typeof value.raw_label === "string") {
-    return value.raw_label;
+  if (value != null && typeof value === "object" && typeof (value as AnyRecord).raw_label === "string") {
+    return (value as AnyRecord).raw_label;
   }
   return "";
 }
 
 /** JSON replacer that preserves Infinity as the string "Infinity". */
-function calcReplacer(_key, value) {
+function calcReplacer(_key: string, value: unknown): unknown {
   if (value === Infinity) return "Infinity";
   return value;
 }
 
 // -- Text formatter -----------------------------------------------------------
 
-function formatCleaveText(matrix, build) {
-  const lines = [];
+function formatCleaveText(matrix: AnyRecord, build: AnyRecord): string {
+  const lines: string[] = [];
   const buildTitle = build.title || "Untitled Build";
 
   lines.push(`\u2550\u2550\u2550 Cleave Analysis: ${buildTitle} \u2550\u2550\u2550`);
   lines.push("");
 
-  const compositions = matrix.metadata.compositions_used;
+  const compositions: string[] = matrix.metadata.compositions_used;
 
   for (const weapon of matrix.weapons) {
     const weaponBuild = (build.weapons ?? [])[weapon.slot];
@@ -62,13 +64,13 @@ function formatCleaveText(matrix, build) {
       "Action".padEnd(actionColWidth) +
       "\u2502 " +
       compositions
-        .map((c) => c.padEnd(compColWidth))
+        .map((c: string) => c.padEnd(compColWidth))
         .join("\u2502 ");
     lines.push(header);
 
     // Data rows
     for (const action of weapon.actions) {
-      const cells = compositions.map((compName) => {
+      const cells = compositions.map((compName: string) => {
         const comp = action.compositions[compName];
         if (!comp) return "-".padEnd(compColWidth);
         const cell = `${comp.targets_hit} hit / ${comp.targets_killed} killed (budget ${action.cleave_budget.toFixed(1)})`;
@@ -110,9 +112,9 @@ await runCliMain("cleave", async () => {
   const index = loadIndex();
   const calcData = loadCalculatorData();
 
-  function processFile(filePath) {
-    const build = JSON.parse(readFileSync(filePath, "utf-8"));
-    const matrix = computeCleaveMatrix(build, index, calcData);
+  function processFile(filePath: string) {
+    const build = JSON.parse(readFileSync(filePath, "utf-8")) as AnyRecord;
+    const matrix = computeCleaveMatrix(build, index as unknown as Parameters<typeof computeCleaveMatrix>[1], calcData) as AnyRecord;
     return { build, matrix };
   }
 
@@ -134,10 +136,10 @@ await runCliMain("cleave", async () => {
             join(outDir, `${prefix}.cleave.json`),
             JSON.stringify(matrix, calcReplacer, 2) + "\n",
           );
-          const weaponCount = matrix.weapons.length;
+          const weaponCount = (matrix.weapons as unknown[]).length;
           console.log(`Frozen: ${prefix} (${weaponCount} weapon${weaponCount !== 1 ? "s" : ""})`);
         } catch (err) {
-          console.error(`SKIP ${f}: ${err.message}`);
+          console.error(`SKIP ${f}: ${(err as Error).message}`);
           failures++;
         }
       }
@@ -155,7 +157,7 @@ await runCliMain("cleave", async () => {
           console.log("");
         }
       } catch (err) {
-        console.error(`SKIP ${f}: ${err.message}`);
+        console.error(`SKIP ${f}: ${(err as Error).message}`);
         failures++;
       }
     }

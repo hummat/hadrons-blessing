@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -6,23 +5,26 @@ import { validateSourceSnapshot } from "../lib/validate.js";
 import { ENTITIES_ROOT, EDGES_ROOT, listJsonFiles } from "../lib/load.js";
 import { runCliMain } from "../lib/cli.js";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
+
 // --- Filename parsing ---
 
-export function parseWeaponFilename(filename) {
+export function parseWeaponFilename(filename: string) {
   const base = filename.replace(/\.lua$/, "");
   const match = base.match(/^(.+)_(p\d+)_(m\d+)$/);
   if (!match) return null;
   return { family: match[1], pSeries: match[2], mark: match[3], internalName: base };
 }
 
-export function parseBespokeFilename(filename) {
+export function parseBespokeFilename(filename: string) {
   const base = filename.replace(/\.lua$/, "");
   const match = base.match(/^weapon_traits_bespoke_(.+)_(p\d+)$/);
   if (!match) return null;
   return { family: match[1], pSeries: match[2] };
 }
 
-export function extractConceptSuffix(internalName, family, pSeries) {
+export function extractConceptSuffix(internalName: string, family: string, pSeries: string) {
   const prefix = `weapon_trait_bespoke_${family}_${pSeries}_`;
   let suffix = internalName.startsWith(prefix) ? internalName.slice(prefix.length) : internalName;
   if (suffix.endsWith("_parent")) suffix = suffix.slice(0, -7);
@@ -31,7 +33,7 @@ export function extractConceptSuffix(internalName, family, pSeries) {
 
 // --- Slot detection ---
 
-export function detectSlot(luaSource) {
+export function detectSlot(luaSource: string) {
   if (/keywords\s*=\s*\{[^}]*"ranged"/s.test(luaSource)) return "ranged";
   if (/keywords\s*=\s*\{[^}]*"melee"/s.test(luaSource)) return "melee";
   const ammoMatch = luaSource.match(/ammo_template\s*=\s*"([^"]+)"/);
@@ -41,15 +43,15 @@ export function detectSlot(luaSource) {
 
 // --- Entity ID builders ---
 
-export function weaponEntityId(internalName) { return `shared.weapon.${internalName}`; }
-export function traitEntityId(internalName) { return `shared.weapon_trait.${internalName}`; }
-export function perkEntityId(internalName, slot) { return `shared.weapon_perk.${slot}.${internalName}`; }
-export function gadgetTraitEntityId(internalName) { return `shared.gadget_trait.${internalName}`; }
-export function nameFamilyEntityId(slug) { return `shared.name_family.blessing.${slug}`; }
+export function weaponEntityId(internalName: string) { return `shared.weapon.${internalName}`; }
+export function traitEntityId(internalName: string) { return `shared.weapon_trait.${internalName}`; }
+export function perkEntityId(internalName: string, slot: string) { return `shared.weapon_perk.${slot}.${internalName}`; }
+export function gadgetTraitEntityId(internalName: string) { return `shared.gadget_trait.${internalName}`; }
+export function nameFamilyEntityId(slug: string) { return `shared.name_family.blessing.${slug}`; }
 
 // --- Entity record factories ---
 
-function makeBaseEntity(id, kind, internalName, refPath, refLine, snapshotId, attributes) {
+function makeBaseEntity(id: string, kind: string, internalName: string, refPath: string, refLine: number, snapshotId: string, attributes: AnyRecord) {
   return {
     id, kind, domain: "shared", internal_name: internalName,
     loc_key: null, ui_name: null, status: "source_backed",
@@ -58,23 +60,23 @@ function makeBaseEntity(id, kind, internalName, refPath, refLine, snapshotId, at
   };
 }
 
-export function makeWeaponEntity(internalName, family, pSeries, slot, refPath, snapshotId) {
+export function makeWeaponEntity(internalName: string, family: string, pSeries: string, slot: string, refPath: string, snapshotId: string) {
   return makeBaseEntity(weaponEntityId(internalName), "weapon", internalName, refPath, 1, snapshotId, { weapon_family: `${family}_${pSeries}`, slot });
 }
 
-export function makeTraitEntity(internalName, family, pSeries, slot, refPath, refLine, snapshotId) {
+export function makeTraitEntity(internalName: string, family: string, pSeries: string, slot: string, refPath: string, refLine: number, snapshotId: string) {
   return makeBaseEntity(traitEntityId(internalName), "weapon_trait", internalName, refPath, refLine, snapshotId, { weapon_family: `${family}_${pSeries}`, slot });
 }
 
-export function makePerkEntity(internalName, slot, refPath, refLine, snapshotId) {
+export function makePerkEntity(internalName: string, slot: string, refPath: string, refLine: number, snapshotId: string) {
   return makeBaseEntity(perkEntityId(internalName, slot), "weapon_perk", internalName, refPath, refLine, snapshotId, { slot });
 }
 
-export function makeGadgetTraitEntity(internalName, refPath, refLine, snapshotId) {
+export function makeGadgetTraitEntity(internalName: string, refPath: string, refLine: number, snapshotId: string) {
   return makeBaseEntity(gadgetTraitEntityId(internalName), "gadget_trait", internalName, refPath, refLine, snapshotId, { slot: "curio" });
 }
 
-export function makeNameFamilyEntity(slug, refPath, refLine, snapshotId) {
+export function makeNameFamilyEntity(slug: string, refPath: string, refLine: number, snapshotId: string) {
   return {
     id: nameFamilyEntityId(slug), kind: "name_family", domain: "shared",
     internal_name: null, loc_key: null, ui_name: null, status: "partially_resolved",
@@ -85,7 +87,7 @@ export function makeNameFamilyEntity(slug, refPath, refLine, snapshotId) {
 
 // --- Edge record factories ---
 
-function makeBaseEdge(id, type, fromEntityId, toEntityId, snapshotId) {
+function makeBaseEdge(id: string, type: string, fromEntityId: string, toEntityId: string, snapshotId: string) {
   return {
     id, type, from_entity_id: fromEntityId, to_entity_id: toEntityId,
     source_snapshot_id: snapshotId,
@@ -94,17 +96,17 @@ function makeBaseEdge(id, type, fromEntityId, toEntityId, snapshotId) {
   };
 }
 
-export function makeInstanceOfEdge(traitEntityId, familyEntityId, traitInternalName, snapshotId) {
+export function makeInstanceOfEdge(traitEntityId: string, familyEntityId: string, traitInternalName: string, snapshotId: string) {
   return makeBaseEdge(`shared.edge.instance_of.${traitInternalName}`, "instance_of", traitEntityId, familyEntityId, snapshotId);
 }
 
-export function makeWeaponHasTraitPoolEdge(weaponEntityId, traitEntityId, weaponInternalName, traitInternalName, snapshotId) {
+export function makeWeaponHasTraitPoolEdge(weaponEntityId: string, traitEntityId: string, weaponInternalName: string, traitInternalName: string, snapshotId: string) {
   return makeBaseEdge(`shared.edge.weapon_has_trait_pool.${weaponInternalName}.${traitInternalName}`, "weapon_has_trait_pool", weaponEntityId, traitEntityId, snapshotId);
 }
 
 // --- Concept-suffix map builder ---
 
-export function buildConceptFamilyMap(edges, entityMap) {
+export function buildConceptFamilyMap(edges: AnyRecord[], entityMap: Map<string, AnyRecord>) {
   const map = new Map();
   for (const edge of edges) {
     if (edge.type !== "instance_of") continue;
@@ -129,7 +131,7 @@ const WEAPON_TEMPLATES_DIR = "scripts/settings/equipment/weapon_templates";
 const BESPOKE_TRAITS_DIR = "scripts/settings/equipment/weapon_traits";
 const GADGET_TRAITS_FILE = "scripts/settings/equipment/gadget_traits/gadget_traits_common.lua";
 
-export function scanWeaponMarks(sourceRoot) {
+export function scanWeaponMarks(sourceRoot: string) {
   const results = [];
   const templatesDir = join(sourceRoot, WEAPON_TEMPLATES_DIR);
   const familyDirs = readdirSync(templatesDir, { withFileTypes: true })
@@ -152,7 +154,7 @@ export function scanWeaponMarks(sourceRoot) {
   return results;
 }
 
-export function scanBespokeTraits(sourceRoot, weaponMarks) {
+export function scanBespokeTraits(sourceRoot: string, weaponMarks: AnyRecord[]) {
   const results = [];
   const traitsDir = join(sourceRoot, BESPOKE_TRAITS_DIR);
   const bespokeFiles = readdirSync(traitsDir)
@@ -190,7 +192,7 @@ export function scanBespokeTraits(sourceRoot, weaponMarks) {
   return results;
 }
 
-export function scanPerks(sourceRoot) {
+export function scanPerks(sourceRoot: string) {
   const results = [];
   const perkFiles = [
     { file: "weapon_perks_melee.lua", slot: "melee" },
@@ -211,7 +213,7 @@ export function scanPerks(sourceRoot) {
   return results;
 }
 
-export function scanGadgetTraits(sourceRoot) {
+export function scanGadgetTraits(sourceRoot: string) {
   const results = [];
   const fullPath = join(sourceRoot, GADGET_TRAITS_FILE);
   const luaSource = readFileSync(fullPath, "utf8");
@@ -247,7 +249,7 @@ export async function expandEntityCoverage() {
 
   // Load existing edges
   const existingEdges = JSON.parse(readFileSync(SHARED_EDGES_FILE, "utf8"));
-  const existingEdgeIds = new Set(existingEdges.map(e => e.id));
+  const existingEdgeIds = new Set(existingEdges.map((e: AnyRecord) => e.id));
 
   // Build concept → family map
   const conceptFamilyMap = buildConceptFamilyMap(existingEdges, existingEntities);
@@ -432,7 +434,7 @@ export async function expandEntityCoverage() {
   const PROFILES_FILE = join(ENTITIES_ROOT, "..", "generated", "damage-profiles.json");
   try {
     const profiles = JSON.parse(readFileSync(PROFILES_FILE, "utf8"));
-    const profileWeapons = new Set(profiles.map(p => p.source_file).filter(Boolean));
+    const profileWeapons = new Set(profiles.map((p: AnyRecord) => p.source_file).filter(Boolean));
     const missingProfiles = weaponMarks
       .filter(w => !profileWeapons.has(w.internalName) && existingEntities.has(weaponEntityId(w.internalName)))
       .map(w => w.internalName);

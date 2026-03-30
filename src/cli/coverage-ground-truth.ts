@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { buildCoverageReport } from "../lib/coverage.js";
 
 if (import.meta.main) {

@@ -1,15 +1,17 @@
-// @ts-nocheck
 
 import { readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { canonicalizeBuildFile } from "./canonicalize-build.js";
 import { loadJsonFile } from "../lib/load.js";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
+
 const FIXTURES_ROOT = "data/builds";
 const MIGRATION_SCRAPED_AT = "2026-03-13T00:00:00Z";
-const SAMPLE_BUILD = loadJsonFile("data/sample-build.json");
+const SAMPLE_BUILD = loadJsonFile("data/sample-build.json") as AnyRecord;
 
-const FIXTURE_PROVENANCE_OVERRIDES = {
+const FIXTURE_PROVENANCE_OVERRIDES: Record<string, Record<string, string>> = {
   "01-veteran-squad-leader.json": {
     source_url: SAMPLE_BUILD.url,
     author: SAMPLE_BUILD.author,
@@ -22,7 +24,7 @@ function fixtureFiles() {
     .sort();
 }
 
-function provenanceForFixture(fileName, rawBuild) {
+function provenanceForFixture(fileName: string, rawBuild: AnyRecord) {
   const explicit = FIXTURE_PROVENANCE_OVERRIDES[fileName] ?? {};
   const fallbackAuthor = String(rawBuild.author ?? "").trim() || "unknown";
   return {
@@ -33,15 +35,15 @@ function provenanceForFixture(fileName, rawBuild) {
   };
 }
 
-async function migrateFixture(fileName) {
+async function migrateFixture(fileName: string) {
   const inputPath = join(FIXTURES_ROOT, fileName);
-  const rawBuild = loadJsonFile(inputPath);
+  const rawBuild = loadJsonFile(inputPath) as AnyRecord;
   if (rawBuild?.schema_version === 1) {
     return rawBuild;
   }
 
   const canonicalBuild = await canonicalizeBuildFile(inputPath, {
-    provenance: provenanceForFixture(fileName, rawBuild),
+    provenance: provenanceForFixture(fileName, rawBuild) as AnyRecord,
   });
 
   writeFileSync(inputPath, `${JSON.stringify(canonicalBuild, null, 2)}\n`);
@@ -49,7 +51,7 @@ async function migrateFixture(fileName) {
 }
 
 async function migrateAllFixtures() {
-  const results = [];
+  const results: AnyRecord[] = [];
 
   for (const fileName of fixtureFiles()) {
     results.push({

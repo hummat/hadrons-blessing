@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { runCliMain } from "../lib/cli.js";
 import { auditBuildFile } from "../lib/audit-build-file.js";
 
