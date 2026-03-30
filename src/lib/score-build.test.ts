@@ -2,7 +2,7 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { readFileSync, readdirSync } from "node:fs";
-import { parsePerkString, scorePerk, scoreWeaponPerks, scoreBlessings, scoreCurios, generateScorecard } from "../cli/score-build.js";
+import { parsePerkString, scorePerk, scoreWeaponPerks, scoreBlessings, scoreCurios, generateScorecard } from "./score-build.js";
 import { analyzeBuild, loadIndex } from "./synergy-model.js";
 
 describe("parsePerkString", () => {

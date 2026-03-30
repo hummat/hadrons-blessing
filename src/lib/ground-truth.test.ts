@@ -13,9 +13,9 @@ import {
   validateEntityRecord,
   validateSourceSnapshot,
 } from "./validate.js";
-import { buildIndex } from "../cli/build-ground-truth-index.js";
+import { buildIndex } from "./ground-truth-index.js";
 import { resolveQuery } from "./resolve.js";
-import { auditBuildFile } from "../cli/audit-build-names.js";
+import { auditBuildFile } from "./audit-build-file.js";
 
 const PINNED_SOURCE_ROOT = resolveSourceRoot();
 

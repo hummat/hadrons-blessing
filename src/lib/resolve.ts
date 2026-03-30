@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { buildIndex } from "../cli/build-ground-truth-index.js";
+import { buildIndex } from "./ground-truth-index.js";
 import { assertAllowedQueryContext, normalizeText } from "./normalize.js";
 
 const FUZZY_STOPWORDS = new Set(["damage"]);

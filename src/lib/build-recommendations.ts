@@ -4,7 +4,7 @@
 
 import { analyzeBuild } from "./synergy-model.js";
 import { scoreFromSynergy } from "./build-scoring.js";
-import { generateScorecard } from "../cli/score-build.js";
+import { generateScorecard } from "./score-build.js";
 
 // Map coverage_gap names to descriptive reason strings and suggested families.
 const GAP_DESCRIPTORS = {

@@ -11,8 +11,8 @@
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
 import { loadJsonFile } from "./load.js";
-import { auditBuildFile } from "../cli/audit-build-names.js";
-import { generateScorecard } from "../cli/score-build.js";
+import { auditBuildFile } from "./audit-build-file.js";
+import { generateScorecard } from "./score-build.js";
 
 /**
  * Return the display label for a selection (object or plain string).

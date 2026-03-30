@@ -5,7 +5,7 @@ import { resolveQuery as defaultResolveQuery } from "./resolve.js";
 import { assertValidCanonicalBuild } from "./build-shape.js";
 import { classifySelectedNodes, extractDescriptionSelections } from "./build-classification.js";
 import { BUILD_CLASSIFICATION_REGISTRY, registryForClass } from "./build-classification-registry.js";
-import { parsePerkString } from "../cli/score-build.js";
+import { parsePerkString } from "./score-build.js";
 
 function inferredWeaponFamily(entityId) {
   const internalName = entityId?.split(".").pop() ?? null;

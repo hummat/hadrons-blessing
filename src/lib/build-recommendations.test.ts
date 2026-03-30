@@ -4,7 +4,7 @@ import { strict as assert } from "node:assert";
 import { readFileSync } from "node:fs";
 import { analyzeGaps, validateTreeReachability, swapTalent, swapWeapon } from "./build-recommendations.js";
 import { loadIndex, analyzeBuild } from "./synergy-model.js";
-import { generateScorecard } from "../cli/score-build.js";
+import { generateScorecard } from "./score-build.js";
 
 const HAS_SOURCE = !!process.env.GROUND_TRUTH_SOURCE_ROOT;
 

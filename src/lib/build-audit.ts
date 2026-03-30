@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { basename } from "node:path";
-import { buildIndex } from "../cli/build-ground-truth-index.js";
+import { buildIndex } from "./ground-truth-index.js";
 import { assertValidCanonicalBuild } from "./build-shape.js";
 import { classifyKnownUnresolved } from "./non-canonical.js";
 import { resolveQuery } from "./resolve.js";
