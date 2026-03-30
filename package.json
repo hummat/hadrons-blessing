@@ -43,7 +43,10 @@
     "entities:enrich": "node scripts/enrich-entity-names.mjs",
     "entities:fix-slugs": "node scripts/fix-malformed-slugs.mjs",
     "gl:scrape": "node scripts/scrape-gl-catalog.mjs",
-    "entities:gen-mapping": "node scripts/generate-weapon-name-mapping.mjs"
+    "entities:gen-mapping": "node scripts/generate-weapon-name-mapping.mjs",
+    "build:types": "node scripts/generate-schema-types.mjs",
+    "build:ts": "tsc",
+    "build": "npm run build:types && npm run build:ts"
   },
   "repository": {
     "type": "git",
@@ -58,7 +61,11 @@
   },
   "homepage": "https://github.com/hummat/hadrons-blessing#readme",
   "devDependencies": {
+    "@types/node": "^25.5.0",
     "ajv": "^8.18.0",
-    "playwright": "^1.58.2"
+    "json-schema-to-typescript": "^15.0.4",
+    "playwright": "^1.58.2",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
   }
 }
