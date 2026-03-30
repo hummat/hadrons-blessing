@@ -1,4 +1,9 @@
-// @ts-nocheck
+import type {
+  AliasSchemaJson,
+  EdgeSchemaJson,
+  EntityBaseSchemaJson,
+  EvidenceSchemaJson,
+} from "../generated/schema-types.js";
 import {
   ALIASES_ROOT,
   EDGES_ROOT,
@@ -9,22 +14,30 @@ import {
   loadSourceSnapshotManifest,
 } from "./load.js";
 
-let _registry = null;
-
-function loadRecords(root) {
-  return listJsonFiles(root).flatMap((path) => loadJsonFile(path));
+export interface GroundTruthRegistry {
+  entities: EntityBaseSchemaJson[];
+  aliases: AliasSchemaJson[];
+  edges: EdgeSchemaJson[];
+  evidence: EvidenceSchemaJson[];
+  source_snapshot_id: string;
 }
 
-function loadGroundTruthRegistry() {
+let _registry: GroundTruthRegistry | null = null;
+
+function loadRecords<T>(root: string): T[] {
+  return listJsonFiles(root).flatMap((path) => loadJsonFile(path) as T[]);
+}
+
+function loadGroundTruthRegistry(): GroundTruthRegistry {
   if (_registry) {
     return _registry;
   }
 
-  const entities = loadRecords(ENTITIES_ROOT);
-  const aliases = loadRecords(ALIASES_ROOT);
-  const edges = loadRecords(EDGES_ROOT);
-  const evidence = loadRecords(EVIDENCE_ROOT);
-  const sourceSnapshot = loadSourceSnapshotManifest();
+  const entities = loadRecords<EntityBaseSchemaJson>(ENTITIES_ROOT);
+  const aliases = loadRecords<AliasSchemaJson>(ALIASES_ROOT);
+  const edges = loadRecords<EdgeSchemaJson>(EDGES_ROOT);
+  const evidence = loadRecords<EvidenceSchemaJson>(EVIDENCE_ROOT);
+  const sourceSnapshot = loadSourceSnapshotManifest() as { id: string };
 
   _registry = {
     entities,

@@ -1,5 +1,4 @@
-// @ts-nocheck
-const SETUP_HINTS = {
+const SETUP_HINTS: Record<string, string> = {
   resolve:
     'GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run resolve -- --query "Warp Rider" --context \'{"kind":"talent","class":"psyker"}\'',
   audit:
@@ -22,7 +21,7 @@ const SETUP_HINTS = {
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run calc -- data/builds/08-gandalf-melee-wizard.json",
 };
 
-function errorMessage(error) {
+function errorMessage(error: unknown): string {
   if (error instanceof Error && typeof error.message === "string") {
     return error.message;
   }
@@ -30,12 +29,12 @@ function errorMessage(error) {
   return String(error);
 }
 
-function isSourceSetupError(message) {
+function isSourceSetupError(message: string): boolean {
   return message.includes("GROUND_TRUTH_SOURCE_ROOT")
     || message.includes("Pinned source snapshot mismatch");
 }
 
-function formatCliError(commandName, error) {
+function formatCliError(commandName: string, error: unknown): string {
   const message = errorMessage(error);
 
   if (isSourceSetupError(message)) {
@@ -51,7 +50,7 @@ function formatCliError(commandName, error) {
   return `${message}\n`;
 }
 
-async function runCliMain(commandName, fn) {
+async function runCliMain(commandName: string, fn: () => Promise<void>): Promise<void> {
   try {
     await fn();
   } catch (error) {

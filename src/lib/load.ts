@@ -1,57 +1,31 @@
-// @ts-nocheck
 import { existsSync, readdirSync, readFileSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = resolve(__dirname, "..", "..");
-const GROUND_TRUTH_ROOT = join(REPO_ROOT, "data", "ground-truth");
-const ENTITIES_ROOT = join(GROUND_TRUTH_ROOT, "entities");
-const ALIASES_ROOT = join(GROUND_TRUTH_ROOT, "aliases");
-const EDGES_ROOT = join(GROUND_TRUTH_ROOT, "edges");
-const EVIDENCE_ROOT = join(GROUND_TRUTH_ROOT, "evidence");
-const NON_CANONICAL_ROOT = join(GROUND_TRUTH_ROOT, "non-canonical");
-const GENERATED_ROOT = join(GROUND_TRUTH_ROOT, "generated");
-const GENERATED_INDEX_PATH = join(GENERATED_ROOT, "index.json");
-const GENERATED_META_PATH = join(GENERATED_ROOT, "meta.json");
-const SCHEMAS_ROOT = join(GROUND_TRUTH_ROOT, "schemas");
-const ENTITY_KINDS_ROOT = join(SCHEMAS_ROOT, "entity-kinds");
-const SOURCE_SNAPSHOT_MANIFEST_PATH = join(
+import { join } from "node:path";
+import {
+  REPO_ROOT,
   GROUND_TRUTH_ROOT,
-  "source-snapshots",
-  "manifest.json",
-);
+  ENTITIES_ROOT,
+  ALIASES_ROOT,
+  EDGES_ROOT,
+  EVIDENCE_ROOT,
+  SCHEMAS_ROOT,
+  ENTITY_KINDS_ROOT,
+  GENERATED_ROOT,
+  GENERATED_INDEX_PATH,
+  GENERATED_META_PATH,
+  NON_CANONICAL_ROOT,
+  SOURCE_SNAPSHOT_MANIFEST_PATH,
+  resolveSourceRoot,
+} from "./paths.js";
 
-function loadJsonFile(filePath) {
+function loadJsonFile(filePath: string): unknown {
   return JSON.parse(readFileSync(filePath, "utf8"));
 }
 
-function loadSourceSnapshotManifest() {
+function loadSourceSnapshotManifest(): unknown {
   return loadJsonFile(SOURCE_SNAPSHOT_MANIFEST_PATH);
 }
 
-const SOURCE_ROOT_FILE = join(REPO_ROOT, ".source-root");
-
-function resolveSourceRoot(explicit) {
-  if (explicit) {
-    return resolve(explicit);
-  }
-
-  if (process.env.GROUND_TRUTH_SOURCE_ROOT) {
-    return resolve(process.env.GROUND_TRUTH_SOURCE_ROOT);
-  }
-
-  if (existsSync(SOURCE_ROOT_FILE)) {
-    const content = readFileSync(SOURCE_ROOT_FILE, "utf8").trim();
-    if (content) {
-      return resolve(content);
-    }
-  }
-
-  return null;
-}
-
-function listJsonFiles(root) {
+function listJsonFiles(root: string): string[] {
   if (!existsSync(root)) {
     return [];
   }
@@ -63,10 +37,11 @@ function listJsonFiles(root) {
 }
 
 export {
+  // Re-export path constants so existing consumers don't need to change imports
   ALIASES_ROOT,
   EDGES_ROOT,
-  ENTITY_KINDS_ROOT,
   ENTITIES_ROOT,
+  ENTITY_KINDS_ROOT,
   EVIDENCE_ROOT,
   GENERATED_INDEX_PATH,
   GENERATED_META_PATH,
@@ -76,8 +51,9 @@ export {
   REPO_ROOT,
   SCHEMAS_ROOT,
   SOURCE_SNAPSHOT_MANIFEST_PATH,
+  resolveSourceRoot,
+  // Own exports
   listJsonFiles,
   loadJsonFile,
   loadSourceSnapshotManifest,
-  resolveSourceRoot,
 };

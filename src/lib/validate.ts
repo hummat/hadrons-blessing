@@ -1,7 +1,7 @@
-// @ts-nocheck
 import { existsSync, lstatSync, readFileSync, readdirSync } from "node:fs";
-import { dirname, isAbsolute, join, resolve } from "node:path";
-import Ajv from "ajv";
+import { isAbsolute, join, resolve } from "node:path";
+import AjvModule from "ajv";
+import type { ErrorObject, ValidateFunction } from "ajv";
 import {
   ENTITY_KINDS_ROOT,
   SCHEMAS_ROOT,
@@ -10,9 +10,34 @@ import {
   resolveSourceRoot,
 } from "./load.js";
 
-let _validators;
+// TS6 + module:Node16 resolves the CJS default export as the module namespace.
+const Ajv = AjvModule as unknown as typeof AjvModule.default;
 
-function resolveGitDir(repoRoot) {
+export interface ValidationResult {
+  ok: boolean;
+  errors: ErrorObject[];
+}
+
+interface Validators {
+  alias: ValidateFunction;
+  edge: ValidateFunction;
+  entityBase: ValidateFunction;
+  evidence: ValidateFunction;
+  knownUnresolved: ValidateFunction;
+  kindSchemas: Map<string, ValidateFunction>;
+  queryContext: ValidateFunction;
+}
+
+export interface SourceSnapshotInfo {
+  id: string;
+  git_revision: string;
+  source_root: string;
+  [key: string]: unknown;
+}
+
+let _validators: Validators | undefined;
+
+function resolveGitDir(repoRoot: string): string {
   const dotGitPath = join(repoRoot, ".git");
   if (!existsSync(dotGitPath)) {
     throw new Error(`Not a git checkout: ${repoRoot}`);
@@ -31,7 +56,7 @@ function resolveGitDir(repoRoot) {
   return isAbsolute(gitDir) ? gitDir : resolve(repoRoot, gitDir);
 }
 
-function readPackedRef(gitDir, refName) {
+function readPackedRef(gitDir: string, refName: string): string | null {
   const packedRefsPath = join(gitDir, "packed-refs");
   if (!existsSync(packedRefsPath)) {
     return null;
@@ -42,16 +67,18 @@ function readPackedRef(gitDir, refName) {
       continue;
     }
 
-    const [sha, packedRefName] = line.trim().split(" ");
+    const parts = line.trim().split(" ");
+    const sha = parts[0];
+    const packedRefName = parts[1];
     if (packedRefName === refName) {
-      return sha;
+      return sha ?? null;
     }
   }
 
   return null;
 }
 
-function readGitRevision(repoRoot) {
+function readGitRevision(repoRoot: string): string {
   const gitDir = resolveGitDir(repoRoot);
   const headPath = join(gitDir, "HEAD");
   const headContent = readFileSync(headPath, "utf8").trim();
@@ -74,14 +101,14 @@ function readGitRevision(repoRoot) {
   throw new Error(`Unable to resolve git ref ${refName} in ${gitDir}`);
 }
 
-function buildResult(validate) {
+function buildResult(validate: ValidateFunction): ValidationResult {
   return {
     ok: validate.errors == null,
     errors: validate.errors ?? [],
   };
 }
 
-function loadSchemas() {
+function loadSchemas(): Validators {
   if (_validators) {
     return _validators;
   }
@@ -101,36 +128,39 @@ function loadSchemas() {
     "edge.schema.json",
     "evidence.schema.json",
   ]) {
-    const schema = loadJsonFile(join(SCHEMAS_ROOT, file));
+    const schema = loadJsonFile(join(SCHEMAS_ROOT, file)) as Record<string, unknown>;
     ajv.addSchema(schema);
     ajv.addSchema(schema, `/${file}`);
   }
 
-  const kindSchemas = new Map();
+  const kindSchemas = new Map<string, ValidateFunction>();
 
-  for (const file of readdirSync(ENTITY_KINDS_ROOT).filter((name) =>
+  for (const file of readdirSync(ENTITY_KINDS_ROOT).filter((name: string) =>
     name.endsWith(".json"),
   )) {
-    const schema = loadJsonFile(join(ENTITY_KINDS_ROOT, file));
+    const schema = loadJsonFile(join(ENTITY_KINDS_ROOT, file)) as Record<string, unknown>;
     ajv.addSchema(schema);
     ajv.addSchema(schema, `/entity-kinds/${file}`);
-    kindSchemas.set(file.replace(".schema.json", ""), ajv.getSchema(schema.$id));
+    const validator = ajv.getSchema(schema.$id as string);
+    if (validator) {
+      kindSchemas.set(file.replace(".schema.json", ""), validator);
+    }
   }
 
   _validators = {
-    alias: ajv.getSchema("alias.schema.json"),
-    edge: ajv.getSchema("edge.schema.json"),
-    entityBase: ajv.getSchema("entity-base.schema.json"),
-    evidence: ajv.getSchema("evidence.schema.json"),
-    knownUnresolved: ajv.getSchema("known-unresolved.schema.json"),
+    alias: ajv.getSchema("alias.schema.json")!,
+    edge: ajv.getSchema("edge.schema.json")!,
+    entityBase: ajv.getSchema("entity-base.schema.json")!,
+    evidence: ajv.getSchema("evidence.schema.json")!,
+    knownUnresolved: ajv.getSchema("known-unresolved.schema.json")!,
     kindSchemas,
-    queryContext: ajv.getSchema("query-context.schema.json"),
+    queryContext: ajv.getSchema("query-context.schema.json")!,
   };
 
   return _validators;
 }
 
-function validateEntityRecord(record) {
+function validateEntityRecord(record: unknown): ValidationResult {
   const { entityBase, kindSchemas } = loadSchemas();
 
   entityBase(record);
@@ -138,7 +168,8 @@ function validateEntityRecord(record) {
     return buildResult(entityBase);
   }
 
-  const validator = kindSchemas.get(record.kind.replace("_", "-"));
+  const typedRecord = record as { kind: string };
+  const validator = kindSchemas.get(typedRecord.kind.replace("_", "-"));
   if (!validator) {
     return { ok: true, errors: [] };
   }
@@ -147,31 +178,31 @@ function validateEntityRecord(record) {
   return buildResult(validator);
 }
 
-function validateAliasRecord(record) {
+function validateAliasRecord(record: unknown): ValidationResult {
   const { alias } = loadSchemas();
   alias(record);
   return buildResult(alias);
 }
 
-function validateEdgeRecord(record) {
+function validateEdgeRecord(record: unknown): ValidationResult {
   const { edge } = loadSchemas();
   edge(record);
   return buildResult(edge);
 }
 
-function validateKnownUnresolvedRecord(record) {
+function validateKnownUnresolvedRecord(record: unknown): ValidationResult {
   const { knownUnresolved } = loadSchemas();
   knownUnresolved(record);
   return buildResult(knownUnresolved);
 }
 
-function validateEvidenceRecord(record) {
+function validateEvidenceRecord(record: unknown): ValidationResult {
   const { evidence } = loadSchemas();
   evidence(record);
   return buildResult(evidence);
 }
 
-function validateSourceSnapshot(sourceRoot) {
+function validateSourceSnapshot(sourceRoot?: string): SourceSnapshotInfo {
   loadSchemas();
 
   const resolvedSourceRoot = resolveSourceRoot(sourceRoot);
@@ -185,12 +216,12 @@ function validateSourceSnapshot(sourceRoot) {
     );
   }
 
-  const manifest = loadSourceSnapshotManifest();
+  const manifest = loadSourceSnapshotManifest() as Record<string, unknown>;
   const gitRevision = readGitRevision(resolvedSourceRoot);
 
   if (gitRevision !== manifest.git_revision) {
     throw new Error(
-      `Pinned source snapshot mismatch: expected ${manifest.git_revision}, got ${gitRevision}`,
+      `Pinned source snapshot mismatch: expected ${manifest.git_revision as string}, got ${gitRevision}`,
     );
   }
 
@@ -198,7 +229,7 @@ function validateSourceSnapshot(sourceRoot) {
     ...manifest,
     git_revision: gitRevision,
     source_root: resolvedSourceRoot,
-  };
+  } as SourceSnapshotInfo;
 }
 
 export {

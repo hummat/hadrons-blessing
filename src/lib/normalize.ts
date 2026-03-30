@@ -1,5 +1,8 @@
-// @ts-nocheck
-const ALLOWED_QUERY_CONTEXT_KEYS = new Set([
+import type { QueryContextSchemaJson } from "../generated/schema-types.js";
+
+export type QueryContext = QueryContextSchemaJson;
+
+const ALLOWED_QUERY_CONTEXT_KEYS: ReadonlySet<string> = new Set([
   "domain",
   "kind",
   "class",
@@ -8,7 +11,7 @@ const ALLOWED_QUERY_CONTEXT_KEYS = new Set([
   "source",
 ]);
 
-function normalizeText(input) {
+function normalizeText(input: string): string {
   return input
     .normalize("NFKC")
     .toLowerCase()
@@ -18,7 +21,7 @@ function normalizeText(input) {
     .trim();
 }
 
-function assertAllowedQueryContext(context) {
+function assertAllowedQueryContext(context: unknown): QueryContext {
   if (context == null) {
     return {};
   }
@@ -33,7 +36,7 @@ function assertAllowedQueryContext(context) {
     }
   }
 
-  return context;
+  return context as QueryContext;
 }
 
 export { ALLOWED_QUERY_CONTEXT_KEYS, assertAllowedQueryContext, normalizeText };

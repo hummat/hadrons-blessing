@@ -1,11 +1,24 @@
-// @ts-nocheck
-import Ajv from "ajv";
+import AjvModule from "ajv";
+import type { ErrorObject, ValidateFunction } from "ajv";
 import { join } from "node:path";
 import { SCHEMAS_ROOT, loadJsonFile } from "./load.js";
 
-let _buildValidator = null;
+// TS6 + module:Node16 resolves the CJS default export as the module namespace.
+const Ajv = AjvModule as unknown as typeof AjvModule.default;
 
-function loadBuildValidator() {
+interface BuildValidationResult {
+  ok: boolean;
+  errors: ErrorObject[];
+}
+
+interface WeaponSlotError {
+  instancePath: string;
+  message: string;
+}
+
+let _buildValidator: ValidateFunction | null = null;
+
+function loadBuildValidator(): ValidateFunction {
   if (_buildValidator) {
     return _buildValidator;
   }
@@ -19,30 +32,31 @@ function loadBuildValidator() {
     "build-selection.schema.json",
     "canonical-build.schema.json",
   ]) {
-    const schema = loadJsonFile(join(SCHEMAS_ROOT, file));
+    const schema = loadJsonFile(join(SCHEMAS_ROOT, file)) as Record<string, unknown>;
     ajv.addSchema(schema);
     ajv.addSchema(schema, `/${file}`);
   }
 
-  _buildValidator = ajv.getSchema("canonical-build.schema.json");
+  _buildValidator = ajv.getSchema("canonical-build.schema.json") as ValidateFunction;
   return _buildValidator;
 }
 
-function customWeaponSlotErrors(build) {
-  if (!Array.isArray(build?.weapons)) {
+function customWeaponSlotErrors(build: unknown): WeaponSlotError[] {
+  const typed = build as { weapons?: unknown[] } | null | undefined;
+  if (!Array.isArray(typed?.weapons)) {
     return [];
   }
 
-  const counts = new Map();
-  for (const weapon of build.weapons) {
-    const slot = weapon?.slot;
+  const counts = new Map<string, number>();
+  for (const weapon of typed!.weapons) {
+    const slot = (weapon as { slot?: unknown })?.slot;
     if (typeof slot !== "string") {
       continue;
     }
     counts.set(slot, (counts.get(slot) ?? 0) + 1);
   }
 
-  const errors = [];
+  const errors: WeaponSlotError[] = [];
   for (const slot of ["melee", "ranged"]) {
     const count = counts.get(slot) ?? 0;
     if (count !== 1) {
@@ -56,27 +70,27 @@ function customWeaponSlotErrors(build) {
   return errors;
 }
 
-function validateCanonicalBuild(build) {
+function validateCanonicalBuild(build: unknown): BuildValidationResult {
   const validator = loadBuildValidator();
   validator(build);
 
   const schemaErrors = validator.errors ?? [];
   const slotErrors = schemaErrors.length === 0 ? customWeaponSlotErrors(build) : [];
-  const errors = [...schemaErrors, ...slotErrors];
+  const errors: Array<ErrorObject | WeaponSlotError> = [...schemaErrors, ...slotErrors];
 
   return {
     ok: errors.length === 0,
-    errors,
+    errors: errors as ErrorObject[],
   };
 }
 
-function formatValidationErrors(errors) {
+function formatValidationErrors(errors: Array<{ instancePath?: string; message?: string }>): string {
   return errors
-    .map((error) => `${error.instancePath || "/"} ${error.message}`.trim())
+    .map((error) => `${error.instancePath || "/"} ${error.message ?? ""}`.trim())
     .join("; ");
 }
 
-function assertValidCanonicalBuild(build) {
+function assertValidCanonicalBuild(build: unknown): void {
   const result = validateCanonicalBuild(build);
   if (!result.ok) {
     throw new Error(`Invalid canonical build: ${formatValidationErrors(result.errors)}`);

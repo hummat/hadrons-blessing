@@ -1,4 +1,4 @@
-// @ts-nocheck
+import type { KnownUnresolvedSchemaJson, QueryContextSchemaJson } from "../generated/schema-types.js";
 import {
   NON_CANONICAL_ROOT,
   listJsonFiles,
@@ -7,11 +7,11 @@ import {
 import { assertAllowedQueryContext, normalizeText } from "./normalize.js";
 import { validateKnownUnresolvedRecord } from "./validate.js";
 
-let _knownUnresolvedRecords;
+let _knownUnresolvedRecords: KnownUnresolvedSchemaJson[] | undefined;
 
-function contextMatches(record, queryContext) {
+function contextMatches(record: KnownUnresolvedSchemaJson, queryContext: QueryContextSchemaJson): boolean {
   for (const requirement of record.context_constraints.require_all) {
-    if (queryContext[requirement.key] !== requirement.value) {
+    if ((queryContext as Record<string, unknown>)[requirement.key] !== requirement.value) {
       return false;
     }
   }
@@ -19,7 +19,7 @@ function contextMatches(record, queryContext) {
   return true;
 }
 
-function normalizeRecord(record) {
+function normalizeRecord(record: KnownUnresolvedSchemaJson): KnownUnresolvedSchemaJson {
   const normalizedText = normalizeText(record.text);
   if (record.normalized_text !== normalizedText) {
     throw new Error(
@@ -37,12 +37,12 @@ function normalizeRecord(record) {
   return record;
 }
 
-function loadKnownUnresolvedRecords() {
+function loadKnownUnresolvedRecords(): KnownUnresolvedSchemaJson[] {
   if (_knownUnresolvedRecords) {
     return _knownUnresolvedRecords;
   }
 
-  const records = [];
+  const records: KnownUnresolvedSchemaJson[] = [];
 
   for (const file of listJsonFiles(NON_CANONICAL_ROOT)) {
     const payload = loadJsonFile(file);
@@ -50,7 +50,7 @@ function loadKnownUnresolvedRecords() {
       throw new Error(`Known-unresolved shard must be an array: ${file}`);
     }
 
-    for (const record of payload) {
+    for (const record of payload as KnownUnresolvedSchemaJson[]) {
       records.push(normalizeRecord(record));
     }
   }
@@ -59,7 +59,7 @@ function loadKnownUnresolvedRecords() {
   return _knownUnresolvedRecords;
 }
 
-function classifyKnownUnresolved(text, queryContext) {
+function classifyKnownUnresolved(text: string, queryContext: unknown): KnownUnresolvedSchemaJson | null {
   const safeQueryContext = assertAllowedQueryContext(queryContext);
   const normalizedText = normalizeText(text);
   const candidates = loadKnownUnresolvedRecords()
