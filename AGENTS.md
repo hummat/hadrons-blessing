@@ -32,50 +32,50 @@ Never hardcode the source root. The Makefile reads `.source-root` as a fallback;
 npm install
 npm test                                          # unit tests (no source root needed for most)
 npm run edges:build                               # regenerate tree edges from Lua source
-npm run check                                     # index:build + test + index:check
+npm run check                                     # build + index:build + test + index:check
 make check                                        # full quality gate (edges:build + effects:build + breeds:build + profiles:build + check)
 npm run effects:build                             # populate calc fields from Lua buff templates
-npm run synergy -- scripts/builds/08-gandalf-melee-wizard.json          # synergy analysis (text)
-npm run synergy -- scripts/builds/08-gandalf-melee-wizard.json --json   # synergy analysis (JSON)
-npm run synergy -- scripts/builds/                                       # batch synergy (all builds)
+npm run synergy -- data/builds/08-gandalf-melee-wizard.json          # synergy analysis (text)
+npm run synergy -- data/builds/08-gandalf-melee-wizard.json --json   # synergy analysis (JSON)
+npm run synergy -- data/builds/                                       # batch synergy (all builds)
 npm run resolve -- --query "Warp Rider" --context '{"kind":"talent","class":"psyker"}'
-npm run audit -- scripts/builds/08-gandalf-melee-wizard.json
-npm run canonicalize -- scripts/sample-build.json # raw scrape → canonical build JSON
-npm run reresolve -- --write scripts/builds       # batch re-resolve unresolved entries
+npm run audit -- data/builds/08-gandalf-melee-wizard.json
+npm run canonicalize -- data/sample-build.json    # raw scrape → canonical build JSON
+npm run reresolve -- --write data/builds          # batch re-resolve unresolved entries
 npm run coverage                                  # domain/kind coverage summary
 npm run inspect -- --id psyker.talent.psyker_damage_based_on_warp_charge
 npm run export:bot-weapons                        # regenerate data/exports/bot-weapon-recommendations.json
-npm run report -- scripts/builds/08-gandalf-melee-wizard.json           # human-readable text report
-npm run report -- scripts/builds/08-gandalf-melee-wizard.json --format md  # markdown report
-npm run report -- scripts/builds/                                       # batch report (all builds)
-npm run score -- scripts/builds/08-gandalf-melee-wizard.json --json             # build scoring (with qualitative)
-npm run score -- scripts/builds/08-gandalf-melee-wizard.json --text             # build scoring (human-readable)
-npm run recommend -- analyze-gaps scripts/builds/08-gandalf-melee-wizard.json   # coverage gap analysis
-npm run recommend -- swap-talent scripts/builds/08-gandalf-melee-wizard.json --from <id> --to <id>  # talent swap delta
-npm run recommend -- swap-weapon scripts/builds/08-gandalf-melee-wizard.json --from <id> --to <id>  # weapon swap delta
+npm run report -- data/builds/08-gandalf-melee-wizard.json           # human-readable text report
+npm run report -- data/builds/08-gandalf-melee-wizard.json --format md  # markdown report
+npm run report -- data/builds/                                       # batch report (all builds)
+npm run score -- data/builds/08-gandalf-melee-wizard.json --json             # build scoring (with qualitative)
+npm run score -- data/builds/08-gandalf-melee-wizard.json --text             # build scoring (human-readable)
+npm run recommend -- analyze-gaps data/builds/08-gandalf-melee-wizard.json   # coverage gap analysis
+npm run recommend -- swap-talent data/builds/08-gandalf-melee-wizard.json --from <id> --to <id>  # talent swap delta
+npm run recommend -- swap-weapon data/builds/08-gandalf-melee-wizard.json --from <id> --to <id>  # weapon swap delta
 npm run score:freeze                                                            # regenerate golden score snapshots
 npm run breeds:build                                                            # extract breed HP/armor/hitzones/stagger/hit_mass from Lua
 npm run profiles:build                                                          # extract damage profiles/action maps from Lua
-npm run calc -- scripts/builds/08-gandalf-melee-wizard.json                     # breakpoint calculator (text)
-npm run calc -- scripts/builds/08-gandalf-melee-wizard.json --json              # breakpoint calculator (JSON)
-npm run calc -- scripts/builds/08-gandalf-melee-wizard.json --compare scripts/builds/01-veteran-squad-leader.json  # compare two builds
-npm run calc -- scripts/builds/                                                 # batch calc (all builds)
+npm run calc -- data/builds/08-gandalf-melee-wizard.json                     # breakpoint calculator (text)
+npm run calc -- data/builds/08-gandalf-melee-wizard.json --json              # breakpoint calculator (JSON)
+npm run calc -- data/builds/08-gandalf-melee-wizard.json --compare data/builds/01-veteran-squad-leader.json  # compare two builds
+npm run calc -- data/builds/                                                 # batch calc (all builds)
 npm run calc:freeze                                                             # regenerate golden calc snapshots
-npm run stagger -- scripts/builds/08-gandalf-melee-wizard.json                    # stagger analysis (text)
-npm run stagger -- scripts/builds/08-gandalf-melee-wizard.json --json             # stagger analysis (JSON)
-npm run stagger -- scripts/builds/                                                # batch stagger (all builds)
+npm run stagger -- data/builds/08-gandalf-melee-wizard.json                    # stagger analysis (text)
+npm run stagger -- data/builds/08-gandalf-melee-wizard.json --json             # stagger analysis (JSON)
+npm run stagger -- data/builds/                                                # batch stagger (all builds)
 npm run stagger:freeze                                                            # regenerate golden stagger snapshots
-npm run cleave -- scripts/builds/08-gandalf-melee-wizard.json                     # cleave analysis (text)
-npm run cleave -- scripts/builds/08-gandalf-melee-wizard.json --json              # cleave analysis (JSON)
-npm run cleave -- scripts/builds/                                                 # batch cleave (all builds)
+npm run cleave -- data/builds/08-gandalf-melee-wizard.json                     # cleave analysis (text)
+npm run cleave -- data/builds/08-gandalf-melee-wizard.json --json              # cleave analysis (JSON)
+npm run cleave -- data/builds/                                                 # batch cleave (all builds)
 npm run cleave:freeze                                                             # regenerate golden cleave snapshots
-npm run toughness -- scripts/builds/08-gandalf-melee-wizard.json                  # survivability analysis (text)
-npm run toughness -- scripts/builds/08-gandalf-melee-wizard.json --json           # survivability analysis (JSON)
-npm run toughness -- scripts/builds/                                              # batch toughness (all builds)
+npm run toughness -- data/builds/08-gandalf-melee-wizard.json                  # survivability analysis (text)
+npm run toughness -- data/builds/08-gandalf-melee-wizard.json --json           # survivability analysis (JSON)
+npm run toughness -- data/builds/                                              # batch toughness (all builds)
 npm run toughness:freeze                                                          # regenerate golden toughness snapshots
 npm run stagger:build                                                             # extract stagger settings from Lua source
-node scripts/extract-build.mjs <gl-url> --json    # live GL scrape → canonical (requires Playwright)
-node scripts/extract-build.mjs <gl-url> --raw-json # live GL scrape → pre-canonical raw shape
+node dist/cli/extract-build.js <gl-url> --json    # live GL scrape → canonical (requires Playwright)
+node dist/cli/extract-build.js <gl-url> --raw-json # live GL scrape → pre-canonical raw shape
 ```
 
 ## Data Architecture
@@ -95,20 +95,25 @@ data/ground-truth/
                      #   damage-profiles.json — damage profiles, action maps, pipeline constants
                      #   stagger-settings.json — global stagger thresholds, categories, scalars
 data/exports/        # checked-in JSON artifacts for downstream consumers (BetterBots)
-scripts/ground-truth/
-  lib/               # resolve.mjs, validate.mjs, load.mjs, normalize.mjs
-                     # build-canonicalize.mjs, build-classification.mjs,
-                     # build-classification-registry.mjs, build-shape.mjs,
-                     # build-audit.mjs, coverage.mjs, inspect.mjs,
-                     # lua-tree-parser.mjs, tree-edge-generator.mjs
-                     # lua-data-reader.mjs, talent-settings-parser.mjs,
-                     # condition-tagger.mjs, buff-semantic-parser.mjs
-                     # synergy-stat-families.mjs, synergy-rules.mjs,
-                     # synergy-model.mjs
-                     # damage-calculator.mjs, breakpoint-checklist.mjs,
-                     # stagger-calculator.mjs, cleave-calculator.mjs,
-                     # toughness-calculator.mjs
-scripts/builds/      # 23 canonical build fixtures (all 6 classes)
+data/builds/         # 23 canonical build fixtures (all 6 classes)
+src/
+  lib/               # typed library modules (.ts)
+                     # resolve.ts, validate.ts, load.ts, normalize.ts,
+                     # build-canonicalize.ts, build-classification.ts,
+                     # build-classification-registry.ts, build-shape.ts,
+                     # build-audit.ts, coverage.ts, inspect.ts,
+                     # lua-tree-parser.ts, tree-edge-generator.ts,
+                     # lua-data-reader.ts, talent-settings-parser.ts,
+                     # condition-tagger.ts, buff-semantic-parser.ts,
+                     # synergy-stat-families.ts, synergy-rules.ts,
+                     # synergy-model.ts,
+                     # damage-calculator.ts, breakpoint-checklist.ts,
+                     # stagger-calculator.ts, cleave-calculator.ts,
+                     # toughness-calculator.ts,
+                     # index.ts (public API entry point)
+  cli/               # CLI entry points (.ts, compiled to dist/cli/)
+  generated/         # auto-generated types (schema-types.ts)
+dist/                # compiled output (gitignored — regenerated by npm run build)
 ```
 
 Entity ID format: `{domain}.{kind}.{internal_name}` — e.g. `psyker.talent.psyker_damage_based_on_warp_charge`
@@ -159,13 +164,13 @@ All records are validated against JSON schemas in `data/ground-truth/schemas/`. 
 
 ## Build Fixtures
 
-`scripts/builds/` contains 23 representative build JSON files (builds 01–23, all 6 classes) in canonical build shape. Each build stores `schema_version`, `title`, `class`, `provenance`, `ability`, `blitz`, `aura`, `keystone`, `talents[]`, `weapons[]`, and `curios[]`. Every selection carries `raw_label`, `canonical_entity_id`, and `resolution_status` (`resolved` / `unresolved` / `non_canonical`).
+`data/builds/` contains 23 representative build JSON files (builds 01–23, all 6 classes) in canonical build shape. Each build stores `schema_version`, `title`, `class`, `provenance`, `ability`, `blitz`, `aura`, `keystone`, `talents[]`, `weapons[]`, and `curios[]`. Every selection carries `raw_label`, `canonical_entity_id`, and `resolution_status` (`resolved` / `unresolved` / `non_canonical`).
 
 All 23 builds have been re-extracted from live GL pages with full talent trees. 1089 resolved, 60 unresolved (all curio cosmetic names — backend-only, see below), 1 non_canonical (multi-option guide label).
 
 Frozen audit snapshots live in `tests/fixtures/ground-truth/audits/`. When the index or audit logic changes, re-freeze all snapshots with `npm run audit:freeze`. Do NOT use `npm run audit -- <file> > snapshot.json` — npm's stderr banner contaminates the JSON output.
 
-Frozen calc snapshots live in `tests/fixtures/ground-truth/calc/`. Regression tests in `damage-calculator.test.mjs` compare fresh `computeBreakpoints` output against these snapshots for every build. Re-freeze with `npm run calc:freeze` after pipeline changes.
+Frozen calc snapshots live in `tests/fixtures/ground-truth/calc/`. Regression tests in `damage-calculator.test.ts` compare fresh `computeBreakpoints` output against these snapshots for every build. Re-freeze with `npm run calc:freeze` after pipeline changes.
 
 ## Canonical Build Shape
 
@@ -182,10 +187,10 @@ The canonical build format is the single shared shape consumed by `audit`, `scor
 
 `npm run synergy -- <build.json> [--json]` analyzes talent-weapon synergies. Produces structured output with synergy edges, anti-synergies, orphaned selections, and build coverage metrics.
 
-**Architecture:** 3 modules in `scripts/ground-truth/lib/`:
-- `synergy-stat-families.mjs` — 144 stats mapped to 11 families (melee_offense, ranged_offense, general_offense, crit, toughness, damage_reduction, mobility, warp_resource, grenade, stamina, utility). Multi-membership supported.
-- `synergy-rules.mjs` — 5 pure-function rules: stat-family alignment, slot coverage, trigger-target chains, resource flow, orphan detection
-- `synergy-model.mjs` — orchestrator: selection resolution (direct calc, stat_node prefix match, blessing tier-4 traversal), stat aggregation (NHHI concentration, build identity, coverage gaps), output assembly. The stat_node prefix-match resolution path is mirrored in `damage-calculator.mjs:assembleBuildBuffStack` for breakpoint accuracy.
+**Architecture:** 3 modules in `src/lib/`:
+- `synergy-stat-families.ts` — 144 stats mapped to 11 families (melee_offense, ranged_offense, general_offense, crit, toughness, damage_reduction, mobility, warp_resource, grenade, stamina, utility). Multi-membership supported.
+- `synergy-rules.ts` — 5 pure-function rules: stat-family alignment, slot coverage, trigger-target chains, resource flow, orphan detection
+- `synergy-model.ts` — orchestrator: selection resolution (direct calc, stat_node prefix match, blessing tier-4 traversal), stat aggregation (NHHI concentration, build identity, coverage gaps), output assembly. The stat_node prefix-match resolution path is mirrored in `damage-calculator.ts:assembleBuildBuffStack` for breakpoint accuracy.
 
 **Coverage:** ~40% per-build calc coverage. Blessing synergy partial (27/46 families via `instance_of` → weapon_trait tier traversal). Named gameplay talents at 48% calc coverage; stat-node talents and gadget traits at 100%.
 
@@ -203,15 +208,15 @@ Frozen synergy snapshots in `tests/fixtures/ground-truth/synergy/`. Re-freeze wi
 
 **Qualitative (from synergy model):** `talent_coherence` (talent-talent edge density + graph isolation), `blessing_synergy` (blessing-X edge density + blessing-blessing bonus), `role_coverage` (stat family breadth + coverage gaps + slot balance). Each 1–5.
 
-**Calculator-derived (from breakpoint matrix):** `breakpoint_relevance` (weighted checklist of community-standard breakpoints), `difficulty_scaling` (damnation→auric degradation on high-priority breakpoints). Scored via `breakpoint-checklist.mjs` against `data/ground-truth/breakpoint-checklist.json`.
+**Calculator-derived (from breakpoint matrix):** `breakpoint_relevance` (weighted checklist of community-standard breakpoints), `difficulty_scaling` (damnation→auric degradation on high-priority breakpoints). Scored via `breakpoint-checklist.ts` against `data/ground-truth/breakpoint-checklist.json`.
 
 **Composite:** Sum of all 7 dimensions, scaled to /35. Letter grades: S (32+), A (27+), B (22+), C (17+), D (<17).
 
-**Perk normalization:** GL-scraped perk labels (e.g. `"Damage (Flak Armoured Enemies)"`, `"Damage Resistance (Gunners)"`) are normalized to match scoring catalog keys via `normalizePerkName()` in `score-build.mjs`. Integration tests in `score-build.test.mjs` verify every distinct GL perk format resolves correctly.
+**Perk normalization:** GL-scraped perk labels (e.g. `"Damage (Flak Armoured Enemies)"`, `"Damage Resistance (Gunners)"`) are normalized to match scoring catalog keys via `normalizePerkName()` in `score-build.ts`. Integration tests in `score-build.test.ts` verify every distinct GL perk format resolves correctly.
 
-Module: `scripts/ground-truth/lib/build-scoring.mjs`. Frozen score snapshots in `tests/fixtures/ground-truth/scores/`. Re-freeze with `npm run score:freeze`.
+Module: `src/lib/score-build.ts`. Frozen score snapshots in `tests/fixtures/ground-truth/scores/`. Re-freeze with `npm run score:freeze`.
 
-**Scoring data coverage:** Weapon perks 84/84 (100%), curio perks 273/273 (100%), blessings 30/30 (100%) across all 23 builds. Weapon catalog covers 23/32 unique weapons — 9 weapons appear in builds but lack scoring data entries (blessing lists). When adding new builds, run the coverage audit in `score-build.test.mjs` to catch gaps.
+**Scoring data coverage:** Weapon perks 84/84 (100%), curio perks 273/273 (100%), blessings 30/30 (100%) across all 23 builds. Weapon catalog covers 23/32 unique weapons — 9 weapons appear in builds but lack scoring data entries (blessing lists). When adding new builds, run the coverage audit in `score-build.test.ts` to catch gaps.
 
 ## Build Recommendations
 
@@ -224,7 +229,7 @@ Three operations:
 
 **Deferred to v1.1:** `suggest-improvement` (brute-force candidate enumeration).
 
-Module: `scripts/ground-truth/lib/build-recommendations.mjs`. Formatter: `scripts/ground-truth/lib/recommend-formatter.mjs`. Design spec: `docs/superpowers/specs/2026-03-17-scoring-and-recommendations-design.md`.
+Module: `src/lib/build-recommendations.ts`. Formatter: `src/lib/recommend-formatter.ts`. Design spec: `docs/superpowers/specs/2026-03-17-scoring-and-recommendations-design.md`.
 
 ## Stagger Calculator
 
@@ -234,9 +239,9 @@ Module: `scripts/ground-truth/lib/build-recommendations.mjs`. Formatter: `script
 
 **Data sources:** Per-profile `stagger_category` and `power_distribution.impact` from `damage-profiles.json`. Per-breed `stagger` object (resistance, reduction, thresholds, durations, immune times) from `breed-data.json`. Global stagger settings (type definitions, categories, rending multiplier) from `stagger-settings.json`.
 
-**Scoring:** 3 stagger checklist entries in `breakpoint-checklist.json` (Crusher, Rager, Mauler). Scored via `scoreStaggerRelevance()` in `breakpoint-checklist.mjs`.
+**Scoring:** 3 stagger checklist entries in `breakpoint-checklist.json` (Crusher, Rager, Mauler). Scored via `scoreStaggerRelevance()` in `breakpoint-checklist.ts`.
 
-Module: `scripts/ground-truth/lib/stagger-calculator.mjs`. CLI: `scripts/stagger-build.mjs`. Frozen snapshots in `tests/fixtures/ground-truth/stagger/`. Re-freeze with `npm run stagger:freeze`.
+Module: `src/lib/stagger-calculator.ts`. CLI: `src/cli/stagger-build.ts`. Frozen snapshots in `tests/fixtures/ground-truth/stagger/`. Re-freeze with `npm run stagger:freeze`.
 
 ## Cleave Calculator
 
@@ -248,9 +253,9 @@ Module: `scripts/ground-truth/lib/stagger-calculator.mjs`. CLI: `scripts/stagger
 
 **Known limitation:** Per-target damage falloff (`targets[n]` profile overrides) is not extracted. All targets receive primary target damage, which is conservative.
 
-**Scoring:** 2 cleave checklist entries in `breakpoint-checklist.json` (heavy 3+ kills, light 2+ kills in mixed horde). Scored via `scoreCleaveRelevance()` in `breakpoint-checklist.mjs`.
+**Scoring:** 2 cleave checklist entries in `breakpoint-checklist.json` (heavy 3+ kills, light 2+ kills in mixed horde). Scored via `scoreCleaveRelevance()` in `breakpoint-checklist.ts`.
 
-Module: `scripts/ground-truth/lib/cleave-calculator.mjs`. CLI: `scripts/cleave-build.mjs`. Frozen snapshots in `tests/fixtures/ground-truth/cleave/`. Re-freeze with `npm run cleave:freeze`.
+Module: `src/lib/cleave-calculator.ts`. CLI: `src/cli/cleave-build.ts`. Frozen snapshots in `tests/fixtures/ground-truth/cleave/`. Re-freeze with `npm run cleave:freeze`.
 
 ## Toughness Calculator
 
@@ -262,17 +267,19 @@ Module: `scripts/ground-truth/lib/cleave-calculator.mjs`. CLI: `scripts/cleave-b
 
 **Scoring:** Deferred. The computation exists and is callable via CLI, but does not feed the scorecard. A `survivability` dimension needs its own design.
 
-Module: `scripts/ground-truth/lib/toughness-calculator.mjs`. CLI: `scripts/toughness-build.mjs`. Frozen snapshots in `tests/fixtures/ground-truth/toughness/`. Re-freeze with `npm run toughness:freeze`.
+Module: `src/lib/toughness-calculator.ts`. CLI: `src/cli/toughness-build.ts`. Frozen snapshots in `tests/fixtures/ground-truth/toughness/`. Re-freeze with `npm run toughness:freeze`.
 
 ## Classification Registry
 
-`scripts/ground-truth/lib/build-classification-registry.mjs` maps GL talent slugs to canonical build slots. Only slot-routing nodes need entries (abilities, blitz, auras, keystones, modifiers). Regular talents flow through to `talents[]` without registry entries. The registry is populated per-class from the decompiled source tree.
+`src/lib/build-classification-registry.ts` maps GL talent slugs to canonical build slots. Only slot-routing nodes need entries (abilities, blitz, auras, keystones, modifiers). Regular talents flow through to `talents[]` without registry entries. The registry is populated per-class from the decompiled source tree.
 
 ## Tech Stack
 
-Node.js ESM (`"type": "module"`). No runtime dependencies. Dev dependencies: `ajv` for schema validation, `playwright` for GL scraping.
+TypeScript (strict), Node.js ESM (`"type": "module"`). Compiled with `tsc` to `dist/`; CLI commands run via `node dist/cli/`. Tests run via `tsx --test` (not compiled). No runtime dependencies. Dev dependencies: `typescript`, `tsx`, `ajv` for schema validation, `playwright` for GL scraping.
 
-Future: SvelteKit + TypeScript + Tailwind CSS + Svelte Flow (xyflow) for the web app.
+Library entry point: `src/lib/index.ts` (compiled to `dist/lib/index.js`) — public API for the website and downstream consumers.
+
+Future: SvelteKit + Tailwind CSS + Svelte Flow (xyflow) for the web app.
 
 ## Decompiled Source
 
@@ -298,11 +305,12 @@ Key paths for entity work:
 
 ## Open Issues
 
-- `#1` TypeScript migration for CLI and library
 - `#3` Build-oriented CLI commands (browse, compare)
 - `#6` Website architecture
 
 ## Completed Issues
+
+- `#1` TypeScript migration (strict types for all 97 source/test files, compiled `tsc` output, library entry point)
 
 - `#4` BetterBots integration contract
 - `#5` Calculator and dataflow layer (13-stage damage pipeline, `breeds:build` + `profiles:build` extraction, breakpoint matrix, scoring integration, `calc` CLI)
