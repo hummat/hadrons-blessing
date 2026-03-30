@@ -1,18 +1,80 @@
-// @ts-nocheck
 import { BUILD_CLASSIFICATION_REGISTRY, classifySlugRole as defaultClassifySlugRole } from "./build-classification-registry.js";
+import type { SlotClassification } from "./build-classification-registry.js";
 
 import { normalizeText } from "./normalize.js";
 
-const SLOT_PRIORITY = ["ability", "blitz", "aura", "keystone", "talents"];
-const DESCRIPTION_SLOTS = ["ability", "blitz", "aura", "keystone"];
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
 
-function normalizeDescriptionText(description) {
+type StructuralSlot = "ability" | "blitz" | "aura" | "keystone";
+type ClassifiedSlot = StructuralSlot | "talents";
+
+interface TalentNode {
+  slug?: string;
+  name?: string;
+  [key: string]: unknown;
+}
+
+interface ClassifiedSelection {
+  slug: string | null;
+  frame: string | null;
+  tier: string;
+  name: string;
+  source: string;
+}
+
+interface ClassifiedResult {
+  ability: ClassifiedSelection | TalentNode | null;
+  blitz: ClassifiedSelection | TalentNode | null;
+  aura: ClassifiedSelection | TalentNode | null;
+  keystone: ClassifiedSelection | TalentNode | null;
+  talents: TalentNode[];
+}
+
+interface DescriptionSelections {
+  ability: string | null;
+  blitz: string | null;
+  aura: string | null;
+  keystone: string | null;
+}
+
+interface ExplicitSelections {
+  ability?: string | null;
+  blitz?: string | null;
+  aura?: string | null;
+  keystone?: string | null;
+}
+
+type ClassRegistry = Record<string, SlotClassification>;
+
+interface ClassifyOptions {
+  className?: string;
+  description?: string;
+  explicitSelections?: ExplicitSelections | null;
+  preserveUnclassifiedAsTalents?: boolean;
+  classificationRegistry?: Record<string, ClassRegistry>;
+  classifySlugRole?: (slug: string, node: TalentNode) => SlotClassification | null;
+}
+
+// ---------------------------------------------------------------------------
+// Constants
+// ---------------------------------------------------------------------------
+
+const SLOT_PRIORITY: ClassifiedSlot[] = ["ability", "blitz", "aura", "keystone", "talents"];
+const DESCRIPTION_SLOTS: StructuralSlot[] = ["ability", "blitz", "aura", "keystone"];
+
+// ---------------------------------------------------------------------------
+// Internal helpers
+// ---------------------------------------------------------------------------
+
+function normalizeDescriptionText(description: string | null | undefined): string {
   return String(description ?? "")
     .replace(/\s+/g, " ")
     .trim();
 }
 
-function cleanDescriptionLabel(label) {
+function cleanDescriptionLabel(label: string | null | undefined): string {
   return String(label ?? "")
     .split(/\s*->\s*/)[0]
     .replace(/^["'([{]+/, "")
@@ -20,13 +82,13 @@ function cleanDescriptionLabel(label) {
     .trim();
 }
 
-function firstMatch(description, regex) {
+function firstMatch(description: string, regex: RegExp): string | null {
   const match = regex.exec(description);
   return match == null ? null : cleanDescriptionLabel(match[1]);
 }
 
-function extractDescriptionSelections(description) {
-  const extracted = {
+function extractDescriptionSelections(description: string | null | undefined): DescriptionSelections {
+  const extracted: DescriptionSelections = {
     ability: null,
     blitz: null,
     aura: null,
@@ -40,7 +102,7 @@ function extractDescriptionSelections(description) {
     return extracted;
   }
 
-  const multilinePatterns = [
+  const multilinePatterns: Array<{ slot: StructuralSlot; regex: RegExp }> = [
     { slot: "ability", regex: /(?:^|\n)\s*ABILITY\s*[:\-]\s*([^\n]+?)(?:\s*-{2,}\s*)?(?:\n|$)/im },
     { slot: "blitz", regex: /(?:^|\n)\s*BLITZ\s*[:\-]\s*([^\n]+?)(?:\s*-{2,}\s*)?(?:\n|$)/im },
     { slot: "aura", regex: /(?:^|\n)\s*(?:TEAM\s+)?AURA\s*[:\-]\s*([^\n]+?)(?:\s*-{2,}\s*)?(?:\n|$)/im },
@@ -53,7 +115,7 @@ function extractDescriptionSelections(description) {
     }
   }
 
-  const explicitPatterns = [
+  const explicitPatterns: Array<{ slot: StructuralSlot; regex: RegExp }> = [
     {
       slot: "ability",
       regex: /\bABILITY\s*[:\-]\s*(.+?)(?=\s+\b(?:BLITZ|(?:TEAM\s+)?AURA|KEYSTONE)\b|[.;|\n]|$)/i,
@@ -94,15 +156,18 @@ function extractDescriptionSelections(description) {
   return extracted;
 }
 
-function mergeDescriptionSelections(classified, descriptionSelections) {
+function mergeDescriptionSelections(
+  classified: ClassifiedResult,
+  descriptionSelections: DescriptionSelections,
+): ClassifiedResult {
   for (const slot of DESCRIPTION_SLOTS) {
     if (descriptionSelections[slot] == null) {
       continue;
     }
 
     // Don't override talent-tree-classified slots (they have a slug from registry lookup).
-    // Description prose can false-positive on incidental mentions of ability/aura names.
-    if (classified[slot]?.slug != null) {
+    const current = classified[slot] as ClassifiedSelection | TalentNode | null;
+    if (current && "slug" in current && current.slug != null) {
       continue;
     }
 
@@ -110,7 +175,7 @@ function mergeDescriptionSelections(classified, descriptionSelections) {
       slug: null,
       frame: null,
       tier: slot,
-      name: descriptionSelections[slot],
+      name: descriptionSelections[slot]!,
       source: "description",
     };
   }
@@ -118,13 +183,15 @@ function mergeDescriptionSelections(classified, descriptionSelections) {
   return classified;
 }
 
-function mergeExplicitSelections(classified, explicitSelections) {
+function mergeExplicitSelections(
+  classified: ClassifiedResult,
+  explicitSelections: ExplicitSelections | null | undefined,
+): ClassifiedResult {
   for (const slot of DESCRIPTION_SLOTS) {
     const label = String(explicitSelections?.[slot] ?? "").trim();
     if (label.length === 0) {
       continue;
     }
-
 
     classified[slot] = {
       slug: null,
@@ -138,8 +205,8 @@ function mergeExplicitSelections(classified, explicitSelections) {
   return classified;
 }
 
-function normalizedExplicitSelectionNames(explicitSelections) {
-  const names = new Set();
+function normalizedExplicitSelectionNames(explicitSelections: ExplicitSelections | null | undefined): Set<string> {
+  const names = new Set<string>();
 
   for (const slot of DESCRIPTION_SLOTS) {
     const label = String(explicitSelections?.[slot] ?? "").trim();
@@ -153,17 +220,17 @@ function normalizedExplicitSelectionNames(explicitSelections) {
   return names;
 }
 
-function classifySelectedNodes(selectedNodes, options = {}) {
+function classifySelectedNodes(selectedNodes: TalentNode[] | null | undefined, options: ClassifyOptions = {}): ClassifiedResult {
   const {
     className = "",
     description = "",
     explicitSelections = null,
     preserveUnclassifiedAsTalents = false,
     classificationRegistry = BUILD_CLASSIFICATION_REGISTRY,
-    classifySlugRole = (slug) => defaultClassifySlugRole(className, slug, classificationRegistry),
+    classifySlugRole = (slug: string) => defaultClassifySlugRole(className, slug, classificationRegistry),
   } = options;
 
-  const classified = {
+  const classified: ClassifiedResult = {
     ability: null,
     blitz: null,
     aura: null,
@@ -173,11 +240,11 @@ function classifySelectedNodes(selectedNodes, options = {}) {
   const explicitSelectionNames = normalizedExplicitSelectionNames(explicitSelections);
 
   for (const node of selectedNodes ?? []) {
-    const role = classifySlugRole(node.slug, node);
-    const rawSlot = role?.slot ?? role?.role;
-    const slot = rawSlot === "talent" ? "talents" : rawSlot;
+    const role = classifySlugRole(node.slug ?? "", node);
+    const rawSlot = role?.slot ?? (role as { role?: string } | null)?.role;
+    const slot: ClassifiedSlot | undefined = rawSlot === "talent" ? "talents" : rawSlot as ClassifiedSlot | undefined;
 
-    if (!SLOT_PRIORITY.includes(slot)) {
+    if (!slot || !SLOT_PRIORITY.includes(slot)) {
       if (preserveUnclassifiedAsTalents) {
         const normalizedName = normalizeText(node?.name ?? "");
         if (explicitSelectionNames.has(normalizedName)) {

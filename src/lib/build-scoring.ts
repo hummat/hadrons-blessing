@@ -1,15 +1,52 @@
-// @ts-nocheck
-// scripts/ground-truth/lib/build-scoring.mjs
 // Build quality scoring from synergy model output and calculator output.
 
 import { scoreBreakpointRelevance, scoreDifficultyScaling } from "./breakpoint-checklist.js";
+import type { ScoreResult } from "./breakpoint-checklist.js";
+import type { AnalyzeBuildResult, CoverageResult } from "./synergy-model.js";
+import type { SynergyEdge } from "./synergy-rules.js";
+
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+type SelectionCategory = "talent" | "blessing" | "gadget" | "other";
+
+interface ScoringBreakdown {
+  [key: string]: unknown;
+}
+
+interface DimensionScore {
+  score: number;
+  breakdown: ScoringBreakdown;
+  explanations: string[];
+}
+
+// Synergy output shape consumed by scoring functions —
+// may come from analyzeBuild() or from a test helper with extra fields
+interface SynergyOutput {
+  synergy_edges?: SynergyEdge[];
+  coverage?: Partial<CoverageResult>;
+  _resolvedIds?: string[];
+  _talentSideIds?: string[];
+}
+
+interface BreakpointMatrix {
+  weapons: unknown[];
+  metadata?: { scenarios: string[] };
+}
+
+interface CalcOutput {
+  matrix: BreakpointMatrix;
+}
+
+// ---------------------------------------------------------------------------
+// classifySelection
+// ---------------------------------------------------------------------------
 
 /**
  * Classify a selection ID into a category for scoring purposes.
- * @param {string} id
- * @returns {"talent"|"blessing"|"gadget"|"other"}
  */
-export function classifySelection(id) {
+export function classifySelection(id: string): SelectionCategory {
   if (
     id.includes(".talent.") ||
     id.includes(".ability.") ||
@@ -27,6 +64,10 @@ export function classifySelection(id) {
   return "other";
 }
 
+// ---------------------------------------------------------------------------
+// scoreTalentCoherence
+// ---------------------------------------------------------------------------
+
 /**
  * Score talent-to-talent synergy coherence.
  *
@@ -36,25 +77,18 @@ export function classifySelection(id) {
  *   2. Count edges where BOTH participants are talent-side (stat_alignment and
  *      trigger_target types both count).
  *   3. Compute edges_per_talent = talent_edges / max(talent_count, 1).
- *   4. Map to 1–5 base score:
- *        >= 1.5 → 5, >= 1.0 → 4, >= 0.5 → 3, >= 0.2 → 2, else → 1
+ *   4. Map to 1-5 base score:
+ *        >= 1.5 -> 5, >= 1.0 -> 4, >= 0.5 -> 3, >= 0.2 -> 2, else -> 1
  *   5. Penalty: -0.5 per graph-isolated talent (appears in zero synergy_edges).
- *   6. Bonus: concentration > 0.06 → +0.5.
+ *   6. Bonus: concentration > 0.06 -> +0.5.
  *   7. Clamp [1, 5], round to nearest integer.
- *
- * @param {object} synergyOutput
- * @returns {{ score: number, breakdown: object, explanations: string[] }}
  */
-function scoreTalentCoherence(synergyOutput) {
+function scoreTalentCoherence(synergyOutput: SynergyOutput): DimensionScore {
   const { synergy_edges = [], coverage = {}, _resolvedIds, _talentSideIds } = synergyOutput;
   const concentration = coverage.concentration ?? 0;
 
   // --- Collect talent-side ID population ---
-  // Priority:
-  //   1. _resolvedIds from real analyzeBuild() output — filter by classifySelection
-  //   2. _talentSideIds from test helper (already pre-filtered to talent-side)
-  //   3. Extract from edge participants (fallback — misses isolated talents)
-  let talentPopulation;
+  let talentPopulation: Set<string>;
   if (_resolvedIds && _resolvedIds.length > 0) {
     talentPopulation = new Set(_resolvedIds.filter((id) => classifySelection(id) === "talent"));
   } else if (_talentSideIds && _talentSideIds.length > 0) {
@@ -73,8 +107,7 @@ function scoreTalentCoherence(synergyOutput) {
   const talent_count = talentPopulation.size;
 
   // --- Count talent-talent edges ---
-  // Build the set of talent IDs that appear in any edge (for isolation check).
-  const talentsInAnyEdge = new Set();
+  const talentsInAnyEdge = new Set<string>();
   let talent_edges = 0;
 
   for (const edge of synergy_edges) {
@@ -83,12 +116,10 @@ function scoreTalentCoherence(synergyOutput) {
 
     const edgeTalentIds = selections.filter((id) => classifySelection(id) === "talent");
 
-    // Track all talent IDs that participate in any edge (not just talent-talent).
     for (const id of edgeTalentIds) {
       talentsInAnyEdge.add(id);
     }
 
-    // Count edge only if both participants are talent-side.
     if (selections.length >= 2 && edgeTalentIds.length === selections.length) {
       talent_edges++;
     }
@@ -104,7 +135,7 @@ function scoreTalentCoherence(synergyOutput) {
 
   // --- Base score from edges_per_talent ---
   const edges_per_talent = talent_count > 0 ? talent_edges / talent_count : 0;
-  let base_score;
+  let base_score: number;
   if (edges_per_talent >= 1.5) {
     base_score = 5;
   } else if (edges_per_talent >= 1.0) {
@@ -124,7 +155,7 @@ function scoreTalentCoherence(synergyOutput) {
   const raw = base_score + penalties + bonuses;
   const score = Math.round(Math.min(5, Math.max(1, raw)));
 
-  const explanations = [];
+  const explanations: string[] = [];
   if (graph_isolated_count > 0) {
     explanations.push(`${graph_isolated_count} talent(s) participate in no synergy edges (-0.5 each)`);
   }
@@ -147,29 +178,18 @@ function scoreTalentCoherence(synergyOutput) {
   };
 }
 
+// ---------------------------------------------------------------------------
+// scoreBlessingSynergy
+// ---------------------------------------------------------------------------
+
 /**
  * Score blessing-to-talent and blessing-to-blessing synergy.
- *
- * Algorithm:
- *   1. Collect all blessing IDs from _resolvedIds (preferred) or edge participants (fallback).
- *   2. Count edges where at least one participant is a blessing (blessing_edges).
- *   3. Count edges where BOTH participants are blessings (blessing_blessing_edges).
- *   4. edges_per_blessing = blessing_edges / blessing_count. If 0 blessings → score 1.
- *   5. Map to 1–5 base score:
- *        >= 3.5 → 5, >= 2.5 → 4, >= 1.5 → 3, >= 0.5 → 2, else → 1
- *   6. Bonus: blessing_blessing_edges > 0 → +0.5.
- *   7. Penalty: graph-isolated blessings (appear in zero synergy edges) → -1 each.
- *   8. Clamp [1, 5], round to nearest integer.
- *
- * @param {object} synergyOutput
- * @returns {{ score: number, breakdown: object, explanations: string[] }}
  */
-function scoreBlessingSynergy(synergyOutput) {
+function scoreBlessingSynergy(synergyOutput: SynergyOutput): DimensionScore {
   const { synergy_edges = [], _resolvedIds } = synergyOutput;
 
   // --- Collect blessing population ---
-  // Priority: _resolvedIds filtered by classifySelection, then edge participants.
-  let blessingPopulation;
+  let blessingPopulation: Set<string>;
   if (_resolvedIds && _resolvedIds.length > 0) {
     blessingPopulation = new Set(_resolvedIds.filter((id) => classifySelection(id) === "blessing"));
   } else {
@@ -199,7 +219,7 @@ function scoreBlessingSynergy(synergyOutput) {
   }
 
   // --- Count edges involving blessings ---
-  const blessingsInAnyEdge = new Set();
+  const blessingsInAnyEdge = new Set<string>();
   let blessing_edges = 0;
   let blessing_blessing_edges = 0;
 
@@ -210,15 +230,12 @@ function scoreBlessingSynergy(synergyOutput) {
     const edgeBlessingIds = selections.filter((id) => classifySelection(id) === "blessing");
     if (edgeBlessingIds.length === 0) continue;
 
-    // Track blessings participating in any edge.
     for (const id of edgeBlessingIds) {
       blessingsInAnyEdge.add(id);
     }
 
-    // Any edge where at least one participant is a blessing.
     blessing_edges++;
 
-    // Edge where both participants are blessings.
     if (selections.length >= 2 && edgeBlessingIds.length === selections.length) {
       blessing_blessing_edges++;
     }
@@ -234,7 +251,7 @@ function scoreBlessingSynergy(synergyOutput) {
 
   // --- Base score from edges_per_blessing ---
   const edges_per_blessing = blessing_edges / blessing_count;
-  let base_score;
+  let base_score: number;
   if (edges_per_blessing >= 3.5) {
     base_score = 5;
   } else if (edges_per_blessing >= 2.5) {
@@ -255,7 +272,7 @@ function scoreBlessingSynergy(synergyOutput) {
   const score = Math.round(Math.min(5, Math.max(1, raw)));
 
   // --- Explanations ---
-  const explanations = [];
+  const explanations: string[] = [];
   const connectedBlessings = [...blessingsInAnyEdge];
   if (connectedBlessings.length > 0) {
     const names = connectedBlessings.map((id) => id.split(".").at(-1)).join(", ");
@@ -281,20 +298,14 @@ function scoreBlessingSynergy(synergyOutput) {
   };
 }
 
+// ---------------------------------------------------------------------------
+// scoreRoleCoverage
+// ---------------------------------------------------------------------------
+
 /**
  * Score how well the build covers key role-level stat families.
- *
- * Algorithm:
- *   1. active_families = Object.keys(coverage.family_profile).length
- *   2. Base score: >= 9 → 5, >= 7 → 4, >= 5 → 3, >= 3 → 2, else → 1
- *   3. Penalty: each coverage_gap → -1
- *   4. Slot balance ratio: min(melee, ranged) / max(melee, ranged). Both 0 → 1.0. Ratio < 0.3 → -1
- *   5. Clamp [1, 5], round to nearest integer
- *
- * @param {object} synergyOutput
- * @returns {{ score: number, breakdown: object, explanations: string[] }}
  */
-function scoreRoleCoverage(synergyOutput) {
+function scoreRoleCoverage(synergyOutput: SynergyOutput): DimensionScore {
   const { coverage = {} } = synergyOutput;
   const family_profile = coverage.family_profile ?? {};
   const coverage_gaps = coverage.coverage_gaps ?? [];
@@ -303,7 +314,7 @@ function scoreRoleCoverage(synergyOutput) {
   const active_families = Object.keys(family_profile).length;
 
   // Base score from active family count
-  let base_score;
+  let base_score: number;
   if (active_families >= 9) {
     base_score = 5;
   } else if (active_families >= 7) {
@@ -320,11 +331,11 @@ function scoreRoleCoverage(synergyOutput) {
   const gap_penalty = coverage_gaps.length * -1;
 
   // Slot balance ratio (both-zero = no coverage data, not "perfect balance")
-  const melee = slot_balance.melee?.strength ?? 0;
-  const ranged = slot_balance.ranged?.strength ?? 0;
-  let slot_balance_ratio;
+  const melee = (slot_balance as Partial<CoverageResult["slot_balance"]>).melee?.strength ?? 0;
+  const ranged = (slot_balance as Partial<CoverageResult["slot_balance"]>).ranged?.strength ?? 0;
+  let slot_balance_ratio: number;
   if (melee === 0 && ranged === 0) {
-    slot_balance_ratio = 0.5; // no data → neutral rather than perfect
+    slot_balance_ratio = 0.5; // no data -> neutral rather than perfect
   } else {
     slot_balance_ratio = Math.min(melee, ranged) / Math.max(melee, ranged);
   }
@@ -333,7 +344,7 @@ function scoreRoleCoverage(synergyOutput) {
   const raw = base_score + gap_penalty + imbalance_penalty;
   const score = Math.round(Math.min(5, Math.max(1, raw)));
 
-  const explanations = [];
+  const explanations: string[] = [];
   if (coverage_gaps.length > 0) {
     explanations.push(`Coverage gaps: ${coverage_gaps.join(", ")} (-1 each)`);
   }
@@ -353,13 +364,18 @@ function scoreRoleCoverage(synergyOutput) {
   };
 }
 
+// ---------------------------------------------------------------------------
+// Public API
+// ---------------------------------------------------------------------------
+
 /**
  * Compute all scoring dimensions from a synergy model output object.
- *
- * @param {object} synergyOutput - Output from analyzeBuild() in synergy-model.mjs
- * @returns {{ talent_coherence: object, blessing_synergy: object, role_coverage: object }}
  */
-export function scoreFromSynergy(synergyOutput) {
+export function scoreFromSynergy(synergyOutput: SynergyOutput): {
+  talent_coherence: DimensionScore;
+  blessing_synergy: DimensionScore;
+  role_coverage: DimensionScore;
+} {
   return {
     talent_coherence: scoreTalentCoherence(synergyOutput),
     blessing_synergy: scoreBlessingSynergy(synergyOutput),
@@ -369,13 +385,13 @@ export function scoreFromSynergy(synergyOutput) {
 
 /**
  * Compute scoring dimensions from calculator output (breakpoint matrix).
- *
- * @param {object} calcOutput - { matrix } from computeBreakpoints()
- * @returns {{ breakpoint_relevance: object|null, difficulty_scaling: object|null }}
  */
-export function scoreFromCalculator(calcOutput) {
+export function scoreFromCalculator(calcOutput: CalcOutput): {
+  breakpoint_relevance: ScoreResult | null;
+  difficulty_scaling: ScoreResult | null;
+} {
   return {
-    breakpoint_relevance: scoreBreakpointRelevance(calcOutput.matrix),
-    difficulty_scaling: scoreDifficultyScaling(calcOutput.matrix),
+    breakpoint_relevance: scoreBreakpointRelevance(calcOutput.matrix as any),
+    difficulty_scaling: scoreDifficultyScaling(calcOutput.matrix as any),
   };
 }

@@ -1,5 +1,5 @@
-// @ts-nocheck
-import { getFamilies, ALL_FAMILIES } from "./synergy-stat-families.js";
+import { getFamilies } from "./synergy-stat-families.js";
+import type { SynergySelection, SynergyEdge, OrphanEntry, ResourceFlowEntry } from "./synergy-rules.js";
 import {
   statAlignment,
   slotCoverage,
@@ -10,17 +10,112 @@ import {
 import { ENTITIES_ROOT, EDGES_ROOT, listJsonFiles, loadJsonFile } from "./load.js";
 
 // ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+interface EntityBase {
+  id: string;
+  kind?: string;
+  domain?: string;
+  internal_name?: string;
+  calc?: {
+    effects?: SynergyEffect[];
+    tiers?: Array<{ effects?: SynergyEffect[] }>;
+  };
+  [key: string]: unknown;
+}
+
+interface EdgeBase {
+  type: string;
+  from_entity_id: string;
+  to_entity_id: string;
+  [key: string]: unknown;
+}
+
+import type { SynergyEffect } from "./synergy-rules.js";
+
+export interface SynergyIndex {
+  entities: Map<string, EntityBase>;
+  edges: EdgeBase[];
+}
+
+interface FamilyProfile {
+  count: number;
+  total_magnitude: number;
+  selections: string[];
+}
+
+interface SlotBalance {
+  melee: { families: string[]; strength: number };
+  ranged: { families: string[]; strength: number };
+}
+
+export interface CoverageResult {
+  family_profile: Record<string, FamilyProfile>;
+  slot_balance: SlotBalance;
+  build_identity: string[];
+  coverage_gaps: string[];
+  concentration: number;
+}
+
+interface AntiSynergy {
+  type: string;
+  selections: string[];
+  reason: string;
+  severity: string;
+}
+
+interface SynergyMetadata {
+  entities_analyzed: number;
+  unique_entities_with_calc: number;
+  entities_without_calc: number;
+  opaque_conditions: number;
+  calc_coverage_pct: number;
+}
+
+export interface AnalyzeBuildResult {
+  build: string;
+  class: string;
+  synergy_edges: SynergyEdge[];
+  anti_synergies: AntiSynergy[];
+  orphans: OrphanEntry[];
+  coverage: CoverageResult;
+  _resolvedIds: string[];
+  metadata: SynergyMetadata;
+}
+
+// Canonical build shape — partial, just the fields we access
+interface CanonicalBuildInput {
+  title?: string;
+  class?: { canonical_entity_id?: string; raw_label?: string };
+  ability?: { canonical_entity_id?: string };
+  blitz?: { canonical_entity_id?: string };
+  aura?: { canonical_entity_id?: string };
+  keystone?: { canonical_entity_id?: string };
+  talents?: Array<{ canonical_entity_id?: string }>;
+  weapons?: Array<{
+    name?: { canonical_entity_id?: string };
+    blessings?: Array<{ canonical_entity_id?: string }>;
+    perks?: Array<{ canonical_entity_id?: string }>;
+  }>;
+  curios?: Array<{
+    name?: { canonical_entity_id?: string };
+    perks?: Array<{ canonical_entity_id?: string }>;
+  }>;
+}
+
+// ---------------------------------------------------------------------------
 // loadIndex — build entities Map and flat edges array from ground-truth data
 // ---------------------------------------------------------------------------
 
-export function loadIndex() {
-  const entities = new Map();
+export function loadIndex(): SynergyIndex {
+  const entities = new Map<string, EntityBase>();
   for (const path of listJsonFiles(ENTITIES_ROOT)) {
-    for (const e of loadJsonFile(path)) {
+    for (const e of loadJsonFile(path) as EntityBase[]) {
       entities.set(e.id, e);
     }
   }
-  const edges = listJsonFiles(EDGES_ROOT).flatMap((path) => loadJsonFile(path));
+  const edges = listJsonFiles(EDGES_ROOT).flatMap((path) => loadJsonFile(path) as EdgeBase[]);
   return { entities, edges };
 }
 
@@ -28,16 +123,13 @@ export function loadIndex() {
 // computeCoverage — stat aggregator
 // ---------------------------------------------------------------------------
 
-/**
- * @param {Array<{ id: string, effects: Array<{ stat: string, type: string, magnitude?: number }> }>} selections
- */
-export function computeCoverage(selections) {
+export function computeCoverage(selections: SynergySelection[]): CoverageResult {
   // Build family_profile: family -> { count, total_magnitude, selections }
-  const profile = {};
+  const profile: Record<string, FamilyProfile> = {};
 
   for (const sel of selections) {
     // Track which families this selection contributes to (avoid double-counting per selection)
-    const familiesForSel = new Set();
+    const familiesForSel = new Set<string>();
 
     for (const eff of sel.effects) {
       if (!eff.stat) continue;
@@ -83,10 +175,10 @@ export function computeCoverage(selections) {
   const meleeSlotFamilies = new Set(["melee_offense", "general_offense", "crit"]);
   const rangedSlotFamilies = new Set(["ranged_offense", "general_offense", "crit"]);
 
-  const meleeSelIds = new Set();
-  const rangedSelIds = new Set();
-  const meleeFams = new Set();
-  const rangedFams = new Set();
+  const meleeSelIds = new Set<string>();
+  const rangedSelIds = new Set<string>();
+  const meleeFams = new Set<string>();
+  const rangedFams = new Set<string>();
 
   for (const sel of selections) {
     for (const eff of sel.effects) {
@@ -104,13 +196,13 @@ export function computeCoverage(selections) {
     }
   }
 
-  const slot_balance = {
+  const slot_balance: SlotBalance = {
     melee: { families: [...meleeFams], strength: meleeSelIds.size },
     ranged: { families: [...rangedFams], strength: rangedSelIds.size },
   };
 
   // coverage_gaps
-  const coverage_gaps = [];
+  const coverage_gaps: string[] = [];
 
   // "survivability": primary identity is melee_offense AND no toughness AND no damage_reduction
   if (
@@ -146,7 +238,7 @@ export function computeCoverage(selections) {
         (eff) =>
           eff.stat === "warp_charge_amount" &&
           typeof eff.magnitude === "number" &&
-          eff.magnitude > 0
+          eff.magnitude! > 0
       )
     );
     if (!hasWarpProducer) {
@@ -180,18 +272,16 @@ export function computeCoverage(selections) {
 // resolveSelections — extract and resolve all build selections to effects
 // ---------------------------------------------------------------------------
 
-/**
- * @param {object} build - canonical build JSON
- * @param {Map<string, object>} entities
- * @param {Array<object>} edges
- * @returns {Array<{ id: string, effects: Array<object> }>}
- */
-export function resolveSelections(build, entities, edges) {
+export function resolveSelections(
+  build: CanonicalBuildInput,
+  entities: Map<string, EntityBase>,
+  edges: EdgeBase[],
+): SynergySelection[] {
   // Extract all entity IDs from the build
-  const ids = new Set();
+  const ids = new Set<string>();
 
   // Structural slots
-  for (const field of ["ability", "blitz", "aura", "keystone"]) {
+  for (const field of ["ability", "blitz", "aura", "keystone"] as const) {
     const slot = build[field];
     if (slot?.canonical_entity_id) ids.add(slot.canonical_entity_id);
   }
@@ -225,16 +315,16 @@ export function resolveSelections(build, entities, edges) {
   const classDomain = build.class?.canonical_entity_id?.split(".").pop() ?? null;
 
   // Build instance_of index: to_entity_id -> [from_entity_id]
-  const instanceOfIndex = new Map();
+  const instanceOfIndex = new Map<string, string[]>();
   for (const edge of edges) {
     if (edge.type !== "instance_of") continue;
     if (!instanceOfIndex.has(edge.to_entity_id)) {
       instanceOfIndex.set(edge.to_entity_id, []);
     }
-    instanceOfIndex.get(edge.to_entity_id).push(edge.from_entity_id);
+    instanceOfIndex.get(edge.to_entity_id)!.push(edge.from_entity_id);
   }
 
-  const resolved = [];
+  const resolved: SynergySelection[] = [];
 
   for (const entityId of ids) {
     if (!entityId) continue;
@@ -244,10 +334,10 @@ export function resolveSelections(build, entities, edges) {
       continue;
     }
 
-    let effects = [];
+    let effects: SynergyEffect[] = [];
 
     // Path 1: entity has calc.effects directly
-    if (entity.calc?.effects?.length > 0) {
+    if (entity.calc?.effects && entity.calc.effects.length > 0) {
       effects = entity.calc.effects;
     }
     // Path 2: name_family — traverse instance_of edges to find a weapon_trait
@@ -256,11 +346,11 @@ export function resolveSelections(build, entities, edges) {
       for (const fromId of fromIds) {
         const fromEntity = entities.get(fromId);
         if (!fromEntity) continue;
-        if (fromEntity.calc?.effects?.length > 0) {
+        if (fromEntity.calc?.effects && fromEntity.calc.effects.length > 0) {
           effects = fromEntity.calc.effects;
           break;
         }
-        if (fromEntity.calc?.tiers?.length > 0) {
+        if (fromEntity.calc?.tiers && fromEntity.calc.tiers.length > 0) {
           // Use last tier's effects
           const lastTier = fromEntity.calc.tiers[fromEntity.calc.tiers.length - 1];
           effects = lastTier.effects ?? [];
@@ -270,14 +360,16 @@ export function resolveSelections(build, entities, edges) {
     }
     // Path 3: stat_node — find per-class talent by internal_name prefix match
     else if (entity.kind === "stat_node" && entity.internal_name && classDomain) {
-      const prefix = entity.internal_name;
+      const prefix = entity.internal_name as string;
       // Find class-domain talent whose internal_name starts with prefix
-      for (const [id, e] of entities) {
+      for (const [_id, e] of entities) {
         if (
           e.domain === classDomain &&
           e.kind === "talent" &&
-          e.internal_name?.startsWith(prefix) &&
-          e.calc?.effects?.length > 0
+          typeof e.internal_name === "string" &&
+          e.internal_name.startsWith(prefix) &&
+          e.calc?.effects &&
+          e.calc.effects.length > 0
         ) {
           effects = e.calc.effects;
           break;
@@ -295,11 +387,7 @@ export function resolveSelections(build, entities, edges) {
 // analyzeBuild — orchestrator
 // ---------------------------------------------------------------------------
 
-/**
- * @param {object} build - canonical build JSON
- * @param {{ entities: Map<string, object>, edges: Array<object> }} index
- */
-export function analyzeBuild(build, index) {
+export function analyzeBuild(build: CanonicalBuildInput, index: SynergyIndex): AnalyzeBuildResult {
   const { entities, edges } = index;
 
   // Step 1: resolve selections
@@ -309,7 +397,7 @@ export function analyzeBuild(build, index) {
   const withEffects = allResolved.filter((s) => s.effects.length > 0);
 
   // Step 3: pairwise rules
-  const synergy_edges = [];
+  const synergy_edges: SynergyEdge[] = [];
   for (let i = 0; i < withEffects.length; i++) {
     for (let j = i + 1; j < withEffects.length; j++) {
       const a = withEffects[i];
@@ -324,8 +412,8 @@ export function analyzeBuild(build, index) {
   const resourceResult = resourceFlow(withEffects);
 
   // Step 5: detect orphans per selection
-  const orphanSet = new Set(); // dedup key: `${selection}::${resource|condition}`
-  const orphans = [];
+  const orphanSet = new Set<string>(); // dedup key: `${selection}::${resource|condition}`
+  const orphans: OrphanEntry[] = [];
 
   for (const sel of withEffects) {
     for (const orphan of detectOrphans(sel, withEffects)) {
@@ -354,7 +442,7 @@ export function analyzeBuild(build, index) {
   }
 
   // Step 7: slot imbalance anti-synergies
-  const anti_synergies = [];
+  const anti_synergies: AntiSynergy[] = [];
   if (slotResult.melee.strength > 0 && slotResult.ranged.strength === 0) {
     anti_synergies.push({
       type: "slot_imbalance",
@@ -376,7 +464,7 @@ export function analyzeBuild(build, index) {
 
   // Step 9: count pre-dedup total selections
   let totalSelections = 0;
-  for (const field of ["ability", "blitz", "aura", "keystone"]) {
+  for (const field of ["ability", "blitz", "aura", "keystone"] as const) {
     if (build[field]?.canonical_entity_id) totalSelections++;
   }
   totalSelections += (build.talents ?? []).length;

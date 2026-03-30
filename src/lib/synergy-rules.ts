@@ -1,5 +1,48 @@
-// @ts-nocheck
 import { getFamilies, getEffectCategory } from "./synergy-stat-families.js";
+import type { EffectCategory } from "./synergy-stat-families.js";
+
+// ---------------------------------------------------------------------------
+// Shared types for synergy rules
+// ---------------------------------------------------------------------------
+
+export interface SynergyEffect {
+  stat: string;
+  type: string;
+  magnitude?: number;
+  trigger?: string;
+  condition?: string;
+}
+
+export interface SynergySelection {
+  id: string;
+  effects: SynergyEffect[];
+}
+
+export interface SynergyEdge {
+  type: string;
+  selections: string[];
+  families: string[];
+  strength: number;
+  explanation: string;
+}
+
+export interface SlotCoverageResult {
+  melee: { families: string[]; strength: number };
+  ranged: { families: string[]; strength: number };
+}
+
+export interface ResourceFlowEntry {
+  producers: string[];
+  consumers: string[];
+  orphaned_consumers: string[];
+}
+
+export interface OrphanEntry {
+  selection: string;
+  reason: string;
+  condition: string;
+  resource?: string;
+}
 
 // ---------------------------------------------------------------------------
 // Rule 1: statAlignment
@@ -7,14 +50,10 @@ import { getFamilies, getEffectCategory } from "./synergy-stat-families.js";
 
 /**
  * Detects when two selections buff the same stat family.
- *
- * @param {{ id: string, effects: Array<{ stat: string, type: string, magnitude?: number, trigger?: string, condition?: string }> }} selA
- * @param {{ id: string, effects: Array<{ stat: string, type: string, magnitude?: number, trigger?: string, condition?: string }> }} selB
- * @returns {Array<{ type: string, selections: string[], families: string[], strength: number, explanation: string }>}
  */
-export function statAlignment(selA, selB) {
+export function statAlignment(selA: SynergySelection, selB: SynergySelection): SynergyEdge[] {
   // Build a map: family -> { selA categories, selB categories }
-  const familyCategories = new Map();
+  const familyCategories = new Map<string, { a: Set<EffectCategory>; b: Set<EffectCategory> }>();
 
   for (const eff of selA.effects) {
     if (!eff.stat) continue;
@@ -23,7 +62,7 @@ export function statAlignment(selA, selB) {
     for (const fam of getFamilies(eff.stat)) {
       if (fam === "uncategorized") continue;
       if (!familyCategories.has(fam)) familyCategories.set(fam, { a: new Set(), b: new Set() });
-      familyCategories.get(fam).a.add(cat);
+      familyCategories.get(fam)!.a.add(cat);
     }
   }
 
@@ -34,11 +73,11 @@ export function statAlignment(selA, selB) {
     for (const fam of getFamilies(eff.stat)) {
       if (fam === "uncategorized") continue;
       if (!familyCategories.has(fam)) familyCategories.set(fam, { a: new Set(), b: new Set() });
-      familyCategories.get(fam).b.add(cat);
+      familyCategories.get(fam)!.b.add(cat);
     }
   }
 
-  const edges = [];
+  const edges: SynergyEdge[] = [];
   for (const [family, { a, b }] of familyCategories) {
     if (a.size === 0 || b.size === 0) continue;
 
@@ -71,15 +110,12 @@ const RANGED_FAMILIES = new Set(["ranged_offense", "general_offense", "crit"]);
 
 /**
  * Analyzes melee vs ranged support across a set of selections.
- *
- * @param {Array<{ id: string, effects: Array<{ stat: string, type: string }> }>} selections
- * @returns {{ melee: { families: string[], strength: number }, ranged: { families: string[], strength: number } }}
  */
-export function slotCoverage(selections) {
-  const meleeSelections = new Set();
-  const rangedSelections = new Set();
-  const meleeFamilies = new Set();
-  const rangedFamilies = new Set();
+export function slotCoverage(selections: SynergySelection[]): SlotCoverageResult {
+  const meleeSelections = new Set<string>();
+  const rangedSelections = new Set<string>();
+  const meleeFamilies = new Set<string>();
+  const rangedFamilies = new Set<string>();
 
   for (const sel of selections) {
     for (const eff of sel.effects) {
@@ -108,7 +144,7 @@ export function slotCoverage(selections) {
 // Rule 3: triggerTargetChain
 // ---------------------------------------------------------------------------
 
-const THRESHOLD_RESOURCE_STATS = {
+const THRESHOLD_RESOURCE_STATS: Record<string, string[]> = {
   "threshold:warp_charge": ["warp_charge_amount"],
   "threshold:ammo": ["ammo_reserve_capacity", "clip_size_modifier"],
   "threshold:health": ["max_health_modifier", "toughness"],
@@ -116,13 +152,9 @@ const THRESHOLD_RESOURCE_STATS = {
 
 /**
  * Detects trigger co-occurrence and producer-condition chains between two selections.
- *
- * @param {{ id: string, effects: Array<{ stat: string, type: string, magnitude?: number, trigger?: string, condition?: string }> }} selA
- * @param {{ id: string, effects: Array<{ stat: string, type: string, magnitude?: number, trigger?: string, condition?: string }> }} selB
- * @returns {Array<{ type: string, selections: string[], strength: number, trigger?: string, resource?: string }>}
  */
-export function triggerTargetChain(selA, selB) {
-  const edges = [];
+export function triggerTargetChain(selA: SynergySelection, selB: SynergySelection): SynergyEdge[] {
+  const edges: SynergyEdge[] = [];
 
   // Mode 1: trigger co-occurrence
   const triggersA = new Set(selA.effects.map((e) => e.trigger).filter(Boolean));
@@ -134,10 +166,10 @@ export function triggerTargetChain(selA, selB) {
   }
 
   // Mode 2: producer-condition chains (both directions)
-  for (const [producer, consumer] of [[selA, selB], [selB, selA]]) {
+  for (const [producer, consumer] of [[selA, selB], [selB, selA]] as const) {
     const producedStats = new Set(
       producer.effects
-        .filter((e) => typeof e.magnitude === "number" && e.magnitude > 0)
+        .filter((e) => typeof e.magnitude === "number" && e.magnitude! > 0)
         .map((e) => e.stat)
         .filter(Boolean)
     );
@@ -166,13 +198,13 @@ export function triggerTargetChain(selA, selB) {
 // Rule 4: resourceFlow
 // ---------------------------------------------------------------------------
 
-const RESOURCE_PRODUCERS = {
+const RESOURCE_PRODUCERS: Record<string, { stats: string[] }> = {
   warp_charge: { stats: ["warp_charge_amount", "vent_warp_charge_speed", "warp_charge_dissipation_multiplier"] },
   grenade: { stats: ["extra_max_amount_of_grenades", "extra_grenade_throw_chance", "grenade_ability_cooldown_modifier"] },
   stamina: { stats: ["stamina_modifier", "stamina_regeneration_modifier"] },
 };
 
-const RESOURCE_CONSUMERS = {
+const RESOURCE_CONSUMERS: Record<string, { stats: string[] }> = {
   warp_charge: { stats: ["warp_charge_block_cost"] },
   grenade: { stats: [] },
   stamina: { stats: ["block_cost_multiplier", "sprinting_cost_multiplier", "stamina_regeneration_delay"] },
@@ -180,19 +212,16 @@ const RESOURCE_CONSUMERS = {
 
 /**
  * Analyzes resource production and consumption across a set of selections.
- *
- * @param {Array<{ id: string, effects: Array<{ stat: string, type: string, magnitude?: number }> }>} selections
- * @returns {{ [resource: string]: { producers: string[], consumers: string[], orphaned_consumers: string[] } }}
  */
-export function resourceFlow(selections) {
-  const result = {};
+export function resourceFlow(selections: SynergySelection[]): Record<string, ResourceFlowEntry> {
+  const result: Record<string, ResourceFlowEntry> = {};
 
   for (const resource of Object.keys(RESOURCE_PRODUCERS)) {
     const producerStats = new Set(RESOURCE_PRODUCERS[resource].stats);
     const consumerStats = new Set(RESOURCE_CONSUMERS[resource].stats);
 
-    const producers = [];
-    const consumers = [];
+    const producers: string[] = [];
+    const consumers: string[] = [];
 
     for (const sel of selections) {
       let isProducer = false;
@@ -222,13 +251,9 @@ const SELF_SUFFICIENT_CONDITIONS = new Set(["wielded", "slot_secondary"]);
 
 /**
  * Checks each effect's condition and reports orphaned conditions.
- *
- * @param {{ id: string, effects: Array<{ stat: string, type: string, condition?: string }> }} selection
- * @param {Array<{ id: string, effects: Array<{ stat: string, type: string, magnitude?: number }> }>} allSelections
- * @returns {Array<{ selection: string, reason: string, condition: string, resource?: string }>}
  */
-export function detectOrphans(selection, allSelections) {
-  const orphans = [];
+export function detectOrphans(selection: SynergySelection, allSelections: SynergySelection[]): OrphanEntry[] {
+  const orphans: OrphanEntry[] = [];
 
   for (const eff of selection.effects) {
     if (!eff.condition) continue;
@@ -244,7 +269,7 @@ export function detectOrphans(selection, allSelections) {
       const producerStatSet = new Set(resourceStats);
       const hasProducer = allSelections.some((sel) =>
         sel.effects.some(
-          (e) => e.stat && producerStatSet.has(e.stat) && typeof e.magnitude === "number" && e.magnitude > 0
+          (e) => e.stat && producerStatSet.has(e.stat) && typeof e.magnitude === "number" && e.magnitude! > 0
         )
       );
       if (!hasProducer) {
