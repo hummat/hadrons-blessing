@@ -1,16 +1,17 @@
-// @ts-nocheck
 /**
  * Generates edge and entity records from parsed Lua tree nodes.
  *
  * Consumes the output of parseLuaTree() and produces:
  * - parent_of edges (tree topology)
- * - belongs_to_tree_node edges (talent entity → tree node entity)
+ * - belongs_to_tree_node edges (talent entity -> tree node entity)
  * - exclusive_with edges (mutual exclusion within groups)
  * - tree_node entity records (one per parsed node)
  */
 
+import type { TreeNode } from "./lua-tree-parser.js";
+
 /** Maps node type strings to entity kind for belongs_to_tree_node from_entity_id. */
-const TREE_TYPE_TO_KIND = {
+const TREE_TYPE_TO_KIND: Record<string, string> = {
   ability: "ability",
   aura: "aura",
   keystone: "keystone",
@@ -22,7 +23,14 @@ const TREE_TYPE_TO_KIND = {
   stat: "talent",
 };
 
-function makeConditions() {
+interface Conditions {
+  predicates: unknown[];
+  aggregation: string;
+  stacking_mode: string;
+  exclusive_scope: string | null;
+}
+
+function makeConditions(): Conditions {
   return {
     predicates: [],
     aggregation: "additive",
@@ -31,19 +39,46 @@ function makeConditions() {
   };
 }
 
+export interface TreeEdgeRecord {
+  id: string;
+  type: string;
+  from_entity_id: string;
+  to_entity_id: string;
+  source_snapshot_id: string;
+  conditions: Conditions;
+  calc: Record<string, never>;
+  evidence_ids: string[];
+}
+
+export interface TreeNodeEntityRecord {
+  id: string;
+  kind: "tree_node";
+  domain: string;
+  internal_name: string;
+  loc_key: null;
+  ui_name: null;
+  status: "source_backed" | "partially_resolved";
+  refs: { path: string; line: number }[];
+  source_snapshot_id: string;
+  attributes: {
+    tree_type: string;
+    talent_internal_name: string | null;
+    group_name: string | null;
+    exclusive_group: null;
+    children: string[];
+    parents: string[];
+  };
+  calc: Record<string, never>;
+}
+
 /**
  * Generate edge records from parsed tree nodes.
- *
- * @param {import('./lua-tree-parser.js').TreeNode[]} nodes
- * @param {string} domain - e.g. "psyker"
- * @param {string} snapshotId - e.g. "darktide-source.dbe7035"
- * @returns {object[]} Edge records sorted by id
  */
-function generateTreeEdges(nodes, domain, snapshotId) {
-  const edges = [];
+function generateTreeEdges(nodes: TreeNode[], domain: string, snapshotId: string): TreeEdgeRecord[] {
+  const edges: TreeEdgeRecord[] = [];
 
   // Build lookup for group membership
-  const groupMembers = new Map();
+  const groupMembers = new Map<string, string[]>();
 
   for (const node of nodes) {
     // parent_of edges from children[]
@@ -60,7 +95,7 @@ function generateTreeEdges(nodes, domain, snapshotId) {
       });
     }
 
-    // belongs_to_tree_node edges (talent entity → tree_node)
+    // belongs_to_tree_node edges (talent entity -> tree_node)
     if (node.type !== "start" && node.talent !== "not_selected") {
       const kind = TREE_TYPE_TO_KIND[node.type];
       if (kind) {
@@ -82,7 +117,7 @@ function generateTreeEdges(nodes, domain, snapshotId) {
       if (!groupMembers.has(node.group_name)) {
         groupMembers.set(node.group_name, []);
       }
-      groupMembers.get(node.group_name).push(node.widget_name);
+      groupMembers.get(node.group_name)!.push(node.widget_name);
     }
   }
 
@@ -111,20 +146,18 @@ function generateTreeEdges(nodes, domain, snapshotId) {
 
 /**
  * Generate tree_node entity records from parsed tree nodes.
- *
- * @param {import('./lua-tree-parser.js').TreeNode[]} nodes
- * @param {string} domain - e.g. "psyker"
- * @param {string} snapshotId - e.g. "darktide-source.dbe7035"
- * @param {string} luaPath - relative path within source root, e.g.
- *   "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua"
- * @returns {object[]} Entity records sorted by id
  */
-function generateTreeNodeEntities(nodes, domain, snapshotId, luaPath) {
-  const entities = [];
+function generateTreeNodeEntities(
+  nodes: TreeNode[],
+  domain: string,
+  snapshotId: string,
+  luaPath: string,
+): TreeNodeEntityRecord[] {
+  const entities: TreeNodeEntityRecord[] = [];
   const definedWidgets = new Set(nodes.map((n) => n.widget_name));
 
   // Track first occurrence line for implicit references
-  const implicitFirstLine = new Map();
+  const implicitFirstLine = new Map<string, number>();
 
   for (const node of nodes) {
     // Primary node entity

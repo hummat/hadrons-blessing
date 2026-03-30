@@ -1,14 +1,9 @@
-// @ts-nocheck
 /**
- * Parses TalentSettings Lua files into flat dotted-path → number maps.
+ * Parses TalentSettings Lua files into flat dotted-path -> number maps.
  *
  * TalentSettings files are pure nested Lua data tables containing numeric
  * constants that buff templates reference for magnitudes. No functions,
- * no enums, no table.clone — just nested tables of numbers.
- *
- * Exports:
- *   parseTalentSettings(luaSource) → Map<string, number>
- *   loadAllTalentSettings(sourceRoot) → Map<string, number>
+ * no enums, no table.clone -- just nested tables of numbers.
  */
 
 import { readdir, readFile } from "node:fs/promises";
@@ -21,32 +16,26 @@ import { parseLuaTable } from "./lua-data-reader.js";
  * Extracts the top-level `local talent_settings = { ... }` table, parses it
  * with `parseLuaTable`, then recursively walks the result collecting only
  * numeric leaf values.
- *
- * @param {string} luaSource - Full Lua source text of a talent_settings file
- * @returns {Map<string, number>} Dotted path → numeric value
  */
-export function parseTalentSettings(luaSource) {
+export function parseTalentSettings(luaSource: string): Map<string, number> {
   const tableBody = extractTopLevelTable(luaSource);
   const parsed = parseLuaTable(tableBody);
-  const map = new Map();
+  const map = new Map<string, number>();
   walk(parsed, [], map);
   return map;
 }
 
 /**
  * Load and merge all talent_settings_*.lua files from a source root.
- *
- * @param {string} sourceRoot - Path to the Darktide source checkout
- * @returns {Promise<Map<string, number>>} Merged dotted path → numeric value
  */
-export async function loadAllTalentSettings(sourceRoot) {
+export async function loadAllTalentSettings(sourceRoot: string): Promise<Map<string, number>> {
   const dir = join(sourceRoot, "scripts", "settings", "talent");
   const entries = await readdir(dir);
   const files = entries
     .filter((f) => f.startsWith("talent_settings_") && f.endsWith(".lua"))
     .sort();
 
-  const merged = new Map();
+  const merged = new Map<string, number>();
 
   for (const file of files) {
     const src = await readFile(join(dir, file), "utf-8");
@@ -66,11 +55,8 @@ export async function loadAllTalentSettings(sourceRoot) {
  *
  * Finds the opening `{` after the assignment and collects everything through
  * the matching closing `}`, respecting brace nesting.
- *
- * @param {string} src - Full Lua source
- * @returns {string} The table literal including outer braces
  */
-function extractTopLevelTable(src) {
+function extractTopLevelTable(src: string): string {
   const marker = "local talent_settings";
   const idx = src.indexOf(marker);
   if (idx === -1) {
@@ -104,12 +90,8 @@ function extractTopLevelTable(src) {
  * Recursively walk a parsed Lua object, collecting numeric leaves into a
  * dotted-path map. Skips non-numeric leaves (strings, booleans, null,
  * sentinel nodes like $ref/$func/$expr/$call) and arrays.
- *
- * @param {*} obj - Parsed value from parseLuaTable
- * @param {string[]} path - Current dotted path segments
- * @param {Map<string, number>} map - Accumulator
  */
-function walk(obj, path, map) {
+function walk(obj: unknown, path: string[], map: Map<string, number>): void {
   if (obj === null || obj === undefined) return;
   if (typeof obj === "number") {
     map.set(path.join("."), obj);
@@ -118,10 +100,12 @@ function walk(obj, path, map) {
   if (typeof obj !== "object") return; // strings, booleans
   if (Array.isArray(obj)) return; // positional arrays (e.g. interval = {0.3, 0.8})
 
-  // Skip sentinel nodes from lua-data-reader ($ref, $func, $expr, $call)
-  if ("$ref" in obj || "$func" in obj || "$expr" in obj || "$call" in obj) return;
+  const record = obj as Record<string, unknown>;
 
-  for (const [key, value] of Object.entries(obj)) {
+  // Skip sentinel nodes from lua-data-reader ($ref, $func, $expr, $call)
+  if ("$ref" in record || "$func" in record || "$expr" in record || "$call" in record) return;
+
+  for (const [key, value] of Object.entries(record)) {
     walk(value, [...path, key], map);
   }
 }

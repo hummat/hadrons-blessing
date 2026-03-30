@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Report formatters for BuildReport objects.
  *
@@ -7,32 +6,111 @@
  */
 
 // ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+export interface ReportSlot {
+  slot: string;
+  label: string | null;
+  status: string;
+}
+
+export interface ReportPerk {
+  name: string;
+  tier: number;
+}
+
+export interface ReportBlessing {
+  label: string;
+  known: boolean;
+}
+
+export interface ReportWeapon {
+  slot: string | null;
+  name: string;
+  perks: (ReportPerk | null)[];
+  blessings: ReportBlessing[];
+}
+
+export interface ReportCurioPerk {
+  label: string;
+  tier: number;
+  rating: string;
+}
+
+export interface ReportCurio {
+  name: string;
+  perks: ReportCurioPerk[];
+}
+
+export interface ReportProblemEntry {
+  field: string;
+  label: string;
+  reason?: string;
+  notes?: string;
+  kind?: string;
+}
+
+export interface ReportSummary {
+  resolved: number;
+  unresolved: number;
+  non_canonical: number;
+  ambiguous: number;
+  warnings?: string[];
+}
+
+export interface ReportProvenance {
+  author?: string;
+  source_kind?: string;
+}
+
+export interface BuildReport {
+  title: string;
+  class: string;
+  provenance?: ReportProvenance;
+  summary: ReportSummary;
+  slots: ReportSlot[];
+  weapons: ReportWeapon[];
+  curios: ReportCurio[];
+  perk_optimality?: number | null;
+  curio_score?: number | null;
+  unresolved: ReportProblemEntry[];
+  ambiguous: ReportProblemEntry[];
+  non_canonical: ReportProblemEntry[];
+}
+
+export interface BatchReport {
+  summary: ReportSummary & { build_count: number; total: number };
+  reports: BuildReport[];
+}
+
+// ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 
-function capitalize(s) {
+function capitalize(s: string): string {
   if (!s) return "";
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-const DIVIDER = "═".repeat(54);
+const DIVIDER = "\u2550".repeat(54);
 
 /** Ordered section names — documents render order and serves as extension point. */
 export const SECTIONS = ["header", "summary", "slots", "weapons", "scores", "curios", "problems", "warnings"];
 
-function ratingIcon(rating) {
-  if (rating === "optimal") return "★";
-  if (rating === "good") return "✓";
-  if (rating === "avoid") return "✗";
-  return "·";
+function ratingIcon(rating: string): string {
+  if (rating === "optimal") return "\u2605";
+  if (rating === "good") return "\u2713";
+  if (rating === "avoid") return "\u2717";
+  return "\u00B7";
 }
 
 // ---------------------------------------------------------------------------
 // formatText
 // ---------------------------------------------------------------------------
 
-export function formatText(report) {
-  const lines = [];
+export function formatText(report: BuildReport): string {
+  const lines: string[] = [];
 
   // Header
   lines.push(DIVIDER);
@@ -40,21 +118,21 @@ export function formatText(report) {
   const meta = [capitalize(report.class)];
   if (report.provenance?.author) meta.push(report.provenance.author);
   if (report.provenance?.source_kind) meta.push(report.provenance.source_kind);
-  lines.push(meta.join(" · "));
+  lines.push(meta.join(" \u00B7 "));
   lines.push(DIVIDER);
 
   // Summary
   const s = report.summary;
   const parts = [`${s.resolved} resolved`, `${s.unresolved} unresolved`, `${s.non_canonical} non-canonical`];
   if (s.ambiguous > 0) parts.push(`${s.ambiguous} ambiguous`);
-  lines.push(parts.join(" · "));
+  lines.push(parts.join(" \u00B7 "));
   lines.push("");
 
   // Structural slots
   lines.push("SLOTS");
   for (const slot of report.slots) {
     const label = capitalize(slot.slot);
-    const status = slot.status === "resolved" ? "✓" : "✗";
+    const status = slot.status === "resolved" ? "\u2713" : "\u2717";
     lines.push(`  ${label.padEnd(12)} ${slot.label ?? "(none)"} ${status}`);
   }
   lines.push("");
@@ -71,7 +149,7 @@ export function formatText(report) {
         if (p == null) {
           lines.push("      (unscored)");
         } else {
-          lines.push(`      ${p.name} T${p.tier} ✓`);
+          lines.push(`      ${p.name} T${p.tier} \u2713`);
         }
       }
     }
@@ -79,7 +157,7 @@ export function formatText(report) {
     if (weapon.blessings.length > 0) {
       lines.push("    Blessings:");
       for (const b of weapon.blessings) {
-        const icon = b.known ? "✓" : "(?)";
+        const icon = b.known ? "\u2713" : "(?)";
         lines.push(`      ${b.label} ${icon}`);
       }
     }
@@ -116,21 +194,21 @@ export function formatText(report) {
   if (hasProblems) {
     lines.push("PROBLEMS");
     for (const entry of report.unresolved) {
-      lines.push(`  ${entry.field} "${entry.label}" — ${entry.reason}`);
+      lines.push(`  ${entry.field} "${entry.label}" \u2014 ${entry.reason}`);
     }
     for (const entry of report.ambiguous) {
-      lines.push(`  ${entry.field} "${entry.label}" — ambiguous`);
+      lines.push(`  ${entry.field} "${entry.label}" \u2014 ambiguous`);
     }
     for (const entry of report.non_canonical) {
       const notes = entry.notes ? ` (${entry.notes})` : "";
-      lines.push(`  ${entry.field} "${entry.label}" — non-canonical: ${entry.kind}${notes}`);
+      lines.push(`  ${entry.field} "${entry.label}" \u2014 non-canonical: ${entry.kind}${notes}`);
     }
     lines.push("");
   }
 
   // Warnings (conditional)
   if (report.summary.warnings && report.summary.warnings.length > 0) {
-    lines.push(`⚠ Warnings: ${report.summary.warnings.join(", ")}`);
+    lines.push(`\u26A0 Warnings: ${report.summary.warnings.join(", ")}`);
     lines.push("");
   }
 
@@ -141,20 +219,20 @@ export function formatText(report) {
 // formatMarkdown
 // ---------------------------------------------------------------------------
 
-export function formatMarkdown(report) {
-  const lines = [];
+export function formatMarkdown(report: BuildReport): string {
+  const lines: string[] = [];
 
   // Title
   lines.push(`# ${report.title}`);
   const meta = [capitalize(report.class)];
   if (report.provenance?.author) meta.push(report.provenance.author);
   if (report.provenance?.source_kind) meta.push(report.provenance.source_kind);
-  lines.push(`*${meta.join(" · ")}*`);
+  lines.push(`*${meta.join(" \u00B7 ")}*`);
   lines.push("");
 
   // Summary
   const s = report.summary;
-  lines.push(`**${s.resolved}** resolved · **${s.unresolved}** unresolved · **${s.non_canonical}** non-canonical`);
+  lines.push(`**${s.resolved}** resolved \u00B7 **${s.unresolved}** unresolved \u00B7 **${s.non_canonical}** non-canonical`);
   lines.push("");
 
   // Slots
@@ -162,8 +240,8 @@ export function formatMarkdown(report) {
   lines.push("| Slot | Label | Status |");
   lines.push("|------|-------|--------|");
   for (const slot of report.slots) {
-    const status = slot.status === "resolved" ? "✓" : "✗";
-    lines.push(`| ${capitalize(slot.slot)} | ${slot.label ?? "—"} | ${status} |`);
+    const status = slot.status === "resolved" ? "\u2713" : "\u2717";
+    lines.push(`| ${capitalize(slot.slot)} | ${slot.label ?? "\u2014"} | ${status} |`);
   }
   lines.push("");
 
@@ -178,7 +256,7 @@ export function formatMarkdown(report) {
       lines.push("|------|------|");
       for (const p of weapon.perks) {
         if (p == null) {
-          lines.push("| (unscored) | — |");
+          lines.push("| (unscored) | \u2014 |");
         } else {
           lines.push(`| ${p.name} | T${p.tier} |`);
         }
@@ -189,7 +267,7 @@ export function formatMarkdown(report) {
       lines.push("| Blessing | Known |");
       lines.push("|----------|-------|");
       for (const b of weapon.blessings) {
-        const icon = b.known ? "✓" : "?";
+        const icon = b.known ? "\u2713" : "?";
         lines.push(`| ${b.label} | ${icon} |`);
       }
     }
@@ -229,14 +307,14 @@ export function formatMarkdown(report) {
   if (hasProblems) {
     lines.push("## Problems");
     for (const entry of report.unresolved) {
-      lines.push(`- \`${entry.field}\` "${entry.label}" — ${entry.reason}`);
+      lines.push(`- \`${entry.field}\` "${entry.label}" \u2014 ${entry.reason}`);
     }
     for (const entry of report.ambiguous) {
-      lines.push(`- \`${entry.field}\` "${entry.label}" — ambiguous`);
+      lines.push(`- \`${entry.field}\` "${entry.label}" \u2014 ambiguous`);
     }
     for (const entry of report.non_canonical) {
       const notes = entry.notes ? ` (${entry.notes})` : "";
-      lines.push(`- \`${entry.field}\` "${entry.label}" — non-canonical: ${entry.kind}${notes}`);
+      lines.push(`- \`${entry.field}\` "${entry.label}" \u2014 non-canonical: ${entry.kind}${notes}`);
     }
     lines.push("");
   }
@@ -254,7 +332,7 @@ export function formatMarkdown(report) {
 // formatJson
 // ---------------------------------------------------------------------------
 
-export function formatJson(report) {
+export function formatJson(report: BuildReport): string {
   return JSON.stringify(report, null, 2);
 }
 
@@ -262,8 +340,8 @@ export function formatJson(report) {
 // formatBatchText
 // ---------------------------------------------------------------------------
 
-export function formatBatchText(batch) {
-  const lines = [];
+export function formatBatchText(batch: BatchReport): string {
+  const lines: string[] = [];
 
   lines.push(DIVIDER);
   lines.push("BUILD SUMMARY");
@@ -281,9 +359,9 @@ export function formatBatchText(batch) {
   // Per-build table header
   const nameWidth = 50;
   lines.push(`${"Build".padEnd(nameWidth)} Res  Unr  NC`);
-  lines.push("─".repeat(nameWidth + 18));
+  lines.push("\u2500".repeat(nameWidth + 18));
   for (const r of batch.reports) {
-    const name = r.title.length > nameWidth ? r.title.slice(0, nameWidth - 1) + "…" : r.title;
+    const name = r.title.length > nameWidth ? r.title.slice(0, nameWidth - 1) + "\u2026" : r.title;
     const res = String(r.summary.resolved).padStart(4);
     const unr = String(r.summary.unresolved).padStart(4);
     const nc = String(r.summary.non_canonical).padStart(4);
@@ -309,13 +387,13 @@ export function formatBatchText(batch) {
 // formatBatchMarkdown
 // ---------------------------------------------------------------------------
 
-export function formatBatchMarkdown(batch) {
-  const lines = [];
+export function formatBatchMarkdown(batch: BatchReport): string {
+  const lines: string[] = [];
   const s = batch.summary;
 
   lines.push("# Build Summary");
   lines.push("");
-  lines.push(`**${s.build_count}** builds · **${s.resolved}** resolved · **${s.unresolved}** unresolved · **${s.non_canonical}** non-canonical`);
+  lines.push(`**${s.build_count}** builds \u00B7 **${s.resolved}** resolved \u00B7 **${s.unresolved}** unresolved \u00B7 **${s.non_canonical}** non-canonical`);
   lines.push("");
 
   // Summary table
@@ -341,6 +419,6 @@ export function formatBatchMarkdown(batch) {
 // formatBatchJson
 // ---------------------------------------------------------------------------
 
-export function formatBatchJson(batch) {
+export function formatBatchJson(batch: BatchReport): string {
   return JSON.stringify(batch, null, 2);
 }

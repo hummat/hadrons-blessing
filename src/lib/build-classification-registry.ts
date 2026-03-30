@@ -1,5 +1,18 @@
-// @ts-nocheck
-const BUILD_CLASSIFICATION_REGISTRY = {
+/**
+ * GL talent slug to build slot classification.
+ *
+ * Maps GamesLantern talent slugs to their build slot (ability, blitz, aura,
+ * keystone, talents) and entity kind for each class.
+ */
+
+export interface SlotClassification {
+  slot: "ability" | "blitz" | "aura" | "keystone" | "talents";
+  kind: "ability" | "blitz" | "aura" | "keystone" | "talent_modifier";
+}
+
+type ClassRegistry = Record<string, SlotClassification>;
+
+const BUILD_CLASSIFICATION_REGISTRY: Record<string, ClassRegistry> = {
   psyker: {
     // Abilities (source type: ability)
     "scriers-gaze": { slot: "ability", kind: "ability" },
@@ -250,13 +263,16 @@ const BUILD_CLASSIFICATION_REGISTRY = {
   "hive scum": {},
 };
 
-function normalizeClassName(className) {
+function normalizeClassName(className: string | null | undefined): string {
   return String(className ?? "")
     .trim()
     .toLowerCase();
 }
 
-function registryForClass(className, classificationRegistry = BUILD_CLASSIFICATION_REGISTRY) {
+function registryForClass(
+  className: string | null | undefined,
+  classificationRegistry: Record<string, ClassRegistry> = BUILD_CLASSIFICATION_REGISTRY,
+): ClassRegistry {
   const normalized = normalizeClassName(className);
 
   if (normalized === "adamant") {
@@ -270,7 +286,11 @@ function registryForClass(className, classificationRegistry = BUILD_CLASSIFICATI
   return classificationRegistry[normalized] ?? {};
 }
 
-function classifySlugRole(className, slug, classificationRegistry = BUILD_CLASSIFICATION_REGISTRY) {
+function classifySlugRole(
+  className: string | null | undefined,
+  slug: string,
+  classificationRegistry: Record<string, ClassRegistry> = BUILD_CLASSIFICATION_REGISTRY,
+): SlotClassification | null {
   const registry = registryForClass(className, classificationRegistry);
   return registry[slug] ?? null;
 }

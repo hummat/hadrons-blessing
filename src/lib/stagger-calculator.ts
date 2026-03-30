@@ -1,10 +1,9 @@
-// @ts-nocheck
 /**
- * Stagger calculator engine — computes stagger results for every weapon action
+ * Stagger calculator engine -- computes stagger results for every weapon action
  * in a build, determining what stagger tier each action achieves against each breed.
  *
  * Direct port of Darktide's stagger_calculation.lua.
- * Reuses powerLevelToDamage from damage-calculator.mjs for impact power scaling.
+ * Reuses powerLevelToDamage from damage-calculator for impact power scaling.
  *
  * Source: scripts/utilities/attack/stagger_calculation.lua
  *         scripts/settings/damage/stagger_settings.lua
@@ -12,8 +11,8 @@
  */
 
 import { readFileSync } from "node:fs";
-import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { GENERATED_ROOT } from "./paths.js";
+import { join } from "node:path";
 import {
   powerLevelToDamage,
   assembleBuildBuffStack,
@@ -21,51 +20,128 @@ import {
   adaptBreed,
 } from "./damage-calculator.js";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const GENERATED_DIR = join(__dirname, "..", "..", "data", "ground-truth", "generated");
+// -- Types --------------------------------------------------------------------
 
-// ── Helpers ──────────────────────────────────────────────────────────
+interface StaggerSettings {
+  stagger_categories: Record<string, string[]>;
+  default_stagger_thresholds: Record<string, number>;
+  default_stagger_resistance: number;
+}
 
-function clamp(value, min, max) {
+interface DamageProfile {
+  power_distribution?: { attack?: number; impact?: number | null };
+  power_distribution_ranged?: { impact?: { near?: number; far?: number } };
+  armor_damage_modifier?: { impact?: Record<string, unknown> };
+  armor_damage_modifier_ranged?: {
+    near?: { impact?: Record<string, unknown> };
+    far?: { impact?: Record<string, unknown> };
+  };
+  stagger_category?: string;
+  [key: string]: unknown;
+}
+
+interface CalculatorConstants {
+  default_power_level: number;
+  ranged_close?: number;
+  ranged_far?: number;
+  [key: string]: unknown;
+}
+
+interface BreedStagger {
+  stagger_reduction?: number;
+  stagger_reduction_ranged?: number;
+  stagger_resistance?: number;
+  stagger_thresholds?: Record<string, number>;
+}
+
+interface BreedData {
+  id: string;
+  hit_zones?: Record<string, { armor_type?: string }>;
+  base_armor_type?: string;
+  stagger?: BreedStagger;
+  [key: string]: unknown;
+}
+
+interface ActionMap {
+  weapon_template: string;
+  actions: Record<string, string[]>;
+}
+
+interface CalculatorData {
+  profiles: Array<DamageProfile & { id: string }>;
+  actionMaps: ActionMap[];
+  constants: CalculatorConstants;
+  breeds: BreedData[];
+}
+
+export interface EffectiveStaggerResult {
+  effectiveStrength: number;
+  staggerReduction: number;
+  admApplied: number;
+  blocked: boolean;
+}
+
+export interface StaggerTierResult {
+  tier: string | null;
+  threshold: number;
+}
+
+interface BuildSlot {
+  canonical_entity_id?: string | null;
+  resolution_status?: string;
+}
+
+interface BuildWeapon {
+  slot?: string;
+  name?: BuildSlot;
+  blessings?: BuildSlot[];
+  perks?: BuildSlot[];
+}
+
+interface Build {
+  weapons?: BuildWeapon[];
+  [key: string]: unknown;
+}
+
+interface EntityIndex {
+  entities: Map<string, unknown>;
+  edges?: unknown[];
+}
+
+// -- Helpers ------------------------------------------------------------------
+
+function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
 }
 
-function lerp(a, b, t) {
+function lerp(a: number, b: number, t: number): number {
   return a + (b - a) * t;
 }
 
-// ── Data Loading ─────────────────────────────────────────────────────
+// -- Data Loading -------------------------------------------------------------
 
 /**
  * Loads stagger-settings.json from the generated data directory.
- *
- * @returns {object} Stagger settings including categories, thresholds, types
  */
-export function loadStaggerSettings() {
-  return JSON.parse(readFileSync(join(GENERATED_DIR, "stagger-settings.json"), "utf-8"));
+export function loadStaggerSettings(): StaggerSettings {
+  return JSON.parse(readFileSync(join(GENERATED_ROOT, "stagger-settings.json"), "utf-8")) as StaggerSettings;
 }
 
-// ── Impact Power ─────────────────────────────────────────────────────
+// -- Impact Power -------------------------------------------------------------
+
+export interface RawStaggerStrengthParams {
+  profile: DamageProfile;
+  armorType: string;
+  constants: CalculatorConstants;
+  isRanged: boolean;
+  dropoffScalar?: number;
+}
 
 /**
  * Computes the raw stagger strength from a damage profile's impact power
  * distribution, analogous to powerLevelToDamage but for the impact channel.
  *
  * Source: _calculate_stagger_strength (stagger_calculation.lua:67-93)
- *         Uses stagger_strength_output table (same shape as damage_output:
- *         {min: 0, max: 20} for all armor types).
- *
- * Since stagger_strength_output has the same {min:0, max:20} values as
- * damage_output for all armor types, we reuse powerLevelToDamage directly
- * with the impact power distribution substituted for the attack distribution.
- *
- * @param {object} params
- * @param {object} params.profile - Damage profile (resolved for quality)
- * @param {string} params.armorType - Target armor type key
- * @param {object} params.constants - Pipeline constants from damage-profiles.json
- * @param {boolean} params.isRanged - Whether ranged attack
- * @param {number} [params.dropoffScalar] - Ranged dropoff scalar (0=close, 1=far)
- * @returns {number} Raw stagger strength before ADM and reduction
  */
 export function computeRawStaggerStrength({
   profile,
@@ -73,22 +149,18 @@ export function computeRawStaggerStrength({
   constants,
   isRanged,
   dropoffScalar,
-}) {
-  // Build an impact-only power distribution to pass to powerLevelToDamage.
-  // powerLevelToDamage reads .attack from powerDistribution, so we substitute
-  // the impact value into the attack slot.
+}: RawStaggerStrengthParams): number {
   const pd = profile.power_distribution;
   if (!pd || pd.impact == null) return 0;
 
-  const impactPd = { attack: pd.impact };
+  const impactPd = { attack: pd.impact as number };
 
-  // For ranged profiles with per-distance impact distribution, substitute too
-  let impactPdRanged;
+  let impactPdRanged: { attack: { near: number; far: number } } | undefined;
   if (isRanged && profile.power_distribution_ranged) {
     impactPdRanged = {
       attack: {
-        near: profile.power_distribution_ranged.impact?.near ?? pd.impact,
-        far: profile.power_distribution_ranged.impact?.far ?? pd.impact,
+        near: profile.power_distribution_ranged.impact?.near ?? (pd.impact as number),
+        far: profile.power_distribution_ranged.impact?.far ?? (pd.impact as number),
       },
     };
   }
@@ -98,30 +170,27 @@ export function computeRawStaggerStrength({
     powerDistribution: impactPd,
     powerDistributionRanged: impactPdRanged,
     armorType,
-    constants,
+    constants: constants as never,
     isRanged,
     dropoffScalar,
   });
 }
 
-// ── Impact ADM ───────────────────────────────────────────────────────
+// -- Impact ADM ---------------------------------------------------------------
+
+export interface ImpactADMParams {
+  profile: DamageProfile;
+  armorType: string;
+  quality: number;
+  isRanged: boolean;
+  dropoffScalar?: number;
+}
 
 /**
  * Resolves the impact armor damage modifier for a profile and armor type.
  *
- * Source: DamageProfile.armor_damage_modifier("impact", ...) in
- *         stagger_calculation.lua:27
- *
- * Profiles store impact ADM under armor_damage_modifier.impact[armorType]
- * (melee) or armor_damage_modifier_ranged.{near,far}.impact[armorType] (ranged).
- *
- * @param {object} params
- * @param {object} params.profile - Damage profile (raw, before quality lerp)
- * @param {string} params.armorType - Target armor type key
- * @param {number} params.quality - Weapon modifier quality 0-1
- * @param {boolean} params.isRanged - Whether ranged attack
- * @param {number} [params.dropoffScalar] - Ranged dropoff scalar
- * @returns {number} Impact armor damage modifier
+ * Source: DamageProfile.armor_damage_modifier("impact", ...)
+ *         in stagger_calculation.lua:27
  */
 export function resolveImpactADM({
   profile,
@@ -129,11 +198,11 @@ export function resolveImpactADM({
   quality,
   isRanged,
   dropoffScalar,
-}) {
+}: ImpactADMParams): number {
   if (isRanged && profile.armor_damage_modifier_ranged) {
     const ranged = profile.armor_damage_modifier_ranged;
-    const nearEntry = ranged.near?.impact?.[armorType];
-    const farEntry = ranged.far?.impact?.[armorType];
+    const nearEntry = (ranged.near?.impact as Record<string, unknown> | undefined)?.[armorType] as number | number[] | null | undefined;
+    const farEntry = (ranged.far?.impact as Record<string, unknown> | undefined)?.[armorType] as number | number[] | null | undefined;
 
     if (nearEntry == null && farEntry == null) return 1;
 
@@ -147,17 +216,17 @@ export function resolveImpactADM({
   }
 
   // Melee: use armor_damage_modifier.impact
-  const impactAdm = profile.armor_damage_modifier?.impact;
+  const impactAdm = profile.armor_damage_modifier?.impact as Record<string, unknown> | undefined;
   if (!impactAdm) return 1;
 
-  const entry = impactAdm[armorType];
+  const entry = impactAdm[armorType] as number | number[] | null | undefined;
   return lerpADMEntry(entry, quality);
 }
 
 /**
  * Lerps an ADM entry (scalar or [min, max] array) by quality.
  */
-function lerpADMEntry(entry, quality) {
+function lerpADMEntry(entry: number | number[] | null | undefined, quality: number): number {
   if (entry == null) return 1;
   if (Array.isArray(entry)) {
     return entry[0] + (entry[1] - entry[0]) * quality;
@@ -165,38 +234,32 @@ function lerpADMEntry(entry, quality) {
   return entry;
 }
 
-// ── Effective Stagger Strength ───────────────────────────────────────
+// -- Effective Stagger Strength -----------------------------------------------
+
+export interface EffectiveStaggerParams {
+  rawStrength: number;
+  impactADM: number;
+  breedStagger: BreedStagger;
+  isRanged: boolean;
+}
 
 /**
  * Computes the effective stagger strength after applying ADM, stagger
  * resistance, and stagger reduction from the breed.
  *
  * Source: stagger_calculation.lua:25-36
- *   stagger_strength = raw_strength * armor_damage_modifier
- *   sum_stagger_strength = stagger_strength + pool - 0.5 * stagger_reduction
- *
- * For our static calculator, stagger_strength_pool = 0 (first hit scenario).
- *
- * @param {object} params
- * @param {number} params.rawStrength - Raw stagger strength from impact power
- * @param {number} params.impactADM - Impact armor damage modifier
- * @param {object} params.breedStagger - Breed's stagger data
- * @param {boolean} params.isRanged - Whether ranged attack (uses stagger_reduction_ranged)
- * @returns {{ effectiveStrength: number, staggerReduction: number, admApplied: number, blocked: boolean }}
  */
 export function computeEffectiveStaggerStrength({
   rawStrength,
   impactADM,
   breedStagger,
   isRanged,
-}) {
+}: EffectiveStaggerParams): EffectiveStaggerResult {
   const adm = impactADM ?? 1;
   const staggerReduction = isRanged
     ? (breedStagger.stagger_reduction_ranged ?? breedStagger.stagger_reduction ?? 0)
     : (breedStagger.stagger_reduction ?? 0);
 
-  // Source: stagger_calculation.lua:29-30
-  // If stagger_reduction > stagger_strength + pool, stagger is blocked
   const strengthAfterAdm = rawStrength * adm;
   if (staggerReduction > strengthAfterAdm) {
     return {
@@ -207,9 +270,6 @@ export function computeEffectiveStaggerStrength({
     };
   }
 
-  // Source: stagger_calculation.lua:36
-  // sum_stagger_strength = stagger_strength + pool - 0.5 * stagger_reduction
-  // pool = 0 for single-hit analysis
   const effectiveStrength = strengthAfterAdm - 0.5 * staggerReduction;
 
   return {
@@ -220,34 +280,21 @@ export function computeEffectiveStaggerStrength({
   };
 }
 
-// ── Stagger Tier Classification ──────────────────────────────────────
+// -- Stagger Tier Classification ----------------------------------------------
 
 /**
  * Determines the highest stagger tier achieved given effective stagger
  * strength, breed thresholds, category, and stagger resistance.
  *
  * Source: _get_stagger_type (stagger_calculation.lua:127-159)
- *
- * Walks the stagger category's type list in order, checking each threshold
- * scaled by stagger_resistance. Returns the type with the highest threshold
- * that the strength exceeds (not equals — strictly greater than).
- *
- * A threshold of -1 means the breed is immune to that stagger type.
- *
- * @param {number} strength - Effective stagger strength (after ADM + reduction)
- * @param {object} breedThresholds - Breed's stagger_thresholds map
- * @param {string} category - Stagger category key (e.g. "melee", "ranged")
- * @param {object} staggerSettings - Loaded stagger settings
- * @param {number} [staggerResistance] - Breed's stagger_resistance (default from settings)
- * @returns {{ tier: string|null, threshold: number }}
  */
 export function classifyStaggerTier(
-  strength,
-  breedThresholds,
-  category,
-  staggerSettings,
-  staggerResistance,
-) {
+  strength: number,
+  breedThresholds: Record<string, number> | undefined,
+  category: string,
+  staggerSettings: StaggerSettings,
+  staggerResistance?: number,
+): StaggerTierResult {
   const categoryTypes = staggerSettings.stagger_categories[category];
   if (!categoryTypes || categoryTypes.length === 0) {
     return { tier: null, threshold: 0 };
@@ -256,25 +303,18 @@ export function classifyStaggerTier(
   const defaultThresholds = staggerSettings.default_stagger_thresholds;
   const resistance = staggerResistance ?? staggerSettings.default_stagger_resistance ?? 1;
 
-  let chosenType = null;
+  let chosenType: string | null = null;
   let chosenThreshold = 0;
 
   for (const staggerType of categoryTypes) {
-    // Look up threshold: breed-specific first, then default
     let threshold = breedThresholds?.[staggerType] ?? defaultThresholds[staggerType];
 
     if (threshold == null || threshold < 0) {
-      // -1 or missing = immune to this stagger type
       continue;
     }
 
-    // Source: stagger_calculation.lua:144
-    // stagger_threshold = stagger_threshold * (stagger_resistance * stagger_resistance_modifier)
-    // We don't model stagger_resistance_modifier from profiles (it's 1 for most cases)
     threshold = threshold * resistance;
 
-    // Source: stagger_calculation.lua:146
-    // chosen_stagger_threshold < stagger_threshold and stagger_threshold < stagger_strength
     if (chosenThreshold < threshold && threshold < strength) {
       chosenType = staggerType;
       chosenThreshold = threshold;
@@ -284,17 +324,9 @@ export function classifyStaggerTier(
   return { tier: chosenType, threshold: chosenThreshold };
 }
 
-// ── Profile Resolution ───────────────────────────────────────────────
+// -- Profile Resolution -------------------------------------------------------
 
-/**
- * Resolves a damage profile's power_distribution for a specific quality,
- * lerping any [min, max] arrays down to scalars.
- *
- * @param {object} profile - Raw damage profile from profiles.json
- * @param {number} quality - Weapon quality 0-1
- * @returns {object} Profile with scalar power_distribution.impact
- */
-function resolveProfileForQuality(profile, quality) {
+function resolveProfileForQuality(profile: DamageProfile, quality: number): DamageProfile {
   const pd = profile.power_distribution;
   if (!pd) return profile;
 
@@ -303,24 +335,21 @@ function resolveProfileForQuality(profile, quality) {
     resolved.attack = pd.attack[0] + (pd.attack[1] - pd.attack[0]) * quality;
   }
   if (Array.isArray(pd.impact)) {
-    resolved.impact = pd.impact[0] + (pd.impact[1] - pd.impact[0]) * quality;
+    resolved.impact = (pd.impact as number[])[0] + ((pd.impact as number[])[1] - (pd.impact as number[])[0]) * quality;
   }
 
   return { ...profile, power_distribution: resolved };
 }
 
-/**
- * Determines whether a weapon is ranged based on its slot or template name.
- */
-function isWeaponRanged(weapon) {
+function isWeaponRanged(weapon: BuildWeapon): boolean {
   if (weapon.slot === "ranged") return true;
   if (weapon.slot === "melee") return false;
   return false;
 }
 
-// ── Action Category Map ──────────────────────────────────────────────
+// -- Action Category Map ------------------------------------------------------
 
-const ACTION_CATEGORY = {
+const ACTION_CATEGORY: Record<string, string> = {
   light_attack: "light",
   action_swing: "light",
   action_swing_right: "light",
@@ -337,64 +366,54 @@ const ACTION_CATEGORY = {
 
 const DIFFICULTIES = ["uprising", "malice", "heresy", "damnation", "auric"];
 
-// ── Stagger Matrix ───────────────────────────────────────────────────
+// -- Stagger Matrix -----------------------------------------------------------
 
 /**
  * Computes a full stagger matrix for all weapons in a build.
- *
- * For each weapon x action x breed x difficulty, computes the stagger tier
- * achieved. Follows the same iteration pattern as computeBreakpoints in
- * damage-calculator.mjs.
- *
- * @param {object} build - Canonical build JSON
- * @param {object} index - { entities: Map, edges: Array } from loadIndex()
- * @param {object} calcData - From loadCalculatorData()
- * @param {object} staggerSettings - From loadStaggerSettings()
- * @returns {object} Stagger matrix result
  */
-export function computeStaggerMatrix(build, index, calcData, staggerSettings) {
+export function computeStaggerMatrix(
+  build: Build,
+  index: EntityIndex,
+  calcData: CalculatorData,
+  staggerSettings: StaggerSettings,
+): unknown {
   const quality = 0.8;
 
-  // Build profile lookup map
-  const profileMap = new Map();
+  const profileMap = new Map<string, DamageProfile & { id: string }>();
   for (const p of calcData.profiles) {
     profileMap.set(p.id, p);
   }
 
-  // Build action map lookup by weapon template
-  const actionMapByTemplate = new Map();
+  const actionMapByTemplate = new Map<string, ActionMap>();
   for (const am of calcData.actionMaps) {
     actionMapByTemplate.set(am.weapon_template, am);
   }
 
-  // Pre-adapt all breeds
-  const breeds = calcData.breeds.map(adaptBreed);
+  const breeds = calcData.breeds.map((b) => adaptBreed(b as never)) as BreedData[];
 
-  const staggerCategoriesUsed = new Set();
-  const weaponResults = [];
+  const staggerCategoriesUsed = new Set<string>();
+  const weaponResults: unknown[] = [];
 
   for (let slot = 0; slot < (build.weapons ?? []).length; slot++) {
-    const weapon = build.weapons[slot];
+    const weapon = build.weapons![slot];
     const entityId = weapon.name?.canonical_entity_id;
     if (!entityId || weapon.name?.resolution_status !== "resolved") continue;
 
-    // Extract internal template name: shared.weapon.autogun_p1_m1 → autogun_p1_m1
-    const templateName = entityId.split(".").pop();
+    const templateName = entityId.split(".").pop()!;
     const actionMap = actionMapByTemplate.get(templateName);
     if (!actionMap) continue;
 
     const isRanged = isWeaponRanged(weapon);
     const distance = isRanged ? 20 : 0;
 
-    // Compute dropoff scalar for ranged
-    let dropoffScalar;
+    let dropoffScalar: number | undefined;
     if (isRanged) {
       const close = calcData.constants.ranged_close ?? 12.5;
       const far = calcData.constants.ranged_far ?? 30;
       dropoffScalar = clamp((distance - close) / (far - close), 0, 1);
     }
 
-    const actionResults = [];
+    const actionResults: unknown[] = [];
 
     for (const [actionType, profileIds] of Object.entries(actionMap.actions)) {
       for (const profileId of profileIds) {
@@ -409,15 +428,13 @@ export function computeStaggerMatrix(build, index, calcData, staggerSettings) {
         const profile = resolveProfileForQuality(rawProfile, quality);
         if (!profile.power_distribution) continue;
 
-        const breedResults = [];
+        const breedResults: unknown[] = [];
 
         for (const breed of breeds) {
           for (const diff of DIFFICULTIES) {
-            // Get base armor type for the breed (torso hit zone)
-            const hitZoneData = breed.hit_zones?.torso ?? {};
-            const armorType = hitZoneData.armor_type ?? breed.base_armor_type;
+            const hitZoneData = breed.hit_zones?.torso as { armor_type?: string } | undefined ?? {};
+            const armorType = hitZoneData.armor_type ?? breed.base_armor_type ?? "unarmored";
 
-            // Step 1: Compute raw stagger strength from impact power
             const rawStrength = computeRawStaggerStrength({
               profile,
               armorType,
@@ -426,16 +443,14 @@ export function computeStaggerMatrix(build, index, calcData, staggerSettings) {
               dropoffScalar,
             });
 
-            // Step 2: Resolve impact ADM
             const impactAdm = resolveImpactADM({
-              profile: rawProfile, // Use raw profile for ADM lerping
+              profile: rawProfile,
               armorType,
               quality,
               isRanged,
               dropoffScalar,
             });
 
-            // Step 3: Compute effective stagger strength
             const breedStagger = breed.stagger ?? {};
             const {
               effectiveStrength,
@@ -449,7 +464,6 @@ export function computeStaggerMatrix(build, index, calcData, staggerSettings) {
               isRanged,
             });
 
-            // Step 4: Classify stagger tier
             const staggerResistance =
               breedStagger.stagger_resistance ??
               staggerSettings.default_stagger_resistance;
@@ -508,18 +522,12 @@ export function computeStaggerMatrix(build, index, calcData, staggerSettings) {
 
 /**
  * Extracts a per-weapon stagger summary for scoring.
- * For each weapon, picks the best stagger tier achieved per action category
- * at damnation difficulty across key breeds.
- *
- * @param {object} matrix - Output from computeStaggerMatrix
- * @param {string[]} [keyBreeds] - Breed IDs to summarize for
- * @returns {object[]} Array of weapon summaries
  */
 export function summarizeStagger(
-  matrix,
-  keyBreeds = ["renegade_berzerker", "chaos_ogryn_bulwark", "chaos_poxwalker"],
-) {
-  const STAGGER_RANK = {
+  matrix: { weapons: Array<{ entityId: string; slot: number; actions: Array<{ type: string; profileId: string; stagger_category: string; breeds: Array<{ breed_id: string; difficulty: string; stagger_tier: string | null; stagger_strength: number }> }> }> },
+  keyBreeds: string[] = ["renegade_berzerker", "chaos_ogryn_bulwark", "chaos_poxwalker"],
+): unknown[] {
+  const STAGGER_RANK: Record<string, number> = {
     null: 0,
     light: 1,
     light_ranged: 1,
@@ -538,7 +546,7 @@ export function summarizeStagger(
   };
 
   return matrix.weapons.map((weapon) => {
-    const summary = {};
+    const summary: Record<string, { actionType: string; profileId: string; stagger_category: string; damnation: Record<string, { tier: string | null; strength: number }>; _avgRank: number }> = {};
 
     for (const action of weapon.actions) {
       const category = ACTION_CATEGORY[action.type] ?? null;
@@ -548,7 +556,7 @@ export function summarizeStagger(
         (b) => b.difficulty === "damnation" && keyBreeds.includes(b.breed_id),
       );
 
-      const perBreed = {};
+      const perBreed: Record<string, { tier: string | null; strength: number }> = {};
       for (const entry of damnationEntries) {
         perBreed[entry.breed_id] = {
           tier: entry.stagger_tier,
@@ -556,10 +564,9 @@ export function summarizeStagger(
         };
       }
 
-      // Compute average stagger rank across key breeds
       const avgRank =
         damnationEntries.reduce(
-          (sum, e) => sum + (STAGGER_RANK[e.stagger_tier] ?? 0),
+          (sum, e) => sum + (STAGGER_RANK[String(e.stagger_tier)] ?? 0),
           0,
         ) / Math.max(damnationEntries.length, 1);
 
@@ -577,7 +584,7 @@ export function summarizeStagger(
     }
 
     // Strip internal _avgRank from output
-    const clean = (entry) => {
+    const clean = (entry: typeof summary[string] | undefined): unknown => {
       if (!entry) return null;
       const { _avgRank, ...rest } = entry;
       return rest;

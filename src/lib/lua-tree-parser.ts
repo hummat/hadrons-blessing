@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Parses Darktide *_tree.lua layout files into structured node objects.
  *
@@ -7,26 +6,23 @@
  * needed for entity resolution and edge generation.
  */
 
-/**
- * @typedef {Object} TreeNode
- * @property {string} widget_name
- * @property {string} talent
- * @property {string} type
- * @property {string|null} group_name
- * @property {string[]} children
- * @property {string[]} parents
- * @property {number} line - 1-indexed line number of widget_name
- */
+export interface TreeNode {
+  widget_name: string;
+  talent: string;
+  type: string;
+  group_name: string | null;
+  children: string[];
+  parents: string[];
+  /** 1-indexed line number of widget_name */
+  line: number;
+}
 
 /**
  * Parse a Lua tree source file into an array of TreeNode objects.
- *
- * @param {string} luaSource - Raw content of a *_tree.lua file
- * @returns {TreeNode[]}
  */
-function parseLuaTree(luaSource) {
+function parseLuaTree(luaSource: string): TreeNode[] {
   const lines = luaSource.split("\n");
-  const nodes = [];
+  const nodes: TreeNode[] = [];
 
   let i = 0;
   while (i < lines.length) {
@@ -74,7 +70,7 @@ function parseLuaTree(luaSource) {
 /**
  * Find the start of the enclosing node block (the `{` line).
  */
-function findBlockStart(lines, widgetLineIndex) {
+function findBlockStart(lines: string[], widgetLineIndex: number): number {
   let braceDepth = 0;
 
   for (let j = widgetLineIndex; j >= 0; j--) {
@@ -99,7 +95,7 @@ function findBlockStart(lines, widgetLineIndex) {
 /**
  * Find the end of the enclosing node block (the `},` line).
  */
-function findBlockEnd(lines, widgetLineIndex) {
+function findBlockEnd(lines: string[], widgetLineIndex: number): number {
   let braceDepth = 0;
 
   for (let j = widgetLineIndex; j < lines.length; j++) {
@@ -124,7 +120,7 @@ function findBlockEnd(lines, widgetLineIndex) {
  * Extract a simple string field value from a Lua block.
  * Returns the string value, or null if not found.
  */
-function extractStringField(blockText, fieldName) {
+function extractStringField(blockText: string, fieldName: string): string | null {
   const regex = new RegExp(`(?:^|\\n)[\\t ]*${fieldName}\\s*=\\s*"([^"]*)"`, "m");
   const match = blockText.match(regex);
   return match ? match[1] : null;
@@ -134,7 +130,7 @@ function extractStringField(blockText, fieldName) {
  * Extract a string array field from a Lua block.
  * Handles: field = { "str1", "str2", } and field = {}
  */
-function extractStringArray(blockText, fieldName) {
+function extractStringArray(blockText: string, fieldName: string): string[] {
   const regex = new RegExp(
     `${fieldName}\\s*=\\s*\\{([^}]*?)\\}`,
     "s",
@@ -145,7 +141,7 @@ function extractStringArray(blockText, fieldName) {
   }
 
   const content = match[1];
-  const items = [];
+  const items: string[] = [];
   const itemRegex = /"([^"]+)"/g;
   let itemMatch;
 

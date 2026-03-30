@@ -1,6 +1,5 @@
-// @ts-nocheck
 /**
- * Damage calculator engine — all 13 pipeline stages + computeHit orchestrator,
+ * Damage calculator engine -- all 13 pipeline stages + computeHit orchestrator,
  * breakpoint matrix computation, and summary extraction.
  *
  * Direct port of Darktide's damage_calculation.lua (13-stage pipeline).
@@ -15,25 +14,218 @@
  */
 
 import { readFileSync } from "node:fs";
-import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
+import { GENERATED_ROOT } from "./paths.js";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const GENERATED_DIR = join(__dirname, "..", "..", "data", "ground-truth", "generated");
+// -- Types --------------------------------------------------------------------
 
-// ── Utilities ───────────────────────────────────────────────────────
+interface PowerDistribution {
+  attack: number | number[];
+  impact?: number | number[];
+  [key: string]: unknown;
+}
+
+interface PowerDistributionRanged {
+  attack: { near: number; far: number };
+  impact?: { near?: number; far?: number };
+  [key: string]: unknown;
+}
+
+interface ADMTable {
+  attack?: Record<string, number | number[]>;
+  [key: string]: unknown;
+}
+
+interface ADMRanged {
+  near?: ADMTable;
+  far?: ADMTable;
+}
+
+interface DamageProfile {
+  id?: string;
+  power_distribution?: PowerDistribution;
+  power_distribution_ranged?: PowerDistributionRanged;
+  armor_damage_modifier?: ADMTable;
+  armor_damage_modifier_ranged?: ADMRanged;
+  boost_curve?: number[];
+  finesse_boost?: Record<string, number>;
+  crit_boost?: number;
+  backstab_bonus?: number;
+  melee_attack_strength?: unknown;
+  stagger_category?: string;
+  cleave_distribution?: { attack?: number | number[] };
+  [key: string]: unknown;
+}
+
+interface DamageOutput {
+  min: number;
+  max: number;
+}
+
+interface CalculatorConstants {
+  default_power_level: number;
+  min_power_level?: number;
+  max_power_level?: number;
+  damage_output: Record<string, DamageOutput>;
+  rending_armor_type_multiplier: Record<string, number>;
+  overdamage_rending_multiplier: Record<string, number>;
+  default_finesse_boost_amount: Record<string, number>;
+  default_crit_boost_amount?: number;
+  boost_curves?: Record<string, number[]>;
+  ranged_close?: number;
+  ranged_far?: number;
+  default_armor_damage_modifier?: ADMTable;
+  [key: string]: unknown;
+}
+
+interface HitZoneData {
+  armor_type?: string;
+  weakspot?: boolean;
+}
+
+interface BreedHitZoneDamageMultiplier {
+  default?: Record<string, number>;
+  melee?: Record<string, number>;
+  ranged?: Record<string, number>;
+  [key: string]: Record<string, number> | undefined;
+}
+
+interface BreedData {
+  id: string;
+  hit_zones?: Record<string, HitZoneData & { damage_multiplier?: { melee?: number; ranged?: number } }>;
+  hitzone_damage_multiplier?: BreedHitZoneDamageMultiplier;
+  base_armor_type?: string;
+  difficulty_health?: Record<string, number>;
+  diminishing_returns_damage?: boolean;
+  stagger?: Record<string, unknown>;
+  hit_mass?: Record<string, number>;
+  [key: string]: unknown;
+}
+
+interface ActionMap {
+  weapon_template: string;
+  actions: Record<string, string[]>;
+}
+
+interface ProfileData {
+  profiles: DamageProfile[];
+  action_maps: ActionMap[];
+  constants: CalculatorConstants;
+}
+
+interface BreedFileData {
+  breeds: BreedData[];
+}
+
+export interface BuffStack {
+  additive_sum?: number;
+  multiplicative_product?: number;
+  target_modifier?: number;
+  rending_multiplier?: number;
+  backstab_damage?: number;
+  flanking_damage?: number;
+  [key: string]: number | undefined;
+}
+
+type DamageEfficiency = "negated" | "reduced" | "full";
+
+export interface HitResult {
+  damage: number;
+  hitsToKill: number | null;
+  baseDamage: number;
+  buffMultiplier: number;
+  armorDamageModifier: number;
+  rendingApplied: number;
+  finesseBoost: number;
+  hitZoneMultiplier: number;
+  effectiveArmorType: string;
+  damageEfficiency: DamageEfficiency;
+  stagesApplied: number[];
+}
+
+export interface CalculatorData {
+  profiles: DamageProfile[];
+  actionMaps: ActionMap[];
+  constants: CalculatorConstants;
+  breeds: BreedData[];
+}
+
+interface EntityCalcEffect {
+  stat?: string;
+  magnitude?: number | null;
+  magnitude_min?: number | null;
+  magnitude_max?: number | null;
+  type?: string;
+  condition?: string | null;
+}
+
+interface EntityCalc {
+  effects?: EntityCalcEffect[];
+  tiers?: { effects: EntityCalcEffect[] }[];
+}
+
+interface Entity {
+  kind?: string;
+  domain?: string;
+  internal_name?: string | null;
+  calc?: EntityCalc;
+}
+
+interface BuildSlot {
+  canonical_entity_id?: string | null;
+  resolution_status?: string;
+}
+
+interface BuildWeapon {
+  slot?: string;
+  name?: BuildSlot;
+  blessings?: BuildSlot[];
+  perks?: BuildSlot[];
+}
+
+interface BuildCurio {
+  perks?: BuildSlot[];
+}
+
+interface Build {
+  class?: BuildSlot;
+  ability?: BuildSlot;
+  blitz?: BuildSlot;
+  aura?: BuildSlot;
+  keystone?: BuildSlot;
+  talents?: BuildSlot[];
+  weapons?: BuildWeapon[];
+  curios?: BuildCurio[];
+  [key: string]: unknown;
+}
+
+interface EntityIndex {
+  entities: Map<string, Entity>;
+  edges?: Array<{ type: string; from_entity_id: string; to_entity_id: string }>;
+}
+
+interface ConditionFlags {
+  health_state?: string;
+  warp_charge?: number;
+  ads_active?: boolean;
+  ability_active?: boolean;
+  during_reload?: boolean;
+  proc_stacks?: number;
+  is_weakspot?: boolean;
+  is_crit?: boolean;
+  is_backstab?: boolean;
+  is_flanking?: boolean;
+  [key: string]: unknown;
+}
+
+// -- Utilities ----------------------------------------------------------------
 
 /**
  * Piecewise linear interpolation across a boost curve array.
  *
  * Source: _boost_curve_multiplier in damage_calculation.lua:203-212
- * The curve is an array of N points evenly spaced from percent=0 to percent=1.
- *
- * @param {number[]} curve - Array of curve values (e.g. [0, 0.3, 0.6, 0.8, 1])
- * @param {number} percent - Input value 0–1
- * @returns {number} Interpolated curve output
  */
-export function boostCurveMultiplier(curve, percent) {
+export function boostCurveMultiplier(curve: number[], percent: number): number {
   const n = curve.length - 1;
   if (n <= 0) return curve[0] ?? 0;
   percent = clamp(percent, 0, 1);
@@ -44,32 +236,30 @@ export function boostCurveMultiplier(curve, percent) {
   return curve[lowerIndex] * (1 - t) + curve[upperIndex] * t;
 }
 
-function clamp(value, min, max) {
+function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
 }
 
-function lerp(a, b, t) {
+function lerp(a: number, b: number, t: number): number {
   return a + (b - a) * t;
 }
 
-// ── Stage 1: Power Level → Base Damage ──────────────────────────────
+// -- Stage 1: Power Level -> Base Damage --------------------------------------
+
+export interface PowerLevelToDamageParams {
+  powerLevel?: number;
+  powerDistribution: { attack: number | { near: number; far: number } };
+  powerDistributionRanged?: { attack: { near: number; far: number } };
+  armorType: string;
+  constants: CalculatorConstants;
+  isRanged?: boolean;
+  dropoffScalar?: number;
+}
 
 /**
  * Converts power level + power distribution into base damage.
  *
  * Source: _power_level_scaled_damage (damage_calculation.lua:214-223)
- *         _distribute_power_level_to_power_type (damage_profile.lua:386-446)
- *         PowerLevel.power_level_percentage (power_level.lua:21-23)
- *
- * @param {object} params
- * @param {number} [params.powerLevel] - Total power level (default from constants)
- * @param {object} params.powerDistribution - { attack: number } raw power distribution
- * @param {object} [params.powerDistributionRanged] - { attack: { near, far } } for ranged
- * @param {string} params.armorType - Target armor type key
- * @param {object} params.constants - { default_power_level, min_power_level, max_power_level, damage_output }
- * @param {boolean} [params.isRanged] - Whether this is a ranged attack
- * @param {number} [params.dropoffScalar] - Ranged dropoff scalar (0=close, 1=far)
- * @returns {number} Base damage before buffs
  */
 export function powerLevelToDamage({
   powerLevel,
@@ -79,7 +269,7 @@ export function powerLevelToDamage({
   constants,
   isRanged,
   dropoffScalar,
-}) {
+}: PowerLevelToDamageParams): number {
   const pl = powerLevel ?? constants.default_power_level;
   const minPL = constants.min_power_level ?? 0;
   const maxPL = constants.max_power_level ?? 10000;
@@ -88,93 +278,68 @@ export function powerLevelToDamage({
     throw new Error(`Invalid power level range: min=${minPL}, max=${maxPL} (plRange must be > 0)`);
   }
 
-  let powerMultiplier;
+  let powerMultiplier: number;
 
   if (isRanged && dropoffScalar != null && powerDistributionRanged) {
-    // Ranged: interpolate between near and far power distribution
-    // Source: damage_profile.lua:401-419
     const pdr = powerDistributionRanged.attack;
     const near = pdr.near;
     const far = pdr.far;
     powerMultiplier = lerp(near, far, Math.sqrt(dropoffScalar));
   } else {
-    // Melee or ranged without dropoff: use flat power distribution
-    // Source: damage_profile.lua:420-443
-    powerMultiplier = powerDistribution.attack ?? 0;
+    powerMultiplier = (powerDistribution.attack as number) ?? 0;
 
-    // Source: damage_profile.lua:441-443
-    // For melee (no dropoff_scalar), if multiplier is between 0 and 2 (exclusive),
-    // it's a normalized fraction that gets scaled by 250 for attack power type.
     if (dropoffScalar == null && powerMultiplier > 0 && powerMultiplier < 2) {
       powerMultiplier = powerMultiplier * 250;
     }
   }
 
-  // Source: damage_profile.lua:445
   const attackPowerLevel = pl * powerMultiplier;
-
-  // Source: power_level.lua:21-23
-  // percentage = (attack_power_level - MIN_POWER_LEVEL) / (MAX_POWER_LEVEL - MIN_POWER_LEVEL)
   const percentage = clamp((attackPowerLevel - minPL) / plRange, 0, 1);
 
-  // Source: damage_calculation.lua:216-222
   const dmgTable = constants.damage_output[armorType];
   if (!dmgTable) {
-    throw new Error(`Unknown armor type '${armorType}' — not found in damage_output constants`);
+    throw new Error(`Unknown armor type '${armorType}' -- not found in damage_output constants`);
   }
   const dmgMin = dmgTable.min;
   const dmgMax = dmgTable.max;
   return dmgMin + (dmgMax - dmgMin) * percentage;
 }
 
-// ── Stage 2: Buff Multiplier Stack ──────────────────────────────────
+// -- Stage 2: Buff Multiplier Stack -------------------------------------------
+
+export interface DamageBuffParams {
+  baseDamage: number;
+  buffStack: BuffStack;
+}
 
 /**
  * Applies the pre-assembled buff stack to base damage.
  *
  * Source: _base_damage (damage_calculation.lua:563-591)
- * The source computes:
- *   buff_damage_modifier = damage_stat_buffs * damage_taken_stat_buffs - 1
- *   buff_damage = base_damage * buff_damage_modifier
- *   total = base_damage + buff_damage = base_damage * damage_stat_buffs * damage_taken_stat_buffs
- *
- * For the static calculator, assembleBuildBuffStack (Task 6) pre-computes:
- *   additive_sum    — sum of all additive damage stat buffs (starts at 1)
- *   multiplicative_product — product of all multiplicative buffs (starts at 1)
- *   target_modifier — combined target-side damage-taken modifier (starts at 1)
- *
- * @param {object} params
- * @param {number} params.baseDamage - Raw base damage from stage 1
- * @param {object} params.buffStack - { additive_sum?, multiplicative_product?, target_modifier? }
- * @returns {number} Buffed damage
  */
-export function calculateDamageBuff({ baseDamage, buffStack }) {
+export function calculateDamageBuff({ baseDamage, buffStack }: DamageBuffParams): number {
   const additive = buffStack.additive_sum ?? 1;
   const multiplicative = buffStack.multiplicative_product ?? 1;
   const target = buffStack.target_modifier ?? 1;
   return baseDamage * additive * multiplicative * target;
 }
 
-// ── Stage 3: Armor Damage Modifier ──────────────────────────────────
+// -- Stage 3: Armor Damage Modifier -------------------------------------------
+
+export interface ArmorDamageModifierParams {
+  profile: DamageProfile;
+  armorType: string;
+  quality: number;
+  isRanged: boolean;
+  distance?: number;
+  constants?: CalculatorConstants;
+  defaultADM?: ADMTable;
+}
 
 /**
  * Resolves the armor damage modifier (ADM) for the attack.
  *
  * Source: DamageProfile.armor_damage_modifier (damage_profile.lua:99-232)
- *
- * Melee: profile.armor_damage_modifier.attack[armorType] — scalar or [min, max] lerped by quality
- * Ranged: profile.armor_damage_modifier_ranged.{near,far}.attack[armorType] — lerped by quality,
- *         then interpolated by sqrt(dropoffScalar)
- *
- * @param {object} params
- * @param {object} params.profile - Damage profile with ADM tables
- * @param {string} params.armorType - Target armor type
- * @param {number} params.quality - Weapon modifier quality (0–1 lerp value)
- * @param {boolean} params.isRanged - Whether ranged attack
- * @param {number} [params.distance] - Distance to target in meters (ranged only)
- * @param {object} [params.constants] - { ranged_close, ranged_far }
- * @param {object} [params.defaultADM] - Fallback ADM table if profile lacks entry
- * @returns {number} Armor damage modifier (typically 0–2)
  */
 export function resolveArmorDamageModifier({
   profile,
@@ -184,13 +349,12 @@ export function resolveArmorDamageModifier({
   distance,
   constants,
   defaultADM,
-}) {
+}: ArmorDamageModifierParams): number {
   if (isRanged && profile.armor_damage_modifier_ranged) {
     const ranged = profile.armor_damage_modifier_ranged;
-    let nearEntry = ranged.near?.attack?.[armorType];
-    let farEntry = ranged.far?.attack?.[armorType];
+    const nearEntry = ranged.near?.attack?.[armorType];
+    const farEntry = ranged.far?.attack?.[armorType];
 
-    // Fall through to defaultADM when ranged table lacks this armor type
     if (nearEntry == null && farEntry == null && defaultADM?.attack?.[armorType] != null) {
       return lerpADMEntry(defaultADM.attack[armorType], quality);
     }
@@ -198,19 +362,14 @@ export function resolveArmorDamageModifier({
     const nearADM = lerpADMEntry(nearEntry, quality);
     const farADM = lerpADMEntry(farEntry, quality);
 
-    // Compute dropoff scalar from distance using ranged_close/ranged_far
-    // Source: DamageProfile.dropoff_scalar (damage_profile.lua:234-243)
     const close = constants?.ranged_close ?? 12.5;
     const far = constants?.ranged_far ?? 30;
     const dropoffScalar = clamp((distance ?? 0) - close, 0, far - close) / (far - close);
-    // Source: damage_profile.lua:190 — ADM uses linear lerp (not sqrt)
     return lerp(nearADM, farADM, dropoffScalar);
   }
 
-  // Melee path
-  // Source: damage_profile.lua:192-211
   const adm = profile.armor_damage_modifier;
-  let entry;
+  let entry: number | number[] | undefined;
 
   if (adm?.attack?.[armorType] != null) {
     entry = adm.attack[armorType];
@@ -225,40 +384,34 @@ export function resolveArmorDamageModifier({
 
 /**
  * If entry is a [min, max] array, lerp by quality. Otherwise return scalar.
- * Source: DamageProfile.lerp_damage_profile_entry (damage_profile.lua:379-384)
  */
-function lerpADMEntry(entry, quality) {
+function lerpADMEntry(entry: number | number[] | null | undefined, quality: number): number {
   if (Array.isArray(entry)) {
     return lerp(entry[0], entry[1], quality ?? 0);
   }
   return entry ?? 1;
 }
 
-// ── Stage 4: Rending ────────────────────────────────────────────────
+// -- Stage 4: Rending ---------------------------------------------------------
+
+export interface RendingParams {
+  rendingSources: number;
+  armorDamageModifier: number;
+  armorType: string;
+  constants: CalculatorConstants;
+}
 
 /**
  * Applies rending to the armor damage modifier.
  *
  * Source: damage_calculation.lua:67-83
- *
- * Three cases based on ADM vs rending:
- * 1. ADM >= 1: overdamage directly (rended = ADM + rending * overdamage_mult)
- * 2. ADM + rending > 1: partial overdamage (rended = 1 + excess * overdamage_mult)
- * 3. ADM + rending <= 1: simple addition (rended = ADM + rending)
- *
- * @param {object} params
- * @param {number} params.rendingSources - Accumulated rending multiplier (0–1, pre-capped)
- * @param {number} params.armorDamageModifier - ADM from stage 3
- * @param {string} params.armorType - Target armor type
- * @param {object} params.constants - { rending_armor_type_multiplier, overdamage_rending_multiplier }
- * @returns {{ rendedADM: number }}
  */
 export function calculateRending({
   rendingSources,
   armorDamageModifier,
   armorType,
   constants,
-}) {
+}: RendingParams): { rendedADM: number } {
   const rendingArmorMult = constants.rending_armor_type_multiplier[armorType] ?? 0;
   const overdamageMult = constants.overdamage_rending_multiplier[armorType] ?? 0;
   const rendingMultiplier = rendingSources * rendingArmorMult;
@@ -267,47 +420,36 @@ export function calculateRending({
     return { rendedADM: armorDamageModifier };
   }
 
-  // Source: damage_calculation.lua:73-79
-  let rendedADM;
+  let rendedADM: number;
   const admLost = Math.max(1 - armorDamageModifier, 0);
 
   if (armorDamageModifier >= 1) {
-    // Case 1: ADM already above 1 — all rending is overdamage
     rendedADM = armorDamageModifier + rendingMultiplier * overdamageMult;
   } else if (admLost < rendingMultiplier) {
-    // Case 2: Rending fills the gap to 1 and overflows
     rendedADM = 1 + (rendingMultiplier - admLost) * overdamageMult;
   } else {
-    // Case 3: Rending doesn't reach 1 — simple addition
     rendedADM = armorDamageModifier + rendingMultiplier;
   }
 
   return { rendedADM };
 }
 
-// ── Stage 5: Finesse Boost ──────────────────────────────────────────
+// -- Stage 5: Finesse Boost ---------------------------------------------------
+
+export interface FinesseBoostParams {
+  isCrit: boolean;
+  isWeakspot: boolean;
+  armorType: string;
+  constants: CalculatorConstants;
+  profileBoostCurve?: number[];
+  profileFinesseBoost?: Record<string, number>;
+  profileCritBoost?: number;
+}
 
 /**
  * Calculates the finesse (crit + weakspot) boost multiplier.
  *
  * Source: ui_finesse_multiplier (damage_calculation.lua:135-167)
- * Simplified from the full _finesse_boost_damage (646-757) which also applies
- * weakspot/crit stat buff multipliers, base_boost_damage scaling, and
- * boost_curve_multiplier_finesse. These finesse buff multipliers are not yet
- * modeled in the static calculator.
- *
- * The finesse amount is the sum of weakspot + crit contributions, clamped to [0, 1],
- * then passed through the boost curve to produce a multiplier.
- *
- * @param {object} params
- * @param {boolean} params.isCrit
- * @param {boolean} params.isWeakspot
- * @param {string} params.armorType
- * @param {object} params.constants - { default_finesse_boost_amount, default_crit_boost_amount, boost_curves }
- * @param {number[]} [params.profileBoostCurve] - Override boost curve from profile
- * @param {object} [params.profileFinesseBoost] - Override finesse boost table { [armorType]: amount }
- * @param {number} [params.profileCritBoost] - Override crit boost amount
- * @returns {number} Finesse multiplier (>= 1)
  */
 export function calculateFinesseBoost({
   isCrit,
@@ -317,10 +459,9 @@ export function calculateFinesseBoost({
   profileBoostCurve,
   profileFinesseBoost,
   profileCritBoost,
-}) {
+}: FinesseBoostParams): number {
   let finesseAmount = 0;
 
-  // Source: damage_calculation.lua:648-662
   if (isWeakspot) {
     const boostTable = profileFinesseBoost;
     finesseAmount +=
@@ -329,7 +470,6 @@ export function calculateFinesseBoost({
       0.5;
   }
 
-  // Source: damage_calculation.lua:664-670
   if (isCrit) {
     const critBoost =
       profileCritBoost ?? constants.default_crit_boost_amount ?? 0.5;
@@ -340,10 +480,8 @@ export function calculateFinesseBoost({
     return 1;
   }
 
-  // Source: damage_calculation.lua:677
   finesseAmount = Math.min(finesseAmount, 1);
 
-  // Source: damage_calculation.lua:680
   const curve =
     profileBoostCurve ?? constants.boost_curves?.default ?? [0, 0.3, 0.6, 0.8, 1];
   const boost = boostCurveMultiplier(curve, finesseAmount);
@@ -351,21 +489,20 @@ export function calculateFinesseBoost({
   return 1 + boost;
 }
 
-// ── Stage 6: Positional ─────────────────────────────────────────────
+// -- Stage 6: Positional ------------------------------------------------------
+
+export interface PositionalParams {
+  damage: number;
+  isBackstab: boolean;
+  isFlanking: boolean;
+  buffStack: BuffStack;
+  backstabBonus?: number;
+}
 
 /**
  * Applies backstab and flanking damage bonuses.
  *
  * Source: _backstab_damage (damage_calculation.lua:808-815)
- *         _flanking_damage (damage_calculation.lua:817-822)
- *
- * @param {object} params
- * @param {number} params.damage - Current damage value
- * @param {boolean} params.isBackstab
- * @param {boolean} params.isFlanking
- * @param {object} params.buffStack - { backstab_damage?, flanking_damage? } (default 1)
- * @param {number} [params.backstabBonus] - Profile-specific backstab_bonus (default 0)
- * @returns {number} Damage after positional bonuses
  */
 export function calculatePositional({
   damage,
@@ -373,8 +510,7 @@ export function calculatePositional({
   isFlanking,
   buffStack,
   backstabBonus,
-}) {
-  // Source: damage_calculation.lua:808-815
+}: PositionalParams): number {
   let backstabDamage = 0;
   if (isBackstab) {
     const backstabBuff = buffStack.backstab_damage ?? 1;
@@ -383,7 +519,6 @@ export function calculatePositional({
     backstabDamage = damage * (multiplier - 1);
   }
 
-  // Source: damage_calculation.lua:817-822
   let flankingDamage = 0;
   if (isFlanking) {
     const flankingBuff = buffStack.flanking_damage ?? 1;
@@ -393,125 +528,96 @@ export function calculatePositional({
   return damage + backstabDamage + flankingDamage;
 }
 
-// ── Stage 7: Hit Zone Damage Multiplier ─────────────────────────────
+// -- Stage 7: Hit Zone Damage Multiplier --------------------------------------
+
+export interface HitZoneMultiplierParams {
+  breed: BreedData | null;
+  hitZone: string;
+  attackType: string;
+}
 
 /**
  * Looks up the damage multiplier for the hit zone on the target breed.
  *
  * Source: _hit_zone_damage_multiplier (damage_calculation.lua:769-806)
- *
- * @param {object} params
- * @param {object|null} params.breed - Breed data with hitzone_damage_multiplier
- * @param {string} params.hitZone - Hit zone name (e.g. "head", "body")
- * @param {string} params.attackType - "melee" or "ranged"
- * @returns {number} Hit zone multiplier (default 1.0)
  */
-export function hitZoneDamageMultiplier({ breed, hitZone, attackType }) {
+export function hitZoneDamageMultiplier({ breed, hitZone, attackType }: HitZoneMultiplierParams): number {
   if (!breed) return 1;
 
   const hzm = breed.hitzone_damage_multiplier;
   if (!hzm) return 1;
 
-  // Source: damage_calculation.lua:793
   const defaultMap = hzm.default;
   const attackTypeMap = hzm[attackType] ?? defaultMap;
 
   if (!attackTypeMap) return 1;
 
-  // Source: damage_calculation.lua:799
   const mult = attackTypeMap[hitZone] ?? defaultMap?.[hitZone];
 
   return mult ?? 1;
 }
 
-// ── Stage 8: Armor-Type Stat Buffs ──────────────────────────────────
+// -- Stage 8: Armor-Type Stat Buffs -------------------------------------------
+
+export interface ArmorTypeBuffParams {
+  damage: number;
+  armorType: string;
+  buffStack: BuffStack;
+}
 
 /**
  * Armor-type-specific damage buffs (e.g. armored_damage, unarmored_damage).
  *
  * Source: _apply_armor_type_buffs_to_damage (damage_calculation.lua:196-201)
- *         ARMOR_TYPE_TO_STAT_BUFF lookup (damage_calculation.lua:187-194)
- * Note: Source applies this twice (attacker + target stat buffs). Static
- * calculator only models attacker side.
- *
- * @param {object} params
- * @param {number} params.damage - Current damage
- * @param {string} params.armorType - Target armor type
- * @param {object} params.buffStack - { [armorType_damage]: multiplier }
- * @returns {number} Damage after armor-type buff
  */
-export function applyArmorTypeBuffs({ damage, armorType, buffStack }) {
-  // Source: ARMOR_TYPE_TO_STAT_BUFF (damage_calculation.lua:187-194)
+export function applyArmorTypeBuffs({ damage, armorType, buffStack }: ArmorTypeBuffParams): number {
   const statName = `${armorType}_damage`;
   const mult = buffStack[statName] ?? 1;
   return damage * mult;
 }
 
-// ── Stage 9: Diminishing Returns ───────────────────────────────────
+// -- Stage 9: Diminishing Returns ---------------------------------------------
+
+export interface DiminishingReturnsParams {
+  damage: number;
+  breed: BreedData | null;
+  healthPercent: number;
+}
 
 /**
  * Applies diminishing returns scaling based on target's current health.
  *
  * Source: _apply_diminishing_returns_to_damage (damage_calculation.lua:759-767)
- *
- * Only applies when breed.diminishing_returns_damage is truthy.
- * Uses easeInCubic(healthPercent) to scale damage — at full health (1.0)
- * this is a no-op (1^3 = 1). At lower health, damage is reduced cubically.
- *
- * For static breakpoint analysis, healthPercent defaults to 1.0 (full health),
- * making this effectively a no-op. Implemented for correctness and future use
- * in multi-hit simulations.
- *
- * @param {object} params
- * @param {number} params.damage - Current damage value
- * @param {object|null} params.breed - Breed data (needs diminishing_returns_damage flag)
- * @param {number} params.healthPercent - Target's current health as fraction 0–1
- * @returns {number} Damage after diminishing returns
  */
-export function applyDiminishingReturns({ damage, breed, healthPercent }) {
+export function applyDiminishingReturns({ damage, breed, healthPercent }: DiminishingReturnsParams): number {
   if (!breed || !breed.diminishing_returns_damage) {
     return damage;
   }
 
-  // Source: math.easeInCubic(x) = x^3
-  // Source: math.lerp(0, damage, easeInCubic(healthPercent))
   const eased = healthPercent * healthPercent * healthPercent;
   return lerp(0, damage, eased);
 }
 
-// ── Stage 10: Force Field (no-op) ──────────────────────────────────
-// Force field short-circuit — skip in static calculator.
-// Force fields are dynamic ability effects (e.g. Psyker dome) that
-// negate all damage. Not relevant for breakpoint analysis.
-// Deferred to #11 (toughness/survivability calculator).
+// -- Stage 11: Damage Efficiency Classification -------------------------------
 
-// ── Stage 11: Damage Efficiency Classification ─────────────────────
+export interface DamageEfficiencyParams {
+  armorDamageModifier: number;
+  armorType: string;
+  rendingDamage?: number;
+}
 
 /**
  * Classifies the damage efficiency of an attack based on ADM and armor type.
  *
  * Source: armor_damage_modifier_to_damage_efficiency (attack_settings.lua:26-34)
- *
- * Three categories:
- * - "negated": (armored or super_armor) with ADM <= 0.1 and no rending damage,
- *              or void_shield targets
- * - "full": ADM > 0.6
- * - "reduced": everything else
- *
- * @param {object} params
- * @param {number} params.armorDamageModifier - Effective ADM (after rending)
- * @param {string} params.armorType - Target armor type
- * @param {number} [params.rendingDamage] - Amount of rending damage applied (default 0)
- * @returns {"negated"|"reduced"|"full"} Damage efficiency category
  */
 export function classifyDamageEfficiency({
   armorDamageModifier,
   armorType,
   rendingDamage,
-}) {
+}: DamageEfficiencyParams): DamageEfficiency {
   const rending = rendingDamage ?? 0;
 
-  // Source: attack_settings.lua:27
   if (
     (armorType === "super_armor" || armorType === "armored") &&
     armorDamageModifier <= 0.1 &&
@@ -520,52 +626,34 @@ export function classifyDamageEfficiency({
     return "negated";
   }
 
-  // Source: attack_settings.lua:27 (void_shield clause)
   if (armorType === "void_shield") {
     return "negated";
   }
 
-  // Source: attack_settings.lua:29
   if (armorDamageModifier > 0.6) {
     return "full";
   }
 
-  // Source: attack_settings.lua:31
   return "reduced";
 }
 
-// ── Stage 12: Toughness/Health Split (no-op) ───────────────────────
-// Toughness vs health damage allocation — skip in static calculator.
-// Breakpoint analysis uses raw health damage (pre-toughness).
-// Deferred to #11 (toughness/survivability calculator).
+// -- Orchestrator: computeHit -------------------------------------------------
 
-// ── Stage 13: Final Application (no-op) ────────────────────────────
-// Leech, resist_death, and other post-damage hooks — skip in static
-// calculator. Breakpoint analysis uses pre-stage-13 damage.
-// Deferred to #11 (toughness/survivability calculator).
-
-// ── Orchestrator: computeHit ───────────────────────────────────────
+export interface ComputeHitParams {
+  profile: DamageProfile;
+  hitZone: string;
+  breed: BreedData;
+  difficulty: string;
+  flags?: ConditionFlags;
+  buffStack?: BuffStack;
+  quality?: number;
+  distance?: number;
+  chargeLevel?: number;
+  constants: CalculatorConstants;
+}
 
 /**
  * Composes the active pipeline stages (1-9, 11) into a single hit computation.
- * Stages 10, 12, 13 are no-ops in the static calculator (deferred to #11).
- *
- * This is the primary public API for the damage calculator. It takes a
- * damage profile, target breed, difficulty, and buff state, then runs
- * the full pipeline to produce final damage and hits-to-kill.
- *
- * @param {object} params
- * @param {object} params.profile - Damage profile (from damage-profiles.json)
- * @param {string} params.hitZone - Hit zone name ("head", "torso", etc.)
- * @param {object} params.breed - Breed data (from breed-data.json)
- * @param {string} params.difficulty - "uprising"|"malice"|"heresy"|"damnation"|"auric"
- * @param {object} [params.flags] - { is_crit, is_weakspot, is_backstab, is_flanking }
- * @param {object} [params.buffStack] - Pre-assembled buff stack
- * @param {number} [params.quality] - Weapon modifier quality 0–1 (default 0.8)
- * @param {number} [params.distance] - Distance in meters (default 0 = melee)
- * @param {number} [params.chargeLevel] - Charge level 0–1 (default 1)
- * @param {object} params.constants - Pipeline constants from damage-profiles.json
- * @returns {object} Hit result with damage, hitsToKill, and stage outputs
  */
 export function computeHit({
   profile,
@@ -576,48 +664,45 @@ export function computeHit({
   buffStack,
   quality,
   distance,
-  chargeLevel,
+  chargeLevel: _chargeLevel,
   constants,
-}) {
+}: ComputeHitParams): HitResult {
   const _flags = flags ?? {};
   const _buffStack = buffStack ?? {};
   const _quality = quality ?? 0.8;
   const _distance = distance ?? 0;
 
-  // ── Resolve effective armor type for this hitzone ──
-  // hitzone_armor_override takes precedence over base_armor_type
-  const hitZoneData = breed.hit_zones?.[hitZone] ?? {};
-  const effectiveArmorType = hitZoneData.armor_type ?? breed.base_armor_type;
+  // Resolve effective armor type for this hitzone
+  const hitZoneData: HitZoneData = (breed.hit_zones as Record<string, HitZoneData> | undefined)?.[hitZone] ?? {};
+  const effectiveArmorType = hitZoneData.armor_type ?? breed.base_armor_type ?? "unarmored";
   const isHitZoneWeakspot = hitZoneData.weakspot ?? false;
 
-  // ── Determine if ranged ──
+  // Determine if ranged
   const isRanged = !profile.melee_attack_strength;
 
-  // ── Compute dropoff scalar for ranged ──
-  // Source: DamageProfile.dropoff_scalar (damage_profile.lua:234-243)
-  // Simplified: uses fixed ranged_close/ranged_far instead of per-profile ranges.
-  let dropoffScalar;
+  // Compute dropoff scalar for ranged
+  let dropoffScalar: number | undefined;
   if (isRanged) {
     const close = constants.ranged_close ?? 12.5;
     const far = constants.ranged_far ?? 30;
     dropoffScalar = clamp((_distance - close) / (far - close), 0, 1);
   }
 
-  // ── Stage 1: Power level → base damage ──
+  // Stage 1: Power level -> base damage
   const baseDamage = powerLevelToDamage({
     powerLevel: constants.default_power_level,
-    powerDistribution: profile.power_distribution,
-    powerDistributionRanged: profile.power_distribution_ranged,
+    powerDistribution: profile.power_distribution as { attack: number },
+    powerDistributionRanged: profile.power_distribution_ranged as PowerLevelToDamageParams["powerDistributionRanged"],
     armorType: effectiveArmorType,
     constants,
     isRanged,
     dropoffScalar,
   });
 
-  // ── Stage 2: Buff multiplier ──
+  // Stage 2: Buff multiplier
   const buffedDamage = calculateDamageBuff({ baseDamage, buffStack: _buffStack });
 
-  // ── Stage 3: Armor damage modifier ──
+  // Stage 3: Armor damage modifier
   const adm = resolveArmorDamageModifier({
     profile,
     armorType: effectiveArmorType,
@@ -628,7 +713,7 @@ export function computeHit({
     defaultADM: constants.default_armor_damage_modifier,
   });
 
-  // ── Stage 4: Rending ──
+  // Stage 4: Rending
   const rendingSources = _buffStack.rending_multiplier ?? 0;
   const { rendedADM } = calculateRending({
     rendingSources,
@@ -640,12 +725,11 @@ export function computeHit({
   // Apply ADM to buffed damage
   let damage = buffedDamage * rendedADM;
 
-  // ── Stage 5: Finesse boost ──
-  // Both the flag and the hitzone must agree for weakspot finesse
+  // Stage 5: Finesse boost
   const effectiveWeakspot = (_flags.is_weakspot ?? false) && isHitZoneWeakspot;
 
   const finesseBoost = calculateFinesseBoost({
-    isCrit: _flags.is_crit ?? false,
+    isCrit: (_flags.is_crit as boolean) ?? false,
     isWeakspot: effectiveWeakspot,
     armorType: effectiveArmorType,
     constants,
@@ -655,33 +739,27 @@ export function computeHit({
   });
   damage *= finesseBoost;
 
-  // ── Stage 6: Positional ──
+  // Stage 6: Positional
   damage = calculatePositional({
     damage,
-    isBackstab: _flags.is_backstab ?? false,
-    isFlanking: _flags.is_flanking ?? false,
+    isBackstab: (_flags.is_backstab as boolean) ?? false,
+    isFlanking: (_flags.is_flanking as boolean) ?? false,
     buffStack: _buffStack,
     backstabBonus: profile.backstab_bonus,
   });
 
-  // ── Stage 7: Hitzone multiplier ──
+  // Stage 7: Hitzone multiplier
   const attackType = isRanged ? "ranged" : "melee";
   const hzMult = hitZoneDamageMultiplier({ breed, hitZone, attackType });
   damage *= hzMult;
 
-  // ── Stage 8: Armor-type stat buffs (attacker side) ──
+  // Stage 8: Armor-type stat buffs (attacker side)
   damage = applyArmorTypeBuffs({ damage, armorType: effectiveArmorType, buffStack: _buffStack });
 
-  // ── Stage 9: Diminishing returns ──
+  // Stage 9: Diminishing returns
   damage = applyDiminishingReturns({ damage, breed, healthPercent: 1.0 });
 
-  // Stage 10: Force field — skip (not relevant for breakpoint analysis)
-  // Stage 12: Toughness/health split — skip (breakpoints use raw health damage)
-  // Stage 13: Final application — skip (breakpoints use pre-stage-13 damage)
-
-  // ── Stage 11: Damage efficiency classification ──
-  // Source passes pre-rending ADM to the efficiency classifier (line 107)
-  // and rending_damage = damage * (rended_adm - raw_adm) (line 81)
+  // Stage 11: Damage efficiency classification
   const rendingDamage = rendedADM > adm ? (rendedADM - adm) * buffedDamage : 0;
   const damageEfficiency = classifyDamageEfficiency({
     armorDamageModifier: adm,
@@ -689,11 +767,9 @@ export function computeHit({
     rendingDamage,
   });
 
-  // ── Compute hits to kill ──
+  // Compute hits to kill
   const enemyHP = breed.difficulty_health?.[difficulty];
   if (enemyHP == null) {
-    // Data absent — breed lacks HP for this difficulty level.
-    // Return null HTK (distinct from Infinity which means damage genuinely negated).
     return {
       damage,
       hitsToKill: null,
@@ -725,31 +801,22 @@ export function computeHit({
   };
 }
 
-// ── Buff Stack Assembly ─────────────────────────────────────────────
+// -- Buff Stack Assembly ------------------------------------------------------
 
-/**
- * Known multiplicative stats — their magnitudes are multiplied together
- * rather than summed.
- */
+/** Stats whose magnitudes are multiplied together rather than summed. */
 const MULTIPLICATIVE_STATS = new Set([
   "smite_damage_multiplier",
   "companion_damage_multiplier",
 ]);
 
-/**
- * Known target-side multiplier stats — combined into target_modifier.
- */
+/** Target-side multiplier stats -- combined into target_modifier. */
 const TARGET_MULTIPLIER_STATS = new Set([
   "damage_taken_multiplier",
   "damage_taken_melee_multiplier",
   "damage_taken_ranged_multiplier",
 ]);
 
-/**
- * Stats stored individually on the buff stack for use by specific pipeline
- * stages (rending, positional, armor-type). They do NOT contribute to
- * additive_sum.
- */
+/** Stats stored individually on the buff stack for specific pipeline stages. */
 const INDIVIDUAL_STATS = new Set([
   "rending_multiplier",
   "backstab_damage",
@@ -764,14 +831,11 @@ const INDIVIDUAL_STATS = new Set([
 
 /**
  * Checks whether a conditional effect is active given the current flags.
- *
- * @param {string|null} condition - Condition tag from the effect
- * @param {object} flags - Scenario flags
- * @returns {{ active: boolean, scale?: number }}
- *   active=true means include the effect; scale (if present) means
- *   multiply magnitude by this value (for lerped conditions).
  */
-function isConditionActive(condition, flags) {
+function isConditionActive(
+  condition: string | null | undefined,
+  flags: ConditionFlags,
+): { active: boolean; scale?: number } {
   if (!condition) return { active: true };
 
   switch (condition) {
@@ -780,62 +844,45 @@ function isConditionActive(condition, flags) {
     case "threshold:toughness_high":
       return { active: flags.health_state === "full" };
     case "threshold:warp_charge":
-      // Lerped: scale magnitude by warp_charge fraction (0-1)
       return {
         active: (flags.warp_charge ?? 0) > 0,
         scale: flags.warp_charge ?? 0,
       };
     case "threshold:stamina_high":
     case "threshold:stamina_full":
-      return { active: true }; // conservative: assume stamina is high
+      return { active: true };
     case "ads_active":
       return { active: flags.ads_active === true };
     case "ability_active":
       return { active: flags.ability_active === true };
     case "during_heavy":
-      // Always include — filtering happens at computeHit level
       return { active: true };
     case "during_reload":
       return { active: flags.during_reload === true };
     case "wielded":
     case "active":
-      return { active: true }; // self-sufficient when equipped
+      return { active: true };
     case "unknown_condition":
-      return { active: false }; // conservative: exclude
+      return { active: false };
     default:
-      return { active: false }; // unrecognized → exclude
+      return { active: false };
   }
 }
 
 /**
  * Assembles a buff stack from a canonical build, entity index, and scenario flags.
- *
- * Collects all resolved entity IDs from the build (talents, structural slots,
- * weapon blessings/perks, curio perks), looks up their calc.effects in the index,
- * filters by condition flags, and accumulates into a flat buff stack object
- * consumed by computeHit.
- *
- * For name_family entities (blessings), traverses instance_of edges to find
- * a weapon_trait with effects or tiered effects (using last tier).
- *
- * @param {object} build - Canonical build JSON
- * @param {object} index - { entities: Map<string, entity>, edges: Array<edge> }
- * @param {object} flags - Scenario flags (health_state, warp_charge, ads_active, etc.)
- * @returns {object} Flat buff stack with additive_sum, multiplicative_product,
- *   target_modifier, and individual per-stat values.
  */
-export function assembleBuildBuffStack(build, index, flags) {
+export function assembleBuildBuffStack(build: Build, index: EntityIndex, flags?: ConditionFlags): BuffStack {
   const _flags = flags ?? {};
   const entities = index.entities;
   const edges = index.edges ?? [];
   const classDomain = build.class?.canonical_entity_id?.split(".").pop() ?? null;
 
-  // ── Step 1: Collect all resolved entity IDs ──
-  const entityIds = [];
+  // Step 1: Collect all resolved entity IDs
+  const entityIds: string[] = [];
 
-  // Structural slots
-  for (const field of ["ability", "blitz", "aura", "keystone"]) {
-    const slot = build[field];
+  for (const field of ["ability", "blitz", "aura", "keystone"] as const) {
+    const slot = build[field] as BuildSlot | undefined;
     if (
       slot?.canonical_entity_id &&
       slot.resolution_status === "resolved"
@@ -844,7 +891,6 @@ export function assembleBuildBuffStack(build, index, flags) {
     }
   }
 
-  // Flat talents
   for (const t of build.talents ?? []) {
     if (
       t.canonical_entity_id &&
@@ -854,7 +900,6 @@ export function assembleBuildBuffStack(build, index, flags) {
     }
   }
 
-  // Weapons: blessings + perks
   for (const w of build.weapons ?? []) {
     for (const b of w.blessings ?? []) {
       if (
@@ -874,7 +919,6 @@ export function assembleBuildBuffStack(build, index, flags) {
     }
   }
 
-  // Curios: perks
   for (const c of build.curios ?? []) {
     for (const p of c.perks ?? []) {
       if (
@@ -886,42 +930,40 @@ export function assembleBuildBuffStack(build, index, flags) {
     }
   }
 
-  // ── Build instance_of reverse index for name_family traversal ──
-  const instanceOfIndex = new Map();
+  // Build instance_of reverse index for name_family traversal
+  const instanceOfIndex = new Map<string, string[]>();
   for (const edge of edges) {
     if (edge.type !== "instance_of") continue;
     if (!instanceOfIndex.has(edge.to_entity_id)) {
       instanceOfIndex.set(edge.to_entity_id, []);
     }
-    instanceOfIndex.get(edge.to_entity_id).push(edge.from_entity_id);
+    instanceOfIndex.get(edge.to_entity_id)!.push(edge.from_entity_id);
   }
 
-  // ── Step 2-3: Look up effects, filter, accumulate ──
+  // Step 2-3: Look up effects, filter, accumulate
   let additiveSum = 0;
   let multiplicativeProduct = 1;
   let targetModifier = 1;
-  const individualStats = {};
+  const individualStats: Record<string, number> = {};
 
   for (const entityId of entityIds) {
     const entity = entities.get(entityId);
     if (!entity) continue;
 
-    // Resolve effects — direct or via name_family traversal
-    let effects = [];
+    let effects: EntityCalcEffect[] = [];
 
-    if (entity.calc?.effects?.length > 0) {
+    if (entity.calc?.effects && entity.calc.effects.length > 0) {
       effects = entity.calc.effects;
     } else if (entity.kind === "name_family") {
-      // Traverse instance_of edges to find a weapon_trait with effects
       const fromIds = instanceOfIndex.get(entityId) ?? [];
       for (const fromId of fromIds) {
         const fromEntity = entities.get(fromId);
         if (!fromEntity) continue;
-        if (fromEntity.calc?.effects?.length > 0) {
+        if (fromEntity.calc?.effects && fromEntity.calc.effects.length > 0) {
           effects = fromEntity.calc.effects;
           break;
         }
-        if (fromEntity.calc?.tiers?.length > 0) {
+        if (fromEntity.calc?.tiers && fromEntity.calc.tiers.length > 0) {
           const lastTier =
             fromEntity.calc.tiers[fromEntity.calc.tiers.length - 1];
           effects = lastTier.effects ?? [];
@@ -929,15 +971,13 @@ export function assembleBuildBuffStack(build, index, flags) {
         }
       }
     } else if (entity.kind === "stat_node" && entity.internal_name && classDomain) {
-      // Path 3: stat_node — find per-class talent by internal_name prefix match
-      // Mirrors synergy-model.mjs Path 3 (resolveSelections)
       const prefix = entity.internal_name;
-      for (const [id, e] of entities) {
+      for (const [_id, e] of entities) {
         if (
           e.domain === classDomain &&
           e.kind === "talent" &&
           e.internal_name?.startsWith(prefix) &&
-          e.calc?.effects?.length > 0
+          e.calc?.effects && e.calc.effects.length > 0
         ) {
           effects = e.calc.effects;
           break;
@@ -945,54 +985,41 @@ export function assembleBuildBuffStack(build, index, flags) {
       }
     }
 
-    // Filter and accumulate each effect
     for (const effect of effects) {
-      if (effect.magnitude == null) continue; // skip expression-based
+      if (effect.magnitude == null) continue;
 
       const { stat, magnitude, type, condition } = effect;
       if (!stat) continue;
 
-      // ── Filter by type + flags ──
-      let effectiveMagnitude = magnitude;
+      let effectiveMagnitude = magnitude!;
 
       if (type === "stat_buff") {
-        // Unconditional — always included
+        // Unconditional
       } else if (type === "conditional_stat_buff") {
         const result = isConditionActive(condition, _flags);
         if (!result.active) continue;
         if (result.scale != null) {
-          effectiveMagnitude = magnitude * result.scale;
+          effectiveMagnitude = magnitude! * result.scale;
         }
       } else if (type === "proc_stat_buff") {
         if ((_flags.proc_stacks ?? 0) <= 0) continue;
       } else if (type === "lerped_stat_buff") {
-        // Lerped: if magnitude_min/magnitude_max present, interpolate.
-        // All 40 lerped_stat_buff effects in the current entity corpus have null
-        // conditions — they all implicitly use warp_charge as the interpolation
-        // factor. If future entities introduce other lerp variables (e.g. peril,
-        // charge_level), resolve the factor from effect.condition instead.
         const { magnitude_min, magnitude_max } = effect;
         if (magnitude_min != null && magnitude_max != null) {
           const t = _flags.warp_charge ?? 0;
           effectiveMagnitude = magnitude_min + (magnitude_max - magnitude_min) * t;
         }
-        // Otherwise use magnitude directly (already set)
       } else {
-        // Unknown effect type — skip conservatively
         continue;
       }
 
-      // ── Accumulate ──
       if (INDIVIDUAL_STATS.has(stat)) {
-        // Individual stats accumulate additively into their own slot
-        // Stored as 1 + sum(magnitudes) for direct use as multipliers
         individualStats[stat] = (individualStats[stat] ?? 1) + effectiveMagnitude;
       } else if (MULTIPLICATIVE_STATS.has(stat)) {
         multiplicativeProduct *= 1 + effectiveMagnitude;
       } else if (TARGET_MULTIPLIER_STATS.has(stat)) {
         targetModifier *= 1 + effectiveMagnitude;
       } else {
-        // Default: additive damage stat
         additiveSum += effectiveMagnitude;
       }
     }
@@ -1006,17 +1033,15 @@ export function assembleBuildBuffStack(build, index, flags) {
   };
 }
 
-// ── Data Loading ─────────────────────────────────────────────────────
+// -- Data Loading -------------------------------------------------------------
 
 /**
  * Loads the two generated JSON files (damage-profiles.json & breed-data.json)
  * and returns a bundled object for use by computeBreakpoints.
- *
- * @returns {{ profiles: object[], actionMaps: object[], constants: object, breeds: object[] }}
  */
-export function loadCalculatorData() {
-  const profileData = JSON.parse(readFileSync(join(GENERATED_DIR, "damage-profiles.json"), "utf-8"));
-  const breedData = JSON.parse(readFileSync(join(GENERATED_DIR, "breed-data.json"), "utf-8"));
+export function loadCalculatorData(): CalculatorData {
+  const profileData = JSON.parse(readFileSync(join(GENERATED_ROOT, "damage-profiles.json"), "utf-8")) as ProfileData;
+  const breedData = JSON.parse(readFileSync(join(GENERATED_ROOT, "breed-data.json"), "utf-8")) as BreedFileData;
   return {
     profiles: profileData.profiles,
     actionMaps: profileData.action_maps,
@@ -1025,13 +1050,9 @@ export function loadCalculatorData() {
   };
 }
 
-// ── Breakpoint Matrix ────────────────────────────────────────────────
+// -- Breakpoint Matrix --------------------------------------------------------
 
-/**
- * Action type categories for summary grouping.
- * Maps action_map action names to light/heavy/special/push.
- */
-const ACTION_CATEGORY = {
+const ACTION_CATEGORY: Record<string, string> = {
   light_attack: "light",
   action_swing: "light",
   action_swing_right: "light",
@@ -1048,13 +1069,13 @@ const ACTION_CATEGORY = {
 
 const DIFFICULTIES = ["uprising", "malice", "heresy", "damnation", "auric"];
 
-const SCENARIO_PRESETS = {
+const SCENARIO_PRESETS: Record<string, ConditionFlags> = {
   sustained: { health_state: "full" },
   aimed: { is_weakspot: true, health_state: "full" },
   burst: { is_crit: true, is_weakspot: true, proc_stacks: Infinity, health_state: "low" },
 };
 
-const SCENARIO_HITZONES = {
+const SCENARIO_HITZONES: Record<string, string> = {
   sustained: "torso",
   aimed: "head",
   burst: "head",
@@ -1063,22 +1084,12 @@ const SCENARIO_HITZONES = {
 /**
  * Adapts the generated breed-data.json hit_zones format to the shape
  * expected by computeHit.
- *
- * Generated format:
- *   hit_zones: { head: { armor_type, weakspot, damage_multiplier: { ranged, melee } }, ... }
- *
- * computeHit expects:
- *   hit_zones: { head: { armor_type, weakspot }, ... }
- *   hitzone_damage_multiplier: { ranged: { head: 1.5 }, melee: { head: 1 }, default: { head: 1 } }
- *
- * @param {object} rawBreed - Breed record from breed-data.json
- * @returns {object} Breed record with hitzone_damage_multiplier added
  */
-export function adaptBreed(rawBreed) {
+export function adaptBreed(rawBreed: BreedData): BreedData {
   if (!rawBreed.hit_zones) return rawBreed;
 
-  const hzm = { default: {}, melee: {}, ranged: {} };
-  const adaptedHitZones = {};
+  const hzm: BreedHitZoneDamageMultiplier = { default: {}, melee: {}, ranged: {} };
+  const adaptedHitZones: Record<string, HitZoneData> = {};
 
   for (const [zone, data] of Object.entries(rawBreed.hit_zones)) {
     adaptedHitZones[zone] = {
@@ -1087,43 +1098,27 @@ export function adaptBreed(rawBreed) {
     };
     const dm = data.damage_multiplier;
     if (dm) {
-      if (dm.melee != null) hzm.melee[zone] = dm.melee;
-      if (dm.ranged != null) hzm.ranged[zone] = dm.ranged;
-      hzm.default[zone] = dm.melee ?? dm.ranged ?? 1;
+      if (dm.melee != null) hzm.melee![zone] = dm.melee;
+      if (dm.ranged != null) hzm.ranged![zone] = dm.ranged;
+      hzm.default![zone] = dm.melee ?? dm.ranged ?? 1;
     }
   }
 
   return {
     ...rawBreed,
-    hit_zones: adaptedHitZones,
+    hit_zones: adaptedHitZones as BreedData["hit_zones"],
     hitzone_damage_multiplier: hzm,
   };
 }
 
-/**
- * Lerps array-valued profile fields by quality. If the value is already
- * a scalar, returns it unchanged.
- *
- * @param {number|number[]} entry - Scalar or [min, max] array
- * @param {number} quality - 0-1 lerp factor
- * @returns {number} Resolved scalar value
- */
-function lerpProfileEntry(entry, quality) {
+function lerpProfileEntry(entry: number | number[], quality: number): number {
   if (Array.isArray(entry)) {
     return entry[0] + (entry[1] - entry[0]) * quality;
   }
   return entry;
 }
 
-/**
- * Resolves a damage profile's power_distribution for a specific quality,
- * lerping any [min, max] arrays down to scalars.
- *
- * @param {object} profile - Raw damage profile from profiles.json
- * @param {number} quality - Weapon quality 0-1
- * @returns {object} Profile with scalar power_distribution.attack
- */
-function resolveProfileForQuality(profile, quality) {
+function resolveProfileForQuality(profile: DamageProfile, quality: number): DamageProfile {
   const pd = profile.power_distribution;
   if (!pd) return profile;
 
@@ -1138,72 +1133,51 @@ function resolveProfileForQuality(profile, quality) {
   return { ...profile, power_distribution: resolved };
 }
 
-/**
- * Determines whether a weapon is ranged based on its slot or template name.
- *
- * @param {object} weapon - Build weapon entry
- * @param {string} templateName - Internal weapon template name
- * @returns {boolean}
- */
-function isWeaponRanged(weapon, templateName) {
+function isWeaponRanged(weapon: BuildWeapon, templateName: string): boolean {
   if (weapon.slot === "ranged") return true;
   if (weapon.slot === "melee") return false;
-  console.warn(`Warning: weapon '${templateName}' has no slot — defaulting to melee`);
+  console.warn(`Warning: weapon '${templateName}' has no slot -- defaulting to melee`);
   return false;
 }
 
 /**
  * Computes a breakpoint matrix for all weapons in a build.
- *
- * For each weapon × action × scenario × breed × difficulty, runs computeHit
- * and stores the result. Also builds per-weapon summaries with best actions
- * per category at damnation difficulty.
- *
- * @param {object} build - Canonical build JSON
- * @param {object} index - { entities: Map, edges: Array } from loadIndex()
- * @param {object} calcData - From loadCalculatorData()
- * @returns {object} Breakpoint matrix (see output shape in docs)
  */
-export function computeBreakpoints(build, index, calcData) {
+export function computeBreakpoints(build: Build, index: EntityIndex, calcData: CalculatorData): unknown {
   const quality = 0.8;
 
-  // Build profile lookup map
-  const profileMap = new Map();
+  const profileMap = new Map<string, DamageProfile>();
   for (const p of calcData.profiles) {
-    profileMap.set(p.id, p);
+    profileMap.set(p.id!, p);
   }
 
-  // Build action map lookup by weapon template
-  const actionMapByTemplate = new Map();
+  const actionMapByTemplate = new Map<string, ActionMap>();
   for (const am of calcData.actionMaps) {
     actionMapByTemplate.set(am.weapon_template, am);
   }
 
-  // Pre-adapt all breeds
   const breeds = calcData.breeds.map(adaptBreed);
 
-  // Pre-build buff stacks per scenario
-  const buffStacks = {};
+  const buffStacks: Record<string, BuffStack> = {};
   for (const [name, flags] of Object.entries(SCENARIO_PRESETS)) {
     buffStacks[name] = assembleBuildBuffStack(build, index, flags);
   }
 
-  const weaponResults = [];
+  const weaponResults: unknown[] = [];
 
   for (let slot = 0; slot < (build.weapons ?? []).length; slot++) {
-    const weapon = build.weapons[slot];
+    const weapon = build.weapons![slot];
     const entityId = weapon.name?.canonical_entity_id;
     if (!entityId || weapon.name?.resolution_status !== "resolved") continue;
 
-    // Extract internal template name: shared.weapon.autogun_p1_m1 → autogun_p1_m1
-    const templateName = entityId.split(".").pop();
+    const templateName = entityId.split(".").pop()!;
     const actionMap = actionMapByTemplate.get(templateName);
-    if (!actionMap) continue; // No action map for this weapon — skip
+    if (!actionMap) continue;
 
     const isRanged = isWeaponRanged(weapon, templateName);
     const distance = isRanged ? 20 : 0;
 
-    const actionResults = [];
+    const actionResults: unknown[] = [];
 
     for (const [actionType, profileIds] of Object.entries(actionMap.actions)) {
       for (const profileId of profileIds) {
@@ -1213,13 +1187,13 @@ export function computeBreakpoints(build, index, calcData) {
         const profile = resolveProfileForQuality(rawProfile, quality);
         if (!profile.power_distribution) continue;
 
-        const scenarios = {};
+        const scenarios: Record<string, unknown> = {};
 
         for (const scenarioName of Object.keys(SCENARIO_PRESETS)) {
           const hitZone = SCENARIO_HITZONES[scenarioName];
           const buffStack = buffStacks[scenarioName];
           const flags = SCENARIO_PRESETS[scenarioName];
-          const breedResults = [];
+          const breedResults: unknown[] = [];
 
           for (const breed of breeds) {
             for (const diff of DIFFICULTIES) {
@@ -1258,7 +1232,6 @@ export function computeBreakpoints(build, index, calcData) {
       }
     }
 
-    // Build summary: best action per category at damnation for sustained scenario
     const summary = buildActionSummary(actionResults);
 
     weaponResults.push({
@@ -1275,7 +1248,7 @@ export function computeBreakpoints(build, index, calcData) {
       const status = w.name?.resolution_status;
       return `  slot ${i}: ${eid ?? "no entity ID"} (${status ?? "unknown"})`;
     });
-    console.warn(`Warning: all ${build.weapons.length} weapon(s) skipped in breakpoint calc:\n${skipped.join("\n")}`);
+    console.warn(`Warning: all ${build.weapons!.length} weapon(s) skipped in breakpoint calc:\n${skipped.join("\n")}`);
   }
 
   return {
@@ -1288,36 +1261,32 @@ export function computeBreakpoints(build, index, calcData) {
   };
 }
 
-/**
- * Builds a per-weapon summary: bestLight, bestHeavy, bestSpecial.
- * Picks the action with the lowest average hitsToKill at damnation for each category.
- *
- * @param {object[]} actionResults - Array of action results from computeBreakpoints
- * @returns {{ bestLight: object|null, bestHeavy: object|null, bestSpecial: object|null }}
- */
-function buildActionSummary(actionResults) {
-  const categoryBest = { light: null, heavy: null, special: null };
+interface ActionResultForSummary {
+  type: string;
+  profileId: string;
+  scenarios: Record<string, { breeds: Array<{ breed_id: string; difficulty: string; hitsToKill: number | null }> }>;
+}
 
-  for (const action of actionResults) {
+function buildActionSummary(actionResults: unknown[]): { bestLight: unknown; bestHeavy: unknown; bestSpecial: unknown } {
+  const categoryBest: Record<string, { actionType: string; profileId: string; damnation: Record<string, number | null>; _avgHTK: number } | null> = { light: null, heavy: null, special: null };
+
+  for (const action of actionResults as ActionResultForSummary[]) {
     const category = ACTION_CATEGORY[action.type] ?? null;
     if (!category || category === "push") continue;
-    if (!categoryBest.hasOwnProperty(category)) continue;
+    if (!Object.prototype.hasOwnProperty.call(categoryBest, category)) continue;
 
-    // Compute average hitsToKill at damnation across all breeds for sustained scenario
     const sustained = action.scenarios.sustained;
     if (!sustained) continue;
 
     const damnationEntries = sustained.breeds.filter(b => b.difficulty === "damnation");
     if (damnationEntries.length === 0) continue;
 
-    // Use sum of finite hitsToKill; treat Infinity as very large
     const totalHTK = damnationEntries.reduce((sum, b) => {
-      return sum + (Number.isFinite(b.hitsToKill) ? b.hitsToKill : 9999);
+      return sum + (Number.isFinite(b.hitsToKill) ? b.hitsToKill! : 9999);
     }, 0);
     const avgHTK = totalHTK / damnationEntries.length;
 
-    // Build per-breed breakdown at damnation
-    const damnationBreakpoints = {};
+    const damnationBreakpoints: Record<string, number | null> = {};
     for (const entry of damnationEntries) {
       damnationBreakpoints[entry.breed_id] = entry.hitsToKill;
     }
@@ -1335,8 +1304,7 @@ function buildActionSummary(actionResults) {
     }
   }
 
-  // Strip internal _avgHTK from output
-  const clean = (entry) => {
+  const clean = (entry: typeof categoryBest[string]): unknown => {
     if (!entry) return null;
     const { _avgHTK, ...rest } = entry;
     return rest;
@@ -1349,41 +1317,31 @@ function buildActionSummary(actionResults) {
   };
 }
 
-// ── Breakpoint Summary ───────────────────────────────────────────────
+// -- Breakpoint Summary -------------------------------------------------------
 
-/** Key breed IDs for breakpoint summary: rager (berzerker), armored heavy (bulwark), horde (poxwalker). */
 const KEY_BREEDS = ["renegade_berzerker", "chaos_ogryn_bulwark", "chaos_poxwalker"];
 
 /**
  * Extracts per-weapon best-case hits-to-kill for key enemies at damnation.
- * Used by the scoring layer.
- *
- * For each weapon, for each scenario, picks the best action per category
- * (light/heavy/special) by lowest hitsToKill for key enemies.
- *
- * @param {object} matrix - Output from computeBreakpoints
- * @returns {object[]} Array of summary entries
  */
-export function summarizeBreakpoints(matrix) {
-  const summaries = [];
+export function summarizeBreakpoints(matrix: { weapons: Array<{ entityId: string; actions: ActionResultForSummary[] }>; metadata: { scenarios: string[] } }): unknown[] {
+  const summaries: unknown[] = [];
 
   for (const weapon of matrix.weapons) {
     for (const scenarioName of matrix.metadata.scenarios) {
-      // Group actions by category
-      const categoryActions = { light: [], heavy: [], special: [] };
+      const categoryActions: Record<string, ActionResultForSummary[]> = { light: [], heavy: [], special: [] };
 
       for (const action of weapon.actions) {
         const category = ACTION_CATEGORY[action.type] ?? null;
         if (!category || category === "push") continue;
-        if (!categoryActions.hasOwnProperty(category)) continue;
+        if (!Object.prototype.hasOwnProperty.call(categoryActions, category)) continue;
         categoryActions[category].push(action);
       }
 
       for (const [category, actions] of Object.entries(categoryActions)) {
         if (actions.length === 0) continue;
 
-        // Pick action with lowest average hitsToKill across key breeds at damnation
-        let bestAction = null;
+        let bestAction: ActionResultForSummary | null = null;
         let bestAvg = Infinity;
 
         for (const action of actions) {
@@ -1396,7 +1354,7 @@ export function summarizeBreakpoints(matrix) {
           if (keyEntries.length === 0) continue;
 
           const avg = keyEntries.reduce((sum, b) => {
-            return sum + (Number.isFinite(b.hitsToKill) ? b.hitsToKill : 9999);
+            return sum + (Number.isFinite(b.hitsToKill) ? b.hitsToKill! : 9999);
           }, 0) / keyEntries.length;
 
           if (avg < bestAvg) {
@@ -1408,7 +1366,7 @@ export function summarizeBreakpoints(matrix) {
         if (!bestAction) continue;
 
         const scenario = bestAction.scenarios[scenarioName];
-        const keyBreakpoints = {};
+        const keyBreakpoints: Record<string, number | null> = {};
         for (const breedId of KEY_BREEDS) {
           const entry = scenario.breeds.find(
             b => b.breed_id === breedId && b.difficulty === "damnation"

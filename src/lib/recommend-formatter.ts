@@ -1,8 +1,65 @@
-// @ts-nocheck
 /**
  * Text/JSON formatters for recommendation output.
- * Pattern matches report-formatter.mjs.
+ * Pattern matches report-formatter.
  */
+
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+export interface GapEntry {
+  type: string;
+  reason: string;
+  suggested_families: string[];
+}
+
+export interface Scorecard {
+  title?: string;
+  letter_grade: string;
+  composite_score: number;
+}
+
+export interface GapAnalysisResult {
+  gaps: GapEntry[];
+  underinvested_families: string[];
+  scorecard: Scorecard;
+}
+
+export interface ScoreDelta {
+  talent_coherence?: number | null;
+  blessing_synergy?: number | null;
+  role_coverage?: number | null;
+  composite?: number | null;
+}
+
+export interface SynergyEdge {
+  type: string;
+  selections?: string[];
+  families?: string[];
+}
+
+export interface BlessingImpact {
+  retained: string[];
+  removed: string[];
+  available: string[];
+}
+
+export interface SwapDeltaResult {
+  valid: boolean;
+  reason?: string;
+  score_delta?: ScoreDelta;
+  gained_edges?: SynergyEdge[];
+  lost_edges?: SynergyEdge[];
+  resolved_orphans?: string[];
+  new_orphans?: string[];
+  blessing_impact?: BlessingImpact;
+}
+
+export interface SwapMeta {
+  from?: string;
+  to?: string;
+  kind?: "talent" | "weapon";
+}
 
 // ---------------------------------------------------------------------------
 // formatGapsText
@@ -10,12 +67,9 @@
 
 /**
  * Format gap analysis result as human-readable text.
- *
- * @param {{ gaps: Array<object>, underinvested_families: string[], scorecard: object }} result
- * @returns {string}
  */
-export function formatGapsText(result) {
-  const lines = [];
+export function formatGapsText(result: GapAnalysisResult): string {
+  const lines: string[] = [];
   const sc = result.scorecard;
 
   lines.push(`=== Gap Analysis: ${sc.title ?? "(unknown)"} ===`);
@@ -57,11 +111,8 @@ export function formatGapsText(result) {
 
 /**
  * Format gap analysis result as JSON.
- *
- * @param {object} result
- * @returns {string}
  */
-export function formatGapsJson(result) {
+export function formatGapsJson(result: GapAnalysisResult): string {
   return JSON.stringify(result, null, 2);
 }
 
@@ -71,15 +122,11 @@ export function formatGapsJson(result) {
 
 /**
  * Format a swap delta result (talent or weapon) as human-readable text.
- *
- * @param {{ valid: boolean, reason?: string, score_delta?: object, gained_edges?: Array, lost_edges?: Array, resolved_orphans?: Array, new_orphans?: Array, blessing_impact?: object }} result
- * @param {{ from: string, to: string, kind?: "talent"|"weapon" }} [meta] - Swap identifiers for the header
- * @returns {string}
  */
-export function formatSwapText(result, meta = {}) {
+export function formatSwapText(result: SwapDeltaResult, meta: SwapMeta = {}): string {
   const from = meta.from ?? "?";
   const to = meta.to ?? "?";
-  const lines = [];
+  const lines: string[] = [];
 
   lines.push(`=== ${meta.kind === "weapon" ? "Weapon" : "Talent"} Swap: ${from} → ${to} ===`);
   lines.push("");
@@ -148,11 +195,8 @@ export function formatSwapText(result, meta = {}) {
 
 /**
  * Format swap delta result as JSON.
- *
- * @param {object} result
- * @returns {string}
  */
-export function formatSwapJson(result) {
+export function formatSwapJson(result: SwapDeltaResult): string {
   return JSON.stringify(result, null, 2);
 }
 
@@ -160,13 +204,13 @@ export function formatSwapJson(result) {
 // Helpers
 // ---------------------------------------------------------------------------
 
-function formatDelta(value) {
+function formatDelta(value: number | null | undefined): string {
   if (value == null) return "  0";
   const sign = value > 0 ? "+" : "";
   return `${sign}${value}`;
 }
 
-function formatEdgeSelections(edge) {
+function formatEdgeSelections(edge: SynergyEdge): string {
   const sels = edge.selections ?? [];
   if (sels.length === 2) {
     return `${sels[0]} ↔ ${sels[1]}`;

@@ -1,20 +1,28 @@
-// @ts-nocheck
+/**
+ * Stat family definitions and mappings — maps individual stat names to
+ * conceptual families (melee_offense, toughness, etc.) for synergy analysis.
+ */
+
 export const ALL_FAMILIES = [
   "melee_offense", "ranged_offense", "general_offense", "crit",
   "toughness", "damage_reduction", "mobility", "warp_resource",
   "grenade", "stamina", "utility",
-];
+] as const;
+
+export type StatFamily = (typeof ALL_FAMILIES)[number];
 
 const PERSISTENT_TYPES = new Set(["stat_buff", "conditional_stat_buff"]);
 const DYNAMIC_TYPES = new Set(["proc_stat_buff", "lerped_stat_buff"]);
 
-export function getEffectCategory(effectType) {
+export type EffectCategory = "persistent" | "dynamic" | "unknown";
+
+export function getEffectCategory(effectType: string): EffectCategory {
   if (PERSISTENT_TYPES.has(effectType)) return "persistent";
   if (DYNAMIC_TYPES.has(effectType)) return "dynamic";
   return "unknown";
 }
 
-const FAMILY_STATS = {
+const FAMILY_STATS: Record<StatFamily, string[]> = {
   melee_offense: [
     "melee_damage", "melee_attack_speed", "melee_power_level_modifier",
     "melee_weakspot_damage", "melee_impact_modifier",
@@ -139,17 +147,17 @@ const FAMILY_STATS = {
   ],
 };
 
-export const STAT_FAMILIES = new Map();
+export const STAT_FAMILIES = new Map<string, Set<string>>();
 
 for (const [family, stats] of Object.entries(FAMILY_STATS)) {
   for (const stat of stats) {
     if (!STAT_FAMILIES.has(stat)) {
       STAT_FAMILIES.set(stat, new Set());
     }
-    STAT_FAMILIES.get(stat).add(family);
+    STAT_FAMILIES.get(stat)!.add(family);
   }
 }
 
-export function getFamilies(stat) {
+export function getFamilies(stat: string): Set<string> {
   return STAT_FAMILIES.get(stat) ?? new Set(["uncategorized"]);
 }

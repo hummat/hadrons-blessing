@@ -1,6 +1,5 @@
-// @ts-nocheck
 /**
- * Toughness calculator engine — computes survivability metrics for a build.
+ * Toughness calculator engine -- computes survivability metrics for a build.
  *
  * Given a build's defensive talents/blessings/perks, calculates:
  * - Effective toughness (with bonuses and DR)
@@ -10,7 +9,7 @@
  * - State-based damage modifiers (dodge/slide/sprint)
  * - Melee bleedthrough and ranged spillover
  *
- * This is a DEFENDER-SIDE calculator — it analyzes the player's build,
+ * This is a DEFENDER-SIDE calculator -- it analyzes the player's build,
  * not the enemy.
  *
  * Source references:
@@ -19,15 +18,173 @@
  */
 
 import { readFileSync } from "node:fs";
-import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { CLASS_BASE_STATS_PATH } from "./paths.js";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = join(__dirname, "..", "..", "data", "ground-truth");
+// -- Types --------------------------------------------------------------------
 
-// ── Difficulty mapping ────────────────────────────────────────────────
+interface DRSource {
+  source_entity: string;
+  stat: string;
+  value: number;
+  type: string;
+  condition: string | null;
+}
 
-const DIFFICULTY_INDEX = {
+export interface DefensiveSources {
+  dr_sources: DRSource[];
+  toughness_flat: number;
+  toughness_bonus: number;
+  toughness_regen_rate_modifier: number;
+  toughness_replenish_modifier: number;
+  toughness_replenish_multiplier: number;
+  max_health_modifier: number;
+  extra_wounds: number;
+}
+
+export interface ToughnessDRResult {
+  total_dr: number;
+  damage_multiplier: number;
+}
+
+export interface EffectiveHPParams {
+  baseHealth: number;
+  wounds: number;
+  baseToughness: number;
+  toughnessFlat?: number;
+  toughnessBonus?: number;
+  damageMultiplier?: number;
+  maxHealthModifier?: number;
+}
+
+export interface EffectiveHPResult {
+  max_toughness: number;
+  effective_toughness: number;
+  health_pool: number;
+  effective_hp: number;
+}
+
+export interface BleedthroughParams {
+  damage: number;
+  toughnessPercent: number;
+  isMelee: boolean;
+  spilloverMod?: number;
+}
+
+export interface BleedthroughResult {
+  bleedthrough: number;
+  toughness_absorbed: number;
+}
+
+interface RegenData {
+  base_rate_per_second: number;
+  coherency_regen_rate_multipliers: Record<string, number>;
+  melee_kill_recovery_percent: number;
+  regeneration_delay_seconds: number;
+}
+
+export interface ToughnessRegenParams {
+  regenData: RegenData;
+  baseToughness: number;
+  toughnessFlat?: number;
+  toughnessBonus?: number;
+  regenRateModifier?: number;
+  replenishModifier?: number;
+  replenishMultiplier?: number;
+}
+
+export interface ToughnessRegenResult {
+  base_rate: number;
+  modified_rate: number;
+  delay_seconds: number;
+  coherency: Record<string, number>;
+  melee_kill_recovery_percent: number;
+  melee_kill_recovery: number;
+}
+
+interface ClassStats {
+  base_health: number;
+  base_toughness: number;
+  base_stamina: number;
+  wounds_by_difficulty: number[];
+}
+
+interface ClassBaseStatsData {
+  classes: Record<string, ClassStats>;
+  state_damage_modifiers: Record<string, Record<string, number>>;
+  toughness_regen: RegenData;
+}
+
+interface BuildSlot {
+  canonical_entity_id?: string;
+  resolution_status?: string;
+}
+
+interface BuildWeapon {
+  blessings?: BuildSlot[];
+  perks?: BuildSlot[];
+}
+
+interface BuildCurio {
+  perks?: BuildSlot[];
+}
+
+interface Build {
+  class?: BuildSlot;
+  ability?: BuildSlot;
+  blitz?: BuildSlot;
+  aura?: BuildSlot;
+  keystone?: BuildSlot;
+  talents?: BuildSlot[];
+  weapons?: BuildWeapon[];
+  curios?: BuildCurio[];
+  [key: string]: unknown;
+}
+
+interface EntityCalcEffect {
+  stat?: string;
+  magnitude?: number | null;
+  magnitude_min?: number | null;
+  magnitude_max?: number | null;
+  type?: string;
+  condition?: string | null;
+}
+
+interface EntityCalc {
+  effects?: EntityCalcEffect[];
+  tiers?: { effects: EntityCalcEffect[] }[];
+}
+
+interface Entity {
+  kind?: string;
+  domain?: string;
+  internal_name?: string | null;
+  calc?: EntityCalc;
+}
+
+interface Edge {
+  type: string;
+  from_entity_id: string;
+  to_entity_id: string;
+}
+
+interface EntityIndex {
+  entities: Map<string, Entity>;
+  edges?: Edge[];
+}
+
+interface ConditionFlags {
+  health_state?: string;
+  warp_charge?: number;
+  ads_active?: boolean;
+  ability_active?: boolean;
+  during_reload?: boolean;
+  proc_stacks?: number;
+  [key: string]: unknown;
+}
+
+// -- Difficulty mapping -------------------------------------------------------
+
+const DIFFICULTY_INDEX: Record<string, number> = {
   uprising: 0,
   malice: 1,
   heresy: 2,
@@ -35,15 +192,11 @@ const DIFFICULTY_INDEX = {
   auric: 4,
 };
 
-// ── Toughness-related stat names ──────────────────────────────────────
+// -- Toughness-related stat names ---------------------------------------------
 
 /**
  * Stats that contribute to toughness damage reduction.
  * These are collected from build entities and reported as DR sources.
- *
- * toughness_damage_taken_modifier: additive reduction (magnitude is negative, e.g. -0.05)
- * toughness_damage_taken_multiplier: multiplicative reduction (magnitude is negative, e.g. -0.15)
- * damage_taken_multiplier: generic DR, applies to both health and toughness damage
  */
 const TOUGHNESS_DR_STATS = new Set([
   "toughness_damage_taken_modifier",
@@ -51,36 +204,23 @@ const TOUGHNESS_DR_STATS = new Set([
   "damage_taken_multiplier",
 ]);
 
-/**
- * Stats that increase the toughness pool.
- * toughness: flat toughness addition (e.g. magnitude 25)
- * toughness_bonus: percentage toughness increase (e.g. magnitude 0.05 = 5%)
- */
 const TOUGHNESS_POOL_STATS = new Set([
   "toughness",
   "toughness_bonus",
 ]);
 
-/**
- * Stats that modify toughness regeneration.
- */
 const TOUGHNESS_REGEN_STATS = new Set([
   "toughness_regen_rate_modifier",
   "toughness_replenish_modifier",
   "toughness_replenish_multiplier",
 ]);
 
-/**
- * Stats that modify health pool.
- */
 const HEALTH_POOL_STATS = new Set([
   "max_health_modifier",
   "extra_max_amount_of_wounds",
 ]);
 
-/**
- * All toughness-relevant stats — union of all categories above.
- */
+/** All toughness-relevant stats -- union of all categories above. */
 const ALL_TOUGHNESS_STATS = new Set([
   ...TOUGHNESS_DR_STATS,
   ...TOUGHNESS_POOL_STATS,
@@ -88,56 +228,39 @@ const ALL_TOUGHNESS_STATS = new Set([
   ...HEALTH_POOL_STATS,
 ]);
 
-// ── Data Loading ─────────────────────────────────────────────────────
+// -- Data Loading -------------------------------------------------------------
 
 /**
  * Loads class-base-stats.json from the data directory.
- *
- * @returns {object} Class base stats including health, toughness, wounds,
- *   toughness_regen, and state_damage_modifiers.
  */
-export function loadClassBaseStats() {
+export function loadClassBaseStats(): ClassBaseStatsData {
   return JSON.parse(
-    readFileSync(join(DATA_DIR, "class-base-stats.json"), "utf-8"),
-  );
+    readFileSync(CLASS_BASE_STATS_PATH, "utf-8"),
+  ) as ClassBaseStatsData;
 }
 
-// ── Entity Walking (DR Source Collection) ────────────────────────────
+// -- Entity Walking (DR Source Collection) ------------------------------------
 
 /**
  * Walks the build's resolved entities and collects toughness-related buff effects,
  * tracking each source individually.
- *
- * This mirrors the entity collection logic of assembleBuildBuffStack but
- * preserves per-entity attribution rather than aggregating into a single stack.
- *
- * @param {object} build - Canonical build JSON
- * @param {object} index - { entities: Map<string, entity>, edges: Array<edge> }
- * @param {object} [flags] - Condition flags for conditional/proc/lerped effects
- * @returns {object} Collected toughness sources:
- *   {
- *     dr_sources: Array<{ source_entity, stat, value, type, condition }>,
- *     toughness_flat: number,
- *     toughness_bonus: number,
- *     toughness_regen_rate_modifier: number,
- *     toughness_replenish_modifier: number,
- *     toughness_replenish_multiplier: number,
- *     max_health_modifier: number,
- *     extra_wounds: number,
- *   }
  */
-export function collectDefensiveSources(build, index, flags) {
+export function collectDefensiveSources(
+  build: Build,
+  index: EntityIndex,
+  flags?: ConditionFlags,
+): DefensiveSources {
   const _flags = flags ?? {};
   const entities = index.entities;
   const edges = index.edges ?? [];
   const classDomain = build.class?.canonical_entity_id?.split(".").pop() ?? null;
 
-  // ── Step 1: Collect all resolved entity IDs (same as assembleBuildBuffStack) ──
-  const entityIds = [];
+  // Step 1: Collect all resolved entity IDs (same as assembleBuildBuffStack)
+  const entityIds: string[] = [];
 
   // Structural slots
-  for (const field of ["ability", "blitz", "aura", "keystone"]) {
-    const slot = build[field];
+  for (const field of ["ability", "blitz", "aura", "keystone"] as const) {
+    const slot = build[field] as BuildSlot | undefined;
     if (slot?.canonical_entity_id && slot.resolution_status === "resolved") {
       entityIds.push(slot.canonical_entity_id);
     }
@@ -173,18 +296,18 @@ export function collectDefensiveSources(build, index, flags) {
     }
   }
 
-  // ── Build instance_of reverse index for name_family traversal ──
-  const instanceOfIndex = new Map();
+  // Build instance_of reverse index for name_family traversal
+  const instanceOfIndex = new Map<string, string[]>();
   for (const edge of edges) {
     if (edge.type !== "instance_of") continue;
     if (!instanceOfIndex.has(edge.to_entity_id)) {
       instanceOfIndex.set(edge.to_entity_id, []);
     }
-    instanceOfIndex.get(edge.to_entity_id).push(edge.from_entity_id);
+    instanceOfIndex.get(edge.to_entity_id)!.push(edge.from_entity_id);
   }
 
-  // ── Step 2: Walk entities and collect toughness-related effects ──
-  const result = {
+  // Step 2: Walk entities and collect toughness-related effects
+  const result: DefensiveSources = {
     dr_sources: [],
     toughness_flat: 0,
     toughness_bonus: 0,
@@ -199,21 +322,21 @@ export function collectDefensiveSources(build, index, flags) {
     const entity = entities.get(entityId);
     if (!entity) continue;
 
-    // Resolve effects — direct or via name_family traversal
-    let effects = [];
+    // Resolve effects -- direct or via name_family traversal
+    let effects: EntityCalcEffect[] = [];
 
-    if (entity.calc?.effects?.length > 0) {
+    if (entity.calc?.effects && entity.calc.effects.length > 0) {
       effects = entity.calc.effects;
     } else if (entity.kind === "name_family") {
       const fromIds = instanceOfIndex.get(entityId) ?? [];
       for (const fromId of fromIds) {
         const fromEntity = entities.get(fromId);
         if (!fromEntity) continue;
-        if (fromEntity.calc?.effects?.length > 0) {
+        if (fromEntity.calc?.effects && fromEntity.calc.effects.length > 0) {
           effects = fromEntity.calc.effects;
           break;
         }
-        if (fromEntity.calc?.tiers?.length > 0) {
+        if (fromEntity.calc?.tiers && fromEntity.calc.tiers.length > 0) {
           const lastTier = fromEntity.calc.tiers[fromEntity.calc.tiers.length - 1];
           effects = lastTier.effects ?? [];
           break;
@@ -221,12 +344,12 @@ export function collectDefensiveSources(build, index, flags) {
       }
     } else if (entity.kind === "stat_node" && entity.internal_name && classDomain) {
       const prefix = entity.internal_name;
-      for (const [id, e] of entities) {
+      for (const [_id, e] of entities) {
         if (
           e.domain === classDomain &&
           e.kind === "talent" &&
           e.internal_name?.startsWith(prefix) &&
-          e.calc?.effects?.length > 0
+          e.calc?.effects && e.calc.effects.length > 0
         ) {
           effects = e.calc.effects;
           break;
@@ -234,11 +357,11 @@ export function collectDefensiveSources(build, index, flags) {
       }
       // Fallback: stat_nodes with matching buff via instance_of edges
       if (effects.length === 0) {
-        for (const [id, e] of entities) {
+        for (const [_id, e] of entities) {
           if (
             e.kind === "buff" &&
             e.internal_name?.startsWith(prefix) &&
-            e.calc?.effects?.length > 0
+            e.calc?.effects && e.calc.effects.length > 0
           ) {
             effects = e.calc.effects;
             break;
@@ -253,16 +376,16 @@ export function collectDefensiveSources(build, index, flags) {
       const { stat, magnitude, type, condition } = effect;
       if (!stat || !ALL_TOUGHNESS_STATS.has(stat)) continue;
 
-      // ── Filter by type + flags (same logic as assembleBuildBuffStack) ──
-      let effectiveMagnitude = magnitude;
+      // Filter by type + flags (same logic as assembleBuildBuffStack)
+      let effectiveMagnitude = magnitude!;
 
       if (type === "stat_buff") {
-        // Unconditional — always included
+        // Unconditional -- always included
       } else if (type === "conditional_stat_buff") {
-        const condResult = isConditionActive(condition, _flags);
+        const condResult = isConditionActive(condition ?? null, _flags);
         if (!condResult.active) continue;
         if (condResult.scale != null) {
-          effectiveMagnitude = magnitude * condResult.scale;
+          effectiveMagnitude = magnitude! * condResult.scale;
         }
       } else if (type === "proc_stat_buff") {
         if ((_flags.proc_stacks ?? 0) <= 0) continue;
@@ -273,16 +396,16 @@ export function collectDefensiveSources(build, index, flags) {
           effectiveMagnitude = magnitude_min + (magnitude_max - magnitude_min) * t;
         }
       } else {
-        continue; // Unknown type — skip
+        continue; // Unknown type -- skip
       }
 
-      // ── Accumulate by category ──
+      // Accumulate by category
       if (TOUGHNESS_DR_STATS.has(stat)) {
         result.dr_sources.push({
           source_entity: entityId,
           stat,
           value: effectiveMagnitude,
-          type: type,
+          type: type!,
           condition: condition ?? null,
         });
       }
@@ -310,13 +433,12 @@ export function collectDefensiveSources(build, index, flags) {
 
 /**
  * Checks whether a conditional effect is active given the current flags.
- * (Duplicated from damage-calculator.mjs to avoid circular dependency.)
- *
- * @param {string|null} condition
- * @param {object} flags
- * @returns {{ active: boolean, scale?: number }}
+ * (Duplicated from damage-calculator to avoid circular dependency.)
  */
-function isConditionActive(condition, flags) {
+function isConditionActive(
+  condition: string | null,
+  flags: ConditionFlags,
+): { active: boolean; scale?: number } {
   if (!condition) return { active: true };
 
   switch (condition) {
@@ -350,52 +472,33 @@ function isConditionActive(condition, flags) {
   }
 }
 
-// ── Toughness DR Computation ─────────────────────────────────────────
+// -- Toughness DR Computation -------------------------------------------------
 
 /**
  * Computes effective toughness damage reduction from a list of DR sources.
  *
  * DR sources stack multiplicatively:
  *   effective_dr = 1 - product(1 - |dr_i|) for each source
- *
- * DR values from entities are typically negative magnitudes (e.g., -0.05 means 5% DR).
- * We convert them to positive DR fractions before stacking.
- *
- * toughness_damage_taken_modifier: additive within its own group, then
- *   enters multiplicative stacking as a single source.
- * toughness_damage_taken_multiplier: each instance is a separate multiplicative factor.
- * damage_taken_multiplier: generic DR, each instance is multiplicative.
- *
- * @param {Array<{ stat: string, value: number }>} drSources
- * @returns {{ total_dr: number, damage_multiplier: number }}
- *   total_dr: fraction of damage reduced (0–1), e.g. 0.25 = 25% reduction
- *   damage_multiplier: fraction of damage that gets through (0–1), e.g. 0.75
  */
-export function computeToughnessDR(drSources) {
-  // Group additive modifiers, then multiply everything together
+export function computeToughnessDR(drSources: DRSource[]): ToughnessDRResult {
   let additiveModifierSum = 0;
   let multiplicativeProduct = 1;
 
   for (const source of drSources) {
     if (source.stat === "toughness_damage_taken_modifier") {
-      // Additive: sum all modifiers, then apply as one factor
-      // magnitude is negative (e.g., -0.05), so we sum them
       additiveModifierSum += source.value;
     } else if (
       source.stat === "toughness_damage_taken_multiplier" ||
       source.stat === "damage_taken_multiplier"
     ) {
-      // Multiplicative: each is its own factor
-      // magnitude is negative (e.g., -0.15), meaning (1 + (-0.15)) = 0.85 multiplier
       multiplicativeProduct *= (1 + source.value);
     }
   }
 
-  // Combine: the additive modifier sum becomes one multiplicative factor
   const additiveFactor = 1 + additiveModifierSum;
   const damageMultiplier = additiveFactor * multiplicativeProduct;
 
-  // Clamp to [0, 1] — can't take negative damage or more than 100%
+  // Clamp to [0, 1]
   const clampedMultiplier = Math.max(0, Math.min(1, damageMultiplier));
   const totalDR = 1 - clampedMultiplier;
 
@@ -405,24 +508,10 @@ export function computeToughnessDR(drSources) {
   };
 }
 
-// ── Effective HP ─────────────────────────────────────────────────────
+// -- Effective HP -------------------------------------------------------------
 
 /**
- * Computes effective HP — the total damage a player can absorb before dying.
- *
- * effective_toughness = (base_toughness + flat_toughness) * (1 + toughness_bonus) / damage_multiplier
- * health_pool = base_health * (1 + max_health_modifier) * wounds
- * effective_hp = health_pool + effective_toughness
- *
- * @param {object} params
- * @param {number} params.baseHealth - Class base health
- * @param {number} params.wounds - Number of wounds at chosen difficulty
- * @param {number} params.baseToughness - Class base toughness
- * @param {number} params.toughnessFlat - Flat toughness bonus (from "toughness" stat)
- * @param {number} params.toughnessBonus - Percentage toughness bonus (e.g. 0.15 = +15%)
- * @param {number} params.damageMultiplier - Toughness damage multiplier (from computeToughnessDR)
- * @param {number} [params.maxHealthModifier] - Health modifier (e.g. 0.05 = +5%)
- * @returns {{ effective_toughness: number, max_toughness: number, health_pool: number, effective_hp: number }}
+ * Computes effective HP -- the total damage a player can absorb before dying.
  */
 export function computeEffectiveHP({
   baseHealth,
@@ -432,7 +521,7 @@ export function computeEffectiveHP({
   toughnessBonus = 0,
   damageMultiplier = 1,
   maxHealthModifier = 0,
-}) {
+}: EffectiveHPParams): EffectiveHPResult {
   const maxToughness = (baseToughness + toughnessFlat) * (1 + toughnessBonus);
   const effectiveToughness = damageMultiplier > 0
     ? maxToughness / damageMultiplier
@@ -448,41 +537,25 @@ export function computeEffectiveHP({
   };
 }
 
-// ── Bleedthrough ─────────────────────────────────────────────────────
+// -- Bleedthrough -------------------------------------------------------------
 
 /**
- * Computes melee bleedthrough damage — the portion of melee damage that
+ * Computes melee bleedthrough damage -- the portion of melee damage that
  * passes through remaining toughness to health.
- *
- * Formula: bleedthrough = damage * (1 - toughness_percent * spillover_mod)
- *
- * For ranged: when toughness breaks, remaining damage passes through fully
- * (spillover_mod is effectively 0 for ranged).
- *
- * @param {object} params
- * @param {number} params.damage - Incoming raw damage
- * @param {number} params.toughnessPercent - Current toughness as fraction 0–1
- * @param {boolean} params.isMelee - Whether the damage source is melee
- * @param {number} [params.spilloverMod] - Spillover modifier (default 1.0)
- * @returns {{ bleedthrough: number, toughness_absorbed: number }}
  */
 export function computeBleedthrough({
   damage,
   toughnessPercent,
   isMelee,
   spilloverMod = 1.0,
-}) {
+}: BleedthroughParams): BleedthroughResult {
   if (!isMelee) {
-    // Ranged: no bleedthrough while toughness is up, full spillover on break
-    // When toughness_percent > 0, toughness absorbs all damage (up to pool).
-    // When toughness breaks, remaining damage goes to health.
     return {
       bleedthrough: 0,
       toughness_absorbed: damage,
     };
   }
 
-  // Melee bleedthrough formula
   const reduction = toughnessPercent * spilloverMod;
   const bleedthrough = damage * (1 - reduction);
 
@@ -492,22 +565,10 @@ export function computeBleedthrough({
   };
 }
 
-// ── Toughness Regen ──────────────────────────────────────────────────
+// -- Toughness Regen ----------------------------------------------------------
 
 /**
  * Computes toughness regeneration rates.
- *
- * regen_rate = base_rate * coherency_multiplier * (1 + regen_rate_modifier)
- *
- * @param {object} params
- * @param {object} params.regenData - toughness_regen section from class-base-stats.json
- * @param {number} params.baseToughness - Class base toughness (for melee kill recovery)
- * @param {number} [params.toughnessFlat] - Flat toughness added
- * @param {number} [params.toughnessBonus] - Percentage toughness bonus
- * @param {number} [params.regenRateModifier] - Sum of toughness_regen_rate_modifier buffs
- * @param {number} [params.replenishModifier] - Sum of toughness_replenish_modifier buffs
- * @param {number} [params.replenishMultiplier] - Product of (1 + toughness_replenish_multiplier) buffs
- * @returns {object} Regen breakdown
  */
 export function computeToughnessRegen({
   regenData,
@@ -517,15 +578,15 @@ export function computeToughnessRegen({
   regenRateModifier = 0,
   replenishModifier = 0,
   replenishMultiplier = 1,
-}) {
+}: ToughnessRegenParams): ToughnessRegenResult {
   const baseRate = regenData.base_rate_per_second;
   const coherencyMults = regenData.coherency_regen_rate_multipliers;
   const meleeKillPercent = regenData.melee_kill_recovery_percent;
   const maxToughness = (baseToughness + toughnessFlat) * (1 + toughnessBonus);
 
   // Regen rate per coherency step
-  const coherency = {};
-  const allyLabels = { 0: "solo", 1: "one_ally", 2: "two_allies", 3: "three_allies" };
+  const coherency: Record<string, number> = {};
+  const allyLabels: Record<number, string> = { 0: "solo", 1: "one_ally", 2: "two_allies", 3: "three_allies" };
 
   for (let allies = 0; allies <= 3; allies++) {
     const coherencyMult = coherencyMults[String(allies)] ?? 0;
@@ -548,19 +609,36 @@ export function computeToughnessRegen({
   };
 }
 
-// ── Full Survivability Profile ───────────────────────────────────────
+// -- Full Survivability Profile -----------------------------------------------
+
+export interface SurvivabilityOptions {
+  difficulty?: string;
+  flags?: ConditionFlags;
+}
+
+export interface SurvivabilityResult {
+  class: string;
+  difficulty: string;
+  base: { health: number; wounds: number; toughness: number; stamina: number };
+  dr_sources: DRSource[];
+  total_dr: number;
+  max_toughness: number;
+  effective_toughness: number;
+  health_pool: number;
+  effective_hp: number;
+  max_health_modifier: number;
+  state_modifiers: Record<string, { tdr: number; damage_multiplier: number; effective_toughness: number }>;
+  toughness_regen: ToughnessRegenResult;
+}
 
 /**
  * Computes the full survivability profile for a build at a given difficulty.
- *
- * @param {object} build - Canonical build JSON
- * @param {object} index - { entities: Map<string, entity>, edges: Array<edge> }
- * @param {object} [options]
- * @param {string} [options.difficulty="damnation"] - Difficulty name
- * @param {object} [options.flags] - Condition flags for conditional effects
- * @returns {object} Full survivability profile
  */
-export function computeSurvivability(build, index, options) {
+export function computeSurvivability(
+  build: Build,
+  index: EntityIndex,
+  options?: SurvivabilityOptions,
+): SurvivabilityResult {
   const opts = options ?? {};
   const difficulty = opts.difficulty ?? "damnation";
   const difficultyIdx = DIFFICULTY_INDEX[difficulty] ?? 3;
@@ -602,7 +680,7 @@ export function computeSurvivability(build, index, options) {
   });
 
   // State modifiers: compute effective toughness in each movement state
-  const stateResults = {};
+  const stateResults: Record<string, { tdr: number; damage_multiplier: number; effective_toughness: number }> = {};
   for (const [state, modifier] of Object.entries(stateModifiers)) {
     const stateDamageMultiplier = damage_multiplier * modifier;
     const stateEffectiveToughness = stateDamageMultiplier > 0
@@ -647,12 +725,12 @@ export function computeSurvivability(build, index, options) {
   };
 }
 
-// ── Utilities ─────────────────────────────────────────────────────────
+// -- Utilities ----------------------------------------------------------------
 
-function round2(n) {
+function round2(n: number): number {
   return Math.round(n * 100) / 100;
 }
 
-function round4(n) {
+function round4(n: number): number {
   return Math.round(n * 10000) / 10000;
 }

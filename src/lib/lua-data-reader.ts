@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Parses Lua table literals into JavaScript objects.
  *
@@ -7,13 +6,50 @@
  * arithmetic expressions, and function calls.
  *
  * Unresolvable constructs are represented as typed sentinel nodes:
- *   { $ref: "dotted.name" }   — identifier / enum reference
- *   { $func: "<body>" }       — inline function literal
- *   { $expr: "<text>", $op: "op" } — arithmetic expression
- *   { $call: "Name", $args: [...] } — function call
+ *   { $ref: "dotted.name" }   -- identifier / enum reference
+ *   { $func: "<body>" }       -- inline function literal
+ *   { $expr: "<text>", $op: "op" } -- arithmetic expression
+ *   { $call: "Name", $args: [...] } -- function call
  */
 
+// -- Sentinel node types for unresolvable Lua constructs ----------------------
+
+export interface LuaRef {
+  $ref: string;
+}
+
+export interface LuaFunc {
+  $func: string;
+}
+
+export interface LuaExpr {
+  $expr: string;
+  $op: string;
+}
+
+export interface LuaCall {
+  $call: string;
+  $args: LuaValue[];
+}
+
+export type LuaSentinel = LuaRef | LuaFunc | LuaExpr | LuaCall;
+
+/** Any value that can appear in a parsed Lua table. */
+export type LuaValue =
+  | string
+  | number
+  | boolean
+  | null
+  | LuaSentinel
+  | LuaValue[]
+  | { [key: string]: LuaValue };
+
 // -- Token types --------------------------------------------------------------
+
+interface Token {
+  type: string;
+  value?: string | number;
+}
 
 const T = Object.freeze({
   LBRACE: "LBRACE",
@@ -41,7 +77,7 @@ const T = Object.freeze({
  * Strip Lua line comments (--) and block comments (--[[ ... ]]).
  * Preserves string literals from accidental stripping.
  */
-function stripComments(src) {
+function stripComments(src: string): string {
   let out = "";
   let i = 0;
   while (i < src.length) {
@@ -65,7 +101,7 @@ function stripComments(src) {
       if (closeIdx !== -1) {
         i = closeIdx + 2;
       } else {
-        // Unterminated block comment — skip rest
+        // Unterminated block comment -- skip rest
         i = src.length;
       }
       continue;
@@ -88,7 +124,7 @@ function stripComments(src) {
 }
 
 /** Find closing quote, respecting backslash escapes. */
-function findStringEnd(src, start, quote) {
+function findStringEnd(src: string, start: number, quote: string): number {
   for (let i = start + 1; i < src.length; i++) {
     if (src[i] === "\\" && i + 1 < src.length) {
       i++; // skip escaped char
@@ -96,7 +132,7 @@ function findStringEnd(src, start, quote) {
     }
     if (src[i] === quote) return i;
   }
-  return src.length - 1; // unterminated — return last index
+  return src.length - 1; // unterminated -- return last index
 }
 
 // -- Tokenizer ----------------------------------------------------------------
@@ -104,8 +140,8 @@ function findStringEnd(src, start, quote) {
 /**
  * Tokenize Lua source (after comment stripping) into a token array.
  */
-function tokenize(src) {
-  const tokens = [];
+function tokenize(src: string): Token[] {
+  const tokens: Token[] = [];
   let i = 0;
 
   while (i < src.length) {
@@ -202,12 +238,8 @@ function tokenize(src) {
 /**
  * Capture a function body from `(` through the matching `end`, counting
  * nested function/if/do/for/while...end pairs.
- *
- * @param {string} src  Source text
- * @param {number} pos  Position right after the "function" keyword
- * @returns {{ body: string, endPos: number }}
  */
-function captureFunctionBody(src, pos) {
+function captureFunctionBody(src: string, pos: number): { body: string; endPos: number } {
   // The body starts at pos (right after "function")
   const bodyStart = pos;
   let depth = 1;
@@ -253,18 +285,15 @@ function captureFunctionBody(src, pos) {
 
 /**
  * Parse a Lua table literal string into a JavaScript value.
- *
- * @param {string} luaText - A string containing a Lua table literal, e.g. "{ key = 1, ... }"
- * @returns {Object|Array} The parsed JavaScript object or array
  */
-function parseLuaTable(luaText) {
+function parseLuaTable(luaText: string): LuaValue {
   const cleaned = stripComments(luaText);
   const tokens = tokenize(cleaned);
   let pos = 0;
 
-  function peek() { return tokens[pos]; }
-  function advance() { return tokens[pos++]; }
-  function expect(type) {
+  function peek(): Token { return tokens[pos]; }
+  function advance(): Token { return tokens[pos++]; }
+  function expect(type: string): Token {
     const tok = advance();
     if (tok.type !== type) {
       throw new Error(`Expected ${type}, got ${tok.type} (value: ${JSON.stringify(tok.value)}) at token index ${pos - 1}`);
@@ -272,7 +301,7 @@ function parseLuaTable(luaText) {
     return tok;
   }
 
-  function parseValue() {
+  function parseValue(): LuaValue {
     const tok = peek();
 
     if (tok.type === T.LBRACE) {
@@ -280,32 +309,32 @@ function parseLuaTable(luaText) {
     }
     if (tok.type === T.STRING) {
       advance();
-      return tok.value;
+      return tok.value as string;
     }
     if (tok.type === T.NUMBER) {
       advance();
-      return maybeExpr(tok.value, String(tok.value));
+      return maybeExpr(tok.value as number, String(tok.value));
     }
     if (tok.type === T.TRUE) { advance(); return true; }
     if (tok.type === T.FALSE) { advance(); return false; }
     if (tok.type === T.NIL) { advance(); return null; }
     if (tok.type === T.FUNCTION) {
       advance();
-      return { $func: tok.value };
+      return { $func: tok.value as string };
     }
 
-    // Unary minus before a number → negative literal
+    // Unary minus before a number -> negative literal
     if (tok.type === T.OP && tok.value === "-") {
       advance();
       const next = peek();
       if (next.type === T.NUMBER) {
         advance();
-        const numVal = -next.value;
+        const numVal = -(next.value as number);
         return maybeExpr(numVal, `-${next.value}`);
       }
-      // Minus before an identifier → expression
+      // Minus before an identifier -> expression
       if (next.type === T.IDENT) {
-        const ref = advance().value;
+        const ref = advance().value as string;
         const exprText = `-${ref}`;
         return maybeExpr({ $ref: ref }, exprText);
       }
@@ -315,14 +344,14 @@ function parseLuaTable(luaText) {
     // Identifier (possibly dotted)
     if (tok.type === T.IDENT) {
       advance();
-      const ident = tok.value;
+      const ident = tok.value as string;
 
       // Check for function call: IDENT(
       if (peek().type === T.LPAREN) {
         return parseFunctionCall(ident);
       }
 
-      // Otherwise it's a reference — but check for arithmetic
+      // Otherwise it's a reference -- but check for arithmetic
       return maybeExpr({ $ref: ident }, ident);
     }
 
@@ -333,18 +362,18 @@ function parseLuaTable(luaText) {
    * After parsing a primary value, check if the next token is an arithmetic
    * operator. If so, consume it and the RHS to produce an $expr node.
    */
-  function maybeExpr(leftVal, leftText) {
+  function maybeExpr(leftVal: LuaValue, leftText: string): LuaValue {
     if (peek().type === T.OP) {
-      const op = advance().value;
+      const op = advance().value as string;
       const rightTok = peek();
-      let rightText;
+      let rightText: string;
 
       if (rightTok.type === T.NUMBER) {
         advance();
         rightText = String(rightTok.value);
       } else if (rightTok.type === T.IDENT) {
         advance();
-        rightText = rightTok.value;
+        rightText = rightTok.value as string;
       } else if (rightTok.type === T.OP && rightTok.value === "-") {
         advance();
         const numTok = advance();
@@ -355,7 +384,7 @@ function parseLuaTable(luaText) {
 
       // Derive left-side text from $ref value if leftText is not a string
       // (guards against callers passing the value object instead of text)
-      const lhs = typeof leftText === "string" ? leftText : leftVal.$ref ?? String(leftVal);
+      const lhs = typeof leftText === "string" ? leftText : ((leftVal as LuaRef).$ref ?? String(leftVal));
 
       return { $expr: `${lhs} ${op} ${rightText}`, $op: op };
     }
@@ -365,9 +394,9 @@ function parseLuaTable(luaText) {
   /**
    * Parse a function call: ident(arg1, arg2, ...)
    */
-  function parseFunctionCall(name) {
+  function parseFunctionCall(name: string): LuaCall {
     expect(T.LPAREN);
-    const args = [];
+    const args: LuaValue[] = [];
     while (peek().type !== T.RPAREN && peek().type !== T.EOF) {
       args.push(parseValue());
       if (peek().type === T.COMMA) advance();
@@ -382,10 +411,10 @@ function parseLuaTable(luaText) {
    * Determines whether it's an object (has keyed entries) or array (positional only).
    * Mixed tables are treated as objects (positional entries get numeric keys).
    */
-  function parseTable() {
+  function parseTable(): LuaValue[] | Record<string, LuaValue> {
     expect(T.LBRACE);
 
-    const entries = [];
+    const entries: { keyed: boolean; key?: string; value: LuaValue }[] = [];
     let hasKeys = false;
     let hasPositional = false;
 
@@ -402,17 +431,17 @@ function parseLuaTable(luaText) {
 
     expect(T.RBRACE);
 
-    // If all entries are positional → array
+    // If all entries are positional -> array
     if (hasPositional && !hasKeys) {
       return entries.map((e) => e.value);
     }
 
-    // Otherwise → object
-    const obj = {};
+    // Otherwise -> object
+    const obj: Record<string, LuaValue> = {};
     let autoIndex = 1;
     for (const e of entries) {
       if (e.keyed) {
-        obj[e.key] = e.value;
+        obj[e.key!] = e.value;
       } else {
         obj[autoIndex++] = e.value;
       }
@@ -423,7 +452,7 @@ function parseLuaTable(luaText) {
   /**
    * Parse a single table entry. Returns { keyed: bool, key?, value }.
    */
-  function parseTableEntry() {
+  function parseTableEntry(): { keyed: boolean; key?: string; value: LuaValue } {
     // Bracket-subscript key: [expr] = value
     if (peek().type === T.LBRACKET) {
       advance();
@@ -443,7 +472,7 @@ function parseLuaTable(luaText) {
 
     // Identifier key: name = value (lookahead for =)
     if (peek().type === T.IDENT && pos + 1 < tokens.length && tokens[pos + 1].type === T.EQUALS) {
-      const key = advance().value;
+      const key = advance().value as string;
       expect(T.EQUALS);
       const value = parseValue();
       return { keyed: true, key, value };
@@ -460,29 +489,43 @@ function parseLuaTable(luaText) {
 
 // -- Block extraction ---------------------------------------------------------
 
+export interface TemplateBlock {
+  name: string;
+  type: string;
+  patches: Record<string, LuaValue>;
+  parsed?: LuaValue;
+  cloneSource?: string;
+  cloneExternal?: boolean;
+  mergeInline?: LuaValue;
+  mergeBase?: string;
+}
+
+export interface ExtractResult {
+  blocks: TemplateBlock[];
+  aliases: Record<string, string>;
+  localFunctions: Record<string, string>;
+}
+
 /**
  * Extract named template definitions from a Lua buff template file.
  *
  * Scans for:
- * - `local <var> = TalentSettings.<ns>` → aliases
- * - `local <name> = function(...) ... end` → localFunctions
- * - `<tableVar>.<name> = { ... }` → inline block
- * - `<tableVar>.<name> = table.clone(<src>)` → clone block
- * - `<tableVar>.<name> = table.merge({...}, <base>)` → merge block
- * - `<tableVar>.<name>.<field> = <value>` → post-construction patch
- * - `table.make_unique(...)` → skip
- *
- * @param {string} luaSource - Full Lua source text
- * @returns {{ blocks: Array, aliases: Object, localFunctions: Object }}
+ * - `local <var> = TalentSettings.<ns>` -> aliases
+ * - `local <name> = function(...) ... end` -> localFunctions
+ * - `<tableVar>.<name> = { ... }` -> inline block
+ * - `<tableVar>.<name> = table.clone(<src>)` -> clone block
+ * - `<tableVar>.<name> = table.merge({...}, <base>)` -> merge block
+ * - `<tableVar>.<name>.<field> = <value>` -> post-construction patch
+ * - `table.make_unique(...)` -> skip
  */
-function extractTemplateBlocks(luaSource) {
+function extractTemplateBlocks(luaSource: string): ExtractResult {
   const cleaned = stripComments(luaSource);
   const lines = cleaned.split("\n");
 
-  const aliases = {};
-  const localFunctions = {};
-  const blocksByName = new Map(); // name → block object
-  const blockOrder = []; // insertion-ordered names
+  const aliases: Record<string, string> = {};
+  const localFunctions: Record<string, string> = {};
+  const blocksByName = new Map<string, TemplateBlock>(); // name -> block object
+  const blockOrder: string[] = []; // insertion-ordered names
 
   // Auto-detect the template table variable name:
   // First `local <var> = {}` is the template table.
@@ -496,14 +539,14 @@ function extractTemplateBlocks(luaSource) {
   }
 
   /** Get or create a block entry, registering insertion order. */
-  function getOrCreateBlock(name, type) {
+  function getOrCreateBlock(name: string, type: string): TemplateBlock {
     if (!blocksByName.has(name)) {
-      const block = { name, type, patches: {} };
+      const block: TemplateBlock = { name, type, patches: {} };
       blocksByName.set(name, block);
       blockOrder.push(name);
       return block;
     }
-    return blocksByName.get(name);
+    return blocksByName.get(name)!;
   }
 
   let i = 0;
@@ -540,7 +583,6 @@ function extractTemplateBlocks(luaSource) {
         const fl = lines[i].trim();
         bodyLines.push(lines[i]);
         // Count block openers/closers on this line
-        // Simple keyword-based depth tracking
         const words = fl.match(/\b(function|if|do|for|while|end)\b/g) || [];
         for (const w of words) {
           if (w === "end") depth--;
@@ -565,7 +607,7 @@ function extractTemplateBlocks(luaSource) {
     // Patterns starting with `<tableVar>.`
     const tvPrefix = `${tableVar}.`;
 
-    // 3–6: template assignments
+    // 3-6: template assignments
     if (trimmed.startsWith(tvPrefix)) {
       const afterPrefix = trimmed.slice(tvPrefix.length);
 
@@ -575,7 +617,7 @@ function extractTemplateBlocks(luaSource) {
         const [, blockName, field, valueStr] = patchMatch;
         const block = getOrCreateBlock(blockName, "clone"); // must already exist in practice
 
-        // Check if value starts with `{` — table-valued patch
+        // Check if value starts with `{` -- table-valued patch
         const valTrimmed = valueStr.trim();
         if (valTrimmed.startsWith("{")) {
           // Collect until balanced braces
@@ -598,7 +640,7 @@ function extractTemplateBlocks(luaSource) {
           try {
             block.patches[field] = parseLuaTable(tableStr);
           } catch {
-            // Unparseable table-valued patch — skip
+            // Unparseable table-valued patch -- skip
           }
           i = j;
           continue;
@@ -710,17 +752,17 @@ function extractTemplateBlocks(luaSource) {
           continue;
         }
 
-        // Fallback: unknown RHS — skip
+        // Fallback: unknown RHS -- skip
         i++;
         continue;
       }
     }
 
-    // Unrecognized line — skip
+    // Unrecognized line -- skip
     i++;
   }
 
-  const blocks = blockOrder.map((name) => blocksByName.get(name));
+  const blocks = blockOrder.map((name) => blocksByName.get(name)!);
   return { blocks, aliases, localFunctions };
 }
 
@@ -728,7 +770,7 @@ function extractTemplateBlocks(luaSource) {
  * Parse a scalar value from a Lua assignment RHS.
  * Handles numbers, quoted strings, booleans, nil, and identifier refs.
  */
-function parseScalar(text) {
+function parseScalar(text: string): LuaValue {
   // Number
   if (/^-?[0-9]/.test(text)) {
     return Number(text);
