@@ -22,5 +22,77 @@ describe("build-list", () => {
         assert.ok(r.weapons.length > 0, `weapons should be non-empty: ${r.file}`);
       }
     });
+
+    it("filters by class", () => {
+      const results = listBuilds(BUILDS_DIR, { class: "psyker" });
+      assert.ok(results.length > 0, "should have psyker builds");
+      assert.ok(results.every((r) => r.class === "psyker"), "all should be psyker");
+    });
+
+    it("filters by class case-insensitively", () => {
+      const lower = listBuilds(BUILDS_DIR, { class: "psyker" });
+      const upper = listBuilds(BUILDS_DIR, { class: "Psyker" });
+      assert.equal(lower.length, upper.length);
+    });
+
+    it("filters by weapon name substring", () => {
+      const results = listBuilds(BUILDS_DIR, { weapon: "bolter" });
+      assert.ok(results.length > 0, "should have bolter builds");
+      assert.ok(
+        results.every((r) => r.weapons.some((w) =>
+          w.name.toLowerCase().includes("bolter") ||
+          (w.family && w.family.toLowerCase().includes("bolter"))
+        )),
+        "all should have a bolter weapon",
+      );
+    });
+
+    it("filters by minimum grade", () => {
+      const results = listBuilds(BUILDS_DIR, { minGrade: "A" });
+      assert.ok(results.length > 0, "should have A+ builds");
+      assert.ok(results.every((r) => ["S", "A"].includes(r.scores.grade)), "all should be A or S");
+    });
+
+    it("sorts by composite descending by default", () => {
+      const results = listBuilds(BUILDS_DIR);
+      for (let i = 1; i < results.length; i++) {
+        assert.ok(
+          results[i - 1].scores.composite >= results[i].scores.composite,
+          `should be descending: ${results[i - 1].scores.composite} >= ${results[i].scores.composite}`,
+        );
+      }
+    });
+
+    it("sorts ascending with reverse flag", () => {
+      const results = listBuilds(BUILDS_DIR, { reverse: true });
+      for (let i = 1; i < results.length; i++) {
+        assert.ok(
+          results[i - 1].scores.composite <= results[i].scores.composite,
+          `should be ascending: ${results[i - 1].scores.composite} <= ${results[i].scores.composite}`,
+        );
+      }
+    });
+
+    it("sorts by a specific dimension", () => {
+      const results = listBuilds(BUILDS_DIR, { sort: "perk_optimality" });
+      for (let i = 1; i < results.length; i++) {
+        assert.ok(
+          results[i - 1].scores.perk_optimality >= results[i].scores.perk_optimality,
+          "should sort by perk_optimality descending",
+        );
+      }
+    });
+
+    it("rejects invalid sort key", () => {
+      assert.throws(
+        () => listBuilds(BUILDS_DIR, { sort: "nonexistent" }),
+        /Invalid sort key/,
+      );
+    });
+
+    it("returns empty array when no builds match filter", () => {
+      const results = listBuilds(BUILDS_DIR, { class: "nonexistent_class" });
+      assert.equal(results.length, 0);
+    });
   });
 });
