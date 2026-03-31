@@ -48,6 +48,12 @@ npm run export:bot-weapons                        # regenerate data/exports/bot-
 npm run report -- data/builds/08-gandalf-melee-wizard.json           # human-readable text report
 npm run report -- data/builds/08-gandalf-melee-wizard.json --format md  # markdown report
 npm run report -- data/builds/                                       # batch report (all builds)
+npm run list                                                                    # list all builds (scorecard table)
+npm run list -- --class psyker --sort breakpoint_relevance                      # filter + sort
+npm run list -- --json                                                          # list as JSON (BuildSummary[])
+npm run diff -- data/builds/08-gandalf-melee-wizard.json data/builds/01-veteran-squad-leader.json          # compare two builds
+npm run diff -- data/builds/08-gandalf-melee-wizard.json data/builds/01-veteran-squad-leader.json --detailed  # with synergy + breakpoint diff
+npm run diff -- data/builds/08-gandalf-melee-wizard.json data/builds/01-veteran-squad-leader.json --json      # compare as JSON
 npm run score -- data/builds/08-gandalf-melee-wizard.json --json             # build scoring (with qualitative)
 npm run score -- data/builds/08-gandalf-melee-wizard.json --text             # build scoring (human-readable)
 npm run recommend -- analyze-gaps data/builds/08-gandalf-melee-wizard.json   # coverage gap analysis
@@ -266,6 +272,18 @@ Module: `src/lib/cleave-calculator.ts`. CLI: `src/cli/cleave-build.ts`. Frozen s
 
 Module: `src/lib/toughness-calculator.ts`. CLI: `src/cli/toughness-build.ts`. Frozen snapshots in `tests/fixtures/ground-truth/toughness/`. Re-freeze with `npm run toughness:freeze`.
 
+## Build Browse and Compare
+
+`npm run list [dir] [--class X] [--weapon X] [--grade X] [--sort X] [--reverse] [--json]` lists builds as a filterable, sortable scorecard table. `npm run diff -- <a> <b> [--detailed] [--json]` compares two builds with score deltas, structural diff, and optional analytical diff (synergy edges + breakpoint comparison).
+
+**Architecture:** Two library modules (`build-list.ts`, `build-diff.ts`) backed by a shared `scorecard-deps.ts` helper for graceful degradation of synergy/calc data. Both modules exported from `index.ts` for #6 website consumption.
+
+**`BuildSummary`** (from `build-list.ts`): flat table-row shape with file, title, class, ability, keystone, weapons, and all 7 scoring dimensions + composite + letter grade. Filtering: class (exact), weapon (substring on name/family), minGrade. Sorting: any dimension, descending default, nulls last.
+
+**`BuildDiff`** (from `build-diff.ts`): score deltas (b - a for all 8 dimensions), structural diff (set operations on entity IDs for talents/weapons/blessings/curio_perks + slot diffs for ability/blitz/aura/keystone), and optional analytical diff (synergy edge set diff + breakpoint checklist HTK comparison).
+
+Design spec: `docs/superpowers/specs/2026-03-31-build-browse-and-compare-design.md`.
+
 ## Classification Registry
 
 `src/lib/build-classification-registry.ts` maps GL talent slugs to canonical build slots. Only slot-routing nodes need entries (abilities, blitz, auras, keystones, modifiers). Regular talents flow through to `talents[]` without registry entries. The registry is populated per-class from the decompiled source tree.
@@ -302,7 +320,6 @@ Key paths for entity work:
 
 ## Open Issues
 
-- `#3` Build-oriented CLI commands (browse, compare)
 - `#6` Website architecture
 
 ## Completed Issues
@@ -318,6 +335,7 @@ Key paths for entity work:
 - `#11` Toughness and survivability calculator (defender-side: DR stacking, effective HP, bleedthrough, toughness regen, state TDR modifiers; `toughness` CLI; scoring deferred)
 - `#12` Stagger calculator (impact pipeline, stagger tier classification against breed thresholds, `stagger` CLI, scoring integration via stagger checklist entries)
 - `#13` Cleave multi-target simulation (cleave budget simulation against horde compositions, per-target damage, `cleave` CLI, scoring integration via cleave checklist entries)
+- `#3` Build-oriented CLI commands (`list` filterable/sortable build table with 7-dimension scores, `diff` structural + analytical build comparison; library modules exported for #6 website)
 
 ## BetterBots Integration
 
