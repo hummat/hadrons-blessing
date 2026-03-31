@@ -17,7 +17,7 @@ const BUILDS_DIR = join(REPO_ROOT, "data", "builds");
 /** Shared report fixture — generated once, reused across formatText tests. */
 let _report;
 async function getReport() {
-  if (!_report) _report = await generateReport(join(BUILDS_DIR, "08-gandalf-melee-wizard.json"));
+  if (!_report) _report = await generateReport(join(BUILDS_DIR, "09-psyker-2026.json"));
   return _report;
 }
 
@@ -62,7 +62,7 @@ describe("formatText", () => {
 
   it("shows weapon sections", async () => {
     // Use build 01 which has weapons with both perks and blessings
-    const report = await generateReport(join(BUILDS_DIR, "01-veteran-squad-leader.json"));
+    const report = await generateReport(join(BUILDS_DIR, "01-veteran-havoc40-2026.json"));
     const text = formatText(report);
     assert.ok(/\[melee\]/i.test(text) || /melee/i.test(text), "should mention melee");
     assert.ok(/\[ranged\]/i.test(text) || /ranged/i.test(text), "should mention ranged");

@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "title": "\"Death Cultist\" | Havoc 40 Relic Blade Zealot",
+  "class": {
+    "raw_label": "zealot",
+    "canonical_entity_id": "shared.class.zealot",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "https://darktide.gameslantern.com/builds/a00327e8-891d-4036-853f-fe821ffa3146/death-cultist-havoc-40-relic-blade-zealot",
+    "author": "Magnafanta",
+    "scraped_at": "2026-03-31T23:10:18.891Z"
+  },
+  "ability": {
+    "raw_label": "Chorus of Spiritual Fortitude",
+    "canonical_entity_id": "zealot.ability.zealot_bolstering_prayer",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Immolation Grenade",
+    "canonical_entity_id": "zealot.ability.zealot_flame_grenade",
+    "resolution_status": "resolved"
+  },
+  "aura": {
+    "raw_label": "Benediction",
+    "canonical_entity_id": "zealot.aura.zealot_toughness_damage_reduction_coherency_improved",
+    "resolution_status": "resolved"
+  },
+  "keystone": {
+    "raw_label": "Martyrdom",
+    "canonical_entity_id": "zealot.keystone.zealot_martyrdom",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Blood Redemption",
+      "canonical_entity_id": "zealot.talent.zealot_more_toughness_on_melee",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Scourge",
+      "canonical_entity_id": "zealot.talent.zealot_crits_apply_bleed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Backstabber",
+      "canonical_entity_id": "zealot.talent.zealot_backstab_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Purge the Unclean",
+      "canonical_entity_id": "zealot.talent.zealot_increased_damage_vs_resilient",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Enduring Faith",
+      "canonical_entity_id": "zealot.talent.zealot_crits_reduce_toughness_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Second Wind",
+      "canonical_entity_id": "zealot.talent.zealot_toughness_on_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Bleed for the Emperor",
+      "canonical_entity_id": "zealot.talent.zealot_reduced_damage_on_wound",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Duellist",
+      "canonical_entity_id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Until Death",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ecclesiarchs Call",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_channel_grants_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Punishment",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Holy Revenant",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death_healing",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Faithful Frenzy",
+      "canonical_entity_id": "zealot.talent.zealot_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Faiths Fortitude",
+      "canonical_entity_id": "zealot.talent.zealot_additional_wounds",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "I Shall Not Fall",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Maniac",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Sustained Assault",
+      "canonical_entity_id": "zealot.talent.zealot_hits_grant_stacking_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Invocation of Death",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_crits_grant_cd",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 2",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 2",
+      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 8",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Restorative Verses",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_toughness_modifier",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Blinded by Blood",
+      "canonical_entity_id": "zealot.talent.zealot_bled_enemies_take_more_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Providence",
+      "canonical_entity_id": "zealot.talent.zealot_revive_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "On the Brink",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "Munitorum Mk II Relic Blade",
+        "canonical_entity_id": "shared.weapon.powersword_2h_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "2-5% Melee Critical Hit Chance",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_crit_chance",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Cranial Grounding",
+          "canonical_entity_id": "shared.name_family.blessing.cranial_grounding",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Rampage",
+          "canonical_entity_id": "shared.name_family.blessing.rampage",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Godwyn-Branx Mk IV Bolt Pistol",
+        "canonical_entity_id": "shared.weapon.boltpistol_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Puncture",
+          "canonical_entity_id": "shared.name_family.blessing.puncture",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Execution",
+          "canonical_entity_id": "shared.name_family.blessing.execution",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ],
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+1 Wound(s)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_innate_max_wounds_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 1,
+            "max": 1,
+            "unit": "flat"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+1 Wound(s)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_innate_max_wounds_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 1,
+            "max": 1,
+            "unit": "flat"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.17,
+            "max": 0.21,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-15% Corruption Resistance",
+          "canonical_entity_id": "shared.gadget_trait.gadget_corruption_resistance",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.15,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
+    }
+  ]
+}

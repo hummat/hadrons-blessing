@@ -1,6 +1,6 @@
 /**
  * Calculator validation tests — smoke tests, data audits, and known-bug
- * characterization for the damage pipeline across all 23 builds.
+ * characterization for the damage pipeline across all 24 builds.
  *
  * Tasks 2-4 from the calculator validation plan.
  */
@@ -55,8 +55,8 @@ describe("Task 2: Damage Pipeline Sanity", { skip: !hasGeneratedData && "no gene
     }
   }
 
-  it("runs computeBreakpoints on all 23 builds (capturing errors)", () => {
-    assert.equal(builds.length, 23, `expected 23 builds, found ${builds.length}`);
+  it("runs computeBreakpoints on all 24 builds (capturing errors)", () => {
+    assert.equal(builds.length, 24, `expected 24 builds, found ${builds.length}`);
     // Build 14 may crash — that's OK. Others should succeed.
     const unexpectedErrors = [...errors.entries()].filter(
       ([f]) => !f.startsWith("14-"),
@@ -169,11 +169,11 @@ describe("Task 2: Damage Pipeline Sanity", { skip: !hasGeneratedData && "no gene
 
   it("Build 14 error is captured without failing the suite", () => {
     // This test documents whether Build 14 crashes. Either outcome is acceptable.
-    if (errors.has("14-arbites-nuncio-aquila.json")) {
-      const err = errors.get("14-arbites-nuncio-aquila.json");
+    if (errors.has("17-arbites-busted.json")) {
+      const err = errors.get("17-arbites-busted.json");
       console.log(`Build 14 error (captured): ${err.message}`);
-    } else if (results.has("14-arbites-nuncio-aquila.json")) {
-      const r = results.get("14-arbites-nuncio-aquila.json");
+    } else if (results.has("17-arbites-busted.json")) {
+      const r = results.get("17-arbites-busted.json");
       console.log(
         `Build 14 succeeded: ${r.weapons.length} weapon(s), ` +
           `${r.weapons.reduce((s, w) => s + w.actions.length, 0)} total actions`,

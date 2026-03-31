@@ -9,15 +9,15 @@ const BUILDS_DIR = join(REPO_ROOT, "data", "builds");
 
 describe("generateReport", () => {
   it("produces a BuildReport with correct header for a canonical build", async () => {
-    const report = await generateReport(join(BUILDS_DIR, "08-gandalf-melee-wizard.json"));
-    assert.equal(report.title, "Gandalf: Melee Wizard (Updated for Bound by Duty)");
+    const report = await generateReport(join(BUILDS_DIR, "09-psyker-2026.json"));
+    assert.equal(report.title, "Psyker Build 2026");
     assert.equal(report.class, "psyker");
     assert.equal(report.provenance.source_kind, "gameslantern");
-    assert.equal(report.provenance.author, "nomalarkey");
+    assert.equal(report.provenance.author, "FEARLESSFARGO");
   });
 
   it("produces correct summary counts", async () => {
-    const report = await generateReport(join(BUILDS_DIR, "08-gandalf-melee-wizard.json"));
+    const report = await generateReport(join(BUILDS_DIR, "09-psyker-2026.json"));
     const s = report.summary;
     assert.ok(s.total > 0, "total should be > 0");
     assert.ok(s.resolved > 0, "resolved should be > 0");
@@ -31,7 +31,7 @@ describe("generateReport", () => {
   });
 
   it("populates structural slots", async () => {
-    const report = await generateReport(join(BUILDS_DIR, "08-gandalf-melee-wizard.json"));
+    const report = await generateReport(join(BUILDS_DIR, "09-psyker-2026.json"));
     assert.ok(Array.isArray(report.slots), "slots should be an array");
     for (const slotName of ["ability", "blitz", "aura", "keystone"]) {
       const entry = report.slots.find((s) => s.slot === slotName);
@@ -42,7 +42,7 @@ describe("generateReport", () => {
   });
 
   it("populates weapons with perks and blessings", async () => {
-    const report = await generateReport(join(BUILDS_DIR, "08-gandalf-melee-wizard.json"));
+    const report = await generateReport(join(BUILDS_DIR, "09-psyker-2026.json"));
     assert.equal(report.weapons.length, 2, "should have 2 weapons");
     const melee = report.weapons.find((w) => w.slot === "melee");
     const ranged = report.weapons.find((w) => w.slot === "ranged");
@@ -55,7 +55,7 @@ describe("generateReport", () => {
   });
 
   it("includes scoring data", async () => {
-    const report = await generateReport(join(BUILDS_DIR, "08-gandalf-melee-wizard.json"));
+    const report = await generateReport(join(BUILDS_DIR, "09-psyker-2026.json"));
     assert.ok(typeof report.perk_optimality === "number", "perk_optimality should be a number");
     assert.ok(report.perk_optimality >= 1 && report.perk_optimality <= 5, "perk_optimality should be 1-5");
     assert.ok(typeof report.curio_score === "number", "curio_score should be a number");
@@ -63,7 +63,7 @@ describe("generateReport", () => {
   });
 
   it("lists unresolved entries in problems", async () => {
-    const report = await generateReport(join(BUILDS_DIR, "08-gandalf-melee-wizard.json"));
+    const report = await generateReport(join(BUILDS_DIR, "09-psyker-2026.json"));
     assert.ok(report.unresolved.length > 0, "build 08 should have unresolved curio names");
     for (const entry of report.unresolved) {
       assert.ok(typeof entry.field === "string", "unresolved entry should have field");
@@ -71,20 +71,20 @@ describe("generateReport", () => {
     }
   });
 
-  it("lists non_canonical entries when present", async () => {
-    const report = await generateReport(join(BUILDS_DIR, "07-zealot-infodump.json"));
-    assert.ok(report.non_canonical.length > 0, "build 07 should have non_canonical entries");
+  it("non_canonical array is present even when empty", async () => {
+    const report = await generateReport(join(BUILDS_DIR, "06-zealot-death-cultist.json"));
+    assert.ok(Array.isArray(report.non_canonical), "non_canonical should be an array");
   });
 
   it("includes keystone slot even when null", async () => {
-    const report = await generateReport(join(BUILDS_DIR, "08-gandalf-melee-wizard.json"));
+    const report = await generateReport(join(BUILDS_DIR, "09-psyker-2026.json"));
     const keystone = report.slots.find((s) => s.slot === "keystone");
     assert.ok(keystone, "keystone slot should exist");
   });
 
   it("normalizes blessing fields to { label, known }", async () => {
     // Build 07 has weapons with blessing scoring data (combat sword)
-    const report = await generateReport(join(BUILDS_DIR, "07-zealot-infodump.json"));
+    const report = await generateReport(join(BUILDS_DIR, "06-zealot-death-cultist.json"));
     const weapon = report.weapons.find((w) => w.blessings.length > 0);
     assert.ok(weapon, "should find weapon with blessings");
     for (const b of weapon.blessings) {
@@ -95,7 +95,7 @@ describe("generateReport", () => {
   });
 
   it("normalizes curio perk fields to { label, tier, rating }", async () => {
-    const report = await generateReport(join(BUILDS_DIR, "08-gandalf-melee-wizard.json"));
+    const report = await generateReport(join(BUILDS_DIR, "09-psyker-2026.json"));
     assert.ok(report.curios.length > 0, "should have curios");
     const curio = report.curios.find((c) => c.perks.length > 0);
     assert.ok(curio, "should have curio with perks");

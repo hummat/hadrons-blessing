@@ -1,0 +1,47 @@
+{
+  "class": "veteran",
+  "difficulty": "damnation",
+  "base": {
+    "health": 150,
+    "wounds": 2,
+    "toughness": 100,
+    "stamina": 2
+  },
+  "dr_sources": [],
+  "total_dr": 0,
+  "max_toughness": 123.62,
+  "effective_toughness": 123.62,
+  "health_pool": 300,
+  "effective_hp": 423.63,
+  "max_health_modifier": 0,
+  "state_modifiers": {
+    "dodging": {
+      "tdr": 0,
+      "damage_multiplier": 1,
+      "effective_toughness": 123.62
+    },
+    "sliding": {
+      "tdr": 0.5,
+      "damage_multiplier": 0.5,
+      "effective_toughness": 247.24
+    },
+    "sprinting": {
+      "tdr": 0,
+      "damage_multiplier": 1,
+      "effective_toughness": 123.62
+    }
+  },
+  "toughness_regen": {
+    "base_rate": 5,
+    "modified_rate": 5,
+    "delay_seconds": 3,
+    "coherency": {
+      "solo": 0,
+      "one_ally": 2.5,
+      "two_allies": 3.75,
+      "three_allies": 5
+    },
+    "melee_kill_recovery_percent": 0.05,
+    "melee_kill_recovery": 6.18
+  }
+}

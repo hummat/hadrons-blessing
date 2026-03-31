@@ -1,0 +1,307 @@
+{
+  "title": "\"Death Cultist\" | Havoc 40 Relic Blade Zealot",
+  "class": "zealot",
+  "perk_optimality": 5,
+  "curio_efficiency": 4,
+  "composite_score": 23,
+  "letter_grade": "B",
+  "weapons": [
+    {
+      "name": "Munitorum Mk II Relic Blade",
+      "slot": "melee",
+      "canonical_entity_id": null,
+      "internal_name": null,
+      "weapon_family": "powersword_2h",
+      "resolution_source": "provisional_family",
+      "perks": {
+        "score": 5,
+        "perks": [
+          {
+            "name": "Damage (Carapace)",
+            "tier": 4,
+            "value": 0.25
+          },
+          {
+            "name": "Critical Hit Chance",
+            "tier": 4,
+            "value": 0.05
+          }
+        ]
+      },
+      "blessings": {
+        "valid": false,
+        "blessings": [
+          {
+            "name": "Cranial Grounding",
+            "known": false,
+            "internal": null
+          },
+          {
+            "name": "Rampage",
+            "known": false,
+            "internal": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "Godwyn-Branx Mk IV Bolt Pistol",
+      "slot": "ranged",
+      "canonical_entity_id": "shared.weapon.boltpistol_p1_m1",
+      "internal_name": "boltpistol_p1_m1",
+      "weapon_family": "boltpistol_p1",
+      "resolution_source": "ground_truth",
+      "perks": {
+        "score": 5,
+        "perks": [
+          {
+            "name": "Damage (Carapace)",
+            "tier": 4,
+            "value": 0.25
+          },
+          {
+            "name": "Damage (Unyielding)",
+            "tier": 4,
+            "value": 0.25
+          }
+        ]
+      },
+      "blessings": {
+        "valid": false,
+        "blessings": [
+          {
+            "name": "Puncture",
+            "known": true,
+            "internal": "rending_on_crit"
+          },
+          {
+            "name": "Execution",
+            "known": false,
+            "internal": null
+          }
+        ]
+      }
+    }
+  ],
+  "curios": {
+    "score": 4,
+    "perks": [
+      {
+        "name": "Wound(s)",
+        "tier": 1,
+        "rating": "good"
+      },
+      {
+        "name": "Combat Ability Regen",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "DR vs Gunners",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Wound(s)",
+        "tier": 1,
+        "rating": "good"
+      },
+      {
+        "name": "Combat Ability Regen",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "DR vs Gunners",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Health",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Combat Ability Regen",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Corruption Resistance",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Stamina Regeneration",
+        "tier": 4,
+        "rating": "good"
+      }
+    ]
+  },
+  "qualitative": {
+    "blessing_synergy": {
+      "score": 5,
+      "breakdown": {
+        "blessing_edges": 19,
+        "blessing_count": 4,
+        "edges_per_blessing": 4.75,
+        "blessing_blessing_edges": 2,
+        "orphaned_blessings": 1
+      },
+      "explanations": [
+        "Blessings with synergy edges: rampage, cranial_grounding, puncture",
+        "2 blessing-blessing edge(s) +0.5",
+        "1 blessing(s) participate in no synergy edges (-1 each)"
+      ]
+    },
+    "talent_coherence": {
+      "score": 1,
+      "breakdown": {
+        "talent_edges": 20,
+        "talent_count": 25,
+        "edges_per_talent": 0.8,
+        "graph_isolated_count": 11,
+        "concentration": 0.04,
+        "penalties": -5.5,
+        "bonuses": 0
+      },
+      "explanations": [
+        "11 talent(s) participate in no synergy edges (-0.5 each)"
+      ]
+    },
+    "breakpoint_relevance": {
+      "score": 3,
+      "breakdown": [
+        {
+          "label": "One-shot Rager head",
+          "met": false,
+          "best_htk": 2,
+          "max_hits": 1,
+          "weight": "high"
+        },
+        {
+          "label": "Two-hit Rager body",
+          "met": false,
+          "best_htk": 4,
+          "max_hits": 2,
+          "weight": "high"
+        },
+        {
+          "label": "Two-hit Crusher",
+          "met": false,
+          "best_htk": 6,
+          "max_hits": 2,
+          "weight": "high"
+        },
+        {
+          "label": "One-shot Trapper",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "One-shot Hound",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "One-shot Bomber body",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "Horde one-shot body",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "Three-hit Mauler",
+          "met": false,
+          "best_htk": 4,
+          "max_hits": 3,
+          "weight": "low"
+        },
+        {
+          "label": "Two-hit Bulwark",
+          "met": false,
+          "best_htk": 3,
+          "max_hits": 2,
+          "weight": "low"
+        },
+        {
+          "label": "One-shot Sniper",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "low"
+        }
+      ],
+      "explanations": [
+        "5/10 breakpoints met (weighted 9/20)",
+        "Missed high-priority: One-shot Rager head, Two-hit Rager body, Two-hit Crusher"
+      ]
+    },
+    "role_coverage": {
+      "score": 4,
+      "breakdown": {
+        "active_families": 8,
+        "total_families": 11,
+        "coverage_gaps": [],
+        "slot_balance_ratio": 0.5
+      },
+      "explanations": []
+    },
+    "difficulty_scaling": {
+      "score": 1,
+      "breakdown": {
+        "auric_met": 0,
+        "damnation_met": 0,
+        "total": 3,
+        "per_entry": [
+          {
+            "label": "One-shot Rager head",
+            "damnation_htk": 2,
+            "auric_htk": 3,
+            "damnation_met": false,
+            "auric_met": false
+          },
+          {
+            "label": "Two-hit Rager body",
+            "damnation_htk": 4,
+            "auric_htk": 5,
+            "damnation_met": false,
+            "auric_met": false
+          },
+          {
+            "label": "Two-hit Crusher",
+            "damnation_htk": 6,
+            "auric_htk": 8,
+            "damnation_met": false,
+            "auric_met": false
+          }
+        ]
+      },
+      "explanations": [
+        "High-priority: 0/3 at damnation, 0/3 at auric"
+      ]
+    }
+  },
+  "bot_flags": []
+}

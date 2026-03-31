@@ -1,0 +1,584 @@
+{
+  "build": "13-ogryn-bonktide.json",
+  "resolved": [
+    {
+      "field": "ability",
+      "text": "Loyal Protector",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.ability.ogryn_taunt_shout",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "aura",
+      "text": "Bonebreakers Aura",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.aura.ogryn_melee_damage_coherency_improved",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "blitz",
+      "text": "Frag Bomb",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.ability.ogryn_grenade_frag",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "class",
+      "text": "ogryn",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.class.ogryn",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[0].perks[0]",
+      "text": "+13-17% Toughness",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[0].perks[1]",
+      "text": "+2-5% Toughness",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[0].perks[2]",
+      "text": "+5-20% Damage Resistance (Gunners)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[0].perks[3]",
+      "text": "+4-10% Revive Speed (Ally)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[1].perks[0]",
+      "text": "+13-17% Toughness",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[1].perks[1]",
+      "text": "+2-5% Toughness",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[1].perks[2]",
+      "text": "+5-20% Damage Resistance (Gunners)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[1].perks[3]",
+      "text": "+4-10% Revive Speed (Ally)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[2].perks[0]",
+      "text": "+13-17% Toughness",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[2].perks[1]",
+      "text": "+2-5% Toughness",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[2].perks[2]",
+      "text": "+5-20% Damage Resistance (Gunners)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[2].perks[3]",
+      "text": "+4-10% Revive Speed (Ally)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "keystone",
+      "text": "Heavy Hitter",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.keystone.ogryn_passive_heavy_hitter",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[0]",
+      "text": "The Best Defence",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_multi_heavy_toughness",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[1]",
+      "text": "Smash Em",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_single_heavy_toughness",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[10]",
+      "text": "Just Getting Started 2",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_attack_speed",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[11]",
+      "text": "Unstoppable",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_toughness",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[12]",
+      "text": "Toughness Damage Reduction 3",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[13]",
+      "text": "Bruiser",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[14]",
+      "text": "Get Stuck in",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_ally_movement_boost_on_ability",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[15]",
+      "text": "Too Stubborn to Die",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_toughness_on_low_health",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[16]",
+      "text": "Payback Time",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_revenge_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[17]",
+      "text": "Just Getting Started",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent_modifier.ogryn_taunt_staggers_reduce_cooldown",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[18]",
+      "text": "Toughness Boost 7",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.toughness_boost",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[19]",
+      "text": "No Hurting Friends 2",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[2]",
+      "text": "Steady Grip",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_toughness_while_bracing",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[20]",
+      "text": "Melee Damage Boost 5",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.melee_damage_boost",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[21]",
+      "text": "No Pain 2",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent_modifier.ogryn_taunt_restore_toughness",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[22]",
+      "text": "Cant Hit Meagain 2",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_ranged_damage_immunity",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[23]",
+      "text": "Beat Them Back 2",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_melee_damage_after_heavy",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[24]",
+      "text": "Great Cleaver 2",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_cleave",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[25]",
+      "text": "Strike True 2",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_weakspot_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[3]",
+      "text": "Heavyweight",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_ogryn_killer",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[4]",
+      "text": "Toughness Boost 2",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.toughness_boost",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[5]",
+      "text": "Toughness Boost 3",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.toughness_boost",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[6]",
+      "text": "Soften Them Up",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_targets_recieve_damage_taken_increase_debuff",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[7]",
+      "text": "Rending Boost",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.rending_boost",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[8]",
+      "text": "Crunch",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_fully_charged_attacks_gain_damage_and_stagger",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[9]",
+      "text": "Implacable",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "ogryn.talent.ogryn_windup_reduces_damage_taken",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[0].name",
+      "text": "Branx Mk Ia Delver's Pickaxe",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon.ogryn_pickaxe_2h_p1_m1",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[0].perks[0]",
+      "text": "10-25% Damage (Unyielding Enemies)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[0].perks[1]",
+      "text": "10-25% Damage (Carapace Armoured Enemies)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[1].blessings[1].name",
+      "text": "Surgical",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.name_family.blessing.surgical",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[1].name",
+      "text": "Achlys Mk II Heavy Stubber",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon.ogryn_heavystubber_p1_m1",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[1].perks[0]",
+      "text": "10-25% Damage (Flak Armoured Enemies)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[1].perks[1]",
+      "text": "10-25% Damage (Unarmoured Enemies)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    }
+  ],
+  "ambiguous": [],
+  "non_canonical": [],
+  "unresolved": [
+    {
+      "field": "curios[0].name",
+      "text": "Blessed Bullet",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": [
+        "persisted_unresolved_selection"
+      ]
+    },
+    {
+      "field": "curios[1].name",
+      "text": "Blessed Bullet",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": [
+        "persisted_unresolved_selection"
+      ]
+    },
+    {
+      "field": "curios[2].name",
+      "text": "Blessed Bullet",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": [
+        "persisted_unresolved_selection"
+      ]
+    },
+    {
+      "field": "weapons[0].blessings[0].name",
+      "text": "Thrust",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": [
+        "persisted_unresolved_selection"
+      ]
+    },
+    {
+      "field": "weapons[0].blessings[1].name",
+      "text": "Headtaker",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": [
+        "persisted_unresolved_selection"
+      ]
+    },
+    {
+      "field": "weapons[1].blessings[0].name",
+      "text": "Opening Salvo",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": [
+        "persisted_unresolved_selection"
+      ]
+    }
+  ],
+  "warnings": [
+    "persisted_unresolved_selection"
+  ]
+}

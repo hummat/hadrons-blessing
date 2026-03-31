@@ -558,7 +558,7 @@ describe("generateScorecard qualitative scores", { skip: !HAS_SOURCE && "require
   }
 
   it("populates talent_coherence, blessing_synergy, role_coverage when synergy passed", () => {
-    const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
     const synergy = getSynergy(build);
     const card = generateScorecard(build, synergy);
     assert.notEqual(card.qualitative.talent_coherence, null);
@@ -569,14 +569,14 @@ describe("generateScorecard qualitative scores", { skip: !HAS_SOURCE && "require
   });
 
   it("keeps qualitative null when no synergy passed", () => {
-    const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
     const card = generateScorecard(build);
     assert.equal(card.qualitative.talent_coherence, null);
     assert.equal(card.qualitative.blessing_synergy, null);
   });
 
   it("keeps breakpoint_relevance and difficulty_scaling null", () => {
-    const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
     const synergy = getSynergy(build);
     const card = generateScorecard(build, synergy);
     assert.equal(card.qualitative.breakpoint_relevance, null);
@@ -584,7 +584,7 @@ describe("generateScorecard qualitative scores", { skip: !HAS_SOURCE && "require
   });
 
   it("includes composite score and letter grade", () => {
-    const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
     const synergy = getSynergy(build);
     const card = generateScorecard(build, synergy);
     assert.ok(typeof card.composite_score === "number");
@@ -593,7 +593,7 @@ describe("generateScorecard qualitative scores", { skip: !HAS_SOURCE && "require
   });
 
   it("does not change perk_optimality or curio_efficiency", () => {
-    const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
     const synergy = getSynergy(build);
     const card = generateScorecard(build, synergy);
     assert.ok(typeof card.perk_optimality === "number");

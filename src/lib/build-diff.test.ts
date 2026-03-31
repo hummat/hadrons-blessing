@@ -2,8 +2,8 @@ import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { diffBuilds } from "./build-diff.js";
 
-const BUILD_08 = "data/builds/08-gandalf-melee-wizard.json";
-const BUILD_01 = "data/builds/01-veteran-squad-leader.json";
+const BUILD_08 = "data/builds/09-psyker-2026.json";
+const BUILD_01 = "data/builds/01-veteran-havoc40-2026.json";
 
 describe("build-diff", () => {
   describe("diffBuilds", () => {

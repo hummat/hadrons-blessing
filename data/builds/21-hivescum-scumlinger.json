@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "title": "Lihoe's Havoc 40 Scumlinger build.",
+  "class": {
+    "raw_label": "hive scum",
+    "canonical_entity_id": "shared.class.broker",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "https://darktide.gameslantern.com/builds/a129354d-88db-476f-9e1e-84a4d7041760/lihoes-havoc-40-scumlinger-build",
+    "author": "Lihaph",
+    "scraped_at": "2026-03-31T23:13:28.688Z"
+  },
+  "ability": {
+    "raw_label": "Enhanced Desperado",
+    "canonical_entity_id": "hive_scum.ability.broker_ability_focus_improved",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Blackout",
+    "canonical_entity_id": "hive_scum.ability.broker_blitz_flash_grenade_improved",
+    "resolution_status": "resolved"
+  },
+  "aura": {
+    "raw_label": "Gunslinger Improved",
+    "canonical_entity_id": "hive_scum.aura.broker_aura_gunslinger_improved",
+    "resolution_status": "resolved"
+  },
+  "keystone": {
+    "raw_label": "Chemical Dependency",
+    "canonical_entity_id": "hive_scum.keystone.broker_keystone_chemical_dependency",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "In Your Face",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_close_ranged_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Voice of Tertium",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_restore_toughness_on_close_ranged_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Float Like a Butterfly",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 6",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Quick and Deadly",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_close_range_damage_on_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Unload",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_damage_on_reload",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Critical Chance Boost",
+      "canonical_entity_id": "shared.stat_node.critical_chance_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 3",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Potent Tox",
+      "canonical_entity_id": "shared.stat_node.potent_tox",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "'Tis But a Scratch",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_replenish_toughness_on_ranged_toughness_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Hive City Brawler",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_dr_damage_tradeoff_on_stamina",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toxin Mania",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_damage_after_toxined_enemies",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Sample Collector",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_stimm_cd_on_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Extra Pouches",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_increased_blitz_ammo",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Pocket Toxin",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_blitz_inflicts_toxin",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ammo Jack",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_extended_mag",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Punching Above Ones Weight",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_damage_vs_elites_monsters",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Chem Enhanced",
+      "canonical_entity_id": "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_1",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Chem Fortified",
+      "canonical_entity_id": "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_2",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Maxed Out Chems",
+      "canonical_entity_id": "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_3",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Long Lasting",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_stimm_increased_duration",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Burst of Energy",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_stun_immunity_on_toughness_broken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Pickpocket",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_low_ammo_regen",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Street Tough",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Virulent Strain",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Alley Rat",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Wildfire I",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_combat_1",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Wildfire Iv",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_combat_4a",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Wildfire Ii",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_combat_2",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Wildfire Iii",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_combat_3",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Wildfire V",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_combat_5a",
+      "resolution_status": "resolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "Catachan Mk III Combat Blade",
+        "canonical_entity_id": "shared.weapon.combatknife_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "5-20% Sprint Efficiency",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_reduce_sprint_cost",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Uncanny Strike",
+          "canonical_entity_id": "shared.name_family.blessing.uncanny_strike",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Precognition",
+          "canonical_entity_id": "shared.name_family.blessing.precognition",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Vraks Mk V Infantry Autogun",
+        "canonical_entity_id": "shared.weapon.autogun_p1_m2",
+        "resolution_status": "resolved"
+      },
+      "perks": [],
+      "blessings": [
+        {
+          "raw_label": "Increase Ranged Critical Strike Chance by 2-5%",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved"
+        },
+        {
+          "raw_label": "Fire Frenzy",
+          "canonical_entity_id": "shared.name_family.blessing.fire_frenzy",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Dumdum",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved"
+        }
+      ]
+    }
+  ],
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ]
+    }
+  ]
+}

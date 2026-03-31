@@ -1,0 +1,452 @@
+{
+  "schema_version": 1,
+  "title": "Stim Melee",
+  "class": {
+    "raw_label": "hive scum",
+    "canonical_entity_id": "shared.class.broker",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "https://darktide.gameslantern.com/builds/a16639e7-7fd4-4e8b-921b-f1547e7aef25/stim-melee",
+    "author": "merphistopheles",
+    "scraped_at": "2026-03-31T23:14:09.170Z"
+  },
+  "ability": {
+    "raw_label": "Rampage",
+    "canonical_entity_id": "hive_scum.ability.broker_ability_punk_rage",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Chem Grenade",
+    "canonical_entity_id": "hive_scum.ability.broker_blitz_tox_grenade",
+    "resolution_status": "resolved"
+  },
+  "aura": {
+    "raw_label": "Ruffian",
+    "canonical_entity_id": "hive_scum.aura.broker_coherency_melee_damage",
+    "resolution_status": "resolved"
+  },
+  "keystone": {
+    "raw_label": "Adrenaline Frenzy",
+    "canonical_entity_id": "hive_scum.keystone.broker_keystone_adrenaline_junkie",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "A Tertium Welcome",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_first_target_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Precision Violence",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_restore_toughness_on_weakspot_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Float Like a Butterfly",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 6",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Jittery",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_improved_dodges_at_full_stamina",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Swift Endurance",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_stamina_grants_atk_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Critical Chance Boost",
+      "canonical_entity_id": "shared.stat_node.critical_chance_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 3",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "'Tis But a Scratch",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_replenish_toughness_on_ranged_toughness_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Hive City Brawler",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_dr_damage_tradeoff_on_stamina",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Battering Strikes",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_melee_cleave_on_melee_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Battering Momentum",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_cleave_on_cleave",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Hyper Violence",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_melee_damage_carry_over",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Sample Collector",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_stimm_cd_on_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Hyper Critical",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_melee_crit_instakill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Punching Above Ones Weight",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_damage_vs_elites_monsters",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "The Sweet Spot",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_increased_weakspot_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Long Lasting",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_stimm_increased_duration",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Burst of Energy",
+      "canonical_entity_id": "hive_scum.talent.broker_passive_stun_immunity_on_toughness_broken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Stoked Rage",
+      "canonical_entity_id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_3",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Adrenaline Unbound",
+      "canonical_entity_id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_5",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Uncontrolled Aggression",
+      "canonical_entity_id": "hive_scum.talent_modifier.broker_keystone_adrenaline_junkie_sub_4",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Pulverising Strikes",
+      "canonical_entity_id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_2",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Channelled Aggression",
+      "canonical_entity_id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_1",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Boiling Blood",
+      "canonical_entity_id": "hive_scum.talent_modifier.broker_ability_punk_rage_sub_4",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Channelled Devastation",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Wildfire I",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_combat_1",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Wildfire Iv",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_combat_4a",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Wildfire Ii",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_combat_2",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Wildfire Iii",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_combat_3",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Wildfire V",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_combat_5a",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Spur I",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_celerity_1",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Spur Ii",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_celerity_2",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Spur Iii",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_celerity_3",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Spur Iv",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_celerity_4",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Spur V",
+      "canonical_entity_id": "hive_scum.talent.broker_stimm_celerity_5a",
+      "resolution_status": "resolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "Catachan Mk VII \"Devil's Claw\" Sword",
+        "canonical_entity_id": "shared.weapon.combatsword_p2_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "2-5% Melee Critical Hit Chance",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_crit_chance",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Rampage",
+          "canonical_entity_id": "shared.name_family.blessing.rampage",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Shred",
+          "canonical_entity_id": "shared.name_family.blessing.shred",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Branx MkVI Needle Pistol",
+        "canonical_entity_id": "shared.weapon.needlepistol_p1_m2",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Run 'n' Gun",
+          "canonical_entity_id": "shared.name_family.blessing.run_n_gun",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Stripped Down",
+          "canonical_entity_id": "shared.name_family.blessing.stripped_down",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ],
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ]
+    }
+  ]
+}

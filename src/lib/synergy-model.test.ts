@@ -302,14 +302,14 @@ describe("resolveSelections", () => {
     .flatMap((f) => JSON.parse(readFileSync(join(edgeDir, f), "utf-8")));
 
   it("resolves entity with direct calc.effects", () => {
-    const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
     const resolved = resolveSelections(build, entities, edges);
     const withEffects = resolved.filter((s) => s.effects.length > 0);
     assert.ok(withEffects.length > 0, "Expected some selections with effects");
   });
 
   it("deduplicates selections by entity ID", () => {
-    const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
     const resolved = resolveSelections(build, entities, edges);
     const ids = resolved.map((s) => s.id);
     const uniqueIds = new Set(ids);
@@ -319,7 +319,7 @@ describe("resolveSelections", () => {
 
 describe("analyzeBuild", () => {
   it("produces valid analysis for build 08", () => {
-    const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+    const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
     const index = loadIndex();
     const result = analyzeBuild(build, index);
 

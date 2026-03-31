@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "title": "Hamdol's Shield Ogryn for New Havoc 40",
+  "class": {
+    "raw_label": "ogryn",
+    "canonical_entity_id": "shared.class.ogryn",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "https://darktide.gameslantern.com/builds/9e901716-32fb-4f36-a5ee-1085fe835356/hamdols-shield-ogryn-for-new-havoc-40",
+    "author": "Hamdolsun",
+    "scraped_at": "2026-03-31T23:12:12.295Z"
+  },
+  "ability": {
+    "raw_label": "Loyal Protector",
+    "canonical_entity_id": "ogryn.ability.ogryn_taunt_shout",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Frag Bomb",
+    "canonical_entity_id": "ogryn.ability.ogryn_grenade_frag",
+    "resolution_status": "resolved"
+  },
+  "aura": {
+    "raw_label": "Stay Close",
+    "canonical_entity_id": "ogryn.aura.ogryn_toughness_regen_aura",
+    "resolution_status": "resolved"
+  },
+  "keystone": {
+    "raw_label": "Feel No Pain",
+    "canonical_entity_id": "ogryn.keystone.ogryn_carapace_armor",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "The Best Defence",
+      "canonical_entity_id": "ogryn.talent.ogryn_multi_heavy_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Smash Em",
+      "canonical_entity_id": "ogryn.talent.ogryn_single_heavy_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Steady Grip",
+      "canonical_entity_id": "ogryn.talent.ogryn_toughness_while_bracing",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Heavyweight",
+      "canonical_entity_id": "ogryn.talent.ogryn_ogryn_killer",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 2",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 3",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Slam",
+      "canonical_entity_id": "ogryn.talent.ogryn_melee_stagger",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Soften Them Up",
+      "canonical_entity_id": "ogryn.talent.ogryn_targets_recieve_damage_taken_increase_debuff",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Batter",
+      "canonical_entity_id": "ogryn.talent.ogryn_heavy_bleeds",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Implacable",
+      "canonical_entity_id": "ogryn.talent.ogryn_windup_reduces_damage_taken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Delight in Destruction",
+      "canonical_entity_id": "ogryn.talent.ogryn_nearby_bleeds_reduce_damage_taken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 3",
+      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Bruiser",
+      "canonical_entity_id": "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "No Stopping Me",
+      "canonical_entity_id": "ogryn.talent.ogryn_windup_is_uninterruptible",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Payback Time",
+      "canonical_entity_id": "ogryn.talent.ogryn_revenge_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Just Getting Started",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_taunt_staggers_reduce_cooldown",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "No Pushover",
+      "canonical_entity_id": "ogryn.talent.ogryn_blocking_reduces_push_cost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Attention Seeker",
+      "canonical_entity_id": "ogryn.talent.ogryn_blocking_ranged_taunts",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 7",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "No Hurting Friends 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 5",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "No Pain 2",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_taunt_restore_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Brutish Strength 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_pushing_applies_brittleness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Frenzied Blows 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_stacking_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Strongman 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_damage_reduction_after_elite_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Strike True 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_weakspot_damage",
+      "resolution_status": "resolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "Orox Mk II & Mk III Battle Maul & Slab Shield",
+        "canonical_entity_id": "shared.weapon.ogryn_powermaul_slabshield_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Skullcrusher",
+          "canonical_entity_id": "shared.name_family.blessing.skullcrusher",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Last Guard",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Blastoom Mk III Grenadier Gauntlet",
+        "canonical_entity_id": "shared.weapon.ogryn_gauntlet_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "4-10% Ranged Damage (Specialists)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Pinpointing target",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved"
+        },
+        {
+          "raw_label": "Disruptive",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved"
+        }
+      ]
+    }
+  ],
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    }
+  ]
+}

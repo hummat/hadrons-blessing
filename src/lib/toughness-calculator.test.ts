@@ -595,7 +595,7 @@ describe("computeSurvivability (integration)", { skip: !HAS_SOURCE && "requires 
   it("computes full profile for zealot build 04", async () => {
     const { loadIndex } = await import("./synergy-model.js");
     const build = JSON.parse(
-      readFileSync(join(__dirname, "..", "..", "data", "builds", "04-spicy-meta-zealot.json"), "utf-8"),
+      readFileSync(join(__dirname, "..", "..", "data", "builds", "05-zealot-meta-havoc40.json"), "utf-8"),
     );
     const index = loadIndex();
     const result = computeSurvivability(build, index, { difficulty: "damnation" });
@@ -639,7 +639,7 @@ describe("computeSurvivability (integration)", { skip: !HAS_SOURCE && "requires 
   it("computes full profile for ogryn build 12", async () => {
     const { loadIndex } = await import("./synergy-model.js");
     const build = JSON.parse(
-      readFileSync(join(__dirname, "..", "..", "data", "builds", "12-ogryn-shield-tank.json"), "utf-8"),
+      readFileSync(join(__dirname, "..", "..", "data", "builds", "15-ogryn-shield-tank.json"), "utf-8"),
     );
     const index = loadIndex();
     const result = computeSurvivability(build, index, { difficulty: "damnation" });
@@ -666,7 +666,7 @@ describe("computeSurvivability (integration)", { skip: !HAS_SOURCE && "requires 
   it("computes full profile for psyker build 08", async () => {
     const { loadIndex } = await import("./synergy-model.js");
     const build = JSON.parse(
-      readFileSync(join(__dirname, "..", "..", "data", "builds", "08-gandalf-melee-wizard.json"), "utf-8"),
+      readFileSync(join(__dirname, "..", "..", "data", "builds", "09-psyker-2026.json"), "utf-8"),
     );
     const index = loadIndex();
     const result = computeSurvivability(build, index, { difficulty: "damnation" });

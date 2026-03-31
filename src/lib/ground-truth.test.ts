@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
-import { existsSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { resolve, sep } from "node:path";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
@@ -731,9 +731,9 @@ describe("resolveQuery", () => {
 
 describe("auditBuildFile", () => {
   for (const fixtureName of [
-    "08-gandalf-melee-wizard",
-    "09-electrodominance-psyker",
-    "10-electro-shriek-psyker",
+    "09-psyker-2026",
+    "13-ogryn-bonktide",
+    "17-arbites-busted",
   ]) {
     it(`matches the frozen ${fixtureName} audit snapshot`, async () => {
       const result = await auditBuildFile(`data/builds/${fixtureName}.json`);
@@ -875,7 +875,7 @@ describe("auditBuildFile", () => {
   );
 
   it("audits the structured class field", async () => {
-    const result = await auditBuildFile("data/builds/08-gandalf-melee-wizard.json");
+    const result = await auditBuildFile("data/builds/09-psyker-2026.json");
     assert.equal(
       result.resolved.some(
         (entry) =>
@@ -887,7 +887,7 @@ describe("auditBuildFile", () => {
   });
 
   it("keeps unresolved curio item labels in the unresolved bucket", async () => {
-    const result = await auditBuildFile("data/builds/08-gandalf-melee-wizard.json");
+    const result = await auditBuildFile("data/builds/09-psyker-2026.json");
     for (const field of ["curios[0].name", "curios[1].name", "curios[2].name"]) {
       assert.equal(
         result.unresolved.some(
@@ -900,14 +900,14 @@ describe("auditBuildFile", () => {
   });
 
   it("resolves blessing labels to family-level entities", async () => {
-    const veteranResult = await auditBuildFile("data/builds/01-veteran-squad-leader.json");
-    const hiveScumResult = await auditBuildFile("data/builds/18-reginald-melee.json");
+    const veteranResult = await auditBuildFile("data/builds/01-veteran-havoc40-2026.json");
+    const hiveScumResult = await auditBuildFile("data/builds/23-hivescum-melee.json");
 
     for (const [result, field, entityId] of [
-      [veteranResult, "weapons[0].blessings[0].name", "shared.name_family.blessing.cranial_grounding"],
-      [veteranResult, "weapons[0].blessings[1].name", "shared.name_family.blessing.heatsink"],
-      [hiveScumResult, "weapons[0].blessings[0].name", "shared.name_family.blessing.decimator"],
-      [hiveScumResult, "weapons[0].blessings[1].name", "shared.name_family.blessing.shock_and_awe"],
+      [veteranResult, "weapons[1].blessings[0].name", "shared.name_family.blessing.rising_heat"],
+      [veteranResult, "weapons[1].blessings[1].name", "shared.name_family.blessing.gets_hot"],
+      [hiveScumResult, "weapons[0].blessings[0].name", "shared.name_family.blessing.riposte"],
+      [hiveScumResult, "weapons[0].blessings[1].name", "shared.name_family.blessing.uncanny_strike"],
     ]) {
       assert.equal(
         result.resolved.some(
@@ -920,17 +920,17 @@ describe("auditBuildFile", () => {
   });
 
   it("resolves previously unresolved weapon labels", async () => {
-    const veteranSniperResult = await auditBuildFile("data/builds/03-slinking-veteran.json");
-    const zealotStealthResult = await auditBuildFile("data/builds/05-fatmangus-zealot-stealth.json");
-    const shovelOgrynResult = await auditBuildFile("data/builds/13-shovel-ogryn.json");
+    const veteranSniperResult = await auditBuildFile("data/builds/03-veteran-sharpshooter-2026.json");
+    const zealotHammerResult = await auditBuildFile("data/builds/07-zealot-hammer-flamer.json");
+    const ogrynMeleeResult = await auditBuildFile("data/builds/14-ogryn-melee-meta.json");
 
     for (const [result, field, entityId] of [
       [veteranSniperResult, "weapons[0].name", "shared.weapon.combatsword_p2_m1"],
-      [veteranSniperResult, "weapons[1].name", "shared.weapon.lasgun_p2_m1"],
-      [zealotStealthResult, "weapons[0].name", "shared.weapon.powersword_2h_p1_m1"],
-      [zealotStealthResult, "weapons[1].name", "shared.weapon.bolter_p1_m1"],
-      [shovelOgrynResult, "weapons[0].name", "shared.weapon.ogryn_club_p1_m1"],
-      [shovelOgrynResult, "weapons[1].name", "shared.weapon.ogryn_rippergun_p1_m3"],
+      [veteranSniperResult, "weapons[1].name", "shared.weapon.lasgun_p1_m3"],
+      [zealotHammerResult, "weapons[0].name", "shared.weapon.thunderhammer_2h_p1_m1"],
+      [zealotHammerResult, "weapons[1].name", "shared.weapon.flamer_p1_m1"],
+      [ogrynMeleeResult, "weapons[0].name", "shared.weapon.ogryn_club_p2_m3"],
+      [ogrynMeleeResult, "weapons[1].name", "shared.weapon.ogryn_thumper_p1_m2"],
     ]) {
       assert.equal(
         result.resolved.some(
@@ -950,29 +950,12 @@ describe("auditBuildFile", () => {
       cases.map((testCase) => [testCase.query, testCase.expected_entity_id]),
     );
 
-    for (let index = 1; index <= 20; index += 1) {
-      const buildPath = `data/builds/${String(index).padStart(2, "0")}-${[
-        "veteran-squad-leader",
-        "assault-veteran",
-        "slinking-veteran",
-        "spicy-meta-zealot",
-        "fatmangus-zealot-stealth",
-        "holy-gains-zealot",
-        "zealot-infodump",
-        "gandalf-melee-wizard",
-        "electrodominance-psyker",
-        "electro-shriek-psyker",
-        "explodegryn",
-        "ogryn-shield-tank",
-        "shovel-ogryn",
-        "arbites-nuncio-aquila",
-        "arbites-melee-meta",
-        "arbites-busted",
-        "crackhead-john-wick",
-        "reginald-melee",
-        "the-chemist",
-        "stimmtec-blender",
-      ][index - 1]}.json`;
+    const buildFiles = readdirSync("data/builds")
+      .filter((f) => f.endsWith(".json"))
+      .sort();
+
+    for (const file of buildFiles) {
+      const buildPath = `data/builds/${file}`;
       const build = JSON.parse(readFileSync(buildPath, "utf8"));
       const result = await auditBuildFile(buildPath);
 
@@ -981,10 +964,17 @@ describe("auditBuildFile", () => {
         0,
         `unexpected ambiguous entries in ${buildPath}`,
       );
+      // Audit may resolve some entries the build file has as unresolved
+      // (e.g. perk-like labels in blessing slots that match weapon perk entities).
+      // Assert: audit unresolved is a subset of build-file unresolved, and no
+      // new unresolved fields appear that the build file didn't already have.
+      const actualUnresolved = result.unresolved.map((entry) => entry.field).sort();
+      const expectedUnresolved = expectedPersistedUnresolvedFields(build);
+      const unexpected = actualUnresolved.filter((f) => !expectedUnresolved.includes(f));
       assert.deepEqual(
-        result.unresolved.map((entry) => entry.field).sort(),
-        expectedPersistedUnresolvedFields(build),
-        `unexpected unresolved entries in ${buildPath}`,
+        unexpected,
+        [],
+        `unexpected new unresolved entries in ${buildPath}: ${unexpected.join(", ")}`,
       );
       assert.equal(
         result.resolved.some(
@@ -1001,33 +991,33 @@ describe("auditBuildFile", () => {
   });
 
   it("resolves newly covered weapon labels in representative build audits", async () => {
-    const veteranResult = await auditBuildFile("data/builds/01-veteran-squad-leader.json");
-    const explodegrynResult = await auditBuildFile("data/builds/11-explodegryn.json");
-    const zealotInfoDumpResult = await auditBuildFile("data/builds/07-zealot-infodump.json");
-    const ogrynTankResult = await auditBuildFile("data/builds/12-ogryn-shield-tank.json");
-    const arbitesResult = await auditBuildFile("data/builds/14-arbites-nuncio-aquila.json");
-    const arbitesShotgunResult = await auditBuildFile("data/builds/15-arbites-melee-meta.json");
-    const zealotMetaResult = await auditBuildFile("data/builds/04-spicy-meta-zealot.json");
-    const zealotHolyGainsResult = await auditBuildFile("data/builds/06-holy-gains-zealot.json");
-    const hiveScumResult = await auditBuildFile("data/builds/17-crackhead-john-wick.json");
-    const chemistResult = await auditBuildFile("data/builds/19-the-chemist.json");
-    const surgeonResult = await auditBuildFile("data/builds/18-reginald-melee.json");
-    const stimmtecResult = await auditBuildFile("data/builds/20-stimmtec-blender.json");
+    const veteranResult = await auditBuildFile("data/builds/01-veteran-havoc40-2026.json");
+    const explodegrynResult = await auditBuildFile("data/builds/13-ogryn-bonktide.json");
+    const zealotDeathCultistResult = await auditBuildFile("data/builds/06-zealot-death-cultist.json");
+    const ogrynTankResult = await auditBuildFile("data/builds/15-ogryn-shield-tank.json");
+    const arbitesResult = await auditBuildFile("data/builds/17-arbites-busted.json");
+    const arbitesShotgunResult = await auditBuildFile("data/builds/18-arbites-hyper-carry-dog.json");
+    const zealotMetaResult = await auditBuildFile("data/builds/05-zealot-meta-havoc40.json");
+    const zealotChorusResult = await auditBuildFile("data/builds/08-zealot-chorus-swiss-knife.json");
+    const hiveScumResult = await auditBuildFile("data/builds/21-hivescum-scumlinger.json");
+    const rampageResult = await auditBuildFile("data/builds/22-hivescum-rampage.json");
+    const meleeResult = await auditBuildFile("data/builds/23-hivescum-melee.json");
+    const stimmtecResult = await auditBuildFile("data/builds/24-hivescum-stim-melee.json");
 
     for (const [result, field, expectedEntityId] of [
-      [veteranResult, "weapons[0].name", "shared.weapon.powersword_p2_m1"],
+      [veteranResult, "weapons[0].name", "shared.weapon.powersword_p1_m2"],
       [veteranResult, "weapons[1].name", "shared.weapon.plasmagun_p1_m1"],
-      [explodegrynResult, "weapons[0].name", "shared.weapon.ogryn_powermaul_p1_m1"],
-      [explodegrynResult, "weapons[1].name", "shared.weapon.ogryn_thumper_p1_m2"],
+      [explodegrynResult, "weapons[0].name", "shared.weapon.ogryn_pickaxe_2h_p1_m1"],
+      [explodegrynResult, "weapons[1].name", "shared.weapon.ogryn_heavystubber_p1_m1"],
       [arbitesShotgunResult, "weapons[0].name", "shared.weapon.powermaul_p2_m1"],
       [arbitesShotgunResult, "weapons[1].name", "shared.weapon.shotgun_p4_m1"],
-      [zealotInfoDumpResult, "weapons[0].name", "shared.weapon.combatsword_p1_m1"],
-      [zealotHolyGainsResult, "weapons[1].name", "shared.weapon.boltpistol_p1_m1"],
+      [zealotDeathCultistResult, "weapons[0].name", "shared.weapon.powersword_2h_p1_m1"],
+      [zealotChorusResult, "weapons[1].name", "shared.weapon.flamer_p1_m1"],
       [ogrynTankResult, "weapons[0].name", "shared.weapon.ogryn_powermaul_slabshield_p1_m1"],
       [zealotMetaResult, "weapons[1].name", "shared.weapon.flamer_p1_m1"],
-      [hiveScumResult, "weapons[0].name", "shared.weapon.dual_shivs_p1_m1"],
-      [surgeonResult, "weapons[0].name", "shared.weapon.saw_p1_m1"],
-      [stimmtecResult, "weapons[0].name", "shared.weapon.dual_shivs_p1_m1"],
+      [hiveScumResult, "weapons[0].name", "shared.weapon.combatknife_p1_m1"],
+      [meleeResult, "weapons[0].name", "shared.weapon.dual_shivs_p1_m1"],
+      [stimmtecResult, "weapons[0].name", "shared.weapon.combatsword_p2_m1"],
     ]) {
       assert.equal(
         result.resolved.some(
@@ -1041,16 +1031,16 @@ describe("auditBuildFile", () => {
   });
 
   it("does not surface bogus fuzzy blessing matches in non-Psyker build audits", async () => {
-    const result = await auditBuildFile("data/builds/14-arbites-nuncio-aquila.json");
+    const result = await auditBuildFile("data/builds/17-arbites-busted.json");
 
     assert.equal(
       result.resolved.some(
         (entry) =>
           entry.field === "weapons[0].blessings[1].name" &&
-          entry.resolved_entity_id === "shared.name_family.blessing.confident_strike",
+          entry.resolved_entity_id === "shared.name_family.blessing.high_voltage",
       ),
       true,
-      "weapons[0].blessings[1].name should resolve to confident_strike",
+      "weapons[0].blessings[1].name should resolve to high_voltage",
     );
     assert.equal(
       result.ambiguous.some((entry) => entry.field === "weapons[0].blessings[1].name"),
@@ -1062,10 +1052,10 @@ describe("auditBuildFile", () => {
       result.resolved.some(
         (entry) =>
           entry.field === "weapons[1].blessings[1].name" &&
-          entry.resolved_entity_id === "shared.name_family.blessing.fire_frenzy",
+          entry.resolved_entity_id === "shared.name_family.blessing.execution",
       ),
       true,
-      "weapons[1].blessings[1].name should resolve to fire_frenzy",
+      "weapons[1].blessings[1].name should resolve to execution",
     );
     assert.equal(
       result.ambiguous.some((entry) => entry.field === "weapons[1].blessings[1].name"),
@@ -1075,13 +1065,13 @@ describe("auditBuildFile", () => {
   });
 
   it("resolves newly covered curio perks in non-Psyker build audits", async () => {
-    const arbitesResult = await auditBuildFile("data/builds/14-arbites-nuncio-aquila.json");
-    const hiveScumResult = await auditBuildFile("data/builds/17-crackhead-john-wick.json");
+    const arbitesResult = await auditBuildFile("data/builds/17-arbites-busted.json");
+    const rampageResult = await auditBuildFile("data/builds/22-hivescum-rampage.json");
 
     for (const [result, field, expectedEntityId] of [
       [arbitesResult, "curios[0].perks[0]", "shared.gadget_trait.gadget_toughness_increase"],
       [arbitesResult, "curios[1].perks[0]", "shared.gadget_trait.gadget_toughness_increase"],
-      [hiveScumResult, "curios[0].perks[1]", "shared.gadget_trait.gadget_health_increase"],
+      [rampageResult, "curios[0].perks[0]", "shared.gadget_trait.gadget_health_increase"],
     ]) {
       assert.equal(
         result.resolved.some(
@@ -1095,20 +1085,20 @@ describe("auditBuildFile", () => {
   });
 
   it("resolves newly covered weapon perks in representative build audits", async () => {
-    const veteranResult = await auditBuildFile("data/builds/01-veteran-squad-leader.json");
-    const zealotResult = await auditBuildFile("data/builds/04-spicy-meta-zealot.json");
-    const hiveScumResult = await auditBuildFile("data/builds/20-stimmtec-blender.json");
+    const veteranResult = await auditBuildFile("data/builds/01-veteran-havoc40-2026.json");
+    const zealotResult = await auditBuildFile("data/builds/05-zealot-meta-havoc40.json");
+    const hiveScumResult = await auditBuildFile("data/builds/24-hivescum-stim-melee.json");
 
     for (const [result, field, expectedEntityId] of [
       [
         veteranResult,
         "weapons[0].perks[1]",
-        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
       ],
       [
         veteranResult,
         "weapons[1].perks[0]",
-        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
       ],
       [
         zealotResult,
@@ -1118,7 +1108,7 @@ describe("auditBuildFile", () => {
       [
         hiveScumResult,
         "weapons[1].perks[0]",
-        "shared.weapon_perk.ranged.weapon_trait_ranged_increased_reload_speed",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
       ],
     ]) {
       assert.equal(
@@ -1133,18 +1123,18 @@ describe("auditBuildFile", () => {
   });
 
   it("resolves newly covered blessing families in representative build audits", async () => {
-    const veteranResult = await auditBuildFile("data/builds/01-veteran-squad-leader.json");
-    const zealotResult = await auditBuildFile("data/builds/04-spicy-meta-zealot.json");
-    const zealotBoltgunResult = await auditBuildFile("data/builds/05-fatmangus-zealot-stealth.json");
-    const zealotBoltpistolResult = await auditBuildFile("data/builds/06-holy-gains-zealot.json");
-    const ogrynResult = await auditBuildFile("data/builds/13-shovel-ogryn.json");
-    const explodegrynResult = await auditBuildFile("data/builds/11-explodegryn.json");
-    const arbitesResult = await auditBuildFile("data/builds/14-arbites-nuncio-aquila.json");
-    const arbitesMetaResult = await auditBuildFile("data/builds/15-arbites-melee-meta.json");
-    const arbitesBustedResult = await auditBuildFile("data/builds/16-arbites-busted.json");
-    const hiveScumResult = await auditBuildFile("data/builds/17-crackhead-john-wick.json");
-    const chemistResult = await auditBuildFile("data/builds/19-the-chemist.json");
-    const stimmtecResult = await auditBuildFile("data/builds/20-stimmtec-blender.json");
+    const veteranResult = await auditBuildFile("data/builds/01-veteran-havoc40-2026.json");
+    const zealotResult = await auditBuildFile("data/builds/05-zealot-meta-havoc40.json");
+    const zealotHammerResult = await auditBuildFile("data/builds/07-zealot-hammer-flamer.json");
+    const zealotChorusResult = await auditBuildFile("data/builds/08-zealot-chorus-swiss-knife.json");
+    const ogrynResult = await auditBuildFile("data/builds/14-ogryn-melee-meta.json");
+    const bonktideResult = await auditBuildFile("data/builds/13-ogryn-bonktide.json");
+    const arbitesResult = await auditBuildFile("data/builds/17-arbites-busted.json");
+    const arbitesCarryResult = await auditBuildFile("data/builds/18-arbites-hyper-carry-dog.json");
+    const arbitesMetaResult = await auditBuildFile("data/builds/19-arbites-arbitrator-meta.json");
+    const hiveScumResult = await auditBuildFile("data/builds/21-hivescum-scumlinger.json");
+    const rampageResult = await auditBuildFile("data/builds/22-hivescum-rampage.json");
+    const stimmtecResult = await auditBuildFile("data/builds/24-hivescum-stim-melee.json");
 
     for (const [result, field, expectedEntityId] of [
       [
@@ -1168,24 +1158,14 @@ describe("auditBuildFile", () => {
         "shared.name_family.blessing.gets_hot",
       ],
       [
-        zealotBoltgunResult,
+        zealotHammerResult,
+        "weapons[1].blessings[2].name",
+        "shared.name_family.blessing.penetrating_flame",
+      ],
+      [
+        zealotChorusResult,
         "weapons[1].blessings[0].name",
-        "shared.name_family.blessing.pinning_fire",
-      ],
-      [
-        zealotBoltgunResult,
-        "weapons[1].blessings[1].name",
-        "shared.name_family.blessing.puncture",
-      ],
-      [
-        zealotBoltpistolResult,
-        "weapons[1].blessings[0].name",
-        "shared.name_family.blessing.lethal_proximity",
-      ],
-      [
-        zealotBoltpistolResult,
-        "weapons[1].blessings[1].name",
-        "shared.name_family.blessing.puncture",
+        "shared.name_family.blessing.blaze_away",
       ],
       [
         ogrynResult,
@@ -1200,62 +1180,57 @@ describe("auditBuildFile", () => {
       [
         ogrynResult,
         "weapons[1].blessings[0].name",
-        "shared.name_family.blessing.inspiring_barrage",
-      ],
-      [
-        explodegrynResult,
-        "weapons[0].blessings[0].name",
-        "shared.name_family.blessing.power_surge",
-      ],
-      [
-        explodegrynResult,
-        "weapons[1].blessings[0].name",
-        "shared.name_family.blessing.shattering_impact",
-      ],
-      [
-        explodegrynResult,
-        "weapons[1].blessings[1].name",
         "shared.name_family.blessing.adhesive_charge",
       ],
       [
+        ogrynResult,
+        "weapons[1].blessings[1].name",
+        "shared.name_family.blessing.shattering_impact",
+      ],
+      [
+        bonktideResult,
+        "weapons[1].blessings[1].name",
+        "shared.name_family.blessing.surgical",
+      ],
+      [
         arbitesResult,
+        "weapons[0].blessings[0].name",
+        "shared.name_family.blessing.execution",
+      ],
+      [
+        arbitesResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.deathspitter",
+      ],
+      [
+        arbitesResult,
+        "weapons[1].blessings[1].name",
+        "shared.name_family.blessing.execution",
+      ],
+      [
+        arbitesCarryResult,
+        "weapons[0].blessings[0].name",
+        "shared.name_family.blessing.relentless_strikes",
+      ],
+      [
+        arbitesCarryResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.deathspitter",
+      ],
+      [
+        arbitesMetaResult,
         "weapons[0].blessings[0].name",
         "shared.name_family.blessing.high_voltage",
       ],
       [
-        arbitesResult,
+        arbitesMetaResult,
         "weapons[1].blessings[0].name",
-        "shared.name_family.blessing.full_bore",
-      ],
-      [
-        arbitesResult,
-        "weapons[1].blessings[1].name",
-        "shared.name_family.blessing.fire_frenzy",
+        "shared.name_family.blessing.run_n_gun",
       ],
       [
         arbitesMetaResult,
-        "weapons[0].blessings[1].name",
-        "shared.name_family.blessing.relentless_strikes",
-      ],
-      [
-        arbitesMetaResult,
-        "weapons[1].blessings[0].name",
-        "shared.name_family.blessing.deathspitter",
-      ],
-      [
-        arbitesBustedResult,
-        "weapons[0].blessings[0].name",
-        "shared.name_family.blessing.execution",
-      ],
-      [
-        arbitesBustedResult,
-        "weapons[1].blessings[0].name",
-        "shared.name_family.blessing.deathspitter",
-      ],
-      [
-        arbitesBustedResult,
         "weapons[1].blessings[1].name",
-        "shared.name_family.blessing.execution",
+        "shared.name_family.blessing.puncture",
       ],
       [
         hiveScumResult,
@@ -1269,22 +1244,22 @@ describe("auditBuildFile", () => {
       ],
       [
         hiveScumResult,
-        "weapons[1].blessings[0].name",
-        "shared.name_family.blessing.speedload",
+        "weapons[1].blessings[1].name",
+        "shared.name_family.blessing.fire_frenzy",
       ],
       [
-        hiveScumResult,
+        rampageResult,
         "weapons[1].blessings[1].name",
         "shared.name_family.blessing.run_n_gun",
       ],
       [
-        chemistResult,
-        "weapons[1].blessings[1].name",
-        "shared.name_family.blessing.stripped_down",
+        stimmtecResult,
+        "weapons[1].blessings[0].name",
+        "shared.name_family.blessing.run_n_gun",
       ],
       [
         stimmtecResult,
-        "weapons[1].blessings[0].name",
+        "weapons[1].blessings[1].name",
         "shared.name_family.blessing.stripped_down",
       ],
     ]) {

@@ -1,0 +1,55 @@
+{
+  "class": "zealot",
+  "difficulty": "damnation",
+  "base": {
+    "health": 200,
+    "wounds": 2,
+    "toughness": 100,
+    "stamina": 3
+  },
+  "dr_sources": [
+    {
+      "source_entity": "shared.stat_node.toughness_damage_reduction",
+      "stat": "toughness_damage_taken_modifier",
+      "value": -0.1,
+      "type": "stat_buff",
+      "condition": null
+    }
+  ],
+  "total_dr": 0.1,
+  "max_toughness": 138,
+  "effective_toughness": 153.33,
+  "health_pool": 400,
+  "effective_hp": 553.33,
+  "max_health_modifier": 0,
+  "state_modifiers": {
+    "dodging": {
+      "tdr": 0.5,
+      "damage_multiplier": 0.45,
+      "effective_toughness": 306.67
+    },
+    "sliding": {
+      "tdr": 0.5,
+      "damage_multiplier": 0.45,
+      "effective_toughness": 306.67
+    },
+    "sprinting": {
+      "tdr": 0.5,
+      "damage_multiplier": 0.45,
+      "effective_toughness": 306.67
+    }
+  },
+  "toughness_regen": {
+    "base_rate": 5,
+    "modified_rate": 5,
+    "delay_seconds": 3,
+    "coherency": {
+      "solo": 0,
+      "one_ally": 2.5,
+      "two_allies": 3.75,
+      "three_allies": 5
+    },
+    "melee_kill_recovery_percent": 0.05,
+    "melee_kill_recovery": 6.9
+  }
+}

@@ -61,7 +61,7 @@ describe("CLI setup errors", () => {
 
   it("audit exits non-zero on source-root setup failure", () => {
     const result = runCli("src/cli/audit-build-names.ts", [
-      "data/builds/08-gandalf-melee-wizard.json",
+      "data/builds/09-psyker-2026.json",
     ]);
 
     assert.notEqual(result.status, 0);
@@ -86,13 +86,13 @@ describe("CLI contract — list and diff", () => {
     assert.equal(result.status, 0, `stderr: ${result.stderr}`);
     const parsed = JSON.parse(result.stdout);
     assert.ok(Array.isArray(parsed), "should produce an array");
-    assert.equal(parsed.length, 23);
+    assert.equal(parsed.length, 24);
   });
 
   it("diff exits zero with two builds", () => {
     const result = runCli("src/cli/diff-builds.ts", [
-      "data/builds/08-gandalf-melee-wizard.json",
-      "data/builds/01-veteran-squad-leader.json",
+      "data/builds/09-psyker-2026.json",
+      "data/builds/01-veteran-havoc40-2026.json",
     ]);
     assert.equal(result.status, 0, `stderr: ${result.stderr}`);
     assert.ok(result.stdout.includes("DIFF:"), "should show diff header");
@@ -100,8 +100,8 @@ describe("CLI contract — list and diff", () => {
 
   it("diff --json exits zero and produces valid JSON", () => {
     const result = runCli("src/cli/diff-builds.ts", [
-      "data/builds/08-gandalf-melee-wizard.json",
-      "data/builds/01-veteran-squad-leader.json",
+      "data/builds/09-psyker-2026.json",
+      "data/builds/01-veteran-havoc40-2026.json",
       "--json",
     ]);
     assert.equal(result.status, 0, `stderr: ${result.stderr}`);

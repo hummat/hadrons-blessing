@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-17T12:09:55.227Z",
+  "generated_at": "2026-03-31T23:50:48.930Z",
   "schema_version": 1,
   "assumes": "betterbots",
   "classes": {
@@ -10,7 +10,7 @@
         "canonical_entity_id": "shared.weapon.combatsword_p2_m1",
         "gestalt": "linesman",
         "source_builds": [
-          "03-slinking-veteran"
+          "03-veteran-sharpshooter-2026"
         ],
         "bot_notes": "Simple melee with wide cleave, no dodge/block/weakspot dependency"
       },
@@ -20,8 +20,8 @@
         "canonical_entity_id": "shared.weapon.plasmagun_p1_m1",
         "gestalt": "killshot",
         "source_builds": [
-          "01-veteran-squad-leader",
-          "02-assault-veteran"
+          "01-veteran-havoc40-2026",
+          "02-veteran-meta-plasma"
         ],
         "bot_notes": "High damage charged shots, no weakspot dependency — used in 2 of 3 meta builds, peril managed by BetterBots"
       }
@@ -33,7 +33,7 @@
         "canonical_entity_id": "shared.weapon.powersword_2h_p1_m2",
         "gestalt": "linesman",
         "source_builds": [
-          "04-spicy-meta-zealot"
+          "05-zealot-meta-havoc40"
         ],
         "bot_notes": "Best cleave melee from S-rank build, no dodge/block dependency"
       },
@@ -43,7 +43,7 @@
         "canonical_entity_id": "shared.weapon.flamer_p1_m1",
         "gestalt": "killshot",
         "source_builds": [
-          "04-spicy-meta-zealot"
+          "05-zealot-meta-havoc40"
         ],
         "bot_notes": "Area denial spray, no aim/dodge/block dependency — S-rank build choice"
       }
@@ -55,7 +55,7 @@
         "canonical_entity_id": "shared.weapon.forcesword_2h_p1_m1",
         "gestalt": "linesman",
         "source_builds": [
-          "08-gandalf-melee-wizard"
+          "09-psyker-2026"
         ],
         "bot_notes": "Wide cleave force melee, no dodge/block dependency"
       },
@@ -65,7 +65,7 @@
         "canonical_entity_id": "shared.weapon.forcestaff_p4_m1",
         "gestalt": "killshot",
         "source_builds": [
-          "08-gandalf-melee-wizard"
+          "09-psyker-2026"
         ],
         "bot_notes": "AoE blast staff, no weakspot dependency — peril managed by BetterBots"
       }
@@ -77,7 +77,7 @@
         "canonical_entity_id": "shared.weapon.ogryn_powermaul_p1_m1",
         "gestalt": "linesman",
         "source_builds": [
-          "11-explodegryn"
+          "13-ogryn-bonktide"
         ],
         "bot_notes": "High stagger melee, simple attack pattern, no dodge/block dependency"
       },
@@ -87,8 +87,8 @@
         "canonical_entity_id": "shared.weapon.ogryn_thumper_p1_m2",
         "gestalt": "killshot",
         "source_builds": [
-          "11-explodegryn",
-          "12-ogryn-shield-tank"
+          "13-ogryn-bonktide",
+          "15-ogryn-shield-tank"
         ],
         "bot_notes": "Grenade launcher, area damage, no aim dependency — appears in 2 of 3 ogryn builds"
       }

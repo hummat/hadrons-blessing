@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "title": "havoc stealth",
+  "class": {
+    "raw_label": "veteran",
+    "canonical_entity_id": "shared.class.veteran",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "https://darktide.gameslantern.com/builds/a0625399-acb6-4d61-8fcf-08ccb50a9fed/havoc-stealth",
+    "author": "metro",
+    "scraped_at": "2026-03-31T23:18:19.916Z"
+  },
+  "ability": {
+    "raw_label": "Infiltrate",
+    "canonical_entity_id": "veteran.ability.veteran_invisibility_on_combat_ability",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Krak Grenade",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "aura": {
+    "raw_label": "Survivalist",
+    "canonical_entity_id": "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
+    "resolution_status": "resolved"
+  },
+  "keystone": {
+    "raw_label": "Weapons Specialist",
+    "canonical_entity_id": "veteran.keystone.veteran_weapon_switch_passive",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Demolition Team",
+      "canonical_entity_id": "veteran.talent.veteran_aura_elite_kills_restore_grenade",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Exploit Weakness",
+      "canonical_entity_id": "veteran.talent.veteran_crits_apply_rending",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 17",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Skirmisher",
+      "canonical_entity_id": "veteran.talent.veteran_increase_damage_after_sprinting",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Desperado",
+      "canonical_entity_id": "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Grenadier",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Reciprocity",
+      "canonical_entity_id": "veteran.talent.veteran_dodging_grants_crit",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Agile Engagement",
+      "canonical_entity_id": "veteran.talent.veteran_kill_grants_damage_to_other_slot",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Trench Fighter Drill",
+      "canonical_entity_id": "veteran.talent.veteran_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Low Profile",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Catch a Breath",
+      "canonical_entity_id": "veteran.talent.veteran_replenish_toughness_outside_melee",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Grenade Tinkerer",
+      "canonical_entity_id": "veteran.talent.veteran_improved_grenades",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Demolition Stockpile",
+      "canonical_entity_id": "veteran.talent.veteran_replenish_grenades",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Field Improvisation",
+      "canonical_entity_id": "veteran.talent.veteran_better_deployables",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Tactical Awareness",
+      "canonical_entity_id": "veteran.talent.veteran_elite_kills_reduce_cooldown",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Confirmed Kill",
+      "canonical_entity_id": "veteran.talent.veteran_elite_kills_replenish_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Overwatch",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Close Order Drill",
+      "canonical_entity_id": "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Longshot",
+      "canonical_entity_id": "veteran.talent.veteran_increased_damage_based_on_range",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Iron Will",
+      "canonical_entity_id": "veteran.talent.veteran_tdr_on_high_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 22",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Stamina Boost 3",
+      "canonical_entity_id": "shared.stat_node.stamina_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "On Your Toes",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Always Prepared",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_weapon_switch_replenish_ammo",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "One Motion",
+      "canonical_entity_id": "veteran.talent.veteran_reduce_swap_time",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 9",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "Achlys Mk VI Power Sword",
+        "canonical_entity_id": "shared.weapon.powersword_p1_m2",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Power Cycler",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved"
+        },
+        {
+          "raw_label": "Slaughterer",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Agripinaa Mk VII Combat Shotgun",
+        "canonical_entity_id": "shared.weapon.shotgun_p1_m2",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "4-10% Ranged Damage (Specialists)",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Full Bore",
+          "canonical_entity_id": "shared.name_family.blessing.full_bore",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Man-Stopper",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved"
+        }
+      ]
+    }
+  ],
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        }
+      ]
+    }
+  ]
+}

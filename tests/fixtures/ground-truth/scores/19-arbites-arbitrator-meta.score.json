@@ -1,0 +1,301 @@
+{
+  "title": "The Havoc 40 Arbitrator meta build",
+  "class": "arbites",
+  "perk_optimality": 5,
+  "curio_efficiency": 4,
+  "composite_score": 26,
+  "letter_grade": "B",
+  "weapons": [
+    {
+      "name": "Branx Mk III Arbites Shock Maul",
+      "slot": "melee",
+      "canonical_entity_id": "shared.weapon.powermaul_p2_m1",
+      "internal_name": "powermaul_p2_m1",
+      "weapon_family": "powermaul_p2",
+      "resolution_source": "ground_truth",
+      "perks": {
+        "score": 5,
+        "perks": [
+          {
+            "name": "Damage (Carapace)",
+            "tier": 4,
+            "value": 0.25
+          },
+          {
+            "name": "Damage (Flak Armoured)",
+            "tier": 4,
+            "value": 0.25
+          }
+        ]
+      },
+      "blessings": {
+        "valid": null,
+        "blessings": []
+      }
+    },
+    {
+      "name": "Godwyn-Branx Mk IV Bolt Pistol",
+      "slot": "ranged",
+      "canonical_entity_id": "shared.weapon.boltpistol_p1_m1",
+      "internal_name": "boltpistol_p1_m1",
+      "weapon_family": "boltpistol_p1",
+      "resolution_source": "ground_truth",
+      "perks": {
+        "score": 5,
+        "perks": [
+          {
+            "name": "Damage (Flak Armoured)",
+            "tier": 4,
+            "value": 0.25
+          },
+          {
+            "name": "Damage (Maniacs)",
+            "tier": 4,
+            "value": 0.25
+          }
+        ]
+      },
+      "blessings": {
+        "valid": false,
+        "blessings": [
+          {
+            "name": "Run 'n' Gun",
+            "known": false,
+            "internal": null
+          },
+          {
+            "name": "Puncture",
+            "known": true,
+            "internal": "rending_on_crit"
+          }
+        ]
+      }
+    }
+  ],
+  "curios": {
+    "score": 4,
+    "perks": [
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Combat Ability Regen",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Revive Speed",
+        "tier": 3,
+        "rating": "good"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Combat Ability Regen",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Revive Speed",
+        "tier": 3,
+        "rating": "good"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Combat Ability Regen",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Revive Speed",
+        "tier": 3,
+        "rating": "good"
+      }
+    ]
+  },
+  "qualitative": {
+    "blessing_synergy": {
+      "score": 5,
+      "breakdown": {
+        "blessing_edges": 17,
+        "blessing_count": 4,
+        "edges_per_blessing": 4.25,
+        "blessing_blessing_edges": 3,
+        "orphaned_blessings": 0
+      },
+      "explanations": [
+        "Blessings with synergy edges: relentless_strikes, high_voltage, run_n_gun, puncture",
+        "3 blessing-blessing edge(s) +0.5"
+      ]
+    },
+    "talent_coherence": {
+      "score": 1,
+      "breakdown": {
+        "talent_edges": 11,
+        "talent_count": 27,
+        "edges_per_talent": 0.407,
+        "graph_isolated_count": 18,
+        "concentration": 0.08,
+        "penalties": -9,
+        "bonuses": 0.5
+      },
+      "explanations": [
+        "18 talent(s) participate in no synergy edges (-0.5 each)",
+        "High stat concentration (0.080) +0.5"
+      ]
+    },
+    "breakpoint_relevance": {
+      "score": 5,
+      "breakdown": [
+        {
+          "label": "One-shot Rager head",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "high"
+        },
+        {
+          "label": "Two-hit Rager body",
+          "met": true,
+          "best_htk": 2,
+          "max_hits": 2,
+          "weight": "high"
+        },
+        {
+          "label": "Two-hit Crusher",
+          "met": false,
+          "best_htk": 3,
+          "max_hits": 2,
+          "weight": "high"
+        },
+        {
+          "label": "One-shot Trapper",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "One-shot Hound",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "One-shot Bomber body",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "Horde one-shot body",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "Three-hit Mauler",
+          "met": true,
+          "best_htk": 2,
+          "max_hits": 3,
+          "weight": "low"
+        },
+        {
+          "label": "Two-hit Bulwark",
+          "met": true,
+          "best_htk": 2,
+          "max_hits": 2,
+          "weight": "low"
+        },
+        {
+          "label": "One-shot Sniper",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "low"
+        }
+      ],
+      "explanations": [
+        "9/10 breakpoints met (weighted 17/20)",
+        "Missed high-priority: Two-hit Crusher"
+      ]
+    },
+    "role_coverage": {
+      "score": 4,
+      "breakdown": {
+        "active_families": 9,
+        "total_families": 11,
+        "coverage_gaps": [
+          "crit_chance_source"
+        ],
+        "slot_balance_ratio": 0.7
+      },
+      "explanations": [
+        "Coverage gaps: crit_chance_source (-1 each)"
+      ]
+    },
+    "difficulty_scaling": {
+      "score": 2,
+      "breakdown": {
+        "auric_met": 0,
+        "damnation_met": 2,
+        "total": 3,
+        "per_entry": [
+          {
+            "label": "One-shot Rager head",
+            "damnation_htk": 1,
+            "auric_htk": 2,
+            "damnation_met": true,
+            "auric_met": false
+          },
+          {
+            "label": "Two-hit Rager body",
+            "damnation_htk": 2,
+            "auric_htk": 3,
+            "damnation_met": true,
+            "auric_met": false
+          },
+          {
+            "label": "Two-hit Crusher",
+            "damnation_htk": 3,
+            "auric_htk": 4,
+            "damnation_met": false,
+            "auric_met": false
+          }
+        ]
+      },
+      "explanations": [
+        "High-priority: 2/3 at damnation, 0/3 at auric",
+        "Degrades at auric: One-shot Rager head, Two-hit Rager body"
+      ]
+    }
+  },
+  "bot_flags": []
+}

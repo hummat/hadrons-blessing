@@ -7,8 +7,8 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, "..", "..");
 const HAS_SOURCE = !!process.env.GROUND_TRUTH_SOURCE_ROOT;
-const BUILD = join(REPO_ROOT, "data", "builds", "08-gandalf-melee-wizard.json");
-const BUILD2 = join(REPO_ROOT, "data", "builds", "01-veteran-squad-leader.json");
+const BUILD = join(REPO_ROOT, "data", "builds", "09-psyker-2026.json");
+const BUILD2 = join(REPO_ROOT, "data", "builds", "01-veteran-havoc40-2026.json");
 const SCRIPT = join(REPO_ROOT, "src", "cli", "calc-build.ts");
 
 // JSON output can be very large (all breeds x actions x difficulties).

@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "title": "[UPDATED] Havoc 40 Staff Psyker Meta Electrokinetic Staff Type Build",
+  "class": {
+    "raw_label": "psyker",
+    "canonical_entity_id": "shared.class.psyker",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "https://darktide.gameslantern.com/builds/9f8a9d87-83d8-4177-ac6e-5e9f513a02b0/updated-havoc-40-staff-psyker-meta-electrokinetic-staff-type-build",
+    "author": "monsoonification",
+    "scraped_at": "2026-03-31T23:11:09.845Z"
+  },
+  "ability": {
+    "raw_label": "Scrier's Gaze",
+    "canonical_entity_id": "psyker.ability.psyker_combat_ability_stance",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Assail",
+    "canonical_entity_id": "psyker.ability.psyker_grenade_throwing_knives",
+    "resolution_status": "resolved"
+  },
+  "aura": {
+    "raw_label": "Prescience",
+    "canonical_entity_id": "psyker.aura.psyker_aura_crit_chance_aura",
+    "resolution_status": "resolved"
+  },
+  "keystone": {
+    "raw_label": "Warp Siphon",
+    "canonical_entity_id": "psyker.keystone.psyker_passive_souls_from_elite_kills",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Soulstealer",
+      "canonical_entity_id": "psyker.talent.psyker_toughness_on_warp_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Mettle",
+      "canonical_entity_id": "psyker.talent.psyker_crits_regen_toughness_movement_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Perilous Combustion",
+      "canonical_entity_id": "psyker.talent.psyker_elite_kills_add_warpfire",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Perfect Timing",
+      "canonical_entity_id": "psyker.talent.psyker_crits_empower_next_attack",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Precognition",
+      "canonical_entity_id": "shared.name_family.blessing.precognition",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Wildfire",
+      "canonical_entity_id": "psyker.talent.psyker_spread_warpfire_on_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Psykinetic's Aura",
+      "canonical_entity_id": "psyker.talent.psyker_2_tier_3_name_2",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "One With the Warp",
+      "canonical_entity_id": "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Empathic Evasion",
+      "canonical_entity_id": "psyker.talent.psyker_dodge_after_crits",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Solidity",
+      "canonical_entity_id": "psyker.talent.psyker_increased_vent_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Rider",
+      "canonical_entity_id": "psyker.talent.psyker_damage_based_on_warp_charge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "In Fire Reborn",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_warpfire_generate_souls",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Battery",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_increased_max_souls",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 12",
+      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Unbound",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_overcharge_stance_infinite_casting",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Souldrinker",
+      "canonical_entity_id": "psyker.talent.psyker_killing_enemy_with_warpfire_boosts",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Empyric Shock",
+      "canonical_entity_id": "psyker.talent.psyker_force_staff_quick_attack_bonus",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 4",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ranged Damage Boost 3",
+      "canonical_entity_id": "shared.stat_node.ranged_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 10",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Stamina Boost",
+      "canonical_entity_id": "shared.stat_node.stamina_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 5",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 4",
+      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Immaterial Focus",
+      "canonical_entity_id": "psyker.talent.psyker_damage_resistance_stun_immunity",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Vulnerable Minds",
+      "canonical_entity_id": "psyker.talent.psyker_damage_vs_ogryns_and_monsters",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Critical Chance Boost 3",
+      "canonical_entity_id": "shared.stat_node.critical_chance_boost",
+      "resolution_status": "resolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "Catachan Mk VI Combat Blade",
+        "canonical_entity_id": "shared.weapon.combatknife_p1_m2",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "2-5% Melee Critical Hit Chance",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_crit_chance",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Flesh Tearer",
+          "canonical_entity_id": "shared.name_family.blessing.increased_weakspot_damage_against_bleeding",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Riposte",
+          "canonical_entity_id": "shared.name_family.blessing.riposte",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Nomanus Mk VI Electrokinetic Force Staff",
+        "canonical_entity_id": "shared.weapon.forcestaff_p3_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [],
+      "blessings": [
+        {
+          "raw_label": "Increase Ranged Critical Strike Chance by 2-5%",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved"
+        },
+        {
+          "raw_label": "Surge",
+          "canonical_entity_id": null,
+          "resolution_status": "unresolved"
+        },
+        {
+          "raw_label": "Warp Nexus",
+          "canonical_entity_id": "shared.name_family.blessing.warp_nexus",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ],
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+1-3 Max Stamina",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 1,
+            "max": 3,
+            "unit": "flat"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+1-3 Max Stamina",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 1,
+            "max": 3,
+            "unit": "flat"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        }
+      ]
+    }
+  ]
+}

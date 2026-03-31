@@ -2083,7 +2083,7 @@ const HAS_SOURCE = !!process.env.GROUND_TRUTH_SOURCE_ROOT;
 describe("computeBreakpoints (integration)", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_SOURCE_ROOT" }, () => {
   it("produces a breakpoint matrix for a psyker build", async () => {
     const { loadIndex } = await import("./synergy-model.js");
-    const build = JSON.parse(readFileSync(join(__dirname, "..", "..", "data", "builds", "08-gandalf-melee-wizard.json"), "utf-8"));
+    const build = JSON.parse(readFileSync(join(__dirname, "..", "..", "data", "builds", "09-psyker-2026.json"), "utf-8"));
     const index = loadIndex();
     const calcData = loadCalculatorData();
     const matrix = computeBreakpoints(build, index, calcData);
@@ -2111,7 +2111,7 @@ describe("computeBreakpoints (integration)", { skip: !HAS_SOURCE && "requires GR
 
   it("all breed entries have numeric hitsToKill", async () => {
     const { loadIndex } = await import("./synergy-model.js");
-    const build = JSON.parse(readFileSync(join(__dirname, "..", "..", "data", "builds", "08-gandalf-melee-wizard.json"), "utf-8"));
+    const build = JSON.parse(readFileSync(join(__dirname, "..", "..", "data", "builds", "09-psyker-2026.json"), "utf-8"));
     const index = loadIndex();
     const calcData = loadCalculatorData();
     const matrix = computeBreakpoints(build, index, calcData);
@@ -2139,7 +2139,7 @@ describe("computeBreakpoints (integration)", { skip: !HAS_SOURCE && "requires GR
 
   it("summarizeBreakpoints returns valid summaries", async () => {
     const { loadIndex } = await import("./synergy-model.js");
-    const build = JSON.parse(readFileSync(join(__dirname, "..", "..", "data", "builds", "08-gandalf-melee-wizard.json"), "utf-8"));
+    const build = JSON.parse(readFileSync(join(__dirname, "..", "..", "data", "builds", "09-psyker-2026.json"), "utf-8"));
     const index = loadIndex();
     const calcData = loadCalculatorData();
     const matrix = computeBreakpoints(build, index, calcData);
@@ -2163,7 +2163,7 @@ describe("computeBreakpoints (integration)", { skip: !HAS_SOURCE && "requires GR
 
   it("Build 14 (shield weapon) completes without crashing", async () => {
     const { loadIndex } = await import("./synergy-model.js");
-    const build = JSON.parse(readFileSync(join(__dirname, "..", "..", "data", "builds", "14-arbites-nuncio-aquila.json"), "utf-8"));
+    const build = JSON.parse(readFileSync(join(__dirname, "..", "..", "data", "builds", "17-arbites-busted.json"), "utf-8"));
     const index = loadIndex();
     const calcData = loadCalculatorData();
 

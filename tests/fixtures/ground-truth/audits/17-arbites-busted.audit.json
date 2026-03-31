@@ -1,0 +1,578 @@
+{
+  "build": "17-arbites-busted.json",
+  "resolved": [
+    {
+      "field": "ability",
+      "text": "Castigators Stance",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.ability.adamant_stance",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "aura",
+      "text": "Part of the Squad",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.aura.adamant_companion_coherency",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "blitz",
+      "text": "Remote Detonation",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.ability.adamant_whistle",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "class",
+      "text": "arbites",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.class.adamant",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[0].perks[0]",
+      "text": "+13-17% Toughness",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[0].perks[1]",
+      "text": "+1-4% Combat Ability Regeneration",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[0].perks[2]",
+      "text": "+6-12% Stamina Regeneration",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[0].perks[3]",
+      "text": "+4-10% Revive Speed (Ally)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[1].perks[0]",
+      "text": "+13-17% Toughness",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[1].perks[1]",
+      "text": "+1-4% Combat Ability Regeneration",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[1].perks[2]",
+      "text": "+6-12% Stamina Regeneration",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[1].perks[3]",
+      "text": "+5-20% Damage Resistance (Gunners)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[2].perks[0]",
+      "text": "+13-17% Toughness",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[2].perks[1]",
+      "text": "+1-4% Combat Ability Regeneration",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[2].perks[2]",
+      "text": "+4-10% Revive Speed (Ally)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "curios[2].perks[3]",
+      "text": "+5-20% Damage Resistance (Gunners)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "keystone",
+      "text": "Execution Order",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.keystone.adamant_execution_order",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[0]",
+      "text": "Up Close",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_close_kills_restore_toughness",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[1]",
+      "text": "Force of Will",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_staggers_replenish_toughness",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[10]",
+      "text": "Writ of Execution",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent_modifier.adamant_stance_elite_kills_stack_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[11]",
+      "text": "Plasteel Plates",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_plasteel_plates",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[12]",
+      "text": "Arbites Revelatum",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_dodge_grants_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[13]",
+      "text": "Soulguilt Scan",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_stacking_weakspot_strength",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[14]",
+      "text": "No Escape",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_elite_special_kills_offensive_boost",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[15]",
+      "text": "Weight of the Lex",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_heavy_attacks_increase_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[16]",
+      "text": "Malocator",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent_modifier.adamant_execution_order_cdr",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[17]",
+      "text": "Keeping Protocol",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent_modifier.adamant_execution_order_permastack",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[18]",
+      "text": "Zealous Dedication",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_crit_chance_on_kill",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[19]",
+      "text": "Go Get Em",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.keystone.adamant_companion_focus_ranged",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[2]",
+      "text": "Voltaic Mandibles Augment",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_dog_attacks_electrocute",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[20]",
+      "text": "Street Smarts",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_dodge_improvement",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[21]",
+      "text": "Monstrosity Hunter",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_monster_hunter",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[22]",
+      "text": "The Emperors Fist",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_first_melee_hit_increased_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[23]",
+      "text": "Canine Morale",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_pinning_dog_kills_buff_allies",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[24]",
+      "text": "Justified Measures",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_stacking_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[25]",
+      "text": "Concussive",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_melee_weakspot_hits_count_as_stagger",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[3]",
+      "text": "Walk It Off",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_stamina_spent_replenish_toughness",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[4]",
+      "text": "True Grit",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_limit_dmg_taken_from_hits",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[5]",
+      "text": "Toughness Damage Reduction",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[6]",
+      "text": "Arbitrator Armour",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_armor",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[7]",
+      "text": "Imposing Force",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_damage_reduction_after_elite_kill",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[8]",
+      "text": "Hold the Line",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "arbites.talent.adamant_staggers_reduce_damage_taken",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "talents[9]",
+      "text": "Cleave Boost",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.stat_node.cleave_boost",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[0].blessings[0].name",
+      "text": "Execution",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.name_family.blessing.execution",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[0].blessings[1].name",
+      "text": "High Voltage",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.name_family.blessing.high_voltage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[0].name",
+      "text": "Branx Mk III Arbites Shock Maul",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon.powermaul_p2_m1",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[0].perks[0]",
+      "text": "10-25% Damage (Carapace Armoured Enemies)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[0].perks[1]",
+      "text": "10-25% Damage (Unyielding Enemies)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[1].blessings[0].name",
+      "text": "Deathspitter",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.name_family.blessing.deathspitter",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[1].blessings[1].name",
+      "text": "Execution",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.name_family.blessing.execution",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[1].name",
+      "text": "Exaction Mk III Exterminator Shotgun",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon.shotgun_p4_m1",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[1].perks[0]",
+      "text": "10-25% Damage (Flak Armoured Enemies)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    },
+    {
+      "field": "weapons[1].perks[1]",
+      "text": "10-25% Damage (Maniacs)",
+      "resolution_state": "resolved",
+      "resolved_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+      "proposed_entity_id": null,
+      "match_type": "persisted_canonical_id",
+      "confidence": "high",
+      "warnings": []
+    }
+  ],
+  "ambiguous": [],
+  "non_canonical": [],
+  "unresolved": [
+    {
+      "field": "curios[0].name",
+      "text": "Blessed Bullet",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": [
+        "persisted_unresolved_selection"
+      ]
+    },
+    {
+      "field": "curios[1].name",
+      "text": "Blessed Bullet",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": [
+        "persisted_unresolved_selection"
+      ]
+    },
+    {
+      "field": "curios[2].name",
+      "text": "Blessed Bullet",
+      "resolution_state": "unresolved",
+      "resolved_entity_id": null,
+      "proposed_entity_id": null,
+      "match_type": "none",
+      "confidence": "low",
+      "warnings": [
+        "persisted_unresolved_selection"
+      ]
+    }
+  ],
+  "warnings": [
+    "persisted_unresolved_selection"
+  ]
+}

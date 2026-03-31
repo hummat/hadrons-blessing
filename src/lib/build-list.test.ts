@@ -7,9 +7,9 @@ const BUILDS_DIR = "data/builds";
 
 describe("build-list", () => {
   describe("listBuilds", () => {
-    it("loads all 23 builds with valid summaries", () => {
+    it("loads all 24 builds with valid summaries", () => {
       const results = listBuilds(BUILDS_DIR);
-      assert.equal(results.length, 23);
+      assert.equal(results.length, 24);
 
       for (const r of results) {
         assert.ok(r.file.endsWith(".json"), `file should end with .json: ${r.file}`);
@@ -36,14 +36,14 @@ describe("build-list", () => {
     });
 
     it("filters by weapon name substring", () => {
-      const results = listBuilds(BUILDS_DIR, { weapon: "bolter" });
-      assert.ok(results.length > 0, "should have bolter builds");
+      const results = listBuilds(BUILDS_DIR, { weapon: "plasma" });
+      assert.ok(results.length > 0, "should have plasma builds");
       assert.ok(
         results.every((r) => r.weapons.some((w) =>
-          w.name.toLowerCase().includes("bolter") ||
-          (w.family && w.family.toLowerCase().includes("bolter"))
+          w.name.toLowerCase().includes("plasma") ||
+          (w.family && w.family.toLowerCase().includes("plasma"))
         )),
-        "all should have a bolter weapon",
+        "all should have a plasma weapon",
       );
     });
 

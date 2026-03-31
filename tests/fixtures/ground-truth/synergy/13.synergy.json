@@ -1,5 +1,5 @@
 {
-  "build": "Shovel Ogryn",
+  "build": "BONKtide Havoc 40 by NRGaa",
   "class": "ogryn",
   "synergy_edges": [
     {
@@ -18,61 +18,37 @@
       "type": "stat_alignment",
       "selections": [
         "ogryn.talent.ogryn_ogryn_killer",
-        "ogryn.talent.ogryn_blocking_reduces_push_cost"
+        "ogryn.talent.ogryn_windup_reduces_damage_taken"
       ],
       "families": [
-        "general_offense"
+        "damage_reduction"
       ],
       "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the general_offense family"
+      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
     },
     {
       "type": "stat_alignment",
       "selections": [
         "ogryn.talent.ogryn_ogryn_killer",
-        "ogryn.talent.ogryn_protect_allies"
+        "ogryn.talent.ogryn_ranged_damage_immunity"
       ],
       "families": [
-        "general_offense"
+        "damage_reduction"
       ],
       "strength": 2,
-      "explanation": "Selections contribute different-category effects to the general_offense family"
+      "explanation": "Selections contribute different-category effects to the damage_reduction family"
     },
     {
       "type": "stat_alignment",
       "selections": [
         "ogryn.talent.ogryn_ogryn_killer",
-        "ogryn.talent.ogryn_damage_reduction_on_high_stamina"
-      ],
-      "families": [
-        "damage_reduction"
-      ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_ogryn_killer",
-        "shared.name_family.blessing.blaze_away"
+        "shared.name_family.blessing.surgical"
       ],
       "families": [
         "general_offense"
       ],
       "strength": 3,
       "explanation": "Both selections contribute persistent effects to the general_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_ogryn_killer",
-        "shared.gadget_trait.gadget_health_increase"
-      ],
-      "families": [
-        "damage_reduction"
-      ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
     },
     {
       "type": "stat_alignment",
@@ -102,13 +78,13 @@
       "type": "stat_alignment",
       "selections": [
         "shared.stat_node.toughness_boost",
-        "ogryn.talent.ogryn_protect_allies"
+        "ogryn.talent.ogryn_toughness_on_low_health"
       ],
       "families": [
         "toughness"
       ],
-      "strength": 2,
-      "explanation": "Selections contribute different-category effects to the toughness family"
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
     },
     {
       "type": "stat_alignment",
@@ -125,68 +101,8 @@
     {
       "type": "stat_alignment",
       "selections": [
-        "ogryn.talent.ogryn_melee_stagger",
-        "shared.stat_node.melee_damage_boost"
-      ],
-      "families": [
-        "melee_offense"
-      ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the melee_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_melee_stagger",
-        "ogryn.talent.ogryn_melee_damage_after_heavy"
-      ],
-      "families": [
-        "melee_offense"
-      ],
-      "strength": 2,
-      "explanation": "Selections contribute different-category effects to the melee_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_melee_stagger",
-        "ogryn.talent_modifier.ogryn_heavy_hitter_stagger"
-      ],
-      "families": [
-        "melee_offense"
-      ],
-      "strength": 2,
-      "explanation": "Selections contribute different-category effects to the melee_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_melee_stagger",
-        "ogryn.talent.ogryn_weakspot_damage"
-      ],
-      "families": [
-        "melee_offense"
-      ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the melee_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_melee_stagger",
-        "shared.name_family.blessing.thunderous"
-      ],
-      "families": [
-        "melee_offense"
-      ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the melee_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
         "shared.stat_node.rending_boost",
-        "ogryn.talent.ogryn_blocking_reduces_push_cost"
+        "shared.name_family.blessing.surgical"
       ],
       "families": [
         "general_offense"
@@ -197,38 +113,38 @@
     {
       "type": "stat_alignment",
       "selections": [
-        "shared.stat_node.rending_boost",
-        "ogryn.talent.ogryn_protect_allies"
+        "ogryn.talent.ogryn_windup_reduces_damage_taken",
+        "ogryn.talent.ogryn_ranged_damage_immunity"
       ],
       "families": [
-        "general_offense"
+        "damage_reduction"
       ],
       "strength": 2,
-      "explanation": "Selections contribute different-category effects to the general_offense family"
+      "explanation": "Selections contribute different-category effects to the damage_reduction family"
     },
     {
       "type": "stat_alignment",
       "selections": [
-        "shared.stat_node.rending_boost",
-        "shared.name_family.blessing.blaze_away"
+        "ogryn.talent.ogryn_windup_reduces_damage_taken",
+        "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
       ],
       "families": [
-        "general_offense"
+        "damage_reduction"
       ],
       "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the general_offense family"
+      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
     },
     {
       "type": "stat_alignment",
       "selections": [
         "shared.stat_node.toughness_damage_reduction",
-        "ogryn.talent.ogryn_protect_allies"
+        "ogryn.talent.ogryn_toughness_on_low_health"
       ],
       "families": [
         "toughness"
       ],
-      "strength": 2,
-      "explanation": "Selections contribute different-category effects to the toughness family"
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
     },
     {
       "type": "stat_alignment",
@@ -245,26 +161,14 @@
     {
       "type": "stat_alignment",
       "selections": [
-        "ogryn.talent.ogryn_blocking_reduces_push_cost",
-        "ogryn.talent.ogryn_protect_allies"
+        "ogryn.talent.ogryn_toughness_on_low_health",
+        "shared.gadget_trait.gadget_toughness_increase"
       ],
       "families": [
-        "general_offense"
-      ],
-      "strength": 2,
-      "explanation": "Selections contribute different-category effects to the general_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_blocking_reduces_push_cost",
-        "shared.name_family.blessing.blaze_away"
-      ],
-      "families": [
-        "general_offense"
+        "toughness"
       ],
       "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the general_offense family"
+      "explanation": "Both selections contribute persistent effects to the toughness family"
     },
     {
       "type": "stat_alignment",
@@ -282,7 +186,7 @@
       "type": "stat_alignment",
       "selections": [
         "shared.stat_node.melee_damage_boost",
-        "ogryn.talent_modifier.ogryn_heavy_hitter_stagger"
+        "ogryn.talent_modifier.ogryn_heavy_hitter_cleave"
       ],
       "families": [
         "melee_offense"
@@ -305,92 +209,20 @@
     {
       "type": "stat_alignment",
       "selections": [
-        "shared.stat_node.melee_damage_boost",
-        "shared.name_family.blessing.thunderous"
-      ],
-      "families": [
-        "melee_offense"
-      ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the melee_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_protect_allies",
-        "ogryn.talent.ogryn_wield_speed_increase"
-      ],
-      "families": [
-        "utility"
-      ],
-      "strength": 2,
-      "explanation": "Selections contribute different-category effects to the utility family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_protect_allies",
-        "shared.name_family.blessing.blaze_away"
-      ],
-      "families": [
-        "general_offense"
-      ],
-      "strength": 2,
-      "explanation": "Selections contribute different-category effects to the general_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_protect_allies",
-        "shared.gadget_trait.gadget_revive_speed_increase"
-      ],
-      "families": [
-        "utility"
-      ],
-      "strength": 2,
-      "explanation": "Selections contribute different-category effects to the utility family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_protect_allies",
-        "shared.gadget_trait.gadget_toughness_increase"
-      ],
-      "families": [
-        "toughness"
-      ],
-      "strength": 2,
-      "explanation": "Selections contribute different-category effects to the toughness family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
-        "shared.gadget_trait.gadget_health_increase"
-      ],
-      "families": [
-        "damage_reduction"
-      ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
+        "ogryn.talent.ogryn_ranged_damage_immunity",
         "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
       ],
       "families": [
         "damage_reduction"
       ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the damage_reduction family"
     },
     {
       "type": "stat_alignment",
       "selections": [
         "ogryn.talent.ogryn_melee_damage_after_heavy",
-        "ogryn.talent_modifier.ogryn_heavy_hitter_stagger"
+        "ogryn.talent_modifier.ogryn_heavy_hitter_cleave"
       ],
       "families": [
         "melee_offense"
@@ -413,19 +245,7 @@
     {
       "type": "stat_alignment",
       "selections": [
-        "ogryn.talent.ogryn_melee_damage_after_heavy",
-        "shared.name_family.blessing.thunderous"
-      ],
-      "families": [
-        "melee_offense"
-      ],
-      "strength": 2,
-      "explanation": "Selections contribute different-category effects to the melee_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent_modifier.ogryn_heavy_hitter_stagger",
+        "ogryn.talent_modifier.ogryn_heavy_hitter_cleave",
         "ogryn.talent.ogryn_weakspot_damage"
       ],
       "families": [
@@ -433,54 +253,6 @@
       ],
       "strength": 2,
       "explanation": "Selections contribute different-category effects to the melee_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent_modifier.ogryn_heavy_hitter_stagger",
-        "shared.name_family.blessing.thunderous"
-      ],
-      "families": [
-        "melee_offense"
-      ],
-      "strength": 2,
-      "explanation": "Selections contribute different-category effects to the melee_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_wield_speed_increase",
-        "shared.gadget_trait.gadget_revive_speed_increase"
-      ],
-      "families": [
-        "utility"
-      ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the utility family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "ogryn.talent.ogryn_weakspot_damage",
-        "shared.name_family.blessing.thunderous"
-      ],
-      "families": [
-        "melee_offense"
-      ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the melee_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "shared.gadget_trait.gadget_health_increase",
-        "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
-      ],
-      "families": [
-        "damage_reduction"
-      ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
     }
   ],
   "anti_synergies": [],
@@ -488,61 +260,55 @@
   "coverage": {
     "family_profile": {
       "general_offense": {
-        "count": 5,
-        "total_magnitude": 3.27,
+        "count": 3,
+        "total_magnitude": 0.75,
         "selections": [
           "ogryn.talent.ogryn_ogryn_killer",
           "shared.stat_node.rending_boost",
-          "ogryn.talent.ogryn_blocking_reduces_push_cost",
-          "ogryn.talent.ogryn_protect_allies",
-          "shared.name_family.blessing.blaze_away"
+          "shared.name_family.blessing.surgical"
         ]
       },
       "damage_reduction": {
         "count": 4,
-        "total_magnitude": 4.725,
+        "total_magnitude": 5.45,
         "selections": [
           "ogryn.talent.ogryn_ogryn_killer",
-          "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
-          "shared.gadget_trait.gadget_health_increase",
+          "ogryn.talent.ogryn_windup_reduces_damage_taken",
+          "ogryn.talent.ogryn_ranged_damage_immunity",
           "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
         ]
       },
       "toughness": {
         "count": 4,
-        "total_magnitude": 8.25,
+        "total_magnitude": 8.5,
         "selections": [
           "shared.stat_node.toughness_boost",
           "shared.stat_node.toughness_damage_reduction",
-          "ogryn.talent.ogryn_protect_allies",
+          "ogryn.talent.ogryn_toughness_on_low_health",
           "shared.gadget_trait.gadget_toughness_increase"
         ]
       },
       "melee_offense": {
-        "count": 6,
-        "total_magnitude": 0.8,
+        "count": 4,
+        "total_magnitude": 0.35,
         "selections": [
-          "ogryn.talent.ogryn_melee_stagger",
           "shared.stat_node.melee_damage_boost",
           "ogryn.talent.ogryn_melee_damage_after_heavy",
-          "ogryn.talent_modifier.ogryn_heavy_hitter_stagger",
-          "ogryn.talent.ogryn_weakspot_damage",
-          "shared.name_family.blessing.thunderous"
+          "ogryn.talent_modifier.ogryn_heavy_hitter_cleave",
+          "ogryn.talent.ogryn_weakspot_damage"
         ]
       },
-      "stamina": {
+      "crit": {
         "count": 1,
-        "total_magnitude": 2.5,
+        "total_magnitude": 0.1,
         "selections": [
-          "ogryn.talent.ogryn_blocking_reduces_push_cost"
+          "shared.name_family.blessing.surgical"
         ]
       },
       "utility": {
-        "count": 3,
-        "total_magnitude": 0.8,
+        "count": 1,
+        "total_magnitude": 0.2,
         "selections": [
-          "ogryn.talent.ogryn_protect_allies",
-          "ogryn.talent.ogryn_wield_speed_increase",
           "shared.gadget_trait.gadget_revive_speed_increase"
         ]
       }
@@ -551,74 +317,72 @@
       "melee": {
         "families": [
           "general_offense",
-          "melee_offense"
+          "melee_offense",
+          "crit"
         ],
-        "strength": 11
+        "strength": 7
       },
       "ranged": {
         "families": [
-          "general_offense"
+          "general_offense",
+          "crit"
         ],
-        "strength": 5
+        "strength": 3
       }
     },
     "build_identity": [
-      "melee_offense",
-      "general_offense",
-      "toughness"
+      "toughness",
+      "damage_reduction",
+      "melee_offense"
     ],
     "coverage_gaps": [],
-    "concentration": 0.03
+    "concentration": 0.04
   },
   "_resolvedIds": [
-    "ogryn.ability.ogryn_longer_charge",
-    "ogryn.ability.ogryn_grenade_friend_rock",
+    "ogryn.ability.ogryn_taunt_shout",
+    "ogryn.ability.ogryn_grenade_frag",
     "ogryn.aura.ogryn_melee_damage_coherency_improved",
     "ogryn.keystone.ogryn_passive_heavy_hitter",
     "ogryn.talent.ogryn_multi_heavy_toughness",
     "ogryn.talent.ogryn_single_heavy_toughness",
+    "ogryn.talent.ogryn_toughness_while_bracing",
     "ogryn.talent.ogryn_ogryn_killer",
     "shared.stat_node.toughness_boost",
-    "ogryn.talent.ogryn_melee_stagger",
     "ogryn.talent.ogryn_targets_recieve_damage_taken_increase_debuff",
     "shared.stat_node.rending_boost",
-    "ogryn.talent.ogryn_heavy_bleeds",
-    "ogryn.talent.ogryn_nearby_bleeds_reduce_damage_taken",
+    "ogryn.talent.ogryn_fully_charged_attacks_gain_damage_and_stagger",
+    "ogryn.talent.ogryn_windup_reduces_damage_taken",
     "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_attack_speed",
+    "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_toughness",
     "shared.stat_node.toughness_damage_reduction",
     "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown",
-    "ogryn.talent_modifier.ogryn_charge_toughness",
-    "ogryn.talent.ogryn_blocking_reduces_push_cost",
+    "ogryn.talent.ogryn_ally_movement_boost_on_ability",
+    "ogryn.talent.ogryn_toughness_on_low_health",
+    "ogryn.talent.ogryn_revenge_damage",
+    "ogryn.talent_modifier.ogryn_taunt_staggers_reduce_cooldown",
     "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
     "shared.stat_node.melee_damage_boost",
-    "ogryn.talent_modifier.ogryn_replenish_rock_on_miss",
-    "ogryn.talent.ogryn_protect_allies",
-    "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
-    "ogryn.talent.ogryn_stacking_attack_speed",
+    "ogryn.talent_modifier.ogryn_taunt_restore_toughness",
+    "ogryn.talent.ogryn_ranged_damage_immunity",
     "ogryn.talent.ogryn_melee_damage_after_heavy",
-    "ogryn.talent_modifier.ogryn_heavy_hitter_stagger",
-    "ogryn.talent.ogryn_wield_speed_increase",
+    "ogryn.talent_modifier.ogryn_heavy_hitter_cleave",
     "ogryn.talent.ogryn_weakspot_damage",
-    "shared.weapon.ogryn_club_p1_m1",
-    "shared.name_family.blessing.skullcrusher",
-    "shared.name_family.blessing.thunderous",
-    "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+    "shared.weapon.ogryn_pickaxe_2h_p1_m1",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
-    "shared.weapon.ogryn_rippergun_p1_m3",
-    "shared.name_family.blessing.inspiring_barrage",
-    "shared.name_family.blessing.blaze_away",
+    "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+    "shared.weapon.ogryn_heavystubber_p1_m1",
+    "shared.name_family.blessing.surgical",
     "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
-    "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
-    "shared.gadget_trait.gadget_health_increase",
-    "shared.gadget_trait.gadget_revive_speed_increase",
+    "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage",
     "shared.gadget_trait.gadget_toughness_increase",
-    "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
+    "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+    "shared.gadget_trait.gadget_revive_speed_increase"
   ],
   "metadata": {
     "entities_analyzed": 52,
-    "unique_entities_with_calc": 19,
+    "unique_entities_with_calc": 15,
     "entities_without_calc": 23,
     "opaque_conditions": 0,
-    "calc_coverage_pct": 0.45
+    "calc_coverage_pct": 0.39
   }
 }

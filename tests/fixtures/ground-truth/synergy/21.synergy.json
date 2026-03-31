@@ -1,0 +1,464 @@
+{
+  "build": "Lihoe's Havoc 40 Scumlinger build.",
+  "class": "hive scum",
+  "synergy_edges": [
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_close_ranged_damage",
+        "hive_scum.talent.broker_passive_ninja_grants_crit_chance"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_close_ranged_damage",
+        "hive_scum.talent.broker_passive_close_range_damage_on_dodge"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_close_ranged_damage",
+        "hive_scum.talent.broker_passive_damage_vs_elites_monsters"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_close_ranged_damage",
+        "shared.name_family.blessing.uncanny_strike"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_close_ranged_damage",
+        "shared.name_family.blessing.precognition"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_close_ranged_damage",
+        "shared.name_family.blessing.fire_frenzy"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+        "hive_scum.talent.broker_passive_close_range_damage_on_dodge"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute dynamic effects to the general_offense family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+        "hive_scum.talent.broker_passive_close_range_damage_on_dodge"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_successful_dodge"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+        "hive_scum.talent.broker_passive_damage_vs_elites_monsters"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+        "shared.name_family.blessing.uncanny_strike"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+        "shared.name_family.blessing.precognition"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute dynamic effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+        "shared.name_family.blessing.precognition"
+      ],
+      "families": [
+        "crit"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute dynamic effects to the crit family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+        "shared.name_family.blessing.fire_frenzy"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_close_range_damage_on_dodge",
+        "hive_scum.talent.broker_passive_damage_vs_elites_monsters"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_close_range_damage_on_dodge",
+        "shared.name_family.blessing.uncanny_strike"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_close_range_damage_on_dodge",
+        "shared.name_family.blessing.precognition"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute dynamic effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_close_range_damage_on_dodge",
+        "shared.name_family.blessing.fire_frenzy"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_dr_damage_tradeoff_on_stamina",
+        "hive_scum.talent.broker_passive_stimm_increased_duration"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_damage_vs_elites_monsters",
+        "shared.name_family.blessing.uncanny_strike"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_damage_vs_elites_monsters",
+        "shared.name_family.blessing.precognition"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "hive_scum.talent.broker_passive_damage_vs_elites_monsters",
+        "shared.name_family.blessing.fire_frenzy"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.uncanny_strike",
+        "shared.name_family.blessing.precognition"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.uncanny_strike",
+        "shared.name_family.blessing.fire_frenzy"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.precognition",
+        "shared.name_family.blessing.fire_frenzy"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.gadget_trait.gadget_cooldown_reduction",
+        "shared.gadget_trait.gadget_revive_speed_increase"
+      ],
+      "families": [
+        "utility"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the utility family"
+    }
+  ],
+  "anti_synergies": [],
+  "orphans": [
+    {
+      "selection": "shared.weapon_perk.melee.weapon_trait_reduce_sprint_cost",
+      "reason": "resource_consumer_without_producer",
+      "resource": "stamina",
+      "condition": "threshold:stamina"
+    }
+  ],
+  "coverage": {
+    "family_profile": {
+      "general_offense": {
+        "count": 7,
+        "total_magnitude": 1.24,
+        "selections": [
+          "hive_scum.talent.broker_passive_close_ranged_damage",
+          "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+          "hive_scum.talent.broker_passive_close_range_damage_on_dodge",
+          "hive_scum.talent.broker_passive_damage_vs_elites_monsters",
+          "shared.name_family.blessing.uncanny_strike",
+          "shared.name_family.blessing.precognition",
+          "shared.name_family.blessing.fire_frenzy"
+        ]
+      },
+      "crit": {
+        "count": 2,
+        "total_magnitude": 0.6,
+        "selections": [
+          "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+          "shared.name_family.blessing.precognition"
+        ]
+      },
+      "damage_reduction": {
+        "count": 2,
+        "total_magnitude": 1,
+        "selections": [
+          "hive_scum.talent.broker_passive_dr_damage_tradeoff_on_stamina",
+          "hive_scum.talent.broker_passive_stimm_increased_duration"
+        ]
+      },
+      "melee_offense": {
+        "count": 1,
+        "total_magnitude": 1,
+        "selections": [
+          "hive_scum.talent.broker_passive_dr_damage_tradeoff_on_stamina"
+        ]
+      },
+      "grenade": {
+        "count": 1,
+        "total_magnitude": 1,
+        "selections": [
+          "hive_scum.talent.broker_passive_increased_blitz_ammo"
+        ]
+      },
+      "ranged_offense": {
+        "count": 1,
+        "total_magnitude": 0,
+        "selections": [
+          "hive_scum.talent.broker_passive_extended_mag"
+        ]
+      },
+      "mobility": {
+        "count": 1,
+        "total_magnitude": 0.8,
+        "selections": [
+          "shared.weapon_perk.melee.weapon_trait_reduce_sprint_cost"
+        ]
+      },
+      "toughness": {
+        "count": 1,
+        "total_magnitude": 0.05,
+        "selections": [
+          "shared.gadget_trait.gadget_toughness_increase"
+        ]
+      },
+      "utility": {
+        "count": 2,
+        "total_magnitude": 0.15,
+        "selections": [
+          "shared.gadget_trait.gadget_cooldown_reduction",
+          "shared.gadget_trait.gadget_revive_speed_increase"
+        ]
+      }
+    },
+    "slot_balance": {
+      "melee": {
+        "families": [
+          "general_offense",
+          "crit",
+          "melee_offense"
+        ],
+        "strength": 8
+      },
+      "ranged": {
+        "families": [
+          "general_offense",
+          "crit",
+          "ranged_offense"
+        ],
+        "strength": 8
+      }
+    },
+    "build_identity": [
+      "general_offense",
+      "damage_reduction",
+      "crit"
+    ],
+    "coverage_gaps": [],
+    "concentration": 0.1
+  },
+  "_resolvedIds": [
+    "hive_scum.ability.broker_ability_focus_improved",
+    "hive_scum.ability.broker_blitz_flash_grenade_improved",
+    "hive_scum.aura.broker_aura_gunslinger_improved",
+    "hive_scum.keystone.broker_keystone_chemical_dependency",
+    "hive_scum.talent.broker_passive_close_ranged_damage",
+    "hive_scum.talent.broker_passive_restore_toughness_on_close_ranged_kill",
+    "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
+    "shared.stat_node.toughness_boost",
+    "hive_scum.talent.broker_passive_close_range_damage_on_dodge",
+    "hive_scum.talent.broker_passive_damage_on_reload",
+    "shared.stat_node.critical_chance_boost",
+    "shared.stat_node.melee_damage_boost",
+    "shared.stat_node.potent_tox",
+    "hive_scum.talent.broker_passive_replenish_toughness_on_ranged_toughness_damage",
+    "hive_scum.talent.broker_passive_dr_damage_tradeoff_on_stamina",
+    "hive_scum.talent.broker_passive_damage_after_toxined_enemies",
+    "hive_scum.talent.broker_passive_stimm_cd_on_kill",
+    "hive_scum.talent.broker_passive_increased_blitz_ammo",
+    "hive_scum.talent.broker_passive_blitz_inflicts_toxin",
+    "hive_scum.talent.broker_passive_extended_mag",
+    "hive_scum.talent.broker_passive_damage_vs_elites_monsters",
+    "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_1",
+    "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_2",
+    "hive_scum.talent_modifier.broker_keystone_chemical_dependency_sub_3",
+    "hive_scum.talent.broker_passive_stimm_increased_duration",
+    "hive_scum.talent.broker_passive_stun_immunity_on_toughness_broken",
+    "hive_scum.talent.broker_passive_low_ammo_regen",
+    "hive_scum.talent.broker_stimm_combat_1",
+    "hive_scum.talent.broker_stimm_combat_4a",
+    "hive_scum.talent.broker_stimm_combat_2",
+    "hive_scum.talent.broker_stimm_combat_3",
+    "hive_scum.talent.broker_stimm_combat_5a",
+    "shared.weapon.combatknife_p1_m1",
+    "shared.name_family.blessing.uncanny_strike",
+    "shared.name_family.blessing.precognition",
+    "shared.weapon_perk.melee.weapon_trait_reduce_sprint_cost",
+    "shared.weapon.autogun_p1_m2",
+    "shared.name_family.blessing.fire_frenzy",
+    "shared.gadget_trait.gadget_toughness_increase",
+    "shared.gadget_trait.gadget_cooldown_reduction",
+    "shared.gadget_trait.gadget_revive_speed_increase"
+  ],
+  "metadata": {
+    "entities_analyzed": 55,
+    "unique_entities_with_calc": 15,
+    "entities_without_calc": 26,
+    "opaque_conditions": 0,
+    "calc_coverage_pct": 0.37
+  }
+}

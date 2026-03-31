@@ -16,7 +16,7 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
 
   describe("analyzeGaps", () => {
     it("returns gap analysis for a real build", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       const result = analyzeGaps(build, getIndex());
       assert.ok(Array.isArray(result.gaps));
       assert.ok(Array.isArray(result.underinvested_families));
@@ -25,7 +25,7 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
     });
 
     it("identifies underinvested families", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       const result = analyzeGaps(build, getIndex());
       for (const fam of result.underinvested_families) {
         assert.ok(typeof fam === "string");
@@ -33,7 +33,7 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
     });
 
     it("returns structured gap entries with type and suggested_families", () => {
-      const build = JSON.parse(readFileSync("data/builds/04-spicy-meta-zealot.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/05-zealot-meta-havoc40.json", "utf-8"));
       const result = analyzeGaps(build, getIndex());
       for (const gap of result.gaps) {
         assert.ok(typeof gap.type === "string");
@@ -43,14 +43,14 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
     });
 
     it("includes full scorecard with perk and qualitative scores", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       const result = analyzeGaps(build, getIndex());
       assert.ok(typeof result.scorecard.perk_optimality === "number");
       assert.ok(typeof result.scorecard.letter_grade === "string");
     });
 
     it("accepts precomputed synergy and scorecard", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       const idx = getIndex();
       const synergy = analyzeBuild(build, idx);
       const scorecard = generateScorecard(build, synergy);
@@ -63,7 +63,7 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
   describe("validateTreeReachability", () => {
     it("validates a reachable talent (parent in build)", () => {
       // psyker_ability_increase_brain_burst_speed's parent is psyker_brain_burst_improved (in Gandalf build)
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       const result = validateTreeReachability(
         build, getIndex(),
         "psyker.talent_modifier.psyker_ability_increase_brain_burst_speed"
@@ -73,15 +73,15 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
     });
 
     it("rejects unreachable talent (parent not in build)", () => {
-      // base_crit_chance_node_buff_low_1's parent is psyker_spread_warpfire_on_kill (NOT in Gandalf build)
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      // psyker_chain_lightning_heavy_attacks's parent is psyker_grenade_chain_lightning (NOT in build 09)
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       const result = validateTreeReachability(
         build, getIndex(),
-        "psyker.talent.base_crit_chance_node_buff_low_1"
+        "psyker.talent_modifier.psyker_chain_lightning_heavy_attacks"
       );
       assert.equal(result.reachable, false);
       assert.ok(result.reason.includes("parent not in build"));
-      assert.ok(result.reason.includes("psyker.talent.psyker_spread_warpfire_on_kill"));
+      assert.ok(result.reason.includes("psyker.ability.psyker_grenade_chain_lightning"));
     });
 
     it("rejects unreachable talent on empty build", () => {
@@ -138,7 +138,7 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
     });
 
     it("returns reachable for talent with no tree mapping", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       const result = validateTreeReachability(
         build, getIndex(),
         "psyker.talent.nonexistent_xyz"
@@ -150,7 +150,7 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
 
   describe("swapTalent", () => {
     it("returns valid delta for a legal talent swap", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       // psyker_crits_empower_next_attack and base_toughness_node_buff_medium_5 are siblings
       const result = swapTalent(
         build, getIndex(),
@@ -169,7 +169,7 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
     });
 
     it("returns invalid for talent not in build", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       const result = swapTalent(
         build, getIndex(),
         "psyker.talent.not_in_this_build",
@@ -180,12 +180,12 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
     });
 
     it("returns invalid for unreachable new talent", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
-      // base_crit_chance_node_buff_low_1's parent (psyker_spread_warpfire_on_kill) is not in the build
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
+      // psyker_chain_lightning_heavy_attacks's parent (psyker_grenade_chain_lightning) is not in the build
       const result = swapTalent(
         build, getIndex(),
         "psyker.talent.psyker_crits_empower_next_attack",
-        "psyker.talent.base_crit_chance_node_buff_low_1"
+        "psyker.talent_modifier.psyker_chain_lightning_heavy_attacks"
       );
       assert.equal(result.valid, false);
     });
@@ -193,7 +193,7 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
 
   describe("swapWeapon", () => {
     it("returns delta with blessing impact for same-family swap", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       // forcesword_2h_p1_m1 → forcesword_2h_p1_m2 (both forcesword_2h family)
       const result = swapWeapon(
         build, getIndex(),
@@ -205,13 +205,14 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
       assert.ok(Array.isArray(result.blessing_impact.retained));
       assert.ok(Array.isArray(result.blessing_impact.removed));
       assert.ok(Array.isArray(result.blessing_impact.available));
-      // Same family = all blessings retained, none removed
+      // Same family = all resolved blessings retained, none removed
+      // Build 09 forcesword has 1 resolved blessing (Wrath), 1 unresolved (Unstable Power)
       assert.equal(result.blessing_impact.removed.length, 0);
-      assert.equal(result.blessing_impact.retained.length, 2);
+      assert.equal(result.blessing_impact.retained.length, 1);
     });
 
     it("removes blessings for cross-family swap", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       // forcesword_2h_p1_m1 (forcesword_2h) → powersword_2h_p1_m1 (powersword_2h) — different families
       const result = swapWeapon(
         build, getIndex(),
@@ -223,7 +224,7 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
     });
 
     it("returns score delta", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       // Same-family swap for predictable results
       const result = swapWeapon(
         build, getIndex(),
@@ -237,7 +238,7 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
     });
 
     it("returns invalid for weapon not in build", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       const result = swapWeapon(
         build, getIndex(),
         "shared.weapon.fake_weapon",
@@ -248,7 +249,7 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
     });
 
     it("returns gained/lost synergy edges", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       const result = swapWeapon(
         build, getIndex(),
         "shared.weapon.forcesword_2h_p1_m1",
@@ -260,7 +261,7 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
     });
 
     it("populates available blessings for new weapon", () => {
-      const build = JSON.parse(readFileSync("data/builds/08-gandalf-melee-wizard.json", "utf-8"));
+      const build = JSON.parse(readFileSync("data/builds/09-psyker-2026.json", "utf-8"));
       // forcesword_2h_p1_m2 has weapon_has_trait_pool edges → should have available blessings
       const result = swapWeapon(
         build, getIndex(),

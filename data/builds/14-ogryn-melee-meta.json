@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "title": "Ogryn Melee Meta Havoc-40",
+  "class": {
+    "raw_label": "ogryn",
+    "canonical_entity_id": "shared.class.ogryn",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "https://darktide.gameslantern.com/builds/9f707e3c-0c19-4bb4-a025-5b4ec2661fd5/ogryn-melee-meta-havoc-40",
+    "author": "B-To-The-Ryan",
+    "scraped_at": "2026-03-31T23:11:59.331Z"
+  },
+  "ability": {
+    "raw_label": "Indomitable",
+    "canonical_entity_id": "ogryn.ability.ogryn_longer_charge",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Bombs Away",
+    "canonical_entity_id": "ogryn.ability.ogryn_box_explodes",
+    "resolution_status": "resolved"
+  },
+  "aura": {
+    "raw_label": "Bonebreakers Aura",
+    "canonical_entity_id": "ogryn.aura.ogryn_melee_damage_coherency_improved",
+    "resolution_status": "resolved"
+  },
+  "keystone": {
+    "raw_label": "Heavy Hitter",
+    "canonical_entity_id": "ogryn.keystone.ogryn_passive_heavy_hitter",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "The Best Defence",
+      "canonical_entity_id": "ogryn.talent.ogryn_multi_heavy_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Smash Em",
+      "canonical_entity_id": "ogryn.talent.ogryn_single_heavy_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Heavyweight",
+      "canonical_entity_id": "ogryn.talent.ogryn_ogryn_killer",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 2",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 3",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Soften Them Up",
+      "canonical_entity_id": "ogryn.talent.ogryn_targets_recieve_damage_taken_increase_debuff",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Rending Boost",
+      "canonical_entity_id": "shared.stat_node.rending_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Batter",
+      "canonical_entity_id": "ogryn.talent.ogryn_heavy_bleeds",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Hard Knocks",
+      "canonical_entity_id": "ogryn.talent.ogryn_staggering_increases_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Delight in Destruction",
+      "canonical_entity_id": "ogryn.talent.ogryn_nearby_bleeds_reduce_damage_taken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Just Getting Started 2",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 3",
+      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Bruiser",
+      "canonical_entity_id": "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Payback Time",
+      "canonical_entity_id": "ogryn.talent.ogryn_revenge_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Stomping Boots",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_charge_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "No Pushover",
+      "canonical_entity_id": "ogryn.talent.ogryn_blocking_reduces_push_cost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Attention Seeker",
+      "canonical_entity_id": "ogryn.talent.ogryn_blocking_ranged_taunts",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Trample",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_charge_trample",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "No Hurting Friends 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 5",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 17",
+      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Pumped Up 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Frenzied Blows 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_stacking_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Dont Feel a Thing 2",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_tdr",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Impactful 2",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_stagger",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Strike True 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_weakspot_damage",
+      "resolution_status": "resolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "\"Brunt's Basher\" Mk IIIb Bully Club",
+        "canonical_entity_id": "shared.weapon.ogryn_club_p2_m3",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Skullcrusher",
+          "canonical_entity_id": "shared.name_family.blessing.skullcrusher",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Thunderous",
+          "canonical_entity_id": "shared.name_family.blessing.thunderous",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Lorenz Mk VI Rumbler",
+        "canonical_entity_id": "shared.weapon.ogryn_thumper_p1_m2",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Adhesive Charge",
+          "canonical_entity_id": "shared.name_family.blessing.adhesive_charge",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Shattering Impact",
+          "canonical_entity_id": "shared.name_family.blessing.shattering_impact",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ],
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "unresolved"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.06,
+            "max": 0.12,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        }
+      ]
+    }
+  ]
+}

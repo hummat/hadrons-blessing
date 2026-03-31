@@ -2,9 +2,9 @@ const SETUP_HINTS: Record<string, string> = {
   resolve:
     'GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run resolve -- --query "Warp Rider" --context \'{"kind":"talent","class":"psyker"}\'',
   audit:
-    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run audit -- data/builds/08-gandalf-melee-wizard.json",
+    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run audit -- data/builds/09-psyker-2026.json",
   canonicalize:
-    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run canonicalize -- data/builds/08-gandalf-melee-wizard.json",
+    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run canonicalize -- data/builds/09-psyker-2026.json",
   "edges:build":
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run edges:build",
   "effects:build":
@@ -12,13 +12,13 @@ const SETUP_HINTS: Record<string, string> = {
   "index:build":
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run index:build",
   report:
-    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run report -- data/builds/08-gandalf-melee-wizard.json",
+    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run report -- data/builds/09-psyker-2026.json",
   "breeds:build":
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run breeds:build",
   "profiles:build":
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run profiles:build",
   calc:
-    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run calc -- data/builds/08-gandalf-melee-wizard.json",
+    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run calc -- data/builds/09-psyker-2026.json",
 };
 
 function errorMessage(error: unknown): string {
