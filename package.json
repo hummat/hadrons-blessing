@@ -43,7 +43,6 @@
     "check": "npm run build && npm run index:build && npm test && npm run index:check",
     "entities:expand": "node dist/cli/expand-entity-coverage.js",
     "entities:enrich": "node dist/cli/enrich-entity-names.js",
-    "entities:fix-slugs": "node dist/cli/fix-malformed-slugs.js",
     "gl:scrape": "node dist/cli/scrape-gl-catalog.js",
     "entities:gen-mapping": "node dist/cli/generate-weapon-name-mapping.js",
     "audit:freeze": "for f in tests/fixtures/ground-truth/audits/*.audit.json; do b=$(basename \"$f\" .audit.json); node dist/cli/audit-build-names.js \"data/builds/${b}.json\" > \"$f\"; done",
