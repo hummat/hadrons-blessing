@@ -1,5 +1,5 @@
-// Breakpoint calculator CLI — run on a build or directory of builds.
-// Usage: npm run calc -- <build.json|dir> [--json|--text] [--compare <file>] [--freeze]
+// Unified calculator CLI — run on a build or directory of builds.
+// Usage: npm run calc -- <build|dir> [--mode damage|stagger|cleave|toughness] [--json|--text] [--compare <file>] [--freeze]
 
 import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync } from "node:fs";
 import { join, basename } from "node:path";
@@ -8,10 +8,16 @@ import { parseArgs } from "node:util";
 import { runCliMain } from "../lib/cli.js";
 import { loadIndex } from "../lib/synergy-model.js";
 import { loadCalculatorData, computeBreakpoints, summarizeBreakpoints } from "../lib/damage-calculator.js";
+import { computeStaggerMatrix, loadStaggerSettings } from "../lib/stagger-calculator.js";
+import { computeCleaveMatrix } from "../lib/cleave-calculator.js";
+import { computeSurvivability } from "../lib/toughness-calculator.js";
 
 const __filename = fileURLToPath(import.meta.url);
 
-// ── Display mappings ──────────────────────────────────────────────────
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<string, any>;
+
+// ── Shared display mappings ───────────────────────────────────────────
 
 /** Checklist enemies — the key breeds players care about for breakpoint analysis. */
 const CHECKLIST_BREEDS = [
@@ -46,7 +52,7 @@ const SCENARIO_DISPLAY: Record<string, string> = {
   burst: "Burst (head+crit)",
 };
 
-// ── Helpers ───────────────────────────────────────────────────────────
+// ── Shared helpers ────────────────────────────────────────────────────
 
 function selectionLabel(value: unknown): string {
   if (typeof value === "string") return value;
@@ -56,20 +62,19 @@ function selectionLabel(value: unknown): string {
   return "";
 }
 
-function formatHitsToKill(htk: number | null | undefined): string {
-  if (htk == null) return "N/A (no data)";
-  if (!Number.isFinite(htk)) return "\u221E (negated)";
-  return `${htk} hit${htk !== 1 ? "s" : ""}`;
-}
-
 /** JSON replacer that preserves Infinity as the string "Infinity" (and null stays null). */
 function calcReplacer(_key: string, value: unknown): unknown {
   if (value === Infinity) return "Infinity";
   return value;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type AnyRecord = Record<string, any>;
+// ── Damage mode helpers ───────────────────────────────────────────────
+
+function formatHitsToKill(htk: number | null | undefined): string {
+  if (htk == null) return "N/A (no data)";
+  if (!Number.isFinite(htk)) return "\u221E (negated)";
+  return `${htk} hit${htk !== 1 ? "s" : ""}`;
+}
 
 /**
  * Extract damnation hitsToKill for checklist breeds per scenario from a weapon's summary.
@@ -104,7 +109,7 @@ function extractChecklistBreakpoints(weaponResult: AnyRecord): Map<string, Map<s
   return table;
 }
 
-// ── Text formatter ────────────────────────────────────────────────────
+// ── Damage mode text formatter ────────────────────────────────────────
 
 function formatCalcText(matrix: AnyRecord, build: AnyRecord): string {
   const lines: string[] = [];
@@ -189,7 +194,7 @@ function formatCalcText(matrix: AnyRecord, build: AnyRecord): string {
   return lines.join("\n");
 }
 
-// ── Compare formatter ─────────────────────────────────────────────────
+// ── Compare formatter (damage mode only) ─────────────────────────────
 
 function formatCompare(matrixA: AnyRecord, buildA: AnyRecord, matrixB: AnyRecord, buildB: AnyRecord): string {
   const lines: string[] = [];
@@ -263,11 +268,340 @@ function formatCompare(matrixA: AnyRecord, buildA: AnyRecord, matrixB: AnyRecord
   return lines.join("\n");
 }
 
+// ── Stagger mode helpers ──────────────────────────────────────────────
+
+/**
+ * Extract damnation stagger tiers for checklist breeds per action from a weapon's results.
+ * Returns Map<breedId, Map<actionType, stagger_tier>>.
+ */
+function extractChecklistStagger(weaponResult: AnyRecord): Map<string, Map<string, string>> {
+  const table = new Map<string, Map<string, string>>();
+
+  for (const breedId of CHECKLIST_BREEDS) {
+    const actionMap = new Map<string, string>();
+
+    for (const action of weaponResult.actions) {
+      const entry = action.breeds.find(
+        (b: AnyRecord) => b.breed_id === breedId && b.difficulty === "damnation",
+      );
+      if (!entry) continue;
+
+      const tier = entry.stagger_tier ?? "none";
+      const existing = actionMap.get(action.type);
+      // Keep the best (highest) stagger tier for each action type
+      if (existing == null) {
+        actionMap.set(action.type, tier);
+      }
+    }
+
+    if (actionMap.size > 0) {
+      table.set(breedId, actionMap);
+    }
+  }
+
+  return table;
+}
+
+/**
+ * Collect all unique action types from a weapon's results.
+ */
+function collectActionTypes(weaponResult: AnyRecord): string[] {
+  const types = new Set<string>();
+  for (const action of weaponResult.actions) {
+    types.add(action.type);
+  }
+  return [...types];
+}
+
+// ── Stagger mode text formatter ───────────────────────────────────────
+
+function formatStaggerText(matrix: AnyRecord, build: AnyRecord): string {
+  const lines: string[] = [];
+  const buildTitle = build.title || "Untitled Build";
+
+  lines.push(`\u2550\u2550\u2550 Stagger Analysis: ${buildTitle} \u2550\u2550\u2550`);
+  lines.push("");
+
+  for (const weapon of matrix.weapons) {
+    const weaponBuild = (build.weapons ?? [])[weapon.slot];
+    const weaponName = weaponBuild ? selectionLabel(weaponBuild.name) : weapon.entityId;
+
+    lines.push(`Weapon: ${weaponName}`);
+
+    const stagger = extractChecklistStagger(weapon);
+    const actionTypes = collectActionTypes(weapon);
+
+    if (actionTypes.length === 0) {
+      lines.push("  (no stagger data)");
+      lines.push("");
+      continue;
+    }
+
+    // Pick breeds that have data for this weapon
+    const activeBreeds = CHECKLIST_BREEDS.filter((b) => stagger.has(b));
+    if (activeBreeds.length === 0) {
+      lines.push("  (no stagger data for key breeds)");
+      lines.push("");
+      continue;
+    }
+
+    // Column layout
+    const actionColWidth = 18;
+    const breedColWidth = 10;
+
+    // Header row
+    const header =
+      "  " +
+      "Action".padEnd(actionColWidth) +
+      "\u2502 " +
+      activeBreeds
+        .map((b) => (BREED_DISPLAY[b]?.name ?? b).padEnd(breedColWidth))
+        .join("\u2502 ");
+    lines.push(header);
+
+    // Data rows
+    for (const actionType of actionTypes) {
+      const cells = activeBreeds.map((breedId) => {
+        const breedMap = stagger.get(breedId);
+        const tier = breedMap?.get(actionType) ?? "none";
+        return tier.padEnd(breedColWidth);
+      });
+
+      const row =
+        "  " +
+        actionType.padEnd(actionColWidth) +
+        "\u2502 " +
+        cells.join("\u2502 ");
+      lines.push(row);
+    }
+
+    lines.push("");
+  }
+
+  return lines.join("\n");
+}
+
+// ── Cleave mode text formatter ────────────────────────────────────────
+
+function formatCleaveText(matrix: AnyRecord, build: AnyRecord): string {
+  const lines: string[] = [];
+  const buildTitle = build.title || "Untitled Build";
+
+  lines.push(`\u2550\u2550\u2550 Cleave Analysis: ${buildTitle} \u2550\u2550\u2550`);
+  lines.push("");
+
+  const compositions: string[] = matrix.metadata.compositions_used;
+
+  for (const weapon of matrix.weapons) {
+    const weaponBuild = (build.weapons ?? [])[weapon.slot];
+    const weaponName = weaponBuild ? selectionLabel(weaponBuild.name) : weapon.entityId;
+
+    lines.push(`Weapon: ${weaponName}`);
+
+    if (weapon.actions.length === 0) {
+      lines.push("  (no cleave data)");
+      lines.push("");
+      continue;
+    }
+
+    // Column layout
+    const actionColWidth = 18;
+    const compColWidth = 32;
+
+    // Header row
+    const header =
+      "  " +
+      "Action".padEnd(actionColWidth) +
+      "\u2502 " +
+      compositions
+        .map((c: string) => c.padEnd(compColWidth))
+        .join("\u2502 ");
+    lines.push(header);
+
+    // Data rows
+    for (const action of weapon.actions) {
+      const cells = compositions.map((compName: string) => {
+        const comp = action.compositions[compName];
+        if (!comp) return "-".padEnd(compColWidth);
+        const cell = `${comp.targets_hit} hit / ${comp.targets_killed} killed (budget ${action.cleave_budget.toFixed(1)})`;
+        return cell.padEnd(compColWidth);
+      });
+
+      const row =
+        "  " +
+        action.type.padEnd(actionColWidth) +
+        "\u2502 " +
+        cells.join("\u2502 ");
+      lines.push(row);
+    }
+
+    lines.push("");
+  }
+
+  return lines.join("\n");
+}
+
+// ── Toughness mode helpers ────────────────────────────────────────────
+
+/**
+ * Format a DR source value as a human-readable percentage.
+ */
+function formatDRValue(source: AnyRecord): string {
+  const { stat, value } = source;
+  if (stat === "toughness_damage_taken_modifier") {
+    const pct = Math.abs(value) * 100;
+    const multiplier = 1 + value;
+    const label = value < 0 ? "DR" : "damage increase";
+    return `${multiplier.toFixed(2)} (${pct.toFixed(0)}% ${label}, additive)`;
+  }
+  const multiplier = 1 + value;
+  const pct = Math.abs(value) * 100;
+  const label = value < 0 ? "DR" : "damage increase";
+  return `${multiplier.toFixed(2)} (${pct.toFixed(0)}% ${label})`;
+}
+
+// ── Toughness mode text formatter ─────────────────────────────────────
+
+function formatToughnessText(result: AnyRecord, build: AnyRecord): string {
+  const lines: string[] = [];
+  const buildTitle = build.title || "Untitled Build";
+
+  lines.push(`\u2550\u2550\u2550 Survivability Analysis: ${buildTitle} \u2550\u2550\u2550`);
+  lines.push("");
+
+  lines.push(`Class: ${result.class} (${result.difficulty})`);
+  lines.push(`  Base HP: ${result.base.health} \u00d7 ${result.base.wounds} wounds = ${result.health_pool}`);
+  lines.push(`  Base Toughness: ${result.base.toughness}`);
+  if (result.max_toughness !== result.base.toughness) {
+    lines.push(`  Max Toughness: ${result.max_toughness}`);
+  }
+  lines.push("");
+
+  if (result.dr_sources.length > 0) {
+    lines.push("DR Sources:");
+    for (const src of result.dr_sources) {
+      const entity = (src.source_entity as string).padEnd(42);
+      const stat = (src.stat as string).padEnd(40);
+      lines.push(`  ${entity} ${stat} ${formatDRValue(src)}`);
+    }
+    lines.push(`  Total DR: ${(result.total_dr * 100).toFixed(1)}%`);
+    lines.push("");
+  } else {
+    lines.push("DR Sources: (none)");
+    lines.push("");
+  }
+
+  lines.push(`Effective Toughness: ${result.effective_toughness} (base ${result.base.toughness}${result.max_toughness !== result.base.toughness ? `, max ${result.max_toughness}` : ""}, / DR multiplier)`);
+  lines.push(`Effective HP: ${result.effective_hp}`);
+  if (result.max_health_modifier !== 0) {
+    lines.push(`  Health modifier: ${result.max_health_modifier > 0 ? "+" : ""}${(result.max_health_modifier * 100).toFixed(1)}%`);
+  }
+  lines.push("");
+
+  const stateLabels: Record<string, string> = { dodging: "Dodging", sliding: "Sliding", sprinting: "Sprinting" };
+  const stateEntries = Object.entries(result.state_modifiers as Record<string, AnyRecord>);
+  if (stateEntries.length > 0) {
+    lines.push("State Modifiers:");
+    for (const [state, mod] of stateEntries) {
+      const label = stateLabels[state] ?? state;
+      const dmgMult = (1 - mod.tdr).toFixed(1);
+      lines.push(`  ${label}: ${dmgMult}\u00d7 toughness damage \u2192 effective toughness ${mod.effective_toughness}`);
+    }
+    lines.push("");
+  }
+
+  const regen = result.toughness_regen;
+  lines.push("Toughness Regen:");
+  lines.push(`  Base: ${regen.base_rate.toFixed(1)}/sec (${regen.delay_seconds}s delay after hit)`);
+
+  const coherencyLabels: Record<string, string> = {
+    solo: "Solo",
+    one_ally: "1 ally",
+    two_allies: "2 allies",
+    three_allies: "3+ allies",
+  };
+  for (const [key, label] of Object.entries(coherencyLabels)) {
+    if (regen.coherency[key] != null) {
+      lines.push(`  ${label}: ${regen.coherency[key].toFixed(1)}/sec`);
+    }
+  }
+
+  const meleeKillPct = (regen.melee_kill_recovery_percent * 100).toFixed(0);
+  lines.push(`  Melee kill: +${regen.melee_kill_recovery.toFixed(1)} (${meleeKillPct}% of max)`);
+
+  return lines.join("\n");
+}
+
+// ── Mode configuration ────────────────────────────────────────────────
+
+type Mode = "damage" | "stagger" | "cleave" | "toughness";
+
+interface ComputeDeps {
+  index: ReturnType<typeof loadIndex>;
+  calcData: ReturnType<typeof loadCalculatorData>;
+  staggerSettings: ReturnType<typeof loadStaggerSettings> | Record<string, never>;
+}
+
+interface ModeConfig {
+  compute: (build: AnyRecord, deps: ComputeDeps) => AnyRecord;
+  formatText: (result: AnyRecord, build: AnyRecord) => string;
+  freezeDir: string;
+  snapshotSuffix: string;
+}
+
+const MODE_CONFIG: Record<Mode, ModeConfig> = {
+  damage: {
+    compute: (build, deps) =>
+      computeBreakpoints(
+        build,
+        deps.index as unknown as Parameters<typeof computeBreakpoints>[1],
+        deps.calcData,
+      ) as AnyRecord,
+    formatText: formatCalcText,
+    freezeDir: "tests/fixtures/ground-truth/calc",
+    snapshotSuffix: ".calc.json",
+  },
+  stagger: {
+    compute: (build, deps) =>
+      computeStaggerMatrix(
+        build as Parameters<typeof computeStaggerMatrix>[0],
+        deps.index as unknown as Parameters<typeof computeStaggerMatrix>[1],
+        deps.calcData as Parameters<typeof computeStaggerMatrix>[2],
+        deps.staggerSettings as ReturnType<typeof loadStaggerSettings>,
+      ) as AnyRecord,
+    formatText: formatStaggerText,
+    freezeDir: "tests/fixtures/ground-truth/stagger",
+    snapshotSuffix: ".stagger.json",
+  },
+  cleave: {
+    compute: (build, deps) =>
+      computeCleaveMatrix(
+        build,
+        deps.index as unknown as Parameters<typeof computeCleaveMatrix>[1],
+        deps.calcData,
+      ) as AnyRecord,
+    formatText: formatCleaveText,
+    freezeDir: "tests/fixtures/ground-truth/cleave",
+    snapshotSuffix: ".cleave.json",
+  },
+  toughness: {
+    compute: (build, deps) =>
+      computeSurvivability(
+        build,
+        deps.index as unknown as Parameters<typeof computeSurvivability>[1],
+      ) as AnyRecord,
+    formatText: formatToughnessText,
+    freezeDir: "tests/fixtures/ground-truth/toughness",
+    snapshotSuffix: ".toughness.json",
+  },
+};
+
 // ── CLI ───────────────────────────────────────────────────────────────
 
 await runCliMain("calc", async () => {
   const { values, positionals } = parseArgs({
     options: {
+      mode: { type: "string", default: "damage" },
       json: { type: "boolean", default: false },
       text: { type: "boolean", default: false },
       compare: { type: "string" },
@@ -279,25 +613,40 @@ await runCliMain("calc", async () => {
 
   const target = positionals[0];
   if (!target) {
-    throw new Error("Usage: npm run calc -- <build.json|dir> [--json|--text|--compare <file>] [--freeze]");
+    throw new Error(
+      "Usage: npm run calc -- <build.json|dir> [--mode damage|stagger|cleave|toughness] [--json|--text|--compare <file>] [--freeze]",
+    );
   }
+
+  const mode = (values.mode ?? "damage") as Mode;
+  if (!Object.keys(MODE_CONFIG).includes(mode)) {
+    throw new Error(`Unknown --mode "${mode}". Valid modes: damage, stagger, cleave, toughness`);
+  }
+
+  const modeConfig = MODE_CONFIG[mode];
 
   const index = loadIndex();
   const calcData = loadCalculatorData();
+  const staggerSettings = mode === "stagger" ? loadStaggerSettings() : ({} as Record<string, never>);
+
+  const deps: ComputeDeps = { index, calcData, staggerSettings };
 
   function processFile(filePath: string) {
     const build = JSON.parse(readFileSync(filePath, "utf-8")) as AnyRecord;
-    const matrix = computeBreakpoints(build, index as unknown as Parameters<typeof computeBreakpoints>[1], calcData) as AnyRecord;
-    return { build, matrix };
+    const result = modeConfig.compute(build, deps);
+    return { build, result };
   }
 
-  // Compare mode
+  // Compare mode (damage only)
   if (values.compare) {
-    const { build: buildA, matrix: matrixA } = processFile(target);
-    const { build: buildB, matrix: matrixB } = processFile(values.compare as string);
+    if (mode !== "damage") {
+      throw new Error("--compare is only valid with --mode damage");
+    }
+    const { build: buildA, result: matrixA } = processFile(target);
+    const { build: buildB, result: matrixB } = processFile(values.compare as string);
 
     if (values.json) {
-      console.log(JSON.stringify({ buildA: matrixA, buildB: matrixB }, null, 2));
+      console.log(JSON.stringify({ buildA: matrixA, buildB: matrixB }, calcReplacer, 2));
     } else {
       console.log(formatCompare(matrixA, buildA, matrixB, buildB));
     }
@@ -311,16 +660,22 @@ await runCliMain("calc", async () => {
     let failures = 0;
 
     if (values.freeze) {
-      const outDir = "tests/fixtures/ground-truth/calc";
-      mkdirSync(outDir, { recursive: true });
+      mkdirSync(modeConfig.freezeDir, { recursive: true });
 
       for (const f of files) {
         try {
-          const { build, matrix } = processFile(join(target, f));
+          const { result } = processFile(join(target, f));
           const prefix = basename(f, ".json");
-          writeFileSync(join(outDir, `${prefix}.calc.json`), JSON.stringify(matrix, calcReplacer, 2) + "\n");
-          const weaponCount = (matrix.weapons as unknown[]).length;
-          console.log(`Frozen: ${prefix} (${weaponCount} weapon${weaponCount !== 1 ? "s" : ""})`);
+          writeFileSync(
+            join(modeConfig.freezeDir, `${prefix}${modeConfig.snapshotSuffix}`),
+            JSON.stringify(result, calcReplacer, 2) + "\n",
+          );
+          if (mode === "toughness") {
+            console.log(`Frozen: ${prefix}`);
+          } else {
+            const weaponCount = (result.weapons as unknown[]).length;
+            console.log(`Frozen: ${prefix} (${weaponCount} weapon${weaponCount !== 1 ? "s" : ""})`);
+          }
         } catch (err) {
           console.error(`SKIP ${f}: ${(err as Error).message}`);
           failures++;
@@ -332,11 +687,11 @@ await runCliMain("calc", async () => {
 
     for (const f of files) {
       try {
-        const { build, matrix } = processFile(join(target, f));
+        const { build, result } = processFile(join(target, f));
         if (values.json) {
-          console.log(JSON.stringify(matrix, null, 2));
+          console.log(JSON.stringify(result, calcReplacer, 2));
         } else {
-          console.log(formatCalcText(matrix, build));
+          console.log(modeConfig.formatText(result, build));
           console.log("");
         }
       } catch (err) {
@@ -346,11 +701,11 @@ await runCliMain("calc", async () => {
     }
     if (failures > 0) console.error(`${failures} build(s) skipped due to errors.`);
   } else {
-    const { build, matrix } = processFile(target);
+    const { build, result } = processFile(target);
     if (values.json) {
-      console.log(JSON.stringify(matrix, null, 2));
+      console.log(JSON.stringify(result, calcReplacer, 2));
     } else {
-      console.log(formatCalcText(matrix, build));
+      console.log(modeConfig.formatText(result, build));
     }
   }
 });
