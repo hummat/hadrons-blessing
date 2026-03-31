@@ -3,7 +3,6 @@
 
 import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync } from "node:fs";
 import { join, basename } from "node:path";
-import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 import { runCliMain } from "../lib/cli.js";
 import { loadIndex } from "../lib/synergy-model.js";
@@ -11,8 +10,6 @@ import { loadCalculatorData, computeBreakpoints, summarizeBreakpoints } from "..
 import { computeStaggerMatrix, loadStaggerSettings } from "../lib/stagger-calculator.js";
 import { computeCleaveMatrix } from "../lib/cleave-calculator.js";
 import { computeSurvivability } from "../lib/toughness-calculator.js";
-
-const __filename = fileURLToPath(import.meta.url);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyRecord = Record<string, any>;

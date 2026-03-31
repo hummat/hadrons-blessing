@@ -19,12 +19,6 @@ const SETUP_HINTS: Record<string, string> = {
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run profiles:build",
   calc:
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run calc -- data/builds/08-gandalf-melee-wizard.json",
-  stagger:
-    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run stagger -- data/builds/08-gandalf-melee-wizard.json",
-  cleave:
-    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run cleave -- data/builds/08-gandalf-melee-wizard.json",
-  toughness:
-    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run toughness -- data/builds/08-gandalf-melee-wizard.json",
 };
 
 function errorMessage(error: unknown): string {
