@@ -22,3 +22,9 @@ export { computeSurvivability, loadClassBaseStats } from "./toughness-calculator
 export { generateScorecard } from "./score-build.js";
 export { analyzeBuild, loadIndex as loadSynergyIndex } from "./synergy-model.js";
 export type { AnalyzeBuildResult, SynergyIndex } from "./synergy-model.js";
+
+// Browse & compare
+export { listBuilds } from "./build-list.js";
+export type { BuildSummary, ListOptions, BuildScores, WeaponSummary } from "./build-list.js";
+export { diffBuilds } from "./build-diff.js";
+export type { BuildDiff, DiffOptions, ScoreDelta, StructuralDiff, AnalyticalDiff, BreakpointDelta } from "./build-diff.js";
