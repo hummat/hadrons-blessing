@@ -47,7 +47,7 @@
     "entities:gen-mapping": "node dist/cli/generate-weapon-name-mapping.js",
     "audit:freeze": "for f in tests/fixtures/ground-truth/audits/*.audit.json; do b=$(basename \"$f\" .audit.json); node dist/cli/audit-build-names.js \"data/builds/${b}.json\" > \"$f\"; done",
     "synergy:freeze": "for f in tests/fixtures/ground-truth/synergy/*.synergy.json; do b=$(basename \"$f\" .synergy.json); node dist/cli/analyze-synergy.js \"data/builds/${b}-\"*.json --json > \"$f\"; done",
-    "score:freeze": "node dist/cli/freeze-scores.js"
+    "score:freeze": "node dist/cli/score-build.js data/builds/ --json --freeze"
   },
   "repository": {
     "type": "git",

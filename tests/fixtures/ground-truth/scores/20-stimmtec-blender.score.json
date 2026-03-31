@@ -1,0 +1,276 @@
+{
+  "title": "Stimmtec: Will It Blend? Hive Scum Blender Build",
+  "class": "hive scum",
+  "perk_optimality": 5,
+  "curio_efficiency": 3,
+  "composite_score": 23,
+  "letter_grade": "B",
+  "weapons": [
+    {
+      "name": "Improvised Mk I Shivs",
+      "slot": "melee",
+      "canonical_entity_id": "shared.weapon.dual_shivs_p1_m1",
+      "internal_name": "dual_shivs_p1_m1",
+      "weapon_family": "dual_shivs",
+      "resolution_source": "ground_truth",
+      "perks": {
+        "score": 5,
+        "perks": [
+          {
+            "name": "Damage (Flak Armoured)",
+            "tier": 4,
+            "value": 0.25
+          }
+        ]
+      },
+      "blessings": {
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Precognition",
+            "known": true,
+            "internal": "dodge_grants_critical_strike_chance"
+          },
+          {
+            "name": "Uncanny Strike",
+            "known": true,
+            "internal": "stacking_rending_on_weakspot"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Branx MKII Needle Pistol",
+      "slot": "ranged",
+      "canonical_entity_id": "shared.weapon.needlepistol_p1_m1",
+      "internal_name": "needlepistol_p1_m1",
+      "weapon_family": "needlepistol",
+      "resolution_source": "ground_truth",
+      "perks": {
+        "score": 5,
+        "perks": [
+          {
+            "name": "Reload Speed",
+            "tier": 4,
+            "value": 0.1
+          },
+          {
+            "name": "Damage (Unyielding)",
+            "tier": 4,
+            "value": 0.25
+          }
+        ]
+      },
+      "blessings": {
+        "valid": null,
+        "blessings": []
+      }
+    }
+  ],
+  "curios": {
+    "score": 3,
+    "perks": [
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "DR vs Gunners",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Max Stamina",
+        "tier": 4,
+        "rating": "neutral"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "DR vs Gunners",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Max Stamina",
+        "tier": 4,
+        "rating": "neutral"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "DR vs Gunners",
+        "tier": 4,
+        "rating": "optimal"
+      }
+    ]
+  },
+  "qualitative": {
+    "blessing_synergy": {
+      "score": 5,
+      "breakdown": {
+        "blessing_edges": 15,
+        "blessing_count": 4,
+        "edges_per_blessing": 3.75,
+        "blessing_blessing_edges": 3,
+        "orphaned_blessings": 1
+      },
+      "explanations": [
+        "Blessings with synergy edges: precognition, uncanny_strike, run_n_gun",
+        "3 blessing-blessing edge(s) +0.5",
+        "1 blessing(s) participate in no synergy edges (-1 each)"
+      ]
+    },
+    "talent_coherence": {
+      "score": 1,
+      "breakdown": {
+        "talent_edges": 9,
+        "talent_count": 36,
+        "edges_per_talent": 0.25,
+        "graph_isolated_count": 28,
+        "concentration": 0.05,
+        "penalties": -14,
+        "bonuses": 0
+      },
+      "explanations": [
+        "28 talent(s) participate in no synergy edges (-0.5 each)"
+      ]
+    },
+    "breakpoint_relevance": {
+      "score": 3,
+      "breakdown": [
+        {
+          "label": "One-shot Rager head",
+          "met": false,
+          "best_htk": 3,
+          "max_hits": 1,
+          "weight": "high"
+        },
+        {
+          "label": "Two-hit Rager body",
+          "met": false,
+          "best_htk": 4,
+          "max_hits": 2,
+          "weight": "high"
+        },
+        {
+          "label": "Two-hit Crusher",
+          "met": false,
+          "best_htk": 6,
+          "max_hits": 2,
+          "weight": "high"
+        },
+        {
+          "label": "One-shot Trapper",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "One-shot Hound",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "One-shot Bomber body",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "Horde one-shot body",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "Three-hit Mauler",
+          "met": false,
+          "best_htk": 4,
+          "max_hits": 3,
+          "weight": "low"
+        },
+        {
+          "label": "Two-hit Bulwark",
+          "met": false,
+          "best_htk": 5,
+          "max_hits": 2,
+          "weight": "low"
+        },
+        {
+          "label": "One-shot Sniper",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "low"
+        }
+      ],
+      "explanations": [
+        "5/10 breakpoints met (weighted 9/20)",
+        "Missed high-priority: One-shot Rager head, Two-hit Rager body, Two-hit Crusher"
+      ]
+    },
+    "role_coverage": {
+      "score": 5,
+      "breakdown": {
+        "active_families": 9,
+        "total_families": 11,
+        "coverage_gaps": [],
+        "slot_balance_ratio": 0.8
+      },
+      "explanations": []
+    },
+    "difficulty_scaling": {
+      "score": 1,
+      "breakdown": {
+        "auric_met": 0,
+        "damnation_met": 0,
+        "total": 3,
+        "per_entry": [
+          {
+            "label": "One-shot Rager head",
+            "damnation_htk": 3,
+            "auric_htk": 3,
+            "damnation_met": false,
+            "auric_met": false
+          },
+          {
+            "label": "Two-hit Rager body",
+            "damnation_htk": 4,
+            "auric_htk": 5,
+            "damnation_met": false,
+            "auric_met": false
+          },
+          {
+            "label": "Two-hit Crusher",
+            "damnation_htk": 6,
+            "auric_htk": 8,
+            "damnation_met": false,
+            "auric_met": false
+          }
+        ]
+      },
+      "explanations": [
+        "High-priority: 0/3 at damnation, 0/3 at auric"
+      ]
+    }
+  },
+  "bot_flags": []
+}

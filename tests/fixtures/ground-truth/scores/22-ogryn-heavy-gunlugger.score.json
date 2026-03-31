@@ -1,0 +1,286 @@
+{
+  "title": "Heavy Gun-Lugger | Point-Blank Barrage | Burst Limiter Override",
+  "class": "ogryn",
+  "perk_optimality": 5,
+  "curio_efficiency": 4,
+  "composite_score": 24,
+  "letter_grade": "B",
+  "weapons": [
+    {
+      "name": "Achlys Mk I Power Maul",
+      "slot": "melee",
+      "canonical_entity_id": "shared.weapon.ogryn_powermaul_p1_m1",
+      "internal_name": "ogryn_powermaul_p1_m1",
+      "weapon_family": "ogryn_powermaul",
+      "resolution_source": "ground_truth",
+      "perks": {
+        "score": 5,
+        "perks": [
+          {
+            "name": "Damage (Carapace)",
+            "tier": 4,
+            "value": 0.25
+          },
+          {
+            "name": "Damage (Flak Armoured)",
+            "tier": 4,
+            "value": 0.25
+          }
+        ]
+      },
+      "blessings": {
+        "valid": null,
+        "blessings": []
+      }
+    },
+    {
+      "name": "Gorgonum Mk IV Twin-Linked Heavy Stubber",
+      "slot": "ranged",
+      "canonical_entity_id": "shared.weapon.ogryn_heavystubber_p2_m1",
+      "internal_name": "ogryn_heavystubber_p2_m1",
+      "weapon_family": "ogryn_heavystubber_p2",
+      "resolution_source": "ground_truth",
+      "perks": {
+        "score": 5,
+        "perks": [
+          {
+            "name": "Damage (Carapace)",
+            "tier": 4,
+            "value": 0.25
+          }
+        ]
+      },
+      "blessings": {
+        "valid": null,
+        "blessings": []
+      }
+    }
+  ],
+  "curios": {
+    "score": 4,
+    "perks": [
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Stamina Regeneration",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "DR vs Gunners",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Stamina Regeneration",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "DR vs Flamers",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Toughness",
+        "tier": 4,
+        "rating": "optimal"
+      },
+      {
+        "name": "Stamina Regeneration",
+        "tier": 4,
+        "rating": "good"
+      },
+      {
+        "name": "DR vs Bombers",
+        "tier": 4,
+        "rating": "good"
+      }
+    ]
+  },
+  "qualitative": {
+    "blessing_synergy": {
+      "score": 4,
+      "breakdown": {
+        "blessing_edges": 12,
+        "blessing_count": 4,
+        "edges_per_blessing": 3,
+        "blessing_blessing_edges": 3,
+        "orphaned_blessings": 1
+      },
+      "explanations": [
+        "Blessings with synergy edges: power_surge, blaze_away, deathspitter",
+        "3 blessing-blessing edge(s) +0.5",
+        "1 blessing(s) participate in no synergy edges (-1 each)"
+      ]
+    },
+    "talent_coherence": {
+      "score": 1,
+      "breakdown": {
+        "talent_edges": 11,
+        "talent_count": 26,
+        "edges_per_talent": 0.423,
+        "graph_isolated_count": 16,
+        "concentration": 0.09,
+        "penalties": -8,
+        "bonuses": 0.5
+      },
+      "explanations": [
+        "16 talent(s) participate in no synergy edges (-0.5 each)",
+        "High stat concentration (0.090) +0.5"
+      ]
+    },
+    "breakpoint_relevance": {
+      "score": 5,
+      "breakdown": [
+        {
+          "label": "One-shot Rager head",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "high"
+        },
+        {
+          "label": "Two-hit Rager body",
+          "met": true,
+          "best_htk": 2,
+          "max_hits": 2,
+          "weight": "high"
+        },
+        {
+          "label": "Two-hit Crusher",
+          "met": false,
+          "best_htk": 3,
+          "max_hits": 2,
+          "weight": "high"
+        },
+        {
+          "label": "One-shot Trapper",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "One-shot Hound",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "One-shot Bomber body",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "Horde one-shot body",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "medium"
+        },
+        {
+          "label": "Three-hit Mauler",
+          "met": true,
+          "best_htk": 2,
+          "max_hits": 3,
+          "weight": "low"
+        },
+        {
+          "label": "Two-hit Bulwark",
+          "met": true,
+          "best_htk": 2,
+          "max_hits": 2,
+          "weight": "low"
+        },
+        {
+          "label": "One-shot Sniper",
+          "met": true,
+          "best_htk": 1,
+          "max_hits": 1,
+          "weight": "low"
+        }
+      ],
+      "explanations": [
+        "9/10 breakpoints met (weighted 17/20)",
+        "Missed high-priority: Two-hit Crusher"
+      ]
+    },
+    "role_coverage": {
+      "score": 3,
+      "breakdown": {
+        "active_families": 7,
+        "total_families": 11,
+        "coverage_gaps": [
+          "crit_chance_source"
+        ],
+        "slot_balance_ratio": 0.6666666666666666
+      },
+      "explanations": [
+        "Coverage gaps: crit_chance_source (-1 each)"
+      ]
+    },
+    "difficulty_scaling": {
+      "score": 2,
+      "breakdown": {
+        "auric_met": 0,
+        "damnation_met": 2,
+        "total": 3,
+        "per_entry": [
+          {
+            "label": "One-shot Rager head",
+            "damnation_htk": 1,
+            "auric_htk": 2,
+            "damnation_met": true,
+            "auric_met": false
+          },
+          {
+            "label": "Two-hit Rager body",
+            "damnation_htk": 2,
+            "auric_htk": 3,
+            "damnation_met": true,
+            "auric_met": false
+          },
+          {
+            "label": "Two-hit Crusher",
+            "damnation_htk": 3,
+            "auric_htk": 4,
+            "damnation_met": false,
+            "auric_met": false
+          }
+        ]
+      },
+      "explanations": [
+        "High-priority: 2/3 at damnation, 0/3 at auric",
+        "Degrades at auric: One-shot Rager head, Two-hit Rager body"
+      ]
+    }
+  },
+  "bot_flags": []
+}
