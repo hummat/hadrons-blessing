@@ -103,6 +103,7 @@ const FAMILY_STATS: Record<StatFamily, string[]> = {
     "damage_taken_by_cultist_grenadier_multiplier",
     "damage_taken_by_chaos_hound_multiplier",
     "damage_taken_by_chaos_hound_mutator_multiplier",
+    "damage_taken_by_chaos_armored_hound_multiplier",
     "damage_taken_by_cultist_mutant_multiplier",
     "damage_taken_by_cultist_mutant_mutator_multiplier",
     "damage_taken_by_chaos_plague_ogryn_multiplier",

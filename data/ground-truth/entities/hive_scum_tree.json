@@ -10,10 +10,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 618
+        "line": 624
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone",
       "talent_internal_name": "broker_keystone_vultures_mark_on_kill",
@@ -24,12 +24,14 @@
         "node_7c3d0b39-9457-4c3e-a4f6-3334c6d07b96",
         "node_aab0fcfa-aa2c-4f06-bed9-dd6903333cf0",
         "node_3d505fe8-4783-4d64-9bc8-df4a39546474",
-        "node_1e885682-6bee-46c1-9d23-21332ffd3b51"
+        "node_fac6179f-a86a-489f-bb1a-b9382fd6630a"
       ],
       "parents": [
-        "node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
         "node_3d505fe8-4783-4d64-9bc8-df4a39546474",
-        "node_1e885682-6bee-46c1-9d23-21332ffd3b51"
+        "node_21d23a99-f022-4bb4-831a-e2c1da111e98",
+        "node_52c9240d-6228-4b32-badf-76f17ef9b6da",
+        "node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+        "node_fac6179f-a86a-489f-bb1a-b9382fd6630a"
       ]
     },
     "calc": {}
@@ -45,10 +47,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1654
+        "line": 1631
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "ability_modifier",
       "talent_internal_name": "broker_ability_punk_rage_sub_2",
@@ -72,10 +74,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1597
+        "line": 1574
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone_modifier",
       "talent_internal_name": "broker_keystone_adrenaline_junkie_sub_5",
@@ -99,10 +101,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1160
+        "line": 1152
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_reduced_damage_by_toxined",
@@ -110,11 +112,11 @@
       "exclusive_group": null,
       "children": [
         "node_3b9ce6b2-13e7-42f3-a450-60c2d72cbe0e",
-        "node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
-        "node_45324e02-771e-4f7d-8743-d306bcf106d2"
+        "node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c"
       ],
       "parents": [
-        "node_82e26378-1ad7-41c9-bd62-db6fee2779f7",
+        "node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
+        "node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
         "node_45324e02-771e-4f7d-8743-d306bcf106d2"
       ]
     },
@@ -131,10 +133,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 773
+        "line": 783
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "stat",
       "talent_internal_name": "base_crit_chance_node_buff_low_1",
@@ -143,8 +145,8 @@
       "children": [
         "node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
         "node_42f02425-b59e-44b5-8eac-c4ae72c9bc1a",
-        "node_ba662782-8e5c-4a86-8927-3127d7c3735c",
-        "node_ba99146a-4a89-452f-8b02-7d6d871b30dd"
+        "node_ba99146a-4a89-452f-8b02-7d6d871b30dd",
+        "node_ba662782-8e5c-4a86-8927-3127d7c3735c"
       ],
       "parents": [
         "node_4fa187c3-c910-4e93-b982-cc2e68d2515b",
@@ -164,10 +166,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 158
+        "line": 153
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_reload_speed_on_close_kill",
@@ -175,11 +177,13 @@
       "exclusive_group": null,
       "children": [
         "node_8f48a9f7-b2ed-4aa2-b071-73ebf35d3528",
-        "node_2c613026-5cb8-44d3-aff8-29114f2f10b6"
+        "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+        "node_90db015f-623c-44a1-b981-fce3bee1abb5"
       ],
       "parents": [
-        "node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
-        "node_61e47549-aaca-4298-977e-ece3e68e2372"
+        "node_61e47549-aaca-4298-977e-ece3e68e2372",
+        "node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
+        "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1"
       ]
     },
     "calc": {}
@@ -195,22 +199,23 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 544
+        "line": 549
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_ramping_backstabs",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_004740df-29af-45f1-af0d-12d2c815a541"
+        "node_8899507b-9a1c-41c4-8107-a3e559dc2172",
+        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b"
       ],
       "parents": [
-        "node_52c9240d-6228-4b32-badf-76f17ef9b6da",
-        "node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
-        "node_004740df-29af-45f1-af0d-12d2c815a541"
+        "node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
+        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+        "node_f6f53560-cd00-4602-9903-4961484ade18"
       ]
     },
     "calc": {}
@@ -226,10 +231,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1829
+        "line": 1809
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "ability_modifier",
       "talent_internal_name": "broker_ability_stimm_field_sub_2",
@@ -253,21 +258,23 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 279
+        "line": 283
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "tactical",
       "talent_internal_name": "broker_blitz_tox_grenade",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_e71c71cc-49b9-494b-9904-ee4cc2496658"
+        "node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+        "node_5c6828fd-4ac1-427e-bd39-793677a16ccc"
       ],
       "parents": [
         "node_8f48a9f7-b2ed-4aa2-b071-73ebf35d3528",
-        "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1"
+        "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+        "node_b2a0147e-0949-4501-8650-2b1ba64377a9"
       ]
     },
     "calc": {}
@@ -283,10 +290,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1730
+        "line": 1707
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_low_ammo_regen",
@@ -294,11 +301,14 @@
       "exclusive_group": null,
       "children": [
         "node_3d505fe8-4783-4d64-9bc8-df4a39546474",
-        "node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f"
-      ],
-      "parents": [
+        "node_004740df-29af-45f1-af0d-12d2c815a541",
         "node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
         "node_42f02425-b59e-44b5-8eac-c4ae72c9bc1a"
+      ],
+      "parents": [
+        "node_42f02425-b59e-44b5-8eac-c4ae72c9bc1a",
+        "node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+        "node_ba662782-8e5c-4a86-8927-3127d7c3735c"
       ]
     },
     "calc": {}
@@ -314,10 +324,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1389
+        "line": 1388
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone_modifier",
       "talent_internal_name": "broker_keystone_chemical_dependency_sub_3",
@@ -341,10 +351,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1772
+        "line": 1752
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "ability_modifier",
       "talent_internal_name": "broker_ability_focus_sub_2",
@@ -368,10 +378,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1753
+        "line": 1733
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "ability_modifier",
       "talent_internal_name": "broker_ability_focus_sub_3",
@@ -395,10 +405,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1370
+        "line": 1369
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone_modifier",
       "talent_internal_name": "broker_keystone_chemical_dependency_sub_2",
@@ -422,54 +432,57 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 877
+        "line": 889
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_reduced_toughness_damage_during_reload",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1"
+        "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+        "node_11c062d4-c4be-4e96-b5f2-991bbedf2de3",
+        "node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
+        "node_61e47549-aaca-4298-977e-ece3e68e2372"
       ],
       "parents": [
         "node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
-        "node_11c062d4-c4be-4e96-b5f2-991bbedf2de3",
         "node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
-        "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1"
+        "node_61e47549-aaca-4298-977e-ece3e68e2372"
       ]
     },
     "calc": {}
   },
   {
-    "id": "hive_scum.tree_node.node_2f306ae7-923d-4a28-bbe8-37f860901067",
+    "id": "hive_scum.tree_node.node_32ac314d-2d6e-421b-8ced-27ce00dc62e5",
     "kind": "tree_node",
     "domain": "hive_scum",
-    "internal_name": "node_2f306ae7-923d-4a28-bbe8-37f860901067",
+    "internal_name": "node_32ac314d-2d6e-421b-8ced-27ce00dc62e5",
     "loc_key": null,
     "ui_name": null,
     "status": "source_backed",
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 972
+        "line": 1852
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_cleave_on_cleave",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
-        "node_887dd932-ea4e-42cb-b294-64f30771d7e0"
+        "node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+        "node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc"
       ],
       "parents": [
         "node_43d46f72-28f5-4330-8a30-6fb2f1bc94db",
-        "node_fac6179f-a86a-489f-bb1a-b9382fd6630a"
+        "node_f8ac2c83-f6f8-40f2-958d-565a359f0607",
+        "node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc"
       ]
     },
     "calc": {}
@@ -485,10 +498,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1692
+        "line": 1669
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "ability_modifier",
       "talent_internal_name": "broker_ability_punk_rage_sub_3",
@@ -512,22 +525,22 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1089
+        "line": 1080
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_increased_blitz_ammo",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
-        "node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
-        "node_45324e02-771e-4f7d-8743-d306bcf106d2"
+        "node_735140ff-109a-4bc2-a2b9-761614c238cc",
+        "node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad"
       ],
       "parents": [
-        "node_8e4d87c9-49d0-4bee-a732-7ddeb3949022"
+        "node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
+        "node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad"
       ]
     },
     "calc": {}
@@ -543,10 +556,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1160
+        "line": 1152
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "implicit_reference",
       "talent_internal_name": null,
@@ -568,10 +581,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1207
+        "line": 1203
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone",
       "talent_internal_name": "broker_keystone_chemical_dependency",
@@ -580,11 +593,16 @@
       "children": [
         "node_c557fdde-e5e1-4849-b9ba-1d5302550fb0",
         "node_29d36ca3-ef53-4d5b-980d-0d0353cf8541",
-        "node_2459c212-b00a-43ce-a3b6-ad55e67605ed"
+        "node_2459c212-b00a-43ce-a3b6-ad55e67605ed",
+        "node_088ae839-61d1-45c5-9656-582439b3b638",
+        "node_735140ff-109a-4bc2-a2b9-761614c238cc"
       ],
       "parents": [
-        "node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
-        "node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad"
+        "node_735140ff-109a-4bc2-a2b9-761614c238cc",
+        "node_088ae839-61d1-45c5-9656-582439b3b638",
+        "node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
+        "node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
+        "node_50641b61-dfb0-4865-87e7-30e4dd71acdc"
       ]
     },
     "calc": {}
@@ -600,28 +618,28 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 445
+        "line": 449
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_replenish_toughness_on_ranged_toughness_damage",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_c8272e59-a92d-4d10-b768-fc7539d3886f",
-        "node_5717014d-0da6-4d49-b43b-3c9233e6fb37",
-        "node_8899507b-9a1c-41c4-8107-a3e559dc2172",
-        "node_821e29e2-e6df-445f-817d-2f2d5c79c617",
-        "node_f8ac2c83-f6f8-40f2-958d-565a359f0607"
+        "node_f6f53560-cd00-4602-9903-4961484ade18",
+        "node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+        "node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
+        "node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
+        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b"
       ],
       "parents": [
-        "node_c8272e59-a92d-4d10-b768-fc7539d3886f",
-        "node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
-        "node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
         "node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
-        "node_f8ac2c83-f6f8-40f2-958d-565a359f0607"
+        "node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
+        "node_71b9436c-eebd-417b-b666-9df1a19c2db7",
+        "node_90db015f-623c-44a1-b981-fce3bee1abb5",
+        "node_1fffd79f-0e4f-4b88-b35a-8a37fe2939ed"
       ]
     },
     "calc": {}
@@ -637,10 +655,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 567
+        "line": 573
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_increased_ranged_dodges",
@@ -650,9 +668,9 @@
         "node_004740df-29af-45f1-af0d-12d2c815a541"
       ],
       "parents": [
-        "node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
         "node_004740df-29af-45f1-af0d-12d2c815a541",
-        "node_21d23a99-f022-4bb4-831a-e2c1da111e98"
+        "node_21d23a99-f022-4bb4-831a-e2c1da111e98",
+        "node_42f02425-b59e-44b5-8eac-c4ae72c9bc1a"
       ]
     },
     "calc": {}
@@ -668,21 +686,22 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1232
+        "line": 1233
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_extended_mag",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
-        "node_21d23a99-f022-4bb4-831a-e2c1da111e98"
+        "node_21d23a99-f022-4bb4-831a-e2c1da111e98",
+        "node_3d505fe8-4783-4d64-9bc8-df4a39546474"
       ],
       "parents": [
-        "node_089c4280-425c-40cd-8ec6-0aa812fe11ff"
+        "node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
+        "node_21d23a99-f022-4bb4-831a-e2c1da111e98"
       ]
     },
     "calc": {}
@@ -698,10 +717,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1616
+        "line": 1593
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone_modifier",
       "talent_internal_name": "broker_keystone_adrenaline_junkie_sub_4",
@@ -725,18 +744,17 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 950
+        "line": 964
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_melee_cleave_on_melee_kill",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
-        "node_2f306ae7-923d-4a28-bbe8-37f860901067"
+        "node_32ac314d-2d6e-421b-8ced-27ce00dc62e5"
       ],
       "parents": [
         "node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29"
@@ -755,25 +773,22 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1039
+        "line": 1032
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_damage_after_toxined_enemies",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
-        "node_088ae839-61d1-45c5-9656-582439b3b638",
-        "node_b2bbbec7-1551-42ea-9d9b-9771eda40654"
+        "node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
+        "node_088ae839-61d1-45c5-9656-582439b3b638"
       ],
       "parents": [
-        "node_82e26378-1ad7-41c9-bd62-db6fee2779f7",
-        "node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
-        "node_088ae839-61d1-45c5-9656-582439b3b638",
-        "node_38569366-6b83-4815-a1e7-ca4f41f4a366"
+        "node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
+        "node_b2bbbec7-1551-42ea-9d9b-9771eda40654"
       ]
     },
     "calc": {}
@@ -789,25 +804,21 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 83
+        "line": 84
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_restore_toughness_on_weakspot_kill",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
-        "node_b2a0147e-0949-4501-8650-2b1ba64377a9",
         "node_977720e3-b06a-4dc7-b27c-497af87a0812",
-        "node_8d67a080-fc70-4749-9f1e-75b1d158f0f5"
+        "node_d774a7a8-87a2-4b0e-973e-5f735b67109f"
       ],
       "parents": [
-        "node_a8bc4def-415e-4b1b-9b1d-6f2783c5323d",
-        "node_546ca755-3d86-41f5-bfc3-01a388f9471a",
-        "node_8d67a080-fc70-4749-9f1e-75b1d158f0f5"
+        "node_960e594b-c6d9-4bac-aa73-31bfe2e2691f"
       ]
     },
     "calc": {}
@@ -823,10 +834,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1578
+        "line": 1555
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone_modifier",
       "talent_internal_name": "broker_keystone_adrenaline_junkie_sub_3",
@@ -850,10 +861,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1673
+        "line": 1650
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "ability_modifier",
       "talent_internal_name": "broker_ability_punk_rage_sub_1",
@@ -877,10 +888,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 495
+        "line": 501
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "ability",
       "talent_internal_name": "broker_ability_focus_improved",
@@ -888,14 +899,12 @@
       "exclusive_group": null,
       "children": [
         "node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
-        "node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
         "node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
         "node_276ffd37-efb4-4ced-b119-38aa2714359b",
         "node_28d7a3c1-58af-42f2-99c4-70b734175557"
       ],
       "parents": [
-        "node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
-        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b"
+        "node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8"
       ]
     },
     "calc": {}
@@ -911,23 +920,24 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1065
+        "line": 1055
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
-      "talent_internal_name": "broker_passive_stimm_cd_on_kill",
+      "talent_internal_name": "broker_passive_toxin_spread_on_kills",
       "group_name": null,
       "exclusive_group": null,
       "children": [
         "node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
+        "node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
         "node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad"
       ],
       "parents": [
-        "node_735140ff-109a-4bc2-a2b9-761614c238cc",
+        "node_82e26378-1ad7-41c9-bd62-db6fee2779f7",
         "node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
-        "node_38569366-6b83-4815-a1e7-ca4f41f4a366"
+        "node_b2bbbec7-1551-42ea-9d9b-9771eda40654"
       ]
     },
     "calc": {}
@@ -943,22 +953,25 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1328
+        "line": 1324
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_increased_weakspot_damage",
       "group_name": null,
       "exclusive_group": null,
       "children": [
+        "node_004740df-29af-45f1-af0d-12d2c815a541",
         "node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
-        "node_1e885682-6bee-46c1-9d23-21332ffd3b51"
+        "node_ba99146a-4a89-452f-8b02-7d6d871b30dd",
+        "node_fac6179f-a86a-489f-bb1a-b9382fd6630a"
       ],
       "parents": [
-        "node_ba662782-8e5c-4a86-8927-3127d7c3735c",
-        "node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f"
+        "node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
+        "node_ba99146a-4a89-452f-8b02-7d6d871b30dd",
+        "node_ba662782-8e5c-4a86-8927-3127d7c3735c"
       ]
     },
     "calc": {}
@@ -974,10 +987,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 39
+        "line": 38
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_first_target_damage",
@@ -985,10 +998,11 @@
       "exclusive_group": null,
       "children": [
         "node_b2a0147e-0949-4501-8650-2b1ba64377a9",
-        "node_46a6b70d-17b4-4088-af93-c3af18887046"
+        "node_977720e3-b06a-4dc7-b27c-497af87a0812"
       ],
       "parents": [
-        "node_960e594b-c6d9-4bac-aa73-31bfe2e2691f"
+        "node_960e594b-c6d9-4bac-aa73-31bfe2e2691f",
+        "node_977720e3-b06a-4dc7-b27c-497af87a0812"
       ]
     },
     "calc": {}
@@ -1004,20 +1018,21 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 326
+        "line": 331
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "aura",
       "talent_internal_name": "broker_coherency_melee_damage",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b"
+        "node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
+        "node_75d309a1-bc24-4856-bf61-814272a077e2"
       ],
       "parents": [
-        "node_3d4045a2-3883-4d78-9bf7-ac097351162e"
+        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b"
       ]
     },
     "calc": {}
@@ -1033,18 +1048,17 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1306
+        "line": 1303
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_damage_vs_elites_monsters",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_ca3fd6b8-f002-4e51-875d-a234a153d071",
-        "node_fac6179f-a86a-489f-bb1a-b9382fd6630a"
+        "node_ca3fd6b8-f002-4e51-875d-a234a153d071"
       ],
       "parents": [
         "node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29"
@@ -1063,10 +1077,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 421
+        "line": 425
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_dodge_melee_on_slide",
@@ -1078,8 +1092,8 @@
         "node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef"
       ],
       "parents": [
-        "node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
-        "node_e71c71cc-49b9-494b-9904-ee4cc2496658"
+        "node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+        "node_1fffd79f-0e4f-4b88-b35a-8a37fe2939ed"
       ]
     },
     "calc": {}
@@ -1095,10 +1109,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 666
+        "line": 676
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "implicit_reference",
       "talent_internal_name": null,
@@ -1123,7 +1137,7 @@
         "line": 61
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_close_ranged_damage",
@@ -1131,10 +1145,11 @@
       "exclusive_group": null,
       "children": [
         "node_11c062d4-c4be-4e96-b5f2-991bbedf2de3",
-        "node_8d67a080-fc70-4749-9f1e-75b1d158f0f5"
+        "node_2c613026-5cb8-44d3-aff8-29114f2f10b6"
       ],
       "parents": [
-        "node_960e594b-c6d9-4bac-aa73-31bfe2e2691f"
+        "node_960e594b-c6d9-4bac-aa73-31bfe2e2691f",
+        "node_2c613026-5cb8-44d3-aff8-29114f2f10b6"
       ]
     },
     "calc": {}
@@ -1150,10 +1165,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 798
+        "line": 808
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "stat",
       "talent_internal_name": "base_melee_damage_node_buff_medium_1",
@@ -1162,10 +1177,10 @@
       "children": [
         "node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
         "node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
-        "node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc",
         "node_43d46f72-28f5-4330-8a30-6fb2f1bc94db",
         "node_596f2c9b-2980-4b96-8c2a-521611e83a65",
-        "node_9fd091a0-462c-42cb-917a-ba7755c9fc94"
+        "node_9fd091a0-462c-42cb-917a-ba7755c9fc94",
+        "node_f8ac2c83-f6f8-40f2-958d-565a359f0607"
       ],
       "parents": [
         "node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2",
@@ -1188,17 +1203,17 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 256
+        "line": 260
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "tactical",
       "talent_internal_name": "broker_blitz_missile_launcher",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_e71c71cc-49b9-494b-9904-ee4cc2496658"
+        "node_3d4045a2-3883-4d78-9bf7-ac097351162e"
       ],
       "parents": [
         "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
@@ -1218,20 +1233,22 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1018
+        "line": 1009
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
-      "talent_internal_name": "broker_passive_increased_aura_size",
+      "talent_internal_name": "broker_passive_toxin_infected_enemies_take_increased_damage",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_50641b61-dfb0-4865-87e7-30e4dd71acdc"
+        "node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c"
       ],
       "parents": [
-        "node_8e4d87c9-49d0-4bee-a732-7ddeb3949022"
+        "node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
+        "node_38569366-6b83-4815-a1e7-ca4f41f4a366",
+        "node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad"
       ]
     },
     "calc": {}
@@ -1247,23 +1264,24 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1514
+        "line": 1489
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_stimm_cleanse_on_kill",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
-        "node_e341cdcf-7254-4ac0-9f37-cb056b00d14d"
+        "node_e341cdcf-7254-4ac0-9f37-cb056b00d14d",
+        "node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2",
+        "node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8"
       ],
       "parents": [
         "node_821e29e2-e6df-445f-817d-2f2d5c79c617",
-        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
-        "node_e341cdcf-7254-4ac0-9f37-cb056b00d14d"
+        "node_5717014d-0da6-4d49-b43b-3c9233e6fb37",
+        "node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8"
       ]
     },
     "calc": {}
@@ -1279,10 +1297,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 397
+        "line": 401
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_stamina_on_successful_dodge",
@@ -1290,12 +1308,12 @@
       "exclusive_group": null,
       "children": [
         "node_3d4045a2-3883-4d78-9bf7-ac097351162e",
-        "node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
-        "node_f8ac2c83-f6f8-40f2-958d-565a359f0607"
+        "node_f6f53560-cd00-4602-9903-4961484ade18",
+        "node_1e885682-6bee-46c1-9d23-21332ffd3b51"
       ],
       "parents": [
-        "node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
-        "node_e71c71cc-49b9-494b-9904-ee4cc2496658"
+        "node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+        "node_90db015f-623c-44a1-b981-fce3bee1abb5"
       ]
     },
     "calc": {}
@@ -1311,10 +1329,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1446
+        "line": 1445
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone_modifier",
       "talent_internal_name": "broker_keystone_vultures_mark_dodge_on_ranged_crit",
@@ -1338,24 +1356,22 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 372
+        "line": 377
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
-      "tree_type": "default",
+      "tree_type": "keystone_modifier",
       "talent_internal_name": "broker_passive_improved_dodges",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
-        "node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
-        "node_3d4045a2-3883-4d78-9bf7-ac097351162e"
+        "node_c8272e59-a92d-4d10-b768-fc7539d3886f",
+        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b"
       ],
       "parents": [
-        "node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
-        "node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
-        "node_e71c71cc-49b9-494b-9904-ee4cc2496658"
+        "node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+        "node_5c6828fd-4ac1-427e-bd39-793677a16ccc"
       ]
     },
     "calc": {}
@@ -1371,22 +1387,21 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 348
+        "line": 354
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "aura",
       "talent_internal_name": "broker_coherency_anarchist",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_75d309a1-bc24-4856-bf61-814272a077e2",
-        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b"
+        "node_75d309a1-bc24-4856-bf61-814272a077e2"
       ],
       "parents": [
         "node_c8272e59-a92d-4d10-b768-fc7539d3886f",
-        "node_3d4045a2-3883-4d78-9bf7-ac097351162e"
+        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b"
       ]
     },
     "calc": {}
@@ -1402,10 +1417,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1635
+        "line": 1612
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone_modifier",
       "talent_internal_name": "broker_keystone_adrenaline_junkie_sub_2",
@@ -1429,18 +1444,19 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1112
+        "line": 1103
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_melee_attacks_apply_toxin",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_088ae839-61d1-45c5-9656-582439b3b638",
-        "node_45324e02-771e-4f7d-8743-d306bcf106d2"
+        "node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
+        "node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
+        "node_b2bbbec7-1551-42ea-9d9b-9771eda40654"
       ],
       "parents": [
         "node_8e4d87c9-49d0-4bee-a732-7ddeb3949022"
@@ -1459,10 +1475,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 590
+        "line": 596
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone",
       "talent_internal_name": "broker_keystone_adrenaline_junkie",
@@ -1472,13 +1488,13 @@
         "node_ec8f7ffd-0a53-4d62-b0a7-d1c1e5254bcd",
         "node_8277fab7-51c3-4697-aa79-d80ddcb6060e",
         "node_084b7585-f08d-497a-939b-848ffcb58960",
-        "node_4943dd3d-899a-44ad-a876-da513a6f3b01",
-        "node_43d2abfa-c6f8-4ab7-8469-148b526040c2"
+        "node_43d2abfa-c6f8-4ab7-8469-148b526040c2",
+        "node_4943dd3d-899a-44ad-a876-da513a6f3b01"
       ],
       "parents": [
-        "node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
         "node_ca3fd6b8-f002-4e51-875d-a234a153d071",
-        "node_2f306ae7-923d-4a28-bbe8-37f860901067"
+        "node_32ac314d-2d6e-421b-8ced-27ce00dc62e5",
+        "node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc"
       ]
     },
     "calc": {}
@@ -1494,22 +1510,21 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 302
+        "line": 308
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "aura",
       "talent_internal_name": "broker_aura_gunslinger_improved",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
-        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b"
+        "node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8"
       ],
       "parents": [
-        "node_3d4045a2-3883-4d78-9bf7-ac097351162e",
-        "node_f8ac2c83-f6f8-40f2-958d-565a359f0607"
+        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+        "node_1e885682-6bee-46c1-9d23-21332ffd3b51"
       ]
     },
     "calc": {}
@@ -1528,7 +1543,7 @@
         "line": 205
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "stat",
       "talent_internal_name": "base_toughness_node_buff_medium_1",
@@ -1538,14 +1553,16 @@
         "node_71b9436c-eebd-417b-b666-9df1a19c2db7",
         "node_90db015f-623c-44a1-b981-fce3bee1abb5",
         "node_8f48a9f7-b2ed-4aa2-b071-73ebf35d3528",
-        "node_1fffd79f-0e4f-4b88-b35a-8a37fe2939ed",
-        "node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
-        "node_977720e3-b06a-4dc7-b27c-497af87a0812"
+        "node_11c062d4-c4be-4e96-b5f2-991bbedf2de3",
+        "node_b2a0147e-0949-4501-8650-2b1ba64377a9",
+        "node_1fffd79f-0e4f-4b88-b35a-8a37fe2939ed"
       ],
       "parents": [
         "node_8f48a9f7-b2ed-4aa2-b071-73ebf35d3528",
         "node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
         "node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
+        "node_11c062d4-c4be-4e96-b5f2-991bbedf2de3",
+        "node_b2a0147e-0949-4501-8650-2b1ba64377a9",
         "node_977720e3-b06a-4dc7-b27c-497af87a0812"
       ]
     },
@@ -1562,10 +1579,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 109
+        "line": 106
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_restore_toughness_on_close_ranged_kill",
@@ -1573,15 +1590,11 @@
       "exclusive_group": null,
       "children": [
         "node_8f48a9f7-b2ed-4aa2-b071-73ebf35d3528",
-        "node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
-        "node_11c062d4-c4be-4e96-b5f2-991bbedf2de3",
         "node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
-        "node_46a6b70d-17b4-4088-af93-c3af18887046"
+        "node_d774a7a8-87a2-4b0e-973e-5f735b67109f"
       ],
       "parents": [
-        "node_a8bc4def-415e-4b1b-9b1d-6f2783c5323d",
-        "node_61e47549-aaca-4298-977e-ece3e68e2372",
-        "node_46a6b70d-17b4-4088-af93-c3af18887046"
+        "node_960e594b-c6d9-4bac-aa73-31bfe2e2691f"
       ]
     },
     "calc": {}
@@ -1597,10 +1610,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 828
+        "line": 838
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "stat",
       "talent_internal_name": "base_toxin_power_boost_1",
@@ -1608,9 +1621,9 @@
       "exclusive_group": null,
       "children": [
         "node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
-        "node_735140ff-109a-4bc2-a2b9-761614c238cc",
-        "node_38569366-6b83-4815-a1e7-ca4f41f4a366",
-        "node_82e26378-1ad7-41c9-bd62-db6fee2779f7"
+        "node_45324e02-771e-4f7d-8743-d306bcf106d2",
+        "node_82e26378-1ad7-41c9-bd62-db6fee2779f7",
+        "node_38569366-6b83-4815-a1e7-ca4f41f4a366"
       ],
       "parents": [
         "node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
@@ -1630,10 +1643,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1711
+        "line": 1688
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "ability_modifier",
       "talent_internal_name": "broker_ability_punk_rage_sub_4",
@@ -1657,10 +1670,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 109
+        "line": 106
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "implicit_reference",
       "talent_internal_name": null,
@@ -1682,20 +1695,22 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 234
+        "line": 236
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "tactical",
       "talent_internal_name": "broker_blitz_flash_grenade_improved",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_e71c71cc-49b9-494b-9904-ee4cc2496658"
+        "node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+        "node_763f2b5b-964d-42a3-b4d7-4fca89c0e311"
       ],
       "parents": [
-        "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1"
+        "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+        "node_11c062d4-c4be-4e96-b5f2-991bbedf2de3"
       ]
     },
     "calc": {}
@@ -1711,10 +1726,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 645
+        "line": 653
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "start",
       "talent_internal_name": null,
@@ -1723,7 +1738,9 @@
       "children": [
         "node_a8bc4def-415e-4b1b-9b1d-6f2783c5323d",
         "node_61e47549-aaca-4298-977e-ece3e68e2372",
-        "node_546ca755-3d86-41f5-bfc3-01a388f9471a"
+        "node_546ca755-3d86-41f5-bfc3-01a388f9471a",
+        "node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
+        "node_46a6b70d-17b4-4088-af93-c3af18887046"
       ],
       "parents": []
     },
@@ -1740,23 +1757,25 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 853
+        "line": 863
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_reduce_swap_time",
       "group_name": null,
       "exclusive_group": null,
       "children": [
+        "node_b2a0147e-0949-4501-8650-2b1ba64377a9",
+        "node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
+        "node_546ca755-3d86-41f5-bfc3-01a388f9471a",
         "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1"
       ],
       "parents": [
         "node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
-        "node_b2a0147e-0949-4501-8650-2b1ba64377a9",
         "node_46a6b70d-17b4-4088-af93-c3af18887046",
-        "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1"
+        "node_546ca755-3d86-41f5-bfc3-01a388f9471a"
       ]
     },
     "calc": {}
@@ -1772,10 +1791,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1810
+        "line": 1790
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "ability_modifier",
       "talent_internal_name": "broker_ability_stimm_field_sub_1",
@@ -1799,23 +1818,24 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1490
+        "line": 1464
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_stimm_increased_duration",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
-        "node_4fa187c3-c910-4e93-b982-cc2e68d2515b"
+        "node_4fa187c3-c910-4e93-b982-cc2e68d2515b",
+        "node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2",
+        "node_75d309a1-bc24-4856-bf61-814272a077e2"
       ],
       "parents": [
         "node_8899507b-9a1c-41c4-8107-a3e559dc2172",
-        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
-        "node_4fa187c3-c910-4e93-b982-cc2e68d2515b"
+        "node_5717014d-0da6-4d49-b43b-3c9233e6fb37",
+        "node_75d309a1-bc24-4856-bf61-814272a077e2"
       ]
     },
     "calc": {}
@@ -1831,17 +1851,18 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1538
+        "line": 1514
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
-      "talent_internal_name": "broker_passive_damage_vs_heavy_staggered",
+      "talent_internal_name": "broker_passive_dr_damage_tradeoff_on_stamina",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_fac6179f-a86a-489f-bb1a-b9382fd6630a"
+        "node_ca3fd6b8-f002-4e51-875d-a234a153d071",
+        "node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc"
       ],
       "parents": [
         "node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29"
@@ -1860,10 +1881,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 695
+        "line": 703
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "ability",
       "talent_internal_name": "broker_ability_punk_rage",
@@ -1877,7 +1898,8 @@
         "node_8efd6143-4d2d-4bd8-a40d-229263fccfd1"
       ],
       "parents": [
-        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b"
+        "node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
+        "node_75d309a1-bc24-4856-bf61-814272a077e2"
       ]
     },
     "calc": {}
@@ -1893,28 +1915,28 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 721
+        "line": 730
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
-      "tree_type": "stat",
-      "talent_internal_name": "base_toughness_node_buff_medium_2",
+      "tree_type": "default",
+      "talent_internal_name": "broker_passive_stimm_cd_on_kill",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_a24b4ec0-aec0-45a1-b746-05dbd671e2e2",
-        "node_75d309a1-bc24-4856-bf61-814272a077e2",
-        "node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
-        "node_4fa187c3-c910-4e93-b982-cc2e68d2515b",
-        "node_e341cdcf-7254-4ac0-9f37-cb056b00d14d"
-      ],
-      "parents": [
-        "node_75d309a1-bc24-4856-bf61-814272a077e2",
-        "node_9e73b9a9-bd27-46c2-b75d-1972b411c6b8",
+        "node_c8272e59-a92d-4d10-b768-fc7539d3886f",
         "node_5717014d-0da6-4d49-b43b-3c9233e6fb37",
         "node_8899507b-9a1c-41c4-8107-a3e559dc2172",
-        "node_821e29e2-e6df-445f-817d-2f2d5c79c617"
+        "node_821e29e2-e6df-445f-817d-2f2d5c79c617",
+        "node_1e885682-6bee-46c1-9d23-21332ffd3b51"
+      ],
+      "parents": [
+        "node_f6f53560-cd00-4602-9903-4961484ade18",
+        "node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+        "node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+        "node_c8272e59-a92d-4d10-b768-fc7539d3886f",
+        "node_1e885682-6bee-46c1-9d23-21332ffd3b51"
       ]
     },
     "calc": {}
@@ -1933,15 +1955,14 @@
         "line": 17
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_close_range_damage_on_dodge",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
-        "node_46a6b70d-17b4-4088-af93-c3af18887046"
+        "node_d774a7a8-87a2-4b0e-973e-5f735b67109f"
       ],
       "parents": [
         "node_960e594b-c6d9-4bac-aa73-31bfe2e2691f"
@@ -1960,10 +1981,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1427
+        "line": 1426
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone_modifier",
       "talent_internal_name": "broker_keystone_vultures_mark_increased_duration",
@@ -1987,21 +2008,23 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 136
+        "line": 129
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_ninja_grants_crit_chance",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_977720e3-b06a-4dc7-b27c-497af87a0812"
+        "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1",
+        "node_1fffd79f-0e4f-4b88-b35a-8a37fe2939ed"
       ],
       "parents": [
-        "node_46a6b70d-17b4-4088-af93-c3af18887046",
-        "node_546ca755-3d86-41f5-bfc3-01a388f9471a"
+        "node_546ca755-3d86-41f5-bfc3-01a388f9471a",
+        "node_977720e3-b06a-4dc7-b27c-497af87a0812",
+        "node_8cfdec14-fd7f-49eb-94b4-40cb4a9016a1"
       ]
     },
     "calc": {}
@@ -2017,22 +2040,26 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1184
+        "line": 1176
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
-      "talent_internal_name": "broker_passive_toughness_on_toxined_kill",
+      "talent_internal_name": "broker_passive_replenish_toughness_while_toxined_enemies_in_proximity",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_3b9ce6b2-13e7-42f3-a450-60c2d72cbe0e"
+        "node_3b9ce6b2-13e7-42f3-a450-60c2d72cbe0e",
+        "node_088ae839-61d1-45c5-9656-582439b3b638",
+        "node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
+        "node_45324e02-771e-4f7d-8743-d306bcf106d2",
+        "node_50641b61-dfb0-4865-87e7-30e4dd71acdc"
       ],
       "parents": [
-        "node_088ae839-61d1-45c5-9656-582439b3b638",
-        "node_d45a4b7d-86c8-4c79-aa87-a8294787f0ad",
-        "node_45324e02-771e-4f7d-8743-d306bcf106d2"
+        "node_45324e02-771e-4f7d-8743-d306bcf106d2",
+        "node_82e26378-1ad7-41c9-bd62-db6fee2779f7",
+        "node_50641b61-dfb0-4865-87e7-30e4dd71acdc"
       ]
     },
     "calc": {}
@@ -2048,16 +2075,17 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 522
+        "line": 526
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_stamina_grants_atk_speed",
       "group_name": null,
       "exclusive_group": null,
       "children": [
+        "node_21d23a99-f022-4bb4-831a-e2c1da111e98",
         "node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f",
         "node_52c9240d-6228-4b32-badf-76f17ef9b6da"
       ],
@@ -2078,20 +2106,22 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 474
+        "line": 478
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_damage_on_reload",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_d20bf7ae-9dcb-4dfe-b765-2c8db80bf91f"
+        "node_52c9240d-6228-4b32-badf-76f17ef9b6da",
+        "node_fac6179f-a86a-489f-bb1a-b9382fd6630a"
       ],
       "parents": [
-        "node_089c4280-425c-40cd-8ec6-0aa812fe11ff"
+        "node_089c4280-425c-40cd-8ec6-0aa812fe11ff",
+        "node_52c9240d-6228-4b32-badf-76f17ef9b6da"
       ]
     },
     "calc": {}
@@ -2107,20 +2137,25 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 901
+        "line": 915
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
-      "talent_internal_name": "broker_passive_improved_sprint_dodge",
+      "talent_internal_name": "broker_passive_knockback_on_taking_melee_damage",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_fac6179f-a86a-489f-bb1a-b9382fd6630a"
+        "node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+        "node_ca3fd6b8-f002-4e51-875d-a234a153d071",
+        "node_32ac314d-2d6e-421b-8ced-27ce00dc62e5"
       ],
       "parents": [
-        "node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29"
+        "node_9fd091a0-462c-42cb-917a-ba7755c9fc94",
+        "node_f8ac2c83-f6f8-40f2-958d-565a359f0607",
+        "node_ca3fd6b8-f002-4e51-875d-a234a153d071",
+        "node_32ac314d-2d6e-421b-8ced-27ce00dc62e5"
       ]
     },
     "calc": {}
@@ -2136,10 +2171,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1408
+        "line": 1407
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone_modifier",
       "talent_internal_name": "broker_keystone_vultures_mark_aoe_stagger",
@@ -2163,10 +2198,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1351
+        "line": 1350
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone_modifier",
       "talent_internal_name": "broker_keystone_chemical_dependency_sub_1",
@@ -2190,10 +2225,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1791
+        "line": 1771
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "ability_modifier",
       "talent_internal_name": "broker_ability_stimm_field_sub_3",
@@ -2217,22 +2252,23 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 750
+        "line": 759
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_improved_dodges_at_full_stamina",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_3d4045a2-3883-4d78-9bf7-ac097351162e",
-        "node_821e29e2-e6df-445f-817d-2f2d5c79c617"
+        "node_821e29e2-e6df-445f-817d-2f2d5c79c617",
+        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b"
       ],
       "parents": [
-        "node_3d4045a2-3883-4d78-9bf7-ac097351162e",
-        "node_5c6828fd-4ac1-427e-bd39-793677a16ccc"
+        "node_5c6828fd-4ac1-427e-bd39-793677a16ccc",
+        "node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b"
       ]
     },
     "calc": {}
@@ -2248,22 +2284,23 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 995
+        "line": 985
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_melee_damage_carry_over",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
-        "node_887dd932-ea4e-42cb-b294-64f30771d7e0"
+        "node_887dd932-ea4e-42cb-b294-64f30771d7e0",
+        "node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc"
       ],
       "parents": [
-        "node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
-        "node_596f2c9b-2980-4b96-8c2a-521611e83a65"
+        "node_596f2c9b-2980-4b96-8c2a-521611e83a65",
+        "node_9fd091a0-462c-42cb-917a-ba7755c9fc94",
+        "node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc"
       ]
     },
     "calc": {}
@@ -2279,28 +2316,24 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1277
+        "line": 1278
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_melee_crit_instakill",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_52c9240d-6228-4b32-badf-76f17ef9b6da",
         "node_004740df-29af-45f1-af0d-12d2c815a541",
-        "node_3d505fe8-4783-4d64-9bc8-df4a39546474",
-        "node_1e885682-6bee-46c1-9d23-21332ffd3b51",
-        "node_21d23a99-f022-4bb4-831a-e2c1da111e98"
+        "node_21d23a99-f022-4bb4-831a-e2c1da111e98",
+        "node_52c9240d-6228-4b32-badf-76f17ef9b6da"
       ],
       "parents": [
-        "node_42f02425-b59e-44b5-8eac-c4ae72c9bc1a",
-        "node_ba662782-8e5c-4a86-8927-3127d7c3735c",
-        "node_52c9240d-6228-4b32-badf-76f17ef9b6da",
         "node_21d23a99-f022-4bb4-831a-e2c1da111e98",
-        "node_ba99146a-4a89-452f-8b02-7d6d871b30dd"
+        "node_52c9240d-6228-4b32-badf-76f17ef9b6da",
+        "node_ba662782-8e5c-4a86-8927-3127d7c3735c"
       ]
     },
     "calc": {}
@@ -2316,25 +2349,25 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1134
+        "line": 1126
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_blitz_inflicts_toxin",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
         "node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
-        "node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
-        "node_45324e02-771e-4f7d-8743-d306bcf106d2"
+        "node_3c497305-70ec-4d49-a1e8-2bc3fdc2504c",
+        "node_38569366-6b83-4815-a1e7-ca4f41f4a366",
+        "node_735140ff-109a-4bc2-a2b9-761614c238cc"
       ],
       "parents": [
-        "node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
-        "node_45324e02-771e-4f7d-8743-d306bcf106d2",
-        "node_38569366-6b83-4815-a1e7-ca4f41f4a366"
+        "node_82e26378-1ad7-41c9-bd62-db6fee2779f7",
+        "node_38569366-6b83-4815-a1e7-ca4f41f4a366",
+        "node_50641b61-dfb0-4865-87e7-30e4dd71acdc"
       ]
     },
     "calc": {}
@@ -2350,10 +2383,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 181
+        "line": 178
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
       "talent_internal_name": "broker_passive_stun_immunity_on_toughness_broken",
@@ -2365,8 +2398,11 @@
         "node_977720e3-b06a-4dc7-b27c-497af87a0812"
       ],
       "parents": [
-        "node_8d67a080-fc70-4749-9f1e-75b1d158f0f5",
-        "node_46a6b70d-17b4-4088-af93-c3af18887046"
+        "node_a8bc4def-415e-4b1b-9b1d-6f2783c5323d",
+        "node_2c613026-5cb8-44d3-aff8-29114f2f10b6",
+        "node_977720e3-b06a-4dc7-b27c-497af87a0812",
+        "node_46a6b70d-17b4-4088-af93-c3af18887046",
+        "node_8d67a080-fc70-4749-9f1e-75b1d158f0f5"
       ]
     },
     "calc": {}
@@ -2382,10 +2418,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 666
+        "line": 676
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "ability",
       "talent_internal_name": "broker_ability_stimm_field",
@@ -2394,48 +2430,13 @@
       "children": [
         "node_61886809-9c92-4986-9441-23c5ff71e45c",
         "node_8e4d87c9-49d0-4bee-a732-7ddeb3949022",
-        "node_75d309a1-bc24-4856-bf61-814272a077e2",
         "node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29",
         "node_9abd28ea-b786-4e90-a185-4afabef584ec",
         "node_1eebfc9e-efbd-4df8-9562-3097cb46af1f",
         "node_c7a8a5c5-60d1-4c71-bc38-79121befb0c8"
       ],
       "parents": [
-        "node_75d309a1-bc24-4856-bf61-814272a077e2",
-        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b"
-      ]
-    },
-    "calc": {}
-  },
-  {
-    "id": "hive_scum.tree_node.node_e71c71cc-49b9-494b-9904-ee4cc2496658",
-    "kind": "tree_node",
-    "domain": "hive_scum",
-    "internal_name": "node_e71c71cc-49b9-494b-9904-ee4cc2496658",
-    "loc_key": null,
-    "ui_name": null,
-    "status": "source_backed",
-    "refs": [
-      {
-        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1465
-      }
-    ],
-    "source_snapshot_id": "darktide-source.dbe7035",
-    "attributes": {
-      "tree_type": "default",
-      "talent_internal_name": "broker_passive_punk_grit",
-      "group_name": null,
-      "exclusive_group": null,
-      "children": [
-        "node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
-        "node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
-        "node_5c6828fd-4ac1-427e-bd39-793677a16ccc"
-      ],
-      "parents": [
-        "node_90db015f-623c-44a1-b981-fce3bee1abb5",
-        "node_71b9436c-eebd-417b-b666-9df1a19c2db7",
-        "node_1fffd79f-0e4f-4b88-b35a-8a37fe2939ed"
+        "node_75d309a1-bc24-4856-bf61-814272a077e2"
       ]
     },
     "calc": {}
@@ -2451,10 +2452,10 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1559
+        "line": 1536
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "keystone_modifier",
       "talent_internal_name": "broker_keystone_adrenaline_junkie_sub_1",
@@ -2463,6 +2464,37 @@
       "children": [],
       "parents": [
         "node_887dd932-ea4e-42cb-b294-64f30771d7e0"
+      ]
+    },
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.tree_node.node_f6f53560-cd00-4602-9903-4961484ade18",
+    "kind": "tree_node",
+    "domain": "hive_scum",
+    "internal_name": "node_f6f53560-cd00-4602-9903-4961484ade18",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1828
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "talent_internal_name": "broker_passive_longer_dodges",
+      "group_name": null,
+      "exclusive_group": null,
+      "children": [
+        "node_a43d9e96-9651-4ff6-8627-49dbd87e668b",
+        "node_1e885682-6bee-46c1-9d23-21332ffd3b51"
+      ],
+      "parents": [
+        "node_3d4045a2-3883-4d78-9bf7-ac097351162e",
+        "node_763f2b5b-964d-42a3-b4d7-4fca89c0e311"
       ]
     },
     "calc": {}
@@ -2478,22 +2510,21 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 1254
+        "line": 1256
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
-      "talent_internal_name": "broker_passive_sprinting_reduces_threat",
+      "talent_internal_name": "broker_passive_damage_vs_heavy_staggered",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_8899507b-9a1c-41c4-8107-a3e559dc2172",
-        "node_3d4045a2-3883-4d78-9bf7-ac097351162e"
+        "node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc",
+        "node_32ac314d-2d6e-421b-8ced-27ce00dc62e5"
       ],
       "parents": [
-        "node_763f2b5b-964d-42a3-b4d7-4fca89c0e311",
-        "node_3d4045a2-3883-4d78-9bf7-ac097351162e"
+        "node_6f1aae37-5d5d-4aa5-9028-60ef0c7afa29"
       ]
     },
     "calc": {}
@@ -2509,27 +2540,22 @@
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
-        "line": 922
+        "line": 941
       }
     ],
-    "source_snapshot_id": "darktide-source.dbe7035",
+    "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {
       "tree_type": "default",
-      "talent_internal_name": "broker_passive_dr_damage_tradeoff_on_stamina",
+      "talent_internal_name": "broker_passive_crit_grants_damage",
       "group_name": null,
       "exclusive_group": null,
       "children": [
-        "node_2f306ae7-923d-4a28-bbe8-37f860901067",
-        "node_ca3fd6b8-f002-4e51-875d-a234a153d071",
-        "node_887dd932-ea4e-42cb-b294-64f30771d7e0"
+        "node_004740df-29af-45f1-af0d-12d2c815a541"
       ],
       "parents": [
-        "node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc",
-        "node_43d46f72-28f5-4330-8a30-6fb2f1bc94db",
-        "node_2f306ae7-923d-4a28-bbe8-37f860901067",
-        "node_ca3fd6b8-f002-4e51-875d-a234a153d071",
-        "node_596f2c9b-2980-4b96-8c2a-521611e83a65",
-        "node_9fd091a0-462c-42cb-917a-ba7755c9fc94"
+        "node_52c9240d-6228-4b32-badf-76f17ef9b6da",
+        "node_ba99146a-4a89-452f-8b02-7d6d871b30dd",
+        "node_004740df-29af-45f1-af0d-12d2c815a541"
       ]
     },
     "calc": {}

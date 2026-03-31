@@ -8,11 +8,11 @@
         {
           "type": "light_attack",
           "profileId": "dual_shivs_light_ninja",
-          "cleave_budget": 4.6,
+          "cleave_budget": 2.6,
           "compositions": {
             "mixed_melee_horde": {
-              "targets_hit": 3,
-              "targets_killed": 2,
+              "targets_hit": 1,
+              "targets_killed": 1,
               "per_target": [
                 {
                   "breed_id": "chaos_poxwalker",
@@ -20,20 +20,6 @@
                   "damage": 512.424,
                   "hp": 300,
                   "killed": true
-                },
-                {
-                  "breed_id": "chaos_poxwalker",
-                  "hit_mass": 1.5,
-                  "damage": 512.424,
-                  "hp": 300,
-                  "killed": true
-                },
-                {
-                  "breed_id": "renegade_assault",
-                  "hit_mass": 1.5,
-                  "damage": 480.84299999999996,
-                  "hp": 500,
-                  "killed": false
                 }
               ]
             },
@@ -208,6 +194,6 @@
       "mixed_melee_horde",
       "elite_mixed"
     ],
-    "timestamp": "2026-03-24T03:29:01.828Z"
+    "timestamp": "2026-03-31T22:39:19.030Z"
   }
 }

@@ -558,7 +558,7 @@ return {
 // -- Task 4: Psyker golden comparison tests --------------------------------
 
 const PSYKER_LUA_REL = "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua";
-const PSYKER_SNAPSHOT = "darktide-source.dbe7035";
+const PSYKER_SNAPSHOT = "darktide-source.f63d836";
 
 describe("psyker golden comparison", () => {
   it("reproduces existing hand-authored psyker edges", { skip: !SOURCE_ROOT }, () => {
@@ -655,7 +655,7 @@ describe("idempotency", () => {
         "utf8",
       );
       const nodes = parseLuaTree(lua);
-      const snapshotId = "darktide-source.dbe7035";
+      const snapshotId = "darktide-source.f63d836";
       const luaPath = "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua";
 
       const edges1 = generateTreeEdges(nodes, "psyker", snapshotId);

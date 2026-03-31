@@ -279,18 +279,6 @@
     {
       "type": "stat_alignment",
       "selections": [
-        "psyker.talent.psyker_melee_attack_speed",
-        "shared.name_family.blessing.warp_flurry"
-      ],
-      "families": [
-        "ranged_offense"
-      ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the ranged_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
         "psyker.talent.psyker_cleave_from_peril",
         "shared.stat_node.melee_damage_boost"
       ],
@@ -571,14 +559,6 @@
           "shared.stat_node.melee_damage_boost"
         ]
       },
-      "ranged_offense": {
-        "count": 2,
-        "total_magnitude": 0.015,
-        "selections": [
-          "psyker.talent.psyker_melee_attack_speed",
-          "shared.name_family.blessing.warp_flurry"
-        ]
-      },
       "stamina": {
         "count": 3,
         "total_magnitude": 3.2,
@@ -595,6 +575,13 @@
           "shared.stat_node.critical_chance_boost",
           "shared.name_family.blessing.shred",
           "shared.name_family.blessing.warp_nexus"
+        ]
+      },
+      "ranged_offense": {
+        "count": 1,
+        "total_magnitude": -0.085,
+        "selections": [
+          "shared.name_family.blessing.warp_flurry"
         ]
       },
       "utility": {
@@ -617,10 +604,10 @@
       "ranged": {
         "families": [
           "general_offense",
-          "ranged_offense",
-          "crit"
+          "crit",
+          "ranged_offense"
         ],
-        "strength": 7
+        "strength": 6
       }
     },
     "build_identity": [

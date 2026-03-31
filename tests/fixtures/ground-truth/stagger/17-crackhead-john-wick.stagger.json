@@ -10,6 +10,81 @@
           "stagger_category": "melee",
           "breeds": [
             {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "uprising",
+              "stagger_strength": 2.2211999999999996,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 3.5999999999999996,
+                "effective_strength": 2.2211999999999996,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "malice",
+              "stagger_strength": 2.2211999999999996,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 3.5999999999999996,
+                "effective_strength": 2.2211999999999996,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "heresy",
+              "stagger_strength": 2.2211999999999996,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 3.5999999999999996,
+                "effective_strength": 2.2211999999999996,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "damnation",
+              "stagger_strength": 2.2211999999999996,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 3.5999999999999996,
+                "effective_strength": 2.2211999999999996,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "auric",
+              "stagger_strength": 2.2211999999999996,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 3.5999999999999996,
+                "effective_strength": 2.2211999999999996,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
               "breed_id": "chaos_armored_infected",
               "difficulty": "uprising",
               "stagger_strength": 2.2211999999999996,
@@ -1396,6 +1471,131 @@
                 "impact_adm": 0.617,
                 "resistance_applied": 1,
                 "reduction_applied": 3,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "uprising",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 3.5999999999999996,
+                "effective_strength": 0,
+                "impact_adm": 1.198,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "malice",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 3.5999999999999996,
+                "effective_strength": 0,
+                "impact_adm": 1.198,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "heresy",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 3.5999999999999996,
+                "effective_strength": 0,
+                "impact_adm": 1.198,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "damnation",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 3.5999999999999996,
+                "effective_strength": 0,
+                "impact_adm": 1.198,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "auric",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 3.5999999999999996,
+                "effective_strength": 0,
+                "impact_adm": 1.198,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
                 "blocked": true
               }
             },
@@ -4797,6 +4997,81 @@
           "stagger_category": "melee",
           "breeds": [
             {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "uprising",
+              "stagger_strength": 4.442399999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 4.442399999999999,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "malice",
+              "stagger_strength": 4.442399999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 4.442399999999999,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "heresy",
+              "stagger_strength": 4.442399999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 4.442399999999999,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "damnation",
+              "stagger_strength": 4.442399999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 4.442399999999999,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "auric",
+              "stagger_strength": 4.442399999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 4.442399999999999,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
               "breed_id": "chaos_armored_infected",
               "difficulty": "uprising",
               "stagger_strength": 4.442399999999999,
@@ -6184,6 +6459,131 @@
                 "resistance_applied": 1,
                 "reduction_applied": 3,
                 "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "uprising",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 0.617,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "malice",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 0.617,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "heresy",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 0.617,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "damnation",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 0.617,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "auric",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 0.617,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
               }
             },
             {
@@ -9584,6 +9984,81 @@
           "stagger_category": "melee",
           "breeds": [
             {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "uprising",
+              "stagger_strength": 4.442399999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 4.442399999999999,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "malice",
+              "stagger_strength": 4.442399999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 4.442399999999999,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "heresy",
+              "stagger_strength": 4.442399999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 4.442399999999999,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "damnation",
+              "stagger_strength": 4.442399999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 4.442399999999999,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "auric",
+              "stagger_strength": 4.442399999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 4.442399999999999,
+                "impact_adm": 0.617,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
               "breed_id": "chaos_armored_infected",
               "difficulty": "uprising",
               "stagger_strength": 4.442399999999999,
@@ -10971,6 +11446,131 @@
                 "resistance_applied": 1,
                 "reduction_applied": 3,
                 "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "uprising",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 0.617,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "malice",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 0.617,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "heresy",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 0.617,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "damnation",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 0.617,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "auric",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 0.617,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
               }
             },
             {
@@ -14371,6 +14971,81 @@
           "stagger_category": "melee",
           "breeds": [
             {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "uprising",
+              "stagger_strength": 9.200000000000001,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 9.200000000000001,
+                "effective_strength": 9.200000000000001,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "malice",
+              "stagger_strength": 9.200000000000001,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 9.200000000000001,
+                "effective_strength": 9.200000000000001,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "heresy",
+              "stagger_strength": 9.200000000000001,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 9.200000000000001,
+                "effective_strength": 9.200000000000001,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "damnation",
+              "stagger_strength": 9.200000000000001,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 9.200000000000001,
+                "effective_strength": 9.200000000000001,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "auric",
+              "stagger_strength": 9.200000000000001,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 9.200000000000001,
+                "effective_strength": 9.200000000000001,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
               "breed_id": "chaos_armored_infected",
               "difficulty": "uprising",
               "stagger_strength": 9.200000000000001,
@@ -15758,6 +16433,131 @@
                 "resistance_applied": 1,
                 "reduction_applied": 3,
                 "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "uprising",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 9.200000000000001,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "malice",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 9.200000000000001,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "heresy",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 9.200000000000001,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "damnation",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 9.200000000000001,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "auric",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 9.200000000000001,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
               }
             },
             {
@@ -19158,6 +19958,81 @@
           "stagger_category": "melee",
           "breeds": [
             {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "uprising",
+              "stagger_strength": 7.199999999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 7.199999999999999,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "malice",
+              "stagger_strength": 7.199999999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 7.199999999999999,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "heresy",
+              "stagger_strength": 7.199999999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 7.199999999999999,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "damnation",
+              "stagger_strength": 7.199999999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 7.199999999999999,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "auric",
+              "stagger_strength": 7.199999999999999,
+              "stagger_tier": "light",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 7.199999999999999,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
               "breed_id": "chaos_armored_infected",
               "difficulty": "uprising",
               "stagger_strength": 7.199999999999999,
@@ -20545,6 +21420,131 @@
                 "resistance_applied": 1,
                 "reduction_applied": 3,
                 "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "uprising",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "malice",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "heresy",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "damnation",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "auric",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 7.199999999999999,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
               }
             },
             {
@@ -23951,6 +24951,81 @@
           "stagger_category": "ranged",
           "breeds": [
             {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "uprising",
+              "stagger_strength": 5.4,
+              "stagger_tier": null,
+              "thresholds": {},
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 5.4,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "malice",
+              "stagger_strength": 5.4,
+              "stagger_tier": null,
+              "thresholds": {},
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 5.4,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "heresy",
+              "stagger_strength": 5.4,
+              "stagger_tier": null,
+              "thresholds": {},
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 5.4,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "damnation",
+              "stagger_strength": 5.4,
+              "stagger_tier": null,
+              "thresholds": {},
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 5.4,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "auric",
+              "stagger_strength": 5.4,
+              "stagger_tier": null,
+              "thresholds": {},
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 5.4,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
               "breed_id": "chaos_armored_infected",
               "difficulty": "uprising",
               "stagger_strength": 5.4,
@@ -25337,6 +26412,131 @@
                 "impact_adm": 1,
                 "resistance_applied": 1,
                 "reduction_applied": 35,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "uprising",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "malice",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "heresy",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "damnation",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "auric",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
                 "blocked": true
               }
             },
@@ -28738,6 +29938,81 @@
           "stagger_category": "ranged",
           "breeds": [
             {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "uprising",
+              "stagger_strength": 5.4,
+              "stagger_tier": null,
+              "thresholds": {},
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 5.4,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "malice",
+              "stagger_strength": 5.4,
+              "stagger_tier": null,
+              "thresholds": {},
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 5.4,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "heresy",
+              "stagger_strength": 5.4,
+              "stagger_tier": null,
+              "thresholds": {},
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 5.4,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "damnation",
+              "stagger_strength": 5.4,
+              "stagger_tier": null,
+              "thresholds": {},
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 5.4,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "auric",
+              "stagger_strength": 5.4,
+              "stagger_tier": null,
+              "thresholds": {},
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 5.4,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
               "breed_id": "chaos_armored_infected",
               "difficulty": "uprising",
               "stagger_strength": 5.4,
@@ -30124,6 +31399,131 @@
                 "impact_adm": 1,
                 "resistance_applied": 1,
                 "reduction_applied": 35,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "uprising",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "malice",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "heresy",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "damnation",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "auric",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 5.4,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
                 "blocked": true
               }
             },
@@ -33525,6 +34925,81 @@
           "stagger_category": "ranged",
           "breeds": [
             {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "uprising",
+              "stagger_strength": 20,
+              "stagger_tier": "light_ranged",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 20,
+                "effective_strength": 20,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "malice",
+              "stagger_strength": 20,
+              "stagger_tier": "light_ranged",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 20,
+                "effective_strength": 20,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "heresy",
+              "stagger_strength": 20,
+              "stagger_tier": "light_ranged",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 20,
+                "effective_strength": 20,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "damnation",
+              "stagger_strength": 20,
+              "stagger_tier": "light_ranged",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 20,
+                "effective_strength": 20,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
+              "breed_id": "chaos_armored_hound",
+              "difficulty": "auric",
+              "stagger_strength": 20,
+              "stagger_tier": "light_ranged",
+              "thresholds": {},
+              "details": {
+                "raw_impact": 20,
+                "effective_strength": 20,
+                "impact_adm": 1,
+                "resistance_applied": 2,
+                "reduction_applied": 0,
+                "blocked": false
+              }
+            },
+            {
               "breed_id": "chaos_armored_infected",
               "difficulty": "uprising",
               "stagger_strength": 20,
@@ -34911,6 +36386,131 @@
                 "impact_adm": 1,
                 "resistance_applied": 1,
                 "reduction_applied": 35,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "uprising",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 20,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "malice",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 20,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "heresy",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 20,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "damnation",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 20,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
+                "blocked": true
+              }
+            },
+            {
+              "breed_id": "chaos_ogryn_houndmaster",
+              "difficulty": "auric",
+              "stagger_strength": 0,
+              "stagger_tier": null,
+              "thresholds": {
+                "light": -1,
+                "medium": -1,
+                "heavy": -1,
+                "explosion": 200,
+                "light_ranged": -1,
+                "killshot": -1,
+                "sticky": -1,
+                "companion_push": 1,
+                "wall_collision": 0.6
+              },
+              "details": {
+                "raw_impact": 20,
+                "effective_strength": 0,
+                "impact_adm": 1,
+                "resistance_applied": 1,
+                "reduction_applied": 50,
                 "blocked": true
               }
             },
@@ -38315,6 +39915,6 @@
       "melee",
       "ranged"
     ],
-    "timestamp": "2026-03-24T03:29:01.613Z"
+    "timestamp": "2026-03-31T22:39:10.340Z"
   }
 }

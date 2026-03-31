@@ -11,6 +11,51 @@
             "sustained": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 5,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 6,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 7,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 9,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 11,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 2,
@@ -594,6 +639,51 @@
                   "hitZone": "torso",
                   "effectiveArmorType": "armored",
                   "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 64,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 79,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 95,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 127,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 190,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -2040,6 +2130,51 @@
             "aimed": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 28,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 32,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 40,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 48,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 64,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -2623,6 +2758,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 398,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 498,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 597,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 796,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 1194,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -4069,6 +4249,51 @@
             "burst": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 17,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 19,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 24,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 29,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 38,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -4652,6 +4877,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 302,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 377,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 453,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 604,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 905,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -6104,6 +6374,51 @@
             "sustained": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 3,
+                  "damage": 397.87199999999996,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 3,
+                  "damage": 397.87199999999996,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 4,
+                  "damage": 397.87199999999996,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 5,
+                  "damage": 397.87199999999996,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 6,
+                  "damage": 397.87199999999996,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "full"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -6686,6 +7001,51 @@
                   "damage": 265.248,
                   "hitZone": "torso",
                   "effectiveArmorType": "armored",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 52,
+                  "damage": 431.28,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 64,
+                  "damage": 431.28,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 77,
+                  "damage": 431.28,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 103,
+                  "damage": 431.28,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 154,
+                  "damage": 431.28,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
                 },
                 {
@@ -8133,6 +8493,51 @@
             "aimed": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 9,
+                  "damage": 113.4,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 10,
+                  "damage": 113.4,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 13,
+                  "damage": 113.4,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 15,
+                  "damage": 113.4,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 20,
+                  "damage": 113.4,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -8716,6 +9121,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 122,
+                  "damage": 181.44000000000003,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 152,
+                  "damage": 181.44000000000003,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 182,
+                  "damage": 181.44000000000003,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 243,
+                  "damage": 181.44000000000003,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 364,
+                  "damage": 181.44000000000003,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -10162,6 +10612,51 @@
             "burst": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 5,
+                  "damage": 191.51999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 6,
+                  "damage": 191.51999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 8,
+                  "damage": 191.51999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 9,
+                  "damage": 191.51999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 12,
+                  "damage": 191.51999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -10745,6 +11240,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 92,
+                  "damage": 239.39999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 115,
+                  "damage": 239.39999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 138,
+                  "damage": 239.39999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 184,
+                  "damage": 239.39999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 276,
+                  "damage": 239.39999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "reduced"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -12197,6 +12737,51 @@
             "sustained": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 5,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 6,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 7,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 9,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 11,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 2,
@@ -12780,6 +13365,51 @@
                   "hitZone": "torso",
                   "effectiveArmorType": "armored",
                   "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 64,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 79,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 95,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 127,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 190,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -14226,6 +14856,51 @@
             "aimed": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 28,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 32,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 40,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 48,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 64,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -14809,6 +15484,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 398,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 498,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 597,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 796,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 1194,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -16255,6 +16975,51 @@
             "burst": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 17,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 19,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 24,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 29,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 38,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -16838,6 +17603,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 302,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 377,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 453,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 604,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 905,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -18290,6 +19100,51 @@
             "sustained": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": "Infinity",
@@ -18873,6 +19728,51 @@
                   "hitZone": "torso",
                   "effectiveArmorType": "armored",
                   "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "reduced"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -20319,6 +21219,51 @@
             "aimed": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": "Infinity",
@@ -20902,6 +21847,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -22348,6 +23338,51 @@
             "burst": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": "Infinity",
@@ -22931,6 +23966,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -24383,6 +25463,51 @@
             "sustained": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "full"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": "Infinity",
@@ -24965,6 +26090,51 @@
                   "damage": 0,
                   "hitZone": "torso",
                   "effectiveArmorType": "armored",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
                 },
                 {
@@ -26412,6 +27582,51 @@
             "aimed": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": "Infinity",
@@ -26995,6 +28210,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -28441,6 +29701,51 @@
             "burst": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": "Infinity",
@@ -29024,6 +30329,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": "Infinity",
+                  "damage": 0,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -30476,6 +31826,51 @@
             "sustained": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 5,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 6,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 7,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 9,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 11,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 2,
@@ -31059,6 +32454,51 @@
                   "hitZone": "torso",
                   "effectiveArmorType": "armored",
                   "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 64,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 79,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 95,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 127,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 190,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -32505,6 +33945,51 @@
             "aimed": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 28,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 32,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 40,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 48,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 64,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -33088,6 +34573,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 398,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 498,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 597,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 796,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 1194,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -34534,6 +36064,51 @@
             "burst": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 17,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 19,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 24,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 29,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 38,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -35117,6 +36692,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 302,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 377,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 453,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 604,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 905,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -36569,6 +38189,51 @@
             "sustained": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 5,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 6,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 7,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 9,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 11,
+                  "damage": 202.824,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 2,
@@ -37152,6 +38817,51 @@
                   "hitZone": "torso",
                   "effectiveArmorType": "armored",
                   "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 64,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 79,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 95,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 127,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 190,
+                  "damage": 348.48,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -38598,6 +40308,51 @@
             "aimed": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 28,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 32,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 40,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 48,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 64,
+                  "damage": 34.56,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -39181,6 +40936,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 398,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 498,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 597,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 796,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 1194,
+                  "damage": 55.29600000000001,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -40627,6 +42427,51 @@
             "burst": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 17,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 19,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 24,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 29,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 38,
+                  "damage": 58.367999999999995,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -41210,6 +43055,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 302,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 377,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 453,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 604,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 905,
+                  "damage": 72.96,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -42661,6 +44551,7 @@
           "actionType": "light_attack",
           "profileId": "saw_light_smiter",
           "damnation": {
+            "chaos_armored_hound": 5,
             "chaos_armored_infected": 2,
             "chaos_beast_of_nurgle": 82,
             "chaos_daemonhost": 106,
@@ -42674,6 +44565,7 @@
             "chaos_ogryn_bulwark": 9,
             "chaos_ogryn_executor": 43,
             "chaos_ogryn_gunner": 12,
+            "chaos_ogryn_houndmaster": 103,
             "chaos_plague_ogryn": 110,
             "chaos_poxwalker": 1,
             "chaos_poxwalker_bomber": 1,
@@ -42712,6 +44604,7 @@
           "actionType": "heavy_attack",
           "profileId": "saw_heavy_linesman",
           "damnation": {
+            "chaos_armored_hound": 9,
             "chaos_armored_infected": 4,
             "chaos_beast_of_nurgle": 101,
             "chaos_daemonhost": 132,
@@ -42725,6 +44618,7 @@
             "chaos_ogryn_bulwark": 11,
             "chaos_ogryn_executor": 142,
             "chaos_ogryn_gunner": 23,
+            "chaos_ogryn_houndmaster": 127,
             "chaos_plague_ogryn": 136,
             "chaos_poxwalker": 1,
             "chaos_poxwalker_bomber": 1,
@@ -42772,6 +44666,51 @@
           "scenarios": {
             "sustained": {
               "breeds": [
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 6,
+                  "damage": 175.5257142857143,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 7,
+                  "damage": 175.5257142857143,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 8,
+                  "damage": 175.5257142857143,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 10,
+                  "damage": 175.5257142857143,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 13,
+                  "damage": 175.5257142857143,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
                 {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
@@ -43356,6 +45295,51 @@
                   "hitZone": "torso",
                   "effectiveArmorType": "armored",
                   "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 92,
+                  "damage": 240.02742857142854,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 115,
+                  "damage": 240.02742857142854,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 138,
+                  "damage": 240.02742857142854,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 184,
+                  "damage": 240.02742857142854,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 275,
+                  "damage": 240.02742857142854,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -44802,6 +46786,51 @@
             "aimed": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 200,
+                  "damage": 4.679999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 236,
+                  "damage": 4.679999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 294,
+                  "damage": 4.679999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 353,
+                  "damage": 4.679999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 471,
+                  "damage": 4.679999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -45385,6 +47414,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 2939,
+                  "damage": 7.487999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 3673,
+                  "damage": 7.487999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 4408,
+                  "damage": 7.487999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 5877,
+                  "damage": 7.487999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 8815,
+                  "damage": 7.487999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -46831,6 +48905,51 @@
             "burst": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 119,
+                  "damage": 7.903999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 140,
+                  "damage": 7.903999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 174,
+                  "damage": 7.903999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 209,
+                  "damage": 7.903999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 279,
+                  "damage": 7.903999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -47414,6 +49533,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 2227,
+                  "damage": 9.879999999999997,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 2784,
+                  "damage": 9.879999999999997,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 3341,
+                  "damage": 9.879999999999997,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 4454,
+                  "damage": 9.879999999999997,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 6681,
+                  "damage": 9.879999999999997,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -48866,6 +51030,51 @@
             "sustained": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 6,
+                  "damage": 175.5257142857143,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 7,
+                  "damage": 175.5257142857143,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 8,
+                  "damage": 175.5257142857143,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 10,
+                  "damage": 175.5257142857143,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 13,
+                  "damage": 175.5257142857143,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "armored",
+                  "damageEfficiency": "reduced"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 2,
@@ -49449,6 +51658,51 @@
                   "hitZone": "torso",
                   "effectiveArmorType": "armored",
                   "damageEfficiency": "reduced"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 92,
+                  "damage": 240.02742857142854,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 115,
+                  "damage": 240.02742857142854,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 138,
+                  "damage": 240.02742857142854,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 184,
+                  "damage": 240.02742857142854,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 275,
+                  "damage": 240.02742857142854,
+                  "hitZone": "torso",
+                  "effectiveArmorType": "resistant",
+                  "damageEfficiency": "full"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -50895,6 +53149,51 @@
             "aimed": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 200,
+                  "damage": 4.679999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 236,
+                  "damage": 4.679999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 294,
+                  "damage": 4.679999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 353,
+                  "damage": 4.679999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 471,
+                  "damage": 4.679999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -51478,6 +53777,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 2939,
+                  "damage": 7.487999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 3673,
+                  "damage": 7.487999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 4408,
+                  "damage": 7.487999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 5877,
+                  "damage": 7.487999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 8815,
+                  "damage": 7.487999999999999,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -52924,6 +55268,51 @@
             "burst": {
               "breeds": [
                 {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "uprising",
+                  "hitsToKill": 119,
+                  "damage": 7.903999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "malice",
+                  "hitsToKill": 140,
+                  "damage": 7.903999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "heresy",
+                  "hitsToKill": 174,
+                  "damage": 7.903999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "damnation",
+                  "hitsToKill": 209,
+                  "damage": 7.903999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_armored_hound",
+                  "difficulty": "auric",
+                  "hitsToKill": 279,
+                  "damage": 7.903999999999998,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
                   "breed_id": "chaos_armored_infected",
                   "difficulty": "uprising",
                   "hitsToKill": 1,
@@ -53507,6 +55896,51 @@
                   "hitZone": "head",
                   "effectiveArmorType": "resistant",
                   "damageEfficiency": "full"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "uprising",
+                  "hitsToKill": 2227,
+                  "damage": 9.879999999999997,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "malice",
+                  "hitsToKill": 2784,
+                  "damage": 9.879999999999997,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "heresy",
+                  "hitsToKill": 3341,
+                  "damage": 9.879999999999997,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "damnation",
+                  "hitsToKill": 4454,
+                  "damage": 9.879999999999997,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
+                },
+                {
+                  "breed_id": "chaos_ogryn_houndmaster",
+                  "difficulty": "auric",
+                  "hitsToKill": 6681,
+                  "damage": 9.879999999999997,
+                  "hitZone": "head",
+                  "effectiveArmorType": "super_armor",
+                  "damageEfficiency": "negated"
                 },
                 {
                   "breed_id": "chaos_plague_ogryn",
@@ -54958,6 +57392,7 @@
           "actionType": "shoot_hip",
           "profileId": "default_needlepistol_dart",
           "damnation": {
+            "chaos_armored_hound": 10,
             "chaos_armored_infected": 3,
             "chaos_beast_of_nurgle": 146,
             "chaos_daemonhost": 223,
@@ -54971,6 +57406,7 @@
             "chaos_ogryn_bulwark": 15,
             "chaos_ogryn_executor": 1042,
             "chaos_ogryn_gunner": 18,
+            "chaos_ogryn_houndmaster": 184,
             "chaos_plague_ogryn": 223,
             "chaos_poxwalker": 2,
             "chaos_poxwalker_bomber": 5,
@@ -55017,6 +57453,6 @@
       "aimed",
       "burst"
     ],
-    "timestamp": "2026-03-24T03:29:01.293Z"
+    "timestamp": "2026-03-31T22:39:07.527Z"
   }
 }
