@@ -6,6 +6,7 @@ import { scoreFromSynergy, scoreFromCalculator } from "./build-scoring.js";
 import { scoreBreakpointRelevance, scoreDifficultyScaling } from "./breakpoint-checklist.js";
 import { generateScorecard } from "./score-build.js";
 import { analyzeBuild, loadIndex } from "./synergy-model.js";
+import { loadCalculatorData, computeBreakpoints } from "./damage-calculator.js";
 
 const HAS_SOURCE = !!process.env.GROUND_TRUTH_SOURCE_ROOT;
 
@@ -253,6 +254,9 @@ describe("golden score snapshots", { skip: !HAS_SOURCE && "requires GROUND_TRUTH
   const files = readdirSync(SCORES_DIR).filter(f => f.endsWith(".score.json"));
   const index = loadIndex();
 
+  // Load calculator data for breakpoint scoring (matches freeze behavior)
+  const calcData = loadCalculatorData();
+
   for (const file of files) {
     const prefix = file.replace(".score.json", "");
     it(`matches snapshot for build ${prefix}`, () => {
@@ -260,7 +264,8 @@ describe("golden score snapshots", { skip: !HAS_SOURCE && "requires GROUND_TRUTH
       const buildFile = readdirSync("data/builds").find(f => f.startsWith(prefix) && f.endsWith(".json"));
       const build = JSON.parse(readFileSync(`data/builds/${buildFile}`, "utf-8"));
       const synergy = analyzeBuild(build, index);
-      const actual = generateScorecard(build, synergy);
+      const calcOutput = { matrix: computeBreakpoints(build, index, calcData) };
+      const actual = generateScorecard(build, synergy, calcOutput);
 
       // Compare qualitative scores
       assert.equal(actual.qualitative.talent_coherence.score, expected.qualitative.talent_coherence.score);
