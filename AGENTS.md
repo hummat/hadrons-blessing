@@ -98,7 +98,7 @@ data/ground-truth/
                      #   damage-profiles.json — damage profiles, action maps, pipeline constants
                      #   stagger-settings.json — global stagger thresholds, categories, scalars
 data/exports/        # checked-in JSON artifacts for downstream consumers (BetterBots)
-data/builds/         # 23 canonical build fixtures (all 6 classes)
+data/builds/         # 24 canonical build fixtures (all 6 classes, 4 per class)
 src/
   lib/               # typed library modules (.ts)
                      # resolve.ts, validate.ts, load.ts, normalize.ts,
@@ -167,9 +167,9 @@ All records are validated against JSON schemas in `data/ground-truth/schemas/`. 
 
 ## Build Fixtures
 
-`data/builds/` contains 23 representative build JSON files (builds 01–23, all 6 classes) in canonical build shape. Each build stores `schema_version`, `title`, `class`, `provenance`, `ability`, `blitz`, `aura`, `keystone`, `talents[]`, `weapons[]`, and `curios[]`. Every selection carries `raw_label`, `canonical_entity_id`, and `resolution_status` (`resolved` / `unresolved` / `non_canonical`).
+`data/builds/` contains 24 representative build JSON files (builds 01–24, 4 per class, all 6 classes) in canonical build shape. Each build stores `schema_version`, `title`, `class`, `provenance`, `ability`, `blitz`, `aura`, `keystone`, `talents[]`, `weapons[]`, and `curios[]`. Every selection carries `raw_label`, `canonical_entity_id`, and `resolution_status` (`resolved` / `unresolved` / `non_canonical`).
 
-All 23 builds have been re-extracted from live GL pages with full talent trees. 1089 resolved, 60 unresolved (all curio cosmetic names — backend-only, see below), 1 non_canonical (multi-option guide label).
+All 24 builds have been extracted from live GL pages with full talent trees, targeting Havoc 40 meta builds with diversity across keystones, weapons, and playstyles. 1217 resolved, 127 unresolved (curio cosmetic names — backend-only, plus some blitz/blessing labels).
 
 Frozen audit snapshots live in `tests/fixtures/ground-truth/audits/`. When the index or audit logic changes, re-freeze all snapshots with `npm run audit:freeze`. Do NOT use `npm run audit -- <file> > snapshot.json` — npm's stderr banner contaminates the JSON output.
 
@@ -219,7 +219,7 @@ Frozen synergy snapshots in `tests/fixtures/ground-truth/synergy/`. Re-freeze wi
 
 Module: `src/lib/score-build.ts`. Frozen score snapshots in `tests/fixtures/ground-truth/scores/`. Re-freeze with `npm run score:freeze`.
 
-**Scoring data coverage:** Weapon perks 84/84 (100%), curio perks 273/273 (100%), blessings 30/30 (100%) across all 23 builds. Weapon catalog covers 23/32 unique weapons — 9 weapons appear in builds but lack scoring data entries (blessing lists). When adding new builds, run the coverage audit in `score-build.test.ts` to catch gaps.
+**Scoring data coverage:** When adding new builds, run the coverage audit in `score-build.test.ts` to catch gaps.
 
 ## Build Recommendations
 
