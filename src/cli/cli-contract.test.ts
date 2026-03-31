@@ -73,3 +73,46 @@ describe("CLI setup errors", () => {
     assert.notEqual(result.status, 0);
   });
 });
+
+describe("CLI contract — list and diff", () => {
+  it("list exits zero with default args", () => {
+    const result = runCli("src/cli/list-builds.ts", ["data/builds"]);
+    assert.equal(result.status, 0, `stderr: ${result.stderr}`);
+    assert.ok(result.stdout.includes("build(s)"), "should show build count");
+  });
+
+  it("list --json exits zero and produces valid JSON", () => {
+    const result = runCli("src/cli/list-builds.ts", ["data/builds", "--json"]);
+    assert.equal(result.status, 0, `stderr: ${result.stderr}`);
+    const parsed = JSON.parse(result.stdout);
+    assert.ok(Array.isArray(parsed), "should produce an array");
+    assert.equal(parsed.length, 23);
+  });
+
+  it("diff exits zero with two builds", () => {
+    const result = runCli("src/cli/diff-builds.ts", [
+      "data/builds/08-gandalf-melee-wizard.json",
+      "data/builds/01-veteran-squad-leader.json",
+    ]);
+    assert.equal(result.status, 0, `stderr: ${result.stderr}`);
+    assert.ok(result.stdout.includes("DIFF:"), "should show diff header");
+  });
+
+  it("diff --json exits zero and produces valid JSON", () => {
+    const result = runCli("src/cli/diff-builds.ts", [
+      "data/builds/08-gandalf-melee-wizard.json",
+      "data/builds/01-veteran-squad-leader.json",
+      "--json",
+    ]);
+    assert.equal(result.status, 0, `stderr: ${result.stderr}`);
+    const parsed = JSON.parse(result.stdout);
+    assert.ok(parsed.a, "should have build A metadata");
+    assert.ok(parsed.b, "should have build B metadata");
+    assert.ok(Array.isArray(parsed.score_deltas), "should have score deltas");
+  });
+
+  it("diff exits non-zero with missing arguments", () => {
+    const result = runCli("src/cli/diff-builds.ts", []);
+    assert.notEqual(result.status, 0);
+  });
+});
