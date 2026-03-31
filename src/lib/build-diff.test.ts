@@ -43,5 +43,34 @@ describe("build-diff", () => {
       const diff = diffBuilds(BUILD_08, BUILD_01);
       assert.equal(diff.analytical, null);
     });
+
+    it("detailed mode produces analytical diff when data is available", () => {
+      const diff = diffBuilds(BUILD_08, BUILD_01, { detailed: true });
+      if (diff.analytical) {
+        assert.ok(Array.isArray(diff.analytical.synergy_edges.only_a));
+        assert.ok(Array.isArray(diff.analytical.synergy_edges.only_b));
+        assert.ok(Array.isArray(diff.analytical.synergy_edges.shared));
+        assert.ok(Array.isArray(diff.analytical.breakpoints));
+
+        for (const bp of diff.analytical.breakpoints) {
+          assert.ok(typeof bp.label === "string");
+          assert.ok(bp.a_htk === null || typeof bp.a_htk === "number");
+          assert.ok(bp.b_htk === null || typeof bp.b_htk === "number");
+        }
+      }
+    });
+
+    it("same-build detailed diff has all synergy edges shared", () => {
+      const diff = diffBuilds(BUILD_08, BUILD_08, { detailed: true });
+      if (diff.analytical) {
+        assert.equal(diff.analytical.synergy_edges.only_a.length, 0);
+        assert.equal(diff.analytical.synergy_edges.only_b.length, 0);
+        for (const bp of diff.analytical.breakpoints) {
+          if (bp.delta != null) {
+            assert.equal(bp.delta, 0, `breakpoint ${bp.label} delta should be 0`);
+          }
+        }
+      }
+    });
   });
 });

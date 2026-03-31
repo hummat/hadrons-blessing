@@ -244,14 +244,114 @@ export function diffBuilds(
     },
     score_deltas: computeScoreDeltas(scorecardA, scorecardB),
     structural,
-    analytical: options?.detailed ? _analyticalStub() : null,
+    analytical: options?.detailed ? computeAnalyticalDiff(buildA, buildB, deps) : null,
   };
 }
 
-/** Stub — Task 5 fills this in. */
-function _analyticalStub(): AnalyticalDiff {
-  return {
-    synergy_edges: { only_a: [], only_b: [], shared: [] },
-    breakpoints: [],
+// ---------------------------------------------------------------------------
+// Analytical diff (detailed mode)
+// ---------------------------------------------------------------------------
+
+/**
+ * Find the best (lowest) finite hitsToKill across all weapons and actions in the
+ * breakpoint matrix for a given checklist entry's scenario/breed/difficulty/hitzone.
+ */
+function bestHtkFromMatrix(matrix: AnyRecord, entry: AnyRecord): number | null {
+  const weapons = matrix.weapons as AnyRecord[] | undefined;
+  if (!weapons) return null;
+
+  const scenario = entry.scenario as string;
+  const breedId = entry.breed_id as string;
+  const difficulty = entry.difficulty as string;
+  const hitZone = entry.hit_zone as string;
+
+  let best = Infinity;
+
+  for (const weapon of weapons) {
+    const actions = weapon.actions as AnyRecord[] | undefined;
+    if (!actions) continue;
+
+    for (const action of actions) {
+      const scenarios = action.scenarios as AnyRecord | undefined;
+      if (!scenarios) continue;
+      const scenarioData = scenarios[scenario] as AnyRecord | undefined;
+      if (!scenarioData) continue;
+      const breeds = scenarioData.breeds as AnyRecord[] | undefined;
+      if (!breeds) continue;
+
+      for (const b of breeds) {
+        if (b.breed_id !== breedId) continue;
+        if (b.difficulty !== difficulty) continue;
+        if (b.hitZone !== hitZone) continue;
+        const htk = b.hitsToKill as number | null | undefined;
+        if (typeof htk === "number" && Number.isFinite(htk) && htk < best) {
+          best = htk;
+        }
+      }
+    }
+  }
+
+  return Number.isFinite(best) ? best : null;
+}
+
+function computeAnalyticalDiff(
+  buildA: AnyRecord,
+  buildB: AnyRecord,
+  deps: ReturnType<typeof loadScorecardDeps>
+): AnalyticalDiff | null {
+  if (!deps.analyzeBuild || !deps.index) return null;
+
+  // Synergy edge diff
+  let edgesA: AnyRecord[] = [];
+  let edgesB: AnyRecord[] = [];
+  try {
+    const synA = deps.analyzeBuild(buildA, deps.index);
+    edgesA = (synA.synergy_edges ?? []) as AnyRecord[];
+  } catch { /* skip */ }
+  try {
+    const synB = deps.analyzeBuild(buildB, deps.index);
+    edgesB = (synB.synergy_edges ?? []) as AnyRecord[];
+  } catch { /* skip */ }
+
+  const edgeKey = (e: AnyRecord): string => {
+    const sels = ((e.selections ?? []) as string[]).slice().sort().join(",");
+    return `${e.type as string}:${sels}`;
   };
+  const keysA = edgesA.map(edgeKey);
+  const keysB = edgesB.map(edgeKey);
+  const synergy_edges = computeSetDiff(keysA, keysB);
+
+  // Breakpoint diff
+  const breakpoints: BreakpointDelta[] = [];
+  if (deps.computeBreakpoints && deps.calcData) {
+    const checklistRaw = JSON.parse(
+      readFileSync("data/ground-truth/breakpoint-checklist.json", "utf-8")
+    ) as AnyRecord;
+    const damageEntries = ((checklistRaw.checklist as AnyRecord[]) ?? []).filter(
+      (e) => !e.type
+    );
+
+    let matrixA: AnyRecord | null = null;
+    let matrixB: AnyRecord | null = null;
+    try {
+      matrixA = deps.computeBreakpoints(buildA, deps.index!, deps.calcData) as AnyRecord;
+    } catch { /* skip */ }
+    try {
+      matrixB = deps.computeBreakpoints(buildB, deps.index!, deps.calcData) as AnyRecord;
+    } catch { /* skip */ }
+
+    for (const entry of damageEntries) {
+      const label = entry.label as string;
+      const aHtk = matrixA ? bestHtkFromMatrix(matrixA, entry) : null;
+      const bHtk = matrixB ? bestHtkFromMatrix(matrixB, entry) : null;
+      breakpoints.push({
+        label,
+        a_htk: aHtk,
+        b_htk: bHtk,
+        delta: aHtk != null && bHtk != null ? bHtk - aHtk : null,
+      });
+    }
+  }
+
+  return { synergy_edges, breakpoints };
 }
