@@ -56,23 +56,20 @@ npm run recommend -- swap-weapon data/builds/08-gandalf-melee-wizard.json --from
 npm run score:freeze                                                            # regenerate golden score snapshots
 npm run breeds:build                                                            # extract breed HP/armor/hitzones/stagger/hit_mass from Lua
 npm run profiles:build                                                          # extract damage profiles/action maps from Lua
-npm run calc -- data/builds/08-gandalf-melee-wizard.json                     # breakpoint calculator (text)
+npm run calc -- data/builds/08-gandalf-melee-wizard.json                     # breakpoint calculator (damage, default mode)
 npm run calc -- data/builds/08-gandalf-melee-wizard.json --json              # breakpoint calculator (JSON)
 npm run calc -- data/builds/08-gandalf-melee-wizard.json --compare data/builds/01-veteran-squad-leader.json  # compare two builds
 npm run calc -- data/builds/                                                 # batch calc (all builds)
+npm run calc -- data/builds/08-gandalf-melee-wizard.json --mode stagger      # stagger analysis
+npm run calc -- data/builds/08-gandalf-melee-wizard.json --mode cleave       # cleave analysis
+npm run calc -- data/builds/08-gandalf-melee-wizard.json --mode toughness    # survivability analysis
+npm run stagger -- data/builds/08-gandalf-melee-wizard.json                  # stagger (alias)
+npm run cleave -- data/builds/08-gandalf-melee-wizard.json                   # cleave (alias)
+npm run toughness -- data/builds/08-gandalf-melee-wizard.json                # toughness (alias)
 npm run calc:freeze                                                             # regenerate golden calc snapshots
-npm run stagger -- data/builds/08-gandalf-melee-wizard.json                    # stagger analysis (text)
-npm run stagger -- data/builds/08-gandalf-melee-wizard.json --json             # stagger analysis (JSON)
-npm run stagger -- data/builds/                                                # batch stagger (all builds)
-npm run stagger:freeze                                                            # regenerate golden stagger snapshots
-npm run cleave -- data/builds/08-gandalf-melee-wizard.json                     # cleave analysis (text)
-npm run cleave -- data/builds/08-gandalf-melee-wizard.json --json              # cleave analysis (JSON)
-npm run cleave -- data/builds/                                                 # batch cleave (all builds)
-npm run cleave:freeze                                                             # regenerate golden cleave snapshots
-npm run toughness -- data/builds/08-gandalf-melee-wizard.json                  # survivability analysis (text)
-npm run toughness -- data/builds/08-gandalf-melee-wizard.json --json           # survivability analysis (JSON)
-npm run toughness -- data/builds/                                              # batch toughness (all builds)
-npm run toughness:freeze                                                          # regenerate golden toughness snapshots
+npm run stagger:freeze                                                          # regenerate golden stagger snapshots
+npm run cleave:freeze                                                           # regenerate golden cleave snapshots
+npm run toughness:freeze                                                        # regenerate golden toughness snapshots
 npm run stagger:build                                                             # extract stagger settings from Lua source
 node dist/cli/extract-build.js <gl-url> --json    # live GL scrape → canonical (requires Playwright)
 node dist/cli/extract-build.js <gl-url> --raw-json # live GL scrape → pre-canonical raw shape
