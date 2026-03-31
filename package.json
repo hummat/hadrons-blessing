@@ -33,6 +33,7 @@
     "list": "node dist/cli/list-builds.js",
     "score": "node dist/cli/score-build.js",
     "recommend": "node dist/cli/recommend-build.js",
+    "diff": "node dist/cli/diff-builds.js",
     "calc": "node dist/cli/calc-build.js",
     "stagger": "node dist/cli/calc-build.js --mode stagger",
     "cleave": "node dist/cli/calc-build.js --mode cleave",
