@@ -4,37 +4,49 @@
 **Date:** 2026-03-31
 
 ## Task
-#3 (Build browse and compare) — complete, merged to main, not yet pushed.
+Source migration to Darktide v1.11.3 + full build fixture refresh. Complete, committed, not pushed.
 
 ## In-Flight Work
-None. Clean working tree (only this HANDOFF.md is modified).
+None. Clean working tree.
 
 ## What Changed This Session
 
-### #3: Build Browse and Compare (complete)
-- `src/lib/scorecard-deps.ts` — shared helper for graceful synergy/calc data loading
-- `src/lib/build-list.ts` — `listBuilds(dir, options)` returning `BuildSummary[]` with filtering (class/weapon/grade) and sorting (any dimension)
-- `src/lib/build-diff.ts` — `diffBuilds(pathA, pathB, options)` returning `BuildDiff` with score deltas, structural diff (entity ID set operations), and analytical diff (synergy edge diff + breakpoint checklist HTK comparison)
-- `src/cli/list-builds.ts` — `npm run list` CLI with table + JSON output
-- `src/cli/diff-builds.ts` — `npm run diff` CLI with text + JSON output
-- Both library modules exported from `src/lib/index.ts` for #6 website consumption
-- 27 new tests (16 unit + 11 CLI contract), all passing. 0 regressions.
-- 11 files, 1125 lines added. Merged via `--no-ff` merge commit.
-- Spec: `docs/superpowers/specs/2026-03-31-build-browse-and-compare-design.md`
-- Plan: `docs/superpowers/plans/2026-03-31-build-browse-and-compare.md`
+### Source migration (commit `2295d8f`)
+- Pinned ground-truth to `f63d836` (game v1.11.3, 2026-03-27)
+- Updated `data/ground-truth/source-snapshots/manifest.json` with new SHA + game version
+- Bulk-replaced 6290 `source_snapshot_id` references across 29 JSON files
+- Regenerated all built artifacts: `edges:build`, `effects:build`, `breeds:build`, `profiles:build`, `stagger:build`
+- Added `damage_taken_by_chaos_armored_hound_multiplier` to `synergy-stat-families.ts` (new breed)
+- Re-froze all 7 snapshot types (audit, synergy, score, calc, stagger, cleave, toughness)
+- 104 files changed, 1003 tests passing
+
+### Build fixture refresh (commit `fd54e23`)
+- Replaced 23 pre-patch builds with 24 freshly scraped Havoc 40 meta builds from GamesLantern
+- 4 builds per class, selected for keystone/weapon/playstyle diversity
+- All Hive Scum builds post-1.11.0 tree rework (old builds used removed talent `broker_passive_punk_grit`)
+- Updated all hardcoded build references across ~15 source/test files
+- Updated content-specific test assertions (weapon labels, perk names, blessing families)
+- Regenerated `data/exports/bot-weapon-recommendations.json`
+- 186 files changed, 1007 tests passing
+
+### Docs update (commit `300ebb6`)
+- AGENTS.md updated for 24-build count and resolution stats
 
 ## Session Context
-- `CLAUDE.md` is a symlink to `AGENTS.md` — edit `AGENTS.md`, but `git add -f CLAUDE.md` to track the symlink
-- `make check` fails due to Darktide source snapshot mismatch (source repo updated upstream since last pin). This is pre-existing and unrelated to #3. `npm run build && npm test` passes (805 pass / 88 fail — 88 are all pre-existing source-snapshot failures).
-- Builds 17-20 have `class.raw_label: "hive scum"` — this is a legitimate 6th class, not an error. Tests were adjusted accordingly.
-- `BuildDiff.a.file` / `b.file` stores the full path (not basename) — the spec said basename but the implementation uses the raw path. Minor inconsistency, works fine for CLI use.
-- The `scorecard-deps.ts` cache (`_cached`) is module-level, so it persists across calls within a process. Fine for CLI; website may need to clear it if index data changes.
+- `CLAUDE.md` is a symlink to `AGENTS.md` — edit `AGENTS.md`, git tracks the symlink
+- v1.11.0 (2026-03-17) completely restructured the Hive Scum (broker) tree — version 13→15, massive node rearrangement, 6 talents removed, 6 new ones added
+- Psyker: `shield_extra_charge` ↔ `shield_stun_passive` swapped tree nodes (talents still exist, just moved)
+- Veteran: `movement_bonuses_on_toughness_broken` replaced by `increased_ranged_cleave` at one node
+- Adamant: `terminus_warrant_ranged` → `terminus_warrant_cdr`, `terminus_warrant_melee` → `terminus_warrant_support`, plus 2 more TW talents removed
+- New breed `chaos_armored_hound` + `chaos_ogryn_houndmaster` in the source
+- 611 damage profiles (was 592), 47 breeds in breed-data.json
+- Psyker builds all use Warp Siphon keystone — reflects actual Havoc 40 meta, not a diversity gap
+- `export-bot-weapons.ts` has hardcoded `source_builds` arrays — these were updated but are still a manual mapping
 
 ## Next Steps
-1. **Push to origin** — 12 commits ahead of remote (2 from previous #18 session + 10 from this session including merge)
-2. **Close #3** — `gh issue close 3 --comment "Implemented: list + diff commands"`
-3. **#16 (Weapon mark mappings)** — data quality housekeeping, independent
-4. **#6 (Website architecture)** — main remaining feature work. `list` and `diff` data contracts are now locked in via `BuildSummary` and `BuildDiff` types.
+1. **Push to origin** — 3 commits ahead of remote
+2. **#6 (Website architecture)** — main remaining feature work. `BuildSummary` and `BuildDiff` types are the data contracts for the web layer.
+3. **#16 (Weapon mark mappings)** — independent data quality work
 
 ## Pipeline Reference
 ```
@@ -44,6 +56,4 @@ make check                 # full quality gate (edges + effects + breeds + profi
 npm test                   # tsx --test src/**/*.test.ts
 npm run list [--class X] [--weapon X] [--grade X] [--sort X] [--reverse] [--json]
 npm run diff -- <a> <b> [--detailed] [--json]
-npm run calc -- <build> [--mode damage|stagger|cleave|toughness] [--json|--text] [--freeze]
-npm run score -- <build|dir> [--json|--text] [--freeze]
 ```
