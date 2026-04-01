@@ -5,12 +5,17 @@ import { REPO_ROOT } from "../lib/load.js";
 import { formatCliError } from "../lib/cli.js";
 
 function runCli(scriptPath, args = []) {
-  const quotedArgs = args.map((arg) => JSON.stringify(arg)).join(" ");
-  const command = `GROUND_TRUTH_SOURCE_ROOT=/nonexistent/source-root tsx ${JSON.stringify(scriptPath)} ${quotedArgs}`.trim();
-
-  return spawnSync("/usr/bin/zsh", ["-lc", command], {
+  return spawnSync(process.execPath, [
+    `${REPO_ROOT}/node_modules/tsx/dist/cli.mjs`,
+    scriptPath,
+    ...args,
+  ], {
     cwd: REPO_ROOT,
     encoding: "utf8",
+    env: {
+      ...process.env,
+      GROUND_TRUTH_SOURCE_ROOT: "/nonexistent/source-root",
+    },
   });
 }
 
