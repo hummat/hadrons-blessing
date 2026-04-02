@@ -688,7 +688,7 @@
   {
     "text": "Equinox Mk III Voidblast Force Staff",
     "normalized_text": "equinox mk iii voidblast force staff",
-    "candidate_entity_id": "shared.weapon.forcestaff_p4_m1",
+    "candidate_entity_id": "shared.weapon.forcestaff_p1_m1",
     "alias_kind": "guide_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "build-fixture",
@@ -703,7 +703,7 @@
       "prefer": []
     },
     "rank_weight": 90,
-    "notes": ""
+    "notes": "Corrected via MasterItems dump: forcestaff_p1_m1 is Voidblast, not p4."
   },
   {
     "text": "Lawbringer Mk IIb Power Falchion",
@@ -1823,7 +1823,7 @@
   {
     "text": "Branx Mk II Needle Pistol",
     "normalized_text": "branx mk ii needle pistol",
-    "candidate_entity_id": "shared.weapon.needlepistol_p1_m1",
+    "candidate_entity_id": "shared.weapon.needlepistol_p1_m2",
     "alias_kind": "guide_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "build-fixture",
@@ -1838,7 +1838,7 @@
       "prefer": []
     },
     "rank_weight": 90,
-    "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as needlepistol_p1_m1."
+    "notes": "Display label comes from structured build data; canonical internal weapon template is source-backed as needlepistol_p1_m2 (corrected via MasterItems dump)."
   },
   {
     "text": "Warp Flurry",
@@ -1946,8 +1946,8 @@
     "notes": ""
   },
   {
-    "text": "Branx MKII Needle Pistol",
-    "normalized_text": "branx mkii needle pistol",
+    "text": "Branx MkVI Needle Pistol",
+    "normalized_text": "branx mkvi needle pistol",
     "candidate_entity_id": "shared.weapon.needlepistol_p1_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -2486,8 +2486,8 @@
     "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
   },
   {
-    "text": "Catachan Mk VII \"Devil's Claw\" Sword",
-    "normalized_text": "catachan mk vii devil s claw sword",
+    "text": "Turtolsky Mk VI Heavy Sword",
+    "normalized_text": "turtolsky mk vi heavy sword",
     "candidate_entity_id": "shared.weapon.combatsword_p2_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -2506,8 +2506,8 @@
     "notes": ""
   },
   {
-    "text": "Lucius Mk IV Helbore Lasgun",
-    "normalized_text": "lucius mk iv helbore lasgun",
+    "text": "Lucius MK IIIa Helbore Lasgun",
+    "normalized_text": "lucius mk iiia helbore lasgun",
     "candidate_entity_id": "shared.weapon.lasgun_p2_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -2526,8 +2526,8 @@
     "notes": ""
   },
   {
-    "text": "Munitorum Mk II Relic Blade",
-    "normalized_text": "munitorum mk ii relic blade",
+    "text": "Munitorum Mk X Relic Blade",
+    "normalized_text": "munitorum mk x relic blade",
     "candidate_entity_id": "shared.weapon.powersword_2h_p1_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -2546,8 +2546,8 @@
     "notes": ""
   },
   {
-    "text": "Munitorum Mk X Relic Blade",
-    "normalized_text": "munitorum mk x relic blade",
+    "text": "Munitorum Mk II Relic Blade",
+    "normalized_text": "munitorum mk ii relic blade",
     "candidate_entity_id": "shared.weapon.powersword_2h_p1_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -2566,8 +2566,8 @@
     "notes": ""
   },
   {
-    "text": "Locke Mk III Spearhead Boltgun",
-    "normalized_text": "locke mk iii spearhead boltgun",
+    "text": "Locke Mk IIb Spearhead Boltgun",
+    "normalized_text": "locke mk iib spearhead boltgun",
     "candidate_entity_id": "shared.weapon.bolter_p1_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -2586,8 +2586,8 @@
     "notes": ""
   },
   {
-    "text": "Agripinaa Mk VIII Braced Autogun",
-    "normalized_text": "agripinaa mk viii braced autogun",
+    "text": "Vraks Mk II Braced Autogun",
+    "normalized_text": "vraks mk ii braced autogun",
     "candidate_entity_id": "shared.weapon.autogun_p2_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -2626,8 +2626,8 @@
     "notes": ""
   },
   {
-    "text": "Foe-Rend Mk V Ripper Gun",
-    "normalized_text": "foe rend mk v ripper gun",
+    "text": "Foe-Rend Mk VI Ripper Gun",
+    "normalized_text": "foe rend mk vi ripper gun",
     "candidate_entity_id": "shared.weapon.ogryn_rippergun_p1_m3",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -2786,8 +2786,8 @@
     "notes": "GL curio perk label for bomber damage resistance."
   },
   {
-    "text": "Gorgonum Mk IV Twin-Linked Heavy Stubber",
-    "normalized_text": "gorgonum mk iv twin linked heavy stubber",
+    "text": "Krourk Mk IIa Heavy Stubber",
+    "normalized_text": "krourk mk iia heavy stubber",
     "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p2_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -2806,8 +2806,8 @@
     "notes": ""
   },
   {
-    "text": "Deimos Mk IV Blaze Force Sword",
-    "normalized_text": "deimos mk iv blaze force sword",
+    "text": "Obscurus Mk II Blaze Force Sword",
+    "normalized_text": "obscurus mk ii blaze force sword",
     "candidate_entity_id": "shared.weapon.forcesword_p1_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -3646,8 +3646,8 @@
     "notes": ""
   },
   {
-    "text": "Vraks Mk II Braced Autogun",
-    "normalized_text": "vraks mk ii braced autogun",
+    "text": "Agripinaa Mk VIII Braced Autogun",
+    "normalized_text": "agripinaa mk viii braced autogun",
     "candidate_entity_id": "shared.weapon.autogun_p2_m3",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -3746,8 +3746,8 @@
     "notes": ""
   },
   {
-    "text": "Locke Mk IIb Spearhead Boltgun",
-    "normalized_text": "locke mk iib spearhead boltgun",
+    "text": "Locke Mk III Spearhead Boltgun",
+    "normalized_text": "locke mk iii spearhead boltgun",
     "candidate_entity_id": "shared.weapon.bolter_p1_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -3926,8 +3926,8 @@
     "notes": ""
   },
   {
-    "text": "Achlys Mk VIII Combat Axe",
-    "normalized_text": "achlys mk viii combat axe",
+    "text": "Antax Mk V Combat Axe",
+    "normalized_text": "antax mk v combat axe",
     "candidate_entity_id": "shared.weapon.combataxe_p1_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -3946,8 +3946,8 @@
     "notes": ""
   },
   {
-    "text": "Antax Mk V Combat Axe",
-    "normalized_text": "antax mk v combat axe",
+    "text": "Achlys Mk VIII Combat Axe",
+    "normalized_text": "achlys mk viii combat axe",
     "candidate_entity_id": "shared.weapon.combataxe_p1_m3",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -4126,69 +4126,9 @@
     "notes": ""
   },
   {
-    "text": "Maccabian Mk IV Duelling Sword",
-    "normalized_text": "maccabian mk iv duelling sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Maccabian Mk II Duelling Sword",
-    "normalized_text": "maccabian mk ii duelling sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Maccabian Mk V Duelling Sword",
-    "normalized_text": "maccabian mk v duelling sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p1_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
     "text": "Catachan Mk I \"Devil's Claw\" Sword",
     "normalized_text": "catachan mk i devil s claw sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p2_m2",
+    "candidate_entity_id": "shared.weapon.combatsword_p1_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-catalog",
@@ -4208,7 +4148,7 @@
   {
     "text": "Catachan Mk IV \"Devil's Claw\" Sword",
     "normalized_text": "catachan mk iv devil s claw sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p2_m3",
+    "candidate_entity_id": "shared.weapon.combatsword_p1_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-catalog",
@@ -4226,9 +4166,9 @@
     "notes": ""
   },
   {
-    "text": "Turtolsky Mk VI Heavy Sword",
-    "normalized_text": "turtolsky mk vi heavy sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p3_m1",
+    "text": "Catachan Mk VII \"Devil's Claw\" Sword",
+    "normalized_text": "catachan mk vii devil s claw sword",
+    "candidate_entity_id": "shared.weapon.combatsword_p1_m3",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-catalog",
@@ -4248,7 +4188,7 @@
   {
     "text": "Turtolsky Mk VII Heavy Sword",
     "normalized_text": "turtolsky mk vii heavy sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p3_m2",
+    "candidate_entity_id": "shared.weapon.combatsword_p2_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-catalog",
@@ -4268,6 +4208,66 @@
   {
     "text": "Turtolsky Mk IX Heavy Sword",
     "normalized_text": "turtolsky mk ix heavy sword",
+    "candidate_entity_id": "shared.weapon.combatsword_p2_m3",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-catalog",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Maccabian Mk II Duelling Sword",
+    "normalized_text": "maccabian mk ii duelling sword",
+    "candidate_entity_id": "shared.weapon.combatsword_p3_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-catalog",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Maccabian Mk IV Duelling Sword",
+    "normalized_text": "maccabian mk iv duelling sword",
+    "candidate_entity_id": "shared.weapon.combatsword_p3_m2",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-catalog",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Maccabian Mk V Duelling Sword",
+    "normalized_text": "maccabian mk v duelling sword",
     "candidate_entity_id": "shared.weapon.combatsword_p3_m3",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -4386,8 +4386,8 @@
     "notes": ""
   },
   {
-    "text": "Equinox Mk IV Voidstrike Force Staff",
-    "normalized_text": "equinox mk iv voidstrike force staff",
+    "text": "Equinox Mk III Voidblast Force Staff",
+    "normalized_text": "equinox mk iii voidblast force staff",
     "candidate_entity_id": "shared.weapon.forcestaff_p1_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -4426,8 +4426,8 @@
     "notes": ""
   },
   {
-    "text": "Equinox Mk III Voidblast Force Staff",
-    "normalized_text": "equinox mk iii voidblast force staff",
+    "text": "Equinox Mk IV Voidstrike Force Staff",
+    "normalized_text": "equinox mk iv voidstrike force staff",
     "candidate_entity_id": "shared.weapon.forcestaff_p4_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -4486,8 +4486,8 @@
     "notes": ""
   },
   {
-    "text": "Illisi Mk V Blaze Force Sword",
-    "normalized_text": "illisi mk v blaze force sword",
+    "text": "Deimos Mk IV Blaze Force Sword",
+    "normalized_text": "deimos mk iv blaze force sword",
     "candidate_entity_id": "shared.weapon.forcesword_p1_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -4506,8 +4506,8 @@
     "notes": ""
   },
   {
-    "text": "Obscurus Mk II Blaze Force Sword",
-    "normalized_text": "obscurus mk ii blaze force sword",
+    "text": "Illisi Mk V Blaze Force Sword",
+    "normalized_text": "illisi mk v blaze force sword",
     "candidate_entity_id": "shared.weapon.forcesword_p1_m3",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -4606,8 +4606,8 @@
     "notes": ""
   },
   {
-    "text": "Lucius MK IIIa Helbore Lasgun",
-    "normalized_text": "lucius mk iiia helbore lasgun",
+    "text": "Lucius Mk IV Helbore Lasgun",
+    "normalized_text": "lucius mk iv helbore lasgun",
     "candidate_entity_id": "shared.weapon.lasgun_p2_m3",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -4726,8 +4726,8 @@
     "notes": ""
   },
   {
-    "text": "Branx MkVI Needle Pistol",
-    "normalized_text": "branx mkvi needle pistol",
+    "text": "Branx MKII Needle Pistol",
+    "normalized_text": "branx mkii needle pistol",
     "candidate_entity_id": "shared.weapon.needlepistol_p1_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -4746,8 +4746,8 @@
     "notes": ""
   },
   {
-    "text": "Brute-Brainer Mk V Latrine Shovel",
-    "normalized_text": "brute brainer mk v latrine shovel",
+    "text": "Brute-Brainer Mk XIX Latrine Shovel",
+    "normalized_text": "brute brainer mk xix latrine shovel",
     "candidate_entity_id": "shared.weapon.ogryn_club_p1_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -4766,8 +4766,8 @@
     "notes": ""
   },
   {
-    "text": "Brute-Brainer Mk XIX Latrine Shovel",
-    "normalized_text": "brute brainer mk xix latrine shovel",
+    "text": "Brute-Brainer Mk V Latrine Shovel",
+    "normalized_text": "brute brainer mk v latrine shovel",
     "candidate_entity_id": "shared.weapon.ogryn_club_p1_m3",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -4846,9 +4846,29 @@
     "notes": ""
   },
   {
+    "text": "Krourk Mk VI Cleaver",
+    "normalized_text": "krourk mk vi cleaver",
+    "candidate_entity_id": "shared.weapon.ogryn_combatblade_p1_m1",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-catalog",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
     "text": "Bull Butcher Mk III Cleaver",
     "normalized_text": "bull butcher mk iii cleaver",
-    "candidate_entity_id": "shared.weapon.ogryn_combatblade_p1_m1",
+    "candidate_entity_id": "shared.weapon.ogryn_combatblade_p1_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-catalog",
@@ -4868,26 +4888,6 @@
   {
     "text": "Krourk Mk IV Cleaver",
     "normalized_text": "krourk mk iv cleaver",
-    "candidate_entity_id": "shared.weapon.ogryn_combatblade_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Krourk Mk VI Cleaver",
-    "normalized_text": "krourk mk vi cleaver",
     "candidate_entity_id": "shared.weapon.ogryn_combatblade_p1_m3",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -4926,8 +4926,8 @@
     "notes": ""
   },
   {
-    "text": "Achlys Mk II Heavy Stubber",
-    "normalized_text": "achlys mk ii heavy stubber",
+    "text": "Krourk Mk V Twin-Linked Heavy Stubber",
+    "normalized_text": "krourk mk v twin linked heavy stubber",
     "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p1_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -4946,29 +4946,9 @@
     "notes": ""
   },
   {
-    "text": "Gorgonum Mk IIIa Heavy Stubber",
-    "normalized_text": "gorgonum mk iiia heavy stubber",
+    "text": "Gorgonum Mk IV Twin-Linked Heavy Stubber",
+    "normalized_text": "gorgonum mk iv twin linked heavy stubber",
     "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Krourk Mk IIa Heavy Stubber",
-    "normalized_text": "krourk mk iia heavy stubber",
-    "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p1_m3",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-catalog",
@@ -4988,6 +4968,26 @@
   {
     "text": "Achlys Mk VII Twin-Linked Heavy Stubber",
     "normalized_text": "achlys mk vii twin linked heavy stubber",
+    "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p1_m3",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-catalog",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Gorgonum Mk IIIa Heavy Stubber",
+    "normalized_text": "gorgonum mk iiia heavy stubber",
     "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p2_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -5006,8 +5006,8 @@
     "notes": ""
   },
   {
-    "text": "Krourk Mk V Twin-Linked Heavy Stubber",
-    "normalized_text": "krourk mk v twin linked heavy stubber",
+    "text": "Achlys Mk II Heavy Stubber",
+    "normalized_text": "achlys mk ii heavy stubber",
     "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p2_m3",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -5126,8 +5126,8 @@
     "notes": ""
   },
   {
-    "text": "Foe-Rend Mk VI Ripper Gun",
-    "normalized_text": "foe rend mk vi ripper gun",
+    "text": "Foe-Rend Mk V Ripper Gun",
+    "normalized_text": "foe rend mk v ripper gun",
     "candidate_entity_id": "shared.weapon.ogryn_rippergun_p1_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -5326,8 +5326,8 @@
     "notes": ""
   },
   {
-    "text": "Lawbringer Mk IIb Power Falchion",
-    "normalized_text": "lawbringer mk iib power falchion",
+    "text": "Aridin Mk I Power Falchion",
+    "normalized_text": "aridin mk i power falchion",
     "candidate_entity_id": "shared.weapon.powersword_p2_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -5346,8 +5346,8 @@
     "notes": ""
   },
   {
-    "text": "Aridin Mk I Power Falchion",
-    "normalized_text": "aridin mk i power falchion",
+    "text": "Lawbringer Mk IIb Power Falchion",
+    "normalized_text": "lawbringer mk iib power falchion",
     "candidate_entity_id": "shared.weapon.powersword_p2_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -5506,8 +5506,8 @@
     "notes": ""
   },
   {
-    "text": "Agripinaa Mk XIV Quickdraw Stub Revolver",
-    "normalized_text": "agripinaa mk xiv quickdraw stub revolver",
+    "text": "Zarona Mk IIa Quickdraw Stub Revolver",
+    "normalized_text": "zarona mk iia quickdraw stub revolver",
     "candidate_entity_id": "shared.weapon.stubrevolver_p1_m1",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
@@ -5526,8 +5526,8 @@
     "notes": ""
   },
   {
-    "text": "Zarona Mk IIa Quickdraw Stub Revolver",
-    "normalized_text": "zarona mk iia quickdraw stub revolver",
+    "text": "Agripinaa Mk XIV Quickdraw Stub Revolver",
+    "normalized_text": "agripinaa mk xiv quickdraw stub revolver",
     "candidate_entity_id": "shared.weapon.stubrevolver_p1_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",

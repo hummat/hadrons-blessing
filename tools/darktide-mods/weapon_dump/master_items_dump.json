@@ -1,0 +1,898 @@
+[
+  {
+    "template_id": "autogun_p1_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "autogun_p1_m2",
+    "gl_name": "Vraks Mk V Infantry Autogun",
+    "pattern": "Vraks",
+    "mark": "Mk V",
+    "family": "Infantry Autogun"
+  },
+  {
+    "template_id": "autogun_p1_m3",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "autogun_p2_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "autogun_p2_m2",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "autogun_p2_m3",
+    "gl_name": "Agripinaa Mk VIII Braced Autogun",
+    "pattern": "Agripinaa",
+    "mark": "Mk VIII",
+    "family": "Braced Autogun"
+  },
+  {
+    "template_id": "autogun_p3_m1",
+    "gl_name": "Columnus Mk III Vigilant Autogun",
+    "pattern": "Columnus",
+    "mark": "Mk III",
+    "family": "Vigilant Autogun"
+  },
+  {
+    "template_id": "autogun_p3_m2",
+    "gl_name": "Graia Mk VII Vigilant Autogun",
+    "pattern": "Graia",
+    "mark": "Mk VII",
+    "family": "Vigilant Autogun"
+  },
+  {
+    "template_id": "autogun_p3_m3",
+    "gl_name": "Agripinaa Mk IX Vigilant Autogun",
+    "pattern": "Agripinaa",
+    "mark": "Mk IX",
+    "family": "Vigilant Autogun"
+  },
+  {
+    "template_id": "autopistol_p1_m1",
+    "gl_name": "Ius Mk IV Shredder Autopistol",
+    "pattern": "Ius",
+    "mark": "Mk IV",
+    "family": "Shredder Autopistol"
+  },
+  {
+    "template_id": "bolter_p1_m1",
+    "gl_name": "Locke Mk IIb Spearhead Boltgun",
+    "pattern": "Locke",
+    "mark": "Mk IIb",
+    "family": "Spearhead Boltgun"
+  },
+  {
+    "template_id": "bolter_p1_m2",
+    "gl_name": "Locke Mk III Spearhead Boltgun",
+    "pattern": "Locke",
+    "mark": "Mk III",
+    "family": "Spearhead Boltgun"
+  },
+  {
+    "template_id": "boltpistol_p1_m1",
+    "gl_name": "Godwyn-Branx Mk IV Bolt Pistol",
+    "pattern": "Godwyn-Branx",
+    "mark": "Mk IV",
+    "family": "Bolt Pistol"
+  },
+  {
+    "template_id": "boltpistol_p1_m2",
+    "gl_name": "Godwyn-Branx Mk VI Bolt Pistol",
+    "pattern": "Godwyn-Branx",
+    "mark": "Mk VI",
+    "family": "Bolt Pistol"
+  },
+  {
+    "template_id": "bot_autogun_killshot",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "bot_combataxe_linesman",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "bot_combatsword_linesman_p1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "bot_combatsword_linesman_p2",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "bot_lasgun_killshot",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "bot_laspistol_killshot",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "bot_zola_laspistol",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "chainaxe_p1_m1",
+    "gl_name": "Orestes Mk IV Assault Chainaxe",
+    "pattern": "Orestes",
+    "mark": "Mk IV",
+    "family": "Assault Chainaxe"
+  },
+  {
+    "template_id": "chainaxe_p1_m2",
+    "gl_name": "Orestes Mk XII Assault Chainaxe",
+    "pattern": "Orestes",
+    "mark": "Mk XII",
+    "family": "Assault Chainaxe"
+  },
+  {
+    "template_id": "chainsword_2h_p1_m1",
+    "gl_name": "Tigrus Mk III Heavy Eviscerator",
+    "pattern": "Tigrus",
+    "mark": "Mk III",
+    "family": "Heavy Eviscerator"
+  },
+  {
+    "template_id": "chainsword_2h_p1_m2",
+    "gl_name": "Tigrus Mk XV Heavy Eviscerator",
+    "pattern": "Tigrus",
+    "mark": "Mk XV",
+    "family": "Heavy Eviscerator"
+  },
+  {
+    "template_id": "chainsword_p1_m1",
+    "gl_name": "Cadia Mk IV Assault Chainsword",
+    "pattern": "Cadia",
+    "mark": "Mk IV",
+    "family": "Assault Chainsword"
+  },
+  {
+    "template_id": "chainsword_p1_m2",
+    "gl_name": "Cadia Mk XIIIg Assault Chainsword",
+    "pattern": "Cadia",
+    "mark": "Mk XIIIg",
+    "family": "Assault Chainsword"
+  },
+  {
+    "template_id": "combataxe_p1_m1",
+    "gl_name": "P1 M1 Saw",
+    "pattern": "P1",
+    "mark": "M1",
+    "family": "Saw"
+  },
+  {
+    "template_id": "combataxe_p1_m2",
+    "gl_name": "Antax Mk V Combat Axe",
+    "pattern": "Antax",
+    "mark": "Mk V",
+    "family": "Combat Axe"
+  },
+  {
+    "template_id": "combataxe_p1_m3",
+    "gl_name": "Achlys Mk VIII Combat Axe",
+    "pattern": "Achlys",
+    "mark": "Mk VIII",
+    "family": "Combat Axe"
+  },
+  {
+    "template_id": "combataxe_p2_m1",
+    "gl_name": "Atrox Mk II Tactical Axe",
+    "pattern": "Atrox",
+    "mark": "Mk II",
+    "family": "Tactical Axe"
+  },
+  {
+    "template_id": "combataxe_p2_m2",
+    "gl_name": "Atrox Mk IV Tactical Axe",
+    "pattern": "Atrox",
+    "mark": "Mk IV",
+    "family": "Tactical Axe"
+  },
+  {
+    "template_id": "combataxe_p2_m3",
+    "gl_name": "Atrox Mk VII Tactical Axe",
+    "pattern": "Atrox",
+    "mark": "Mk VII",
+    "family": "Tactical Axe"
+  },
+  {
+    "template_id": "combataxe_p3_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "combataxe_p3_m2",
+    "gl_name": "Munitorum Mk III Sapper Shovel",
+    "pattern": "Munitorum",
+    "mark": "Mk III",
+    "family": "Sapper Shovel"
+  },
+  {
+    "template_id": "combataxe_p3_m3",
+    "gl_name": "Munitorum Mk VII Sapper Shovel",
+    "pattern": "Munitorum",
+    "mark": "Mk VII",
+    "family": "Sapper Shovel"
+  },
+  {
+    "template_id": "combatknife_p1_m1",
+    "gl_name": "Catachan Mk III Combat Blade",
+    "pattern": "Catachan",
+    "mark": "Mk III",
+    "family": "Combat Blade"
+  },
+  {
+    "template_id": "combatknife_p1_m2",
+    "gl_name": "Catachan Mk VI Combat Blade",
+    "pattern": "Catachan",
+    "mark": "Mk VI",
+    "family": "Combat Blade"
+  },
+  {
+    "template_id": "combatsword_p1_m1",
+    "gl_name": "Catachan Mk I \"Devil's Claw\" Sword",
+    "pattern": "Catachan",
+    "mark": "Mk I",
+    "family": "\"Devil's Claw\" Sword"
+  },
+  {
+    "template_id": "combatsword_p1_m2",
+    "gl_name": "Catachan Mk IV \"Devil's Claw\" Sword",
+    "pattern": "Catachan",
+    "mark": "Mk IV",
+    "family": "\"Devil's Claw\" Sword"
+  },
+  {
+    "template_id": "combatsword_p1_m3",
+    "gl_name": "Catachan Mk VII \"Devil's Claw\" Sword",
+    "pattern": "Catachan",
+    "mark": "Mk VII",
+    "family": "\"Devil's Claw\" Sword"
+  },
+  {
+    "template_id": "combatsword_p2_m1",
+    "gl_name": "Turtolsky Mk VI Heavy Sword",
+    "pattern": "Turtolsky",
+    "mark": "Mk VI",
+    "family": "Heavy Sword"
+  },
+  {
+    "template_id": "combatsword_p2_m2",
+    "gl_name": "Turtolsky Mk VII Heavy Sword",
+    "pattern": "Turtolsky",
+    "mark": "Mk VII",
+    "family": "Heavy Sword"
+  },
+  {
+    "template_id": "combatsword_p2_m3",
+    "gl_name": "Turtolsky Mk IX Heavy Sword",
+    "pattern": "Turtolsky",
+    "mark": "Mk IX",
+    "family": "Heavy Sword"
+  },
+  {
+    "template_id": "combatsword_p3_m1",
+    "gl_name": "Maccabian Mk II Duelling Sword",
+    "pattern": "Maccabian",
+    "mark": "Mk II",
+    "family": "Duelling Sword"
+  },
+  {
+    "template_id": "combatsword_p3_m2",
+    "gl_name": "Maccabian Mk IV Duelling Sword",
+    "pattern": "Maccabian",
+    "mark": "Mk IV",
+    "family": "Duelling Sword"
+  },
+  {
+    "template_id": "combatsword_p3_m3",
+    "gl_name": "Maccabian Mk V Duelling Sword",
+    "pattern": "Maccabian",
+    "mark": "Mk V",
+    "family": "Duelling Sword"
+  },
+  {
+    "template_id": "crowbar_p1_m1",
+    "gl_name": "Enginseer's Mk VI Crowbar",
+    "pattern": "Enginseer's",
+    "mark": "Mk VI",
+    "family": "Crowbar"
+  },
+  {
+    "template_id": "dual_autopistols_p1_m1",
+    "gl_name": "Branx MkIII Dual Autopistols",
+    "pattern": "Branx",
+    "mark": "MkIII",
+    "family": "Dual Autopistols"
+  },
+  {
+    "template_id": "dual_shivs_p1_m1",
+    "gl_name": "Improvised Mk I Shivs",
+    "pattern": "Improvised",
+    "mark": "Mk I",
+    "family": "Shivs"
+  },
+  {
+    "template_id": "dual_shivs_p1_m2",
+    "gl_name": "Improvised Mk III Shivs",
+    "pattern": "Improvised",
+    "mark": "Mk III",
+    "family": "Shivs"
+  },
+  {
+    "template_id": "dual_stubpistols_p1_m1",
+    "gl_name": "Branx MkVIII Dual Stub Pistols",
+    "pattern": "Branx",
+    "mark": "MkVIII",
+    "family": "Dual Stub Pistols"
+  },
+  {
+    "template_id": "flamer_p1_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "forcestaff_p1_m1",
+    "gl_name": "Equinox Mk III Voidblast Force Staff",
+    "pattern": "Equinox",
+    "mark": "Mk III",
+    "family": "Voidblast Force Staff"
+  },
+  {
+    "template_id": "forcestaff_p2_m1",
+    "gl_name": "Rifthaven Mk II Inferno Force Staff",
+    "pattern": "Rifthaven",
+    "mark": "Mk II",
+    "family": "Inferno Force Staff"
+  },
+  {
+    "template_id": "forcestaff_p3_m1",
+    "gl_name": "Nomanus Mk VI Electrokinetic Force Staff",
+    "pattern": "Nomanus",
+    "mark": "Mk VI",
+    "family": "Electrokinetic Force Staff"
+  },
+  {
+    "template_id": "forcestaff_p4_m1",
+    "gl_name": "Equinox Mk IV Voidstrike Force Staff",
+    "pattern": "Equinox",
+    "mark": "Mk IV",
+    "family": "Voidstrike Force Staff"
+  },
+  {
+    "template_id": "forcesword_2h_p1_m1",
+    "gl_name": "Covenant Mk VI Blaze Force Greatsword",
+    "pattern": "Covenant",
+    "mark": "Mk VI",
+    "family": "Blaze Force Greatsword"
+  },
+  {
+    "template_id": "forcesword_2h_p1_m2",
+    "gl_name": "Covenant Mk VIII Blaze Force Greatsword",
+    "pattern": "Covenant",
+    "mark": "Mk VIII",
+    "family": "Blaze Force Greatsword"
+  },
+  {
+    "template_id": "forcesword_p1_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "forcesword_p1_m2",
+    "gl_name": "Deimos Mk IV Blaze Force Sword",
+    "pattern": "Deimos",
+    "mark": "Mk IV",
+    "family": "Blaze Force Sword"
+  },
+  {
+    "template_id": "forcesword_p1_m3",
+    "gl_name": "Illisi Mk V Blaze Force Sword",
+    "pattern": "Illisi",
+    "mark": "Mk V",
+    "family": "Blaze Force Sword"
+  },
+  {
+    "template_id": "high_bot_autogun_killshot",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "high_bot_lasgun_killshot",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "lasgun_p1_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "lasgun_p1_m2",
+    "gl_name": "Kantrael Mk IIb Infantry Lasgun",
+    "pattern": "Kantrael",
+    "mark": "Mk IIb",
+    "family": "Infantry Lasgun"
+  },
+  {
+    "template_id": "lasgun_p1_m3",
+    "gl_name": "Kantrael Mk IX Infantry Lasgun",
+    "pattern": "Kantrael",
+    "mark": "Mk IX",
+    "family": "Infantry Lasgun"
+  },
+  {
+    "template_id": "lasgun_p2_m1",
+    "gl_name": "Lucius MK IIIa Helbore Lasgun",
+    "pattern": "Lucius",
+    "mark": "MK IIIa",
+    "family": "Helbore Lasgun"
+  },
+  {
+    "template_id": "lasgun_p2_m2",
+    "gl_name": "Lucius MK V Helbore Lasgun",
+    "pattern": "Lucius",
+    "mark": "MK V",
+    "family": "Helbore Lasgun"
+  },
+  {
+    "template_id": "lasgun_p2_m3",
+    "gl_name": "Lucius Mk IV Helbore Lasgun",
+    "pattern": "Lucius",
+    "mark": "Mk IV",
+    "family": "Helbore Lasgun"
+  },
+  {
+    "template_id": "lasgun_p3_m1",
+    "gl_name": "Accatran Mk VIc Recon Lasgun",
+    "pattern": "Accatran",
+    "mark": "Mk VIc",
+    "family": "Recon Lasgun"
+  },
+  {
+    "template_id": "lasgun_p3_m2",
+    "gl_name": "Accatran Mk XII Recon Lasgun",
+    "pattern": "Accatran",
+    "mark": "Mk XII",
+    "family": "Recon Lasgun"
+  },
+  {
+    "template_id": "lasgun_p3_m3",
+    "gl_name": "Accatran Mk XIV Recon Lasgun",
+    "pattern": "Accatran",
+    "mark": "Mk XIV",
+    "family": "Recon Lasgun"
+  },
+  {
+    "template_id": "laspistol_p1_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "laspistol_p1_m3",
+    "gl_name": "Kantrael Mk X Heavy Laspistol",
+    "pattern": "Kantrael",
+    "mark": "Mk X",
+    "family": "Heavy Laspistol"
+  },
+  {
+    "template_id": "needlepistol_p1_m1",
+    "gl_name": "Branx MkVI Needle Pistol",
+    "pattern": "Branx",
+    "mark": "MkVI",
+    "family": "Needle Pistol"
+  },
+  {
+    "template_id": "needlepistol_p1_m2",
+    "gl_name": "Branx MKII Needle Pistol",
+    "pattern": "Branx",
+    "mark": "MKII",
+    "family": "Needle Pistol"
+  },
+  {
+    "template_id": "ogryn_club_p1_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "ogryn_club_p1_m2",
+    "gl_name": "Brute-Brainer Mk XIX Latrine Shovel",
+    "pattern": "Brute-Brainer",
+    "mark": "Mk XIX",
+    "family": "Latrine Shovel"
+  },
+  {
+    "template_id": "ogryn_club_p1_m3",
+    "gl_name": "Brute-Brainer Mk V Latrine Shovel",
+    "pattern": "Brute-Brainer",
+    "mark": "Mk V",
+    "family": "Latrine Shovel"
+  },
+  {
+    "template_id": "ogryn_club_p2_m1",
+    "gl_name": "\"Brunt Special\" Mk I Bully Club",
+    "pattern": "\"Brunt Special\"",
+    "mark": "Mk I",
+    "family": "Bully Club"
+  },
+  {
+    "template_id": "ogryn_club_p2_m2",
+    "gl_name": "\"Brunt's Pride\" Mk II Bully Club",
+    "pattern": "\"Brunt's Pride\"",
+    "mark": "Mk II",
+    "family": "Bully Club"
+  },
+  {
+    "template_id": "ogryn_club_p2_m3",
+    "gl_name": "\"Brunt's Basher\" Mk IIIb Bully Club",
+    "pattern": "\"Brunt's Basher\"",
+    "mark": "Mk IIIb",
+    "family": "Bully Club"
+  },
+  {
+    "template_id": "ogryn_combatblade_p1_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "ogryn_combatblade_p1_m2",
+    "gl_name": "Bull Butcher Mk III Cleaver",
+    "pattern": "Bull Butcher",
+    "mark": "Mk III",
+    "family": "Cleaver"
+  },
+  {
+    "template_id": "ogryn_combatblade_p1_m3",
+    "gl_name": "Krourk Mk IV Cleaver",
+    "pattern": "Krourk",
+    "mark": "Mk IV",
+    "family": "Cleaver"
+  },
+  {
+    "template_id": "ogryn_gauntlet_p1_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "ogryn_heavystubber_p1_m1",
+    "gl_name": "Krourk Mk V Twin-Linked Heavy Stubber",
+    "pattern": "Krourk",
+    "mark": "Mk V",
+    "family": "Twin-Linked Heavy Stubber"
+  },
+  {
+    "template_id": "ogryn_heavystubber_p1_m2",
+    "gl_name": "Gorgonum Mk IV Twin-Linked Heavy Stubber",
+    "pattern": "Gorgonum",
+    "mark": "Mk IV",
+    "family": "Twin-Linked Heavy Stubber"
+  },
+  {
+    "template_id": "ogryn_heavystubber_p1_m3",
+    "gl_name": "Achlys Mk VII Twin-Linked Heavy Stubber",
+    "pattern": "Achlys",
+    "mark": "Mk VII",
+    "family": "Twin-Linked Heavy Stubber"
+  },
+  {
+    "template_id": "ogryn_heavystubber_p2_m1",
+    "gl_name": "Krourk Mk IIa Heavy Stubber",
+    "pattern": "Krourk",
+    "mark": "Mk IIa",
+    "family": "Heavy Stubber"
+  },
+  {
+    "template_id": "ogryn_heavystubber_p2_m2",
+    "gl_name": "Gorgonum Mk IIIa Heavy Stubber",
+    "pattern": "Gorgonum",
+    "mark": "Mk IIIa",
+    "family": "Heavy Stubber"
+  },
+  {
+    "template_id": "ogryn_heavystubber_p2_m3",
+    "gl_name": "Achlys Mk II Heavy Stubber",
+    "pattern": "Achlys",
+    "mark": "Mk II",
+    "family": "Heavy Stubber"
+  },
+  {
+    "template_id": "ogryn_pickaxe_2h_p1_m1",
+    "gl_name": "Branx Mk Ia Delver's Pickaxe",
+    "pattern": "Branx",
+    "mark": "Mk Ia",
+    "family": "Delver's Pickaxe"
+  },
+  {
+    "template_id": "ogryn_pickaxe_2h_p1_m2",
+    "gl_name": "Borovian Mk III Delver's Pickaxe",
+    "pattern": "Borovian",
+    "mark": "Mk III",
+    "family": "Delver's Pickaxe"
+  },
+  {
+    "template_id": "ogryn_pickaxe_2h_p1_m3",
+    "gl_name": "Karsolas Mk II Delver's Pickaxe",
+    "pattern": "Karsolas",
+    "mark": "Mk II",
+    "family": "Delver's Pickaxe"
+  },
+  {
+    "template_id": "ogryn_powermaul_p1_m1",
+    "gl_name": "Achlys Mk I Power Maul",
+    "pattern": "Achlys",
+    "mark": "Mk I",
+    "family": "Power Maul"
+  },
+  {
+    "template_id": "ogryn_powermaul_slabshield_p1_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "ogryn_rippergun_p1_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "ogryn_rippergun_p1_m2",
+    "gl_name": "Foe-Rend Mk V Ripper Gun",
+    "pattern": "Foe-Rend",
+    "mark": "Mk V",
+    "family": "Ripper Gun"
+  },
+  {
+    "template_id": "ogryn_rippergun_p1_m3",
+    "gl_name": "Foe-Rend Mk VI Ripper Gun",
+    "pattern": "Foe-Rend",
+    "mark": "Mk VI",
+    "family": "Ripper Gun"
+  },
+  {
+    "template_id": "ogryn_thumper_p1_m1",
+    "gl_name": "Lorenz Mk V Kickback",
+    "pattern": "Lorenz",
+    "mark": "Mk V",
+    "family": "Kickback"
+  },
+  {
+    "template_id": "ogryn_thumper_p1_m2",
+    "gl_name": "Lorenz Mk VI Rumbler",
+    "pattern": "Lorenz",
+    "mark": "Mk VI",
+    "family": "Rumbler"
+  },
+  {
+    "template_id": "plasmagun_p1_m1",
+    "gl_name": "M35 Magnacore Mk II Plasma Gun",
+    "pattern": "M35 Magnacore",
+    "mark": "Mk II",
+    "family": "Plasma Gun"
+  },
+  {
+    "template_id": "powermaul_2h_p1_m1",
+    "gl_name": "Indignatus Mk IVe Crusher",
+    "pattern": "Indignatus",
+    "mark": "Mk IVe",
+    "family": "Crusher"
+  },
+  {
+    "template_id": "powermaul_p1_m1",
+    "gl_name": "Agni Mk Ia Shock Maul",
+    "pattern": "Agni",
+    "mark": "Mk Ia",
+    "family": "Shock Maul"
+  },
+  {
+    "template_id": "powermaul_p1_m2",
+    "gl_name": "Munitorum Mk III Shock Maul",
+    "pattern": "Munitorum",
+    "mark": "Mk III",
+    "family": "Shock Maul"
+  },
+  {
+    "template_id": "powermaul_p2_m1",
+    "gl_name": "Branx Mk III Arbites Shock Maul",
+    "pattern": "Branx",
+    "mark": "Mk III",
+    "family": "Arbites Shock Maul"
+  },
+  {
+    "template_id": "powermaul_shield_p1_m1",
+    "gl_name": "Branx Mk VI Shock Maul and Suppression Shield",
+    "pattern": "Branx",
+    "mark": "Mk VI",
+    "family": "Shock Maul and Suppression Shield"
+  },
+  {
+    "template_id": "powermaul_shield_p1_m2",
+    "gl_name": "Branx Mk XI Shock Maul and Suppression Shield",
+    "pattern": "Branx",
+    "mark": "Mk XI",
+    "family": "Shock Maul and Suppression Shield"
+  },
+  {
+    "template_id": "powersword_2h_p1_m1",
+    "gl_name": "Munitorum Mk X Relic Blade",
+    "pattern": "Munitorum",
+    "mark": "Mk X",
+    "family": "Relic Blade"
+  },
+  {
+    "template_id": "powersword_2h_p1_m2",
+    "gl_name": "Munitorum Mk II Relic Blade",
+    "pattern": "Munitorum",
+    "mark": "Mk II",
+    "family": "Relic Blade"
+  },
+  {
+    "template_id": "powersword_p1_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "powersword_p1_m2",
+    "gl_name": "Achlys Mk VI Power Sword",
+    "pattern": "Achlys",
+    "mark": "Mk VI",
+    "family": "Power Sword"
+  },
+  {
+    "template_id": "powersword_p2_m1",
+    "gl_name": "Aridin Mk I Power Falchion",
+    "pattern": "Aridin",
+    "mark": "Mk I",
+    "family": "Power Falchion"
+  },
+  {
+    "template_id": "powersword_p2_m2",
+    "gl_name": "Lawbringer Mk IIb Power Falchion",
+    "pattern": "Lawbringer",
+    "mark": "Mk IIb",
+    "family": "Power Falchion"
+  },
+  {
+    "template_id": "saw_p1_m1",
+    "gl_name": "Chirurgeon's Mk IV Bone Saw",
+    "pattern": "Chirurgeon's",
+    "mark": "Mk IV",
+    "family": "Bone Saw"
+  },
+  {
+    "template_id": "shotgun_p1_m1",
+    "gl_name": "Zarona Mk VI Combat Shotgun",
+    "pattern": "Zarona",
+    "mark": "Mk VI",
+    "family": "Combat Shotgun"
+  },
+  {
+    "template_id": "shotgun_p1_m2",
+    "gl_name": "Agripinaa Mk VII Combat Shotgun",
+    "pattern": "Agripinaa",
+    "mark": "Mk VII",
+    "family": "Combat Shotgun"
+  },
+  {
+    "template_id": "shotgun_p1_m3",
+    "gl_name": "Accatran Mk IX Combat Shotgun",
+    "pattern": "Accatran",
+    "mark": "Mk IX",
+    "family": "Combat Shotgun"
+  },
+  {
+    "template_id": "shotgun_p2_m1",
+    "gl_name": "Crucis Mk XI Double-Barrelled Shotgun",
+    "pattern": "Crucis",
+    "mark": "Mk XI",
+    "family": "Double-Barrelled Shotgun"
+  },
+  {
+    "template_id": "shotgun_p4_m1",
+    "gl_name": "Exaction Mk III Exterminator Shotgun",
+    "pattern": "Exaction",
+    "mark": "Mk III",
+    "family": "Exterminator Shotgun"
+  },
+  {
+    "template_id": "shotgun_p4_m2",
+    "gl_name": "Exaction Mk VIII Exterminator Shotgun",
+    "pattern": "Exaction",
+    "mark": "Mk VIII",
+    "family": "Exterminator Shotgun"
+  },
+  {
+    "template_id": "shotpistol_shield_p1_m1",
+    "gl_name": "Judgement Mk IV Subductor Shotpistol and Riot Shield",
+    "pattern": "Judgement",
+    "mark": "Mk IV",
+    "family": "Subductor Shotpistol and Riot Shield"
+  },
+  {
+    "template_id": "stubrevolver_p1_m1",
+    "gl_name": "Zarona Mk IIa Quickdraw Stub Revolver",
+    "pattern": "Zarona",
+    "mark": "Mk IIa",
+    "family": "Quickdraw Stub Revolver"
+  },
+  {
+    "template_id": "stubrevolver_p1_m2",
+    "gl_name": "Agripinaa Mk XIV Quickdraw Stub Revolver",
+    "pattern": "Agripinaa",
+    "mark": "Mk XIV",
+    "family": "Quickdraw Stub Revolver"
+  },
+  {
+    "template_id": "thunderhammer_2h_p1_m1",
+    "gl_name": "<unlocalized \"\": string not found> <unlocalized \"\": string not found> <unlocalized \"\": string not found>",
+    "pattern": "<unlocalized \"\": string not found>",
+    "mark": "<unlocalized \"\": string not found>",
+    "family": "<unlocalized \"\": string not found>"
+  },
+  {
+    "template_id": "thunderhammer_2h_p1_m2",
+    "gl_name": "Ironhelm Mk IV Thunder Hammer",
+    "pattern": "Ironhelm",
+    "mark": "Mk IV",
+    "family": "Thunder Hammer"
+  }
+]
