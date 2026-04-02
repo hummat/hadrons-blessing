@@ -324,6 +324,8 @@ Key paths for entity work:
 
 ## Completed Issues
 
+- `#16` Weapon mark mapping correction (43 corrections via in-game MasterItems dump; DMF mod in `tools/darktide-mods/weapon_dump/`; 16 weapons with broken game localization keep existing names)
+
 - `#1` TypeScript migration (strict types for all 97 source/test files, compiled `tsc` output, library entry point)
 
 - `#4` BetterBots integration contract
