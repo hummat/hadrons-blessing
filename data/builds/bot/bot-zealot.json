@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "title": "Bot Zealot - Chorus + Martyrdom + Relic Blade + Flamer",
+  "class": {
+    "raw_label": "zealot",
+    "canonical_entity_id": "shared.class.zealot",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "curated",
+    "source_url": "https://github.com/hummat/BetterBots",
+    "author": "BetterBots",
+    "scraped_at": "2026-04-07T12:00:00.000Z"
+  },
+  "ability": {
+    "raw_label": "Chorus of Spiritual Fortitude",
+    "canonical_entity_id": "zealot.ability.zealot_bolstering_prayer",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Blades of Faith",
+    "canonical_entity_id": "zealot.ability.zealot_throwing_knives",
+    "resolution_status": "resolved"
+  },
+  "aura": {
+    "raw_label": "Benediction",
+    "canonical_entity_id": "zealot.aura.zealot_toughness_damage_reduction_coherency_improved",
+    "resolution_status": "resolved"
+  },
+  "keystone": {
+    "raw_label": "Martyrdom",
+    "canonical_entity_id": "zealot.keystone.zealot_martyrdom",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Enemies of the Imperium",
+      "canonical_entity_id": "zealot.talent.zealot_multi_hits_increase_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "The Emperor's Smite",
+      "canonical_entity_id": "zealot.talent.zealot_more_toughness_on_melee",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Purge the Unclean",
+      "canonical_entity_id": "zealot.talent.zealot_increased_damage_vs_resilient",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Until Death",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Holy Revenant",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death_healing",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Sustained Assault",
+      "canonical_entity_id": "zealot.talent.zealot_hits_grant_stacking_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Faithful Frenzy",
+      "canonical_entity_id": "zealot.talent.zealot_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Against the Odds",
+      "canonical_entity_id": "zealot.talent.zealot_offensive_vs_many",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Providence",
+      "canonical_entity_id": "zealot.talent.zealot_revive_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ecclesiarchs Call",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_channel_grants_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Invocation of Death",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_crits_grant_cd",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Scourge",
+      "canonical_entity_id": "zealot.talent.zealot_crits_apply_bleed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Enduring Faith",
+      "canonical_entity_id": "zealot.talent.zealot_crits_reduce_toughness_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Bleed for the Emperor",
+      "canonical_entity_id": "zealot.talent.zealot_reduced_damage_on_wound",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Blinded by Blood",
+      "canonical_entity_id": "zealot.talent.zealot_bled_enemies_take_more_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Prime Target",
+      "canonical_entity_id": "zealot.talent.zealot_elite_kills_empowers",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Faith's Fortitude",
+      "canonical_entity_id": "zealot.talent.zealot_additional_wounds",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Martydom's Toughness",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Martydom's Attack Speed",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Martydom's Toughness Modifier",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_toughness_modifier",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Abolish Blasphemers",
+      "canonical_entity_id": "zealot.talent.zealot_damage_vs_elites",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Undying Fervor",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_corruption_resistance_stacking",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 1",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 2",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction",
+      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "resolution_status": "resolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "Munitorum Mk X Relic Blade",
+        "canonical_entity_id": "shared.weapon.powersword_2h_p1_m2",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "4-10% Melee Damage (Elites)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_damage_elites",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Heatsink",
+          "canonical_entity_id": "shared.name_family.blessing.heatsink",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Cranial Grounding",
+          "canonical_entity_id": "shared.name_family.blessing.cranial_grounding",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Artemia Mk III Purgation Flamer",
+        "canonical_entity_id": "shared.weapon.flamer_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Blaze Away",
+          "canonical_entity_id": "shared.name_family.blessing.blaze_away",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Penetrating Flame",
+          "canonical_entity_id": "shared.name_family.blessing.penetrating_flame",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ],
+  "curios": []
+}

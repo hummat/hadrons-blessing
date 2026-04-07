@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "title": "Bot Psyker - Venting Shriek + Warp Siphon + Voidblast Staff",
+  "class": {
+    "raw_label": "psyker",
+    "canonical_entity_id": "shared.class.psyker",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "curated",
+    "source_url": "https://github.com/hummat/BetterBots",
+    "author": "BetterBots",
+    "scraped_at": "2026-04-07T12:00:00.000Z"
+  },
+  "ability": {
+    "raw_label": "Venting Shriek",
+    "canonical_entity_id": "psyker.ability.psyker_shout_vent_warp_charge",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Brain Burst",
+    "canonical_entity_id": "psyker.ability.psyker_brain_burst_improved",
+    "resolution_status": "resolved"
+  },
+  "aura": {
+    "raw_label": "Seer's Presence",
+    "canonical_entity_id": "psyker.aura.psyker_cooldown_aura_improved",
+    "resolution_status": "resolved"
+  },
+  "keystone": {
+    "raw_label": "Warp Siphon",
+    "canonical_entity_id": "psyker.keystone.psyker_passive_souls_from_elite_kills",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Inner Tranquility",
+      "canonical_entity_id": "psyker.talent.psyker_toughness_on_vent",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Soulstealer",
+      "canonical_entity_id": "psyker.talent.psyker_toughness_on_warp_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Perilous Combustion",
+      "canonical_entity_id": "psyker.talent.psyker_elite_kills_add_warpfire",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Mettle",
+      "canonical_entity_id": "psyker.talent.psyker_crits_regen_toughness_movement_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Perfect Timing",
+      "canonical_entity_id": "psyker.talent.psyker_crits_empower_next_attack",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Kinetic Flayer",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_smite_on_hit",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Souldrinker",
+      "canonical_entity_id": "psyker.talent.psyker_killing_enemy_with_warpfire_boosts",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Wildfire",
+      "canonical_entity_id": "psyker.talent.psyker_spread_warpfire_on_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Psykinetic's Aura",
+      "canonical_entity_id": "psyker.talent.psyker_2_tier_3_name_2",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "One With the Warp",
+      "canonical_entity_id": "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Quietude",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_shout_reduces_warp_charge_generation",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Purge Warpfire",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_warpfire_on_shout",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Rider",
+      "canonical_entity_id": "psyker.talent.psyker_damage_based_on_warp_charge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Solidity",
+      "canonical_entity_id": "psyker.talent.psyker_increased_vent_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Unleashed",
+      "canonical_entity_id": "psyker.talent.psyker_warp_glass_cannon",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Penetration of the Soul",
+      "canonical_entity_id": "psyker.talent.psyker_warp_attacks_rending",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Vulnerable Minds",
+      "canonical_entity_id": "psyker.talent.psyker_damage_vs_ogryns_and_monsters",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Essence Harvest",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_toughness_on_soul",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Battery",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_increased_max_souls",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 1",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 2",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 1",
+      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 2",
+      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ranged Damage Boost",
+      "canonical_entity_id": "shared.stat_node.ranged_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Stamina Boost",
+      "canonical_entity_id": "shared.stat_node.stamina_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Critical Chance Boost",
+      "canonical_entity_id": "shared.stat_node.critical_chance_boost",
+      "resolution_status": "resolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "Covenant Mk VI Blaze Force Greatsword",
+        "canonical_entity_id": "shared.weapon.forcesword_2h_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Wrath",
+          "canonical_entity_id": "shared.name_family.blessing.wrath",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Rampage",
+          "canonical_entity_id": "shared.name_family.blessing.rampage",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Equinox Mk III Voidblast Force Staff",
+        "canonical_entity_id": "shared.weapon.forcestaff_p4_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Warp Flurry",
+          "canonical_entity_id": "shared.name_family.blessing.warp_flurry",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Warp Nexus",
+          "canonical_entity_id": "shared.name_family.blessing.warp_nexus",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ],
+  "curios": []
+}

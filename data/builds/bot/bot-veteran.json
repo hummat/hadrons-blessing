@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "title": "Bot Veteran - Voice of Command + Focus Target + Plasma",
+  "class": {
+    "raw_label": "veteran",
+    "canonical_entity_id": "shared.class.veteran",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "curated",
+    "source_url": "https://github.com/hummat/BetterBots",
+    "author": "BetterBots",
+    "scraped_at": "2026-04-07T12:00:00.000Z"
+  },
+  "ability": {
+    "raw_label": "Voice of Command",
+    "canonical_entity_id": "veteran.ability.veteran_combat_ability_stagger_nearby_enemies",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Frag Grenade",
+    "canonical_entity_id": "veteran.ability.veteran_grenade_apply_bleed",
+    "resolution_status": "resolved"
+  },
+  "aura": {
+    "raw_label": "Survivalist",
+    "canonical_entity_id": "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
+    "resolution_status": "resolved"
+  },
+  "keystone": {
+    "raw_label": "Focus Target",
+    "canonical_entity_id": "veteran.keystone.veteran_improved_tag",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Out for Blood",
+      "canonical_entity_id": "veteran.talent.veteran_all_kills_replenish_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Confirmed Kill",
+      "canonical_entity_id": "veteran.talent.veteran_elite_kills_replenish_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "One Motion",
+      "canonical_entity_id": "veteran.talent.veteran_reduce_swap_time",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Covering Fire",
+      "canonical_entity_id": "veteran.talent.veteran_replenish_toughness_and_boost_allies",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Close Order Drill",
+      "canonical_entity_id": "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Iron Will",
+      "canonical_entity_id": "veteran.talent.veteran_tdr_on_high_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Trench Fighter Drill",
+      "canonical_entity_id": "veteran.talent.veteran_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Superiority Complex",
+      "canonical_entity_id": "veteran.talent.veteran_increase_damage_vs_elites",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Field Improvisation",
+      "canonical_entity_id": "veteran.talent.veteran_better_deployables",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Bloody Mess",
+      "canonical_entity_id": "veteran.talent.veteran_hits_cause_bleed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ranged Fusilade",
+      "canonical_entity_id": null,
+      "resolution_status": "non_canonical"
+    },
+    {
+      "raw_label": "Flanking",
+      "canonical_entity_id": "veteran.talent.veteran_increased_damage_when_flanking",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Catch a Breath",
+      "canonical_entity_id": "veteran.talent.veteran_replenish_toughness_outside_melee",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Demolition Stockpile",
+      "canonical_entity_id": "veteran.talent.veteran_replenish_grenades",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Grenade Tinkerer",
+      "canonical_entity_id": "veteran.talent.veteran_improved_grenades",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Duty and Honour",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_combat_ability_increase_and_restore_toughness_to_coherency",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Brothers in Arms",
+      "canonical_entity_id": "veteran.talent.veteran_allies_in_coherency_share_toughness_gain",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Tactical Awareness",
+      "canonical_entity_id": "veteran.talent.veteran_elite_kills_reduce_cooldown",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Rending Strikes",
+      "canonical_entity_id": "veteran.talent.veteran_rending_bonus",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Bring It Down",
+      "canonical_entity_id": "veteran.talent.veteran_big_game_hunter",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Redirect Fire",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_improved_tag_dead_coherency_bonus",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 1",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 2",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 3",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Stamina Boost",
+      "canonical_entity_id": "shared.stat_node.stamina_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ranged Damage Boost",
+      "canonical_entity_id": "shared.stat_node.ranged_damage_boost",
+      "resolution_status": "resolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "Catachan Mk VII Devil's Claw Sword",
+        "canonical_entity_id": "shared.weapon.combatsword_p2_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Rampage",
+          "canonical_entity_id": "shared.name_family.blessing.rampage",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Skullcrusher",
+          "canonical_entity_id": "shared.name_family.blessing.skullcrusher",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "M35 Magnacore Mk II Plasma Gun",
+        "canonical_entity_id": "shared.weapon.plasmagun_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Rising Heat",
+          "canonical_entity_id": "shared.name_family.blessing.rising_heat",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Gets Hot!",
+          "canonical_entity_id": "shared.name_family.blessing.gets_hot",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ],
+  "curios": []
+}
