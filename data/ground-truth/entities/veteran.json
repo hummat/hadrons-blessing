@@ -3012,5 +3012,49 @@
         "veteran_tdr_on_high_toughness"
       ]
     }
+  },
+  {
+    "id": "veteran.talent.veteran_increased_ranged_cleave",
+    "kind": "talent",
+    "domain": "veteran",
+    "internal_name": "veteran_increased_ranged_cleave",
+    "loc_key": "loc_talent_veteran_increased_ranged_cleave_desc",
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/veteran_tree.lua",
+        "line": 683
+      },
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/veteran_talents.lua",
+        "line": 3077
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "tree_type": "default",
+      "group_name": null,
+      "tree_widget_name": "node_92ce0aa9-e7c8-4620-9ad3-de2cedbf9431",
+      "exclusive_group": null
+    },
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_max_hit_mass_attack_modifier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_increased_ranged_cleave"
+      ]
+    }
   }
 ]
