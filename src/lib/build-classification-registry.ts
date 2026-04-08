@@ -279,7 +279,7 @@ function registryForClass(
     return classificationRegistry.arbites ?? classificationRegistry.adamant ?? {};
   }
 
-  if (normalized === "hive scum" || normalized === "hive") {
+  if (normalized === "hive scum" || normalized === "hive" || normalized === "hive_scum") {
     return classificationRegistry.broker ?? classificationRegistry["hive scum"] ?? {};
   }
 

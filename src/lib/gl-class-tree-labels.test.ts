@@ -137,6 +137,35 @@ describe("buildGlClassTreeLabelEntry", () => {
     assert.equal(entry?.kind, "talent");
     assert.equal(entry?.entity_id, "arbites.keystone.adamant_companion_focus_ranged");
   });
+
+  it("returns null when node has no name", () => {
+    const entry = buildGlClassTreeLabelEntry(
+      "veteran",
+      {
+        slug: "some-slug",
+        icon: "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_some_talent.webp",
+        frame: "/images/sites/darktide/talents/frames/circular_small_frame.webp",
+      },
+      "https://darktide.gameslantern.com/builds/example",
+    );
+
+    assert.equal(entry, null);
+  });
+
+  it("returns null when both icon and frame are frame assets", () => {
+    const entry = buildGlClassTreeLabelEntry(
+      "veteran",
+      {
+        slug: "stat-node",
+        name: "Some Stat",
+        icon: "/images/sites/darktide/talents/frames/circular_small_frame.webp",
+        frame: "/images/sites/darktide/talents/frames/hex_frame.webp",
+      },
+      "https://darktide.gameslantern.com/builds/example",
+    );
+
+    assert.equal(entry, null);
+  });
 });
 
 describe("dedupeGlClassTreeLabelEntries", () => {
@@ -167,5 +196,24 @@ describe("dedupeGlClassTreeLabelEntries", () => {
     ]);
 
     assert.equal(deduped.length, 2);
+  });
+
+  it("collapses exact duplicates from different source URLs", () => {
+    const entry = {
+      class: "veteran",
+      kind: "talent" as const,
+      internal_name: "veteran_some_talent",
+      entity_id: "veteran.talent.veteran_some_talent",
+      display_name: "Some Talent",
+      normalized_text: "some talent",
+      source_url: "https://darktide.gameslantern.com/builds/a",
+      asset_url: "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/default/veteran_some_talent.webp",
+      slug: "some-talent",
+    };
+    const duplicate = { ...entry, source_url: "https://darktide.gameslantern.com/builds/b" };
+
+    const deduped = dedupeGlClassTreeLabelEntries([entry, duplicate]);
+
+    assert.equal(deduped.length, 1);
   });
 });

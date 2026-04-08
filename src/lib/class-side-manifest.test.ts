@@ -42,6 +42,76 @@ describe("class-side manifest classification", () => {
     assert.equal(classified.slot, "talents");
     assert.equal(classified.kind, "keystone");
   });
+
+  it("routes ability nodes to ability slot", () => {
+    const classified = classifyClassSideNode("psyker", {
+      talent: "some_ability",
+      type: "ability",
+    });
+
+    assert.equal(classified.slot, "ability");
+    assert.equal(classified.kind, "ability");
+  });
+
+  it("routes aura nodes to aura slot", () => {
+    const classified = classifyClassSideNode("psyker", {
+      talent: "some_aura",
+      type: "aura",
+    });
+
+    assert.equal(classified.slot, "aura");
+    assert.equal(classified.kind, "aura");
+  });
+
+  it("routes keystone nodes to keystone slot", () => {
+    const classified = classifyClassSideNode("psyker", {
+      talent: "some_keystone",
+      type: "keystone",
+    });
+
+    assert.equal(classified.slot, "keystone");
+    assert.equal(classified.kind, "keystone");
+  });
+
+  it("routes ability_modifier nodes to talents slot as talent_modifier", () => {
+    const classified = classifyClassSideNode("psyker", {
+      talent: "some_mod",
+      type: "ability_modifier",
+    });
+
+    assert.equal(classified.slot, "talents");
+    assert.equal(classified.kind, "talent_modifier");
+  });
+
+  it("routes tactical_modifier nodes to talents slot as talent_modifier", () => {
+    const classified = classifyClassSideNode("psyker", {
+      talent: "some_tac_mod",
+      type: "tactical_modifier",
+    });
+
+    assert.equal(classified.slot, "talents");
+    assert.equal(classified.kind, "talent_modifier");
+  });
+
+  it("routes keystone_modifier nodes to talents slot as talent_modifier", () => {
+    const classified = classifyClassSideNode("psyker", {
+      talent: "some_ks_mod",
+      type: "keystone_modifier",
+    });
+
+    assert.equal(classified.slot, "talents");
+    assert.equal(classified.kind, "talent_modifier");
+  });
+
+  it("routes unknown types to talents slot as talent (default)", () => {
+    const classified = classifyClassSideNode("psyker", {
+      talent: "some_talent",
+      type: "default",
+    });
+
+    assert.equal(classified.slot, "talents");
+    assert.equal(classified.kind, "talent");
+  });
 });
 
 describe("buildClassSideManifest", () => {

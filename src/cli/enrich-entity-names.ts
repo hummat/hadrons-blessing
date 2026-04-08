@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { runCliMain } from "../lib/cli.js";
 import { buildClassSideAliasRecord } from "../lib/gl-class-tree-labels.js";
 import { normalizeText } from "../lib/normalize.js";
 
@@ -10,7 +11,7 @@ type AnyRecord = Record<string, any>;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // --- Hardcoded lookup tables ---
-// Derived from scripts/build-scoring-data.json.
+// Derived from data/build-scoring-data.json.
 // Keys: entity internal_name. Values: display name from scoring data.
 
 const MELEE_PERK_NAMES = new Map([
@@ -363,7 +364,7 @@ function main() {
 
 const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
-  main();
+  await runCliMain("entities:enrich", async () => { main(); });
 }
 
 export {
