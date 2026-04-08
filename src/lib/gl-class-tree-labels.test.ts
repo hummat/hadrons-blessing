@@ -3,6 +3,7 @@ import { strict as assert } from "node:assert";
 import {
   buildGlClassTreeLabelEntry,
   buildClassSideAliasRecord,
+  dedupeGlClassTreeLabelEntries,
   entityKindFromAssetUrl,
   internalNameFromScrapedNode,
 } from "./gl-class-tree-labels.js";
@@ -87,5 +88,52 @@ describe("buildGlClassTreeLabelEntry", () => {
 
     assert.equal(entry?.kind, "blitz");
     assert.equal(entry?.entity_id, "veteran.ability.veteran_grenade_apply_bleed");
+  });
+
+  it("respects registry overrides for Arbites companion-focus nodes", () => {
+    const entry = buildGlClassTreeLabelEntry(
+      "arbites",
+      {
+        slug: "go-get-em",
+        name: "Go Get Em",
+        icon: "https://gameslantern.com/storage/sites/darktide/exporter/talents/adamant/keystone/adamant_companion_focus_ranged.webp",
+        frame: "/images/sites/darktide/talents/frames/hex_frame.webp",
+      },
+      "https://darktide.gameslantern.com/builds/example",
+    );
+
+    assert.equal(entry?.kind, "talent");
+    assert.equal(entry?.entity_id, "arbites.keystone.adamant_companion_focus_ranged");
+  });
+});
+
+describe("dedupeGlClassTreeLabelEntries", () => {
+  it("keeps distinct GamesLantern labels when only punctuation differs", () => {
+    const deduped = dedupeGlClassTreeLabelEntries([
+      {
+        class: "veteran",
+        kind: "keystone",
+        internal_name: "veteran_improved_tag",
+        entity_id: "veteran.keystone.veteran_improved_tag",
+        display_name: "Focus Target!",
+        normalized_text: "focus target",
+        source_url: "https://darktide.gameslantern.com/builds/a",
+        asset_url: "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/keystone/veteran_improved_tag.webp",
+        slug: "focus-target",
+      },
+      {
+        class: "veteran",
+        kind: "keystone",
+        internal_name: "veteran_improved_tag",
+        entity_id: "veteran.keystone.veteran_improved_tag",
+        display_name: "Focus Target",
+        normalized_text: "focus target",
+        source_url: "https://darktide.gameslantern.com/builds/b",
+        asset_url: "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/keystone/veteran_improved_tag.webp",
+        slug: "focus-target",
+      },
+    ]);
+
+    assert.equal(deduped.length, 2);
   });
 });

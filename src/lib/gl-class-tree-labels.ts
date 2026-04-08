@@ -1,6 +1,6 @@
 import { basename } from "node:path";
 import { normalizeText } from "./normalize.js";
-import { normalizeClassName } from "./build-classification-registry.js";
+import { classifySlugRole, normalizeClassName } from "./build-classification-registry.js";
 
 export interface ScrapedTalentNode {
   slug?: string;
@@ -81,6 +81,12 @@ function resolverKindFromAssetUrl(url: string | undefined): "ability" | "blitz" 
   return null;
 }
 
+function resolverKindFromSlot(
+  slot: "ability" | "blitz" | "aura" | "keystone" | "talents",
+): "ability" | "blitz" | "aura" | "keystone" | "talent" {
+  return slot === "talents" ? "talent" : slot;
+}
+
 export function internalNameFromScrapedNode(node: ScrapedTalentNode): string | null {
   const candidate = node.icon && !isFrameAsset(node.icon) ? node.icon : node.frame;
   if (!candidate || isFrameAsset(candidate)) {
@@ -121,6 +127,22 @@ export function normalizedClassDomain(className: string): string {
   return normalizeClassName(className).replace(/\s+/g, "_");
 }
 
+export function dedupeGlClassTreeLabelEntries(entries: GlClassTreeLabelEntry[]) {
+  const deduped = new Map<string, GlClassTreeLabelEntry>();
+
+  for (const entry of entries) {
+    const key = `${entry.class}|${entry.kind}|${entry.entity_id}|${entry.display_name}`;
+    deduped.set(key, entry);
+  }
+
+  return [...deduped.values()].sort((a, b) =>
+    a.class.localeCompare(b.class)
+    || a.kind.localeCompare(b.kind)
+    || a.display_name.localeCompare(b.display_name)
+    || a.entity_id.localeCompare(b.entity_id),
+  );
+}
+
 export function buildGlClassTreeLabelEntry(
   className: string,
   node: ScrapedTalentNode,
@@ -128,7 +150,8 @@ export function buildGlClassTreeLabelEntry(
 ): GlClassTreeLabelEntry | null {
   const assetUrl = node.icon && !isFrameAsset(node.icon) ? node.icon : node.frame;
   const entityKind = entityKindFromAssetUrl(assetUrl);
-  const kind = resolverKindFromAssetUrl(assetUrl);
+  const registryRole = node.slug ? classifySlugRole(className, node.slug) : null;
+  const kind = registryRole ? resolverKindFromSlot(registryRole.slot) : resolverKindFromAssetUrl(assetUrl);
   const internalName = internalNameFromScrapedNode(node);
 
   if (!kind || !entityKind || !internalName || !node.name) {

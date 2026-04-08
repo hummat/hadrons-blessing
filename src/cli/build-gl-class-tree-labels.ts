@@ -2,7 +2,11 @@ import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { extractBuild, postProcessTalentNodes } from "./extract-build.js";
 import { runCliMain } from "../lib/cli.js";
-import { buildGlClassTreeLabelEntry, type GlClassTreeLabelEntry } from "../lib/gl-class-tree-labels.js";
+import {
+  buildGlClassTreeLabelEntry,
+  dedupeGlClassTreeLabelEntries,
+  type GlClassTreeLabelEntry,
+} from "../lib/gl-class-tree-labels.js";
 
 interface CanonicalBuildFixture {
   class?: {
@@ -35,22 +39,6 @@ function pickSeedUrls(): Map<string, string> {
   return seedUrls;
 }
 
-function dedupeEntries(entries: GlClassTreeLabelEntry[]) {
-  const deduped = new Map<string, GlClassTreeLabelEntry>();
-
-  for (const entry of entries) {
-    const key = `${entry.entity_id}|${entry.normalized_text}`;
-    deduped.set(key, entry);
-  }
-
-  return [...deduped.values()].sort((a, b) =>
-    a.class.localeCompare(b.class)
-    || a.kind.localeCompare(b.kind)
-    || a.display_name.localeCompare(b.display_name)
-    || a.entity_id.localeCompare(b.entity_id),
-  );
-}
-
 await runCliMain("gl-class-tree:build", async () => {
   const seedUrls = pickSeedUrls();
   const entries: GlClassTreeLabelEntry[] = [];
@@ -71,7 +59,7 @@ await runCliMain("gl-class-tree:build", async () => {
     }
   }
 
-  const deduped = dedupeEntries(entries);
+  const deduped = dedupeGlClassTreeLabelEntries(entries);
   writeFileSync(OUTPUT_FILE, JSON.stringify(deduped, null, 2) + "\n");
   console.log(`Wrote ${deduped.length} GL class-tree label entries to ${OUTPUT_FILE}`);
 });
