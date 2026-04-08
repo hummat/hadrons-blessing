@@ -651,6 +651,7 @@ describe("resolveQuery", () => {
       ["Longshot", "veteran.talent.veteran_increased_damage_based_on_range"],
       ["Precision Strikes", "veteran.talent.veteran_increased_weakspot_damage"],
       ["Bring It Down", "veteran.talent.veteran_big_game_hunter"],
+      ["Ranged Fusilade", "veteran.talent.veteran_increased_ranged_cleave"],
       ["Redirect Fire", "veteran.talent_modifier.veteran_improved_tag_dead_coherency_bonus"],
     ]) {
       const result = await resolveQuery(query, { kind: "talent", class: "veteran" });

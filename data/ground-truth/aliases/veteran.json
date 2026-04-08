@@ -605,6 +605,30 @@
     "notes": "Live sample talent label backed by veteran_big_game_hunter."
   },
   {
+    "text": "Ranged Fusilade",
+    "normalized_text": "ranged fusilade",
+    "candidate_entity_id": "veteran.talent.veteran_increased_ranged_cleave",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Games Lantern talent label backed by veteran_increased_ranged_cleave."
+  },
+  {
     "text": "Redirect Fire",
     "normalized_text": "redirect fire",
     "candidate_entity_id": "veteran.talent_modifier.veteran_improved_tag_dead_coherency_bonus",

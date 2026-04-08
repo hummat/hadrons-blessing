@@ -43,6 +43,7 @@ const FAMILY_STATS: Record<StatFamily, string[]> = {
     "reload_speed", "recoil_modifier", "spread_modifier", "sway_modifier",
     "ammo_reserve_capacity", "clip_size_modifier",
     "consumed_hit_mass_modifier", "consumed_hit_mass_modifier_on_weakspot_hit",
+    "ranged_max_hit_mass_attack_modifier",
     "overheat_over_time_amount", "overheat_dissipation_multiplier",
     "overheat_immediate_amount_critical_strike", "overheat_amount",
     "overheat_explosion_speed_modifier", "overheat_explosion_damage_modifier",
