@@ -39,6 +39,10 @@ describe("synergy-stat-families", () => {
       assert.ok(getFamilies("movement_speed").has("mobility"));
     });
 
+    it("maps dodge_distance_modifier to mobility", () => {
+      assert.ok(getFamilies("dodge_distance_modifier").has("mobility"));
+    });
+
     it("maps damage to general_offense", () => {
       assert.ok(getFamilies("damage").has("general_offense"));
     });

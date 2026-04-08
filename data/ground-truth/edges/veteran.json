@@ -3750,6 +3750,21 @@
     "evidence_ids": []
   },
   {
+    "id": "veteran.edge.belongs_to_tree_node.veteran_increased_ranged_cleave",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "veteran.talent.veteran_increased_ranged_cleave",
+    "to_entity_id": "veteran.tree_node.node_92ce0aa9-e7c8-4620-9ad3-de2cedbf9431",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "veteran.talent.base_stamina_regen_delay_2--grants_buff--veteran.buff.reduced_stamina_regen_delay_2",
     "type": "grants_buff",
     "from_entity_id": "veteran.talent.base_stamina_regen_delay_2",
@@ -4650,10 +4665,10 @@
     "evidence_ids": []
   },
   {
-    "id": "veteran.edge.belongs_to_tree_node.veteran_increased_ranged_cleave",
-    "type": "belongs_to_tree_node",
+    "id": "veteran.talent.veteran_increased_ranged_cleave--grants_buff--veteran.buff.veteran_increased_ranged_cleave",
+    "type": "grants_buff",
     "from_entity_id": "veteran.talent.veteran_increased_ranged_cleave",
-    "to_entity_id": "veteran.tree_node.node_92ce0aa9-e7c8-4620-9ad3-de2cedbf9431",
+    "to_entity_id": "veteran.buff.veteran_increased_ranged_cleave",
     "source_snapshot_id": "darktide-source.f63d836",
     "conditions": {
       "predicates": [],

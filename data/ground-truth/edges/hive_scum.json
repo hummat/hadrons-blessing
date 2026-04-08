@@ -3900,10 +3900,25 @@
     "evidence_ids": []
   },
   {
-    "id": "hive_scum.talent.broker_passive_improved_dodges--grants_buff--hive_scum.buff.broker_passive_improved_dodges",
+    "id": "hive_scum.talent_modifier.broker_passive_improved_dodges--grants_buff--hive_scum.buff.broker_passive_improved_dodges",
     "type": "grants_buff",
-    "from_entity_id": "hive_scum.talent.broker_passive_improved_dodges",
+    "from_entity_id": "hive_scum.talent_modifier.broker_passive_improved_dodges",
     "to_entity_id": "hive_scum.buff.broker_passive_improved_dodges",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_passive_longer_dodges--grants_buff--hive_scum.buff.broker_passive_longer_dodges",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent_modifier.broker_passive_longer_dodges",
+    "to_entity_id": "hive_scum.buff.broker_passive_longer_dodges",
     "source_snapshot_id": "darktide-source.f63d836",
     "conditions": {
       "predicates": [],
@@ -4410,6 +4425,51 @@
     "evidence_ids": []
   },
   {
+    "id": "hive_scum.talent.broker_passive_toxin_spread_on_kills--grants_buff--hive_scum.buff.broker_passive_toxin_spread_on_kills",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_toxin_spread_on_kills",
+    "to_entity_id": "hive_scum.buff.broker_passive_toxin_spread_on_kills",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_toxin_infected_enemies_take_increased_damage--grants_buff--hive_scum.buff.broker_passive_toxin_infected_enemies_take_increased_damage",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_toxin_infected_enemies_take_increased_damage",
+    "to_entity_id": "hive_scum.buff.broker_passive_toxin_infected_enemies_take_increased_damage",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_knockback_on_taking_melee_damage--grants_buff--hive_scum.buff.broker_passive_knockback_on_taking_melee_damage",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_knockback_on_taking_melee_damage",
+    "to_entity_id": "hive_scum.buff.broker_passive_knockback_on_taking_melee_damage",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "hive_scum.keystone.broker_keystone_vultures_mark_on_kill--grants_buff--hive_scum.buff.broker_keystone_vultures_mark_on_kill",
     "type": "grants_buff",
     "from_entity_id": "hive_scum.keystone.broker_keystone_vultures_mark_on_kill",
@@ -4474,6 +4534,36 @@
     "type": "grants_buff",
     "from_entity_id": "hive_scum.keystone.broker_keystone_adrenaline_junkie",
     "to_entity_id": "hive_scum.buff.broker_keystone_adrenaline_junkie",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_crit_grants_damage--grants_buff--hive_scum.buff.broker_passive_crit_grants_damage",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_crit_grants_damage",
+    "to_entity_id": "hive_scum.buff.broker_passive_crit_grants_damage",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_replenish_toughness_while_toxined_enemies_in_proximity--grants_buff--hive_scum.buff.broker_passive_replenish_toughness_while_toxined_enemies_in_proximity",
+    "type": "grants_buff",
+    "from_entity_id": "hive_scum.talent.broker_passive_replenish_toughness_while_toxined_enemies_in_proximity",
+    "to_entity_id": "hive_scum.buff.broker_passive_replenish_toughness_while_toxined_enemies_in_proximity",
     "source_snapshot_id": "darktide-source.f63d836",
     "conditions": {
       "predicates": [],

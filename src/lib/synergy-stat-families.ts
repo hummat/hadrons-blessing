@@ -115,7 +115,7 @@ const FAMILY_STATS: Record<StatFamily, string[]> = {
   mobility: [
     "movement_speed", "sprint_movement_speed", "sprinting_cost_multiplier",
     "extra_consecutive_dodges", "dodge_speed_multiplier",
-    "dodge_linger_time_modifier", "dodge_linger_time",
+    "dodge_distance_modifier", "dodge_linger_time_modifier", "dodge_linger_time",
     "dodge_cooldown_reset_modifier", "sprint_dodge_reduce_angle_threshold_rad",
   ],
   warp_resource: [

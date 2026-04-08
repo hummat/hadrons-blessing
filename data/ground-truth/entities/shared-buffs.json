@@ -8458,5 +8458,138 @@
     "source_snapshot_id": "darktide-source.f63d836",
     "attributes": {},
     "calc": {}
+  },
+  {
+    "id": "hive_scum.buff.broker_passive_longer_dodges",
+    "kind": "buff",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_longer_dodges",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {},
+    "calc": {
+      "effects": [
+        {
+          "stat": "dodge_distance_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_longer_dodges.dodge_distance_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
+  },
+  {
+    "id": "hive_scum.buff.broker_passive_toxin_spread_on_kills",
+    "kind": "buff",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_toxin_spread_on_kills",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.buff.broker_passive_toxin_infected_enemies_take_increased_damage",
+    "kind": "buff",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_toxin_infected_enemies_take_increased_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.buff.broker_passive_knockback_on_taking_melee_damage",
+    "kind": "buff",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_knockback_on_taking_melee_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "hive_scum.buff.broker_passive_crit_grants_damage",
+    "kind": "buff",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_crit_grants_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {},
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
+  },
+  {
+    "id": "hive_scum.buff.broker_passive_replenish_toughness_while_toxined_enemies_in_proximity",
+    "kind": "buff",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_replenish_toughness_while_toxined_enemies_in_proximity",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {},
+    "calc": {}
+  },
+  {
+    "id": "veteran.buff.veteran_increased_ranged_cleave",
+    "kind": "buff",
+    "domain": "veteran",
+    "internal_name": "veteran_increased_ranged_cleave",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {},
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_max_hit_mass_attack_modifier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff"
+    }
   }
 ]
