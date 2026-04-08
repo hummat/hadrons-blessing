@@ -424,7 +424,7 @@ describe("buildIndex", () => {
     }
   });
 
-  it("fails when class-side GamesLantern alias coverage is incomplete", async () => {
+  it("fails when class-side GamesLantern alias coverage is incomplete", { skip: !existsSync("data/ground-truth/generated/gl-class-tree-labels.json") }, async () => {
     const manifest = JSON.parse(
       readFileSync("data/ground-truth/generated/gl-class-tree-labels.json", "utf8"),
     );

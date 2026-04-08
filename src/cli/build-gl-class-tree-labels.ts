@@ -41,6 +41,12 @@ function pickSeedUrls(): Map<string, string> {
 
 await runCliMain("gl-class-tree:build", async () => {
   const seedUrls = pickSeedUrls();
+  if (seedUrls.size === 0) {
+    throw new Error(
+      "No GamesLantern-provenance build fixtures found in data/builds/. "
+      + "GL class-tree label generation requires at least one build per class with source_kind: 'gameslantern'.",
+    );
+  }
   const entries: GlClassTreeLabelEntry[] = [];
 
   for (const [className, sourceUrl] of seedUrls) {
@@ -51,11 +57,17 @@ await runCliMain("gl-class-tree:build", async () => {
       ...postProcessTalentNodes(rawBuild.talents.inactive),
     ];
 
+    let skipped = 0;
     for (const node of nodes) {
       const entry = buildGlClassTreeLabelEntry(className, node, sourceUrl);
       if (entry) {
         entries.push(entry);
+      } else if (node.name) {
+        skipped++;
       }
+    }
+    if (skipped > 0) {
+      console.warn(`  Warning: ${skipped} named nodes skipped for ${className} (unrecognized asset URL pattern)`);
     }
   }
 

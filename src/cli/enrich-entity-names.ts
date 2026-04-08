@@ -332,7 +332,10 @@ function main() {
 
     for (const [className, entries] of byClass) {
       const classAliasesPath = resolve(ALIASES_ROOT, `${className}.json`);
-      if (!existsSync(classAliasesPath)) continue;
+      if (!existsSync(classAliasesPath)) {
+        console.warn(`Warning: alias file not found for class "${className}" at ${classAliasesPath}, skipping`);
+        continue;
+      }
       const existingClassAliases = JSON.parse(readFileSync(classAliasesPath, "utf8"));
       const generatedAliases = generateClassSideAliases(entries);
       const result = mergeAliases(existingClassAliases, generatedAliases);

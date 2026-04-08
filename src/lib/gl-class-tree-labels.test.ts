@@ -23,6 +23,38 @@ describe("entityKindFromAssetUrl", () => {
     );
   });
 
+  it("maps ability assets to ability entities", () => {
+    assert.equal(
+      entityKindFromAssetUrl("https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/ability/veteran_ranger_ability.webp"),
+      "ability",
+    );
+  });
+
+  it("maps aura assets to aura entities", () => {
+    assert.equal(
+      entityKindFromAssetUrl("https://gameslantern.com/storage/sites/darktide/exporter/talents/psyker/aura/psyker_aura_reduce_warp.webp"),
+      "aura",
+    );
+  });
+
+  it("maps keystone assets to keystone entities", () => {
+    assert.equal(
+      entityKindFromAssetUrl("https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/keystone/veteran_improved_tag.webp"),
+      "keystone",
+    );
+  });
+
+  it("maps default assets to talent entities", () => {
+    assert.equal(
+      entityKindFromAssetUrl("https://gameslantern.com/storage/sites/darktide/exporter/talents/psyker/default/psyker_warp_charge_on_kill.webp"),
+      "talent",
+    );
+  });
+
+  it("returns null for undefined input", () => {
+    assert.equal(entityKindFromAssetUrl(undefined), null);
+  });
+
   it("returns null for frame-only stat nodes", () => {
     assert.equal(
       entityKindFromAssetUrl("/images/sites/darktide/talents/frames/circular_small_frame.webp"),

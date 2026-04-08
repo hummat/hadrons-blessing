@@ -6,6 +6,8 @@ import {
   expectedEntityIdForNode,
 } from "./class-side-manifest.js";
 
+const sourceRoot = process.env.GROUND_TRUTH_SOURCE_ROOT;
+
 describe("class-side manifest classification", () => {
   it("routes tactical nodes to blitz slot while preserving current ability entity IDs", () => {
     const classified = classifyClassSideNode("veteran", {
@@ -43,8 +45,8 @@ describe("class-side manifest classification", () => {
 });
 
 describe("buildClassSideManifest", () => {
-  it("builds entries for every supported class layout", () => {
-    const manifest = buildClassSideManifest("/run/media/matthias/1274B04B74B032F9/git/Darktide-Source-Code");
+  it("builds entries for every supported class layout", { skip: !sourceRoot }, () => {
+    const manifest = buildClassSideManifest(sourceRoot!);
     const classes = new Set(manifest.map((entry) => entry.class));
 
     assert.deepEqual(

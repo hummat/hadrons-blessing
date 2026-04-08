@@ -420,7 +420,16 @@ export async function expandEntityCoverage() {
   // --- Write-back ---
   for (const [filePath, newEntities] of newClassSideEntitiesByFile) {
     if (newEntities.length === 0) continue;
-    const records = JSON.parse(readFileSync(filePath, "utf8"));
+    let records: AnyRecord[];
+    try {
+      records = JSON.parse(readFileSync(filePath, "utf8"));
+    } catch (err) {
+      if ((err as NodeJS.ErrnoException).code === "ENOENT") {
+        records = [];
+      } else {
+        throw err;
+      }
+    }
     records.push(...newEntities);
     records.sort((a: AnyRecord, b: AnyRecord) => String(a.id).localeCompare(String(b.id)));
     writeFileSync(filePath, JSON.stringify(records, null, 2) + "\n");

@@ -97,6 +97,13 @@ export function buildClassSideManifest(sourceRoot: string): ClassSideManifestEnt
     const layoutRefPath = `${LAYOUTS_DIR}/${layoutFile}`;
     const luaSource = readFileSync(layoutPath, "utf8");
     const nodes = parseLuaTree(luaSource);
+    const selectableCount = nodes.filter(isSelectableNode).length;
+    if (selectableCount === 0) {
+      throw new Error(
+        `Layout "${layoutFile}" for class "${className}" parsed to zero selectable nodes - `
+        + "parser may be incompatible with current Lua format",
+      );
+    }
 
     for (const node of nodes) {
       if (!isSelectableNode(node)) {

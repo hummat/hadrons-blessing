@@ -26,6 +26,8 @@ Local path: `/run/media/matthias/1274B04B74B032F9/git/Darktide-Source-Code`
 
 Never hardcode the source root. The Makefile reads `.source-root` as a fallback; the env var always takes precedence. Tests that require it are skipped when neither is set.
 
+`npm test` alone runs ~914 tests but silently skips ~107 source-dependent integration tests (effects pipeline, talent settings parser, class-side manifest, GL alias coverage audit). Always use `make check` or `GROUND_TRUTH_SOURCE_ROOT="$(cat .source-root)" npm test` for full confidence (1028+ tests).
+
 ## Commands
 
 ```bash
