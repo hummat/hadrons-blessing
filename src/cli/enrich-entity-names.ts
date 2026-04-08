@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildClassSideAliasRecord } from "../lib/gl-class-tree-labels.js";
 import { normalizeText } from "../lib/normalize.js";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -233,7 +234,11 @@ function generateWeaponAliases(mapping: AnyRecord[], entities: AnyRecord[]) {
 function mergeAliases(existingAliases: AnyRecord[], newAliases: AnyRecord[]) {
   const existingByEntity = new Map();
   for (let i = 0; i < existingAliases.length; i++) {
-    const key = existingAliases[i].candidate_entity_id + "|" + existingAliases[i].alias_kind;
+    const key = [
+      existingAliases[i].candidate_entity_id,
+      existingAliases[i].alias_kind,
+      existingAliases[i].text,
+    ].join("|");
     existingByEntity.set(key, i);
   }
 
@@ -241,7 +246,11 @@ function mergeAliases(existingAliases: AnyRecord[], newAliases: AnyRecord[]) {
   let added = 0;
   let updated = 0;
   for (const alias of newAliases) {
-    const key = alias.candidate_entity_id + "|" + alias.alias_kind;
+    const key = [
+      alias.candidate_entity_id,
+      alias.alias_kind,
+      alias.text,
+    ].join("|");
     const existingIndex = existingByEntity.get(key);
     if (existingIndex != null) {
       merged[existingIndex] = alias;
@@ -252,6 +261,18 @@ function mergeAliases(existingAliases: AnyRecord[], newAliases: AnyRecord[]) {
     }
   }
   return { merged, added, updated };
+}
+
+function generateClassSideAliases(entries: AnyRecord[]) {
+  return entries.map((entry) =>
+    buildClassSideAliasRecord({
+      class: entry.class,
+      kind: entry.kind,
+      display_name: entry.display_name,
+      normalized_text: entry.normalized_text,
+      entity_id: entry.entity_id,
+    }),
+  );
 }
 
 function main() {
@@ -297,11 +318,44 @@ function main() {
   writeFileSync(namesPath, JSON.stringify(nameEntities, null, 2) + "\n");
   writeFileSync(aliasesPath, JSON.stringify(merged, null, 2) + "\n");
 
+  const glClassTreePath = resolve(__dirname, "..", "..", "data", "ground-truth", "generated", "gl-class-tree-labels.json");
+  const classAliasStats: Array<{ className: string; added: number; updated: number; total: number }> = [];
+  if (existsSync(glClassTreePath)) {
+    const classEntries = JSON.parse(readFileSync(glClassTreePath, "utf8"));
+    const byClass = new Map<string, AnyRecord[]>();
+    for (const entry of classEntries) {
+      if (!byClass.has(entry.class)) {
+        byClass.set(entry.class, []);
+      }
+      byClass.get(entry.class)!.push(entry);
+    }
+
+    for (const [className, entries] of byClass) {
+      const classAliasesPath = resolve(ALIASES_ROOT, `${className}.json`);
+      if (!existsSync(classAliasesPath)) continue;
+      const existingClassAliases = JSON.parse(readFileSync(classAliasesPath, "utf8"));
+      const generatedAliases = generateClassSideAliases(entries);
+      const result = mergeAliases(existingClassAliases, generatedAliases);
+      writeFileSync(classAliasesPath, JSON.stringify(result.merged, null, 2) + "\n");
+      classAliasStats.push({
+        className,
+        added: result.added,
+        updated: result.updated,
+        total: generatedAliases.length,
+      });
+    }
+  } else {
+    console.warn("Warning: gl-class-tree-labels.json not found, skipping class-side alias enrichment");
+  }
+
   console.log(`Aliases merged: ${added} added, ${updated} updated (${allNewAliases.length} total)`);
   console.log(`  - perk aliases: ${perkAliases.length}`);
   console.log(`Gadget traits: ${gadgetCount} ui_name set`);
   console.log(`Name families: ${blessingCount} ui_name set (hardcoded)`);
   console.log(`Name families: ${slugBlessingCount} ui_name set (from GL slugs)`);
+  for (const stat of classAliasStats.sort((a, b) => a.className.localeCompare(b.className))) {
+    console.log(`Class aliases (${stat.className}): ${stat.added} added, ${stat.updated} updated (${stat.total} generated)`);
+  }
 }
 
 const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
@@ -322,4 +376,5 @@ export {
   enrichWeaponNames,
   generateWeaponAliases,
   mergeAliases,
+  generateClassSideAliases,
 };

@@ -3258,5 +3258,85 @@
       "family_type": "blessing"
     },
     "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.weapon_trait_bespoke_bespoke_powersword_2h_p1_block_activate_weapon_special",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_2h_p1.lua",
+        "line": 393
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.weapon_trait_bespoke_bespoke_powersword_2h_p1_regain_toughness_on_multiple_hits_by_weapon_special",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_2h_p1.lua",
+        "line": 423
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.weapon_trait_bespoke_bespoke_powersword_2h_p1_regain_stamina_on_weapon_special_hit",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_2h_p1.lua",
+        "line": 465
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
+  },
+  {
+    "id": "shared.name_family.blessing.weapon_trait_bespoke_bespoke_powersword_p2_regain_toughness_on_multiple_hits_by_weapon_special",
+    "kind": "name_family",
+    "domain": "shared",
+    "internal_name": null,
+    "loc_key": null,
+    "ui_name": null,
+    "status": "partially_resolved",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_p2.lua",
+        "line": 339
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "family_type": "blessing"
+    },
+    "calc": {}
   }
 ]

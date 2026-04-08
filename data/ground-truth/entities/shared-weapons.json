@@ -47260,5 +47260,165 @@
       ],
       "class_name": "buff"
     }
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_bespoke_powersword_2h_p1_block_activate_weapon_special",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_bespoke_powersword_2h_p1_block_activate_weapon_special",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_2h_p1.lua",
+        "line": 393
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "weapon_family": "powersword_2h_p1",
+      "slot": "melee"
+    },
+    "calc": {
+      "class_name": "proc_buff",
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_bespoke_powersword_2h_p1_regain_toughness_on_multiple_hits_by_weapon_special",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_bespoke_powersword_2h_p1_regain_toughness_on_multiple_hits_by_weapon_special",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_2h_p1.lua",
+        "line": 423
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "weapon_family": "powersword_2h_p1",
+      "slot": "melee"
+    },
+    "calc": {
+      "class_name": "proc_buff",
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_bespoke_powersword_2h_p1_regain_stamina_on_weapon_special_hit",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_bespoke_powersword_2h_p1_regain_stamina_on_weapon_special_hit",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_2h_p1.lua",
+        "line": 465
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "weapon_family": "powersword_2h_p1",
+      "slot": "melee"
+    },
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_power_level_modifier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_sweep_start",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "shared.weapon_trait.weapon_trait_bespoke_bespoke_powersword_p2_regain_toughness_on_multiple_hits_by_weapon_special",
+    "kind": "weapon_trait",
+    "domain": "shared",
+    "internal_name": "weapon_trait_bespoke_bespoke_powersword_p2_regain_toughness_on_multiple_hits_by_weapon_special",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/settings/equipment/weapon_traits/weapon_traits_bespoke_powersword_p2.lua",
+        "line": 339
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "weapon_family": "powersword_p2",
+      "slot": "melee"
+    },
+    "calc": {
+      "class_name": "proc_buff",
+      "tiers": [
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        },
+        {
+          "effects": []
+        }
+      ]
+    }
   }
 ]

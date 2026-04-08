@@ -5,24 +5,23 @@
     "candidate_entity_id": "zealot.talent.zealot_crits_apply_bleed",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Backstabber",
@@ -30,24 +29,23 @@
     "candidate_entity_id": "zealot.talent.zealot_backstab_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Purge The Unclean",
@@ -130,24 +128,23 @@
     "candidate_entity_id": "zealot.talent.zealot_crits_reduce_toughness_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Second Wind",
@@ -155,24 +152,23 @@
     "candidate_entity_id": "zealot.talent.zealot_toughness_on_dodge",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Duellist",
@@ -180,24 +176,23 @@
     "candidate_entity_id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Beacon Of Purity",
@@ -255,24 +250,23 @@
     "candidate_entity_id": "zealot.talent.zealot_resist_death",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Ecclesiarchs Call",
@@ -280,24 +274,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_channel_grants_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Holy Revenant",
@@ -305,24 +298,23 @@
     "candidate_entity_id": "zealot.talent.zealot_resist_death_healing",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Thy Wrath Be Swift",
@@ -330,24 +322,23 @@
     "candidate_entity_id": "zealot.talent.zealot_damage_boosts_movement",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Good Balance",
@@ -355,24 +346,23 @@
     "candidate_entity_id": "zealot.talent.zealot_reduced_damage_after_dodge",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Faithful Frenzy",
@@ -380,24 +370,23 @@
     "candidate_entity_id": "zealot.talent.zealot_attack_speed",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Sustained Assault",
@@ -405,24 +394,23 @@
     "candidate_entity_id": "zealot.talent.zealot_hits_grant_stacking_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Invocation Of Death",
@@ -455,24 +443,23 @@
     "candidate_entity_id": "zealot.keystone.zealot_fanatic_rage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "keystone"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot keystone node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Stalwart",
@@ -480,24 +467,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_fanatic_rage_toughness_on_max",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Righteous Warrior",
@@ -505,24 +491,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_fanatic_rage_improved",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Infectious Zeal",
@@ -530,24 +515,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_shared_fanatic_rage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Providence",
@@ -555,24 +539,23 @@
     "candidate_entity_id": "zealot.talent.zealot_revive_speed",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Abolish Blasphemers",
@@ -580,24 +563,23 @@
     "candidate_entity_id": "zealot.talent.zealot_damage_vs_elites",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Prime Target",
@@ -605,24 +587,23 @@
     "candidate_entity_id": "zealot.talent.zealot_elite_kills_empowers",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Against The Odds",
@@ -655,24 +636,23 @@
     "candidate_entity_id": "zealot.talent.zealot_heal_part_of_damage_taken",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Bleed For The Emperor",
@@ -730,24 +710,23 @@
     "candidate_entity_id": "zealot.ability.zealot_stealth",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "ability"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot ability node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Master Crafted Shroudfield",
@@ -755,24 +734,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_increased_duration",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Invigorating Revelation",
@@ -780,24 +758,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_leaving_stealth_restores_toughness",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Faiths Fortitude",
@@ -805,24 +782,23 @@
     "candidate_entity_id": "zealot.talent.zealot_additional_wounds",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Pious Cut Throat",
@@ -830,24 +806,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_backstab_kills_restore_cd",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Inexorable Judgement",
@@ -855,24 +830,23 @@
     "candidate_entity_id": "zealot.keystone.zealot_quickness_passive",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "keystone"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot keystone node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Inebriates Poise",
@@ -880,24 +854,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_quickness_passive_dodge_stacks",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "The Masters Retribution",
@@ -905,24 +878,23 @@
     "candidate_entity_id": "zealot.talent.zealot_defensive_knockback",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Riposte",
@@ -930,24 +902,23 @@
     "candidate_entity_id": "zealot.talent.zealot_stacking_melee_damage_after_dodge",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Hubris",
@@ -955,24 +926,23 @@
     "candidate_entity_id": "zealot.talent.zealot_weakspot_damage_reduction",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Time To Kill",
@@ -1005,24 +975,23 @@
     "candidate_entity_id": "zealot.talent.zealot_multi_hits_increase_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Benediction",
@@ -1030,24 +999,23 @@
     "candidate_entity_id": "zealot.aura.zealot_toughness_damage_reduction_coherency_improved",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "aura"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot aura node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Fury Of The Faithful",
@@ -1080,24 +1048,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_additional_charge_of_ability",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Enemies Within Enemies Without",
@@ -1105,24 +1072,23 @@
     "candidate_entity_id": "zealot.talent.zealot_toughness_in_melee",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Martyrs Purpose",
@@ -1130,24 +1096,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_restore_stealth_cd_on_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Martyrdom",
@@ -1155,24 +1120,23 @@
     "candidate_entity_id": "zealot.keystone.zealot_martyrdom",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "keystone"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot keystone node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "I Shall Not Fall",
@@ -1180,24 +1144,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_toughness",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Maniac",
@@ -1205,24 +1168,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_attack_speed",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Stunstorm Grenade",
@@ -1230,24 +1192,23 @@
     "candidate_entity_id": "zealot.ability.zealot_improved_stun_grenade",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
-          "value": "ability"
+          "value": "blitz"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot ability node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Unrelenting Fury",
@@ -1255,24 +1216,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_fotf_refund_cooldown",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Restorative Verses",
@@ -1280,24 +1240,23 @@
     "candidate_entity_id": "zealot.talent_modifier.zealot_martyrdom_toughness_modifier",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Blood Redemption",
@@ -1305,24 +1264,23 @@
     "candidate_entity_id": "zealot.talent.zealot_more_toughness_on_melee",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Immolation Grenade",
@@ -1330,24 +1288,23 @@
     "candidate_entity_id": "zealot.ability.zealot_flame_grenade",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
-          "value": "ability"
+          "value": "blitz"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot ability node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Dance Of Death",
@@ -1380,24 +1337,23 @@
     "candidate_entity_id": "zealot.talent.zealot_damage_vs_nonthreat",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "zealot"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for zealot talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Blinded By Blood",
@@ -1423,5 +1379,773 @@
     },
     "rank_weight": 100,
     "notes": "Games Lantern display name for zealot talent node."
+  },
+  {
+    "text": "Blades of Faith",
+    "normalized_text": "blades of faith",
+    "candidate_entity_id": "zealot.ability.zealot_throwing_knives",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "blitz"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Chorus of Spiritual Fortitude",
+    "normalized_text": "chorus of spiritual fortitude",
+    "candidate_entity_id": "zealot.ability.zealot_bolstering_prayer",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Fury of the Faithful",
+    "normalized_text": "fury of the faithful",
+    "candidate_entity_id": "zealot.ability.zealot_attack_speed_post_ability",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Beacon of Purity",
+    "normalized_text": "beacon of purity",
+    "candidate_entity_id": "zealot.aura.zealot_corruption_healing_coherency_improved",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Zealous",
+    "normalized_text": "zealous",
+    "candidate_entity_id": "zealot.aura.zealot_stamina_cost_multiplier_aura",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Against the Odds",
+    "normalized_text": "against the odds",
+    "candidate_entity_id": "zealot.talent.zealot_offensive_vs_many",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Anoint in Blood",
+    "normalized_text": "anoint in blood",
+    "candidate_entity_id": "zealot.talent.zealot_increase_ranged_close_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Behind the Lines",
+    "normalized_text": "behind the lines",
+    "candidate_entity_id": "zealot.talent.zealot_suppress_on_backstab_kill",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Bleed for the Emperor",
+    "normalized_text": "bleed for the emperor",
+    "candidate_entity_id": "zealot.talent.zealot_reduced_damage_on_wound",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Blinded by Blood",
+    "normalized_text": "blinded by blood",
+    "candidate_entity_id": "zealot.talent.zealot_bled_enemies_take_more_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Dance of Death",
+    "normalized_text": "dance of death",
+    "candidate_entity_id": "zealot.talent.zealot_improved_weapon_handling_after_dodge",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Desperation",
+    "normalized_text": "desperation",
+    "candidate_entity_id": "zealot.talent.zealot_more_damage_when_low_on_stamina",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Grievous Wounds",
+    "normalized_text": "grievous wounds",
+    "candidate_entity_id": "zealot.talent.zealot_increased_stagger_on_weakspot_melee",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Impassible",
+    "normalized_text": "impassible",
+    "candidate_entity_id": "zealot.talent.zealot_block_dodging_synergy",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "No Respite",
+    "normalized_text": "no respite",
+    "candidate_entity_id": "zealot.talent.zealot_melee_crits_restore_stamina",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Out of Pocket",
+    "normalized_text": "out of pocket",
+    "candidate_entity_id": "zealot.talent.zealot_reload_from_backstab",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Punish Impiety",
+    "normalized_text": "punish impiety",
+    "candidate_entity_id": "zealot.talent.zealot_push_attacks_attack_speed",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Punishment",
+    "normalized_text": "punishment",
+    "candidate_entity_id": "zealot.talent.zealot_multi_hits_grant_impact_and_uninterruptible",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Purge the Unclean",
+    "normalized_text": "purge the unclean",
+    "candidate_entity_id": "zealot.talent.zealot_increased_damage_vs_resilient",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Relentless Fervor",
+    "normalized_text": "relentless fervor",
+    "candidate_entity_id": "zealot.talent.zealot_sprint_improvements",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Retaliatory Defence",
+    "normalized_text": "retaliatory defence",
+    "candidate_entity_id": "zealot.talent.zealot_stamina_on_block_break",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Shield of Contempt",
+    "normalized_text": "shield of contempt",
+    "candidate_entity_id": "zealot.talent.zealot_ally_damage_taken_reduced",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "The Voice of Terra",
+    "normalized_text": "the voice of terra",
+    "candidate_entity_id": "zealot.talent.zealot_toughness_on_ranged_kill",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Time to Kill",
+    "normalized_text": "time to kill",
+    "candidate_entity_id": "zealot.talent.zealot_backstab_periodic_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Unfaltering",
+    "normalized_text": "unfaltering",
+    "candidate_entity_id": "zealot.talent.zealot_uninterruptible_no_slow_heavies",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Vicious Offering",
+    "normalized_text": "vicious offering",
+    "candidate_entity_id": "zealot.talent.zealot_toughness_on_heavy_kills",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Eternal",
+    "normalized_text": "eternal",
+    "candidate_entity_id": "zealot.talent_modifier.zealot_quickness_increased_duration",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Holy Cause",
+    "normalized_text": "holy cause",
+    "candidate_entity_id": "zealot.talent_modifier.zealot_channel_grants_toughness_damage_reduction",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Invocation of Death",
+    "normalized_text": "invocation of death",
+    "candidate_entity_id": "zealot.talent_modifier.zealot_crits_grant_cd",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "On the Brink",
+    "normalized_text": "on the brink",
+    "candidate_entity_id": "zealot.talent_modifier.zealot_corruption_resistance_stacking",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Perfectionist 2",
+    "normalized_text": "perfectionist 2",
+    "candidate_entity_id": "zealot.talent_modifier.zealot_stealth_cooldown_regeneration",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Retributors Stance 2",
+    "normalized_text": "retributors stance 2",
+    "candidate_entity_id": "zealot.talent_modifier.zealot_momentum_toughness_replenish",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
   }
 ]

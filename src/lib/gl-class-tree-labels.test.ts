@@ -1,0 +1,91 @@
+import { describe, it } from "node:test";
+import { strict as assert } from "node:assert";
+import {
+  buildGlClassTreeLabelEntry,
+  buildClassSideAliasRecord,
+  entityKindFromAssetUrl,
+  internalNameFromScrapedNode,
+} from "./gl-class-tree-labels.js";
+
+describe("entityKindFromAssetUrl", () => {
+  it("maps tactical assets to ability entities", () => {
+    assert.equal(
+      entityKindFromAssetUrl("https://gameslantern.com/storage/sites/darktide/exporter/talents/adamant/tactical/adamant_whistle.webp"),
+      "ability",
+    );
+  });
+
+  it("maps ability modifier assets to talent_modifier entities", () => {
+    assert.equal(
+      entityKindFromAssetUrl("https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/ability_modifier/veteran_increased_close_damage_after_combat_ability.webp"),
+      "talent_modifier",
+    );
+  });
+
+  it("returns null for frame-only stat nodes", () => {
+    assert.equal(
+      entityKindFromAssetUrl("/images/sites/darktide/talents/frames/circular_small_frame.webp"),
+      null,
+    );
+  });
+});
+
+describe("internalNameFromScrapedNode", () => {
+  it("extracts the internal name from the icon URL when present", () => {
+    assert.equal(
+      internalNameFromScrapedNode({
+        slug: "castigators-stance",
+        icon: "https://gameslantern.com/storage/sites/darktide/exporter/talents/adamant/ability/adamant_stance.webp",
+        frame: "/images/sites/darktide/talents/frames/hex_frame.webp",
+      }),
+      "adamant_stance",
+    );
+  });
+
+  it("falls back to frame when inactive nodes store the asset there", () => {
+    assert.equal(
+      internalNameFromScrapedNode({
+        slug: "terminus-warrant",
+        frame: "https://gameslantern.com/storage/sites/darktide/exporter/talents/adamant/keystone/adamant_terminus_warrant.webp",
+      }),
+      "adamant_terminus_warrant",
+    );
+  });
+});
+
+describe("buildClassSideAliasRecord", () => {
+  it("builds a class-scoped GamesLantern alias record", () => {
+    const alias = buildClassSideAliasRecord({
+      class: "arbites",
+      kind: "keystone",
+      display_name: "Execution Order",
+      normalized_text: "execution order",
+      entity_id: "arbites.keystone.adamant_execution_order",
+    });
+
+    assert.equal(alias.alias_kind, "gameslantern_name");
+    assert.equal(alias.provenance, "gl-class-tree");
+    assert.deepEqual(alias.context_constraints.require_all, [
+      { key: "class", value: "arbites" },
+      { key: "kind", value: "keystone" },
+    ]);
+  });
+});
+
+describe("buildGlClassTreeLabelEntry", () => {
+  it("uses blitz as the resolver kind for tactical assets while keeping ability entity ids", () => {
+    const entry = buildGlClassTreeLabelEntry(
+      "veteran",
+      {
+        slug: "shredder-frag-grenade",
+        name: "Shredder Frag Grenade",
+        icon: "https://gameslantern.com/storage/sites/darktide/exporter/talents/veteran/tactical/veteran_grenade_apply_bleed.webp",
+        frame: "/images/sites/darktide/talents/frames/square_frame.webp",
+      },
+      "https://darktide.gameslantern.com/builds/example",
+    );
+
+    assert.equal(entry?.kind, "blitz");
+    assert.equal(entry?.entity_id, "veteran.ability.veteran_grenade_apply_bleed");
+  });
+});

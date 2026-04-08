@@ -11,6 +11,10 @@ const SETUP_HINTS: Record<string, string> = {
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run effects:build",
   "index:build":
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run index:build",
+  "class-side:build":
+    "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run class-side:build",
+  "gl-class-tree:build":
+    "npm run gl-class-tree:build",
   report:
     "GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run report -- data/builds/09-psyker-2026.json",
   "breeds:build":

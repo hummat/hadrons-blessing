@@ -259,16 +259,16 @@ describe("mergeAliases", () => {
     assert.equal(updated, 0);
   });
 
-  it("updates existing aliases with matching entity+kind", () => {
+  it("updates existing aliases with matching entity+kind+text", () => {
     const existing = [
-      { candidate_entity_id: "a", alias_kind: "community_name", text: "old" },
+      { candidate_entity_id: "a", alias_kind: "community_name", text: "same" },
     ];
     const newAliases = [
-      { candidate_entity_id: "a", alias_kind: "community_name", text: "updated" },
+      { candidate_entity_id: "a", alias_kind: "community_name", text: "same", notes: "updated" },
     ];
     const { merged, added, updated } = mergeAliases(existing, newAliases);
     assert.equal(merged.length, 1);
-    assert.equal(merged[0].text, "updated");
+    assert.equal(merged[0].notes, "updated");
     assert.equal(added, 0);
     assert.equal(updated, 1);
   });
@@ -284,6 +284,28 @@ describe("mergeAliases", () => {
     assert.equal(merged.length, 2);
     assert.equal(added, 1);
     assert.equal(updated, 0);
+  });
+
+  it("keeps distinct GamesLantern labels for the same entity", () => {
+    const existing = [
+      {
+        candidate_entity_id: "veteran.keystone.veteran_improved_tag",
+        alias_kind: "gameslantern_name",
+        text: "Focus Target!",
+        normalized_text: "focus target",
+      },
+    ];
+    const newAliases = [
+      {
+        candidate_entity_id: "veteran.keystone.veteran_improved_tag",
+        alias_kind: "gameslantern_name",
+        text: "Focus Target",
+        normalized_text: "focus target",
+      },
+    ];
+
+    const { merged } = mergeAliases(existing, newAliases);
+    assert.equal(merged.length, 2);
   });
 });
 

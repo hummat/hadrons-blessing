@@ -5,24 +5,23 @@
     "candidate_entity_id": "veteran.ability.veteran_combat_ability_stagger_nearby_enemies",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "ability"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern label for the selected Voice of Command tree node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Shredder Frag Grenade",
@@ -30,24 +29,23 @@
     "candidate_entity_id": "veteran.ability.veteran_grenade_apply_bleed",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "blitz"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern label for the selected frag grenade bleed tree node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Survivalist",
@@ -55,24 +53,23 @@
     "candidate_entity_id": "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "aura"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern label for the selected veteran ammo aura."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Focus Target!",
@@ -130,7 +127,7 @@
     "candidate_entity_id": "veteran.talent.veteran_improved_grenades",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -145,8 +142,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_improved_grenades."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Born Leader",
@@ -154,7 +151,7 @@
     "candidate_entity_id": "veteran.talent.veteran_allies_in_coherency_share_toughness_gain",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -169,8 +166,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_allies_in_coherency_share_toughness_gain."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Tactical Awareness",
@@ -178,7 +175,7 @@
     "candidate_entity_id": "veteran.talent.veteran_elite_kills_reduce_cooldown",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -193,8 +190,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_elite_kills_reduce_cooldown."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Confirmed Kill",
@@ -202,7 +199,7 @@
     "candidate_entity_id": "veteran.talent.veteran_elite_kills_replenish_toughness",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -217,8 +214,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_elite_kills_replenish_toughness."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Demolition Stockpile",
@@ -226,7 +223,7 @@
     "candidate_entity_id": "veteran.talent.veteran_replenish_grenades",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -241,8 +238,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_replenish_grenades."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Superiority Complex",
@@ -250,7 +247,7 @@
     "candidate_entity_id": "veteran.talent.veteran_increase_damage_vs_elites",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -265,8 +262,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_increase_damage_vs_elites."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Close Order Drill",
@@ -274,7 +271,7 @@
     "candidate_entity_id": "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -289,8 +286,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_reduced_toughness_damage_in_coherency."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Iron Will",
@@ -298,7 +295,7 @@
     "candidate_entity_id": "veteran.talent.veteran_tdr_on_high_toughness",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -313,8 +310,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_tdr_on_high_toughness."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Exploit Weakness",
@@ -322,7 +319,7 @@
     "candidate_entity_id": "veteran.talent.veteran_crits_apply_rending",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -337,8 +334,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_crits_apply_rending."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Skirmisher",
@@ -346,7 +343,7 @@
     "candidate_entity_id": "veteran.talent.veteran_increase_damage_after_sprinting",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -361,8 +358,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_increase_damage_after_sprinting."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Desperado",
@@ -370,7 +367,7 @@
     "candidate_entity_id": "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -385,8 +382,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_increased_melee_crit_chance_and_melee_finesse."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Reciprocity",
@@ -394,7 +391,7 @@
     "candidate_entity_id": "veteran.talent.veteran_dodging_grants_crit",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -409,8 +406,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_dodging_grants_crit."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Serrated Blade",
@@ -418,7 +415,7 @@
     "candidate_entity_id": "veteran.talent.veteran_hits_cause_bleed",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -433,8 +430,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_hits_cause_bleed."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Trench Fighter Drill",
@@ -442,7 +439,7 @@
     "candidate_entity_id": "veteran.talent.veteran_attack_speed",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -457,8 +454,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_attack_speed."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Catch A Breath",
@@ -490,7 +487,7 @@
     "candidate_entity_id": "veteran.talent.veteran_replenish_toughness_on_weakspot_kill",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -505,8 +502,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_replenish_toughness_on_weakspot_kill."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Duty And Honour",
@@ -538,7 +535,7 @@
     "candidate_entity_id": "veteran.talent.veteran_increased_damage_based_on_range",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -553,8 +550,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_increased_damage_based_on_range."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Precision Strikes",
@@ -562,7 +559,7 @@
     "candidate_entity_id": "veteran.talent.veteran_increased_weakspot_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -577,8 +574,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_increased_weakspot_damage."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Bring It Down",
@@ -586,7 +583,7 @@
     "candidate_entity_id": "veteran.talent.veteran_big_game_hunter",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -601,8 +598,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by veteran_big_game_hunter."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Ranged Fusilade",
@@ -634,7 +631,7 @@
     "candidate_entity_id": "veteran.talent_modifier.veteran_improved_tag_dead_coherency_bonus",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -649,8 +646,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Live sample talent label backed by the Focus Target keystone modifier veteran_improved_tag_dead_coherency_bonus."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Infiltrate",
@@ -658,24 +655,23 @@
     "candidate_entity_id": "veteran.ability.veteran_invisibility_on_combat_ability",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "ability"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran ability node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Executioners Stance",
@@ -683,24 +679,23 @@
     "candidate_entity_id": "veteran.ability.veteran_combat_ability_elite_and_special_outlines",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "ability"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran ability node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Marksman's Focus",
@@ -708,24 +703,23 @@
     "candidate_entity_id": "veteran.keystone.veteran_snipers_focus",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "keystone"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran keystone node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Weapons Specialist",
@@ -733,24 +727,23 @@
     "candidate_entity_id": "veteran.keystone.veteran_weapon_switch_passive",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "keystone"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran keystone node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Hunters Resolve",
@@ -758,24 +751,23 @@
     "candidate_entity_id": "veteran.talent_modifier.veteran_toughness_bonus_leaving_invisibility",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Marksman",
@@ -783,24 +775,23 @@
     "candidate_entity_id": "veteran.talent_modifier.veteran_increased_weakspot_power_after_combat_ability",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "The Bigger They Are",
@@ -808,24 +799,23 @@
     "candidate_entity_id": "veteran.talent_modifier.veteran_combat_ability_ogryn_outlines",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Tunnel Vision",
@@ -833,24 +823,23 @@
     "candidate_entity_id": "veteran.talent_modifier.veteran_snipers_focus_toughness_bonus",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Long Range Assassin",
@@ -858,24 +847,23 @@
     "candidate_entity_id": "veteran.talent_modifier.veteran_snipers_focus_increased_stacks",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Always Prepared",
@@ -883,24 +871,23 @@
     "candidate_entity_id": "veteran.talent_modifier.veteran_weapon_switch_replenish_ammo",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Demolition Team",
@@ -908,24 +895,23 @@
     "candidate_entity_id": "veteran.talent.veteran_aura_elite_kills_restore_grenade",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Out For Blood",
@@ -958,24 +944,23 @@
     "candidate_entity_id": "veteran.talent.veteran_kill_grants_damage_to_other_slot",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Field Improvisation",
@@ -983,24 +968,23 @@
     "candidate_entity_id": "veteran.talent.veteran_better_deployables",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Fully Loaded",
@@ -1008,24 +992,23 @@
     "candidate_entity_id": "veteran.talent.veteran_ammo_increase",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "One Motion",
@@ -1033,24 +1016,23 @@
     "candidate_entity_id": "veteran.talent.veteran_reduce_swap_time",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Kill Zone",
@@ -1058,24 +1040,23 @@
     "candidate_entity_id": "veteran.talent.veteran_ranged_power_out_of_melee",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran talent node."
+    "rank_weight": 120,
+    "notes": ""
   },
   {
     "text": "Shock Trooper",
@@ -1083,23 +1064,838 @@
     "candidate_entity_id": "veteran.talent.veteran_no_ammo_consumption_on_lasweapon_crit",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "manual",
+    "provenance": "gl-class-tree",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
         {
           "key": "class",
           "value": "veteran"
-        }
-      ],
-      "prefer": [
+        },
         {
           "key": "kind",
           "value": "talent"
         }
-      ]
+      ],
+      "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "Games Lantern display name for veteran talent node."
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Krak Grenade",
+    "normalized_text": "krak grenade",
+    "candidate_entity_id": "veteran.ability.veteran_krak_grenade",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "blitz"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Smoke Grenade",
+    "normalized_text": "smoke grenade",
+    "candidate_entity_id": "veteran.ability.veteran_smoke_grenade",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "blitz"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Close and Kill",
+    "normalized_text": "close and kill",
+    "candidate_entity_id": "veteran.aura.veteran_movement_speed_coherency",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Fire Team",
+    "normalized_text": "fire team",
+    "candidate_entity_id": "veteran.aura.veteran_increased_damage_coherency",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Focus Target",
+    "normalized_text": "focus target",
+    "candidate_entity_id": "veteran.keystone.veteran_improved_tag",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "keystone"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Catch a Breath",
+    "normalized_text": "catch a breath",
+    "candidate_entity_id": "veteran.talent.veteran_replenish_toughness_outside_melee",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Competitive Urge",
+    "normalized_text": "competitive urge",
+    "candidate_entity_id": "veteran.talent.veteran_ally_kills_increase_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Covering Fire",
+    "normalized_text": "covering fire",
+    "candidate_entity_id": "veteran.talent.veteran_replenish_toughness_and_boost_allies",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Covert Operative",
+    "normalized_text": "covert operative",
+    "candidate_entity_id": "veteran.talent.veteran_increased_damage_when_flanking",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Deadshot",
+    "normalized_text": "deadshot",
+    "candidate_entity_id": "veteran.talent.veteran_ads_drain_stamina",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Duck and Dive",
+    "normalized_text": "duck and dive",
+    "candidate_entity_id": "veteran.talent.veteran_dodging_grants_stamina",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Grenadier",
+    "normalized_text": "grenadier",
+    "candidate_entity_id": "veteran.talent.veteran_extra_grenade",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Keep Their Heads Down",
+    "normalized_text": "keep their heads down",
+    "candidate_entity_id": "veteran.talent.veteran_increase_suppression",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Leave No One Behind",
+    "normalized_text": "leave no one behind",
+    "candidate_entity_id": "veteran.talent.veteran_movement_speed_towards_downed",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Lock and Load",
+    "normalized_text": "lock and load",
+    "candidate_entity_id": "veteran.talent.veteran_clip_size",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Onslaught",
+    "normalized_text": "onslaught",
+    "candidate_entity_id": "veteran.talent.veteran_continous_hits_apply_rending",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Opening Salvo",
+    "normalized_text": "opening salvo",
+    "candidate_entity_id": "veteran.talent.veteran_bonus_crit_chance_on_ammo",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Out for Blood",
+    "normalized_text": "out for blood",
+    "candidate_entity_id": "veteran.talent.veteran_all_kills_replenish_toughness",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Rending Strikes",
+    "normalized_text": "rending strikes",
+    "candidate_entity_id": "veteran.talent.veteran_rending_bonus",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Tactical Reload",
+    "normalized_text": "tactical reload",
+    "candidate_entity_id": "veteran.talent.veteran_faster_reload_on_non_empty_clips",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Volley Adept",
+    "normalized_text": "volley adept",
+    "candidate_entity_id": "veteran.talent.veteran_reload_speed_on_elite_kill",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Withering Fire 2",
+    "normalized_text": "withering fire 2",
+    "candidate_entity_id": "veteran.talent.veteran_increased_ranged_cleave",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Chink in Their Armour",
+    "normalized_text": "chink in their armour",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_snipers_focus_rending_bonus",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Close Quarters Killzone",
+    "normalized_text": "close quarters killzone",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_increased_close_damage_after_combat_ability",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Counter Fire",
+    "normalized_text": "counter fire",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_combat_ability_ranged_roamer_outlines",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Duty and Honour",
+    "normalized_text": "duty and honour",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_combat_ability_increase_and_restore_toughness_to_coherency",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Enhanced Target Priority",
+    "normalized_text": "enhanced target priority",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_combat_ability_coherency_outlines",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Focussed Fire",
+    "normalized_text": "focussed fire",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_improved_tag_more_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Invigorated",
+    "normalized_text": "invigorated",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_weapon_switch_replenish_stamina",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Low Profile",
+    "normalized_text": "low profile",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_reduced_threat_after_combat_ability",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "On Your Toes",
+    "normalized_text": "on your toes",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_weapon_switch_replenish_toughness",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Only in Death Does Duty End",
+    "normalized_text": "only in death does duty end",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_combat_ability_revive_nearby_allies",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Overwatch",
+    "normalized_text": "overwatch",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_combat_ability_extra_charge",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
+  },
+  {
+    "text": "Target Down",
+    "normalized_text": "target down",
+    "candidate_entity_id": "veteran.talent_modifier.veteran_improved_tag_dead_bonus",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-class-tree",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        },
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 120,
+    "notes": ""
   }
 ]

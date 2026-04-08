@@ -888,6 +888,94 @@
     "calc": {}
   },
   {
+    "id": "hive_scum.talent_modifier.broker_passive_improved_dodges",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_improved_dodges",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 377
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "tree_widget_name": "node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+      "coverage_slot": "talents"
+    },
+    "calc": {
+      "effects": [
+        {
+          "stat": "dodge_speed_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_improved_dodges.dodge_speed_multiplier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "dodge_linger_time",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_improved_dodges.dodge_linger_time",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_improved_dodges"
+      ]
+    }
+  },
+  {
+    "id": "hive_scum.talent_modifier.broker_passive_longer_dodges",
+    "kind": "talent_modifier",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_longer_dodges",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1828
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "tree_widget_name": "node_f6f53560-cd00-4602-9903-4961484ade18",
+      "coverage_slot": "talents"
+    },
+    "calc": {
+      "effects": [
+        {
+          "stat": "dodge_distance_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_longer_dodges.dodge_distance_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_longer_dodges"
+      ]
+    }
+  },
+  {
     "id": "hive_scum.talent.base_crit_chance_node_buff_low_1",
     "kind": "talent",
     "domain": "hive_scum",
@@ -1265,6 +1353,45 @@
       "class_name": "buff",
       "buff_template_names": [
         "broker_passive_close_ranged_damage"
+      ]
+    }
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_crit_grants_damage",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_crit_grants_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 941
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "tree_type": "default",
+      "tree_widget_name": "node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+      "coverage_slot": "talents"
+    },
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_crit_grants_damage"
       ]
     }
   },
@@ -1910,6 +2037,32 @@
     }
   },
   {
+    "id": "hive_scum.talent.broker_passive_knockback_on_taking_melee_damage",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_knockback_on_taking_melee_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 915
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "tree_type": "default",
+      "tree_widget_name": "node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc",
+      "coverage_slot": "talents"
+    },
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_knockback_on_taking_melee_damage"
+      ]
+    }
+  },
+  {
     "id": "hive_scum.talent.broker_passive_low_ammo_regen",
     "kind": "talent",
     "domain": "hive_scum",
@@ -2412,6 +2565,32 @@
     }
   },
   {
+    "id": "hive_scum.talent.broker_passive_replenish_toughness_while_toxined_enemies_in_proximity",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_replenish_toughness_while_toxined_enemies_in_proximity",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1176
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "tree_type": "default",
+      "tree_widget_name": "node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
+      "coverage_slot": "talents"
+    },
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_replenish_toughness_while_toxined_enemies_in_proximity"
+      ]
+    }
+  },
+  {
     "id": "hive_scum.talent.broker_passive_restore_toughness_on_close_ranged_kill",
     "kind": "talent",
     "domain": "hive_scum",
@@ -2745,6 +2924,58 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_toughness_on_toxined_kill"
+      ]
+    }
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_toxin_infected_enemies_take_increased_damage",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_toxin_infected_enemies_take_increased_damage",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1009
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "tree_type": "default",
+      "tree_widget_name": "node_735140ff-109a-4bc2-a2b9-761614c238cc",
+      "coverage_slot": "talents"
+    },
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_toxin_infected_enemies_take_increased_damage"
+      ]
+    }
+  },
+  {
+    "id": "hive_scum.talent.broker_passive_toxin_spread_on_kills",
+    "kind": "talent",
+    "domain": "hive_scum",
+    "internal_name": "broker_passive_toxin_spread_on_kills",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/broker_tree.lua",
+        "line": 1055
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "tree_type": "default",
+      "tree_widget_name": "node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
+      "coverage_slot": "talents"
+    },
+    "calc": {
+      "buff_template_names": [
+        "broker_passive_toxin_spread_on_kills"
       ]
     }
   },

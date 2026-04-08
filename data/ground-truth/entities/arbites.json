@@ -1117,6 +1117,28 @@
     "calc": {}
   },
   {
+    "id": "arbites.talent_modifier.adamant_terminus_warrant_cdr",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_terminus_warrant_cdr",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1438
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "tree_widget_name": "node_b6adf64e-bc34-455a-a059-552c4fb0f8a0",
+      "coverage_slot": "talents"
+    },
+    "calc": {}
+  },
+  {
     "id": "arbites.talent_modifier.adamant_terminus_warrant_improved",
     "kind": "talent_modifier",
     "domain": "arbites",
@@ -1140,6 +1162,28 @@
       "group_name": null,
       "tree_widget_name": null,
       "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_terminus_warrant_improved_combined",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_terminus_warrant_improved_combined",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1836
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "tree_widget_name": "node_9964320a-cf72-40d7-ad57-d4e5bc4a7345",
+      "coverage_slot": "talents"
     },
     "calc": {}
   },
@@ -1194,6 +1238,28 @@
       "group_name": null,
       "tree_widget_name": null,
       "exclusive_group": null
+    },
+    "calc": {}
+  },
+  {
+    "id": "arbites.talent_modifier.adamant_terminus_warrant_support",
+    "kind": "talent_modifier",
+    "domain": "arbites",
+    "internal_name": "adamant_terminus_warrant_support",
+    "loc_key": null,
+    "ui_name": null,
+    "status": "source_backed",
+    "refs": [
+      {
+        "path": "scripts/ui/views/talent_builder_view/layouts/adamant_tree.lua",
+        "line": 1459
+      }
+    ],
+    "source_snapshot_id": "darktide-source.f63d836",
+    "attributes": {
+      "tree_type": "keystone_modifier",
+      "tree_widget_name": "node_446b745a-e92e-4e31-8cc0-0ee5327f5674",
+      "coverage_slot": "talents"
     },
     "calc": {}
   },

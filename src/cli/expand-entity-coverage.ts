@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildClassSideManifest, type ClassSideManifestEntry } from "../lib/class-side-manifest.js";
 import { validateSourceSnapshot } from "../lib/validate.js";
 import { ENTITIES_ROOT, EDGES_ROOT, listJsonFiles } from "../lib/load.js";
 import { runCliMain } from "../lib/cli.js";
@@ -234,6 +235,30 @@ const SHARED_WEAPONS_FILE = join(ENTITIES_ROOT, "shared-weapons.json");
 const SHARED_NAMES_FILE = join(ENTITIES_ROOT, "shared-names.json");
 const SHARED_EDGES_FILE = join(EDGES_ROOT, "shared.json");
 
+function classEntityFilePath(className: string) {
+  return join(ENTITIES_ROOT, `${className}.json`);
+}
+
+function makeClassSideEntity(entry: ClassSideManifestEntry, snapshotId: string) {
+  return {
+    id: entry.entity_id,
+    kind: entry.kind,
+    domain: entry.class,
+    internal_name: entry.internal_name,
+    loc_key: null,
+    ui_name: null,
+    status: "source_backed",
+    refs: [{ path: entry.layout_ref.path, line: entry.layout_ref.line }],
+    source_snapshot_id: snapshotId,
+    attributes: {
+      tree_type: entry.tree_type,
+      tree_widget_name: entry.widget_name,
+      coverage_slot: entry.slot,
+    },
+    calc: {},
+  };
+}
+
 export async function expandEntityCoverage() {
   // --- Phase 1: Inventory ---
   const snapshot = validateSourceSnapshot();
@@ -256,17 +281,30 @@ export async function expandEntityCoverage() {
   console.log(`  Concept→family map: ${conceptFamilyMap.size} known mappings`);
 
   // --- Source scanning ---
+  const classSideManifest = buildClassSideManifest(sourceRoot);
   const weaponMarks = scanWeaponMarks(sourceRoot);
   const bespokeTraits = scanBespokeTraits(sourceRoot, weaponMarks);
   const perks = scanPerks(sourceRoot);
   const gadgetTraits = scanGadgetTraits(sourceRoot);
-  console.log(`  Source scan: ${weaponMarks.length} weapons, ${bespokeTraits.length} traits, ${perks.length} perks, ${gadgetTraits.length} gadget traits`);
+  console.log(`  Source scan: ${classSideManifest.length} class-side nodes, ${weaponMarks.length} weapons, ${bespokeTraits.length} traits, ${perks.length} perks, ${gadgetTraits.length} gadget traits`);
 
   // --- Phase 2: Generate entity shells ---
+  const newClassSideEntitiesByFile = new Map<string, AnyRecord[]>();
   const newWeaponEntities = [];
   const newTraitEntities = [];
   const newPerkEntities = [];
   const newGadgetEntities = [];
+
+  for (const entry of classSideManifest) {
+    if (existingEntities.has(entry.entity_id)) continue;
+    const entity = makeClassSideEntity(entry, snapshotId);
+    const filePath = classEntityFilePath(entry.class);
+    if (!newClassSideEntitiesByFile.has(filePath)) {
+      newClassSideEntitiesByFile.set(filePath, []);
+    }
+    newClassSideEntitiesByFile.get(filePath)!.push(entity);
+    existingEntities.set(entry.entity_id, entity);
+  }
 
   for (const w of weaponMarks) {
     const id = weaponEntityId(w.internalName);
@@ -380,6 +418,14 @@ export async function expandEntityCoverage() {
   }
 
   // --- Write-back ---
+  for (const [filePath, newEntities] of newClassSideEntitiesByFile) {
+    if (newEntities.length === 0) continue;
+    const records = JSON.parse(readFileSync(filePath, "utf8"));
+    records.push(...newEntities);
+    records.sort((a: AnyRecord, b: AnyRecord) => String(a.id).localeCompare(String(b.id)));
+    writeFileSync(filePath, JSON.stringify(records, null, 2) + "\n");
+  }
+
   const allNewEntities = [...newWeaponEntities, ...newTraitEntities, ...newPerkEntities, ...newGadgetEntities];
   if (allNewEntities.length > 0) {
     const weapons = JSON.parse(readFileSync(SHARED_WEAPONS_FILE, "utf8"));
@@ -401,6 +447,8 @@ export async function expandEntityCoverage() {
   // --- Phase 5: Report ---
   console.log("\n=== Entity Coverage Expansion Report ===\n");
   console.log(`Entities generated:`);
+  const newClassSideEntities = [...newClassSideEntitiesByFile.values()].flat();
+  console.log(`  class-side:    ${newClassSideEntities.length}`);
   console.log(`  weapon:       ${newWeaponEntities.length}`);
   console.log(`  weapon_trait:  ${newTraitEntities.length}`);
   console.log(`  weapon_perk:   ${newPerkEntities.length}`);
@@ -449,6 +497,7 @@ export async function expandEntityCoverage() {
   console.log(`\nTotals: ${totalEntities} entities, ${totalEdges} edges`);
 
   return {
+    newClassSideEntities,
     newWeaponEntities, newTraitEntities, newPerkEntities, newGadgetEntities,
     newNameFamilies, newEdges, unmappedSuffixes, orphanBespoke,
   };

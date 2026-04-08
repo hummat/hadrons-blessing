@@ -408,6 +408,46 @@ describe("buildIndex", () => {
     }
   });
 
+  it("fails when class-side selectable node coverage is incomplete", async () => {
+    const manifest = JSON.parse(
+      readFileSync("data/ground-truth/generated/class-tree-manifest.json", "utf8"),
+    );
+    const index = await buildIndex({ check: false });
+    const entityIds = new Set(index.entities.map((entity) => entity.id));
+
+    for (const entry of manifest) {
+      assert.equal(
+        entityIds.has(entry.entity_id),
+        true,
+        `missing class-side entity ${entry.entity_id} from ${entry.class}:${entry.internal_name}`,
+      );
+    }
+  });
+
+  it("fails when class-side GamesLantern alias coverage is incomplete", async () => {
+    const manifest = JSON.parse(
+      readFileSync("data/ground-truth/generated/gl-class-tree-labels.json", "utf8"),
+    );
+
+    for (const entry of manifest) {
+      const result = await resolveQuery(entry.display_name, {
+        class: entry.class,
+        kind: entry.kind,
+      });
+
+      assert.equal(
+        result.resolution_state,
+        "resolved",
+        `failed to resolve ${entry.class}:${entry.kind}:${entry.display_name}`,
+      );
+      assert.equal(
+        result.entity?.id,
+        entry.entity_id,
+        `wrong entity for ${entry.class}:${entry.kind}:${entry.display_name}`,
+      );
+    }
+  });
+
   it("fails when shared weapon perk coverage is incomplete", async () => {
     const expected = JSON.parse(
       readFileSync("tests/fixtures/ground-truth/expected-weapon-perk-resolution.json", "utf8"),
