@@ -152,9 +152,9 @@ Shared cross-class entities use `shared` as domain: `shared.weapon.autogun_p1_m1
 
 ## Known Scoring/Calculator Limitations
 
-**Weapon scoring catalog gap:** 23 of 32 unique weapons in builds have scoring data entries in `build-scoring-data.json`. The other 9 weapons lack blessing lists. Perks still score correctly (catalog is weapon-agnostic for perks), but blessing validation returns "unknown" for these weapons.
+**Weapon scoring catalog gap (#20):** `build-scoring-data.json` is hand-curated with 23 weapons; only 10 have blessing lists. 21 of the 35 unique weapons across builds aren't in the catalog at all. The ground-truth index has 656 weapon traits, 167 blessing families, and 606 `instance_of` edges — the data to auto-derive blessing lists exists but the scorer doesn't use it yet.
 
-**talent_coherence uniformly 1/5:** The 0.2 edges_per_talent threshold is too high at ~40% calc coverage. Every build scores 1. Needs threshold recalibration or calc coverage improvement.
+**talent_coherence uniformly 1/5 (#20):** The isolation penalty (-0.5 per talent with no synergy edges) crushes scores when ~60% of talents lack calc data. At 40% coverage, "no edges" reflects data gaps, not build quality. Fix: only penalize talents that have calc data but no edges.
 
 **lerped_stat_buff lerp factor:** `assembleBuildBuffStack` hardcodes `warp_charge` as the interpolation factor for all `lerped_stat_buff` effects. Validated: all 40 lerped effects in the corpus have null conditions, confirming warp_charge is the only interpolation variable in practice.
 
@@ -335,7 +335,8 @@ Key paths for entity work:
 
 ## Open Issues
 
-- `#6` Website architecture — Plan 1 (foundation + build list) implemented on `feat/issue-6-website-foundation`. Plans 2–4 (detail page, comparison, GL import) pending.
+- `#6` Website architecture — Plans 1 (build list) and 2 (build detail page) merged to main. Plans 3–4 (comparison page, GL import) pending.
+- `#20` Scoring data gaps — blessing catalog is hand-curated (10/35 weapons covered) when ground-truth has full data; talent_coherence uniformly 1/5 due to isolation penalty at partial calc coverage.
 
 ## Completed Issues
 
