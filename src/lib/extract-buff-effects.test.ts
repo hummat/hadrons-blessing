@@ -1,12 +1,14 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { cpSync, mkdtempSync, readFileSync, readdirSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
 import { tmpdir } from "node:os";
 import { REPO_ROOT } from "./load.js";
 
-const sourceRoot = process.env.GROUND_TRUTH_SOURCE_ROOT;
+const sourceRoot = process.env.GROUND_TRUTH_SOURCE_ROOT
+  ? resolve(process.env.GROUND_TRUTH_SOURCE_ROOT)
+  : undefined;
 const FIXTURE_SOURCE_DIRS = ["src", "data"];
 const FIXTURE_SOURCE_FILES = ["package.json", "tsconfig.json"];
 
