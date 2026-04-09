@@ -1,0 +1,24 @@
+{
+  "name": "hadrons-blessing-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "generate-data": "tsx scripts/generate-data.ts",
+    "test": "tsx --test src/**/*.test.ts"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.10",
+    "@sveltejs/kit": "^2.57.0",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "@tailwindcss/vite": "^4.2.2",
+    "svelte": "^5.55.2",
+    "tailwindcss": "^4.2.2",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.7"
+  }
+}

@@ -49,3 +49,15 @@ stagger-build: require-source-root
 
 check: require-source-root build class-side-build edges-build effects-build breeds-build profiles-build stagger-build
 	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run check
+
+# Website
+.PHONY: website-data website-build website-dev
+
+website-data: build
+	cd website && npx tsx scripts/generate-data.ts
+
+website-build: website-data
+	cd website && npm run build
+
+website-dev:
+	cd website && npm run dev
