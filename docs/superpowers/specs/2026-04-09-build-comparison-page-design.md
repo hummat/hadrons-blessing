@@ -74,19 +74,24 @@ New module `website/src/lib/compare.ts` — pure functions on `BuildDetailData`,
 
 Delta per scoring dimension. `delta = b - a`. Uses `scorecard` section for composite/mechanical scores, `scorecard.qualitative` for qualitative scores. Dimension labels and max values come from a shared constant (see "Dimension metadata" section below).
 
-#### `computeSetDiff(idsA: string[], idsB: string[]): CompareSetDiff`
+#### `computeSetDiff<T extends { compare_key: string }>(itemsA: T[], itemsB: T[]): CompareSetDiff<T>`
 
 ```ts
-interface CompareSetDiff {
-  only_a: string[];
-  only_b: string[];
-  shared: string[];
+interface CompareSetDiff<T> {
+  only_a: T[];
+  only_b: T[];
+  shared: T[];
 }
 ```
 
-**Multiset-aware:** Uses sorted count maps instead of plain sets. If A has `[x, x, y]` and B has `[x, y, y]`, result is `shared: [x, y]`, `only_a: [x]`, `only_b: [y]`. This correctly handles repeated stat nodes and curio perks with the same canonical ID.
+**Multiset-aware:** Uses count maps keyed by `compare_key`, not plain sets. If A has `[x, x, y]` and B has `[x, y, y]`, result is `shared: [x, y]`, `only_a: [x]`, `only_b: [y]`.
 
-For talents, weapons, blessings, curio perks.
+**Why `compare_key`, not raw canonical IDs:** the spec already preserves per-instance names because the same canonical ID can appear multiple times with different labels (`Toughness Boost 4` vs `Toughness Boost 5`), and some entries are unresolved (`id: null`) but still need to appear in the diff. A raw `string[]` of IDs would collapse distinct instances and drop unresolved blessings. `compare_key` is:
+
+- `"{id}::{name}"` when `id` is present
+- `"unresolved::{name}"` when `id` is null
+
+This preserves instance identity for talents, blessings, and curio perks while still allowing multiset handling for exact duplicates.
 
 #### `computeSlotDiff(a: BuildStructure, b: BuildStructure): CompareSlotDiff[]`
 
@@ -123,7 +128,7 @@ Uses the full `SynergyEdgeDetail` objects as output (not just keys), so the UI c
 ```ts
 interface CompareBreakpointDelta {
   breed_id: string;
-  action_category: string; // "light", "heavy", "special" — normalized
+  action_category: string; // "light", "heavy", "special", "push" — normalized
   a_htk: number | null;
   b_htk: number | null;
   delta: number | null;    // b - a, negative = B kills faster
@@ -134,18 +139,17 @@ interface CompareBreakpointDelta {
 
 Compares HTK across both breakpoint matrices for the selected scenario/difficulty. Finds the best (lowest) HTK per breed/action-category across weapons. **Includes weapon attribution** so the user knows which weapon delivered the number — prevents misleading comparisons across melee/ranged profiles.
 
-**Action category mapping:** The breakpoint matrix uses raw action types (`shoot_zoomed`, `weapon_special`, `push_followup`, etc.). The compare module normalizes these to `light`/`heavy`/`special` using a hardcoded map matching the library's `actionCategoryMap` in `damage-calculator.ts:1055`. This map is small (12 entries), stable, and explicitly copied rather than imported — it won't drift because the normalization is defined by the game, not by code.
+**Action category mapping:** The breakpoint matrix uses raw action types (`shoot_zoomed`, `weapon_special`, `push_followup`, etc.). The compare module normalizes these to `light`/`heavy`/`special`/`push` using a hardcoded map matching the library's `ACTION_CATEGORY` in `damage-calculator.ts:1055`. Copy the map into the website layer and add a unit test that fails if an unexpected action type appears in fixture data.
 
 #### Extractor helpers
 
 ```ts
-function talentIds(detail: BuildDetailData): string[]
-function weaponIds(detail: BuildDetailData): string[]
-function blessingIds(detail: BuildDetailData): string[]
-function curioPerkIds(detail: BuildDetailData): string[]
+function talentEntries(detail: BuildDetailData): Array<{ compare_key: string; id: string; name: string }>
+function weaponEntries(detail: BuildDetailData): Array<{ compare_key: string; id: string; name: string; slot: string | null; family: string | null; blessings: Array<{ compare_key: string; id: string | null; name: string }> }>
+function curioPerkEntries(detail: BuildDetailData): Array<{ compare_key: string; id: string | null; name: string }>
 ```
 
-These extract from `detail.structure` (not from scorecard or synergy). The `structure` section is the authoritative source for diff-able entity IDs.
+These extract from `detail.structure` (not from scorecard or synergy). The `structure` section is the authoritative source for diff-able structural entries.
 
 #### Dimension metadata
 
@@ -153,18 +157,18 @@ A shared constant (not duplicated from the detail page):
 
 ```ts
 const DIMENSIONS = [
-  { key: "composite_score", label: "Overall", max: 35 },
-  { key: "perk_optimality", label: "Perks", max: 5 },
-  { key: "curio_efficiency", label: "Curios", max: 5 },
-  { key: "talent_coherence", label: "Talents", max: 5 },
-  { key: "blessing_synergy", label: "Blessings", max: 5 },
-  { key: "role_coverage", label: "Role", max: 5 },
-  { key: "breakpoint_relevance", label: "Breakpoints", max: 5 },
-  { key: "difficulty_scaling", label: "Scaling", max: 5 },
+  { scorecard_key: "composite_score", summary_key: "composite", label: "Overall", max: 35 },
+  { scorecard_key: "perk_optimality", summary_key: "perk_optimality", label: "Perks", max: 5 },
+  { scorecard_key: "curio_efficiency", summary_key: "curio_efficiency", label: "Curios", max: 5 },
+  { scorecard_key: "talent_coherence", summary_key: "talent_coherence", label: "Talents", max: 5 },
+  { scorecard_key: "blessing_synergy", summary_key: "blessing_synergy", label: "Blessings", max: 5 },
+  { scorecard_key: "role_coverage", summary_key: "role_coverage", label: "Role", max: 5 },
+  { scorecard_key: "breakpoint_relevance", summary_key: "breakpoint_relevance", label: "Breakpoints", max: 5 },
+  { scorecard_key: "difficulty_scaling", summary_key: "difficulty_scaling", label: "Scaling", max: 5 },
 ] as const;
 ```
 
-The detail page's hardcoded dimension list (`+page.svelte:65`) should also reference this constant to avoid duplication. Refactor during implementation: extract to `$lib/dimensions.ts`.
+The detail page's hardcoded dimension list (`+page.svelte:65`) should also reference this constant to avoid duplication. The current website uses `summary.scores.composite`, while the scorecard payload uses `composite_score`; both keys need to be carried in the metadata so list/detail/compare surfaces can share one source of truth without ad hoc exceptions.
 
 ## Page Structure
 
@@ -215,10 +219,11 @@ Both build headers link to their respective detail pages (`/builds/{slug}`).
 - Weapon attribution shown inline (e.g., "2 (Force Sword heavy)")
 - Color coding: same as detail page's `htkCellClass` (green ≤1, yellow 2, red 3+), delta column uses green/red for direction
 - Note below table: "Lower HTK is better. Green delta = Build B kills faster."
+- Include `push` rows when present; do not silently drop them.
 
 ### Loading and Error States
 
-- **Loading:** Show skeleton panels with spinner while fetching both build JSONs (~4-5MB total). Render each section as its data arrives (scorecard first, then structural, then synergy/breakpoints).
+- **Loading:** Show skeleton panels with spinner while fetching both build JSONs (~4-5MB total). Fetch Build A and Build B independently and render each side as soon as its JSON arrives. Because each per-build JSON already contains scorecard + structure + synergy + breakpoints, section-level progressive rendering is not a real state; per-build progressive rendering is.
 - **Partial failure:** If one build fetch fails, show error for that side and keep the other. Allow re-selecting the failed build.
 - **Both loading:** Centered spinner with "Loading builds..." text.
 
@@ -284,9 +289,9 @@ interface CompareScoreDelta {
 }
 
 interface CompareSetDiff {
-  only_a: string[];
-  only_b: string[];
-  shared: string[];
+  only_a: Array<{ compare_key: string }>;
+  only_b: Array<{ compare_key: string }>;
+  shared: Array<{ compare_key: string }>;
 }
 
 interface CompareSlotDiff {
@@ -299,7 +304,7 @@ interface CompareSlotDiff {
 
 interface CompareBreakpointDelta {
   breed_id: string;
-  action_category: string; // "light", "heavy", "special"
+  action_category: string; // "light", "heavy", "special", "push"
   a_htk: number | null;
   b_htk: number | null;
   delta: number | null;
@@ -331,8 +336,8 @@ website/src/
     builds.ts              # existing helpers (no changes needed)
   routes/
     compare/
-      +page.svelte         # comparison page with tabs
-      +page.ts             # load both build JSONs from query params
+      +page.svelte         # comparison page with tabs; client-fetches selected build JSONs independently
+      +page.ts             # load build summaries for dropdowns/selectors
     +page.svelte           # build list — add checkboxes + Compare button
     builds/[slug]/
       +page.svelte         # build detail — add "Compare with..." link
@@ -343,11 +348,11 @@ website/src/
 ### `compare.ts` unit tests
 
 - `computeScoreDeltas`: same-build diff (all zeros), different builds (known deltas)
-- `computeSetDiff`: empty sets, identical sets, disjoint sets, overlapping sets, multiset handling (repeated IDs)
+- `computeSetDiff`: empty sets, identical sets, disjoint sets, overlapping sets, multiset handling (repeated entries), same canonical ID with different names, unresolved (`id: null`) entries
 - `computeSlotDiff`: same slots, different slots, null slots
 - `computeSynergyEdgeDiff`: identical edges, unique edges per side, same pair different family
-- `computeBreakpointDiff`: known HTK comparison for two real builds
-- Extractor helpers: verify correct IDs extracted from `BuildDetailData.structure`
+- `computeBreakpointDiff`: known HTK comparison for two real builds, including `push` rows when present
+- Extractor helpers: verify correct comparable entries extracted from `BuildDetailData.structure`
 
 ### Manual verification
 

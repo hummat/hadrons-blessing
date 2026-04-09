@@ -6,6 +6,7 @@
     htkCellClass,
     scoreColor,
   } from "$lib/builds";
+  import { DIMENSIONS } from "$lib/dimensions";
   import type {
     BreakpointActionDetail,
     BreakpointBreedEntry,
@@ -63,62 +64,19 @@
   }
 
   let dimensionCards = $derived.by((): DimensionCard[] => [
-    {
-      key: "composite",
-      label: "Composite",
-      score: data.detail.summary.scores.composite,
-      max: 35,
-      explanation: `Grade ${data.detail.summary.scores.grade}`,
-    },
-    {
-      key: "perk_optimality",
-      label: "Perk Optimality",
-      score: data.detail.summary.scores.perk_optimality,
-      max: 5,
-      explanation: "Average weapon perk score across the build.",
-    },
-    {
-      key: "curio_efficiency",
-      label: "Curio Efficiency",
-      score: data.detail.summary.scores.curio_efficiency,
-      max: 5,
-      explanation: "Curio perk mix quality for the build class.",
-    },
-    {
-      key: "talent_coherence",
-      label: "Talent Coherence",
-      score: data.detail.summary.scores.talent_coherence,
-      max: 5,
-      explanation: dimensionDetail("talent_coherence")?.explanations[0] ?? null,
-    },
-    {
-      key: "blessing_synergy",
-      label: "Blessing Synergy",
-      score: data.detail.summary.scores.blessing_synergy,
-      max: 5,
-      explanation: dimensionDetail("blessing_synergy")?.explanations[0] ?? null,
-    },
-    {
-      key: "role_coverage",
-      label: "Role Coverage",
-      score: data.detail.summary.scores.role_coverage,
-      max: 5,
-      explanation: dimensionDetail("role_coverage")?.explanations[0] ?? null,
-    },
-    {
-      key: "breakpoint_relevance",
-      label: "Breakpoint Relevance",
-      score: data.detail.summary.scores.breakpoint_relevance,
-      max: 5,
-      explanation: dimensionDetail("breakpoint_relevance")?.explanations[0] ?? null,
-    },
-    {
-      key: "difficulty_scaling",
-      label: "Difficulty Scaling",
-      score: data.detail.summary.scores.difficulty_scaling,
-      max: 5,
-      explanation: dimensionDetail("difficulty_scaling")?.explanations[0] ?? null,
-    },
+    ...DIMENSIONS.map((dimension) => ({
+      key: dimension.summary_key,
+      label: dimension.label,
+      score: data.detail.summary.scores[dimension.summary_key as keyof typeof data.detail.summary.scores] as number | null,
+      max: dimension.max,
+      explanation: dimension.scorecard_key === "composite_score"
+        ? `Grade ${data.detail.summary.scores.grade}`
+        : dimension.scorecard_key === "perk_optimality"
+          ? "Average weapon perk score across the build."
+          : dimension.scorecard_key === "curio_efficiency"
+            ? "Curio perk mix quality for the build class."
+            : dimensionDetail(dimension.scorecard_key)?.explanations[0] ?? null,
+    })),
   ]);
 
   function perkTierLabel(tier: number | undefined): string {
@@ -179,10 +137,15 @@
 
 <div class="space-y-8">
   <div class="space-y-4">
-    <a href={`${base}/`} class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-amber-300 transition-colors">
-      <span aria-hidden="true">←</span>
-      Back to builds
-    </a>
+    <div class="flex flex-wrap items-center gap-4">
+      <a href={`${base}/`} class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-amber-300 transition-colors">
+        <span aria-hidden="true">←</span>
+        Back to builds
+      </a>
+      <a href={`${base}/compare?builds=${data.detail.slug},`} class="text-sm text-gray-400 hover:text-amber-300 transition-colors">
+        Compare with...
+      </a>
+    </div>
 
     <section class="rounded-2xl border border-gray-800 bg-gray-900 px-6 py-6">
       <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">

@@ -1,6 +1,8 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import { base } from "$app/paths";
   import { buildSlugFromFile, CLASS_COLORS, GRADE_STYLES, scoreColor } from "$lib/builds";
+  import { DIMENSIONS } from "$lib/dimensions";
   import { filterAndSort } from "$lib/filter-sort";
 
   let { data } = $props();
@@ -13,20 +15,27 @@
   // Sort state
   let sortKey = $state("composite");
   let sortDesc = $state(true);
+  let selectedBuilds = $state<string[]>([]);
 
   const CLASSES = ["veteran", "zealot", "psyker", "ogryn", "arbites", "hive scum"];
   const GRADES = ["S", "A", "B", "C", "D"];
 
-  const COLUMNS: { key: string; label: string; abbr?: string }[] = [
-    { key: "composite", label: "Overall" },
-    { key: "perk_optimality", label: "Perks", abbr: "Prk" },
-    { key: "curio_efficiency", label: "Curios", abbr: "Cur" },
-    { key: "talent_coherence", label: "Talents", abbr: "Tal" },
-    { key: "blessing_synergy", label: "Blessings", abbr: "Bls" },
-    { key: "role_coverage", label: "Role", abbr: "Rol" },
-    { key: "breakpoint_relevance", label: "Breakpoints", abbr: "BP" },
-    { key: "difficulty_scaling", label: "Scaling", abbr: "Scl" },
-  ];
+  const ABBR: Record<string, string> = {
+    composite: "Ovr",
+    perk_optimality: "Prk",
+    curio_efficiency: "Cur",
+    talent_coherence: "Tal",
+    blessing_synergy: "Bls",
+    role_coverage: "Rol",
+    breakpoint_relevance: "BP",
+    difficulty_scaling: "Scl",
+  };
+
+  const COLUMNS: { key: string; label: string; abbr?: string }[] = DIMENSIONS.map((dimension) => ({
+    key: dimension.summary_key,
+    label: dimension.label,
+    abbr: ABBR[dimension.summary_key],
+  }));
 
   let filtered = $derived(
     filterAndSort(data.builds, {
@@ -45,6 +54,26 @@
       sortKey = key;
       sortDesc = true;
     }
+  }
+
+  function toggleSelected(slug: string) {
+    if (selectedBuilds.includes(slug)) {
+      selectedBuilds = selectedBuilds.filter((value) => value !== slug);
+      return;
+    }
+
+    if (selectedBuilds.length >= 2) {
+      return;
+    }
+
+    selectedBuilds = [...selectedBuilds, slug];
+  }
+
+  async function compareSelected() {
+    if (selectedBuilds.length !== 2) return;
+    const [a, b] = selectedBuilds;
+    selectedBuilds = [];
+    await goto(`${base}/compare?builds=${a},${b}`);
   }
 
 </script>
@@ -91,6 +120,15 @@
       <option value={grade}>{grade}+</option>
     {/each}
   </select>
+
+  <button
+    type="button"
+    onclick={() => void compareSelected()}
+    disabled={selectedBuilds.length !== 2}
+    class="rounded-md border px-3 py-2 text-sm transition-colors {selectedBuilds.length === 2 ? 'border-amber-700 bg-amber-950/40 text-amber-200 hover:bg-amber-950/60' : 'border-gray-800 bg-gray-900 text-gray-600'}"
+  >
+    Compare
+  </button>
 </div>
 
 <!-- Scorecard Table -->
@@ -98,6 +136,7 @@
   <table class="w-full text-sm">
     <thead>
       <tr class="bg-gray-900/80 text-gray-400 text-left">
+        <th class="px-3 py-3 font-medium text-center">Cmp</th>
         <th class="px-4 py-3 font-medium">Build</th>
         <th class="px-3 py-3 font-medium">Class</th>
         <th class="px-3 py-3 font-medium">Weapons</th>
@@ -120,10 +159,20 @@
     </thead>
     <tbody class="divide-y divide-gray-900">
       {#each filtered as build (build.file)}
+        {@const slug = buildSlugFromFile(build.file)}
         <tr class="hover:bg-gray-900/40 transition-colors">
+          <td class="px-3 py-3 text-center">
+            <input
+              type="checkbox"
+              checked={selectedBuilds.includes(slug)}
+              disabled={!selectedBuilds.includes(slug) && selectedBuilds.length >= 2}
+              onchange={() => toggleSelected(slug)}
+              class="h-4 w-4 rounded border-gray-700 bg-gray-900 text-amber-500 focus:ring-amber-600"
+            />
+          </td>
           <td class="px-4 py-3 font-medium whitespace-nowrap">
             <a
-              href={`${base}/builds/${buildSlugFromFile(build.file)}`}
+              href={`${base}/builds/${slug}`}
               class="text-gray-100 hover:text-amber-300 transition-colors"
             >
               {build.title}

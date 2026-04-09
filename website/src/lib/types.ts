@@ -4,6 +4,36 @@ export interface WeaponSummary {
   family: string | null;
 }
 
+export interface BuildStructureSlot {
+  id: string | null;
+  name: string | null;
+}
+
+export interface BuildStructureEntry {
+  id: string | null;
+  name: string;
+}
+
+export interface BuildStructureWeapon {
+  id: string;
+  name: string;
+  slot: string | null;
+  family: string | null;
+  blessings: BuildStructureEntry[];
+}
+
+export interface BuildStructure {
+  slots: {
+    ability: BuildStructureSlot;
+    blitz: BuildStructureSlot;
+    aura: BuildStructureSlot;
+    keystone: BuildStructureSlot;
+  };
+  talents: Array<{ id: string; name: string }>;
+  weapons: BuildStructureWeapon[];
+  curio_perks: BuildStructureEntry[];
+}
+
 export interface BuildScores {
   composite: number;
   grade: string;
@@ -204,4 +234,40 @@ export interface BuildDetailData {
   scorecard: ScorecardDetail;
   synergy: SynergyAnalysisDetail;
   breakpoints: BreakpointMatrixDetail;
+  structure: BuildStructure;
+}
+
+export interface CompareScoreDelta {
+  dimension: string;
+  label: string;
+  a: number | null;
+  b: number | null;
+  delta: number | null;
+  max: number;
+}
+
+export interface CompareSetDiff<T> {
+  only_a: T[];
+  only_b: T[];
+  shared: T[];
+}
+
+export interface CompareSlotDiff {
+  key: string;
+  label: string;
+  a: BuildStructureSlot;
+  b: BuildStructureSlot;
+  changed: boolean;
+}
+
+export type CompareActionCategory = "light" | "heavy" | "special" | "push";
+
+export interface CompareBreakpointDelta {
+  breed_id: string;
+  action_category: CompareActionCategory;
+  a_htk: number | null;
+  b_htk: number | null;
+  delta: number | null;
+  a_weapon: string | null;
+  b_weapon: string | null;
 }
