@@ -1,5 +1,5 @@
-import { readdirSync, readFileSync, writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
 import { extractBuild, postProcessTalentNodes } from "./extract-build.js";
 import { runCliMain } from "../lib/cli.js";
 import {
@@ -72,6 +72,7 @@ await runCliMain("gl-class-tree:build", async () => {
   }
 
   const deduped = dedupeGlClassTreeLabelEntries(entries);
+  mkdirSync(dirname(OUTPUT_FILE), { recursive: true });
   writeFileSync(OUTPUT_FILE, JSON.stringify(deduped, null, 2) + "\n");
   console.log(`Wrote ${deduped.length} GL class-tree label entries to ${OUTPUT_FILE}`);
 });
