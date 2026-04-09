@@ -180,7 +180,7 @@
 <div class="space-y-8">
   <div class="space-y-4">
     <a href={`${base}/`} class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-amber-300 transition-colors">
-      <span aria-hidden="true">\u2190</span>
+      <span aria-hidden="true">←</span>
       Back to builds
     </a>
 
@@ -308,7 +308,7 @@
                   {/each}
                 </ul>
               {:else}
-                <p class="text-sm text-gray-500">No blessing validation data for this weapon family.</p>
+                <p class="text-sm text-gray-500">This weapon family is not yet in the blessing scoring catalog.</p>
               {/if}
             </div>
           </div>
@@ -371,7 +371,7 @@
 
         <article class="rounded-2xl border border-gray-800 bg-gray-900 p-5">
           <div class="flex items-baseline justify-between">
-            <h3 class="text-lg font-semibold text-gray-100">Orphans</h3>
+            <h3 class="text-lg font-semibold text-gray-100">Isolated Picks</h3>
             <span class="text-sm text-gray-500">{data.detail.synergy.orphans.length}</span>
           </div>
 
@@ -388,7 +388,7 @@
               {/each}
             </ul>
           {:else}
-            <p class="mt-4 text-sm text-gray-500">No orphaned selections detected.</p>
+            <p class="mt-4 text-sm text-gray-500">All selections participate in at least one synergy edge.</p>
           {/if}
         </article>
       </div>
@@ -482,7 +482,7 @@
     <div class="space-y-6">
       {#each data.detail.breakpoints.weapons as weapon (weapon.entityId)}
         {@const matrix = weaponMatrix(weapon)}
-        <article class="rounded-2xl border border-gray-800 bg-gray-900 p-5">
+        <article class="rounded-2xl border border-gray-800 bg-gray-900 p-5 min-w-0 overflow-hidden">
           <div class="flex items-baseline justify-between gap-4">
             <div>
               <h3 class="text-lg font-semibold text-gray-100">{breakpointWeaponLabel(weapon)}</h3>
