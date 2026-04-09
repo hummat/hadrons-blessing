@@ -26,11 +26,42 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: website/package-lock.json
+          cache-dependency-path: |
+            package-lock.json
+            website/package-lock.json
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Build root project
+        run: npm run build
+
+      - name: Provision pinned Darktide source snapshot
+        run: |
+          PINNED_SHA=$(node -e "console.log(JSON.parse(require('fs').readFileSync('data/ground-truth/source-snapshots/manifest.json','utf8')).git_revision)")
+          git init ../Darktide-Source-Code
+          cd ../Darktide-Source-Code
+          git remote add origin https://github.com/Aussiemon/Darktide-Source-Code.git
+          git fetch --depth 1 origin "$PINNED_SHA"
+          git checkout FETCH_HEAD
+
+      - name: Generate build data
+        env:
+          GROUND_TRUTH_SOURCE_ROOT: ../Darktide-Source-Code
+        run: |
+          npm run breeds:build
+          npm run profiles:build
+          npm run effects:build
+          npm run stagger:build
+          npm run index:build
 
       - name: Install website dependencies
         working-directory: website
         run: npm ci
+
+      - name: Generate website data
+        working-directory: website
+        run: npx tsx scripts/generate-data.ts
 
       - name: Build website
         working-directory: website

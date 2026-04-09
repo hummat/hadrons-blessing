@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { base } from "$app/paths";
+  import { buildSlugFromFile, CLASS_COLORS, GRADE_STYLES, scoreColor } from "$lib/builds";
   import { filterAndSort } from "$lib/filter-sort";
 
   let { data } = $props();
@@ -45,31 +47,6 @@
     }
   }
 
-  const CLASS_COLORS: Record<string, string> = {
-    veteran: "text-amber-400",
-    zealot: "text-red-400",
-    psyker: "text-violet-400",
-    ogryn: "text-green-400",
-    arbites: "text-blue-400",
-    "hive scum": "text-yellow-300",
-  };
-
-  const GRADE_STYLES: Record<string, string> = {
-    S: "text-amber-300 bg-amber-950/50 border-amber-800",
-    A: "text-emerald-300 bg-emerald-950/50 border-emerald-800",
-    B: "text-sky-300 bg-sky-950/50 border-sky-800",
-    C: "text-yellow-300 bg-yellow-950/50 border-yellow-800",
-    D: "text-red-300 bg-red-950/50 border-red-800",
-  };
-
-  function scoreColor(v: number | string | null): string {
-    if (v == null) return "text-gray-600";
-    const n = typeof v === "string" ? 0 : v;
-    if (n >= 4) return "text-emerald-400";
-    if (n >= 3) return "text-sky-400";
-    if (n >= 2) return "text-yellow-400";
-    return "text-red-400";
-  }
 </script>
 
 <svelte:head>
@@ -144,7 +121,14 @@
     <tbody class="divide-y divide-gray-900">
       {#each filtered as build (build.file)}
         <tr class="hover:bg-gray-900/40 transition-colors">
-          <td class="px-4 py-3 font-medium whitespace-nowrap">{build.title}</td>
+          <td class="px-4 py-3 font-medium whitespace-nowrap">
+            <a
+              href={`${base}/builds/${buildSlugFromFile(build.file)}`}
+              class="text-gray-100 hover:text-amber-300 transition-colors"
+            >
+              {build.title}
+            </a>
+          </td>
           <td class="px-3 py-3 capitalize {CLASS_COLORS[build.class] ?? 'text-gray-400'}">
             {build.class}
           </td>

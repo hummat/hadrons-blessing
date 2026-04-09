@@ -25,3 +25,183 @@ export interface BuildSummary {
   weapons: WeaponSummary[];
   scores: BuildScores;
 }
+
+export interface DimensionScoreDetail {
+  score: number;
+  breakdown: Record<string, unknown>;
+  explanations: string[];
+}
+
+export interface ScorecardPerk {
+  name: string;
+  tier: number;
+  value?: number;
+  rating?: string;
+}
+
+export interface ScorecardWeaponPerks {
+  score: number;
+  perks: Array<ScorecardPerk | null>;
+}
+
+export interface ScorecardBlessing {
+  name: string;
+  known: boolean;
+  internal: string | null;
+}
+
+export interface ScorecardBlessings {
+  valid: boolean | null;
+  blessings: ScorecardBlessing[];
+}
+
+export interface ScorecardWeaponDetail {
+  name: string;
+  slot: string | null;
+  canonical_entity_id: string | null;
+  internal_name: string | null;
+  weapon_family: string | null;
+  resolution_source: string | null;
+  perks: ScorecardWeaponPerks;
+  blessings: ScorecardBlessings;
+}
+
+export interface ScorecardCurioPerk {
+  name: string;
+  tier: number;
+  rating: string;
+}
+
+export interface ScorecardCurios {
+  score: number;
+  perks: ScorecardCurioPerk[];
+}
+
+export interface ScorecardQualitative {
+  blessing_synergy: DimensionScoreDetail | null;
+  talent_coherence: DimensionScoreDetail | null;
+  breakpoint_relevance: DimensionScoreDetail | null;
+  role_coverage: DimensionScoreDetail | null;
+  difficulty_scaling: DimensionScoreDetail | null;
+}
+
+export interface ScorecardDetail {
+  title: string;
+  class: string;
+  perk_optimality: number;
+  curio_efficiency: number;
+  composite_score: number;
+  letter_grade: string;
+  weapons: ScorecardWeaponDetail[];
+  curios: ScorecardCurios;
+  qualitative: ScorecardQualitative;
+  bot_flags: string[];
+}
+
+export interface SynergyEdgeDetail {
+  type: string;
+  selections: string[];
+  families: string[];
+  strength: number;
+  explanation: string;
+}
+
+export interface AntiSynergyDetail {
+  type: string;
+  selections: string[];
+  reason: string;
+  severity: string;
+}
+
+export interface OrphanDetail {
+  selection: string;
+  reason: string;
+  condition: string;
+  resource?: string;
+}
+
+export interface CoverageFamilyProfile {
+  count: number;
+  total_magnitude: number;
+  selections: string[];
+}
+
+export interface CoverageResultDetail {
+  family_profile: Record<string, CoverageFamilyProfile>;
+  slot_balance: {
+    melee: { families: string[]; strength: number };
+    ranged: { families: string[]; strength: number };
+  };
+  build_identity: string[];
+  coverage_gaps: string[];
+  concentration: number;
+}
+
+export interface SynergyMetadataDetail {
+  entities_analyzed: number;
+  unique_entities_with_calc: number;
+  entities_without_calc: number;
+  opaque_conditions: number;
+  calc_coverage_pct: number;
+}
+
+export interface SynergyAnalysisDetail {
+  build: string;
+  class: string;
+  synergy_edges: SynergyEdgeDetail[];
+  anti_synergies: AntiSynergyDetail[];
+  orphans: OrphanDetail[];
+  coverage: CoverageResultDetail;
+  _resolvedIds: string[];
+  metadata: SynergyMetadataDetail;
+}
+
+export interface BreakpointBreedEntry {
+  breed_id: string;
+  difficulty: string;
+  hitsToKill: number | null;
+  damage: number;
+  hitZone: string;
+  effectiveArmorType: string;
+  damageEfficiency: string;
+}
+
+export interface BreakpointScenarioResult {
+  breeds: BreakpointBreedEntry[];
+}
+
+export interface BreakpointActionDetail {
+  type: string;
+  profileId: string;
+  scenarios: Record<string, BreakpointScenarioResult>;
+}
+
+export interface BreakpointSummaryDetail {
+  bestLight: Record<string, unknown> | null;
+  bestHeavy: Record<string, unknown> | null;
+  bestSpecial: Record<string, unknown> | null;
+}
+
+export interface BreakpointWeaponDetail {
+  entityId: string;
+  slot: number;
+  actions: BreakpointActionDetail[];
+  summary: BreakpointSummaryDetail;
+}
+
+export interface BreakpointMatrixDetail {
+  weapons: BreakpointWeaponDetail[];
+  metadata: {
+    quality: number;
+    scenarios: string[];
+    timestamp: string;
+  };
+}
+
+export interface BuildDetailData {
+  slug: string;
+  summary: BuildSummary;
+  scorecard: ScorecardDetail;
+  synergy: SynergyAnalysisDetail;
+  breakpoints: BreakpointMatrixDetail;
+}
