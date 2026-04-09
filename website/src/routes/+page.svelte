@@ -12,7 +12,7 @@
   let sortKey = $state("composite");
   let sortDesc = $state(true);
 
-  const CLASSES = ["veteran", "zealot", "psyker", "ogryn", "arbites", "hivescum"];
+  const CLASSES = ["veteran", "zealot", "psyker", "ogryn", "arbites", "hive scum"];
   const GRADES = ["S", "A", "B", "C", "D"];
 
   const COLUMNS: { key: string; label: string; abbr?: string }[] = [
@@ -51,7 +51,7 @@
     psyker: "text-violet-400",
     ogryn: "text-green-400",
     arbites: "text-blue-400",
-    hivescum: "text-yellow-300",
+    "hive scum": "text-yellow-300",
   };
 
   const GRADE_STYLES: Record<string, string> = {
@@ -92,7 +92,7 @@
   >
     <option value="">All Classes</option>
     {#each CLASSES as cls}
-      <option value={cls}>{cls.charAt(0).toUpperCase() + cls.slice(1)}</option>
+      <option value={cls}>{cls.split(" ").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}</option>
     {/each}
   </select>
 
