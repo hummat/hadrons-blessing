@@ -336,6 +336,7 @@ Key paths for entity work:
 ## Open Issues
 
 - `#6` Website architecture — Plans 1 (build list) and 2 (build detail page) merged to main. Plans 3–4 (comparison page, GL import) pending.
+- `#21` Expand GL alias coverage beyond the canonical fixture set — the canonical 24-build fixture corpus is clean, but fresh Games Lantern samples still expose a small weapon-side alias tail outside the curated set
 
 ## Completed Issues
 

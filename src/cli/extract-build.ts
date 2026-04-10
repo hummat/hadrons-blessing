@@ -204,6 +204,78 @@ async function extractBuild(url: string) {
     }
 
     return await page.evaluate((): AnyRecord => {
+      function parseItemCardLinesInPage(lines: string[]) {
+        if (lines.length < 2) return null;
+
+        const item = {
+          name: lines[0],
+          rarity: "",
+          perks: [] as string[],
+          blessings: [] as { name: string; description: string }[],
+        };
+
+        const rarities = new Set([
+          "Transcendant",
+          "Anointed",
+          "Profane",
+          "Redeemed",
+        ]);
+        const statBar = /^\[[\d/]+\]%$/;
+        const statLabel =
+          /^(Warp Resistance|Cleave|Finesse|Defences|Damage|Quell|Charge|Blast|Mobility|Attack Speed|Critical|Stamina|Peril|Dodge|Sprint|Block|Push|First Target|Reload)/;
+        const statValue = /^[\d.]+$/;
+        const statRange = /^\[[\d. |]+\]$/;
+        const prefixRangePerk = /^\d+(?:\.\d+)?-\d+(?:\.\d+)?%\s/;
+        const prefixedNumberPerk = /^\+\d/;
+        const suffixRangePerk = /^(Increase|Decreases?)\b.+\bby\s+\d+(?:\.\d+)?-\d+(?:\.\d+)?%$/i;
+
+        let i = 1;
+        while (i < lines.length) {
+          const line = lines[i];
+
+          if (rarities.has(line)) {
+            item.rarity = line;
+            i++;
+            continue;
+          }
+
+          if (
+            statBar.test(line) ||
+            statLabel.test(line) ||
+            statValue.test(line) ||
+            statRange.test(line) ||
+            line.startsWith("Damage vs ")
+          ) {
+            i++;
+            continue;
+          }
+
+          if (prefixRangePerk.test(line) || prefixedNumberPerk.test(line) || suffixRangePerk.test(line)) {
+            item.perks.push(line);
+            i++;
+            continue;
+          }
+
+          const next = lines[i + 1];
+          if (
+            line.match(/^[A-Z]/) &&
+            line.length < 60 &&
+            next &&
+            next.length > 15 &&
+            !statBar.test(next) &&
+            !rarities.has(next)
+          ) {
+            item.blessings.push({ name: line, description: next });
+            i += 2;
+            continue;
+          }
+
+          i++;
+        }
+
+        return item;
+      }
+
       // --- Early page validation ---
       const bodyText = document.body?.innerText?.trim() ?? "";
       if (/^404\b/i.test(bodyText) || bodyText.length < 50) {
@@ -417,7 +489,7 @@ async function extractBuild(url: string) {
             .filter(Boolean);
           if (lines.length < 2) continue;
 
-          const item = parseItemCardLines(lines);
+          const item = parseItemCardLinesInPage(lines);
           if (item) items.push(item);
         }
         return items;
