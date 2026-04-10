@@ -34,7 +34,7 @@
           {
             "name": "Wrath",
             "known": true,
-            "internal": "shared.weapon_trait.weapon_trait_bespoke_combatsword_p2_increased_attack_cleave_on_multiple_hits"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_combatsword_p2_chained_hits_increases_melee_cleave"
           },
           {
             "name": "Skullcrusher",
@@ -154,7 +154,7 @@
         "orphaned_blessings": 1
       },
       "explanations": [
-        "Blessings with synergy edges: lethal_proximity, stacking_crit_chance_on_weakspot, wrath",
+        "Blessings with synergy edges: lethal_proximity, stacking_crit_chance_on_weakspot, chained_hits_increases_melee_cleave",
         "4 blessing-blessing edge(s) +0.5",
         "1 blessing(s) participate in no synergy edges (-1 each)"
       ]
@@ -276,7 +276,7 @@
           {
             "label": "One-shot Rager head",
             "damnation_htk": 3,
-            "auric_htk": 3,
+            "auric_htk": 4,
             "damnation_met": false,
             "auric_met": false
           },

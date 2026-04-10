@@ -79,21 +79,26 @@ const GADGET_TRAIT_NAMES = new Map([
   ["gadget_toughness_regen_delay", "Toughness Regen Speed"],
 ]);
 
-// 9 unambiguous concept_suffix → community_name mappings from scoring data.
-// Only suffixes that map to exactly one community name across all weapons
+// Source-backed concept_suffix → community_name mappings.
+// Only suffixes that map to a stable community name across known sources
 // AND do not collide with existing aliases on other name_family entities.
 // Excluded: warp_charge_power_bonus → "Blazing Spirit" collides with
 // shared.name_family.blessing.blazing_spirit (duplicate family, needs merge).
 const BLESSING_NAMES = new Map([
   ["allow_flanking_and_increased_damage_when_flanking", "Flanking Fire"],
+  ["bleed_on_ranged", "Puncture"],
   ["bleed_on_non_weakspot_hit", "Lacerate"],
   ["chance_to_explode_elites_on_kill", "Soulfire"],
+  ["chained_hits_increases_melee_cleave", "Wrath"],
   ["charge_level_increases_critical_strike_chance", "Charge Crit"],
   ["extended_activation_duration_on_chained_attacks", "Cycler"],
-  ["faster_reload_on_empty_clip", "Charmed Reload"],
+  ["faster_reload_on_empty_clip", "Quickflame"],
+  ["increase_power_on_hit", "Headtaker"],
+  ["increase_power_on_kill", "Slaughterer"],
   ["increased_weakspot_damage_against_bleeding", "Flesh Tearer"],
   ["power_bonus_on_first_attack", "Haymaker"],
   ["toughness_on_elite_kills", "Gloryhunter"],
+  ["wrath", "Savage Sweep"],
 ]);
 
 function buildPerkAliasRecord(entityId: string, displayName: string, slot: string) {
@@ -259,6 +264,7 @@ function mergeAliases(existingAliases: AnyRecord[], newAliases: AnyRecord[]) {
       updated++;
     } else {
       merged.push(alias);
+      existingByEntity.set(key, merged.length - 1);
       added++;
     }
   }

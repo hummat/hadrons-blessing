@@ -1319,7 +1319,7 @@ describe("auditBuildFile", () => {
       [
         arbitesMetaResult,
         "weapons[1].blessings[1].name",
-        "shared.name_family.blessing.puncture",
+        "shared.name_family.blessing.bleed_on_ranged",
       ],
       [
         hiveScumResult,

@@ -3,7 +3,7 @@
   "class": "arbites",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 29,
+  "composite_score": 28,
   "letter_grade": "A",
   "weapons": [
     {
@@ -77,7 +77,7 @@
           {
             "name": "Puncture",
             "known": true,
-            "internal": "shared.weapon_trait.weapon_trait_bespoke_boltpistol_p1_rending_on_crit"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_boltpistol_p1_bleed_on_ranged"
           }
         ]
       }
@@ -150,17 +150,18 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 5,
+      "score": 4,
       "breakdown": {
-        "blessing_edges": 17,
+        "blessing_edges": 11,
         "blessing_count": 4,
-        "edges_per_blessing": 4.25,
-        "blessing_blessing_edges": 3,
-        "orphaned_blessings": 0
+        "edges_per_blessing": 2.75,
+        "blessing_blessing_edges": 1,
+        "orphaned_blessings": 1
       },
       "explanations": [
-        "Blessings with synergy edges: relentless_strikes, high_voltage, run_n_gun, puncture",
-        "3 blessing-blessing edge(s) +0.5"
+        "Blessings with synergy edges: relentless_strikes, high_voltage, run_n_gun",
+        "1 blessing-blessing edge(s) +0.5",
+        "1 blessing(s) participate in no synergy edges (-1 each)"
       ]
     },
     "talent_coherence": {
@@ -171,13 +172,13 @@
         "measurable_talent_count": 10,
         "edges_per_talent": 1.1,
         "graph_isolated_count": 1,
-        "concentration": 0.08,
+        "concentration": 0.07,
         "penalties": -0.5,
         "bonuses": 0.5
       },
       "explanations": [
         "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.080) +0.5",
+        "High stat concentration (0.070) +0.5",
         "17 talent(s) without calc data excluded from isolation penalty"
       ]
     },
@@ -201,7 +202,7 @@
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 3,
+          "best_htk": 4,
           "max_hits": 2,
           "weight": "high"
         },
@@ -263,16 +264,12 @@
     "role_coverage": {
       "score": 4,
       "breakdown": {
-        "active_families": 9,
+        "active_families": 8,
         "total_families": 11,
-        "coverage_gaps": [
-          "crit_chance_source"
-        ],
-        "slot_balance_ratio": 0.7
+        "coverage_gaps": [],
+        "slot_balance_ratio": 0.6666666666666666
       },
-      "explanations": [
-        "Coverage gaps: crit_chance_source (-1 each)"
-      ]
+      "explanations": []
     },
     "difficulty_scaling": {
       "score": 2,
@@ -297,8 +294,8 @@
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 3,
-            "auric_htk": 4,
+            "damnation_htk": 4,
+            "auric_htk": 5,
             "damnation_met": false,
             "auric_met": false
           }

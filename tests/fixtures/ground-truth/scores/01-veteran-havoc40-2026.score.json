@@ -39,7 +39,7 @@
           {
             "name": "Slaughterer",
             "known": true,
-            "internal": "shared.weapon_trait.weapon_trait_bespoke_powersword_p1_increased_melee_damage_on_multiple_hits"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powersword_p1_increase_power_on_kill"
           }
         ]
       }
@@ -152,14 +152,14 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 16,
+        "blessing_edges": 15,
         "blessing_count": 4,
-        "edges_per_blessing": 4,
+        "edges_per_blessing": 3.75,
         "blessing_blessing_edges": 2,
         "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: rising_heat, extended_activation_duration_on_chained_attacks, rampage, gets_hot",
+        "Blessings with synergy edges: increase_power_on_kill, rising_heat, extended_activation_duration_on_chained_attacks, gets_hot",
         "2 blessing-blessing edge(s) +0.5"
       ]
     },
@@ -193,7 +193,7 @@
         {
           "label": "Two-hit Rager body",
           "met": false,
-          "best_htk": 5,
+          "best_htk": 6,
           "max_hits": 2,
           "weight": "high"
         },
@@ -265,7 +265,7 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.7
+        "slot_balance_ratio": 0.8
       },
       "explanations": []
     },
@@ -285,7 +285,7 @@
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 5,
+            "damnation_htk": 6,
             "auric_htk": 7,
             "damnation_met": false,
             "auric_met": false

@@ -34,7 +34,7 @@
           {
             "name": "Wrath",
             "known": true,
-            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_melee_cleave"
           },
           {
             "name": "Unstable Power",
@@ -159,7 +159,7 @@
         "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: wrath, warp_charge_power_bonus, blaze_away, warp_nexus",
+        "Blessings with synergy edges: chained_hits_increases_melee_cleave, warp_charge_power_bonus, blaze_away, warp_nexus",
         "6 blessing-blessing edge(s) +0.5"
       ]
     },

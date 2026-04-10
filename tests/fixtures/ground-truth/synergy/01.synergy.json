@@ -30,6 +30,18 @@
       "type": "stat_alignment",
       "selections": [
         "veteran.talent.veteran_crits_apply_rending",
+        "shared.name_family.blessing.increase_power_on_kill"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_crits_apply_rending",
         "shared.name_family.blessing.rising_heat"
       ],
       "families": [
@@ -79,18 +91,6 @@
       "selections": [
         "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
         "shared.name_family.blessing.extended_activation_duration_on_chained_attacks"
-      ],
-      "families": [
-        "melee_offense"
-      ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the melee_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
-        "shared.name_family.blessing.rampage"
       ],
       "families": [
         "melee_offense"
@@ -162,18 +162,6 @@
       "type": "stat_alignment",
       "selections": [
         "veteran.talent.veteran_kill_grants_damage_to_other_slot",
-        "shared.name_family.blessing.rampage"
-      ],
-      "families": [
-        "melee_offense"
-      ],
-      "strength": 2,
-      "explanation": "Selections contribute different-category effects to the melee_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "veteran.talent.veteran_kill_grants_damage_to_other_slot",
         "shared.name_family.blessing.rising_heat"
       ],
       "families": [
@@ -221,20 +209,20 @@
     {
       "type": "stat_alignment",
       "selections": [
-        "veteran.talent.veteran_attack_speed",
-        "shared.name_family.blessing.rampage"
+        "veteran.talent.veteran_increase_damage_vs_elites",
+        "veteran.talent.veteran_big_game_hunter"
       ],
       "families": [
-        "melee_offense"
+        "general_offense"
       ],
       "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the melee_offense family"
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
     },
     {
       "type": "stat_alignment",
       "selections": [
         "veteran.talent.veteran_increase_damage_vs_elites",
-        "veteran.talent.veteran_big_game_hunter"
+        "shared.name_family.blessing.increase_power_on_kill"
       ],
       "families": [
         "general_offense"
@@ -289,6 +277,18 @@
       ],
       "strength": 2,
       "explanation": "Selections contribute different-category effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_big_game_hunter",
+        "shared.name_family.blessing.increase_power_on_kill"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
     },
     {
       "type": "stat_alignment",
@@ -377,26 +377,14 @@
     {
       "type": "stat_alignment",
       "selections": [
-        "shared.stat_node.melee_damage_boost",
-        "shared.name_family.blessing.rampage"
+        "shared.name_family.blessing.increase_power_on_kill",
+        "shared.name_family.blessing.rising_heat"
       ],
       "families": [
-        "melee_offense"
+        "general_offense"
       ],
       "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the melee_offense family"
-    },
-    {
-      "type": "stat_alignment",
-      "selections": [
-        "shared.name_family.blessing.extended_activation_duration_on_chained_attacks",
-        "shared.name_family.blessing.rampage"
-      ],
-      "families": [
-        "melee_offense"
-      ],
-      "strength": 3,
-      "explanation": "Both selections contribute persistent effects to the melee_offense family"
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
     },
     {
       "type": "stat_alignment",
@@ -428,12 +416,13 @@
   "coverage": {
     "family_profile": {
       "general_offense": {
-        "count": 4,
-        "total_magnitude": 0.56,
+        "count": 5,
+        "total_magnitude": 0.64,
         "selections": [
           "veteran.talent.veteran_crits_apply_rending",
           "veteran.talent.veteran_increase_damage_vs_elites",
           "veteran.talent.veteran_big_game_hunter",
+          "shared.name_family.blessing.increase_power_on_kill",
           "shared.name_family.blessing.rising_heat"
         ]
       },
@@ -446,15 +435,14 @@
         ]
       },
       "melee_offense": {
-        "count": 6,
-        "total_magnitude": 1.21,
+        "count": 5,
+        "total_magnitude": 0.85,
         "selections": [
           "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
           "veteran.talent.veteran_kill_grants_damage_to_other_slot",
           "veteran.talent.veteran_attack_speed",
           "shared.stat_node.melee_damage_boost",
-          "shared.name_family.blessing.extended_activation_duration_on_chained_attacks",
-          "shared.name_family.blessing.rampage"
+          "shared.name_family.blessing.extended_activation_duration_on_chained_attacks"
         ]
       },
       "grenade": {
@@ -516,13 +504,13 @@
           "crit",
           "ranged_offense"
         ],
-        "strength": 7
+        "strength": 8
       }
     },
     "build_identity": [
       "melee_offense",
-      "toughness",
-      "general_offense"
+      "general_offense",
+      "toughness"
     ],
     "coverage_gaps": [],
     "concentration": 0.03
@@ -559,7 +547,7 @@
     "shared.stat_node.melee_damage_boost",
     "shared.weapon.powersword_p1_m2",
     "shared.name_family.blessing.extended_activation_duration_on_chained_attacks",
-    "shared.name_family.blessing.rampage",
+    "shared.name_family.blessing.increase_power_on_kill",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
     "shared.weapon.plasmagun_p1_m1",
@@ -587,7 +575,7 @@
     "veteran.talent.veteran_reduce_swap_time",
     "shared.stat_node.melee_damage_boost",
     "shared.name_family.blessing.extended_activation_duration_on_chained_attacks",
-    "shared.name_family.blessing.rampage",
+    "shared.name_family.blessing.increase_power_on_kill",
     "shared.name_family.blessing.rising_heat",
     "shared.name_family.blessing.gets_hot",
     "shared.gadget_trait.gadget_toughness_increase",

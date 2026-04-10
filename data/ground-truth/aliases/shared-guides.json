@@ -1067,7 +1067,7 @@
   {
     "text": "Puncture",
     "normalized_text": "puncture",
-    "candidate_entity_id": "shared.name_family.blessing.puncture",
+    "candidate_entity_id": "shared.name_family.blessing.bleed_on_ranged",
     "alias_kind": "guide_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "build-fixture",
@@ -1086,7 +1086,7 @@
       "prefer": []
     },
     "rank_weight": 100,
-    "notes": "Family-level mapping backed by bespoke boltpistol rending_on_crit trait source and broadened to structured boltgun usage."
+    "notes": "Family-level mapping backed by bespoke boltpistol/bolter bleed_on_ranged trait source and Enhanced Descriptions loc_trait_bespoke_bleed_on_ranged label."
   },
   {
     "text": "Lethal Proximity",
@@ -1421,7 +1421,7 @@
   {
     "text": "Wrath",
     "normalized_text": "wrath",
-    "candidate_entity_id": "shared.name_family.blessing.wrath",
+    "candidate_entity_id": "shared.name_family.blessing.chained_hits_increases_melee_cleave",
     "alias_kind": "guide_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "build-fixture",
@@ -2864,7 +2864,7 @@
   {
     "text": "Slaughterer",
     "normalized_text": "slaughterer",
-    "candidate_entity_id": "shared.name_family.blessing.rampage",
+    "candidate_entity_id": "shared.name_family.blessing.increase_power_on_kill",
     "alias_kind": "stale_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "manual_source_review",
@@ -2887,7 +2887,7 @@
       "prefer": []
     },
     "rank_weight": 140,
-    "notes": "Legacy power sword blessing label for the bespoke powersword_p1 increased_melee_damage_on_multiple_hits trait, which resolves to the Rampage family."
+    "notes": "Source-backed power-on-kill blessing label. Enhanced Descriptions maps loc_trait_bespoke_increase_power_on_kill to Slaughterer."
   },
   {
     "text": "Thrust",
@@ -2948,7 +2948,7 @@
   {
     "text": "Headtaker",
     "normalized_text": "headtaker",
-    "candidate_entity_id": "shared.name_family.blessing.increase_power_on_kill",
+    "candidate_entity_id": "shared.name_family.blessing.increase_power_on_hit",
     "alias_kind": "stale_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "manual_source_review",
@@ -2971,7 +2971,7 @@
       "prefer": []
     },
     "rank_weight": 140,
-    "notes": "Legacy pickaxe blessing label. Source-backed family is bespoke ogryn_pickaxe_2h_p1 increase_power_on_kill."
+    "notes": "Source-backed power-on-hit blessing label. Enhanced Descriptions maps loc_trait_bespoke_increase_power_on_hit to Headtaker."
   },
   {
     "text": "Hand-Cannon",
@@ -2999,7 +2999,7 @@
       "prefer": []
     },
     "rank_weight": 140,
-    "notes": "Legacy revolver blessing label. Source-backed family is bespoke stubrevolver_p1 rending_on_crit, enriched as Puncture."
+    "notes": "Source-backed revolver rending-on-crit blessing label. Enhanced Descriptions maps loc_trait_bespoke_rending_on_crit to Hand-Cannon."
   },
   {
     "text": "Everlasting Flame",
@@ -3028,6 +3028,26 @@
     },
     "rank_weight": 140,
     "notes": "Games Lantern Everlasting Flame blessing text matches the bespoke flamer_p1 ammo_from_reserve_on_crit trait exactly."
+  },
+  {
+    "text": "Charmed Reload",
+    "normalized_text": "charmed reload",
+    "candidate_entity_id": "shared.name_family.blessing.ammo_from_reserve_on_crit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Charmed Reload and Enhanced Descriptions loc_trait_bespoke_ammo_refill_from_reserve_on_crit both describe reserve ammo loaded on critical hit for Twin-Linked Stubbers."
   },
   {
     "text": "Surge",
@@ -3938,26 +3958,6 @@
     "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
   },
   {
-    "text": "Bash",
-    "normalized_text": "bash",
-    "candidate_entity_id": "shared.name_family.blessing.crit_chance_on_push",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-blessing",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
-  },
-  {
     "text": "Between the Eyes",
     "normalized_text": "between the eyes",
     "candidate_entity_id": "shared.name_family.blessing.suppression_negation_on_weakspot",
@@ -4018,46 +4018,6 @@
     "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
   },
   {
-    "text": "Bloodletter",
-    "normalized_text": "bloodletter",
-    "candidate_entity_id": "shared.name_family.blessing.bleed_on_activated_hit",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-blessing",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
-  },
-  {
-    "text": "Bloodletter",
-    "normalized_text": "bloodletter",
-    "candidate_entity_id": "shared.name_family.blessing.bleed_on_activated_hit",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-blessing",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
-  },
-  {
     "text": "Born in Blood",
     "normalized_text": "born in blood",
     "candidate_entity_id": "shared.name_family.blessing.toughness_on_close_range_kills",
@@ -4081,26 +4041,6 @@
     "text": "Both Barrels",
     "normalized_text": "both barrels",
     "candidate_entity_id": "shared.name_family.blessing.reload_speed_on_ranged_weapon_special_kill",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-blessing",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
-  },
-  {
-    "text": "Can Opener",
-    "normalized_text": "can opener",
-    "candidate_entity_id": "shared.name_family.blessing.targets_receive_rending_debuff_on_weapon_special",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-blessing",
@@ -4221,46 +4161,6 @@
     "text": "Counterattack",
     "normalized_text": "counterattack",
     "candidate_entity_id": "shared.name_family.blessing.attack_speed_on_perfect_block",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-blessing",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
-  },
-  {
-    "text": "Crucian Roulette",
-    "normalized_text": "crucian roulette",
-    "candidate_entity_id": "shared.name_family.blessing.crit_chance_based_on_ammo_left",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-blessing",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
-  },
-  {
-    "text": "Crucian Roulette",
-    "normalized_text": "crucian roulette",
-    "candidate_entity_id": "shared.name_family.blessing.crit_chance_based_on_ammo_left",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-blessing",
@@ -4878,26 +4778,6 @@
     "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
   },
   {
-    "text": "Overwhelming Fire",
-    "normalized_text": "overwhelming fire",
-    "candidate_entity_id": "shared.name_family.blessing.consecutive_hits_increases_ranged_power",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-blessing",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
-  },
-  {
     "text": "Overwhelming Force",
     "normalized_text": "overwhelming force",
     "candidate_entity_id": "shared.name_family.blessing.staggering_hits_has_chance_to_stun",
@@ -4941,26 +4821,6 @@
     "text": "Pierce",
     "normalized_text": "pierce",
     "candidate_entity_id": "shared.name_family.blessing.pass_past_armor_on_weapon_special",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-blessing",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
-  },
-  {
-    "text": "Point Blank",
-    "normalized_text": "point blank",
-    "candidate_entity_id": "shared.name_family.blessing.crit_chance_bonus_on_melee_kills",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-blessing",
@@ -5158,26 +5018,6 @@
     "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
   },
   {
-    "text": "Reassuringly Accurate",
-    "normalized_text": "reassuringly accurate",
-    "candidate_entity_id": "shared.name_family.blessing.toughness_on_crit_kills",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-blessing",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
-  },
-  {
     "text": "Refined Lethality",
     "normalized_text": "refined lethality",
     "candidate_entity_id": "shared.name_family.blessing.increased_weakspot_damage_against_toxin_status",
@@ -5238,26 +5078,6 @@
     "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
   },
   {
-    "text": "Roaring Advance",
-    "normalized_text": "roaring advance",
-    "candidate_entity_id": "shared.name_family.blessing.movement_speed_on_continous_fire",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-blessing",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
-  },
-  {
     "text": "Ruthless Backstab",
     "normalized_text": "ruthless backstab",
     "candidate_entity_id": "shared.name_family.blessing.rending_on_backstab",
@@ -5280,7 +5100,7 @@
   {
     "text": "Savage Sweep",
     "normalized_text": "savage sweep",
-    "candidate_entity_id": "shared.name_family.blessing.chained_hits_increases_melee_cleave",
+    "candidate_entity_id": "shared.name_family.blessing.wrath",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-blessing",
@@ -5295,7 +5115,7 @@
       "prefer": []
     },
     "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+    "notes": "Games Lantern label matches Enhanced Descriptions loc_trait_bespoke_increased_attack_cleave_on_multiple_hits."
   },
   {
     "text": "Scattershot",
@@ -5438,26 +5258,6 @@
     "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
   },
   {
-    "text": "Supercharge",
-    "normalized_text": "supercharge",
-    "candidate_entity_id": "shared.name_family.blessing.targets_receive_rending_debuff_on_weapon_special_attacks",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-blessing",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
-  },
-  {
     "text": "Superiority",
     "normalized_text": "superiority",
     "candidate_entity_id": "shared.name_family.blessing.elite_kills_grants_stackable_power",
@@ -5561,26 +5361,6 @@
     "text": "Torment",
     "normalized_text": "torment",
     "candidate_entity_id": "shared.name_family.blessing.increase_power_on_weapon_special_hit",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-blessing",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
-  },
-  {
-    "text": "Transfer Peril",
-    "normalized_text": "transfer peril",
-    "candidate_entity_id": "shared.name_family.blessing.vents_warpcharge_on_weakspot_hits",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-blessing",
@@ -5821,6 +5601,366 @@
     "text": "Deathblow",
     "normalized_text": "deathblow",
     "candidate_entity_id": "shared.name_family.blessing.brutal_momentum",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Gets Hot!",
+    "normalized_text": "gets hot",
+    "candidate_entity_id": "shared.name_family.blessing.gets_hot",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Run 'n' Gun",
+    "normalized_text": "run n gun",
+    "candidate_entity_id": "shared.name_family.blessing.run_n_gun",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Deadly Accurate",
+    "normalized_text": "deadly accurate",
+    "candidate_entity_id": "shared.name_family.blessing.lethal_proximity",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Desperado",
+    "normalized_text": "desperado",
+    "candidate_entity_id": "shared.name_family.blessing.riposte",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Disruptive",
+    "normalized_text": "disruptive",
+    "candidate_entity_id": "shared.name_family.blessing.melee_power_after_ranged_explosion",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Dumdum",
+    "normalized_text": "dumdum",
+    "candidate_entity_id": "shared.name_family.blessing.consecutive_hits_increases_close_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Everlasting Flame",
+    "normalized_text": "everlasting flame",
+    "candidate_entity_id": "shared.name_family.blessing.ammo_from_reserve_on_crit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Hammerblow",
+    "normalized_text": "hammerblow",
+    "candidate_entity_id": "shared.name_family.blessing.stacking_increase_impact_on_hit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Headhunter",
+    "normalized_text": "headhunter",
+    "candidate_entity_id": "shared.name_family.blessing.stacking_crit_chance_on_weakspot",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Last Guard",
+    "normalized_text": "last guard",
+    "candidate_entity_id": "shared.name_family.blessing.block_break_pushes",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Man-Stopper",
+    "normalized_text": "man stopper",
+    "candidate_entity_id": "shared.name_family.blessing.cleave_on_crit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Opening Salvo",
+    "normalized_text": "opening salvo",
+    "candidate_entity_id": "shared.name_family.blessing.power_bonus_on_first_shot",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Pinpointing target",
+    "normalized_text": "pinpointing target",
+    "candidate_entity_id": "shared.name_family.blessing.thunderous",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Power Cycler",
+    "normalized_text": "power cycler",
+    "candidate_entity_id": "shared.name_family.blessing.extended_activation_duration_on_chained_attacks",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Rending Shockwave",
+    "normalized_text": "rending shockwave",
+    "candidate_entity_id": "shared.name_family.blessing.rend_armor_on_aoe_charge",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Surge",
+    "normalized_text": "surge",
+    "candidate_entity_id": "shared.name_family.blessing.double_shot_on_crit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Thrust",
+    "normalized_text": "thrust",
+    "candidate_entity_id": "shared.name_family.blessing.thunderous",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Unstable Power",
+    "normalized_text": "unstable power",
+    "candidate_entity_id": "shared.name_family.blessing.warp_charge_power_bonus",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-blessing",

@@ -3,7 +3,7 @@
   "class": "zealot",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 26,
+  "composite_score": 23,
   "letter_grade": "B",
   "weapons": [
     {
@@ -72,7 +72,7 @@
           {
             "name": "Puncture",
             "known": true,
-            "internal": "shared.weapon_trait.weapon_trait_bespoke_boltpistol_p1_rending_on_crit"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_boltpistol_p1_bleed_on_ranged"
           },
           {
             "name": "Execution",
@@ -150,18 +150,17 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 5,
+      "score": 2,
       "breakdown": {
-        "blessing_edges": 19,
+        "blessing_edges": 11,
         "blessing_count": 4,
-        "edges_per_blessing": 4.75,
-        "blessing_blessing_edges": 2,
-        "orphaned_blessings": 1
+        "edges_per_blessing": 2.75,
+        "blessing_blessing_edges": 0,
+        "orphaned_blessings": 2
       },
       "explanations": [
-        "Blessings with synergy edges: rampage, cranial_grounding, puncture",
-        "2 blessing-blessing edge(s) +0.5",
-        "1 blessing(s) participate in no synergy edges (-1 each)"
+        "Blessings with synergy edges: rampage, cranial_grounding",
+        "2 blessing(s) participate in no synergy edges (-1 each)"
       ]
     },
     "talent_coherence": {
@@ -172,7 +171,7 @@
         "measurable_talent_count": 15,
         "edges_per_talent": 1.467,
         "graph_isolated_count": 0,
-        "concentration": 0.04,
+        "concentration": 0.05,
         "penalties": 0,
         "bonuses": 0
       },
@@ -265,7 +264,7 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.5
+        "slot_balance_ratio": 0.45454545454545453
       },
       "explanations": []
     },

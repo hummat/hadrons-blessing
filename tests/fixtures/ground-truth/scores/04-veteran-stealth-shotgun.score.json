@@ -39,7 +39,7 @@
           {
             "name": "Slaughterer",
             "known": true,
-            "internal": "shared.weapon_trait.weapon_trait_bespoke_powersword_p1_increased_melee_damage_on_multiple_hits"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powersword_p1_increase_power_on_kill"
           }
         ]
       }
@@ -152,14 +152,14 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 13,
+        "blessing_edges": 11,
         "blessing_count": 4,
-        "edges_per_blessing": 3.25,
+        "edges_per_blessing": 2.75,
         "blessing_blessing_edges": 1,
         "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: full_bore, extended_activation_duration_on_chained_attacks, rampage, cleave_on_crit",
+        "Blessings with synergy edges: increase_power_on_kill, full_bore, extended_activation_duration_on_chained_attacks, cleave_on_crit",
         "1 blessing-blessing edge(s) +0.5"
       ]
     },
@@ -171,7 +171,7 @@
         "measurable_talent_count": 14,
         "edges_per_talent": 0.857,
         "graph_isolated_count": 1,
-        "concentration": 0.04,
+        "concentration": 0.03,
         "penalties": -0.5,
         "bonuses": 0
       },
@@ -235,7 +235,7 @@
         {
           "label": "Three-hit Mauler",
           "met": false,
-          "best_htk": 11,
+          "best_htk": 12,
           "max_hits": 3,
           "weight": "low"
         },
@@ -265,7 +265,7 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.7777777777777778
+        "slot_balance_ratio": 0.8888888888888888
       },
       "explanations": []
     },

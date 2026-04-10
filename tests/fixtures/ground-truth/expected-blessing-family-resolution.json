@@ -109,7 +109,7 @@
       "kind": "weapon_trait",
       "slot": "ranged"
     },
-    "expected_entity_id": "shared.name_family.blessing.puncture"
+    "expected_entity_id": "shared.name_family.blessing.bleed_on_ranged"
   },
   {
     "query": "Rising Heat",
@@ -279,7 +279,7 @@
       "slot": "melee",
       "weapon_family": "powersword_p1"
     },
-    "expected_entity_id": "shared.name_family.blessing.rampage"
+    "expected_entity_id": "shared.name_family.blessing.increase_power_on_kill"
   },
   {
     "query": "Thrust",
@@ -306,7 +306,7 @@
       "slot": "melee",
       "weapon_family": "ogryn_pickaxe_2h_p1"
     },
-    "expected_entity_id": "shared.name_family.blessing.increase_power_on_kill"
+    "expected_entity_id": "shared.name_family.blessing.increase_power_on_hit"
   },
   {
     "query": "Hand-Cannon",

@@ -174,7 +174,7 @@
       "type": "stat_alignment",
       "selections": [
         "psyker.keystone.psyker_passive_souls_from_elite_kills",
-        "shared.name_family.blessing.wrath"
+        "shared.name_family.blessing.chained_hits_increases_melee_cleave"
       ],
       "families": [
         "general_offense"
@@ -330,7 +330,7 @@
       "type": "stat_alignment",
       "selections": [
         "psyker.talent.psyker_damage_based_on_warp_charge",
-        "shared.name_family.blessing.wrath"
+        "shared.name_family.blessing.chained_hits_increases_melee_cleave"
       ],
       "families": [
         "general_offense"
@@ -438,7 +438,7 @@
       "type": "stat_alignment",
       "selections": [
         "psyker.talent.psyker_cleave_from_peril",
-        "shared.name_family.blessing.wrath"
+        "shared.name_family.blessing.chained_hits_increases_melee_cleave"
       ],
       "families": [
         "melee_offense"
@@ -450,7 +450,7 @@
       "type": "stat_alignment",
       "selections": [
         "psyker.talent.psyker_cleave_from_peril",
-        "shared.name_family.blessing.wrath"
+        "shared.name_family.blessing.chained_hits_increases_melee_cleave"
       ],
       "families": [
         "general_offense"
@@ -522,7 +522,7 @@
       "type": "stat_alignment",
       "selections": [
         "shared.stat_node.melee_damage_boost",
-        "shared.name_family.blessing.wrath"
+        "shared.name_family.blessing.chained_hits_increases_melee_cleave"
       ],
       "families": [
         "melee_offense"
@@ -534,7 +534,7 @@
       "type": "stat_alignment",
       "selections": [
         "shared.stat_node.critical_chance_boost",
-        "shared.name_family.blessing.wrath"
+        "shared.name_family.blessing.chained_hits_increases_melee_cleave"
       ],
       "families": [
         "general_offense"
@@ -593,7 +593,7 @@
     {
       "type": "stat_alignment",
       "selections": [
-        "shared.name_family.blessing.wrath",
+        "shared.name_family.blessing.chained_hits_increases_melee_cleave",
         "shared.name_family.blessing.warp_charge_power_bonus"
       ],
       "families": [
@@ -605,7 +605,7 @@
     {
       "type": "stat_alignment",
       "selections": [
-        "shared.name_family.blessing.wrath",
+        "shared.name_family.blessing.chained_hits_increases_melee_cleave",
         "shared.name_family.blessing.blaze_away"
       ],
       "families": [
@@ -617,7 +617,7 @@
     {
       "type": "stat_alignment",
       "selections": [
-        "shared.name_family.blessing.wrath",
+        "shared.name_family.blessing.chained_hits_increases_melee_cleave",
         "shared.name_family.blessing.warp_nexus"
       ],
       "families": [
@@ -709,13 +709,13 @@
       },
       "general_offense": {
         "count": 8,
-        "total_magnitude": 2.14,
+        "total_magnitude": 0.54,
         "selections": [
           "psyker.keystone.psyker_passive_souls_from_elite_kills",
           "psyker.talent.psyker_damage_based_on_warp_charge",
           "psyker.talent.psyker_cleave_from_peril",
           "shared.stat_node.critical_chance_boost",
-          "shared.name_family.blessing.wrath",
+          "shared.name_family.blessing.chained_hits_increases_melee_cleave",
           "shared.name_family.blessing.warp_charge_power_bonus",
           "shared.name_family.blessing.blaze_away",
           "shared.name_family.blessing.warp_nexus"
@@ -723,11 +723,11 @@
       },
       "melee_offense": {
         "count": 3,
-        "total_magnitude": 2.1,
+        "total_magnitude": 0.5,
         "selections": [
           "psyker.talent.psyker_cleave_from_peril",
           "shared.stat_node.melee_damage_boost",
-          "shared.name_family.blessing.wrath"
+          "shared.name_family.blessing.chained_hits_increases_melee_cleave"
         ]
       },
       "ranged_offense": {
@@ -816,7 +816,7 @@
     "shared.stat_node.stamina_boost",
     "shared.stat_node.critical_chance_boost",
     "shared.weapon.forcesword_2h_p1_m1",
-    "shared.name_family.blessing.wrath",
+    "shared.name_family.blessing.chained_hits_increases_melee_cleave",
     "shared.name_family.blessing.warp_charge_power_bonus",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
@@ -844,7 +844,7 @@
     "shared.stat_node.melee_damage_boost",
     "shared.stat_node.stamina_boost",
     "shared.stat_node.critical_chance_boost",
-    "shared.name_family.blessing.wrath",
+    "shared.name_family.blessing.chained_hits_increases_melee_cleave",
     "shared.name_family.blessing.warp_charge_power_bonus",
     "shared.name_family.blessing.blaze_away",
     "shared.name_family.blessing.warp_nexus",

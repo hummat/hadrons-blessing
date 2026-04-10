@@ -186,7 +186,7 @@ const BLESSING_NAMES = new Map([
   ["chance_to_explode_elites_on_kill", "Soulfire"],
   ["charge_level_increases_critical_strike_chance", "Charge Crit"],
   ["extended_activation_duration_on_chained_attacks", "Cycler"],
-  ["faster_reload_on_empty_clip", "Charmed Reload"],
+  ["faster_reload_on_empty_clip", "Quickflame"],
   ["increased_weakspot_damage_against_bleeding", "Flesh Tearer"],
   ["power_bonus_on_first_attack", "Haymaker"],
   ["toughness_on_elite_kills", "Gloryhunter"],

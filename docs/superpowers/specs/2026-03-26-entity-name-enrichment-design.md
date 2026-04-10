@@ -40,7 +40,7 @@ Note: the stat-to-entity mapping is not derivable by substring matching (e.g., `
    - Soulfire → `chance_to_explode_elites_on_kill`
    - Charge Crit → `charge_level_increases_critical_strike_chance`
    - Cycler → `extended_activation_duration_on_chained_attacks`
-   - Charmed Reload → `faster_reload_on_empty_clip`
+   - Quickflame → `faster_reload_on_empty_clip`
    - Flesh Tearer → `increased_weakspot_damage_against_bleeding`
    - Haymaker → `power_bonus_on_first_attack`
    - Gloryhunter → `toughness_on_elite_kills`

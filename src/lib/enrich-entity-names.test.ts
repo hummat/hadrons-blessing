@@ -339,6 +339,20 @@ describe("mergeAliases", () => {
     const { merged } = mergeAliases(existing, newAliases);
     assert.equal(merged.length, 2);
   });
+
+  it("deduplicates repeated new aliases in the same merge", () => {
+    const existing: any[] = [];
+    const newAliases = [
+      { candidate_entity_id: "a", alias_kind: "gameslantern_name", text: "same", notes: "old" },
+      { candidate_entity_id: "a", alias_kind: "gameslantern_name", text: "same", notes: "new" },
+    ];
+
+    const { merged, added, updated } = mergeAliases(existing, newAliases);
+    assert.equal(merged.length, 1);
+    assert.equal(merged[0].notes, "new");
+    assert.equal(added, 1);
+    assert.equal(updated, 1);
+  });
 });
 
 describe("enrichWeaponNames", () => {
@@ -572,13 +586,13 @@ describe("integration: real data coverage", () => {
     assert.equal(count, 19, `Expected 19 gadget traits enriched, got ${count}`);
   });
 
-  it("enrichNameFamilies matches 9 entities from real data", () => {
+  it("enrichNameFamilies matches 14 entities from real data", () => {
     const copy = JSON.parse(JSON.stringify(nameEntities));
     for (const e of copy) {
       if (e.kind === "name_family") e.ui_name = null;
     }
     const count = enrichNameFamilies(copy);
-    assert.equal(count, 9, `Expected 9 name families enriched, got ${count}`);
+    assert.equal(count, 14, `Expected 14 name families enriched, got ${count}`);
   });
 
   it("enrichBlessingNamesFromSlugs enriches 40+ name_families from real GL data", () => {
