@@ -28,6 +28,7 @@ interface SynergyOutput {
   coverage?: Partial<CoverageResult>;
   _resolvedIds?: string[];
   _talentSideIds?: string[];
+  _entitiesWithCalcIds?: string[];
 }
 
 interface BreakpointMatrix {
@@ -84,7 +85,13 @@ export function classifySelection(id: string): SelectionCategory {
  *   7. Clamp [1, 5], round to nearest integer.
  */
 function scoreTalentCoherence(synergyOutput: SynergyOutput): DimensionScore {
-  const { synergy_edges = [], coverage = {}, _resolvedIds, _talentSideIds } = synergyOutput;
+  const {
+    synergy_edges = [],
+    coverage = {},
+    _resolvedIds,
+    _talentSideIds,
+    _entitiesWithCalcIds,
+  } = synergyOutput;
   const concentration = coverage.concentration ?? 0;
 
   // --- Collect talent-side ID population ---
@@ -105,6 +112,13 @@ function scoreTalentCoherence(synergyOutput: SynergyOutput): DimensionScore {
   }
 
   const talent_count = talentPopulation.size;
+  const measurableTalentPopulation =
+    _entitiesWithCalcIds !== undefined
+      ? new Set(
+          [...talentPopulation].filter((id) => new Set(_entitiesWithCalcIds).has(id))
+        )
+      : null;
+  const measurable_talent_count = measurableTalentPopulation?.size ?? talent_count;
 
   // --- Count talent-talent edges ---
   const talentsInAnyEdge = new Set<string>();
@@ -127,14 +141,14 @@ function scoreTalentCoherence(synergyOutput: SynergyOutput): DimensionScore {
 
   // --- Graph isolation ---
   let graph_isolated_count = 0;
-  for (const id of talentPopulation) {
+  for (const id of measurableTalentPopulation ?? talentPopulation) {
     if (!talentsInAnyEdge.has(id)) {
       graph_isolated_count++;
     }
   }
 
   // --- Base score from edges_per_talent ---
-  const edges_per_talent = talent_count > 0 ? talent_edges / talent_count : 0;
+  const edges_per_talent = measurable_talent_count > 0 ? talent_edges / measurable_talent_count : 0;
   let base_score: number;
   if (edges_per_talent >= 1.5) {
     base_score = 5;
@@ -157,10 +171,20 @@ function scoreTalentCoherence(synergyOutput: SynergyOutput): DimensionScore {
 
   const explanations: string[] = [];
   if (graph_isolated_count > 0) {
-    explanations.push(`${graph_isolated_count} talent(s) participate in no synergy edges (-0.5 each)`);
+    explanations.push(
+      `${graph_isolated_count} measurable talent(s) participate in no synergy edges (-0.5 each)`
+    );
   }
   if (bonuses > 0) {
     explanations.push(`High stat concentration (${concentration.toFixed(3)}) +0.5`);
+  }
+  if (
+    measurableTalentPopulation !== null &&
+    measurable_talent_count < talent_count
+  ) {
+    explanations.push(
+      `${talent_count - measurable_talent_count} talent(s) without calc data excluded from isolation penalty`
+    );
   }
 
   return {
@@ -168,6 +192,7 @@ function scoreTalentCoherence(synergyOutput: SynergyOutput): DimensionScore {
     breakdown: {
       talent_edges,
       talent_count,
+      measurable_talent_count,
       edges_per_talent: Math.round(edges_per_talent * 1000) / 1000,
       graph_isolated_count,
       concentration,

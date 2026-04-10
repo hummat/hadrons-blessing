@@ -3,7 +3,7 @@
   "class": "veteran",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 23,
+  "composite_score": 25,
   "letter_grade": "B",
   "weapons": [
     {
@@ -29,8 +29,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Power Cycler",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powersword_p1_extended_activation_duration_on_chained_attacks"
+          },
+          {
+            "name": "Slaughterer",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powersword_p1_increased_melee_damage_on_multiple_hits"
+          }
+        ]
       }
     },
     {
@@ -61,12 +72,12 @@
           {
             "name": "Rising Heat",
             "known": true,
-            "internal": "crit_chance_scaled_on_heat"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_plasmagun_p1_crit_chance_scaled_on_heat"
           },
           {
             "name": "Gets Hot!",
             "known": true,
-            "internal": "reduced_overheat_on_critical_strike"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_plasmagun_p1_reduced_overheat_on_critical_strike"
           }
         ]
       }
@@ -141,30 +152,32 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 7,
-        "blessing_count": 2,
-        "edges_per_blessing": 3.5,
-        "blessing_blessing_edges": 1,
+        "blessing_edges": 16,
+        "blessing_count": 4,
+        "edges_per_blessing": 4,
+        "blessing_blessing_edges": 2,
         "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: rising_heat, gets_hot",
-        "1 blessing-blessing edge(s) +0.5"
+        "Blessings with synergy edges: rising_heat, extended_activation_duration_on_chained_attacks, rampage, gets_hot",
+        "2 blessing-blessing edge(s) +0.5"
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 3,
       "breakdown": {
-        "talent_edges": 12,
-        "talent_count": 24,
-        "edges_per_talent": 0.5,
-        "graph_isolated_count": 13,
+        "talent_edges": 13,
+        "talent_count": 27,
+        "measurable_talent_count": 14,
+        "edges_per_talent": 0.929,
+        "graph_isolated_count": 1,
         "concentration": 0.03,
-        "penalties": -6.5,
+        "penalties": -0.5,
         "bonuses": 0
       },
       "explanations": [
-        "13 talent(s) participate in no synergy edges (-0.5 each)"
+        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "13 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -180,7 +193,7 @@
         {
           "label": "Two-hit Rager body",
           "met": false,
-          "best_htk": 6,
+          "best_htk": 5,
           "max_hits": 2,
           "weight": "high"
         },
@@ -252,7 +265,7 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.875
+        "slot_balance_ratio": 0.7
       },
       "explanations": []
     },
@@ -272,15 +285,15 @@
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 6,
-            "auric_htk": 8,
+            "damnation_htk": 5,
+            "auric_htk": 7,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
             "damnation_htk": 9,
-            "auric_htk": 12,
+            "auric_htk": 11,
             "damnation_met": false,
             "auric_met": false
           }

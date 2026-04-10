@@ -3,7 +3,7 @@
   "class": "arbites",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 27,
+  "composite_score": 30,
   "letter_grade": "A",
   "weapons": [
     {
@@ -29,8 +29,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Relentless Strikes",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_consecutive_melee_hits_same_target_increases_melee_power_parent"
+          },
+          {
+            "name": "High Voltage",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_damage_bonus_vs_electrocuted"
+          }
+        ]
       }
     },
     {
@@ -56,8 +67,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Deathspitter",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_shotgun_p4_increase_power_on_close_kill_parent"
+          },
+          {
+            "name": "Sustained Fire",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_shotgun_p4_followup_shots_ranged_damage"
+          }
+        ]
       }
     }
   ],
@@ -143,18 +165,20 @@
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
         "talent_edges": 13,
         "talent_count": 27,
-        "edges_per_talent": 0.481,
-        "graph_isolated_count": 17,
+        "measurable_talent_count": 11,
+        "edges_per_talent": 1.182,
+        "graph_isolated_count": 1,
         "concentration": 0.04,
-        "penalties": -8.5,
+        "penalties": -0.5,
         "bonuses": 0
       },
       "explanations": [
-        "17 talent(s) participate in no synergy edges (-0.5 each)"
+        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "16 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {

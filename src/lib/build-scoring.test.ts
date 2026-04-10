@@ -77,6 +77,109 @@ describe("build-scoring", () => {
       const result = scoreFromSynergy(synergy);
       assert.equal(result.talent_coherence.breakdown.talent_count, 3);
     });
+
+    it("ignores non-measurable talents when computing isolation", () => {
+      const synergy = makeSynergyOutput({
+        talentIds: ["t.talent.a", "t.talent.b", "t.talent.c", "t.talent.d", "t.talent.e"],
+        blessingIds: [],
+        talentEdges: 2,
+        blessingEdges: 0,
+        orphans: [],
+        concentration: 0.03,
+        familyCount: 6,
+        coverageGaps: [],
+        slotBalance: { melee: 3, ranged: 3 },
+      });
+      synergy._entitiesWithCalcIds = ["t.talent.a", "t.talent.b", "t.talent.c"];
+
+      const result = scoreFromSynergy(synergy);
+
+      assert.ok(
+        result.talent_coherence.breakdown.graph_isolated_count <= 1,
+        `expected <=1 isolated measurable, got ${result.talent_coherence.breakdown.graph_isolated_count}`
+      );
+    });
+
+    it("uses measurable talent count as denominator for edges_per_talent", () => {
+      const synergy = makeSynergyOutput({
+        talentIds: [
+          "t.talent.a",
+          "t.talent.b",
+          "t.talent.c",
+          "t.talent.d",
+          "t.talent.e",
+          "t.talent.f",
+          "t.talent.g",
+          "t.talent.h",
+          "t.talent.i",
+          "t.talent.j",
+        ],
+        blessingIds: [],
+        talentEdges: 3,
+        blessingEdges: 0,
+        orphans: [],
+        concentration: 0.03,
+        familyCount: 6,
+        coverageGaps: [],
+        slotBalance: { melee: 3, ranged: 3 },
+      });
+      synergy._entitiesWithCalcIds = [
+        "t.talent.a",
+        "t.talent.b",
+        "t.talent.c",
+        "t.talent.d",
+        "t.talent.e",
+      ];
+
+      const result = scoreFromSynergy(synergy);
+
+      assert.equal(result.talent_coherence.breakdown.measurable_talent_count, 5);
+      assert.ok(
+        result.talent_coherence.breakdown.edges_per_talent >= 0.5,
+        `expected edges_per_talent >= 0.5, got ${result.talent_coherence.breakdown.edges_per_talent}`
+      );
+    });
+
+    it("falls back to full population when _entitiesWithCalcIds is absent", () => {
+      const synergy = makeSynergyOutput({
+        talentIds: ["t.talent.a", "t.talent.b", "t.talent.c"],
+        blessingIds: [],
+        talentEdges: 1,
+        blessingEdges: 0,
+        orphans: [],
+        concentration: 0.03,
+        familyCount: 5,
+        coverageGaps: [],
+        slotBalance: { melee: 2, ranged: 2 },
+      });
+      delete synergy._entitiesWithCalcIds;
+
+      const result = scoreFromSynergy(synergy);
+
+      assert.equal(result.talent_coherence.breakdown.talent_count, 3);
+      assert.equal(result.talent_coherence.breakdown.measurable_talent_count, 3);
+    });
+
+    it("handles empty _entitiesWithCalcIds gracefully", () => {
+      const synergy = makeSynergyOutput({
+        talentIds: ["t.talent.a", "t.talent.b"],
+        blessingIds: [],
+        talentEdges: 0,
+        blessingEdges: 0,
+        orphans: [],
+        concentration: 0.03,
+        familyCount: 4,
+        coverageGaps: [],
+        slotBalance: { melee: 1, ranged: 1 },
+      });
+      synergy._entitiesWithCalcIds = [];
+
+      const result = scoreFromSynergy(synergy);
+
+      assert.equal(result.talent_coherence.breakdown.measurable_talent_count, 0);
+      assert.equal(result.talent_coherence.breakdown.graph_isolated_count, 0);
+      assert.equal(result.talent_coherence.score, 1);
+    });
   });
 
   describe("blessing_synergy", () => {
@@ -627,5 +730,6 @@ function makeSynergyOutput({
     },
     _talentSideIds: talentIds,
     _resolvedIds: [...talentIds, ...blessingIds],
+    _entitiesWithCalcIds: [...talentIds, ...blessingIds],
   };
 }

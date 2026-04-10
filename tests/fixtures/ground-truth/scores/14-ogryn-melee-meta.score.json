@@ -3,7 +3,7 @@
   "class": "ogryn",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 19,
+  "composite_score": 21,
   "letter_grade": "C",
   "weapons": [
     {
@@ -29,8 +29,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Skullcrusher",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_ogryn_club_p2_staggered_targets_receive_increased_damage_debuff"
+          },
+          {
+            "name": "Thunderous",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_ogryn_club_p2_windup_increases_power"
+          }
+        ]
       }
     },
     {
@@ -56,8 +67,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": false,
+        "blessings": [
+          {
+            "name": "Adhesive Charge",
+            "known": false,
+            "internal": null
+          },
+          {
+            "name": "Shattering Impact",
+            "known": false,
+            "internal": null
+          }
+        ]
       }
     }
   ],
@@ -142,18 +164,19 @@
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 3,
       "breakdown": {
         "talent_edges": 8,
         "talent_count": 26,
-        "edges_per_talent": 0.308,
-        "graph_isolated_count": 17,
+        "measurable_talent_count": 9,
+        "edges_per_talent": 0.889,
+        "graph_isolated_count": 0,
         "concentration": 0.02,
-        "penalties": -8.5,
+        "penalties": 0,
         "bonuses": 0
       },
       "explanations": [
-        "17 talent(s) participate in no synergy edges (-0.5 each)"
+        "17 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {

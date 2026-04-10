@@ -1,9 +1,9 @@
 {
   "title": "[UPDATED] Havoc 40 Staff Psyker Meta Electrokinetic Staff Type Build",
   "class": "psyker",
-  "perk_optimality": 3,
+  "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 27,
+  "composite_score": 31,
   "letter_grade": "A",
   "weapons": [
     {
@@ -29,8 +29,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Flesh Tearer",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_combatknife_p1_increased_weakspot_damage_against_bleeding"
+          },
+          {
+            "name": "Riposte",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_combatknife_p1_dodge_grants_critical_strike_chance"
+          }
+        ]
       }
     },
     {
@@ -41,12 +52,30 @@
       "weapon_family": "forcestaff_p3",
       "resolution_source": "ground_truth",
       "perks": {
-        "score": 1,
-        "perks": []
+        "score": 5,
+        "perks": [
+          null,
+          {
+            "name": "Damage (Flak Armoured)",
+            "tier": 4,
+            "value": 0.25
+          }
+        ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Surge",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p3_double_shot_on_crit"
+          },
+          {
+            "name": "Warp Nexus",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p3_warp_charge_critical_strike_chance_bonus"
+          }
+        ]
       }
     }
   ],
@@ -119,31 +148,32 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 28,
+        "blessing_edges": 27,
         "blessing_count": 4,
-        "edges_per_blessing": 7,
-        "blessing_blessing_edges": 6,
+        "edges_per_blessing": 6.75,
+        "blessing_blessing_edges": 4,
         "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: precognition, riposte, warp_nexus, increased_weakspot_damage_against_bleeding",
-        "6 blessing-blessing edge(s) +0.5"
+        "Blessings with synergy edges: riposte, warp_nexus, double_shot_on_crit, increased_weakspot_damage_against_bleeding",
+        "4 blessing-blessing edge(s) +0.5"
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 3,
       "breakdown": {
         "talent_edges": 9,
-        "talent_count": 25,
-        "edges_per_talent": 0.36,
-        "graph_isolated_count": 15,
-        "concentration": 0.07,
-        "penalties": -7.5,
-        "bonuses": 0.5
+        "talent_count": 26,
+        "measurable_talent_count": 12,
+        "edges_per_talent": 0.75,
+        "graph_isolated_count": 1,
+        "concentration": 0.06,
+        "penalties": -0.5,
+        "bonuses": 0
       },
       "explanations": [
-        "15 talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.070) +0.5"
+        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "14 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -230,7 +260,7 @@
         "active_families": 9,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.9
+        "slot_balance_ratio": 0.9090909090909091
       },
       "explanations": []
     },

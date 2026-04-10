@@ -4,14 +4,18 @@ import {
   listJsonFiles,
   loadJsonFile,
 } from "./load.js";
-import { assertAllowedQueryContext, normalizeText } from "./normalize.js";
+import { assertAllowedQueryContext, contextValueMatches, normalizeText } from "./normalize.js";
 import { validateKnownUnresolvedRecord } from "./validate.js";
 
 let _knownUnresolvedRecords: KnownUnresolvedSchemaJson[] | undefined;
 
 function contextMatches(record: KnownUnresolvedSchemaJson, queryContext: QueryContextSchemaJson): boolean {
   for (const requirement of record.context_constraints.require_all) {
-    if ((queryContext as Record<string, unknown>)[requirement.key] !== requirement.value) {
+    if (!contextValueMatches(
+      requirement.key,
+      (queryContext as Record<string, unknown>)[requirement.key],
+      requirement.value,
+    )) {
       return false;
     }
   }

@@ -19,8 +19,8 @@
   },
   "blitz": {
     "raw_label": "Krak Grenade",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "canonical_entity_id": "veteran.ability.veteran_krak_grenade",
+    "resolution_status": "resolved"
   },
   "aura": {
     "raw_label": "Survivalist",
@@ -60,8 +60,8 @@
     },
     {
       "raw_label": "Grenadier",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "veteran.talent.veteran_extra_grenade",
+      "resolution_status": "resolved"
     },
     {
       "raw_label": "Reciprocity",
@@ -80,8 +80,8 @@
     },
     {
       "raw_label": "Low Profile",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "veteran.talent_modifier.veteran_reduced_threat_after_combat_ability",
+      "resolution_status": "resolved"
     },
     {
       "raw_label": "Catch a Breath",
@@ -115,8 +115,8 @@
     },
     {
       "raw_label": "Overwatch",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "veteran.talent_modifier.veteran_combat_ability_extra_charge",
+      "resolution_status": "resolved"
     },
     {
       "raw_label": "Close Order Drill",
@@ -145,8 +145,8 @@
     },
     {
       "raw_label": "On Your Toes",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "veteran.talent_modifier.veteran_weapon_switch_replenish_toughness",
+      "resolution_status": "resolved"
     },
     {
       "raw_label": "Always Prepared",
@@ -197,13 +197,13 @@
       "blessings": [
         {
           "raw_label": "Power Cycler",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.name_family.blessing.extended_activation_duration_on_chained_attacks",
+          "resolution_status": "resolved"
         },
         {
           "raw_label": "Slaughterer",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.name_family.blessing.rampage",
+          "resolution_status": "resolved"
         }
       ]
     },
@@ -227,8 +227,8 @@
         },
         {
           "raw_label": "4-10% Ranged Damage (Specialists)",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_damage_specials",
+          "resolution_status": "resolved",
           "value": {
             "min": 0.04,
             "max": 0.1,
@@ -244,8 +244,8 @@
         },
         {
           "raw_label": "Man-Stopper",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.name_family.blessing.cleave_on_crit",
+          "resolution_status": "resolved"
         }
       ]
     }
@@ -255,7 +255,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -304,7 +304,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -353,7 +353,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {

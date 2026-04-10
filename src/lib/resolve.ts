@@ -1,6 +1,6 @@
 import { buildIndex } from "./ground-truth-index.js";
 import type { GroundTruthIndex } from "./ground-truth-index.js";
-import { assertAllowedQueryContext, normalizeText } from "./normalize.js";
+import { assertAllowedQueryContext, contextValueMatches, normalizeText } from "./normalize.js";
 import type { QueryContext } from "./normalize.js";
 import type {
   AliasSchemaJson,
@@ -113,7 +113,7 @@ function contextMatches(alias: AliasSchemaJson, queryContext: QueryContext): Con
       };
     }
 
-    if (actual !== requirement.value) {
+    if (!contextValueMatches(requirement.key, actual, requirement.value)) {
       return {
         ok: false,
         matchedPreferCount: 0,
@@ -128,7 +128,7 @@ function contextMatches(alias: AliasSchemaJson, queryContext: QueryContext): Con
 
   for (const preference of prefer) {
     const actual = (queryContext as Record<string, unknown>)[preference.key];
-    if (actual === preference.value) {
+    if (contextValueMatches(preference.key, actual, preference.value)) {
       matchedPreferCount += 1;
       explanations.push(`preferred ${preference.key}=${preference.value}`);
     }

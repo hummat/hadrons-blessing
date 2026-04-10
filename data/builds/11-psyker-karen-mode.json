@@ -169,7 +169,7 @@
       "slot": "melee",
       "name": {
         "raw_label": "Maccabian Mk IV Duelling Sword",
-        "canonical_entity_id": "shared.weapon.combatsword_p1_m1",
+        "canonical_entity_id": "shared.weapon.combatsword_p3_m2",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -197,8 +197,8 @@
       "blessings": [
         {
           "raw_label": "Thrust",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.name_family.blessing.thunderous",
+          "resolution_status": "resolved"
         },
         {
           "raw_label": "Uncanny Strike",
@@ -211,7 +211,7 @@
       "slot": "ranged",
       "name": {
         "raw_label": "Equinox Mk IV Voidstrike Force Staff",
-        "canonical_entity_id": "shared.weapon.forcestaff_p1_m1",
+        "canonical_entity_id": "shared.weapon.forcestaff_p4_m1",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -234,8 +234,8 @@
         },
         {
           "raw_label": "Surge",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.name_family.blessing.double_shot_on_crit",
+          "resolution_status": "resolved"
         }
       ]
     }
@@ -245,7 +245,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -294,7 +294,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -343,7 +343,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {

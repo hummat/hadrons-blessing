@@ -3,8 +3,8 @@
   "class": "arbites",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 26,
-  "letter_grade": "B",
+  "composite_score": 30,
+  "letter_grade": "A",
   "weapons": [
     {
       "name": "Branx Mk XI Shock Maul and Suppression Shield",
@@ -29,15 +29,26 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Hammerblow",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powermaul_shield_p1_stacking_increase_impact_on_hit"
+          },
+          {
+            "name": "High Voltage",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powermaul_shield_p1_damage_bonus_vs_electrocuted"
+          }
+        ]
       }
     },
     {
       "name": "Zarona Mk IIa Quickdraw Stub Revolver",
       "slot": "ranged",
-      "canonical_entity_id": "shared.weapon.stubrevolver_p1_m2",
-      "internal_name": "stubrevolver_p1_m2",
+      "canonical_entity_id": "shared.weapon.stubrevolver_p1_m1",
+      "internal_name": "stubrevolver_p1_m1",
       "weapon_family": "stubrevolver_p1",
       "resolution_source": "ground_truth",
       "perks": {
@@ -56,8 +67,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Hand-Cannon",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_stubrevolver_p1_rending_on_crit"
+          },
+          {
+            "name": "Surgical",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_stubrevolver_p1_crit_chance_based_on_aim_time"
+          }
+        ]
       }
     }
   ],
@@ -130,31 +152,32 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 9,
-        "blessing_count": 2,
-        "edges_per_blessing": 4.5,
-        "blessing_blessing_edges": 1,
+        "blessing_edges": 20,
+        "blessing_count": 4,
+        "edges_per_blessing": 5,
+        "blessing_blessing_edges": 4,
         "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: high_voltage, surgical",
-        "1 blessing-blessing edge(s) +0.5"
+        "Blessings with synergy edges: stacking_increase_impact_on_hit, high_voltage, puncture, surgical",
+        "4 blessing-blessing edge(s) +0.5"
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 5,
       "breakdown": {
         "talent_edges": 15,
         "talent_count": 27,
-        "edges_per_talent": 0.556,
-        "graph_isolated_count": 18,
+        "measurable_talent_count": 9,
+        "edges_per_talent": 1.667,
+        "graph_isolated_count": 0,
         "concentration": 0.09,
-        "penalties": -9,
+        "penalties": 0,
         "bonuses": 0.5
       },
       "explanations": [
-        "18 talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.090) +0.5"
+        "High stat concentration (0.090) +0.5",
+        "18 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -242,7 +265,7 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.6666666666666666
+        "slot_balance_ratio": 0.6363636363636364
       },
       "explanations": []
     },

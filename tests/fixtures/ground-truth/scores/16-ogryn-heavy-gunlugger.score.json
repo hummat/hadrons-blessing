@@ -3,8 +3,8 @@
   "class": "ogryn",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 24,
-  "letter_grade": "B",
+  "composite_score": 27,
+  "letter_grade": "A",
   "weapons": [
     {
       "name": "Achlys Mk I Power Maul",
@@ -29,8 +29,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Power Surge",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_p1_extra_explosion_on_activated_attacks_on_armor"
+          },
+          {
+            "name": "Skullcrusher",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_p1_staggered_targets_receive_increased_damage_debuff"
+          }
+        ]
       }
     },
     {
@@ -51,8 +62,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Blaze Away",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_ogryn_heavystubber_p2_power_bonus_on_continuous_fire"
+          },
+          {
+            "name": "Deathspitter",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_ogryn_heavystubber_p2_increase_power_on_close_kill"
+          }
+        ]
       }
     }
   ],
@@ -138,18 +160,19 @@
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
         "talent_edges": 11,
         "talent_count": 26,
-        "edges_per_talent": 0.423,
-        "graph_isolated_count": 15,
+        "measurable_talent_count": 11,
+        "edges_per_talent": 1,
+        "graph_isolated_count": 0,
         "concentration": 0.06,
-        "penalties": -7.5,
+        "penalties": 0,
         "bonuses": 0
       },
       "explanations": [
-        "15 talent(s) participate in no synergy edges (-0.5 each)"
+        "15 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {

@@ -40,8 +40,8 @@
     },
     {
       "raw_label": "Grenadier",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "veteran.talent.veteran_extra_grenade",
+      "resolution_status": "resolved"
     },
     {
       "raw_label": "Serrated Blade",
@@ -55,8 +55,8 @@
     },
     {
       "raw_label": "Opening Salvo",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "veteran.talent.veteran_bonus_crit_chance_on_ammo",
+      "resolution_status": "resolved"
     },
     {
       "raw_label": "Kill Zone",
@@ -105,8 +105,8 @@
     },
     {
       "raw_label": "Deadshot",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "veteran.talent.veteran_ads_drain_stamina",
+      "resolution_status": "resolved"
     },
     {
       "raw_label": "Fully Loaded",
@@ -160,8 +160,8 @@
     },
     {
       "raw_label": "Withering Fire 2",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "veteran.talent.veteran_increased_ranged_cleave",
+      "resolution_status": "resolved"
     }
   ],
   "weapons": [
@@ -169,7 +169,7 @@
       "slot": "melee",
       "name": {
         "raw_label": "Catachan Mk VII \"Devil's Claw\" Sword",
-        "canonical_entity_id": "shared.weapon.combatsword_p2_m1",
+        "canonical_entity_id": "shared.weapon.combatsword_p1_m3",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -229,13 +229,13 @@
       "blessings": [
         {
           "raw_label": "Deadly Accurate",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.name_family.blessing.lethal_proximity",
+          "resolution_status": "resolved"
         },
         {
           "raw_label": "Headhunter",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.name_family.blessing.stacking_crit_chance_on_weakspot",
+          "resolution_status": "resolved"
         }
       ]
     }
@@ -245,7 +245,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -294,7 +294,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -343,7 +343,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {

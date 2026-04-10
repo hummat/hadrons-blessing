@@ -186,6 +186,18 @@
       "type": "stat_alignment",
       "selections": [
         "psyker.keystone.psyker_passive_souls_from_elite_kills",
+        "shared.name_family.blessing.warp_charge_power_bonus"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.keystone.psyker_passive_souls_from_elite_kills",
         "shared.name_family.blessing.blaze_away"
       ],
       "families": [
@@ -330,6 +342,18 @@
       "type": "stat_alignment",
       "selections": [
         "psyker.talent.psyker_damage_based_on_warp_charge",
+        "shared.name_family.blessing.warp_charge_power_bonus"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_damage_based_on_warp_charge",
         "shared.name_family.blessing.blaze_away"
       ],
       "families": [
@@ -438,6 +462,18 @@
       "type": "stat_alignment",
       "selections": [
         "psyker.talent.psyker_cleave_from_peril",
+        "shared.name_family.blessing.warp_charge_power_bonus"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_cleave_from_peril",
         "shared.name_family.blessing.blaze_away"
       ],
       "families": [
@@ -510,6 +546,18 @@
       "type": "stat_alignment",
       "selections": [
         "shared.stat_node.critical_chance_boost",
+        "shared.name_family.blessing.warp_charge_power_bonus"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.critical_chance_boost",
         "shared.name_family.blessing.blaze_away"
       ],
       "families": [
@@ -546,6 +594,18 @@
       "type": "stat_alignment",
       "selections": [
         "shared.name_family.blessing.wrath",
+        "shared.name_family.blessing.warp_charge_power_bonus"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.wrath",
         "shared.name_family.blessing.blaze_away"
       ],
       "families": [
@@ -558,6 +618,30 @@
       "type": "stat_alignment",
       "selections": [
         "shared.name_family.blessing.wrath",
+        "shared.name_family.blessing.warp_nexus"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.warp_charge_power_bonus",
+        "shared.name_family.blessing.blaze_away"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.warp_charge_power_bonus",
         "shared.name_family.blessing.warp_nexus"
       ],
       "families": [
@@ -624,14 +708,15 @@
         ]
       },
       "general_offense": {
-        "count": 7,
-        "total_magnitude": 2.09,
+        "count": 8,
+        "total_magnitude": 2.14,
         "selections": [
           "psyker.keystone.psyker_passive_souls_from_elite_kills",
           "psyker.talent.psyker_damage_based_on_warp_charge",
           "psyker.talent.psyker_cleave_from_peril",
           "shared.stat_node.critical_chance_boost",
           "shared.name_family.blessing.wrath",
+          "shared.name_family.blessing.warp_charge_power_bonus",
           "shared.name_family.blessing.blaze_away",
           "shared.name_family.blessing.warp_nexus"
         ]
@@ -682,7 +767,7 @@
           "melee_offense",
           "crit"
         ],
-        "strength": 8
+        "strength": 9
       },
       "ranged": {
         "families": [
@@ -690,16 +775,16 @@
           "ranged_offense",
           "crit"
         ],
-        "strength": 8
+        "strength": 9
       }
     },
     "build_identity": [
-      "toughness",
       "general_offense",
+      "toughness",
       "warp_resource"
     ],
     "coverage_gaps": [],
-    "concentration": 0.08
+    "concentration": 0.09
   },
   "_resolvedIds": [
     "psyker.ability.psyker_combat_ability_stance",
@@ -732,6 +817,7 @@
     "shared.stat_node.critical_chance_boost",
     "shared.weapon.forcesword_2h_p1_m1",
     "shared.name_family.blessing.wrath",
+    "shared.name_family.blessing.warp_charge_power_bonus",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
     "shared.weapon.forcestaff_p2_m1",
@@ -743,11 +829,34 @@
     "shared.gadget_trait.gadget_toughness_regen_delay",
     "shared.gadget_trait.gadget_cooldown_reduction"
   ],
+  "_entitiesWithCalcIds": [
+    "psyker.ability.psyker_combat_ability_stance",
+    "psyker.ability.psyker_brain_burst_improved",
+    "psyker.keystone.psyker_passive_souls_from_elite_kills",
+    "psyker.talent_modifier.psyker_overcharge_reduced_warp_charge",
+    "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
+    "psyker.talent.psyker_increased_vent_speed",
+    "psyker.talent.psyker_damage_based_on_warp_charge",
+    "shared.stat_node.toughness_damage_reduction",
+    "psyker.talent.psyker_cleave_from_peril",
+    "shared.stat_node.toughness_boost",
+    "shared.stat_node.ranged_damage_boost",
+    "shared.stat_node.melee_damage_boost",
+    "shared.stat_node.stamina_boost",
+    "shared.stat_node.critical_chance_boost",
+    "shared.name_family.blessing.wrath",
+    "shared.name_family.blessing.warp_charge_power_bonus",
+    "shared.name_family.blessing.blaze_away",
+    "shared.name_family.blessing.warp_nexus",
+    "shared.gadget_trait.gadget_toughness_increase",
+    "shared.gadget_trait.gadget_toughness_regen_delay",
+    "shared.gadget_trait.gadget_cooldown_reduction"
+  ],
   "metadata": {
     "entities_analyzed": 52,
-    "unique_entities_with_calc": 20,
+    "unique_entities_with_calc": 21,
     "entities_without_calc": 20,
     "opaque_conditions": 1,
-    "calc_coverage_pct": 0.5
+    "calc_coverage_pct": 0.51
   }
 }

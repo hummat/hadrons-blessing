@@ -3,7 +3,7 @@
   "class": "psyker",
   "perk_optimality": 5,
   "curio_efficiency": 3,
-  "composite_score": 27,
+  "composite_score": 30,
   "letter_grade": "A",
   "weapons": [
     {
@@ -29,8 +29,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Wrath",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_increased_attack_cleave_on_multiple_hits"
+          },
+          {
+            "name": "Unstable Power",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcesword_2h_p1_warp_charge_power_bonus"
+          }
+        ]
       }
     },
     {
@@ -56,8 +67,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Blaze Away",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p2_power_bonus_on_continuous_fire"
+          },
+          {
+            "name": "Warp Nexus",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p2_warp_charge_critical_strike_chance_bonus"
+          }
+        ]
       }
     }
   ],
@@ -130,31 +152,33 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 18,
-        "blessing_count": 3,
-        "edges_per_blessing": 6,
-        "blessing_blessing_edges": 3,
+        "blessing_edges": 25,
+        "blessing_count": 4,
+        "edges_per_blessing": 6.25,
+        "blessing_blessing_edges": 6,
         "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: wrath, blaze_away, warp_nexus",
-        "3 blessing-blessing edge(s) +0.5"
+        "Blessings with synergy edges: wrath, warp_charge_power_bonus, blaze_away, warp_nexus",
+        "6 blessing-blessing edge(s) +0.5"
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
         "talent_edges": 13,
         "talent_count": 26,
-        "edges_per_talent": 0.5,
-        "graph_isolated_count": 15,
-        "concentration": 0.08,
-        "penalties": -7.5,
+        "measurable_talent_count": 13,
+        "edges_per_talent": 1,
+        "graph_isolated_count": 2,
+        "concentration": 0.09,
+        "penalties": -1,
         "bonuses": 0.5
       },
       "explanations": [
-        "15 talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.080) +0.5"
+        "2 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "High stat concentration (0.090) +0.5",
+        "13 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {

@@ -3,7 +3,7 @@
   "class": "hive scum",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 23,
+  "composite_score": 26,
   "letter_grade": "B",
   "weapons": [
     {
@@ -29,8 +29,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": false,
+        "blessings": [
+          {
+            "name": "Rampage",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_combatsword_p2_increased_melee_damage_on_multiple_hits"
+          },
+          {
+            "name": "Shred",
+            "known": false,
+            "internal": null
+          }
+        ]
       }
     },
     {
@@ -56,8 +67,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Run 'n' Gun",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_needlepistol_p1_hipfire_while_sprinting"
+          },
+          {
+            "name": "Stripped Down",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_needlepistol_p1_increased_sprint_speed"
+          }
+        ]
       }
     }
   ],
@@ -130,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 15,
+        "blessing_edges": 16,
         "blessing_count": 4,
-        "edges_per_blessing": 3.75,
+        "edges_per_blessing": 4,
         "blessing_blessing_edges": 1,
         "orphaned_blessings": 1
       },
@@ -143,18 +165,21 @@
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
-        "talent_edges": 10,
-        "talent_count": 37,
-        "edges_per_talent": 0.27,
-        "graph_isolated_count": 29,
-        "concentration": 0.06,
-        "penalties": -14.5,
-        "bonuses": 0
+        "talent_edges": 14,
+        "talent_count": 38,
+        "measurable_talent_count": 10,
+        "edges_per_talent": 1.4,
+        "graph_isolated_count": 1,
+        "concentration": 0.07,
+        "penalties": -0.5,
+        "bonuses": 0.5
       },
       "explanations": [
-        "29 talent(s) participate in no synergy edges (-0.5 each)"
+        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "High stat concentration (0.070) +0.5",
+        "28 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -163,21 +188,21 @@
         {
           "label": "One-shot Rager head",
           "met": false,
-          "best_htk": 3,
+          "best_htk": 4,
           "max_hits": 1,
           "weight": "high"
         },
         {
           "label": "Two-hit Rager body",
           "met": false,
-          "best_htk": 10,
+          "best_htk": 9,
           "max_hits": 2,
           "weight": "high"
         },
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 16,
+          "best_htk": 14,
           "max_hits": 2,
           "weight": "high"
         },
@@ -212,7 +237,7 @@
         {
           "label": "Three-hit Mauler",
           "met": false,
-          "best_htk": 9,
+          "best_htk": 8,
           "max_hits": 3,
           "weight": "low"
         },
@@ -242,7 +267,7 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.5454545454545454
+        "slot_balance_ratio": 0.5
       },
       "explanations": []
     },
@@ -255,22 +280,22 @@
         "per_entry": [
           {
             "label": "One-shot Rager head",
-            "damnation_htk": 3,
-            "auric_htk": 4,
+            "damnation_htk": 4,
+            "auric_htk": 5,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 10,
-            "auric_htk": 13,
+            "damnation_htk": 9,
+            "auric_htk": 12,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 16,
-            "auric_htk": 21,
+            "damnation_htk": 14,
+            "auric_htk": 19,
             "damnation_met": false,
             "auric_met": false
           }

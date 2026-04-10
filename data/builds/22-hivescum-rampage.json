@@ -55,7 +55,7 @@
     },
     {
       "raw_label": "Nimble",
-      "canonical_entity_id": "hive_scum.talent.broker_passive_improved_dodges",
+      "canonical_entity_id": "hive_scum.talent_modifier.broker_passive_improved_dodges",
       "resolution_status": "resolved"
     },
     {
@@ -206,7 +206,7 @@
       "slot": "ranged",
       "name": {
         "raw_label": "Branx MkVI Needle Pistol",
-        "canonical_entity_id": "shared.weapon.needlepistol_p1_m2",
+        "canonical_entity_id": "shared.weapon.needlepistol_p1_m1",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -234,8 +234,8 @@
       "blessings": [
         {
           "raw_label": "Desperado",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.name_family.blessing.riposte",
+          "resolution_status": "resolved"
         },
         {
           "raw_label": "Run 'n' Gun",
@@ -250,7 +250,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -299,7 +299,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -348,7 +348,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {

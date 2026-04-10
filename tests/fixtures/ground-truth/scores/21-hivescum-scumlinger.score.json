@@ -1,10 +1,10 @@
 {
   "title": "Lihoe's Havoc 40 Scumlinger build.",
   "class": "hive scum",
-  "perk_optimality": 3,
+  "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 20,
-  "letter_grade": "C",
+  "composite_score": 24,
+  "letter_grade": "B",
   "weapons": [
     {
       "name": "Catachan Mk III Combat Blade",
@@ -24,8 +24,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Uncanny Strike",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_combatknife_p1_stacking_rending_on_weakspot"
+          },
+          {
+            "name": "Precognition",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_combatknife_p1_dodge_grants_finesse_bonus"
+          }
+        ]
       }
     },
     {
@@ -36,12 +47,30 @@
       "weapon_family": "autogun_p1",
       "resolution_source": "ground_truth",
       "perks": {
-        "score": 1,
-        "perks": []
+        "score": 5,
+        "perks": [
+          null,
+          {
+            "name": "Damage (Unyielding)",
+            "tier": 4,
+            "value": 0.25
+          }
+        ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Fire Frenzy",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_autogun_p1_increase_close_damage_on_close_kill"
+          },
+          {
+            "name": "Dumdum",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_autogun_p1_consecutive_hits_increases_close_damage"
+          }
+        ]
       }
     }
   ],
@@ -114,31 +143,33 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 16,
-        "blessing_count": 3,
-        "edges_per_blessing": 5.333,
-        "blessing_blessing_edges": 3,
+        "blessing_edges": 28,
+        "blessing_count": 4,
+        "edges_per_blessing": 7,
+        "blessing_blessing_edges": 6,
         "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: uncanny_strike, precognition, fire_frenzy",
-        "3 blessing-blessing edge(s) +0.5"
+        "Blessings with synergy edges: uncanny_strike, precognition, fire_frenzy, consecutive_hits_increases_close_damage",
+        "6 blessing-blessing edge(s) +0.5"
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 3,
       "breakdown": {
         "talent_edges": 8,
-        "talent_count": 30,
-        "edges_per_talent": 0.267,
-        "graph_isolated_count": 24,
-        "concentration": 0.1,
-        "penalties": -12,
+        "talent_count": 33,
+        "measurable_talent_count": 9,
+        "edges_per_talent": 0.889,
+        "graph_isolated_count": 2,
+        "concentration": 0.12,
+        "penalties": -1,
         "bonuses": 0.5
       },
       "explanations": [
-        "24 talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.100) +0.5"
+        "2 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "High stat concentration (0.120) +0.5",
+        "24 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -240,7 +271,7 @@
           {
             "label": "One-shot Rager head",
             "damnation_htk": 5,
-            "auric_htk": 7,
+            "auric_htk": 6,
             "damnation_met": false,
             "auric_met": false
           },

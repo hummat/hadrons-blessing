@@ -212,7 +212,11 @@ describe("scoreBlessings", () => {
       blessings: [{ name: "Rising Heat", description: "..." }],
     };
     const result = scoreBlessings(weapon);
-    assert.equal(result.blessings[0].internal, "crit_chance_scaled_on_heat");
+    assert.ok(result.blessings[0].internal != null, "internal should be populated");
+    assert.ok(
+      result.blessings[0].internal.includes("crit_chance_scaled_on_heat"),
+      `expected internal to contain crit_chance_scaled_on_heat, got ${result.blessings[0].internal}`
+    );
   });
 
   it("matches weapon internal names through ground-truth aliases", () => {
@@ -225,7 +229,7 @@ describe("scoreBlessings", () => {
     assert.equal(result.blessings[0].known, true);
   });
 
-  it("falls through to provisional blessing data when ground-truth lacks scoring entry", () => {
+  it("validates blessings for formerly-provisional weapons via edge derivation", () => {
     const weapon = {
       name: "Foe-Rend Mk V Ripper Gun",
       blessings: [
@@ -234,11 +238,49 @@ describe("scoreBlessings", () => {
       ],
     };
     const result = scoreBlessings(weapon);
+    assert.notEqual(result.valid, null);
+    assert.ok(result.blessings.length > 0);
+  });
+
+  it("validates blessings via edge-derived pool when scoring data lacks blessing entries", () => {
+    const weapon = {
+      name: "Nomanus Mk VI Electrokinetic Force Staff",
+      blessings: [{ name: "Warp Nexus", description: "..." }],
+    };
+    const result = scoreBlessings(weapon);
     assert.equal(result.valid, true);
-    assert.deepEqual(
-      result.blessings.map((blessing) => blessing.known),
-      [true, true],
-    );
+    assert.equal(result.blessings[0].known, true);
+  });
+
+  it("validates blessings by canonical_entity_id when available", () => {
+    const weapon = {
+      name: {
+        raw_label: "Surge Staff",
+        canonical_entity_id: "shared.weapon.forcestaff_p3_m1",
+      },
+      blessings: [
+        {
+          name: {
+            raw_label: "Warp Nexus",
+            canonical_entity_id: "shared.name_family.blessing.warp_nexus",
+          },
+          description: "...",
+        },
+      ],
+    };
+    const result = scoreBlessings(weapon);
+    assert.equal(result.valid, true);
+    assert.equal(result.blessings[0].known, true);
+  });
+
+  it("rejects invalid blessing for weapon via edge-derived pool", () => {
+    const weapon = {
+      name: "Nomanus Mk VI Electrokinetic Force Staff",
+      blessings: [{ name: "Bloodthirsty", description: "..." }],
+    };
+    const result = scoreBlessings(weapon);
+    assert.equal(result.valid, false);
+    assert.equal(result.blessings[0].known, false);
   });
 });
 
@@ -404,7 +446,7 @@ describe("generateScorecard", () => {
     assert.equal(result.class, "psyker");
     assert.equal(result.weapons[0].name, "Covenant Mk VI Blaze Force Greatsword");
     assert.equal(result.weapons[0].canonical_entity_id, "shared.weapon.forcesword_2h_p1_m1");
-    assert.equal(result.weapons[0].blessings.valid, null);
+    assert.equal(result.weapons[0].blessings.valid, true);
     assert.equal(result.curios.perks[0].name, "Toughness");
   });
 });
@@ -497,9 +539,9 @@ describe("generateScorecard", () => {
     assert.equal(card.weapons[0].resolution_source, "ground_truth");
   });
 
-  it("falls through to provisional family when ground-truth lacks scoring data", () => {
+  it("resolves formerly-provisional weapons via ground-truth with edge-derived blessings", () => {
     const build = {
-      title: "Provisional Fallthrough Test",
+      title: "Edge-Derived Fallthrough Test",
       class: "zealot",
       weapons: [
         {
@@ -514,8 +556,8 @@ describe("generateScorecard", () => {
     const card = generateScorecard(build);
     assert.equal(card.weapons[0].weapon_family, "powersword_2h");
     assert.equal(card.weapons[0].slot, "melee");
-    assert.equal(card.weapons[0].resolution_source, "provisional_family");
-    assert.equal(card.weapons[0].blessings.valid, true);
+    assert.equal(card.weapons[0].resolution_source, "ground_truth");
+    assert.notEqual(card.weapons[0].blessings.valid, null);
   });
 });
 

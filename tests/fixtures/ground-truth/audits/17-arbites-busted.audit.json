@@ -533,46 +533,59 @@
     }
   ],
   "ambiguous": [],
-  "non_canonical": [],
-  "unresolved": [
+  "non_canonical": [
     {
       "field": "curios[0].name",
       "text": "Blessed Bullet",
-      "resolution_state": "unresolved",
+      "resolution_state": "non_canonical",
       "resolved_entity_id": null,
       "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
+      "match_type": null,
+      "confidence": null,
       "warnings": [
-        "persisted_unresolved_selection"
-      ]
+        "persisted_non_canonical_selection",
+        "known_non_canonical_label"
+      ],
+      "non_canonical_kind": "display_label",
+      "provenance": "master_items_runtime_dump",
+      "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Blessed Bullet (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
     },
     {
       "field": "curios[1].name",
       "text": "Blessed Bullet",
-      "resolution_state": "unresolved",
+      "resolution_state": "non_canonical",
       "resolved_entity_id": null,
       "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
+      "match_type": null,
+      "confidence": null,
       "warnings": [
-        "persisted_unresolved_selection"
-      ]
+        "persisted_non_canonical_selection",
+        "known_non_canonical_label"
+      ],
+      "non_canonical_kind": "display_label",
+      "provenance": "master_items_runtime_dump",
+      "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Blessed Bullet (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
     },
     {
       "field": "curios[2].name",
       "text": "Blessed Bullet",
-      "resolution_state": "unresolved",
+      "resolution_state": "non_canonical",
       "resolved_entity_id": null,
       "proposed_entity_id": null,
-      "match_type": "none",
-      "confidence": "low",
+      "match_type": null,
+      "confidence": null,
       "warnings": [
-        "persisted_unresolved_selection"
-      ]
+        "persisted_non_canonical_selection",
+        "known_non_canonical_label"
+      ],
+      "non_canonical_kind": "display_label",
+      "provenance": "master_items_runtime_dump",
+      "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Blessed Bullet (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
     }
   ],
+  "unresolved": [],
   "warnings": [
-    "persisted_unresolved_selection"
+    "known_non_canonical_label",
+    "persisted_non_canonical_selection"
   ]
 }

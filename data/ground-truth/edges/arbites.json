@@ -1140,6 +1140,51 @@
     "evidence_ids": []
   },
   {
+    "id": "arbites.edge.belongs_to_tree_node.adamant_terminus_warrant_cdr",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "arbites.talent_modifier.adamant_terminus_warrant_cdr",
+    "to_entity_id": "arbites.tree_node.node_b6adf64e-bc34-455a-a059-552c4fb0f8a0",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.edge.belongs_to_tree_node.adamant_terminus_warrant_improved_combined",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "arbites.talent_modifier.adamant_terminus_warrant_improved_combined",
+    "to_entity_id": "arbites.tree_node.node_9964320a-cf72-40d7-ad57-d4e5bc4a7345",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "arbites.edge.belongs_to_tree_node.adamant_terminus_warrant_support",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "arbites.talent_modifier.adamant_terminus_warrant_support",
+    "to_entity_id": "arbites.tree_node.node_446b745a-e92e-4e31-8cc0-0ee5327f5674",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "arbites.edge.belongs_to_tree_node.adamant_toughness_regen_near_companion",
     "type": "belongs_to_tree_node",
     "from_entity_id": "arbites.talent.adamant_toughness_regen_near_companion",

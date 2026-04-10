@@ -148,13 +148,13 @@ Shared cross-class entities use `shared` as domain: `shared.weapon.autogun_p1_m1
 
 ## Known Coverage Gaps
 
-**Curio item names** (60 unresolved, 6 unique labels like "Blessed Bullet"): Darktide's item catalog is fetched from Fatshark's authenticated backend at runtime. The decompiled source contains curio rendering code and perk/trait mechanics but not the item catalog itself. Curio *perks* resolve (`shared.gadget_trait.*`); only the cosmetic item *names* are unresolvable from this source. These are the lowest-value unresolved entries — they don't affect build analysis, scoring, or optimization.
+**Curio cosmetic base labels** (72 `non_canonical` selections across the 24 build fixtures; 4 unique labels in the fixtures, 21 unique base labels confirmed by the runtime dump): the live runtime item catalog shows these as concrete variants like `Blessed Bullet (Caged|Casket|Reliquary)`. Games Lantern drops that suffix, so the scraped base label is structurally ambiguous rather than unresolved. Curio *perks* still resolve (`shared.gadget_trait.*`). A DMF helper mod for a one-shot live dump lives in `tools/darktide-mods/curio_dump/`.
+
+**Residual fixture unresolveds:** none in the canonical 24-build fixture set. The last three unresolved entries were scrape-parser mistakes where the GL weapon perk string `Increase Ranged Critical Strike Chance by 2-5%` was misfiled into blessing slots; that extractor bug is fixed.
 
 ## Known Scoring/Calculator Limitations
 
-**Weapon scoring catalog gap (#20):** `build-scoring-data.json` is hand-curated with 23 weapons; only 10 have blessing lists. 21 of the 35 unique weapons across builds aren't in the catalog at all. The ground-truth index has 656 weapon traits, 167 blessing families, and 606 `instance_of` edges — the data to auto-derive blessing lists exists but the scorer doesn't use it yet.
-
-**talent_coherence uniformly 1/5 (#20):** The isolation penalty (-0.5 per talent with no synergy edges) crushes scores when ~60% of talents lack calc data. At 40% coverage, "no edges" reflects data gaps, not build quality. Fix: only penalize talents that have calc data but no edges.
+**Weapon blessing validation source split:** Blessing validation now derives weapon blessing pools from the ground-truth edge graph (`weapon_has_trait_pool` → `instance_of`) and only falls back to `build-scoring-data.json` when a weapon has no source-backed path. The hand-curated scoring catalog still matters for perk tier tables, curio ratings, and weapon role/class metadata.
 
 **lerped_stat_buff lerp factor:** `assembleBuildBuffStack` hardcodes `warp_charge` as the interpolation factor for all `lerped_stat_buff` effects. Validated: all 40 lerped effects in the corpus have null conditions, confirming warp_charge is the only interpolation variable in practice.
 
@@ -184,7 +184,7 @@ All records are validated against JSON schemas in `data/ground-truth/schemas/`. 
 
 `data/builds/` contains 24 representative build JSON files (builds 01–24, 4 per class, all 6 classes) in canonical build shape. Each build stores `schema_version`, `title`, `class`, `provenance`, `ability`, `blitz`, `aura`, `keystone`, `talents[]`, `weapons[]`, and `curios[]`. Every selection carries `raw_label`, `canonical_entity_id`, and `resolution_status` (`resolved` / `unresolved` / `non_canonical`).
 
-All 24 builds have been extracted from live GL pages with full talent trees, targeting Havoc 40 meta builds with diversity across keystones, weapons, and playstyles. 1217 resolved, 127 unresolved (curio cosmetic names — backend-only, plus some blitz/blessing labels).
+All 24 builds have been extracted from live GL pages with full talent trees, targeting Havoc 40 meta builds with diversity across keystones, weapons, and playstyles. Current fixture totals: 1275 resolved, 0 unresolved, 72 non_canonical. Every previously unresolved blessing-family display name in the fixtures is now covered, and the last three mis-slotted ranged perk strings were fixed in the GL extractor. The `non_canonical` bucket in the fixtures is four curio cosmetic base labels whose concrete runtime variants are collapsed by the scrape; the runtime dump confirms 21 such ambiguous base labels in the full curio catalog.
 
 Frozen audit snapshots live in `tests/fixtures/ground-truth/audits/`. When the index or audit logic changes, re-freeze all snapshots with `npm run audit:freeze`. Do NOT use `npm run audit -- <file> > snapshot.json` — npm's stderr banner contaminates the JSON output.
 
@@ -336,10 +336,10 @@ Key paths for entity work:
 ## Open Issues
 
 - `#6` Website architecture — Plans 1 (build list) and 2 (build detail page) merged to main. Plans 3–4 (comparison page, GL import) pending.
-- `#20` Scoring data gaps — blessing catalog is hand-curated (10/35 weapons covered) when ground-truth has full data; talent_coherence uniformly 1/5 due to isolation penalty at partial calc coverage.
 
 ## Completed Issues
 
+- `#20` Scoring data gaps — blessing validation now derives weapon pools from the ground-truth edge graph, provisional weapon-family fallback is removed, and talent_coherence only penalizes measurable talents
 - `#19` Full class-side entity and Games Lantern alias coverage automation (source-generated class-side manifest, GL class-tree alias generation, full-tree completeness audits, downstream stat-family coverage fix)
 
 - `#16` Weapon mark mapping correction (43 corrections via in-game MasterItems dump; DMF mod in `tools/darktide-mods/weapon_dump/`; 16 weapons with broken game localization keep existing names)

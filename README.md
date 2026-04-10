@@ -171,12 +171,15 @@ Current entity coverage (1376 total: 768 non-tree + 608 tree_node):
 Tree edges are generated from Lua source via `npm run edges:build`. Skipped edges reference
 talent entities not yet in ground-truth — they appear automatically as entity coverage grows.
 
-All 23 build fixtures (all 6 classes) are stored in canonical build shape,
+All 24 build fixtures (all 6 classes) are stored in canonical build shape,
 re-extracted from live Games Lantern pages with full talent trees.
 
-Audit totals across all 23 fixtures: **1089 resolved / 60 unresolved / 1
-non_canonical / 0 ambiguous**. The 60 unresolved are curio cosmetic item
-names (backend-only, not in the decompiled source).
+Audit totals across all 24 fixtures: **1275 resolved / 0 unresolved / 72
+non_canonical / 0 ambiguous**. The `non_canonical` bucket in the fixtures is
+the four curio cosmetic base labels whose concrete runtime variants are
+collapsed by the Games Lantern scrape; the live dump helper in
+`tools/darktide-mods/curio_dump/` confirms 21 such ambiguous base labels in
+the full curio catalog.
 
 ## Roadmap
 

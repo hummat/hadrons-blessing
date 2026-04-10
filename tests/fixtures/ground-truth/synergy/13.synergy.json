@@ -42,6 +42,18 @@
       "type": "stat_alignment",
       "selections": [
         "ogryn.talent.ogryn_ogryn_killer",
+        "shared.name_family.blessing.increase_power_on_kill"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "ogryn.talent.ogryn_ogryn_killer",
         "shared.name_family.blessing.surgical"
       ],
       "families": [
@@ -97,6 +109,18 @@
       ],
       "strength": 3,
       "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.rending_boost",
+        "shared.name_family.blessing.increase_power_on_kill"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
     },
     {
       "type": "stat_alignment",
@@ -209,6 +233,18 @@
     {
       "type": "stat_alignment",
       "selections": [
+        "shared.stat_node.melee_damage_boost",
+        "shared.name_family.blessing.thunderous"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
         "ogryn.talent.ogryn_ranged_damage_immunity",
         "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
       ],
@@ -245,6 +281,18 @@
     {
       "type": "stat_alignment",
       "selections": [
+        "ogryn.talent.ogryn_melee_damage_after_heavy",
+        "shared.name_family.blessing.thunderous"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
         "ogryn.talent_modifier.ogryn_heavy_hitter_cleave",
         "ogryn.talent.ogryn_weakspot_damage"
       ],
@@ -253,6 +301,42 @@
       ],
       "strength": 2,
       "explanation": "Selections contribute different-category effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "ogryn.talent_modifier.ogryn_heavy_hitter_cleave",
+        "shared.name_family.blessing.thunderous"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "ogryn.talent.ogryn_weakspot_damage",
+        "shared.name_family.blessing.thunderous"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.increase_power_on_kill",
+        "shared.name_family.blessing.surgical"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
     }
   ],
   "anti_synergies": [],
@@ -260,11 +344,12 @@
   "coverage": {
     "family_profile": {
       "general_offense": {
-        "count": 3,
-        "total_magnitude": 0.75,
+        "count": 4,
+        "total_magnitude": 0.83,
         "selections": [
           "ogryn.talent.ogryn_ogryn_killer",
           "shared.stat_node.rending_boost",
+          "shared.name_family.blessing.increase_power_on_kill",
           "shared.name_family.blessing.surgical"
         ]
       },
@@ -289,13 +374,21 @@
         ]
       },
       "melee_offense": {
-        "count": 4,
-        "total_magnitude": 0.35,
+        "count": 5,
+        "total_magnitude": 0.55,
         "selections": [
           "shared.stat_node.melee_damage_boost",
           "ogryn.talent.ogryn_melee_damage_after_heavy",
           "ogryn.talent_modifier.ogryn_heavy_hitter_cleave",
-          "ogryn.talent.ogryn_weakspot_damage"
+          "ogryn.talent.ogryn_weakspot_damage",
+          "shared.name_family.blessing.thunderous"
+        ]
+      },
+      "ranged_offense": {
+        "count": 1,
+        "total_magnitude": 0.2,
+        "selections": [
+          "shared.name_family.blessing.power_bonus_on_first_shot"
         ]
       },
       "crit": {
@@ -320,23 +413,24 @@
           "melee_offense",
           "crit"
         ],
-        "strength": 7
+        "strength": 9
       },
       "ranged": {
         "families": [
           "general_offense",
+          "ranged_offense",
           "crit"
         ],
-        "strength": 3
+        "strength": 5
       }
     },
     "build_identity": [
+      "melee_offense",
       "toughness",
-      "damage_reduction",
-      "melee_offense"
+      "damage_reduction"
     ],
     "coverage_gaps": [],
-    "concentration": 0.04
+    "concentration": 0.06
   },
   "_resolvedIds": [
     "ogryn.ability.ogryn_taunt_shout",
@@ -368,9 +462,12 @@
     "ogryn.talent_modifier.ogryn_heavy_hitter_cleave",
     "ogryn.talent.ogryn_weakspot_damage",
     "shared.weapon.ogryn_pickaxe_2h_p1_m1",
+    "shared.name_family.blessing.thunderous",
+    "shared.name_family.blessing.increase_power_on_kill",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
-    "shared.weapon.ogryn_heavystubber_p1_m1",
+    "shared.weapon.ogryn_heavystubber_p2_m3",
+    "shared.name_family.blessing.power_bonus_on_first_shot",
     "shared.name_family.blessing.surgical",
     "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
     "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage",
@@ -378,11 +475,31 @@
     "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
     "shared.gadget_trait.gadget_revive_speed_increase"
   ],
+  "_entitiesWithCalcIds": [
+    "ogryn.talent.ogryn_ogryn_killer",
+    "shared.stat_node.toughness_boost",
+    "shared.stat_node.rending_boost",
+    "ogryn.talent.ogryn_windup_reduces_damage_taken",
+    "shared.stat_node.toughness_damage_reduction",
+    "ogryn.talent.ogryn_toughness_on_low_health",
+    "shared.stat_node.melee_damage_boost",
+    "ogryn.talent.ogryn_ranged_damage_immunity",
+    "ogryn.talent.ogryn_melee_damage_after_heavy",
+    "ogryn.talent_modifier.ogryn_heavy_hitter_cleave",
+    "ogryn.talent.ogryn_weakspot_damage",
+    "shared.name_family.blessing.thunderous",
+    "shared.name_family.blessing.increase_power_on_kill",
+    "shared.name_family.blessing.power_bonus_on_first_shot",
+    "shared.name_family.blessing.surgical",
+    "shared.gadget_trait.gadget_toughness_increase",
+    "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+    "shared.gadget_trait.gadget_revive_speed_increase"
+  ],
   "metadata": {
     "entities_analyzed": 52,
-    "unique_entities_with_calc": 15,
+    "unique_entities_with_calc": 18,
     "entities_without_calc": 23,
     "opaque_conditions": 0,
-    "calc_coverage_pct": 0.39
+    "calc_coverage_pct": 0.44
   }
 }

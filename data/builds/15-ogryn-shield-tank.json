@@ -202,8 +202,8 @@
         },
         {
           "raw_label": "Last Guard",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.name_family.blessing.block_break_pushes",
+          "resolution_status": "resolved"
         }
       ]
     },
@@ -227,8 +227,8 @@
         },
         {
           "raw_label": "4-10% Ranged Damage (Specialists)",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_damage_specials",
+          "resolution_status": "resolved",
           "value": {
             "min": 0.04,
             "max": 0.1,
@@ -239,13 +239,13 @@
       "blessings": [
         {
           "raw_label": "Pinpointing target",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.name_family.blessing.thunderous",
+          "resolution_status": "resolved"
         },
         {
           "raw_label": "Disruptive",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.name_family.blessing.melee_power_after_ranged_explosion",
+          "resolution_status": "resolved"
         }
       ]
     }
@@ -255,7 +255,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -304,7 +304,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -353,7 +353,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {

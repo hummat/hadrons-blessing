@@ -3,16 +3,16 @@
   "class": "zealot",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 22,
+  "composite_score": 26,
   "letter_grade": "B",
   "weapons": [
     {
       "name": "Munitorum Mk X Relic Blade",
       "slot": "melee",
-      "canonical_entity_id": null,
-      "internal_name": null,
+      "canonical_entity_id": "shared.weapon.powersword_2h_p1_m2",
+      "internal_name": "powersword_2h_p1_m2",
       "weapon_family": "powersword_2h",
-      "resolution_source": "provisional_family",
+      "resolution_source": "ground_truth",
       "perks": {
         "score": 5,
         "perks": [
@@ -34,12 +34,12 @@
           {
             "name": "Heatsink",
             "known": true,
-            "internal": "heatsink"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powersword_2h_p1_reduce_fixed_overheat_amount_parent"
           },
           {
             "name": "Cranial Grounding",
             "known": true,
-            "internal": "cranial_grounding"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powersword_2h_p1_chained_weakspot_hits_increase_finesse_and_reduce_overheat"
           }
         ]
       }
@@ -72,12 +72,12 @@
           {
             "name": "Blaze Away",
             "known": true,
-            "internal": "power_bonus_on_continuous_fire"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_flamer_p1_power_bonus_on_continuous_fire"
           },
           {
             "name": "Penetrating Flame",
             "known": true,
-            "internal": "burned_targets_receive_rending_debuff"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_flamer_p1_burned_targets_receive_rending_debuff"
           }
         ]
       }
@@ -165,19 +165,21 @@
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 5,
       "breakdown": {
         "talent_edges": 20,
         "talent_count": 27,
-        "edges_per_talent": 0.741,
-        "graph_isolated_count": 15,
+        "measurable_talent_count": 13,
+        "edges_per_talent": 1.538,
+        "graph_isolated_count": 1,
         "concentration": 0.07,
-        "penalties": -7.5,
+        "penalties": -0.5,
         "bonuses": 0.5
       },
       "explanations": [
-        "15 talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.070) +0.5"
+        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "High stat concentration (0.070) +0.5",
+        "14 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {

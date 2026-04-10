@@ -3,8 +3,8 @@
   "class": "arbites",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 28,
-  "letter_grade": "A",
+  "composite_score": 32,
+  "letter_grade": "S",
   "weapons": [
     {
       "name": "Branx Mk III Arbites Shock Maul",
@@ -29,8 +29,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Execution",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_stagger_bonus_damage"
+          },
+          {
+            "name": "High Voltage",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_damage_bonus_vs_electrocuted"
+          }
+        ]
       }
     },
     {
@@ -56,8 +67,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Deathspitter",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_shotgun_p4_increase_power_on_close_kill_parent"
+          },
+          {
+            "name": "Execution",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_shotgun_p4_stagger_bonus_damage"
+          }
+        ]
       }
     }
   ],
@@ -143,19 +165,20 @@
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 5,
       "breakdown": {
         "talent_edges": 14,
         "talent_count": 27,
-        "edges_per_talent": 0.519,
-        "graph_isolated_count": 17,
+        "measurable_talent_count": 10,
+        "edges_per_talent": 1.4,
+        "graph_isolated_count": 0,
         "concentration": 0.07,
-        "penalties": -8.5,
+        "penalties": 0,
         "bonuses": 0.5
       },
       "explanations": [
-        "17 talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.070) +0.5"
+        "High stat concentration (0.070) +0.5",
+        "17 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {

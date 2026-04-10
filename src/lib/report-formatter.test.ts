@@ -78,9 +78,12 @@ describe("formatText", () => {
     assert.ok(text.includes("/5"), "should show /5 scale");
   });
 
-  it("shows problems section when unresolved entries exist", async () => {
+  it("shows problems section when non_canonical entries exist", async () => {
     const report = await getReport();
-    assert.ok(report.unresolved.length > 0, "precondition: build 08 has unresolved entries");
+    assert.ok(
+      report.non_canonical.length > 0,
+      "precondition: build 09 has non_canonical curio labels",
+    );
     const text = formatText(report);
     assert.ok(/problems/i.test(text), "should contain PROBLEMS section header");
   });

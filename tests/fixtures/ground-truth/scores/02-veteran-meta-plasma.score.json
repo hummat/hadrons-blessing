@@ -3,7 +3,7 @@
   "class": "veteran",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 23,
+  "composite_score": 26,
   "letter_grade": "B",
   "weapons": [
     {
@@ -38,8 +38,8 @@
           },
           {
             "name": "Uncanny Strike",
-            "known": true,
-            "internal": "stacking_rending_on_weakspot"
+            "known": false,
+            "internal": null
           }
         ]
       }
@@ -72,12 +72,12 @@
           {
             "name": "Rising Heat",
             "known": true,
-            "internal": "crit_chance_scaled_on_heat"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_plasmagun_p1_crit_chance_scaled_on_heat"
           },
           {
             "name": "Gets Hot!",
             "known": true,
-            "internal": "reduced_overheat_on_critical_strike"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_plasmagun_p1_reduced_overheat_on_critical_strike"
           }
         ]
       }
@@ -152,30 +152,32 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 15,
-        "blessing_count": 3,
-        "edges_per_blessing": 5,
+        "blessing_edges": 19,
+        "blessing_count": 4,
+        "edges_per_blessing": 4.75,
         "blessing_blessing_edges": 2,
         "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: uncanny_strike, rising_heat, gets_hot",
+        "Blessings with synergy edges: uncanny_strike, rising_heat, thunderous, gets_hot",
         "2 blessing-blessing edge(s) +0.5"
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
         "talent_edges": 15,
-        "talent_count": 26,
-        "edges_per_talent": 0.577,
-        "graph_isolated_count": 12,
+        "talent_count": 28,
+        "measurable_talent_count": 15,
+        "edges_per_talent": 1,
+        "graph_isolated_count": 1,
         "concentration": 0.03,
-        "penalties": -6,
+        "penalties": -0.5,
         "bonuses": 0
       },
       "explanations": [
-        "12 talent(s) participate in no synergy edges (-0.5 each)"
+        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "13 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -263,7 +265,7 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.9
+        "slot_balance_ratio": 1
       },
       "explanations": []
     },

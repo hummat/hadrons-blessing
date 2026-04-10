@@ -100,6 +100,85 @@ function validateRawScrape(raw: AnyRecord) {
   return problems;
 }
 
+type ParsedItemCard = {
+  name: string;
+  rarity: string;
+  perks: string[];
+  blessings: { name: string; description: string }[];
+};
+
+export function parseItemCardLines(lines: string[]): ParsedItemCard | null {
+  if (lines.length < 2) return null;
+
+  const item: ParsedItemCard = {
+    name: lines[0],
+    rarity: "",
+    perks: [],
+    blessings: [],
+  };
+
+  const rarities = new Set([
+    "Transcendant",
+    "Anointed",
+    "Profane",
+    "Redeemed",
+  ]);
+  const statBar = /^\[[\d/]+\]%$/;
+  const statLabel =
+    /^(Warp Resistance|Cleave|Finesse|Defences|Damage|Quell|Charge|Blast|Mobility|Attack Speed|Critical|Stamina|Peril|Dodge|Sprint|Block|Push|First Target|Reload)/;
+  const statValue = /^[\d.]+$/;
+  const statRange = /^\[[\d. |]+\]$/;
+  const prefixRangePerk = /^\d+(?:\.\d+)?-\d+(?:\.\d+)?%\s/;
+  const prefixedNumberPerk = /^\+\d/;
+  const suffixRangePerk = /^(Increase|Decreases?)\b.+\bby\s+\d+(?:\.\d+)?-\d+(?:\.\d+)?%$/i;
+
+  let i = 1;
+  while (i < lines.length) {
+    const line = lines[i];
+
+    if (rarities.has(line)) {
+      item.rarity = line;
+      i++;
+      continue;
+    }
+
+    if (
+      statBar.test(line) ||
+      statLabel.test(line) ||
+      statValue.test(line) ||
+      statRange.test(line) ||
+      line.startsWith("Damage vs ")
+    ) {
+      i++;
+      continue;
+    }
+
+    if (prefixRangePerk.test(line) || prefixedNumberPerk.test(line) || suffixRangePerk.test(line)) {
+      item.perks.push(line);
+      i++;
+      continue;
+    }
+
+    const next = lines[i + 1];
+    if (
+      line.match(/^[A-Z]/) &&
+      line.length < 60 &&
+      next &&
+      next.length > 15 &&
+      !statBar.test(next) &&
+      !rarities.has(next)
+    ) {
+      item.blessings.push({ name: line, description: next });
+      i += 2;
+      continue;
+    }
+
+    i++;
+  }
+
+  return item;
+}
+
 async function extractBuild(url: string) {
   const browser = await chromium.launch({ headless: true });
   try {
@@ -338,73 +417,8 @@ async function extractBuild(url: string) {
             .filter(Boolean);
           if (lines.length < 2) continue;
 
-          const item: { name: string; rarity: string; perks: string[]; blessings: { name: string; description: string }[] } = {
-            name: lines[0],
-            rarity: "",
-            perks: [],
-            blessings: [],
-          };
-
-          const rarities = new Set([
-            "Transcendant",
-            "Anointed",
-            "Profane",
-            "Redeemed",
-          ]);
-          const statBar = /^\[[\d/]+\]%$/;
-          const statLabel =
-            /^(Warp Resistance|Cleave|Finesse|Defences|Damage|Quell|Charge|Blast|Mobility|Attack Speed|Critical|Stamina|Peril|Dodge|Sprint|Block|Push|First Target|Reload)/;
-          const statValue = /^[\d.]+$/;
-          const statRange = /^\[[\d. |]+\]$/;
-
-          let i = 1;
-          while (i < lines.length) {
-            const line = lines[i];
-
-            if (rarities.has(line)) {
-              item.rarity = line;
-              i++;
-              continue;
-            }
-
-            // Skip stat bars and labels
-            if (
-              statBar.test(line) ||
-              statLabel.test(line) ||
-              statValue.test(line) ||
-              statRange.test(line) ||
-              line.startsWith("Damage vs ")
-            ) {
-              i++;
-              continue;
-            }
-
-            // Perk: "X-Y% Something" or "+X% Something"
-            if (line.match(/^\d+-\d+%\s/) || line.match(/^\+\d/)) {
-              item.perks.push(line);
-              i++;
-              continue;
-            }
-
-            // Blessing: short capitalized name followed by longer description
-            const next = lines[i + 1];
-            if (
-              line.match(/^[A-Z]/) &&
-              line.length < 60 &&
-              next &&
-              next.length > 15 &&
-              !statBar.test(next) &&
-              !rarities.has(next)
-            ) {
-              item.blessings.push({ name: line, description: next });
-              i += 2;
-              continue;
-            }
-
-            i++;
-          }
-
-          items.push(item);
+          const item = parseItemCardLines(lines);
+          if (item) items.push(item);
         }
         return items;
       }

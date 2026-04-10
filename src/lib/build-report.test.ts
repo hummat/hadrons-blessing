@@ -62,9 +62,13 @@ describe("generateReport", () => {
     assert.ok(report.curio_score >= 1 && report.curio_score <= 5, "curio_score should be 1-5");
   });
 
-  it("lists unresolved entries in problems", async () => {
-    const report = await generateReport(join(BUILDS_DIR, "09-psyker-2026.json"));
-    assert.ok(report.unresolved.length > 0, "build 08 should have unresolved curio names");
+  it("does not report repaired blessing-slot perk labels as unresolved problems", async () => {
+    const report = await generateReport(join(BUILDS_DIR, "10-psyker-electrokinetic-staff.json"));
+    assert.equal(
+      report.unresolved.length,
+      0,
+      "build 10's blessing-slot perk label should be repaired during report generation",
+    );
     for (const entry of report.unresolved) {
       assert.ok(typeof entry.field === "string", "unresolved entry should have field");
       assert.ok(typeof entry.label === "string", "unresolved entry should have label");

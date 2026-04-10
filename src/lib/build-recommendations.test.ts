@@ -206,9 +206,9 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
       assert.ok(Array.isArray(result.blessing_impact.removed));
       assert.ok(Array.isArray(result.blessing_impact.available));
       // Same family = all resolved blessings retained, none removed
-      // Build 09 forcesword has 1 resolved blessing (Wrath), 1 unresolved (Unstable Power)
+      // Build 09 forcesword now has 2 resolved blessings (Wrath, Unstable Power)
       assert.equal(result.blessing_impact.removed.length, 0);
-      assert.equal(result.blessing_impact.retained.length, 1);
+      assert.equal(result.blessing_impact.retained.length, 2);
     });
 
     it("removes blessings for cross-family swap", () => {

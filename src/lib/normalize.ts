@@ -21,6 +21,18 @@ function normalizeText(input: string): string {
     .trim();
 }
 
+function contextValueMatches(key: string, actual: unknown, expected: string): boolean {
+  if (typeof actual !== "string") {
+    return false;
+  }
+
+  if (key === "class") {
+    return normalizeText(actual) === normalizeText(expected);
+  }
+
+  return actual === expected;
+}
+
 function assertAllowedQueryContext(context: unknown): QueryContext {
   if (context == null) {
     return {};
@@ -39,4 +51,9 @@ function assertAllowedQueryContext(context: unknown): QueryContext {
   return context as QueryContext;
 }
 
-export { ALLOWED_QUERY_CONTEXT_KEYS, assertAllowedQueryContext, normalizeText };
+export {
+  ALLOWED_QUERY_CONTEXT_KEYS,
+  assertAllowedQueryContext,
+  contextValueMatches,
+  normalizeText,
+};

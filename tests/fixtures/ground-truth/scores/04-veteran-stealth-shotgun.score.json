@@ -3,8 +3,8 @@
   "class": "veteran",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 20,
-  "letter_grade": "C",
+  "composite_score": 25,
+  "letter_grade": "B",
   "weapons": [
     {
       "name": "Achlys Mk VI Power Sword",
@@ -29,8 +29,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Power Cycler",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powersword_p1_extended_activation_duration_on_chained_attacks"
+          },
+          {
+            "name": "Slaughterer",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powersword_p1_increased_melee_damage_on_multiple_hits"
+          }
+        ]
       }
     },
     {
@@ -56,8 +67,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Full Bore",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_shotgun_p1_power_bonus_on_hitting_single_enemy_with_all"
+          },
+          {
+            "name": "Man-Stopper",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_shotgun_p1_cleave_on_crit"
+          }
+        ]
       }
     }
   ],
@@ -128,31 +150,34 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 2,
+      "score": 5,
       "breakdown": {
-        "blessing_edges": 1,
-        "blessing_count": 1,
-        "edges_per_blessing": 1,
-        "blessing_blessing_edges": 0,
+        "blessing_edges": 13,
+        "blessing_count": 4,
+        "edges_per_blessing": 3.25,
+        "blessing_blessing_edges": 1,
         "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: full_bore"
+        "Blessings with synergy edges: full_bore, extended_activation_duration_on_chained_attacks, rampage, cleave_on_crit",
+        "1 blessing-blessing edge(s) +0.5"
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 3,
       "breakdown": {
-        "talent_edges": 10,
-        "talent_count": 22,
-        "edges_per_talent": 0.455,
-        "graph_isolated_count": 12,
+        "talent_edges": 12,
+        "talent_count": 27,
+        "measurable_talent_count": 14,
+        "edges_per_talent": 0.857,
+        "graph_isolated_count": 1,
         "concentration": 0.04,
-        "penalties": -6,
+        "penalties": -0.5,
         "bonuses": 0
       },
       "explanations": [
-        "12 talent(s) participate in no synergy edges (-0.5 each)"
+        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "13 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -161,21 +186,21 @@
         {
           "label": "One-shot Rager head",
           "met": false,
-          "best_htk": 3,
+          "best_htk": 2,
           "max_hits": 1,
           "weight": "high"
         },
         {
           "label": "Two-hit Rager body",
           "met": false,
-          "best_htk": 14,
+          "best_htk": 12,
           "max_hits": 2,
           "weight": "high"
         },
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 23,
+          "best_htk": 20,
           "max_hits": 2,
           "weight": "high"
         },
@@ -210,14 +235,14 @@
         {
           "label": "Three-hit Mauler",
           "met": false,
-          "best_htk": 13,
+          "best_htk": 11,
           "max_hits": 3,
           "weight": "low"
         },
         {
           "label": "Two-hit Bulwark",
           "met": false,
-          "best_htk": 5,
+          "best_htk": 4,
           "max_hits": 2,
           "weight": "low"
         },
@@ -240,7 +265,7 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.8333333333333334
+        "slot_balance_ratio": 0.7777777777777778
       },
       "explanations": []
     },
@@ -253,22 +278,22 @@
         "per_entry": [
           {
             "label": "One-shot Rager head",
-            "damnation_htk": 3,
+            "damnation_htk": 2,
             "auric_htk": 3,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 14,
-            "auric_htk": 19,
+            "damnation_htk": 12,
+            "auric_htk": 16,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 23,
-            "auric_htk": 30,
+            "damnation_htk": 20,
+            "auric_htk": 26,
             "damnation_met": false,
             "auric_met": false
           }

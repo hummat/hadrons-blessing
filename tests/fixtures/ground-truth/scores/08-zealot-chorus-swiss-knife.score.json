@@ -3,7 +3,7 @@
   "class": "zealot",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 22,
+  "composite_score": 25,
   "letter_grade": "B",
   "weapons": [
     {
@@ -29,8 +29,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Riposte",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_combatknife_p1_dodge_grants_critical_strike_chance"
+          },
+          {
+            "name": "Uncanny Strike",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_combatknife_p1_stacking_rending_on_weakspot"
+          }
+        ]
       }
     },
     {
@@ -51,17 +62,17 @@
         ]
       },
       "blessings": {
-        "valid": false,
+        "valid": true,
         "blessings": [
           {
             "name": "Blaze Away",
             "known": true,
-            "internal": "power_bonus_on_continuous_fire"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_flamer_p1_power_bonus_on_continuous_fire"
           },
           {
             "name": "Everlasting Flame",
-            "known": false,
-            "internal": null
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_flamer_p1_ammo_from_reserve_on_crit"
           }
         ]
       }
@@ -137,29 +148,31 @@
       "score": 5,
       "breakdown": {
         "blessing_edges": 17,
-        "blessing_count": 3,
-        "edges_per_blessing": 5.667,
+        "blessing_count": 4,
+        "edges_per_blessing": 4.25,
         "blessing_blessing_edges": 3,
-        "orphaned_blessings": 0
+        "orphaned_blessings": 1
       },
       "explanations": [
         "Blessings with synergy edges: riposte, uncanny_strike, blaze_away",
-        "3 blessing-blessing edge(s) +0.5"
+        "3 blessing-blessing edge(s) +0.5",
+        "1 blessing(s) participate in no synergy edges (-1 each)"
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
-        "talent_edges": 7,
-        "talent_count": 25,
-        "edges_per_talent": 0.28,
-        "graph_isolated_count": 16,
-        "concentration": 0.04,
-        "penalties": -8,
+        "talent_edges": 10,
+        "talent_count": 27,
+        "measurable_talent_count": 10,
+        "edges_per_talent": 1,
+        "graph_isolated_count": 0,
+        "concentration": 0.03,
+        "penalties": 0,
         "bonuses": 0
       },
       "explanations": [
-        "16 talent(s) participate in no synergy edges (-0.5 each)"
+        "17 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -247,7 +260,7 @@
         "active_families": 6,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.7
+        "slot_balance_ratio": 0.6363636363636364
       },
       "explanations": []
     },

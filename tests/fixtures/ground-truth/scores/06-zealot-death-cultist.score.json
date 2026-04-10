@@ -3,16 +3,16 @@
   "class": "zealot",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 23,
+  "composite_score": 26,
   "letter_grade": "B",
   "weapons": [
     {
       "name": "Munitorum Mk II Relic Blade",
       "slot": "melee",
-      "canonical_entity_id": null,
-      "internal_name": null,
+      "canonical_entity_id": "shared.weapon.powersword_2h_p1_m1",
+      "internal_name": "powersword_2h_p1_m1",
       "weapon_family": "powersword_2h",
-      "resolution_source": "provisional_family",
+      "resolution_source": "ground_truth",
       "perks": {
         "score": 5,
         "perks": [
@@ -29,17 +29,17 @@
         ]
       },
       "blessings": {
-        "valid": false,
+        "valid": true,
         "blessings": [
           {
             "name": "Cranial Grounding",
-            "known": false,
-            "internal": null
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powersword_2h_p1_chained_weakspot_hits_increase_finesse_and_reduce_overheat"
           },
           {
             "name": "Rampage",
-            "known": false,
-            "internal": null
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powersword_2h_p1_increased_melee_damage_on_multiple_hits"
           }
         ]
       }
@@ -67,17 +67,17 @@
         ]
       },
       "blessings": {
-        "valid": false,
+        "valid": true,
         "blessings": [
           {
             "name": "Puncture",
             "known": true,
-            "internal": "rending_on_crit"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_boltpistol_p1_rending_on_crit"
           },
           {
             "name": "Execution",
-            "known": false,
-            "internal": null
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_boltpistol_p1_stagger_bonus_damage"
           }
         ]
       }
@@ -165,18 +165,19 @@
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
-        "talent_edges": 20,
-        "talent_count": 25,
-        "edges_per_talent": 0.8,
-        "graph_isolated_count": 11,
+        "talent_edges": 22,
+        "talent_count": 27,
+        "measurable_talent_count": 15,
+        "edges_per_talent": 1.467,
+        "graph_isolated_count": 0,
         "concentration": 0.04,
-        "penalties": -5.5,
+        "penalties": 0,
         "bonuses": 0
       },
       "explanations": [
-        "11 talent(s) participate in no synergy edges (-0.5 each)"
+        "12 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {

@@ -109,7 +109,7 @@
       "slot": "melee",
       "name": {
         "raw_label": "Deimos Mk IV Blaze Force Sword",
-        "canonical_entity_id": "shared.weapon.forcesword_p1_m1",
+        "canonical_entity_id": "shared.weapon.forcesword_p1_m2",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -151,7 +151,7 @@
       "slot": "ranged",
       "name": {
         "raw_label": "Equinox Mk III Voidblast Force Staff",
-        "canonical_entity_id": "shared.weapon.forcestaff_p4_m1",
+        "canonical_entity_id": "shared.weapon.forcestaff_p1_m1",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -167,8 +167,8 @@
         },
         {
           "raw_label": "4-10% Ranged Damage (Elites)",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_damage_elites",
+          "resolution_status": "resolved",
           "value": {
             "min": 0.04,
             "max": 0.1,
@@ -179,8 +179,8 @@
       "blessings": [
         {
           "raw_label": "Rending Shockwave",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.name_family.blessing.rend_armor_on_aoe_charge",
+          "resolution_status": "resolved"
         },
         {
           "raw_label": "Warp Flurry",
@@ -195,7 +195,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -244,7 +244,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -293,7 +293,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {

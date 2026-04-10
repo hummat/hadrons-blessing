@@ -125,6 +125,7 @@ describe("schema validation", () => {
     });
     assert.equal(result.ok, false);
   });
+
 });
 
 describe("source snapshot validation", () => {
@@ -701,6 +702,26 @@ describe("resolveQuery", () => {
     }
   });
 
+  it("treats spaced and underscored class context values as equivalent", async () => {
+    for (const [query, queryContext, expectedEntityId] of [
+      [
+        "Street Tough",
+        { kind: "talent", class: "hive scum" },
+        "hive_scum.talent.broker_passive_knockback_on_taking_melee_damage",
+      ],
+      [
+        "Regained Posture",
+        { kind: "talent", class: "hive_scum" },
+        "hive_scum.talent.broker_passive_stamina_on_successful_dodge",
+      ],
+    ]) {
+      const result = await resolveQuery(query, queryContext);
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, expectedEntityId);
+    }
+  });
+
   it("resolves live Games Lantern perk label variants", async () => {
     for (const [query, queryContext, expectedEntityId] of [
       [
@@ -927,15 +948,15 @@ describe("auditBuildFile", () => {
     );
   });
 
-  it("keeps unresolved curio item labels in the unresolved bucket", async () => {
+  it("classifies structurally ambiguous curio base labels as non_canonical", async () => {
     const result = await auditBuildFile("data/builds/09-psyker-2026.json");
     for (const field of ["curios[0].name", "curios[1].name", "curios[2].name"]) {
       assert.equal(
-        result.unresolved.some(
+        result.non_canonical.some(
           (entry) => entry.field === field && entry.text === "Blessed Bullet",
         ),
         true,
-        `${field} should be unresolved until curio item entities are modeled`,
+        `${field} should be non_canonical because the scrape drops the concrete curio variant suffix`,
       );
     }
   });
@@ -966,7 +987,7 @@ describe("auditBuildFile", () => {
     const ogrynMeleeResult = await auditBuildFile("data/builds/14-ogryn-melee-meta.json");
 
     for (const [result, field, entityId] of [
-      [veteranSniperResult, "weapons[0].name", "shared.weapon.combatsword_p2_m1"],
+      [veteranSniperResult, "weapons[0].name", "shared.weapon.combatsword_p1_m3"],
       [veteranSniperResult, "weapons[1].name", "shared.weapon.lasgun_p1_m3"],
       [zealotHammerResult, "weapons[0].name", "shared.weapon.thunderhammer_2h_p1_m1"],
       [zealotHammerResult, "weapons[1].name", "shared.weapon.flamer_p1_m1"],
@@ -1049,16 +1070,16 @@ describe("auditBuildFile", () => {
       [veteranResult, "weapons[0].name", "shared.weapon.powersword_p1_m2"],
       [veteranResult, "weapons[1].name", "shared.weapon.plasmagun_p1_m1"],
       [explodegrynResult, "weapons[0].name", "shared.weapon.ogryn_pickaxe_2h_p1_m1"],
-      [explodegrynResult, "weapons[1].name", "shared.weapon.ogryn_heavystubber_p1_m1"],
+      [explodegrynResult, "weapons[1].name", "shared.weapon.ogryn_heavystubber_p2_m3"],
       [arbitesShotgunResult, "weapons[0].name", "shared.weapon.powermaul_p2_m1"],
       [arbitesShotgunResult, "weapons[1].name", "shared.weapon.shotgun_p4_m1"],
-      [zealotDeathCultistResult, "weapons[0].name", "shared.weapon.powersword_2h_p1_m1"],
+      [zealotDeathCultistResult, "weapons[0].name", "shared.weapon.powersword_2h_p1_m2"],
       [zealotChorusResult, "weapons[1].name", "shared.weapon.flamer_p1_m1"],
       [ogrynTankResult, "weapons[0].name", "shared.weapon.ogryn_powermaul_slabshield_p1_m1"],
       [zealotMetaResult, "weapons[1].name", "shared.weapon.flamer_p1_m1"],
       [hiveScumResult, "weapons[0].name", "shared.weapon.combatknife_p1_m1"],
       [meleeResult, "weapons[0].name", "shared.weapon.dual_shivs_p1_m1"],
-      [stimmtecResult, "weapons[0].name", "shared.weapon.combatsword_p2_m1"],
+      [stimmtecResult, "weapons[0].name", "shared.weapon.combatsword_p1_m3"],
     ]) {
       assert.equal(
         result.resolved.some(
@@ -1200,7 +1221,7 @@ describe("auditBuildFile", () => {
       ],
       [
         zealotHammerResult,
-        "weapons[1].blessings[2].name",
+        "weapons[1].blessings[1].name",
         "shared.name_family.blessing.penetrating_flame",
       ],
       [
@@ -1285,7 +1306,7 @@ describe("auditBuildFile", () => {
       ],
       [
         hiveScumResult,
-        "weapons[1].blessings[1].name",
+        "weapons[1].blessings[0].name",
         "shared.name_family.blessing.fire_frenzy",
       ],
       [

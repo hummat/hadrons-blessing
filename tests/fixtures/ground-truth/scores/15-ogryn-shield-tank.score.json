@@ -3,8 +3,8 @@
   "class": "ogryn",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 18,
-  "letter_grade": "C",
+  "composite_score": 24,
+  "letter_grade": "B",
   "weapons": [
     {
       "name": "Orox Mk II & Mk III Battle Maul & Slab Shield",
@@ -29,8 +29,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Skullcrusher",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_slabshield_p1_staggered_targets_receive_increased_damage_debuff"
+          },
+          {
+            "name": "Last Guard",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_ogryn_powermaul_slabshield_p1_block_break_pushes"
+          }
+        ]
       }
     },
     {
@@ -56,8 +67,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Pinpointing target",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_ogryn_gauntlet_p1_windup_increases_power"
+          },
+          {
+            "name": "Disruptive",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_ogryn_gauntlet_p1_melee_power_after_ranged_explosion"
+          }
+        ]
       }
     }
   ],
@@ -128,31 +150,34 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
-        "blessing_edges": 0,
-        "blessing_count": 1,
-        "edges_per_blessing": 0,
-        "blessing_blessing_edges": 0,
+        "blessing_edges": 13,
+        "blessing_count": 4,
+        "edges_per_blessing": 3.25,
+        "blessing_blessing_edges": 1,
         "orphaned_blessings": 1
       },
       "explanations": [
+        "Blessings with synergy edges: block_break_pushes, thunderous, melee_power_after_ranged_explosion",
+        "1 blessing-blessing edge(s) +0.5",
         "1 blessing(s) participate in no synergy edges (-1 each)"
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
         "talent_edges": 10,
         "talent_count": 26,
-        "edges_per_talent": 0.385,
-        "graph_isolated_count": 16,
-        "concentration": 0.04,
-        "penalties": -8,
+        "measurable_talent_count": 10,
+        "edges_per_talent": 1,
+        "graph_isolated_count": 0,
+        "concentration": 0.03,
+        "penalties": 0,
         "bonuses": 0
       },
       "explanations": [
-        "16 talent(s) participate in no synergy edges (-0.5 each)"
+        "16 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -240,7 +265,7 @@
         "active_families": 5,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.5
+        "slot_balance_ratio": 0.4444444444444444
       },
       "explanations": []
     },
@@ -268,7 +293,7 @@
           {
             "label": "Two-hit Crusher",
             "damnation_htk": 5,
-            "auric_htk": 7,
+            "auric_htk": 6,
             "damnation_met": false,
             "auric_met": false
           }

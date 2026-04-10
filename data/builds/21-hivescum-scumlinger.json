@@ -150,18 +150,18 @@
     },
     {
       "raw_label": "Street Tough",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "hive_scum.talent.broker_passive_knockback_on_taking_melee_damage",
+      "resolution_status": "resolved"
     },
     {
       "raw_label": "Virulent Strain",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "hive_scum.talent.broker_passive_toxin_infected_enemies_take_increased_damage",
+      "resolution_status": "resolved"
     },
     {
       "raw_label": "Alley Rat",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "hive_scum.talent_modifier.broker_passive_longer_dodges",
+      "resolution_status": "resolved"
     },
     {
       "raw_label": "Wildfire I",
@@ -229,13 +229,29 @@
         "canonical_entity_id": "shared.weapon.autogun_p1_m2",
         "resolution_status": "resolved"
       },
-      "perks": [],
-      "blessings": [
+      "perks": [
         {
           "raw_label": "Increase Ranged Critical Strike Chance by 2-5%",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_crit_chance",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
         },
+        {
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
         {
           "raw_label": "Fire Frenzy",
           "canonical_entity_id": "shared.name_family.blessing.fire_frenzy",
@@ -243,8 +259,8 @@
         },
         {
           "raw_label": "Dumdum",
-          "canonical_entity_id": null,
-          "resolution_status": "unresolved"
+          "canonical_entity_id": "shared.name_family.blessing.consecutive_hits_increases_close_damage",
+          "resolution_status": "resolved"
         }
       ]
     }
@@ -254,7 +270,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -303,7 +319,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -352,7 +368,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {

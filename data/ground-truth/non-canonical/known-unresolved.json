@@ -1,1 +1,317 @@
-[]
+[
+  {
+    "text": "Blessed Bullet",
+    "normalized_text": "blessed bullet",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Blessed Bullet (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Gilded Fragment",
+    "normalized_text": "gilded fragment",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Gilded Fragment (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Gilded Inquisitorial Rosette",
+    "normalized_text": "gilded inquisitorial rosette",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Gilded Inquisitorial Rosette (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Gilded Mandible",
+    "normalized_text": "gilded mandible",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Gilded Mandible (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Guardian Gloriana",
+    "normalized_text": "guardian gloriana",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Guardian Gloriana (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Guardian Nocturnus",
+    "normalized_text": "guardian nocturnus",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Guardian Nocturnus (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Guardian of the Hateful",
+    "normalized_text": "guardian of the hateful",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Guardian of the Hateful (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Guardian of the Lost",
+    "normalized_text": "guardian of the lost",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Guardian of the Lost (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Herald's Seal",
+    "normalized_text": "herald s seal",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Herald's Seal (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Inquisitorial Rosette",
+    "normalized_text": "inquisitorial rosette",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Inquisitorial Rosette (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Laurel of the Just",
+    "normalized_text": "laurel of the just",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Laurel of the Just (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Laurel of the Righteous",
+    "normalized_text": "laurel of the righteous",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Laurel of the Righteous (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Mechanicus Icon Exemplar",
+    "normalized_text": "mechanicus icon exemplar",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Mechanicus Icon Exemplar (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Mechanicus Icon Illustrious",
+    "normalized_text": "mechanicus icon illustrious",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Mechanicus Icon Illustrious (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Obsidiax-Sheathed Bullet",
+    "normalized_text": "obsidiax sheathed bullet",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Obsidiax-Sheathed Bullet (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Redeemer's Gilded Hand",
+    "normalized_text": "redeemer s gilded hand",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Redeemer's Gilded Hand (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Redeemer's Hand",
+    "normalized_text": "redeemer s hand",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Redeemer's Hand (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Saintly Fragment",
+    "normalized_text": "saintly fragment",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Saintly Fragment (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Scrap of Scripture",
+    "normalized_text": "scrap of scripture",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Scrap of Scripture (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Stalwart's Mandible",
+    "normalized_text": "stalwart s mandible",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Stalwart's Mandible (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  },
+  {
+    "text": "Wayfarer's Seal",
+    "normalized_text": "wayfarer s seal",
+    "non_canonical_kind": "display_label",
+    "provenance": "master_items_runtime_dump",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        { "key": "kind", "value": "gadget_item" },
+        { "key": "slot", "value": "curio" }
+      ],
+      "prefer": []
+    },
+    "notes": "Games Lantern scrape drops the concrete curio variant suffix. Runtime catalog exposes concrete items as Wayfarer's Seal (Caged|Casket|Reliquary), so the bare label is structurally ambiguous."
+  }
+]

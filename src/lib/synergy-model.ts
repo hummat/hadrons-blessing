@@ -81,6 +81,7 @@ export interface AnalyzeBuildResult {
   orphans: OrphanEntry[];
   coverage: CoverageResult;
   _resolvedIds: string[];
+  _entitiesWithCalcIds: string[];
   metadata: SynergyMetadata;
 }
 
@@ -500,6 +501,7 @@ export function analyzeBuild(build: CanonicalBuildInput, index: SynergyIndex): A
     orphans,
     coverage,
     _resolvedIds: allResolved.map((s) => s.id),
+    _entitiesWithCalcIds: withEffects.map((s) => s.id),
     metadata: {
       entities_analyzed: totalSelections,
       unique_entities_with_calc: withEffects.length,

@@ -39,13 +39,32 @@ async function reresolveSelection(selection: AnyRecord | null, queryContext: Rec
   }
 
   if (selection.resolution_status === "resolved" && !options.overwriteResolved) {
-    return selection;
+    return structuredClone(selection);
   }
 
   return toSelection(selection.raw_label, queryContext, {
     ...options,
     ...(selection.value == null ? {} : { value: selection.value }),
   });
+}
+
+async function reresolveBlessingSelection(
+  selection: AnyRecord | null,
+  queryContext: Record<string, unknown>,
+  options: ReresolveOptions = {},
+) {
+  const nextSelection = await reresolveSelection(selection, queryContext, options);
+
+  if (
+    nextSelection?.resolution_status === "resolved"
+    && typeof nextSelection.canonical_entity_id === "string"
+    && !nextSelection.canonical_entity_id.startsWith("shared.name_family.blessing.")
+  ) {
+    nextSelection.resolution_status = "unresolved";
+    nextSelection.canonical_entity_id = null;
+  }
+
+  return nextSelection;
 }
 
 async function reresolveBuild(build: AnyRecord, options: ReresolveOptions = {}) {
@@ -75,7 +94,7 @@ async function reresolveBuild(build: AnyRecord, options: ReresolveOptions = {}) 
     }
     nextWeapon.blessings = [];
     for (const blessing of weapon.blessings) {
-      nextWeapon.blessings.push(await reresolveSelection(
+      nextWeapon.blessings.push(await reresolveBlessingSelection(
         blessing,
         {
           kind: "weapon_trait",
@@ -131,14 +150,20 @@ async function reresolveBuildTargets(targets: string[], options: ReresolveOption
 }
 
 function parseArgs(argv: string[]) {
-  const args: { write: boolean; targets: string[] } = {
+  const args: { write: boolean; overwriteResolved: boolean; targets: string[] } = {
     write: false,
+    overwriteResolved: false,
     targets: [],
   };
 
   for (const arg of argv) {
     if (arg === "--write") {
       args.write = true;
+      continue;
+    }
+
+    if (arg === "--overwrite-resolved") {
+      args.overwriteResolved = true;
       continue;
     }
 
@@ -155,7 +180,10 @@ function parseArgs(argv: string[]) {
 if (import.meta.main) {
   await runCliMain("reresolve", async () => {
     const args = parseArgs(process.argv.slice(2));
-    const result = await reresolveBuildTargets(args.targets, { write: args.write });
+    const result = await reresolveBuildTargets(args.targets, {
+      write: args.write,
+      overwriteResolved: args.overwriteResolved,
+    });
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
   });
 }

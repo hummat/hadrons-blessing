@@ -85,8 +85,8 @@
     },
     {
       "raw_label": "Punishment",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "zealot.talent.zealot_multi_hits_grant_impact_and_uninterruptible",
+      "resolution_status": "resolved"
     },
     {
       "raw_label": "Holy Revenant",
@@ -160,8 +160,8 @@
     },
     {
       "raw_label": "On the Brink",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "zealot.talent_modifier.zealot_corruption_resistance_stacking",
+      "resolution_status": "resolved"
     }
   ],
   "weapons": [
@@ -169,7 +169,7 @@
       "slot": "melee",
       "name": {
         "raw_label": "Munitorum Mk II Relic Blade",
-        "canonical_entity_id": "shared.weapon.powersword_2h_p1_m1",
+        "canonical_entity_id": "shared.weapon.powersword_2h_p1_m2",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -255,7 +255,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -304,7 +304,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -353,7 +353,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {

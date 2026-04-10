@@ -262,5 +262,212 @@
       "slot": "ranged"
     },
     "expected_entity_id": "shared.name_family.blessing.full_bore"
+  },
+  {
+    "query": "Power Cycler",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee",
+      "weapon_family": "powersword_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.extended_activation_duration_on_chained_attacks"
+  },
+  {
+    "query": "Slaughterer",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee",
+      "weapon_family": "powersword_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.rampage"
+  },
+  {
+    "query": "Thrust",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee",
+      "weapon_family": "thunderhammer_2h_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.thunderous"
+  },
+  {
+    "query": "Thrust",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee",
+      "weapon_family": "ogryn_pickaxe_2h_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.thunderous"
+  },
+  {
+    "query": "Headtaker",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee",
+      "weapon_family": "ogryn_pickaxe_2h_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.increase_power_on_kill"
+  },
+  {
+    "query": "Hand-Cannon",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "stubrevolver_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.puncture"
+  },
+  {
+    "query": "Everlasting Flame",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "flamer_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.ammo_from_reserve_on_crit"
+  },
+  {
+    "query": "Surge",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "forcestaff_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.double_shot_on_crit"
+  },
+  {
+    "query": "Surge",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "forcestaff_p3"
+    },
+    "expected_entity_id": "shared.name_family.blessing.double_shot_on_crit"
+  },
+  {
+    "query": "Deadly Accurate",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "lasgun_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.lethal_proximity"
+  },
+  {
+    "query": "Headhunter",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "lasgun_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.stacking_crit_chance_on_weakspot"
+  },
+  {
+    "query": "Desperado",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "needlepistol_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.riposte"
+  },
+  {
+    "query": "Dumdum",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "autogun_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.consecutive_hits_increases_close_damage"
+  },
+  {
+    "query": "Hammerblow",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee",
+      "weapon_family": "powermaul_shield_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.stacking_increase_impact_on_hit"
+  },
+  {
+    "query": "Last Guard",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee",
+      "weapon_family": "ogryn_powermaul_slabshield_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.block_break_pushes"
+  },
+  {
+    "query": "Disruptive",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "ogryn_gauntlet_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.melee_power_after_ranged_explosion"
+  },
+  {
+    "query": "Pinpointing target",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "ogryn_gauntlet_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.thunderous"
+  },
+  {
+    "query": "Man-Stopper",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "shotgun_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.cleave_on_crit"
+  },
+  {
+    "query": "Unstable Power",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee",
+      "weapon_family": "forcesword_2h_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.warp_charge_power_bonus"
+  },
+  {
+    "query": "Thrust",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "melee",
+      "weapon_family": "combatsword_p3"
+    },
+    "expected_entity_id": "shared.name_family.blessing.thunderous"
+  },
+  {
+    "query": "Surge",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "forcestaff_p4"
+    },
+    "expected_entity_id": "shared.name_family.blessing.double_shot_on_crit"
+  },
+  {
+    "query": "Rending Shockwave",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "forcestaff_p1"
+    },
+    "expected_entity_id": "shared.name_family.blessing.rend_armor_on_aoe_charge"
+  },
+  {
+    "query": "Opening Salvo",
+    "query_context": {
+      "kind": "weapon_trait",
+      "slot": "ranged",
+      "weapon_family": "ogryn_heavystubber_p2"
+    },
+    "expected_entity_id": "shared.name_family.blessing.power_bonus_on_first_shot"
   }
 ]

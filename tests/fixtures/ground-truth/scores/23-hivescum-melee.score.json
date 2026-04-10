@@ -3,7 +3,7 @@
   "class": "hive scum",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 22,
+  "composite_score": 23,
   "letter_grade": "B",
   "weapons": [
     {
@@ -29,17 +29,17 @@
         ]
       },
       "blessings": {
-        "valid": false,
+        "valid": true,
         "blessings": [
           {
             "name": "Riposte",
-            "known": false,
-            "internal": null
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_dual_shivs_p1_dodge_grants_critical_strike_chance"
           },
           {
             "name": "Uncanny Strike",
             "known": true,
-            "internal": "stacking_rending_on_weakspot"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_dual_shivs_p1_stacking_rending_on_weakspot_parent"
           }
         ]
       }
@@ -67,8 +67,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Desperado",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_needlepistol_p1_dodge_grants_critical_strike_chance"
+          },
+          {
+            "name": "Stripped Down",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_needlepistol_p1_increased_sprint_speed"
+          }
+        ]
       }
     }
   ],
@@ -154,18 +165,20 @@
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 2,
       "breakdown": {
         "talent_edges": 6,
         "talent_count": 34,
-        "edges_per_talent": 0.176,
-        "graph_isolated_count": 28,
+        "measurable_talent_count": 8,
+        "edges_per_talent": 0.75,
+        "graph_isolated_count": 2,
         "concentration": 0.06,
-        "penalties": -14,
+        "penalties": -1,
         "bonuses": 0
       },
       "explanations": [
-        "28 talent(s) participate in no synergy edges (-0.5 each)"
+        "2 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "26 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {

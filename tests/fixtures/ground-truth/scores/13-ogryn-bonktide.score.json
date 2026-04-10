@@ -3,8 +3,8 @@
   "class": "ogryn",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 20,
-  "letter_grade": "C",
+  "composite_score": 24,
+  "letter_grade": "B",
   "weapons": [
     {
       "name": "Branx Mk Ia Delver's Pickaxe",
@@ -29,17 +29,17 @@
         ]
       },
       "blessings": {
-        "valid": false,
+        "valid": true,
         "blessings": [
           {
             "name": "Thrust",
-            "known": false,
-            "internal": null
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_ogryn_pickaxe_2h_p1_windup_increases_power"
           },
           {
             "name": "Headtaker",
             "known": true,
-            "internal": "increase_power_on_kill"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_ogryn_pickaxe_2h_p1_increase_power_on_kill"
           }
         ]
       }
@@ -67,8 +67,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": false,
+        "blessings": [
+          {
+            "name": "Opening Salvo",
+            "known": false,
+            "internal": null
+          },
+          {
+            "name": "Surgical",
+            "known": false,
+            "internal": null
+          }
+        ]
       }
     }
   ],
@@ -141,29 +152,32 @@
     "blessing_synergy": {
       "score": 3,
       "breakdown": {
-        "blessing_edges": 2,
-        "blessing_count": 1,
-        "edges_per_blessing": 2,
-        "blessing_blessing_edges": 0,
-        "orphaned_blessings": 0
+        "blessing_edges": 9,
+        "blessing_count": 4,
+        "edges_per_blessing": 2.25,
+        "blessing_blessing_edges": 1,
+        "orphaned_blessings": 1
       },
       "explanations": [
-        "Blessings with synergy edges: surgical"
+        "Blessings with synergy edges: increase_power_on_kill, surgical, thunderous",
+        "1 blessing-blessing edge(s) +0.5",
+        "1 blessing(s) participate in no synergy edges (-1 each)"
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
         "talent_edges": 13,
         "talent_count": 26,
-        "edges_per_talent": 0.5,
-        "graph_isolated_count": 15,
-        "concentration": 0.04,
-        "penalties": -7.5,
+        "measurable_talent_count": 11,
+        "edges_per_talent": 1.182,
+        "graph_isolated_count": 0,
+        "concentration": 0.06,
+        "penalties": 0,
         "bonuses": 0
       },
       "explanations": [
-        "15 talent(s) participate in no synergy edges (-0.5 each)"
+        "15 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -246,12 +260,12 @@
       ]
     },
     "role_coverage": {
-      "score": 3,
+      "score": 4,
       "breakdown": {
-        "active_families": 6,
+        "active_families": 7,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.42857142857142855
+        "slot_balance_ratio": 0.5555555555555556
       },
       "explanations": []
     },

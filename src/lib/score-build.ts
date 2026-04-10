@@ -3,7 +3,7 @@
 
 import { readFileSync } from "node:fs";
 import { SCORING_DATA_PATH } from "./paths.js";
-import { ALIASES_ROOT, ENTITIES_ROOT, listJsonFiles, loadJsonFile } from "./load.js";
+import { ALIASES_ROOT, EDGES_ROOT, ENTITIES_ROOT, listJsonFiles, loadJsonFile } from "./load.js";
 import { normalizeText } from "./normalize.js";
 import { scoreFromSynergy, scoreFromCalculator } from "./build-scoring.js";
 
@@ -45,6 +45,12 @@ interface BlessingValidation {
   blessings: BlessingResult[];
 }
 
+interface BlessingInput {
+  name: string;
+  description: string;
+  canonical_entity_id?: string | null;
+}
+
 interface CurioPerkResult {
   name: string;
   tier: number;
@@ -59,8 +65,9 @@ interface CurioResult {
 interface WeaponInput {
   name: string;
   perks: string[];
-  blessings: Array<{ name: string; description: string }>;
+  blessings: BlessingInput[];
   slot?: string;
+  canonical_entity_id?: string | null;
   [key: string]: unknown;
 }
 
@@ -107,13 +114,8 @@ interface WeaponLookup {
   aliasesByNormalizedText: Map<string, Array<{ candidateEntityId: string; rankWeight: number; source: string }>>;
   scoringWeaponsByInternal: Map<string, { key: string; entry: ScoringDataEntry }>;
   weaponEntitiesById: Map<string, Record<string, unknown>>;
-}
-
-interface ProvisionalMatch {
-  label: string;
-  slot: string;
-  weapon_family: string;
-  blessings: Record<string, { internal: string }>;
+  weaponBlessingPool: Map<string, Map<string, string>>;
+  blessingFamilyByName: Map<string, string>;
 }
 
 interface DimensionScore {
@@ -158,105 +160,6 @@ interface Scorecard {
 // State
 // ---------------------------------------------------------------------------
 
-const PROVISIONAL_WEAPON_FAMILY_MATCHES = new Map<string, ProvisionalMatch>([
-  [
-    normalizeText("Lucius Mk IV Helbore Lasgun"),
-    {
-      label: "Lucius Mk IV Helbore Lasgun",
-      slot: "ranged",
-      weapon_family: "lasgun_p2",
-      blessings: {
-        "Hot-Shot": { internal: "hot_shot" },
-        "Surgical": { internal: "surgical" },
-      },
-    },
-  ],
-  [
-    normalizeText("Munitorum Mk II Relic Blade"),
-    {
-      label: "Munitorum Mk II Relic Blade",
-      slot: "melee",
-      weapon_family: "powersword_2h",
-      blessings: {
-        Wrath: { internal: "wrath" },
-        Overload: { internal: "overload" },
-      },
-    },
-  ],
-  [
-    normalizeText("Munitorum Mk X Relic Blade"),
-    {
-      label: "Munitorum Mk X Relic Blade",
-      slot: "melee",
-      weapon_family: "powersword_2h",
-      blessings: {
-        "Cranial Grounding": { internal: "cranial_grounding" },
-        Heatsink: { internal: "heatsink" },
-      },
-    },
-  ],
-  [
-    normalizeText("Locke Mk III Spearhead Boltgun"),
-    {
-      label: "Locke Mk III Spearhead Boltgun",
-      slot: "ranged",
-      weapon_family: "bolter_p1",
-      blessings: {
-        "Pinning Fire": { internal: "pinning_fire" },
-        Puncture: { internal: "puncture" },
-      },
-    },
-  ],
-  [
-    normalizeText("Tigrus Mk XV Heavy Eviscerator"),
-    {
-      label: "Tigrus Mk XV Heavy Eviscerator",
-      slot: "melee",
-      weapon_family: "chainsword_2h",
-      blessings: {
-        Wrath: { internal: "wrath" },
-        Bloodthirsty: { internal: "bloodthirsty" },
-      },
-    },
-  ],
-  [
-    normalizeText("Godwyn-Branx Mk IV Bolt Pistol"),
-    {
-      label: "Godwyn-Branx Mk IV Bolt Pistol",
-      slot: "ranged",
-      weapon_family: "boltpistol_p1",
-      blessings: {
-        "Lethal Proximity": { internal: "lethal_proximity" },
-        Puncture: { internal: "puncture" },
-      },
-    },
-  ],
-  [
-    normalizeText("Orox Mk II Battle Maul & Slab Shield"),
-    {
-      label: "Orox Mk II Battle Maul & Slab Shield",
-      slot: "melee",
-      weapon_family: "ogryn_powermaul_slabshield",
-      blessings: {
-        "Brutal Momentum": { internal: "brutal_momentum" },
-        Skullcrusher: { internal: "skullcrusher" },
-      },
-    },
-  ],
-  [
-    normalizeText("Foe-Rend Mk V Ripper Gun"),
-    {
-      label: "Foe-Rend Mk V Ripper Gun",
-      slot: "ranged",
-      weapon_family: "ogryn_rippergun",
-      blessings: {
-        "Inspiring Barrage": { internal: "inspiring_barrage" },
-        "Blaze Away": { internal: "blaze_away" },
-      },
-    },
-  ],
-]);
-
 let _data: ScoringData | null = null;
 let _weaponLookup: WeaponLookup | null = null;
 
@@ -288,10 +191,12 @@ function normalizedWeaponInput(weapon: Record<string, unknown>): WeaponInput {
   return {
     ...weapon,
     name: selectionLabel(weapon?.name),
+    canonical_entity_id: selectionCanonicalEntityId(weapon?.name),
     perks: ((weapon?.perks as unknown[]) ?? []).map((perk) => selectionLabel(perk)),
     blessings: ((weapon?.blessings as unknown[]) ?? []).map((blessing) => ({
       name: selectionLabel((blessing as Record<string, unknown>)?.name ?? blessing),
       description: typeof (blessing as Record<string, unknown>)?.description === "string" ? (blessing as { description: string }).description : "",
+      canonical_entity_id: selectionCanonicalEntityId((blessing as Record<string, unknown>)?.name ?? blessing),
     })),
   };
 }
@@ -472,14 +377,15 @@ function loadWeaponLookup(): WeaponLookup {
       .map(([key, entry]) => [entry.internal!, { key, entry }]),
   );
 
-  const weaponEntities = listJsonFiles(ENTITIES_ROOT)
-    .flatMap((path) => loadJsonFile(path) as Array<Record<string, unknown>>)
-    .filter((record) => record.kind === "weapon");
+  const allEntities = listJsonFiles(ENTITIES_ROOT)
+    .flatMap((path) => loadJsonFile(path) as Array<Record<string, unknown>>);
+  const weaponEntities = allEntities.filter((record) => record.kind === "weapon");
   const weaponEntityIds = new Set(weaponEntities.map((record) => record.id as string));
   const weaponEntitiesById = new Map(weaponEntities.map((record) => [record.id as string, record]));
 
-  const aliases = listJsonFiles(ALIASES_ROOT)
-    .flatMap((path) => loadJsonFile(path) as Array<Record<string, unknown>>)
+  const allAliases = listJsonFiles(ALIASES_ROOT)
+    .flatMap((path) => loadJsonFile(path) as Array<Record<string, unknown>>);
+  const aliases = allAliases
     .filter((record) => weaponEntityIds.has(record.candidate_entity_id as string));
 
   const aliasesByNormalizedText = new Map<string, Array<{ candidateEntityId: string; rankWeight: number; source: string }>>();
@@ -514,10 +420,63 @@ function loadWeaponLookup(): WeaponLookup {
     }
   }
 
+  const allEdges = listJsonFiles(EDGES_ROOT)
+    .flatMap((path) => loadJsonFile(path) as Array<Record<string, unknown>>);
+
+  const instanceOfMap = new Map<string, string>();
+  for (const edge of allEdges) {
+    if (edge.type === "instance_of") {
+      instanceOfMap.set(edge.from_entity_id as string, edge.to_entity_id as string);
+    }
+  }
+
+  const weaponBlessingPool = new Map<string, Map<string, string>>();
+  for (const edge of allEdges) {
+    if (edge.type !== "weapon_has_trait_pool") {
+      continue;
+    }
+
+    const weaponId = edge.from_entity_id as string;
+    const traitId = edge.to_entity_id as string;
+    const familyId = instanceOfMap.get(traitId);
+    if (!familyId) {
+      continue;
+    }
+
+    const pool = weaponBlessingPool.get(weaponId) ?? new Map<string, string>();
+    pool.set(familyId, traitId);
+    weaponBlessingPool.set(weaponId, pool);
+  }
+
+  const blessingFamilyByName = new Map<string, string>();
+  for (const entity of allEntities) {
+    if (
+      entity.kind === "name_family"
+      && typeof entity.id === "string"
+      && entity.id.includes(".name_family.blessing.")
+      && typeof entity.ui_name === "string"
+      && entity.ui_name.length > 0
+    ) {
+      blessingFamilyByName.set(normalizeText(entity.ui_name), entity.id);
+    }
+  }
+  for (const alias of allAliases) {
+    if (
+      typeof alias.candidate_entity_id === "string"
+      && alias.candidate_entity_id.includes(".name_family.blessing.")
+      && typeof alias.normalized_text === "string"
+      && alias.normalized_text.length > 0
+    ) {
+      blessingFamilyByName.set(alias.normalized_text, alias.candidate_entity_id);
+    }
+  }
+
   _weaponLookup = {
     aliasesByNormalizedText,
     scoringWeaponsByInternal,
     weaponEntitiesById,
+    weaponBlessingPool,
+    blessingFamilyByName,
   };
   return _weaponLookup;
 }
@@ -566,27 +525,6 @@ function resolveGroundTruthWeapon(weaponName: string): WeaponMatch | null {
   };
 }
 
-function resolveProvisionalWeaponFamily(weaponName: string): WeaponMatch | null {
-  const match = PROVISIONAL_WEAPON_FAMILY_MATCHES.get(normalizeText(weaponName));
-  if (!match) {
-    return null;
-  }
-
-  return {
-    key: match.label,
-    entry: {
-      internal: match.weapon_family,
-      slot: match.slot,
-      blessings: match.blessings,
-    },
-    canonical_entity_id: null,
-    internal_name: null,
-    weapon_family: match.weapon_family,
-    slot: match.slot,
-    resolution_source: "provisional_family",
-  };
-}
-
 /**
  * Normalize a weapon name for fallback fuzzy matching against scoring data.
  */
@@ -610,11 +548,6 @@ function findWeapon(weaponName: unknown): WeaponMatch | null {
   const groundTruthMatch = resolveGroundTruthWeapon(normalizedName);
   if (groundTruthMatch?.entry) {
     return groundTruthMatch;
-  }
-
-  const provisionalFamilyMatch = resolveProvisionalWeaponFamily(normalizedName);
-  if (provisionalFamilyMatch) {
-    return provisionalFamilyMatch;
   }
 
   if (groundTruthMatch) {
@@ -681,27 +614,46 @@ function findWeapon(weaponName: unknown): WeaponMatch | null {
 // Blessing validation
 // ---------------------------------------------------------------------------
 
-export function scoreBlessings(weapon: WeaponInput): BlessingValidation {
+export function scoreBlessings(
+  weapon: WeaponInput,
+  weaponMatch?: WeaponMatch | null,
+): BlessingValidation {
   const normalizedWeapon = normalizedWeaponInput(weapon as unknown as Record<string, unknown>);
-  const found = findWeapon(normalizedWeapon.name);
+  const found = weaponMatch !== undefined ? weaponMatch : findWeapon(weapon.name);
 
   if (!found) {
     return { valid: null, blessings: [] };
   }
 
-  if (!found.entry) {
-    return { valid: null, blessings: [] };
-  }
+  const { weaponBlessingPool, blessingFamilyByName } = loadWeaponLookup();
+  const edgePool = found.canonical_entity_id
+    ? weaponBlessingPool.get(found.canonical_entity_id) ?? null
+    : null;
+  const blessingData = found.entry?.blessings;
 
-  const blessingData = found.entry.blessings;
-
-  if (blessingData === null || blessingData === undefined) {
+  if (!edgePool && (blessingData === null || blessingData === undefined)) {
     return { valid: null, blessings: [] };
   }
 
   const results: BlessingResult[] = [];
   for (const blessing of normalizedWeapon.blessings) {
-    const match = blessingData[blessing.name];
+    let match: { internal: string } | null = null;
+    if (edgePool) {
+      if (
+        typeof blessing.canonical_entity_id === "string"
+        && edgePool.has(blessing.canonical_entity_id)
+      ) {
+        match = { internal: edgePool.get(blessing.canonical_entity_id)! };
+      } else {
+        const familyId = blessingFamilyByName.get(normalizeText(blessing.name));
+        if (familyId && edgePool.has(familyId)) {
+          match = { internal: edgePool.get(familyId)! };
+        }
+      }
+    } else if (blessingData) {
+      match = blessingData[blessing.name] ?? null;
+    }
+
     results.push({
       name: blessing.name,
       known: !!match,
@@ -829,7 +781,7 @@ export function generateScorecard(
 
     perkScores.push(perkResult.score);
 
-    const blessingResult = scoreBlessings(normalizedWeapon);
+    const blessingResult = scoreBlessings(normalizedWeapon, found);
 
     weaponResults.push({
       name: normalizedWeapon.name,

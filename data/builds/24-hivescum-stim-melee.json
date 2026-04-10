@@ -160,8 +160,8 @@
     },
     {
       "raw_label": "Channelled Devastation",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
+      "canonical_entity_id": "hive_scum.talent.broker_passive_crit_grants_damage",
+      "resolution_status": "resolved"
     },
     {
       "raw_label": "Wildfire I",
@@ -219,7 +219,7 @@
       "slot": "melee",
       "name": {
         "raw_label": "Catachan Mk VII \"Devil's Claw\" Sword",
-        "canonical_entity_id": "shared.weapon.combatsword_p2_m1",
+        "canonical_entity_id": "shared.weapon.combatsword_p1_m3",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -261,7 +261,7 @@
       "slot": "ranged",
       "name": {
         "raw_label": "Branx MkVI Needle Pistol",
-        "canonical_entity_id": "shared.weapon.needlepistol_p1_m2",
+        "canonical_entity_id": "shared.weapon.needlepistol_p1_m1",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -305,7 +305,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -354,7 +354,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {
@@ -403,7 +403,7 @@
       "name": {
         "raw_label": "Blessed Bullet",
         "canonical_entity_id": null,
-        "resolution_status": "unresolved"
+        "resolution_status": "non_canonical"
       },
       "perks": [
         {

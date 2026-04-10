@@ -600,6 +600,21 @@
     "evidence_ids": []
   },
   {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_crit_grants_damage",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_crit_grants_damage",
+    "to_entity_id": "hive_scum.tree_node.node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_damage_after_toxined_enemies",
     "type": "belongs_to_tree_node",
     "from_entity_id": "hive_scum.talent.broker_passive_damage_after_toxined_enemies",
@@ -720,6 +735,21 @@
     "evidence_ids": []
   },
   {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_improved_dodges",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_passive_improved_dodges",
+    "to_entity_id": "hive_scum.tree_node.node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_improved_dodges_at_full_stamina",
     "type": "belongs_to_tree_node",
     "from_entity_id": "hive_scum.talent.broker_passive_improved_dodges_at_full_stamina",
@@ -769,6 +799,36 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "hive_scum.talent.broker_passive_increased_weakspot_damage",
     "to_entity_id": "hive_scum.tree_node.node_52c9240d-6228-4b32-badf-76f17ef9b6da",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_knockback_on_taking_melee_damage",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_knockback_on_taking_melee_damage",
+    "to_entity_id": "hive_scum.tree_node.node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_longer_dodges",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent_modifier.broker_passive_longer_dodges",
+    "to_entity_id": "hive_scum.tree_node.node_f6f53560-cd00-4602-9903-4961484ade18",
     "source_snapshot_id": "darktide-source.f63d836",
     "conditions": {
       "predicates": [],
@@ -960,6 +1020,21 @@
     "evidence_ids": []
   },
   {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_replenish_toughness_while_toxined_enemies_in_proximity",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_replenish_toughness_while_toxined_enemies_in_proximity",
+    "to_entity_id": "hive_scum.tree_node.node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
     "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_restore_toughness_on_close_ranged_kill",
     "type": "belongs_to_tree_node",
     "from_entity_id": "hive_scum.talent.broker_passive_restore_toughness_on_close_ranged_kill",
@@ -1069,6 +1144,36 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "hive_scum.talent.broker_passive_stun_immunity_on_toughness_broken",
     "to_entity_id": "hive_scum.tree_node.node_d774a7a8-87a2-4b0e-973e-5f735b67109f",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_toxin_infected_enemies_take_increased_damage",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_toxin_infected_enemies_take_increased_damage",
+    "to_entity_id": "hive_scum.tree_node.node_735140ff-109a-4bc2-a2b9-761614c238cc",
+    "source_snapshot_id": "darktide-source.f63d836",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "hive_scum.edge.belongs_to_tree_node.broker_passive_toxin_spread_on_kills",
+    "type": "belongs_to_tree_node",
+    "from_entity_id": "hive_scum.talent.broker_passive_toxin_spread_on_kills",
+    "to_entity_id": "hive_scum.tree_node.node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
     "source_snapshot_id": "darktide-source.f63d836",
     "conditions": {
       "predicates": [],

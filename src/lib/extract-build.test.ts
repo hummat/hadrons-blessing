@@ -1,6 +1,11 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
-import { postProcessTalentNodes, slugToName, validateRawScrape } from "../cli/extract-build.js";
+import {
+  parseItemCardLines,
+  postProcessTalentNodes,
+  slugToName,
+  validateRawScrape,
+} from "../cli/extract-build.js";
 
 describe("slugToName", () => {
   it("keeps known special-case Games Lantern names readable", () => {
@@ -87,5 +92,39 @@ describe("validateRawScrape", () => {
       talents: { active: [], inactive: [{ slug: "talent" }] },
     };
     assert.deepEqual(validateRawScrape(raw), []);
+  });
+});
+
+describe("parseItemCardLines", () => {
+  it("keeps suffix-range weapon perks out of blessing slots", () => {
+    const item = parseItemCardLines([
+      "Nomanus Mk VI Electrokinetic Force Staff",
+      "Transcendant",
+      "Increase Ranged Critical Strike Chance by 2-5%",
+      "10-25% Damage (Flak Armoured Enemies)",
+      "Surge",
+      "Critical Hits have a chance to fire 2 shots on the next attack instead of one.",
+      "Warp Nexus",
+      "Increases Critical Chance by 5-20% based on current Peril.",
+    ]);
+
+    assert.deepEqual(item, {
+      name: "Nomanus Mk VI Electrokinetic Force Staff",
+      rarity: "Transcendant",
+      perks: [
+        "Increase Ranged Critical Strike Chance by 2-5%",
+        "10-25% Damage (Flak Armoured Enemies)",
+      ],
+      blessings: [
+        {
+          name: "Surge",
+          description: "Critical Hits have a chance to fire 2 shots on the next attack instead of one.",
+        },
+        {
+          name: "Warp Nexus",
+          description: "Increases Critical Chance by 5-20% based on current Peril.",
+        },
+      ],
+    });
   });
 });

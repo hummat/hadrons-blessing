@@ -3,8 +3,8 @@
   "class": "arbites",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 26,
-  "letter_grade": "B",
+  "composite_score": 29,
+  "letter_grade": "A",
   "weapons": [
     {
       "name": "Branx Mk III Arbites Shock Maul",
@@ -29,8 +29,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "High Voltage",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_damage_bonus_vs_electrocuted"
+          },
+          {
+            "name": "Relentless Strikes",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_powermaul_p2_consecutive_melee_hits_same_target_increases_melee_power_parent"
+          }
+        ]
       }
     },
     {
@@ -56,17 +67,17 @@
         ]
       },
       "blessings": {
-        "valid": false,
+        "valid": true,
         "blessings": [
           {
             "name": "Run 'n' Gun",
-            "known": false,
-            "internal": null
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_boltpistol_p1_hipfire_while_sprinting"
           },
           {
             "name": "Puncture",
             "known": true,
-            "internal": "rending_on_crit"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_boltpistol_p1_rending_on_crit"
           }
         ]
       }
@@ -153,19 +164,21 @@
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
         "talent_edges": 11,
         "talent_count": 27,
-        "edges_per_talent": 0.407,
-        "graph_isolated_count": 18,
+        "measurable_talent_count": 10,
+        "edges_per_talent": 1.1,
+        "graph_isolated_count": 1,
         "concentration": 0.08,
-        "penalties": -9,
+        "penalties": -0.5,
         "bonuses": 0.5
       },
       "explanations": [
-        "18 talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.080) +0.5"
+        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "High stat concentration (0.080) +0.5",
+        "17 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {

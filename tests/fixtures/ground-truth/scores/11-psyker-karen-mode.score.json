@@ -3,8 +3,8 @@
   "class": "psyker",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 25,
-  "letter_grade": "B",
+  "composite_score": 27,
+  "letter_grade": "A",
   "weapons": [
     {
       "name": "Maccabian Mk IV Duelling Sword",
@@ -38,8 +38,8 @@
           },
           {
             "name": "Uncanny Strike",
-            "known": true,
-            "internal": "stacking_rending_on_weakspot"
+            "known": false,
+            "internal": null
           }
         ]
       }
@@ -47,9 +47,9 @@
     {
       "name": "Equinox Mk IV Voidstrike Force Staff",
       "slot": "ranged",
-      "canonical_entity_id": "shared.weapon.forcestaff_p1_m1",
-      "internal_name": "forcestaff_p1_m1",
-      "weapon_family": "forcestaff_p1",
+      "canonical_entity_id": "shared.weapon.forcestaff_p4_m1",
+      "internal_name": "forcestaff_p4_m1",
+      "weapon_family": "forcestaff_p4",
       "resolution_source": "ground_truth",
       "perks": {
         "score": 5,
@@ -62,8 +62,19 @@
         ]
       },
       "blessings": {
-        "valid": null,
-        "blessings": []
+        "valid": true,
+        "blessings": [
+          {
+            "name": "Warp Nexus",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p4_warp_charge_critical_strike_chance_bonus"
+          },
+          {
+            "name": "Surge",
+            "known": true,
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p4_double_shot_on_crit"
+          }
+        ]
       }
     }
   ],
@@ -134,32 +145,35 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 5,
+      "score": 4,
       "breakdown": {
-        "blessing_edges": 10,
-        "blessing_count": 2,
-        "edges_per_blessing": 5,
-        "blessing_blessing_edges": 1,
-        "orphaned_blessings": 0
+        "blessing_edges": 13,
+        "blessing_count": 4,
+        "edges_per_blessing": 3.25,
+        "blessing_blessing_edges": 2,
+        "orphaned_blessings": 1
       },
       "explanations": [
-        "Blessings with synergy edges: uncanny_strike, warp_nexus",
-        "1 blessing-blessing edge(s) +0.5"
+        "Blessings with synergy edges: uncanny_strike, warp_nexus, double_shot_on_crit",
+        "2 blessing-blessing edge(s) +0.5",
+        "1 blessing(s) participate in no synergy edges (-1 each)"
       ]
     },
     "talent_coherence": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
         "talent_edges": 15,
         "talent_count": 26,
-        "edges_per_talent": 0.577,
-        "graph_isolated_count": 15,
-        "concentration": 0.06,
-        "penalties": -7.5,
+        "measurable_talent_count": 13,
+        "edges_per_talent": 1.154,
+        "graph_isolated_count": 1,
+        "concentration": 0.05,
+        "penalties": -0.5,
         "bonuses": 0
       },
       "explanations": [
-        "15 talent(s) participate in no synergy edges (-0.5 each)"
+        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "13 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -244,10 +258,10 @@
     "role_coverage": {
       "score": 5,
       "breakdown": {
-        "active_families": 9,
+        "active_families": 10,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.8571428571428571
+        "slot_balance_ratio": 1
       },
       "explanations": []
     },

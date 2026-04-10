@@ -420,6 +420,46 @@
     "notes": ""
   },
   {
+    "text": "4-10% Ranged Damage (Elites)",
+    "normalized_text": "4 10 ranged damage elites",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_damage_elites",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
+    "text": "4-10% Ranged Damage (Specialists)",
+    "normalized_text": "4 10 ranged damage specialists",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_damage_specials",
+    "alias_kind": "guide_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "build-fixture",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": ""
+  },
+  {
     "text": "5-10% Reload Speed",
     "normalized_text": "5 10 reload speed",
     "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increased_reload_speed",
@@ -5584,5 +5624,649 @@
     },
     "rank_weight": 120,
     "notes": ""
+  },
+  {
+    "text": "Power Cycler",
+    "normalized_text": "power cycler",
+    "candidate_entity_id": "shared.name_family.blessing.extended_activation_duration_on_chained_attacks",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        },
+        {
+          "key": "weapon_family",
+          "value": "powersword_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Legacy power sword blessing label. Source-backed family is bespoke powersword_p1 extended_activation_duration_on_chained_attacks, currently enriched as Cycler."
+  },
+  {
+    "text": "Slaughterer",
+    "normalized_text": "slaughterer",
+    "candidate_entity_id": "shared.name_family.blessing.rampage",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        },
+        {
+          "key": "weapon_family",
+          "value": "powersword_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Legacy power sword blessing label for the bespoke powersword_p1 increased_melee_damage_on_multiple_hits trait, which resolves to the Rampage family."
+  },
+  {
+    "text": "Thrust",
+    "normalized_text": "thrust",
+    "candidate_entity_id": "shared.name_family.blessing.thunderous",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        },
+        {
+          "key": "weapon_family",
+          "value": "thunderhammer_2h_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Legacy thunder hammer blessing label. Source-backed family is bespoke thunderhammer_2h_p1 windup_increases_power, enriched as Thunderous."
+  },
+  {
+    "text": "Thrust",
+    "normalized_text": "thrust",
+    "candidate_entity_id": "shared.name_family.blessing.thunderous",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        },
+        {
+          "key": "weapon_family",
+          "value": "ogryn_pickaxe_2h_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Legacy pickaxe blessing label. Source-backed family is bespoke ogryn_pickaxe_2h_p1 windup_increases_power, enriched as Thunderous."
+  },
+  {
+    "text": "Headtaker",
+    "normalized_text": "headtaker",
+    "candidate_entity_id": "shared.name_family.blessing.increase_power_on_kill",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        },
+        {
+          "key": "weapon_family",
+          "value": "ogryn_pickaxe_2h_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Legacy pickaxe blessing label. Source-backed family is bespoke ogryn_pickaxe_2h_p1 increase_power_on_kill."
+  },
+  {
+    "text": "Hand-Cannon",
+    "normalized_text": "hand cannon",
+    "candidate_entity_id": "shared.name_family.blessing.puncture",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "stubrevolver_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Legacy revolver blessing label. Source-backed family is bespoke stubrevolver_p1 rending_on_crit, enriched as Puncture."
+  },
+  {
+    "text": "Everlasting Flame",
+    "normalized_text": "everlasting flame",
+    "candidate_entity_id": "shared.name_family.blessing.ammo_from_reserve_on_crit",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "flamer_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Everlasting Flame blessing text matches the bespoke flamer_p1 ammo_from_reserve_on_crit trait exactly."
+  },
+  {
+    "text": "Surge",
+    "normalized_text": "surge",
+    "candidate_entity_id": "shared.name_family.blessing.double_shot_on_crit",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "forcestaff_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Surge blessing text matches the bespoke forcestaff_p1 double_shot_on_crit trait exactly."
+  },
+  {
+    "text": "Surge",
+    "normalized_text": "surge",
+    "candidate_entity_id": "shared.name_family.blessing.double_shot_on_crit",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "forcestaff_p3"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Surge blessing text matches the bespoke forcestaff_p3 double_shot_on_crit trait exactly."
+  },
+  {
+    "text": "Deadly Accurate",
+    "normalized_text": "deadly accurate",
+    "candidate_entity_id": "shared.name_family.blessing.lethal_proximity",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "lasgun_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Deadly Accurate blessing text matches the bespoke lasgun_p1 crit_weakspot_finesse trait exactly. The shared family is currently enriched as Lethal Proximity from another weapon line."
+  },
+  {
+    "text": "Headhunter",
+    "normalized_text": "headhunter",
+    "candidate_entity_id": "shared.name_family.blessing.stacking_crit_chance_on_weakspot",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "lasgun_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Headhunter blessing text matches the bespoke lasgun_p1 stacking_crit_chance_on_weakspot trait exactly."
+  },
+  {
+    "text": "Desperado",
+    "normalized_text": "desperado",
+    "candidate_entity_id": "shared.name_family.blessing.riposte",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "needlepistol_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Desperado blessing text matches the bespoke needlepistol_p1 dodge_grants_critical_strike_chance trait exactly. The shared family is currently enriched as Riposte from another weapon line."
+  },
+  {
+    "text": "Dumdum",
+    "normalized_text": "dumdum",
+    "candidate_entity_id": "shared.name_family.blessing.consecutive_hits_increases_close_damage",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "autogun_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Dumdum blessing text matches the bespoke autogun_p1 consecutive_hits_increases_close_damage trait exactly."
+  },
+  {
+    "text": "Hammerblow",
+    "normalized_text": "hammerblow",
+    "candidate_entity_id": "shared.name_family.blessing.stacking_increase_impact_on_hit",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        },
+        {
+          "key": "weapon_family",
+          "value": "powermaul_shield_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Hammerblow blessing text matches the bespoke powermaul_shield_p1 stacking_increase_impact_on_hit trait exactly."
+  },
+  {
+    "text": "Last Guard",
+    "normalized_text": "last guard",
+    "candidate_entity_id": "shared.name_family.blessing.block_break_pushes",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        },
+        {
+          "key": "weapon_family",
+          "value": "ogryn_powermaul_slabshield_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Last Guard blessing text matches the bespoke ogryn_powermaul_slabshield_p1 block_break_pushes trait exactly."
+  },
+  {
+    "text": "Disruptive",
+    "normalized_text": "disruptive",
+    "candidate_entity_id": "shared.name_family.blessing.melee_power_after_ranged_explosion",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "ogryn_gauntlet_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Disruptive blessing text matches the bespoke ogryn_gauntlet_p1 melee_power_after_ranged_explosion trait exactly."
+  },
+  {
+    "text": "Pinpointing target",
+    "normalized_text": "pinpointing target",
+    "candidate_entity_id": "shared.name_family.blessing.thunderous",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "ogryn_gauntlet_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Pinpointing target blessing text matches the bespoke ogryn_gauntlet_p1 windup_increases_power trait exactly. The shared family is currently enriched as Thunderous from another weapon line."
+  },
+  {
+    "text": "Man-Stopper",
+    "normalized_text": "man stopper",
+    "candidate_entity_id": "shared.name_family.blessing.cleave_on_crit",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "medium",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "shotgun_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 135,
+    "notes": "Games Lantern Man-Stopper text is best aligned with the bespoke shotgun_p1 cleave_on_crit trait; the secondary ranged-stagger rider is not separately modeled in the current family graph."
+  },
+  {
+    "text": "Unstable Power",
+    "normalized_text": "unstable power",
+    "candidate_entity_id": "shared.name_family.blessing.warp_charge_power_bonus",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        },
+        {
+          "key": "weapon_family",
+          "value": "forcesword_2h_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Unstable Power blessing text matches the bespoke forcesword_2h_p1 warp_charge_power_bonus trait exactly."
+  },
+  {
+    "text": "Thrust",
+    "normalized_text": "thrust",
+    "candidate_entity_id": "shared.name_family.blessing.thunderous",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "melee"
+        },
+        {
+          "key": "weapon_family",
+          "value": "combatsword_p3"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Legacy duelling sword blessing label. Source-backed family is bespoke combatsword_p3 windup_increases_power, enriched as Thunderous."
+  },
+  {
+    "text": "Surge",
+    "normalized_text": "surge",
+    "candidate_entity_id": "shared.name_family.blessing.double_shot_on_crit",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "forcestaff_p4"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Surge blessing text matches the bespoke forcestaff_p4 double_shot_on_crit trait exactly."
+  },
+  {
+    "text": "Rending Shockwave",
+    "normalized_text": "rending shockwave",
+    "candidate_entity_id": "shared.name_family.blessing.rend_armor_on_aoe_charge",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "forcestaff_p1"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Rending Shockwave blessing text matches the bespoke forcestaff_p1 rend_armor_on_aoe_charge trait exactly."
+  },
+  {
+    "text": "Opening Salvo",
+    "normalized_text": "opening salvo",
+    "candidate_entity_id": "shared.name_family.blessing.power_bonus_on_first_shot",
+    "alias_kind": "stale_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual_source_review",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        },
+        {
+          "key": "slot",
+          "value": "ranged"
+        },
+        {
+          "key": "weapon_family",
+          "value": "ogryn_heavystubber_p2"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Games Lantern Opening Salvo blessing text matches the bespoke ogryn_heavystubber_p2 power_bonus_on_first_shot trait exactly."
   }
 ]
