@@ -17,9 +17,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const WEAPONS_URL = "https://darktide.gameslantern.com/weapons";
+const PERKS_URL = "https://darktide.gameslantern.com/weapon-perks";
 const BLESSINGS_URL = "https://darktide.gameslantern.com/weapon-blessing-traits";
 const OUT_DIR = resolve(__dirname, "..", "..", "data", "ground-truth", "generated");
 const OUT_FILE = resolve(OUT_DIR, "gl-catalog.json");
+const WEAPONS_OUT_FILE = resolve(OUT_DIR, "gl-weapons.json");
+const PERKS_OUT_FILE = resolve(OUT_DIR, "gl-perks.json");
+const BLESSINGS_OUT_FILE = resolve(OUT_DIR, "gl-blessings.json");
 
 // --- Pure functions (exported for testing) ---
 
@@ -36,9 +40,34 @@ function parseBlessingRows(rows: Array<[string, string, string]>) {
       display_name: name,
       effect,
       weapon_types: weaponTypesRaw.split("\n"),
+      source_url: BLESSINGS_URL,
     });
   }
   return result;
+}
+
+function parsePerkRows(rows: Array<[string, string]>) {
+  return rows
+    .filter(([label, slot]) => label.trim().length > 0 && /^(Melee|Ranged)$/i.test(slot.trim()))
+    .map(([displayName, slot]) => ({
+      display_name: displayName.trim(),
+      slot: slot.trim().toLowerCase(),
+      source_url: PERKS_URL,
+    }));
+}
+
+function parseBlessingDetailPage(html: string, sourceUrl: string) {
+  const nameMatch = html.match(/<h3[^>]*>([^<]+)<\/h3>/i);
+  const effectMatch = html.match(/<p[^>]*>([^<]+)<\/p>/i);
+  if (!nameMatch || !effectMatch) {
+    throw new Error(`Unable to parse blessing detail page: ${sourceUrl}`);
+  }
+
+  return {
+    display_name: nameMatch[1].trim(),
+    effect: effectMatch[1].trim(),
+    source_url: sourceUrl,
+  };
 }
 
 /**
@@ -101,6 +130,7 @@ async function scrapeWeaponsApi(page: AnyRecord) {
     display_name: weapon.name ?? weapon.display_name ?? "",
     type: weapon.type ?? "",
     url_slug: extractUrlSlug(weapon.url ?? ""),
+    source_url: weapon.url ?? WEAPONS_URL,
     classes: parseWeaponClasses(weapon.classes ?? []),
   }));
 
@@ -141,6 +171,22 @@ async function scrapeBlessingsTable(page: AnyRecord) {
   return parseBlessingRows(rows);
 }
 
+async function scrapePerksTable(page: AnyRecord) {
+  console.error(`Navigating to ${PERKS_URL} ...`);
+  await page.goto(PERKS_URL, { waitUntil: "domcontentloaded", timeout: 60_000 });
+  await page.waitForSelector("table", { timeout: 30_000 });
+
+  const rows = await page.evaluate((): Array<string[]> => {
+    const table = document.querySelector("table");
+    if (!table) return [];
+    return Array.from(table.querySelectorAll("tr"))
+      .slice(1)
+      .map((tr) => Array.from(tr.querySelectorAll("td")).map((td) => td.innerText.trim()));
+  });
+
+  return parsePerkRows(rows as Array<[string, string]>);
+}
+
 // --- Main ---
 
 async function main() {
@@ -151,6 +197,9 @@ async function main() {
     const weapons = await scrapeWeaponsApi(page);
     console.error(`Scraped ${weapons.length} weapons (expected: 119)`);
 
+    const perks = await scrapePerksTable(page);
+    console.error(`Scraped ${perks.length} perks`);
+
     const blessings = await scrapeBlessingsTable(page);
     console.error(`Scraped ${blessings.length} blessings (expected: ~193)`);
 
@@ -158,11 +207,15 @@ async function main() {
       scraped_at: new Date().toISOString(),
       source: "darktide.gameslantern.com",
       weapons,
+      perks,
       blessings,
     };
 
     mkdirSync(OUT_DIR, { recursive: true });
     writeFileSync(OUT_FILE, JSON.stringify(catalog, null, 2), "utf8");
+    writeFileSync(WEAPONS_OUT_FILE, JSON.stringify(weapons, null, 2) + "\n", "utf8");
+    writeFileSync(PERKS_OUT_FILE, JSON.stringify(perks, null, 2) + "\n", "utf8");
+    writeFileSync(BLESSINGS_OUT_FILE, JSON.stringify(blessings, null, 2) + "\n", "utf8");
     console.error(`Written to ${OUT_FILE}`);
   } finally {
     await browser.close();
@@ -173,4 +226,10 @@ const isMain =
   process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) await main();
 
-export { parseBlessingRows, parseWeaponClasses, extractUrlSlug };
+export {
+  parseBlessingRows,
+  parsePerkRows,
+  parseBlessingDetailPage,
+  parseWeaponClasses,
+  extractUrlSlug,
+};

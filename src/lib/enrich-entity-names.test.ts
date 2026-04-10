@@ -7,6 +7,7 @@ import {
   MELEE_PERK_NAMES,
   RANGED_PERK_NAMES,
   GADGET_TRAIT_NAMES,
+  buildGlAliases,
   buildPerkAliasRecord,
   generatePerkAliases,
   enrichGadgetTraits,
@@ -16,6 +17,37 @@ import {
   enrichWeaponNames,
   generateWeaponAliases,
 } from "../cli/enrich-entity-names.js";
+
+describe("buildGlAliases", () => {
+  it("writes high-confidence shared aliases and keeps ambiguous entries in review output", async () => {
+    const result = await buildGlAliases({
+      corpus: [
+        {
+          domain: "weapon_perk",
+          raw_label: "4-10% Ranged Weak Spot Damage",
+          normalized_label: "4 10 ranged weak spot damage",
+          source_url: "perk-url",
+          source_kind: "gl-perk",
+          slot: "ranged",
+        },
+        {
+          domain: "weapon_trait",
+          raw_label: "Generic Fury",
+          normalized_label: "generic fury",
+          source_url: "blessing-url",
+          source_kind: "gl-blessing",
+          description: "+5% Damage. Stacks 5 times.",
+          weapon_type_labels: ["Autopistol", "Bolter"],
+        },
+      ],
+    });
+
+    assert.ok(result.sharedAliases.some((alias) => alias.text === "4-10% Ranged Weak Spot Damage"));
+    assert.equal(result.review.matched.length, 1);
+    assert.equal(result.review.required.length, 1);
+    assert.equal(result.review.unmatched.length, 0);
+  });
+});
 
 describe("MELEE_PERK_NAMES", () => {
   it("maps weapon_trait_increase_crit_chance to Critical Hit Chance", () => {

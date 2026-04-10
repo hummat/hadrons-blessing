@@ -48,6 +48,8 @@
     "entities:expand": "node dist/cli/expand-entity-coverage.js",
     "entities:enrich": "node dist/cli/enrich-entity-names.js",
     "gl:scrape": "node dist/cli/scrape-gl-catalog.js",
+    "gl:corpus:build": "node dist/cli/build-gl-alias-corpus.js",
+    "gl:aliases:build": "node dist/cli/build-gl-aliases.js",
     "entities:gen-mapping": "node dist/cli/generate-weapon-name-mapping.js",
     "audit:freeze": "for f in tests/fixtures/ground-truth/audits/*.audit.json; do b=$(basename \"$f\" .audit.json); node dist/cli/audit-build-names.js \"data/builds/${b}.json\" > \"$f\"; done",
     "synergy:freeze": "for f in tests/fixtures/ground-truth/synergy/*.synergy.json; do b=$(basename \"$f\" .synergy.json); node dist/cli/analyze-synergy.js \"data/builds/${b}-\"*.json --json > \"$f\"; done",

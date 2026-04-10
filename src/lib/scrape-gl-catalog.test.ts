@@ -3,6 +3,8 @@ import { strict as assert } from "node:assert";
 import {
   parseBlessingRows,
   parseWeaponClasses,
+  parsePerkRows,
+  parseBlessingDetailPage,
   extractUrlSlug,
 } from "../cli/scrape-gl-catalog.js";
 
@@ -83,6 +85,43 @@ describe("parseBlessingRows", () => {
     const result = parseBlessingRows(rows);
     assert.equal(result.length, 1);
     assert.deepEqual(result[0].weapon_types, [""]);
+  });
+});
+
+describe("parsePerkRows", () => {
+  it("parses perk label and slot from the GL perk table", () => {
+    const rows = [
+      ["4-10% Ranged Weak Spot Damage", "Ranged"],
+      ["4-10% Melee Weak Spot Damage", "Melee"],
+    ];
+
+    assert.deepEqual(parsePerkRows(rows), [
+      {
+        display_name: "4-10% Ranged Weak Spot Damage",
+        slot: "ranged",
+        source_url: "https://darktide.gameslantern.com/weapon-perks",
+      },
+      {
+        display_name: "4-10% Melee Weak Spot Damage",
+        slot: "melee",
+        source_url: "https://darktide.gameslantern.com/weapon-perks",
+      },
+    ]);
+  });
+});
+
+describe("parseBlessingDetailPage", () => {
+  it("extracts blessing name and effect text from the detail page body", () => {
+    const html = `
+      <h3>Overwhelming Fire</h3>
+      <p>+10% Strength for every 4 Single Target Hits. Lasts 2s and Stacks 5 times.</p>
+    `;
+
+    assert.deepEqual(parseBlessingDetailPage(html, "https://darktide.gameslantern.com/blessings/overwhelming-fire"), {
+      display_name: "Overwhelming Fire",
+      effect: "+10% Strength for every 4 Single Target Hits. Lasts 2s and Stacks 5 times.",
+      source_url: "https://darktide.gameslantern.com/blessings/overwhelming-fire",
+    });
   });
 });
 

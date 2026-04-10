@@ -584,30 +584,6 @@
     "notes": "Family-level mapping backed by bespoke plasmagun trait source."
   },
   {
-    "text": "Bloodthirsty",
-    "normalized_text": "bloodthirsty",
-    "candidate_entity_id": "shared.name_family.blessing.bloodthirsty",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Tigrus Mk XV Heavy Eviscerator blessing page and the bespoke chainsword_2h guaranteed_melee_crit_on_activated_kill trait source."
-  },
-  {
     "text": "Blazing Spirit",
     "normalized_text": "blazing spirit",
     "candidate_entity_id": "shared.name_family.blessing.blazing_spirit",
@@ -661,54 +637,6 @@
     },
     "rank_weight": 90,
     "notes": "English mark mapping is build-sourced, not decompiled-source localized."
-  },
-  {
-    "text": "Brutal Momentum",
-    "normalized_text": "brutal momentum",
-    "candidate_entity_id": "shared.name_family.blessing.brutal_momentum",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Orox Mk II & Mk III Battle Maul & Slab Shield blessing page and the bespoke ogryn_powermaul_slabshield infinite_melee_cleave_on_weakspot_kill trait source."
-  },
-  {
-    "text": "Confident Strike",
-    "normalized_text": "confident strike",
-    "candidate_entity_id": "shared.name_family.blessing.confident_strike",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Orox Mk II & Mk III Battle Maul & Slab Shield blessing page and the bespoke ogryn_powermaul_slabshield toughness_recovery_on_chained_attacks trait source."
   },
   {
     "text": "Deflector",
@@ -921,30 +849,6 @@
     "notes": ""
   },
   {
-    "text": "Energy Leakage",
-    "normalized_text": "energy leakage",
-    "candidate_entity_id": "shared.name_family.blessing.energy_leakage",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Lawbringer Mk IIb Power Falchion blessing page and the bespoke powersword_p2 slower_heat_buildup_on_perfect_block trait source."
-  },
-  {
     "text": "Gets Hot!",
     "normalized_text": "gets hot",
     "candidate_entity_id": "shared.name_family.blessing.gets_hot",
@@ -993,30 +897,6 @@
     "notes": "Family-level mapping backed by bespoke shock maul damage_bonus_vs_electrocuted trait source."
   },
   {
-    "text": "Hot-Shot",
-    "normalized_text": "hot shot",
-    "candidate_entity_id": "shared.name_family.blessing.hot_shot",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Lucius Mk IV Helbore Lasgun blessing page and the bespoke lasgun_p2 target_hit_mass_reduction_on_weakspot_hits trait source."
-  },
-  {
     "text": "Inspiring Barrage",
     "normalized_text": "inspiring barrage",
     "candidate_entity_id": "shared.name_family.blessing.inspiring_barrage",
@@ -1039,26 +919,6 @@
     },
     "rank_weight": 100,
     "notes": "Family-level mapping backed by bespoke ogryn ripper gun toughness_on_continuous_fire trait source."
-  },
-  {
-    "text": "Achlys Mk I Power Maul",
-    "normalized_text": "achlys mk i power maul",
-    "candidate_entity_id": "shared.weapon.ogryn_powermaul_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
   },
   {
     "text": "Branx Mk III Arbites Shock Maul",
@@ -1179,30 +1039,6 @@
     },
     "rank_weight": 90,
     "notes": "Display label comes from structured build data; shotpistol_shield_p1_m1 is the only source-backed shotpistol shield template."
-  },
-  {
-    "text": "Overload",
-    "normalized_text": "overload",
-    "candidate_entity_id": "shared.name_family.blessing.overload",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Lawbringer Mk IIb Power Falchion blessing page and the bespoke powersword_p2 explosion_on_overheat_lockout trait source."
   },
   {
     "text": "Pinning Fire",
@@ -1374,54 +1210,6 @@
     "notes": "Family-level mapping backed by dodge_grants_finesse_bonus trait source."
   },
   {
-    "text": "Riposte",
-    "normalized_text": "riposte",
-    "candidate_entity_id": "shared.name_family.blessing.riposte",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Riposte blessing page and the source-backed dodge_grants_critical_strike_chance trait family."
-  },
-  {
-    "text": "Rampage",
-    "normalized_text": "rampage",
-    "candidate_entity_id": "shared.name_family.blessing.rampage",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Tigrus Mk XV Heavy Eviscerator blessing page and the bespoke chainsword_2h increased_melee_damage_on_multiple_hits trait source."
-  },
-  {
     "text": "Rising Heat",
     "normalized_text": "rising heat",
     "candidate_entity_id": "shared.name_family.blessing.rising_heat",
@@ -1444,238 +1232,6 @@
     },
     "rank_weight": 100,
     "notes": "Family-level mapping backed by bespoke plasmagun trait source."
-  },
-  {
-    "text": "Lorenz Mk VI Rumbler",
-    "normalized_text": "lorenz mk vi rumbler",
-    "candidate_entity_id": "shared.weapon.ogryn_thumper_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Power Surge",
-    "normalized_text": "power surge",
-    "candidate_entity_id": "shared.name_family.blessing.power_surge",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Achlys Mk I Power Maul page and the source-backed extra_explosion_on_activated_attacks_on_armor trait."
-  },
-  {
-    "text": "Relentless Strikes",
-    "normalized_text": "relentless strikes",
-    "candidate_entity_id": "shared.name_family.blessing.relentless_strikes",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Relentless Strikes blessing page and the source-backed consecutive_melee_hits_same_target_increases_melee_power trait family."
-  },
-  {
-    "text": "Shattering Impact",
-    "normalized_text": "shattering impact",
-    "candidate_entity_id": "shared.name_family.blessing.shattering_impact",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Lorenz Mk VI Rumbler page and the source-backed targets_receive_rending_debuff trait."
-  },
-  {
-    "text": "Shrapnel",
-    "normalized_text": "shrapnel",
-    "candidate_entity_id": "shared.name_family.blessing.shrapnel",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Lorenz Mk VI Rumbler page and the source-backed close_explosion_applies_bleed trait."
-  },
-  {
-    "text": "Adhesive Charge",
-    "normalized_text": "adhesive charge",
-    "candidate_entity_id": "shared.name_family.blessing.adhesive_charge",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Lorenz Mk VI Rumbler page and the source-backed grenades_stick_to_monsters trait."
-  },
-  {
-    "text": "Execution",
-    "normalized_text": "execution",
-    "candidate_entity_id": "shared.name_family.blessing.execution",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Execution blessing page plus weapon pages showing the effect on Arbites shock maul and exterminator shotgun."
-  },
-  {
-    "text": "Deathspitter",
-    "normalized_text": "deathspitter",
-    "candidate_entity_id": "shared.name_family.blessing.deathspitter",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Deathspitter blessing page and the source-backed increase_power_on_close_kill trait family."
-  },
-  {
-    "text": "Fire Frenzy",
-    "normalized_text": "fire frenzy",
-    "candidate_entity_id": "shared.name_family.blessing.fire_frenzy",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Fire Frenzy blessing page and the source-backed increase_close_damage_on_close_kill trait family."
-  },
-  {
-    "text": "Full Bore",
-    "normalized_text": "full bore",
-    "candidate_entity_id": "shared.name_family.blessing.full_bore",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Full Bore blessing page and the source-backed power_bonus_on_hitting_single_enemy_with_all trait family."
   },
   {
     "text": "Run 'n' Gun",
@@ -1739,54 +1295,6 @@
     },
     "rank_weight": 100,
     "notes": "Family-level mapping backed by bespoke ranged trait source."
-  },
-  {
-    "text": "Surgical",
-    "normalized_text": "surgical",
-    "candidate_entity_id": "shared.name_family.blessing.surgical",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Lucius Mk IV Helbore Lasgun blessing page and the bespoke lasgun_p2 crit_chance_based_on_aim_time trait source."
-  },
-  {
-    "text": "Sustained Fire",
-    "normalized_text": "sustained fire",
-    "candidate_entity_id": "shared.name_family.blessing.sustained_fire",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "kind",
-          "value": "weapon_trait"
-        },
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 100,
-    "notes": "Family-level mapping backed by the GamesLantern Lucius Mk IV Helbore Lasgun blessing page and the bespoke lasgun_p2 followup_shots_ranged_damage trait source."
   },
   {
     "text": "Stripped Down",
@@ -1926,92 +1434,12 @@
     "notes": ""
   },
   {
-    "text": "Branx Mk VI Shock Maul and Suppression Shield",
-    "normalized_text": "branx mk vi shock maul and suppression shield",
-    "candidate_entity_id": "shared.weapon.powermaul_shield_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Judgement Mk IV Subductor Shotpistol and Riot Shield",
-    "normalized_text": "judgement mk iv subductor shotpistol and riot shield",
-    "candidate_entity_id": "shared.weapon.shotpistol_shield_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Branx MkVIII Dual Stub Pistols",
-    "normalized_text": "branx mkviii dual stub pistols",
-    "candidate_entity_id": "shared.weapon.dual_stubpistols_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Branx MkVI Needle Pistol",
-    "normalized_text": "branx mkvi needle pistol",
-    "candidate_entity_id": "shared.weapon.needlepistol_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
     "text": "10-25% Damage (Carapace Armoured Enemies)",
     "normalized_text": "10 25 damage carapace armoured enemies",
     "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
+    "provenance": "gl-perk",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -2022,8 +1450,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "GL full-range perk label variant for super armor damage (melee)."
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
   },
   {
     "text": "10-25% Damage (Carapace Armoured Enemies)",
@@ -2031,7 +1459,7 @@
     "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
+    "provenance": "gl-perk",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -2042,8 +1470,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "GL full-range perk label variant for super armor damage (ranged)."
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
   },
   {
     "text": "10-25% Damage (Unyielding Enemies)",
@@ -2051,7 +1479,7 @@
     "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
+    "provenance": "gl-perk",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -2062,8 +1490,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "GL full-range perk label variant for resistant/unyielding damage (melee)."
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
   },
   {
     "text": "10-25% Damage (Unyielding Enemies)",
@@ -2071,7 +1499,7 @@
     "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
+    "provenance": "gl-perk",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -2082,8 +1510,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "GL full-range perk label variant for resistant/unyielding damage (ranged)."
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
   },
   {
     "text": "10-25% Damage (Unarmoured Enemies)",
@@ -2091,7 +1519,7 @@
     "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_unarmored_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
+    "provenance": "gl-perk",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -2102,8 +1530,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "GL full-range perk label variant for unarmored damage (melee)."
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
   },
   {
     "text": "10-25% Damage (Unarmoured Enemies)",
@@ -2111,7 +1539,7 @@
     "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
+    "provenance": "gl-perk",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -2122,8 +1550,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "GL full-range perk label variant for unarmored damage (ranged)."
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
   },
   {
     "text": "10-25% Damage (Infested Enemies)",
@@ -2131,7 +1559,7 @@
     "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_disgustingly_resilient_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
+    "provenance": "gl-perk",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -2142,8 +1570,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "GL full-range perk label variant for disgustingly_resilient/infested damage (melee)."
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
   },
   {
     "text": "10-25% Damage (Infested Enemies)",
@@ -2151,7 +1579,7 @@
     "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_disgustingly_resilient_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
+    "provenance": "gl-perk",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -2162,8 +1590,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "GL full-range perk label variant for disgustingly_resilient/infested damage (ranged)."
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
   },
   {
     "text": "4-10% Melee Damage (Elites)",
@@ -2171,7 +1599,7 @@
     "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_damage_elites",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "gameslantern",
+    "provenance": "gl-perk",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -2182,8 +1610,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "GL full-range perk label variant for elite melee damage."
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
   },
   {
     "text": "+1-3 Max Stamina",
@@ -2526,186 +1954,6 @@
     "notes": "Family-level stat node alias. GL positional numbers stripped during resolution."
   },
   {
-    "text": "Turtolsky Mk VI Heavy Sword",
-    "normalized_text": "turtolsky mk vi heavy sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p2_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Lucius MK IIIa Helbore Lasgun",
-    "normalized_text": "lucius mk iiia helbore lasgun",
-    "candidate_entity_id": "shared.weapon.lasgun_p2_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Munitorum Mk X Relic Blade",
-    "normalized_text": "munitorum mk x relic blade",
-    "candidate_entity_id": "shared.weapon.powersword_2h_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Munitorum Mk II Relic Blade",
-    "normalized_text": "munitorum mk ii relic blade",
-    "candidate_entity_id": "shared.weapon.powersword_2h_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Locke Mk IIb Spearhead Boltgun",
-    "normalized_text": "locke mk iib spearhead boltgun",
-    "candidate_entity_id": "shared.weapon.bolter_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Vraks Mk II Braced Autogun",
-    "normalized_text": "vraks mk ii braced autogun",
-    "candidate_entity_id": "shared.weapon.autogun_p2_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Brute-Brainer Mk III Latrine Shovel",
-    "normalized_text": "brute brainer mk iii latrine shovel",
-    "candidate_entity_id": "shared.weapon.ogryn_club_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Foe-Rend Mk VI Ripper Gun",
-    "normalized_text": "foe rend mk vi ripper gun",
-    "candidate_entity_id": "shared.weapon.ogryn_rippergun_p1_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Tigrus Mk XV Heavy Eviscerator",
-    "normalized_text": "tigrus mk xv heavy eviscerator",
-    "candidate_entity_id": "shared.weapon.chainsword_2h_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
     "text": "Cranial Grounding",
     "normalized_text": "cranial grounding",
     "candidate_entity_id": "shared.name_family.blessing.cranial_grounding",
@@ -2771,7 +2019,7 @@
     "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "build-fixture",
+    "provenance": "gl-perk",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -2782,8 +2030,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "GL full-range perk label variant for armored/flak damage (melee)."
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
   },
   {
     "text": "10-25% Damage (Flak Armoured Enemies)",
@@ -2791,7 +2039,7 @@
     "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
-    "provenance": "build-fixture",
+    "provenance": "gl-perk",
     "confidence": "high",
     "context_constraints": {
       "require_all": [
@@ -2802,8 +2050,8 @@
       ],
       "prefer": []
     },
-    "rank_weight": 100,
-    "notes": "GL full-range perk label variant for armored/flak damage (ranged)."
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
   },
   {
     "text": "+5-20% Damage Resistance (Bombers)",
@@ -2824,66 +2072,6 @@
     },
     "rank_weight": 100,
     "notes": "GL curio perk label for bomber damage resistance."
-  },
-  {
-    "text": "Krourk Mk IIa Heavy Stubber",
-    "normalized_text": "krourk mk iia heavy stubber",
-    "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p2_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Obscurus Mk II Blaze Force Sword",
-    "normalized_text": "obscurus mk ii blaze force sword",
-    "candidate_entity_id": "shared.weapon.forcesword_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Rifthaven Mk II Inferno Force Staff",
-    "normalized_text": "rifthaven mk ii inferno force staff",
-    "candidate_entity_id": "shared.weapon.forcestaff_p2_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
   },
   {
     "text": "Damage (Flak Armoured)",
@@ -3606,686 +2794,6 @@
     "notes": ""
   },
   {
-    "text": "Agripinaa Mk I Infantry Autogun",
-    "normalized_text": "agripinaa mk i infantry autogun",
-    "candidate_entity_id": "shared.weapon.autogun_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Vraks Mk V Infantry Autogun",
-    "normalized_text": "vraks mk v infantry autogun",
-    "candidate_entity_id": "shared.weapon.autogun_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Columnus Mk VIII Infantry Autogun",
-    "normalized_text": "columnus mk viii infantry autogun",
-    "candidate_entity_id": "shared.weapon.autogun_p1_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Graia Mk IV Braced Autogun",
-    "normalized_text": "graia mk iv braced autogun",
-    "candidate_entity_id": "shared.weapon.autogun_p2_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Agripinaa Mk VIII Braced Autogun",
-    "normalized_text": "agripinaa mk viii braced autogun",
-    "candidate_entity_id": "shared.weapon.autogun_p2_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Columnus Mk III Vigilant Autogun",
-    "normalized_text": "columnus mk iii vigilant autogun",
-    "candidate_entity_id": "shared.weapon.autogun_p3_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Graia Mk VII Vigilant Autogun",
-    "normalized_text": "graia mk vii vigilant autogun",
-    "candidate_entity_id": "shared.weapon.autogun_p3_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Agripinaa Mk IX Vigilant Autogun",
-    "normalized_text": "agripinaa mk ix vigilant autogun",
-    "candidate_entity_id": "shared.weapon.autogun_p3_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Ius Mk IV Shredder Autopistol",
-    "normalized_text": "ius mk iv shredder autopistol",
-    "candidate_entity_id": "shared.weapon.autopistol_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Locke Mk III Spearhead Boltgun",
-    "normalized_text": "locke mk iii spearhead boltgun",
-    "candidate_entity_id": "shared.weapon.bolter_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Godwyn-Branx Mk IV Bolt Pistol",
-    "normalized_text": "godwyn branx mk iv bolt pistol",
-    "candidate_entity_id": "shared.weapon.boltpistol_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Godwyn-Branx Mk VI Bolt Pistol",
-    "normalized_text": "godwyn branx mk vi bolt pistol",
-    "candidate_entity_id": "shared.weapon.boltpistol_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Orestes Mk IV Assault Chainaxe",
-    "normalized_text": "orestes mk iv assault chainaxe",
-    "candidate_entity_id": "shared.weapon.chainaxe_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Orestes Mk XII Assault Chainaxe",
-    "normalized_text": "orestes mk xii assault chainaxe",
-    "candidate_entity_id": "shared.weapon.chainaxe_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Tigrus Mk III Heavy Eviscerator",
-    "normalized_text": "tigrus mk iii heavy eviscerator",
-    "candidate_entity_id": "shared.weapon.chainsword_2h_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Cadia Mk IV Assault Chainsword",
-    "normalized_text": "cadia mk iv assault chainsword",
-    "candidate_entity_id": "shared.weapon.chainsword_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Cadia Mk XIIIg Assault Chainsword",
-    "normalized_text": "cadia mk xiiig assault chainsword",
-    "candidate_entity_id": "shared.weapon.chainsword_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Rashad Mk III Combat Axe",
-    "normalized_text": "rashad mk iii combat axe",
-    "candidate_entity_id": "shared.weapon.combataxe_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Antax Mk V Combat Axe",
-    "normalized_text": "antax mk v combat axe",
-    "candidate_entity_id": "shared.weapon.combataxe_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Achlys Mk VIII Combat Axe",
-    "normalized_text": "achlys mk viii combat axe",
-    "candidate_entity_id": "shared.weapon.combataxe_p1_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Atrox Mk II Tactical Axe",
-    "normalized_text": "atrox mk ii tactical axe",
-    "candidate_entity_id": "shared.weapon.combataxe_p2_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Atrox Mk IV Tactical Axe",
-    "normalized_text": "atrox mk iv tactical axe",
-    "candidate_entity_id": "shared.weapon.combataxe_p2_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Atrox Mk VII Tactical Axe",
-    "normalized_text": "atrox mk vii tactical axe",
-    "candidate_entity_id": "shared.weapon.combataxe_p2_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Munitorum Mk I Sapper Shovel",
-    "normalized_text": "munitorum mk i sapper shovel",
-    "candidate_entity_id": "shared.weapon.combataxe_p3_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Munitorum Mk III Sapper Shovel",
-    "normalized_text": "munitorum mk iii sapper shovel",
-    "candidate_entity_id": "shared.weapon.combataxe_p3_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Munitorum Mk VII Sapper Shovel",
-    "normalized_text": "munitorum mk vii sapper shovel",
-    "candidate_entity_id": "shared.weapon.combataxe_p3_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Catachan Mk III Combat Blade",
-    "normalized_text": "catachan mk iii combat blade",
-    "candidate_entity_id": "shared.weapon.combatknife_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Catachan Mk VI Combat Blade",
-    "normalized_text": "catachan mk vi combat blade",
-    "candidate_entity_id": "shared.weapon.combatknife_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Catachan Mk I \"Devil's Claw\" Sword",
-    "normalized_text": "catachan mk i devil s claw sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Catachan Mk IV \"Devil's Claw\" Sword",
-    "normalized_text": "catachan mk iv devil s claw sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Catachan Mk VII \"Devil's Claw\" Sword",
-    "normalized_text": "catachan mk vii devil s claw sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p1_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Turtolsky Mk VII Heavy Sword",
-    "normalized_text": "turtolsky mk vii heavy sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p2_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Turtolsky Mk IX Heavy Sword",
-    "normalized_text": "turtolsky mk ix heavy sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p2_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Maccabian Mk II Duelling Sword",
-    "normalized_text": "maccabian mk ii duelling sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p3_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
     "text": "Maccabian Mk IV Duelling Sword",
     "normalized_text": "maccabian mk iv duelling sword",
     "candidate_entity_id": "shared.weapon.combatsword_p3_m2",
@@ -4306,1309 +2814,9 @@
     "notes": ""
   },
   {
-    "text": "Maccabian Mk V Duelling Sword",
-    "normalized_text": "maccabian mk v duelling sword",
-    "candidate_entity_id": "shared.weapon.combatsword_p3_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Enginseer's Mk VI Crowbar",
-    "normalized_text": "enginseer s mk vi crowbar",
-    "candidate_entity_id": "shared.weapon.crowbar_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Branx MkIII Dual Autopistols",
-    "normalized_text": "branx mkiii dual autopistols",
-    "candidate_entity_id": "shared.weapon.dual_autopistols_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Improvised Mk I Shivs",
-    "normalized_text": "improvised mk i shivs",
-    "candidate_entity_id": "shared.weapon.dual_shivs_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Improvised Mk III Shivs",
-    "normalized_text": "improvised mk iii shivs",
-    "candidate_entity_id": "shared.weapon.dual_shivs_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Artemia Mk III Purgation Flamer",
-    "normalized_text": "artemia mk iii purgation flamer",
-    "candidate_entity_id": "shared.weapon.flamer_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Equinox Mk III Voidblast Force Staff",
-    "normalized_text": "equinox mk iii voidblast force staff",
-    "candidate_entity_id": "shared.weapon.forcestaff_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Nomanus Mk VI Electrokinetic Force Staff",
-    "normalized_text": "nomanus mk vi electrokinetic force staff",
-    "candidate_entity_id": "shared.weapon.forcestaff_p3_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Equinox Mk IV Voidstrike Force Staff",
-    "normalized_text": "equinox mk iv voidstrike force staff",
-    "candidate_entity_id": "shared.weapon.forcestaff_p4_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Covenant Mk VI Blaze Force Greatsword",
-    "normalized_text": "covenant mk vi blaze force greatsword",
-    "candidate_entity_id": "shared.weapon.forcesword_2h_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Covenant Mk VIII Blaze Force Greatsword",
-    "normalized_text": "covenant mk viii blaze force greatsword",
-    "candidate_entity_id": "shared.weapon.forcesword_2h_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Deimos Mk IV Blaze Force Sword",
-    "normalized_text": "deimos mk iv blaze force sword",
-    "candidate_entity_id": "shared.weapon.forcesword_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Illisi Mk V Blaze Force Sword",
-    "normalized_text": "illisi mk v blaze force sword",
-    "candidate_entity_id": "shared.weapon.forcesword_p1_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Kantrael Mk VII Infantry Lasgun",
-    "normalized_text": "kantrael mk vii infantry lasgun",
-    "candidate_entity_id": "shared.weapon.lasgun_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Kantrael Mk IIb Infantry Lasgun",
-    "normalized_text": "kantrael mk iib infantry lasgun",
-    "candidate_entity_id": "shared.weapon.lasgun_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Kantrael Mk IX Infantry Lasgun",
-    "normalized_text": "kantrael mk ix infantry lasgun",
-    "candidate_entity_id": "shared.weapon.lasgun_p1_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Lucius MK V Helbore Lasgun",
-    "normalized_text": "lucius mk v helbore lasgun",
-    "candidate_entity_id": "shared.weapon.lasgun_p2_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Lucius Mk IV Helbore Lasgun",
-    "normalized_text": "lucius mk iv helbore lasgun",
-    "candidate_entity_id": "shared.weapon.lasgun_p2_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Accatran Mk VIc Recon Lasgun",
-    "normalized_text": "accatran mk vic recon lasgun",
-    "candidate_entity_id": "shared.weapon.lasgun_p3_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Accatran Mk XII Recon Lasgun",
-    "normalized_text": "accatran mk xii recon lasgun",
-    "candidate_entity_id": "shared.weapon.lasgun_p3_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Accatran Mk XIV Recon Lasgun",
-    "normalized_text": "accatran mk xiv recon lasgun",
-    "candidate_entity_id": "shared.weapon.lasgun_p3_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Accatran MG Mk II Heavy Laspistol",
-    "normalized_text": "accatran mg mk ii heavy laspistol",
-    "candidate_entity_id": "shared.weapon.laspistol_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Kantrael Mk X Heavy Laspistol",
-    "normalized_text": "kantrael mk x heavy laspistol",
-    "candidate_entity_id": "shared.weapon.laspistol_p1_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Branx MKII Needle Pistol",
-    "normalized_text": "branx mkii needle pistol",
-    "candidate_entity_id": "shared.weapon.needlepistol_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Brute-Brainer Mk XIX Latrine Shovel",
-    "normalized_text": "brute brainer mk xix latrine shovel",
-    "candidate_entity_id": "shared.weapon.ogryn_club_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Brute-Brainer Mk V Latrine Shovel",
-    "normalized_text": "brute brainer mk v latrine shovel",
-    "candidate_entity_id": "shared.weapon.ogryn_club_p1_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "\"Brunt Special\" Mk I Bully Club",
-    "normalized_text": "brunt special mk i bully club",
-    "candidate_entity_id": "shared.weapon.ogryn_club_p2_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "\"Brunt's Pride\" Mk II Bully Club",
-    "normalized_text": "brunt s pride mk ii bully club",
-    "candidate_entity_id": "shared.weapon.ogryn_club_p2_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "\"Brunt's Basher\" Mk IIIb Bully Club",
-    "normalized_text": "brunt s basher mk iiib bully club",
-    "candidate_entity_id": "shared.weapon.ogryn_club_p2_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Krourk Mk VI Cleaver",
-    "normalized_text": "krourk mk vi cleaver",
-    "candidate_entity_id": "shared.weapon.ogryn_combatblade_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Bull Butcher Mk III Cleaver",
-    "normalized_text": "bull butcher mk iii cleaver",
-    "candidate_entity_id": "shared.weapon.ogryn_combatblade_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Krourk Mk IV Cleaver",
-    "normalized_text": "krourk mk iv cleaver",
-    "candidate_entity_id": "shared.weapon.ogryn_combatblade_p1_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Blastoom Mk III Grenadier Gauntlet",
-    "normalized_text": "blastoom mk iii grenadier gauntlet",
-    "candidate_entity_id": "shared.weapon.ogryn_gauntlet_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Krourk Mk V Twin-Linked Heavy Stubber",
-    "normalized_text": "krourk mk v twin linked heavy stubber",
-    "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Gorgonum Mk IV Twin-Linked Heavy Stubber",
-    "normalized_text": "gorgonum mk iv twin linked heavy stubber",
-    "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Achlys Mk VII Twin-Linked Heavy Stubber",
-    "normalized_text": "achlys mk vii twin linked heavy stubber",
-    "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p1_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Gorgonum Mk IIIa Heavy Stubber",
-    "normalized_text": "gorgonum mk iiia heavy stubber",
-    "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p2_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Achlys Mk II Heavy Stubber",
-    "normalized_text": "achlys mk ii heavy stubber",
-    "candidate_entity_id": "shared.weapon.ogryn_heavystubber_p2_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Branx Mk Ia Delver's Pickaxe",
-    "normalized_text": "branx mk ia delver s pickaxe",
-    "candidate_entity_id": "shared.weapon.ogryn_pickaxe_2h_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Borovian Mk III Delver's Pickaxe",
-    "normalized_text": "borovian mk iii delver s pickaxe",
-    "candidate_entity_id": "shared.weapon.ogryn_pickaxe_2h_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Karsolas Mk II Delver's Pickaxe",
-    "normalized_text": "karsolas mk ii delver s pickaxe",
-    "candidate_entity_id": "shared.weapon.ogryn_pickaxe_2h_p1_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Orox Mk II & Mk III Battle Maul & Slab Shield",
-    "normalized_text": "orox mk ii mk iii battle maul slab shield",
-    "candidate_entity_id": "shared.weapon.ogryn_powermaul_slabshield_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Foe-Rend Mk II Ripper Gun",
-    "normalized_text": "foe rend mk ii ripper gun",
-    "candidate_entity_id": "shared.weapon.ogryn_rippergun_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Foe-Rend Mk V Ripper Gun",
-    "normalized_text": "foe rend mk v ripper gun",
-    "candidate_entity_id": "shared.weapon.ogryn_rippergun_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Lorenz Mk V Kickback",
-    "normalized_text": "lorenz mk v kickback",
-    "candidate_entity_id": "shared.weapon.ogryn_thumper_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "M35 Magnacore Mk II Plasma Gun",
-    "normalized_text": "m35 magnacore mk ii plasma gun",
-    "candidate_entity_id": "shared.weapon.plasmagun_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Indignatus Mk IVe Crusher",
-    "normalized_text": "indignatus mk ive crusher",
-    "candidate_entity_id": "shared.weapon.powermaul_2h_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Agni Mk Ia Shock Maul",
-    "normalized_text": "agni mk ia shock maul",
-    "candidate_entity_id": "shared.weapon.powermaul_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Munitorum Mk III Shock Maul",
-    "normalized_text": "munitorum mk iii shock maul",
-    "candidate_entity_id": "shared.weapon.powermaul_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Branx Mk III Arbites Shock Maul",
-    "normalized_text": "branx mk iii arbites shock maul",
-    "candidate_entity_id": "shared.weapon.powermaul_p2_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Branx Mk XI Shock Maul and Suppression Shield",
-    "normalized_text": "branx mk xi shock maul and suppression shield",
-    "candidate_entity_id": "shared.weapon.powermaul_shield_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Scandar Mk III Power Sword",
-    "normalized_text": "scandar mk iii power sword",
-    "candidate_entity_id": "shared.weapon.powersword_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Achlys Mk VI Power Sword",
-    "normalized_text": "achlys mk vi power sword",
-    "candidate_entity_id": "shared.weapon.powersword_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Aridin Mk I Power Falchion",
-    "normalized_text": "aridin mk i power falchion",
-    "candidate_entity_id": "shared.weapon.powersword_p2_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
     "text": "Lawbringer Mk IIb Power Falchion",
     "normalized_text": "lawbringer mk iib power falchion",
     "candidate_entity_id": "shared.weapon.powersword_p2_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Chirurgeon's Mk IV Bone Saw",
-    "normalized_text": "chirurgeon s mk iv bone saw",
-    "candidate_entity_id": "shared.weapon.saw_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Zarona Mk VI Combat Shotgun",
-    "normalized_text": "zarona mk vi combat shotgun",
-    "candidate_entity_id": "shared.weapon.shotgun_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Agripinaa Mk VII Combat Shotgun",
-    "normalized_text": "agripinaa mk vii combat shotgun",
-    "candidate_entity_id": "shared.weapon.shotgun_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Accatran Mk IX Combat Shotgun",
-    "normalized_text": "accatran mk ix combat shotgun",
-    "candidate_entity_id": "shared.weapon.shotgun_p1_m3",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Crucis Mk XI Double-Barrelled Shotgun",
-    "normalized_text": "crucis mk xi double barrelled shotgun",
-    "candidate_entity_id": "shared.weapon.shotgun_p2_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Exaction Mk III Exterminator Shotgun",
-    "normalized_text": "exaction mk iii exterminator shotgun",
-    "candidate_entity_id": "shared.weapon.shotgun_p4_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Exaction Mk VIII Exterminator Shotgun",
-    "normalized_text": "exaction mk viii exterminator shotgun",
-    "candidate_entity_id": "shared.weapon.shotgun_p4_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Zarona Mk IIa Quickdraw Stub Revolver",
-    "normalized_text": "zarona mk iia quickdraw stub revolver",
-    "candidate_entity_id": "shared.weapon.stubrevolver_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Agripinaa Mk XIV Quickdraw Stub Revolver",
-    "normalized_text": "agripinaa mk xiv quickdraw stub revolver",
-    "candidate_entity_id": "shared.weapon.stubrevolver_p1_m2",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "ranged"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Crucis Mk II Thunder Hammer",
-    "normalized_text": "crucis mk ii thunder hammer",
-    "candidate_entity_id": "shared.weapon.thunderhammer_2h_p1_m1",
-    "alias_kind": "gameslantern_name",
-    "match_mode": "fuzzy_allowed",
-    "provenance": "gl-catalog",
-    "confidence": "high",
-    "context_constraints": {
-      "require_all": [
-        {
-          "key": "slot",
-          "value": "melee"
-        }
-      ],
-      "prefer": []
-    },
-    "rank_weight": 120,
-    "notes": ""
-  },
-  {
-    "text": "Ironhelm Mk IV Thunder Hammer",
-    "normalized_text": "ironhelm mk iv thunder hammer",
-    "candidate_entity_id": "shared.weapon.thunderhammer_2h_p1_m2",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-catalog",
@@ -6268,5 +3476,2365 @@
     },
     "rank_weight": 140,
     "notes": "Games Lantern Opening Salvo blessing text matches the bespoke ogryn_heavystubber_p2 power_bonus_on_first_shot trait exactly."
+  },
+  {
+    "text": "1-2 Stamina",
+    "normalized_text": "1 2 stamina",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_stamina",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "10-25% Damage (Maniacs)",
+    "normalized_text": "10 25 damage maniacs",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "10-25% Damage (Maniacs)",
+    "normalized_text": "10 25 damage maniacs",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "2-5% Melee Critical Hit Chance",
+    "normalized_text": "2 5 melee critical hit chance",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_crit_chance",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "4-10% Melee Critical Hit Damage",
+    "normalized_text": "4 10 melee critical hit damage",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_crit_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "4-10% Melee Weak Spot Damage",
+    "normalized_text": "4 10 melee weak spot damage",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_weakspot_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "4-10% Ranged Critical Hit Damage",
+    "normalized_text": "4 10 ranged critical hit damage",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_crit_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "4-10% Ranged Damage (Elites)",
+    "normalized_text": "4 10 ranged damage elites",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_damage_elites",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "4-10% Ranged Damage (Specialists)",
+    "normalized_text": "4 10 ranged damage specialists",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_damage_specials",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "4-10% Ranged Weak Spot Damage",
+    "normalized_text": "4 10 ranged weak spot damage",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_weakspot_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "5-10% Reload Speed",
+    "normalized_text": "5 10 reload speed",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increased_reload_speed",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "5-20% Block Efficiency",
+    "normalized_text": "5 20 block efficiency",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_reduced_block_cost",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "5-20% Sprint Efficiency",
+    "normalized_text": "5 20 sprint efficiency",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_reduce_sprint_cost",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "Hot-Shot",
+    "normalized_text": "hot shot",
+    "candidate_entity_id": "shared.name_family.blessing.hot_shot",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "1-2 Stamina (Weapon is Active)",
+    "normalized_text": "1 2 stamina weapon is active",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_stamina",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "4-10% Increased Melee Damage (Specialists)",
+    "normalized_text": "4 10 increased melee damage specialists",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_damage_specials",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "4-10% Melee Damage (Groaners, Poxwalkers)",
+    "normalized_text": "4 10 melee damage groaners poxwalkers",
+    "candidate_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_damage_hordes",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "melee"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "4-10% Ranged Damage (Groaners, Poxwalkers)",
+    "normalized_text": "4 10 ranged damage groaners poxwalkers",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_damage_hordes",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "Increase Ranged Critical Strike Chance by 2-5%",
+    "normalized_text": "increase ranged critical strike chance by 2 5",
+    "candidate_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_crit_chance",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-perk",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "slot",
+          "value": "ranged"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-perks"
+  },
+  {
+    "text": "Agile",
+    "normalized_text": "agile",
+    "candidate_entity_id": "shared.name_family.blessing.weakspot_hit_resets_dodge_count",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "All or Nothing",
+    "normalized_text": "all or nothing",
+    "candidate_entity_id": "shared.name_family.blessing.power_bonus_scaled_on_stamina",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Armourbane",
+    "normalized_text": "armourbane",
+    "candidate_entity_id": "shared.name_family.blessing.targets_receive_rending_debuff_on_charged_shots",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Bash",
+    "normalized_text": "bash",
+    "candidate_entity_id": "shared.name_family.blessing.crit_chance_on_push",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Bash",
+    "normalized_text": "bash",
+    "candidate_entity_id": "shared.name_family.blessing.crit_chance_on_push",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Between the Eyes",
+    "normalized_text": "between the eyes",
+    "candidate_entity_id": "shared.name_family.blessing.suppression_negation_on_weakspot",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Blast Zone",
+    "normalized_text": "blast zone",
+    "candidate_entity_id": "shared.name_family.blessing.explosion_radius_bonus_on_continuous_fire",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Bloodletter",
+    "normalized_text": "bloodletter",
+    "candidate_entity_id": "shared.name_family.blessing.bleed_on_activated_hit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Bloodletter",
+    "normalized_text": "bloodletter",
+    "candidate_entity_id": "shared.name_family.blessing.bleed_on_activated_hit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Bloodletter",
+    "normalized_text": "bloodletter",
+    "candidate_entity_id": "shared.name_family.blessing.bleed_on_activated_hit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Born in Blood",
+    "normalized_text": "born in blood",
+    "candidate_entity_id": "shared.name_family.blessing.toughness_on_close_range_kills",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Both Barrels",
+    "normalized_text": "both barrels",
+    "candidate_entity_id": "shared.name_family.blessing.reload_speed_on_ranged_weapon_special_kill",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Can Opener",
+    "normalized_text": "can opener",
+    "candidate_entity_id": "shared.name_family.blessing.targets_receive_rending_debuff_on_weapon_special",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Can Opener",
+    "normalized_text": "can opener",
+    "candidate_entity_id": "shared.name_family.blessing.targets_receive_rending_debuff_on_weapon_special",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Cavalcade",
+    "normalized_text": "cavalcade",
+    "candidate_entity_id": "shared.name_family.blessing.stacking_crit_bonus_on_continuous_fire",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Ceaseless Barrage",
+    "normalized_text": "ceaseless barrage",
+    "candidate_entity_id": "shared.name_family.blessing.increased_suppression_on_continuous_fire",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Chained Deathblow",
+    "normalized_text": "chained deathblow",
+    "candidate_entity_id": "shared.name_family.blessing.increased_crit_chance_on_weakspot_kill",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Concentrated Fire",
+    "normalized_text": "concentrated fire",
+    "candidate_entity_id": "shared.name_family.blessing.chained_weakspot_hits_increases_crit_chance",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Counterattack",
+    "normalized_text": "counterattack",
+    "candidate_entity_id": "shared.name_family.blessing.attack_speed_on_perfect_block",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Crucian Roulette",
+    "normalized_text": "crucian roulette",
+    "candidate_entity_id": "shared.name_family.blessing.crit_chance_based_on_ammo_left",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Crucian Roulette",
+    "normalized_text": "crucian roulette",
+    "candidate_entity_id": "shared.name_family.blessing.crit_chance_based_on_ammo_left",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Crucian Roulette",
+    "normalized_text": "crucian roulette",
+    "candidate_entity_id": "shared.name_family.blessing.crit_chance_based_on_ammo_left",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Decapitator",
+    "normalized_text": "decapitator",
+    "candidate_entity_id": "shared.name_family.blessing.stacking_finesse_on_one_hit_kill",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Devastating Strike",
+    "normalized_text": "devastating strike",
+    "candidate_entity_id": "shared.name_family.blessing.cleave_on_crit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Efficiency",
+    "normalized_text": "efficiency",
+    "candidate_entity_id": "shared.name_family.blessing.first_shot_ammo_cost_reduction",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Energy Transfer",
+    "normalized_text": "energy transfer",
+    "candidate_entity_id": "shared.name_family.blessing.energy_leakage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Executor",
+    "normalized_text": "executor",
+    "candidate_entity_id": "shared.name_family.blessing.chained_weakspot_hits_increases_power",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Exorcist",
+    "normalized_text": "exorcist",
+    "candidate_entity_id": "shared.name_family.blessing.vents_warpcharge_on_weakspot_hits",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Expansive",
+    "normalized_text": "expansive",
+    "candidate_entity_id": "shared.name_family.blessing.melee_power_after_ranged_explosion",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Explosive Offensive",
+    "normalized_text": "explosive offensive",
+    "candidate_entity_id": "shared.name_family.blessing.power_bonus_after_weapon_special_multiple",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Falter",
+    "normalized_text": "falter",
+    "candidate_entity_id": "shared.name_family.blessing.negate_stagger_reduction_on_weakspot",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Fan the Flames",
+    "normalized_text": "fan the flames",
+    "candidate_entity_id": "shared.name_family.blessing.negate_stagger_reduction_with_primary_on_burning",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Flechette",
+    "normalized_text": "flechette",
+    "candidate_entity_id": "shared.name_family.blessing.bleed_on_crit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Focused Channelling",
+    "normalized_text": "focused channelling",
+    "candidate_entity_id": "shared.name_family.blessing.uninterruptable_while_charging",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Focused Cooling",
+    "normalized_text": "focused cooling",
+    "candidate_entity_id": "shared.name_family.blessing.gets_hot",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Gauntlet Momentum",
+    "normalized_text": "gauntlet momentum",
+    "candidate_entity_id": "shared.name_family.blessing.chained_melee_hits_increases_power",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Ghost",
+    "normalized_text": "ghost",
+    "candidate_entity_id": "shared.name_family.blessing.count_as_dodge_vs_ranged_on_weakspot",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Hit & Run",
+    "normalized_text": "hit run",
+    "candidate_entity_id": "shared.name_family.blessing.count_as_dodge_vs_ranged_on_close_kill",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Infernus",
+    "normalized_text": "infernus",
+    "candidate_entity_id": "shared.name_family.blessing.burninating_on_crit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Lightning Reflexes",
+    "normalized_text": "lightning reflexes",
+    "candidate_entity_id": "shared.name_family.blessing.block_has_chance_to_stun",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Limbsplitter",
+    "normalized_text": "limbsplitter",
+    "candidate_entity_id": "shared.name_family.blessing.power_bonus_on_first_attack",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Marksman's Reflex",
+    "normalized_text": "marksman s reflex",
+    "candidate_entity_id": "shared.name_family.blessing.weakspot_projectile_hit_increases_reload_speed",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Mercy Killer",
+    "normalized_text": "mercy killer",
+    "candidate_entity_id": "shared.name_family.blessing.increased_weakspot_damage_against_bleeding",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Murderous Tranquility",
+    "normalized_text": "murderous tranquility",
+    "candidate_entity_id": "shared.name_family.blessing.vent_warp_charge_on_multiple_hits",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "No Guts, No Glory",
+    "normalized_text": "no guts no glory",
+    "candidate_entity_id": "shared.name_family.blessing.toughness_regen_on_weapon_special_elites",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "No Respite",
+    "normalized_text": "no respite",
+    "candidate_entity_id": "shared.name_family.blessing.stagger_count_bonus_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Offensive Defence",
+    "normalized_text": "offensive defence",
+    "candidate_entity_id": "shared.name_family.blessing.block_grants_power_bonus",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Opportunist",
+    "normalized_text": "opportunist",
+    "candidate_entity_id": "shared.name_family.blessing.rending_vs_staggered",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Optimised Cooling",
+    "normalized_text": "optimised cooling",
+    "candidate_entity_id": "shared.name_family.blessing.lower_overheat_gives_faster_charge",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Overpressure",
+    "normalized_text": "overpressure",
+    "candidate_entity_id": "shared.name_family.blessing.power_scales_with_clip_percentage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Overwhelming Fire",
+    "normalized_text": "overwhelming fire",
+    "candidate_entity_id": "shared.name_family.blessing.consecutive_hits_increases_ranged_power",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Overwhelming Fire",
+    "normalized_text": "overwhelming fire",
+    "candidate_entity_id": "shared.name_family.blessing.consecutive_hits_increases_ranged_power",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Overwhelming Force",
+    "normalized_text": "overwhelming force",
+    "candidate_entity_id": "shared.name_family.blessing.staggering_hits_has_chance_to_stun",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Perfect Strike",
+    "normalized_text": "perfect strike",
+    "candidate_entity_id": "shared.name_family.blessing.pass_past_armor_on_crit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Pierce",
+    "normalized_text": "pierce",
+    "candidate_entity_id": "shared.name_family.blessing.pass_past_armor_on_weapon_special",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Point Blank",
+    "normalized_text": "point blank",
+    "candidate_entity_id": "shared.name_family.blessing.crit_chance_bonus_on_melee_kills",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Point Blank",
+    "normalized_text": "point blank",
+    "candidate_entity_id": "shared.name_family.blessing.crit_chance_bonus_on_melee_kills",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Powderburn",
+    "normalized_text": "powderburn",
+    "candidate_entity_id": "shared.name_family.blessing.recoil_reduction_and_suppression_increase_on_close_kills",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Power Blast",
+    "normalized_text": "power blast",
+    "candidate_entity_id": "shared.name_family.blessing.charge_level_increases_critical_strike_chance",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Pulverise",
+    "normalized_text": "pulverise",
+    "candidate_entity_id": "shared.name_family.blessing.crit_chance_bonus_on_melee_kills",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Punishing Fire",
+    "normalized_text": "punishing fire",
+    "candidate_entity_id": "shared.name_family.blessing.shot_power_bonus_after_weapon_special_cleave",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Punishing Salvo",
+    "normalized_text": "punishing salvo",
+    "candidate_entity_id": "shared.name_family.blessing.followup_shots_ranged_weakspot_damage",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Quickflame",
+    "normalized_text": "quickflame",
+    "candidate_entity_id": "shared.name_family.blessing.faster_reload_on_empty_clip",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Raking Fire",
+    "normalized_text": "raking fire",
+    "candidate_entity_id": "shared.name_family.blessing.allow_flanking_and_increased_damage_when_flanking",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Reassuringly Accurate",
+    "normalized_text": "reassuringly accurate",
+    "candidate_entity_id": "shared.name_family.blessing.toughness_on_crit_kills",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Reassuringly Accurate",
+    "normalized_text": "reassuringly accurate",
+    "candidate_entity_id": "shared.name_family.blessing.toughness_on_crit_kills",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Refined Lethality",
+    "normalized_text": "refined lethality",
+    "candidate_entity_id": "shared.name_family.blessing.increased_weakspot_damage_against_toxin_status",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Rev it Up",
+    "normalized_text": "rev it up",
+    "candidate_entity_id": "shared.name_family.blessing.movement_speed_on_activation",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Roaring Advance",
+    "normalized_text": "roaring advance",
+    "candidate_entity_id": "shared.name_family.blessing.movement_speed_on_continous_fire",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Roaring Advance",
+    "normalized_text": "roaring advance",
+    "candidate_entity_id": "shared.name_family.blessing.movement_speed_on_continous_fire",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Ruthless Backstab",
+    "normalized_text": "ruthless backstab",
+    "candidate_entity_id": "shared.name_family.blessing.rending_on_backstab",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Savage Sweep",
+    "normalized_text": "savage sweep",
+    "candidate_entity_id": "shared.name_family.blessing.chained_hits_increases_melee_cleave",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Scattershot",
+    "normalized_text": "scattershot",
+    "candidate_entity_id": "shared.name_family.blessing.crit_chance_on_hitting_multiple_with_one_shot",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Showstopper",
+    "normalized_text": "showstopper",
+    "candidate_entity_id": "shared.name_family.blessing.chance_to_explode_elites_on_kill",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Slaughter Spree",
+    "normalized_text": "slaughter spree",
+    "candidate_entity_id": "shared.name_family.blessing.guaranteed_melee_crit_after_crit_weakspot_kill",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Slow and Steady",
+    "normalized_text": "slow and steady",
+    "candidate_entity_id": "shared.name_family.blessing.toughness_on_hit_based_on_charge_time",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Smackdown",
+    "normalized_text": "smackdown",
+    "candidate_entity_id": "shared.name_family.blessing.increased_crit_chance_on_staggered_weapon_special_hit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Sucker Punch",
+    "normalized_text": "sucker punch",
+    "candidate_entity_id": "shared.name_family.blessing.increased_crit_chance_on_weapon_special_hit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Supercharge",
+    "normalized_text": "supercharge",
+    "candidate_entity_id": "shared.name_family.blessing.targets_receive_rending_debuff_on_weapon_special_attacks",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Supercharge",
+    "normalized_text": "supercharge",
+    "candidate_entity_id": "shared.name_family.blessing.targets_receive_rending_debuff_on_weapon_special_attacks",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Superiority",
+    "normalized_text": "superiority",
+    "candidate_entity_id": "shared.name_family.blessing.elite_kills_grants_stackable_power",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Take a Swing",
+    "normalized_text": "take a swing",
+    "candidate_entity_id": "shared.name_family.blessing.increased_weakspot_damage_on_push",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Tenderiser",
+    "normalized_text": "tenderiser",
+    "candidate_entity_id": "shared.name_family.blessing.increase_power_on_weapon_special_hit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Terrifying Barrage",
+    "normalized_text": "terrifying barrage",
+    "candidate_entity_id": "shared.name_family.blessing.suppression_on_close_kill",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Thunderstrike",
+    "normalized_text": "thunderstrike",
+    "candidate_entity_id": "shared.name_family.blessing.staggered_targets_receive_increased_stagger_debuff",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Torment",
+    "normalized_text": "torment",
+    "candidate_entity_id": "shared.name_family.blessing.increase_power_on_weapon_special_hit",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Transfer Peril",
+    "normalized_text": "transfer peril",
+    "candidate_entity_id": "shared.name_family.blessing.vents_warpcharge_on_weakspot_hits",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Transfer Peril",
+    "normalized_text": "transfer peril",
+    "candidate_entity_id": "shared.name_family.blessing.vents_warpcharge_on_weakspot_hits",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Trauma",
+    "normalized_text": "trauma",
+    "candidate_entity_id": "shared.name_family.blessing.consecutive_hits_increases_stagger",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Trickshooter",
+    "normalized_text": "trickshooter",
+    "candidate_entity_id": "shared.name_family.blessing.chained_weakspot_hits_increases_power",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Unstoppable Force",
+    "normalized_text": "unstoppable force",
+    "candidate_entity_id": "shared.name_family.blessing.pass_past_armor_on_heavy_attack",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Vicious Slice",
+    "normalized_text": "vicious slice",
+    "candidate_entity_id": "shared.name_family.blessing.increase_stagger_per_hit_in_sweep",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Volatile",
+    "normalized_text": "volatile",
+    "candidate_entity_id": "shared.name_family.blessing.lower_overheat_gives_faster_charge",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Warp Slice",
+    "normalized_text": "warp slice",
+    "candidate_entity_id": "shared.name_family.blessing.wind_slash_crits",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Weight of Fire",
+    "normalized_text": "weight of fire",
+    "candidate_entity_id": "shared.name_family.blessing.warp_flurry",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Sunder",
+    "normalized_text": "sunder",
+    "candidate_entity_id": "shared.name_family.blessing.pass_past_armor_on_weapon_special",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Syphon",
+    "normalized_text": "syphon",
+    "candidate_entity_id": "shared.name_family.blessing.weapon_trait_bespoke_powersword_2h_p1_regain_toughness_on_multiple_hits_by_weapon_special",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Bladed Momentum",
+    "normalized_text": "bladed momentum",
+    "candidate_entity_id": "shared.name_family.blessing.rending_on_multiple_hits",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+  },
+  {
+    "text": "Deathblow",
+    "normalized_text": "deathblow",
+    "candidate_entity_id": "shared.name_family.blessing.brutal_momentum",
+    "alias_kind": "gameslantern_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "gl-blessing",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "weapon_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 140,
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
   }
 ]

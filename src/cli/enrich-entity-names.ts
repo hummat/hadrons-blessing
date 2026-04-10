@@ -3,6 +3,7 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { runCliMain } from "../lib/cli.js";
 import { buildClassSideAliasRecord } from "../lib/gl-class-tree-labels.js";
+import { buildGlAliases } from "../lib/gl-alias-writer.js";
 import { normalizeText } from "../lib/normalize.js";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -276,7 +277,7 @@ function generateClassSideAliases(entries: AnyRecord[]) {
   );
 }
 
-function main() {
+async function main() {
   const ENTITIES_ROOT = resolve(__dirname, "..", "..", "data", "ground-truth", "entities");
   const ALIASES_ROOT = resolve(__dirname, "..", "..", "data", "ground-truth", "aliases");
 
@@ -299,7 +300,7 @@ function main() {
   } else {
     console.warn("Warning: gl-catalog.json not found, skipping slug-based blessing enrichment");
   }
-  let allNewAliases = [...perkAliases];
+  let allNewAliases: AnyRecord[] = [...perkAliases];
 
   const weaponMappingPath = resolve(__dirname, "..", "..", "data", "ground-truth", "weapon-name-mapping.json");
   if (existsSync(weaponMappingPath)) {
@@ -313,11 +314,28 @@ function main() {
     console.warn("Warning: weapon-name-mapping.json not found, skipping weapon enrichment");
   }
 
+  const glAliasCorpusPath = resolve(__dirname, "..", "..", "data", "ground-truth", "generated", "gl-alias-corpus.json");
+  let generatedGlAliases: AnyRecord[] = [];
+  let glAliasReview = null;
+  if (existsSync(glAliasCorpusPath)) {
+    const corpus = JSON.parse(readFileSync(glAliasCorpusPath, "utf8"));
+    const result = await buildGlAliases({ corpus });
+    generatedGlAliases = result.sharedAliases;
+    glAliasReview = result.review;
+    allNewAliases = [...allNewAliases, ...result.sharedAliases];
+  }
+
   const { merged, added, updated } = mergeAliases(existingAliases, allNewAliases);
 
   writeFileSync(weaponsPath, JSON.stringify(weaponEntities, null, 2) + "\n");
   writeFileSync(namesPath, JSON.stringify(nameEntities, null, 2) + "\n");
   writeFileSync(aliasesPath, JSON.stringify(merged, null, 2) + "\n");
+  if (glAliasReview) {
+    writeFileSync(
+      resolve(__dirname, "..", "..", "data", "ground-truth", "generated", "gl-alias-review.json"),
+      JSON.stringify(glAliasReview, null, 2) + "\n",
+    );
+  }
 
   const glClassTreePath = resolve(__dirname, "..", "..", "data", "ground-truth", "generated", "gl-class-tree-labels.json");
   const classAliasStats: Array<{ className: string; added: number; updated: number; total: number }> = [];
@@ -354,6 +372,7 @@ function main() {
 
   console.log(`Aliases merged: ${added} added, ${updated} updated (${allNewAliases.length} total)`);
   console.log(`  - perk aliases: ${perkAliases.length}`);
+  console.log(`  - GL corpus aliases: ${generatedGlAliases.length}`);
   console.log(`Gadget traits: ${gadgetCount} ui_name set`);
   console.log(`Name families: ${blessingCount} ui_name set (hardcoded)`);
   console.log(`Name families: ${slugBlessingCount} ui_name set (from GL slugs)`);
@@ -364,7 +383,7 @@ function main() {
 
 const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
-  await runCliMain("entities:enrich", async () => { main(); });
+  await runCliMain("entities:enrich", async () => { await main(); });
 }
 
 export {
@@ -372,6 +391,7 @@ export {
   RANGED_PERK_NAMES,
   GADGET_TRAIT_NAMES,
   BLESSING_NAMES,
+  buildGlAliases,
   buildPerkAliasRecord,
   generatePerkAliases,
   enrichGadgetTraits,

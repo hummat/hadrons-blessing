@@ -747,6 +747,33 @@ describe("resolveQuery", () => {
     }
   });
 
+  it("resolves exact GL perk corpus labels", async () => {
+    const result = await resolveQuery("4-10% Ranged Weak Spot Damage", {
+      kind: "weapon_perk",
+      slot: "ranged",
+    });
+
+    assert.equal(result.resolution_state, "resolved");
+    assert.equal(
+      result.resolved_entity_id,
+      "shared.weapon_perk.ranged.weapon_trait_ranged_increase_weakspot_damage",
+    );
+  });
+
+  it(
+    "reports corpus coverage by domain and state",
+    { skip: !existsSync("data/ground-truth/generated/gl-alias-corpus.json") || !existsSync("data/ground-truth/generated/gl-alias-review.json") },
+    async () => {
+      const corpus = JSON.parse(readFileSync("data/ground-truth/generated/gl-alias-corpus.json", "utf8"));
+      const review = JSON.parse(readFileSync("data/ground-truth/generated/gl-alias-review.json", "utf8"));
+
+      assert.ok(corpus.length > 0);
+      assert.ok(Array.isArray(review.matched));
+      assert.ok(Array.isArray(review.required));
+      assert.ok(Array.isArray(review.unmatched));
+    },
+  );
+
   it("resolves representative BetterBots profile weapon template ids", async () => {
     for (const [query, queryContext, expectedEntityId] of [
       ["chainsword_p1_m1", { kind: "weapon", slot: "melee" }, "shared.weapon.chainsword_p1_m1"],
