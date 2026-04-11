@@ -14,6 +14,7 @@ import {
   parseArmorTypeValues,
   parseAttackImpactPair,
   applyCloneOverrides,
+  extractProfilesFromAction,
 } from "../cli/extract-damage-profiles.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -118,6 +119,40 @@ describe("profiles:build output", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
         assert.ok(profileIds.has(pName), `action map references unknown profile: ${pName}`);
       }
     }
+  });
+
+  it("shotshell-based shotguns expose shoot action maps", () => {
+    const shotgun = data.action_maps.find(m => m.weapon_template === "shotgun_p4_m1");
+    assert.ok(shotgun, "missing shotgun_p4_m1 action map");
+    assert.ok(Array.isArray(shotgun.actions.shoot_hip), "shotgun_p4_m1 missing shoot_hip action profiles");
+    assert.ok(shotgun.actions.shoot_hip.length > 0, "shotgun_p4_m1 shoot_hip should have at least one profile");
+    assert.ok(Array.isArray(shotgun.actions.shoot_zoomed), "shotgun_p4_m1 missing shoot_zoomed action profiles");
+    assert.ok(shotgun.actions.shoot_zoomed.length > 0, "shotgun_p4_m1 shoot_zoomed should have at least one profile");
+  });
+
+  it("override-only rifle profiles still produce ranged action maps", () => {
+    const autogun = data.action_maps.find(m => m.weapon_template === "autogun_p1_m2");
+    assert.ok(autogun, "missing autogun_p1_m2 action map");
+    assert.ok(Array.isArray(autogun.actions.shoot_hip), "autogun_p1_m2 missing shoot_hip action profiles");
+    assert.ok(autogun.actions.shoot_hip.length > 0, "autogun_p1_m2 shoot_hip should have at least one profile");
+    assert.ok(Array.isArray(autogun.actions.shoot_zoomed), "autogun_p1_m2 missing shoot_zoomed action profiles");
+    assert.ok(autogun.actions.shoot_zoomed.length > 0, "autogun_p1_m2 shoot_zoomed should have at least one profile");
+
+    const lasgun = data.action_maps.find(m => m.weapon_template === "lasgun_p1_m3");
+    assert.ok(lasgun, "missing lasgun_p1_m3 action map");
+    assert.ok(Array.isArray(lasgun.actions.shoot_hip), "lasgun_p1_m3 missing shoot_hip action profiles");
+    assert.ok(lasgun.actions.shoot_hip.length > 0, "lasgun_p1_m3 shoot_hip should have at least one profile");
+    assert.ok(Array.isArray(lasgun.actions.shoot_zoomed), "lasgun_p1_m3 missing shoot_zoomed action profiles");
+    assert.ok(lasgun.actions.shoot_zoomed.length > 0, "lasgun_p1_m3 shoot_zoomed should have at least one profile");
+  });
+
+  it("hitscan clone variants still produce ranged action maps", () => {
+    const stubber = data.action_maps.find(m => m.weapon_template === "ogryn_heavystubber_p2_m3");
+    assert.ok(stubber, "missing ogryn_heavystubber_p2_m3 action map");
+    assert.ok(Array.isArray(stubber.actions.shoot_hip), "ogryn_heavystubber_p2_m3 missing shoot_hip action profiles");
+    assert.ok(stubber.actions.shoot_hip.length > 0, "ogryn_heavystubber_p2_m3 shoot_hip should have at least one profile");
+    assert.ok(Array.isArray(stubber.actions.shoot_zoomed), "ogryn_heavystubber_p2_m3 missing shoot_zoomed action profiles");
+    assert.ok(stubber.actions.shoot_zoomed.length > 0, "ogryn_heavystubber_p2_m3 shoot_zoomed should have at least one profile");
   });
 
   it("constants include all expected fields", () => {
@@ -268,5 +303,29 @@ describe("applyCloneOverrides", () => {
     applyCloneOverrides(profile, "clone_z", lua, {});
     // Should not add any fields
     assert.deepEqual(Object.keys(profile), ["id"]);
+  });
+});
+
+describe("extractProfilesFromAction", () => {
+  it("resolves shotshell template references to damage profiles", () => {
+    const actionBlock = `{
+      fire_configuration = {
+        shotshell = ShotshellTemplates.shotgun_p4_m1_hip,
+        shotshell_special = ShotshellTemplates.shotgun_p4_m1_hip_special,
+      },
+    }`;
+    const shotshellMap = new Map<string, string>([
+      ["shotgun_p4_m1_hip", "shotgun_p4_m1"],
+      ["shotgun_p4_m1_hip_special", "shotgun_p4_m1"],
+    ]);
+
+    const profiles = extractProfilesFromAction(
+      actionBlock,
+      new Map<string, string>(),
+      shotshellMap,
+      new Set(["shotgun_p4_m1"]),
+    );
+
+    assert.deepEqual(profiles, ["shotgun_p4_m1"]);
   });
 });

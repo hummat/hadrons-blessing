@@ -168,12 +168,12 @@
       }
     ],
     "scores": {
-      "composite": 29,
+      "composite": 28,
       "grade": "A",
       "perk_optimality": 5,
       "curio_efficiency": 4,
       "talent_coherence": 4,
-      "blessing_synergy": 5,
+      "blessing_synergy": 4,
       "role_coverage": 4,
       "breakpoint_relevance": 5,
       "difficulty_scaling": 2
@@ -330,21 +330,21 @@
     }
   },
   {
-    "file": "06-zealot-death-cultist.json",
-    "title": "\"Death Cultist\" | Havoc 40 Relic Blade Zealot",
-    "class": "zealot",
-    "ability": "Chorus of Spiritual Fortitude",
-    "keystone": "Martyrdom",
+    "file": "13-ogryn-bonktide.json",
+    "title": "BONKtide Havoc 40 by NRGaa",
+    "class": "ogryn",
+    "ability": "Loyal Protector",
+    "keystone": "Heavy Hitter",
     "weapons": [
       {
-        "name": "Munitorum Mk II Relic Blade",
+        "name": "Branx Mk Ia Delver's Pickaxe",
         "slot": "melee",
-        "family": "powersword_2h"
+        "family": "ogryn_pickaxe_2h_p1"
       },
       {
-        "name": "Godwyn-Branx Mk IV Bolt Pistol",
+        "name": "Achlys Mk II Heavy Stubber",
         "slot": "ranged",
-        "family": "boltpistol_p1"
+        "family": "ogryn_heavystubber_p1"
       }
     ],
     "scores": {
@@ -352,8 +352,8 @@
       "grade": "B",
       "perk_optimality": 5,
       "curio_efficiency": 4,
-      "talent_coherence": 4,
-      "blessing_synergy": 5,
+      "talent_coherence": 5,
+      "blessing_synergy": 4,
       "role_coverage": 4,
       "breakpoint_relevance": 3,
       "difficulty_scaling": 1
@@ -510,36 +510,6 @@
     }
   },
   {
-    "file": "13-ogryn-bonktide.json",
-    "title": "BONKtide Havoc 40 by NRGaa",
-    "class": "ogryn",
-    "ability": "Loyal Protector",
-    "keystone": "Heavy Hitter",
-    "weapons": [
-      {
-        "name": "Branx Mk Ia Delver's Pickaxe",
-        "slot": "melee",
-        "family": "ogryn_pickaxe_2h_p1"
-      },
-      {
-        "name": "Achlys Mk II Heavy Stubber",
-        "slot": "ranged",
-        "family": "ogryn_heavystubber_p1"
-      }
-    ],
-    "scores": {
-      "composite": 24,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 4,
-      "blessing_synergy": 3,
-      "role_coverage": 4,
-      "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
     "file": "15-ogryn-shield-tank.json",
     "title": "Hamdol's Shield Ogryn for New Havoc 40",
     "class": "ogryn",
@@ -596,6 +566,36 @@
       "blessing_synergy": 5,
       "role_coverage": 5,
       "breakpoint_relevance": 1,
+      "difficulty_scaling": 1
+    }
+  },
+  {
+    "file": "06-zealot-death-cultist.json",
+    "title": "\"Death Cultist\" | Havoc 40 Relic Blade Zealot",
+    "class": "zealot",
+    "ability": "Chorus of Spiritual Fortitude",
+    "keystone": "Martyrdom",
+    "weapons": [
+      {
+        "name": "Munitorum Mk II Relic Blade",
+        "slot": "melee",
+        "family": "powersword_2h"
+      },
+      {
+        "name": "Godwyn-Branx Mk IV Bolt Pistol",
+        "slot": "ranged",
+        "family": "boltpistol_p1"
+      }
+    ],
+    "scores": {
+      "composite": 23,
+      "grade": "B",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 4,
+      "blessing_synergy": 2,
+      "role_coverage": 4,
+      "breakpoint_relevance": 3,
       "difficulty_scaling": 1
     }
   },

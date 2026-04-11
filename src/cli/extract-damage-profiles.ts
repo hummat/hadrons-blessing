@@ -97,13 +97,15 @@ await runCliMain("profiles:build", async () => {
   profiles.sort((a, b) => a.id.localeCompare(b.id));
   console.log(`Parsed ${profiles.length} damage profiles`);
 
-  // -- Phase 4: Parse hitscan templates for ranged profile resolution ---------
+  // -- Phase 4: Parse projectile templates for ranged profile resolution ------
   const hitscanMap = parseAllHitscanTemplates(sourceRoot);
+  const shotshellMap = parseAllShotshellTemplates(sourceRoot);
   console.log(`Parsed ${hitscanMap.size} hitscan templates`);
+  console.log(`Parsed ${shotshellMap.size} shotshell templates`);
 
   // -- Phase 5: Parse weapon templates for action -> profile mapping -----------
   const profileIds = new Set(profiles.map((p) => p.id));
-  const actionMaps = parseAllWeaponTemplates(sourceRoot, hitscanMap, profileIds);
+  const actionMaps = parseAllWeaponTemplates(sourceRoot, hitscanMap, shotshellMap, profileIds);
   actionMaps.sort((a, b) => a.weapon_template.localeCompare(b.weapon_template));
   console.log(`Parsed ${actionMaps.length} weapon action maps`);
 
@@ -470,6 +472,33 @@ function parseDamageProfileFile(lua: string, sourceFile: string, lerpValues: Any
     profileMap.set(cloneName, cloned);
   }
 
+  // Third pass: handle override-only damage profiles.
+  const overrideRe = /^overrides\.(\w+)\s*=\s*\{/gm;
+  let overrideMatch;
+  while ((overrideMatch = overrideRe.exec(lua)) !== null) {
+    const overrideName = overrideMatch[1];
+    if (profileMap.has(overrideName)) continue;
+
+    const blockStart = overrideMatch.index + overrideMatch[0].length - 1;
+    const blockEnd = findBalancedBrace(lua, blockStart);
+    if (blockEnd === -1) continue;
+
+    const block = lua.slice(blockStart, blockEnd + 1);
+    const parentMatch = block.match(/parent_template_name\s*=\s*"(\w+)"/);
+    if (!parentMatch) continue;
+
+    const parent = profileMap.get(parentMatch[1]);
+    if (!parent) continue;
+
+    const cloned = JSON.parse(JSON.stringify(parent));
+    cloned.id = overrideName;
+    cloned.source_file = sourceFile;
+    applyProfileOverrideBlock(cloned, block, lerpValues);
+
+    profiles.push(cloned);
+    profileMap.set(overrideName, cloned);
+  }
+
   return profiles;
 }
 
@@ -548,6 +577,178 @@ export function applyCloneOverrides(profile: AnyRecord, name: string, lua: strin
 
     // targets[N].field.subfield overrides — not worth the complexity for clone deltas
     // (most clones override simple scalars; targets array overrides are rare)
+  }
+}
+
+function applyProfileOverrideBlock(profile: AnyRecord, block: string, lerpValues: AnyRecord) {
+  const overridesMatch = block.match(/overrides\s*=\s*\{/);
+  if (!overridesMatch) return;
+
+  const tableStart = overridesMatch.index! + overridesMatch[0].length - 1;
+  const tableEnd = findBalancedBrace(block, tableStart);
+  if (tableEnd === -1) return;
+
+  const overridesTable = block.slice(tableStart, tableEnd + 1);
+  const tupleBlocks = extractTopLevelTableEntries(overridesTable);
+  for (const tupleBlock of tupleBlocks) {
+    const items = splitTopLevelLuaItems(tupleBlock.slice(1, -1));
+    if (items.length < 2) continue;
+
+    const path = items.slice(0, -1).map(stripLuaStringQuotes);
+    const value = parseLuaOverrideValue(items.at(-1)!, lerpValues);
+    applyProfileOverridePath(profile, path, value);
+  }
+}
+
+function extractTopLevelTableEntries(tableBlock: string): string[] {
+  const entries: string[] = [];
+  const braceRe = /\{/g;
+  let match;
+  while ((match = braceRe.exec(tableBlock)) !== null) {
+    if (countBraceDepth(tableBlock, match.index) !== 1) continue;
+    const end = findBalancedBrace(tableBlock, match.index);
+    if (end === -1) continue;
+    entries.push(tableBlock.slice(match.index, end + 1));
+    braceRe.lastIndex = end + 1;
+  }
+  return entries;
+}
+
+function splitTopLevelLuaItems(content: string): string[] {
+  const items: string[] = [];
+  let current = "";
+  let depth = 0;
+  let inString = false;
+  let stringQuote = "";
+
+  for (let i = 0; i < content.length; i += 1) {
+    const ch = content[i];
+    const prev = i > 0 ? content[i - 1] : "";
+
+    if (inString) {
+      current += ch;
+      if (ch === stringQuote && prev !== "\\") {
+        inString = false;
+        stringQuote = "";
+      }
+      continue;
+    }
+
+    if (ch === '"' || ch === "'") {
+      inString = true;
+      stringQuote = ch;
+      current += ch;
+      continue;
+    }
+
+    if (ch === "{") {
+      depth += 1;
+      current += ch;
+      continue;
+    }
+
+    if (ch === "}") {
+      depth -= 1;
+      current += ch;
+      continue;
+    }
+
+    if (ch === "," && depth === 0) {
+      const item = current.trim();
+      if (item.length > 0) items.push(item);
+      current = "";
+      continue;
+    }
+
+    current += ch;
+  }
+
+  const item = current.trim();
+  if (item.length > 0) items.push(item);
+  return items;
+}
+
+function stripLuaStringQuotes(value: string): string {
+  return value.trim().replace(/^["']|["']$/g, "");
+}
+
+function parseLuaOverrideValue(value: string, lerpValues: AnyRecord): unknown {
+  const trimmed = value.trim();
+
+  const lerpMatch = trimmed.match(/^damage_lerp_values\.(\w+)$/);
+  if (lerpMatch) {
+    return lerpValues[lerpMatch[1]] ?? [1, 1];
+  }
+
+  const damageTypeMatch = trimmed.match(/^damage_types\.(\w+)$/);
+  if (damageTypeMatch) {
+    return damageTypeMatch[1];
+  }
+
+  if (/^["'].*["']$/.test(trimmed)) {
+    return stripLuaStringQuotes(trimmed);
+  }
+
+  if (/^-?\d+(?:\.\d+)?$/.test(trimmed)) {
+    return Number(trimmed);
+  }
+
+  if (trimmed.startsWith("{") && trimmed.endsWith("}")) {
+    const values = (trimmed.match(/-?\d+(?:\.\d+)?/g) ?? []).map(Number);
+    if (values.length === 1) return values[0];
+    if (values.length > 1) return values;
+  }
+
+  return null;
+}
+
+function applyProfileOverridePath(profile: AnyRecord, path: string[], value: unknown) {
+  if (value == null || path.length === 0) return;
+
+  if (path[0] === "suppression_value" || path[0] === "ragdoll_push_force") {
+    return;
+  }
+
+  if (path[0] === "power_distribution" && path.length === 2 && profile.power_distribution) {
+    profile.power_distribution[path[1]] = value;
+    return;
+  }
+
+  if (path[0] === "cleave_distribution" && path.length === 2 && profile.cleave_distribution) {
+    profile.cleave_distribution[path[1]] = value;
+    return;
+  }
+
+  if (path[0] === "damage_type" && typeof value === "string") {
+    profile.damage_type = value;
+    return;
+  }
+
+  if (path[0] === "stagger_category" && typeof value === "string") {
+    profile.stagger_category = value;
+    return;
+  }
+
+  if (path[0] === "armor_damage_modifier" && path.length === 3 && profile.armor_damage_modifier) {
+    profile.armor_damage_modifier[path[1]] ??= {};
+    profile.armor_damage_modifier[path[1]][path[2]] = value;
+    return;
+  }
+
+  if (path[0] === "armor_damage_modifier_ranged" && path.length === 4 && profile.armor_damage_modifier_ranged) {
+    profile.armor_damage_modifier_ranged[path[1]] ??= {};
+    profile.armor_damage_modifier_ranged[path[1]][path[2]] ??= {};
+    profile.armor_damage_modifier_ranged[path[1]][path[2]][path[3]] = value;
+    return;
+  }
+
+  if (path[0] === "targets" && path[1] === "default_target" && path[2] === "boost_curve_multiplier_finesse") {
+    profile.boost_curve_multiplier_finesse = value;
+    return;
+  }
+
+  if (path[0] === "targets" && path[1] === "default_target" && path[2] === "finesse_boost") {
+    profile.finesse_boost = value;
   }
 }
 
@@ -1287,6 +1488,20 @@ function parseHitscanFile(lua: string, map: AnyRecord) {
     }
   }
 
+  const cloneRe = /hitscan_templates\.(\w+)\s*=\s*table\.clone\(hitscan_templates\.(\w+)\)/g;
+  while ((m = cloneRe.exec(lua)) !== null) {
+    const name = m[1];
+    const parent = m[2];
+    if (map.has(parent) && !map.has(name)) {
+      map.set(name, map.get(parent));
+    }
+  }
+
+  const assignmentRe = /^hitscan_templates\.(\w+)\.damage\.impact\.damage_profile\s*=\s*DamageProfileTemplates\.(\w+)/gm;
+  while ((m = assignmentRe.exec(lua)) !== null) {
+    map.set(m[1], m[2]);
+  }
+
   // Overrides: overrides.X = { parent_template_name = "Y", overrides = { { ... DamageProfileTemplates.Z } } }
   const overrideRe = /overrides\.(\w+)\s*=\s*\{/g;
   while ((m = overrideRe.exec(lua)) !== null) {
@@ -1315,6 +1530,47 @@ function parseHitscanFile(lua: string, map: AnyRecord) {
   }
 }
 
+/**
+ * Parse shotshell template files to build a map of shotshell_name -> damage_profile_name.
+ *
+ * @param {string} sourceRoot
+ * @returns {Map<string, string>} shotshellName -> damageProfileName
+ */
+function parseAllShotshellTemplates(sourceRoot: string) {
+  const map = new Map();
+  const mainPath = join(sourceRoot, "scripts", "settings", "projectile", "shotshell_templates.lua");
+  if (!existsSync(mainPath)) {
+    return map;
+  }
+
+  const lua = readFileSync(mainPath, "utf8");
+  parseShotshellFile(lua, map);
+  return map;
+}
+
+/**
+ * Parse a single shotshell template file.
+ *
+ * @param {string} lua
+ * @param {Map<string, string>} map
+ */
+function parseShotshellFile(lua: string, map: AnyRecord) {
+  const directRe = /shotshell_templates\.(\w+)\s*=\s*\{/g;
+  let m;
+  while ((m = directRe.exec(lua)) !== null) {
+    const name = m[1];
+    const braceStart = m.index + m[0].length - 1;
+    const braceEnd = findBalancedBrace(lua, braceStart);
+    if (braceEnd === -1) continue;
+
+    const block = lua.slice(braceStart, braceEnd + 1);
+    const profileMatch = block.match(/damage_profile\s*=\s*DamageProfileTemplates\.(\w+)/);
+    if (profileMatch) {
+      map.set(name, profileMatch[1]);
+    }
+  }
+}
+
 // -- Phase 5: Weapon action maps ----------------------------------------------
 
 /**
@@ -1322,10 +1578,11 @@ function parseHitscanFile(lua: string, map: AnyRecord) {
  *
  * @param {string} sourceRoot
  * @param {Map<string, string>} hitscanMap
+ * @param {Map<string, string>} shotshellMap
  * @param {Set<string>} profileIds
  * @returns {object[]}
  */
-function parseAllWeaponTemplates(sourceRoot: string, hitscanMap: AnyRecord, profileIds: Set<string>) {
+function parseAllWeaponTemplates(sourceRoot: string, hitscanMap: AnyRecord, shotshellMap: AnyRecord, profileIds: Set<string>) {
   const actionMaps = [];
   const weaponBaseDir = join(sourceRoot, "scripts", "settings", "equipment", "weapon_templates");
 
@@ -1350,7 +1607,7 @@ function parseAllWeaponTemplates(sourceRoot: string, hitscanMap: AnyRecord, prof
     for (const f of weaponFiles) {
       const lua = readFileSync(join(familyDir, f), "utf8");
       const weaponName = f.replace(".lua", "");
-      const actions = parseWeaponActions(lua, hitscanMap, profileIds);
+      const actions = parseWeaponActions(lua, hitscanMap, shotshellMap, profileIds);
       if (Object.keys(actions).length > 0) {
         actionMaps.push({
           weapon_template: weaponName,
@@ -1371,10 +1628,11 @@ function parseAllWeaponTemplates(sourceRoot: string, hitscanMap: AnyRecord, prof
  *
  * @param {string} lua
  * @param {Map<string, string>} hitscanMap
+ * @param {Map<string, string>} shotshellMap
  * @param {Set<string>} profileIds
  * @returns {Record<string, string[]>}
  */
-function parseWeaponActions(lua: string, hitscanMap: AnyRecord, profileIds: Set<string>) {
+function parseWeaponActions(lua: string, hitscanMap: AnyRecord, shotshellMap: AnyRecord, profileIds: Set<string>) {
   const result: AnyRecord = {};
 
   // Find weapon_template.actions block
@@ -1402,7 +1660,7 @@ function parseWeaponActions(lua: string, hitscanMap: AnyRecord, profileIds: Set<
     if (actionBraceEnd === -1) continue;
 
     const actionBlock = actionsBlock.slice(actionBraceStart, actionBraceEnd + 1);
-    const profiles = extractProfilesFromAction(actionBlock, hitscanMap, profileIds);
+    const profiles = extractProfilesFromAction(actionBlock, hitscanMap, shotshellMap, profileIds);
 
     if (profiles.length > 0) {
       const category = classifyAction(actionName);
@@ -1425,10 +1683,16 @@ function parseWeaponActions(lua: string, hitscanMap: AnyRecord, profileIds: Set<
  *
  * @param {string} actionBlock
  * @param {Map<string, string>} hitscanMap
+ * @param {Map<string, string>} shotshellMap
  * @param {Set<string>} profileIds
  * @returns {string[]}
  */
-function extractProfilesFromAction(actionBlock: string, hitscanMap: AnyRecord, profileIds: Set<string>) {
+export function extractProfilesFromAction(
+  actionBlock: string,
+  hitscanMap: AnyRecord,
+  shotshellMap: AnyRecord,
+  profileIds: Set<string>,
+) {
   const profiles: string[] = [];
 
   // Direct damage_profile reference (melee)
@@ -1458,6 +1722,15 @@ function extractProfilesFromAction(actionBlock: string, hitscanMap: AnyRecord, p
   const hitscanRe = /hit_scan_template\s*=\s*HitScanTemplates\.(\w+)/g;
   while ((m = hitscanRe.exec(actionBlock)) !== null) {
     const profileName = hitscanMap.get(m[1]);
+    if (profileName && profileIds.has(profileName) && !profiles.includes(profileName)) {
+      profiles.push(profileName);
+    }
+  }
+
+  // Shotshell template reference (shotguns, ripperguns, thumpers)
+  const shotshellRe = /shotshell(?:_special)?\s*=\s*ShotshellTemplates\.(\w+)/g;
+  while ((m = shotshellRe.exec(actionBlock)) !== null) {
+    const profileName = shotshellMap.get(m[1]);
     if (profileName && profileIds.has(profileName) && !profiles.includes(profileName)) {
       profiles.push(profileName);
     }
