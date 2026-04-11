@@ -121,6 +121,29 @@ Run the full verification flow (index + tests + freshness check):
 GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code make check
 ```
 
+Website browser smoke flow:
+
+```bash
+# terminal 1: serve static preview
+make website-preview
+
+# terminal 2: open compare page in named Playwright session
+make website-smoke ARGS='open-compare 09-psyker-2026 01-veteran-havoc40-2026'
+
+# terminal 2: inspect current page
+make website-smoke ARGS='snapshot'
+make website-smoke ARGS='screenshot'
+
+# terminal 2: close browser session
+make website-smoke ARGS='close'
+```
+
+Notes:
+
+- `scripts/website-smoke.sh` defaults to `PLAYWRIGHT_CLI_SESSION=hb-website`, `HB_WEBSITE_HOST=127.0.0.1`, `HB_WEBSITE_PORT=4173`
+- the Playwright CLI wrapper must exist and be executable at `~/.codex/skills/playwright/scripts/playwright_cli.sh`
+- under Codex, browser launch and local port binding usually require sandbox escape; run these commands outside sandbox if you hit Chromium or `listen EPERM` errors
+
 Build scoring on canonical build fixtures:
 
 ```bash

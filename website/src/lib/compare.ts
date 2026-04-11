@@ -228,6 +228,13 @@ export function curioPerkEntries(detail: BuildDetailData): Array<BuildStructureE
   }));
 }
 
+export function computeCurioPerkDiff(
+  a: BuildDetailData,
+  b: BuildDetailData,
+): CompareSetDiff<BuildStructureEntry & { compare_key: string }> {
+  return computeSetDiff(curioPerkEntries(a), curioPerkEntries(b));
+}
+
 export function computeBreakpointDiff(
   a: BreakpointMatrixDetail,
   b: BreakpointMatrixDetail,

@@ -7,6 +7,16 @@
     scoreColor,
   } from "$lib/builds";
   import { DIMENSIONS } from "$lib/dimensions";
+  import {
+    buildBreakpointPanels,
+    buildBreakpointActionLabels,
+    buildSelectionLabelMap,
+    formatCoverageFraction,
+    formatCoverageLabel,
+    formatSelectionList,
+    formatSelectionText,
+    summarizeNameCounts,
+  } from "$lib/detail-format";
   import type {
     BreakpointActionDetail,
     BreakpointBreedEntry,
@@ -31,14 +41,14 @@
   };
 
   type MatrixRow = {
-    action: string;
-    profileId: string;
+    label: string;
     values: Array<number | null>;
   };
 
   const DIFFICULTIES = ["uprising", "malice", "heresy", "damnation", "auric"];
 
   let { data }: Props = $props();
+  const selectionLabels = $derived(buildSelectionLabelMap(data.detail));
 
   const availableScenarios = $derived(data.detail.breakpoints.metadata.scenarios);
 
@@ -63,30 +73,76 @@
     return data.detail.scorecard.qualitative[key as keyof typeof data.detail.scorecard.qualitative] ?? null;
   }
 
+  function blessingNameFromSlug(slug: string): string {
+    for (const weapon of data.detail.structure.weapons) {
+      for (const blessing of weapon.blessings) {
+        if ((blessing.id?.split(".").at(-1) ?? "") === slug) {
+          return blessing.name;
+        }
+      }
+    }
+    return titleCase(slug);
+  }
+
+  function dimensionExplanation(key: string): string | null {
+    if (key === "composite") return `Grade ${data.detail.summary.scores.grade}`;
+    if (key === "perk_optimality") return "Average weapon perk score across the build.";
+    if (key === "curio_efficiency") return "Curio perk mix quality for the build class.";
+
+    const detail = dimensionDetail(key);
+    const explanation = detail?.explanations[0] ?? null;
+    if (!explanation) return null;
+
+    if (key === "blessing_synergy" && explanation.startsWith("Blessings with synergy edges: ")) {
+      const names = explanation
+        .slice("Blessings with synergy edges: ".length)
+        .split(",")
+        .map((entry) => blessingNameFromSlug(entry.trim()))
+        .join(", ");
+      return `Connected blessings: ${names}`;
+    }
+
+    return explanation;
+  }
+
+  function coverageLabels(values: string[]): string {
+    return values.length > 0 ? values.map((value) => formatCoverageLabel(value)).join(", ") : "None";
+  }
+
   let dimensionCards = $derived.by((): DimensionCard[] => [
     ...DIMENSIONS.map((dimension) => ({
       key: dimension.summary_key,
       label: dimension.label,
       score: data.detail.summary.scores[dimension.summary_key as keyof typeof data.detail.summary.scores] as number | null,
       max: dimension.max,
-      explanation: dimension.scorecard_key === "composite_score"
-        ? `Grade ${data.detail.summary.scores.grade}`
-        : dimension.scorecard_key === "perk_optimality"
-          ? "Average weapon perk score across the build."
-          : dimension.scorecard_key === "curio_efficiency"
-            ? "Curio perk mix quality for the build class."
-            : dimensionDetail(dimension.scorecard_key)?.explanations[0] ?? null,
+      explanation: dimensionExplanation(dimension.scorecard_key),
     })),
   ]);
+
+  const synergyPreviewLimit = 6;
+  let synergyPreview = $derived(data.detail.synergy.synergy_edges.slice(0, synergyPreviewLimit));
+  let hiddenSynergyCount = $derived(Math.max(data.detail.synergy.synergy_edges.length - synergyPreviewLimit, 0));
+  let antiSynergyCounts = $derived(
+    summarizeNameCounts(data.detail.synergy.anti_synergies.map((entry) => ({ name: entry.reason }))),
+  );
+  let orphanCounts = $derived(
+    summarizeNameCounts(
+      data.detail.synergy.orphans.map((entry) => ({
+        name: formatSelectionText(entry.selection, selectionLabels),
+      })),
+    ),
+  );
+  let breakpointPanels = $derived(buildBreakpointPanels(data.detail));
 
   function perkTierLabel(tier: number | undefined): string {
     return typeof tier === "number" ? `T${tier}` : "T?";
   }
 
   function formatEdgeSelections(selections: string[]): string {
-    if (selections.length === 0) return "\u2014";
-    if (selections.length === 1) return selections[0];
-    return `${selections[0]} \u2192 ${selections[1]}`;
+    const labels = formatSelectionList(selections, selectionLabels);
+    if (labels.length === 0) return "\u2014";
+    if (labels.length === 1) return labels[0];
+    return `${labels[0]} \u2192 ${labels[1]}`;
   }
 
   function scenarioBreeds(action: BreakpointActionDetail): BreakpointBreedEntry[] {
@@ -97,6 +153,7 @@
   // Collapse scenario/difficulty slices into an actions x breeds matrix for the selected view.
   function weaponMatrix(weapon: BreakpointWeaponDetail): { breeds: string[]; rows: MatrixRow[] } {
     const breedIds = new Set<string>();
+    const actionLabels = buildBreakpointActionLabels(weapon);
 
     for (const action of weapon.actions) {
       for (const entry of scenarioBreeds(action)) {
@@ -106,11 +163,10 @@
 
     const breeds = [...breedIds].sort();
     const rows = weapon.actions
-      .map((action) => {
+      .map((action, index) => {
         const hitsByBreed = new Map(scenarioBreeds(action).map((entry) => [entry.breed_id, entry.hitsToKill]));
         return {
-          action: action.type,
-          profileId: action.profileId,
+          label: actionLabels[index],
           values: breeds.map((breedId) => hitsByBreed.get(breedId) ?? null),
         };
       })
@@ -187,6 +243,94 @@
   </div>
 
   <section class="space-y-4">
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <article class="rounded-2xl border border-gray-800 bg-gray-900 p-4">
+        <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Weapons</div>
+        <div class="mt-2 text-2xl font-bold text-gray-100">{data.detail.summary.weapons.length}</div>
+        <p class="mt-2 text-sm text-gray-400">{data.detail.summary.weapons.map((weapon) => weapon.name).join(" / ")}</p>
+      </article>
+      <article class="rounded-2xl border border-gray-800 bg-gray-900 p-4">
+        <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Synergy Edges</div>
+        <div class="mt-2 text-2xl font-bold text-gray-100">{data.detail.synergy.synergy_edges.length}</div>
+        <p class="mt-2 text-sm text-gray-400">
+          {data.detail.synergy.anti_synergies.length} anti-synergies · {data.detail.synergy.orphans.length} isolated picks
+        </p>
+      </article>
+      <article class="rounded-2xl border border-gray-800 bg-gray-900 p-4">
+        <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Calc Coverage</div>
+        <div class="mt-2 text-2xl font-bold text-gray-100">{formatCoverageFraction(data.detail.synergy.metadata.calc_coverage_pct)}</div>
+        <p class="mt-2 text-sm text-gray-400">{data.detail.synergy.metadata.unique_entities_with_calc} entities with calculator support</p>
+      </article>
+      <article class="rounded-2xl border border-gray-800 bg-gray-900 p-4">
+        <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Build Identity</div>
+        <div class="mt-2 text-base font-semibold text-gray-100">
+          {coverageLabels(data.detail.synergy.coverage.build_identity)}
+        </div>
+        <p class="mt-2 text-sm text-gray-400">Concentration {data.detail.synergy.coverage.concentration}</p>
+      </article>
+    </div>
+
+    <div class="flex items-baseline justify-between">
+      <h2 class="text-xl font-semibold text-gray-100">Build Structure</h2>
+      <span class="text-xs uppercase tracking-[0.2em] text-gray-500">Guide-facing selections</span>
+    </div>
+
+    <div class="grid gap-4 xl:grid-cols-[1.1fr_1.4fr]">
+      <article class="rounded-2xl border border-gray-800 bg-gray-900 p-5">
+        <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Core Slots</h3>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+          <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+            <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Ability</div>
+            <div class="mt-2 text-sm text-gray-100">{data.detail.structure.slots.ability.name ?? "\u2014"}</div>
+          </div>
+          <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+            <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Blitz</div>
+            <div class="mt-2 text-sm text-gray-100">{data.detail.structure.slots.blitz.name ?? "\u2014"}</div>
+          </div>
+          <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+            <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Aura</div>
+            <div class="mt-2 text-sm text-gray-100">{data.detail.structure.slots.aura.name ?? "\u2014"}</div>
+          </div>
+          <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+            <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Keystone</div>
+            <div class="mt-2 text-sm text-gray-100">{data.detail.structure.slots.keystone.name ?? "\u2014"}</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="rounded-2xl border border-gray-800 bg-gray-900 p-5">
+        <div class="grid gap-5 lg:grid-cols-2">
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Talents</h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {#each data.detail.structure.talents as talent}
+                <span class="rounded-full border border-gray-800 bg-gray-950 px-3 py-1 text-sm text-gray-200">
+                  {talent.name}
+                </span>
+              {:else}
+                <span class="text-sm text-gray-500">No talent list in payload.</span>
+              {/each}
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Curio Perks</h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {#each data.detail.structure.curio_perks as perk}
+                <span class="rounded-full border border-gray-800 bg-gray-950 px-3 py-1 text-sm text-gray-200">
+                  {perk.name}
+                </span>
+              {:else}
+                <span class="text-sm text-gray-500">No curio perks in payload.</span>
+              {/each}
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="space-y-4">
     <div class="flex items-baseline justify-between">
       <h2 class="text-xl font-semibold text-gray-100">Scorecard Overview</h2>
       <span class="text-xs uppercase tracking-[0.2em] text-gray-500">Seven dimensions + composite</span>
@@ -236,15 +380,12 @@
             <div class="space-y-3">
               <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Perks</h4>
               {#if weapon.perks.perks.length > 0}
-                <ul class="space-y-2">
-                  {#each weapon.perks.perks as perk, index}
-                    <li class="flex items-center justify-between rounded-lg border border-gray-800 bg-gray-950 px-3 py-2">
-                      <div class="min-w-0">
-                        <div class="truncate text-sm text-gray-100">{perk?.name ?? `Unknown perk ${index + 1}`}</div>
-                        <div class="text-xs text-gray-500">{perk?.value != null ? `${Math.round(perk.value * 100)}% roll` : "No roll data"}</div>
-                      </div>
-                      <span class="ml-3 rounded border border-gray-700 px-2 py-0.5 text-xs text-gray-300">
-                        {perkTierLabel(perk?.tier)}
+                <ul class="flex flex-wrap gap-2">
+                  {#each weapon.perks.perks as perk}
+                    <li class="rounded-full border border-gray-800 bg-gray-950 px-3 py-2 text-sm text-gray-100">
+                      <span>{perk.name}</span>
+                      <span class="ml-2 text-xs text-gray-500">
+                        {perkTierLabel(perk.tier)}{perk.value != null ? ` · ${Math.round(perk.value * 100)}%` : ""}
                       </span>
                     </li>
                   {/each}
@@ -257,16 +398,15 @@
             <div class="space-y-3">
               <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Blessings</h4>
               {#if weapon.blessings.blessings.length > 0}
-                <ul class="space-y-2">
+                <ul class="flex flex-wrap gap-2">
                   {#each weapon.blessings.blessings as blessing}
-                    <li class="flex items-center justify-between rounded-lg border border-gray-800 bg-gray-950 px-3 py-2">
-                      <div class="min-w-0">
-                        <div class="truncate text-sm text-gray-100">{blessing.name}</div>
-                        <div class="text-xs text-gray-500">{blessing.internal ?? "No internal mapping"}</div>
-                      </div>
-                      <span class="ml-3 rounded border px-2 py-0.5 text-xs {blessing.known ? 'border-emerald-800 text-emerald-300' : 'border-yellow-800 text-yellow-300'}">
-                        {blessing.known ? "Known" : "Unknown"}
-                      </span>
+                    <li class="rounded-full border border-gray-800 bg-gray-950 px-3 py-2 text-sm text-gray-100">
+                      <span>{blessing.name}</span>
+                      {#if !blessing.known}
+                        <span class="ml-2 rounded border border-yellow-800 px-2 py-0.5 text-[11px] text-yellow-300">
+                          Catalog gap
+                        </span>
+                      {/if}
                     </li>
                   {/each}
                 </ul>
@@ -292,20 +432,42 @@
 
         {#if data.detail.synergy.synergy_edges.length > 0}
           <ul class="mt-4 space-y-3">
-            {#each data.detail.synergy.synergy_edges as edge}
+            {#each synergyPreview as edge}
               <li class="rounded-xl border border-gray-800 bg-gray-950 p-4">
                 <div class="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.18em] text-gray-500">
                   <span>{titleCase(edge.type)}</span>
                   <span class="rounded-full border border-gray-700 px-2 py-0.5 text-gray-300">Strength {edge.strength}</span>
                   {#if edge.families.length > 0}
-                    <span class="rounded-full border border-gray-700 px-2 py-0.5 text-gray-300">{edge.families.join(", ")}</span>
+                    <span class="rounded-full border border-gray-700 px-2 py-0.5 text-gray-300">{edge.families.map((family) => formatCoverageLabel(family)).join(", ")}</span>
                   {/if}
                 </div>
-                <div class="mt-3 font-mono text-sm text-gray-200 break-all">{formatEdgeSelections(edge.selections)}</div>
+                <div class="mt-3 text-sm text-gray-200">{formatEdgeSelections(edge.selections)}</div>
                 <p class="mt-2 text-sm text-gray-400">{edge.explanation}</p>
               </li>
             {/each}
           </ul>
+          {#if hiddenSynergyCount > 0}
+            <details class="mt-4 rounded-xl border border-gray-800 bg-gray-950 p-4">
+              <summary class="cursor-pointer text-sm font-medium text-gray-200">
+                Show {hiddenSynergyCount} more synergy edge{hiddenSynergyCount === 1 ? "" : "s"}
+              </summary>
+              <ul class="mt-4 space-y-3">
+                {#each data.detail.synergy.synergy_edges.slice(synergyPreviewLimit) as edge}
+                  <li class="rounded-xl border border-gray-800 bg-gray-900 p-4">
+                    <div class="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.18em] text-gray-500">
+                      <span>{titleCase(edge.type)}</span>
+                      <span class="rounded-full border border-gray-700 px-2 py-0.5 text-gray-300">Strength {edge.strength}</span>
+                      {#if edge.families.length > 0}
+                        <span class="rounded-full border border-gray-700 px-2 py-0.5 text-gray-300">{edge.families.map((family) => formatCoverageLabel(family)).join(", ")}</span>
+                      {/if}
+                    </div>
+                    <div class="mt-3 text-sm text-gray-200">{formatEdgeSelections(edge.selections)}</div>
+                    <p class="mt-2 text-sm text-gray-400">{edge.explanation}</p>
+                  </li>
+                {/each}
+              </ul>
+            </details>
+          {/if}
         {:else}
           <p class="mt-4 text-sm text-gray-500">No synergy edges were produced for this build.</p>
         {/if}
@@ -319,14 +481,24 @@
           </div>
 
           {#if data.detail.synergy.anti_synergies.length > 0}
-            <ul class="mt-4 space-y-3">
-              {#each data.detail.synergy.anti_synergies as anti}
-                <li class="rounded-xl border p-4 {warningStyle(anti.severity)}">
-                  <div class="text-xs uppercase tracking-[0.18em]">{titleCase(anti.type)} • {anti.severity}</div>
-                  <p class="mt-2 text-sm">{anti.reason}</p>
-                </li>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {#each antiSynergyCounts as entry}
+                <span class="rounded-full border border-red-800 bg-red-950/30 px-3 py-1.5 text-sm text-red-200">
+                  {entry.name}{entry.count > 1 ? ` ×${entry.count}` : ""}
+                </span>
               {/each}
-            </ul>
+            </div>
+            <details class="mt-4 rounded-xl border border-gray-800 bg-gray-950 p-4">
+              <summary class="cursor-pointer text-sm font-medium text-gray-200">Show detailed anti-synergy entries</summary>
+              <ul class="mt-4 space-y-3">
+                {#each data.detail.synergy.anti_synergies as anti}
+                  <li class="rounded-xl border p-4 {warningStyle(anti.severity)}">
+                    <div class="text-xs uppercase tracking-[0.18em]">{titleCase(anti.type)} • {anti.severity}</div>
+                    <p class="mt-2 text-sm">{anti.reason}</p>
+                  </li>
+                {/each}
+              </ul>
+            </details>
           {:else}
             <p class="mt-4 text-sm text-gray-500">No anti-synergies flagged.</p>
           {/if}
@@ -339,17 +511,27 @@
           </div>
 
           {#if data.detail.synergy.orphans.length > 0}
-            <ul class="mt-4 space-y-3">
-              {#each data.detail.synergy.orphans as orphan}
-                <li class="rounded-xl border border-gray-800 bg-gray-950 p-4">
-                  <div class="font-mono text-sm text-gray-200 break-all">{orphan.selection}</div>
-                  <p class="mt-2 text-sm text-gray-400">{titleCase(orphan.reason)}</p>
-                  <p class="mt-1 text-xs text-gray-500">
-                    {orphan.resource ? `${orphan.resource} • ` : ""}{orphan.condition}
-                  </p>
-                </li>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {#each orphanCounts as orphan}
+                <span class="rounded-full border border-gray-800 bg-gray-950 px-3 py-1.5 text-sm text-gray-200">
+                  {orphan.name}{orphan.count > 1 ? ` ×${orphan.count}` : ""}
+                </span>
               {/each}
-            </ul>
+            </div>
+            <details class="mt-4 rounded-xl border border-gray-800 bg-gray-950 p-4">
+              <summary class="cursor-pointer text-sm font-medium text-gray-200">Show isolated-pick reasons</summary>
+              <ul class="mt-4 space-y-3">
+                {#each data.detail.synergy.orphans as orphan}
+                  <li class="rounded-xl border border-gray-800 bg-gray-900 p-4">
+                    <div class="text-sm text-gray-200">{formatSelectionText(orphan.selection, selectionLabels)}</div>
+                    <p class="mt-2 text-sm text-gray-400">{titleCase(orphan.reason)}</p>
+                    <p class="mt-1 text-xs text-gray-500">
+                      {orphan.resource ? `${orphan.resource} • ` : ""}{orphan.condition}
+                    </p>
+                  </li>
+                {/each}
+              </ul>
+            </details>
           {:else}
             <p class="mt-4 text-sm text-gray-500">All selections participate in at least one synergy edge.</p>
           {/if}
@@ -363,7 +545,7 @@
       <div class="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
           <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Calc Coverage</div>
-          <div class="mt-2 text-2xl font-bold text-gray-100">{data.detail.synergy.metadata.calc_coverage_pct}%</div>
+          <div class="mt-2 text-2xl font-bold text-gray-100">{formatCoverageFraction(data.detail.synergy.metadata.calc_coverage_pct)}</div>
         </div>
         <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
           <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Entities Analyzed</div>
@@ -383,9 +565,7 @@
         <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
           <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Build Identity</h4>
           <p class="mt-3 text-sm text-gray-200">
-            {data.detail.synergy.coverage.build_identity.length > 0
-              ? data.detail.synergy.coverage.build_identity.join(", ")
-              : "None"}
+            {coverageLabels(data.detail.synergy.coverage.build_identity)}
           </p>
           <p class="mt-2 text-xs text-gray-500">Concentration {data.detail.synergy.coverage.concentration}</p>
         </div>
@@ -393,9 +573,7 @@
         <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
           <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Coverage Gaps</h4>
           <p class="mt-3 text-sm text-gray-200">
-            {data.detail.synergy.coverage.coverage_gaps.length > 0
-              ? data.detail.synergy.coverage.coverage_gaps.join(", ")
-              : "None"}
+            {coverageLabels(data.detail.synergy.coverage.coverage_gaps)}
           </p>
         </div>
 
@@ -443,22 +621,25 @@
     </div>
 
     <div class="space-y-6">
-      {#each data.detail.breakpoints.weapons as weapon (weapon.entityId)}
-        {@const matrix = weaponMatrix(weapon)}
-        <article class="rounded-2xl border border-gray-800 bg-gray-900 p-5 min-w-0 overflow-hidden">
-          <div class="flex items-baseline justify-between gap-4">
+      {#each breakpointPanels as panel (panel.entityId ?? panel.name)}
+        {@const matrix = panel.weapon ? weaponMatrix(panel.weapon) : { breeds: [], rows: [] }}
+        <details class="rounded-2xl border border-gray-800 bg-gray-900 p-5 min-w-0 overflow-hidden" open={panel.defaultOpen}>
+          <summary class="flex cursor-pointer list-none items-baseline justify-between gap-4">
             <div>
-              <h3 class="text-lg font-semibold text-gray-100">{breakpointWeaponLabel(weapon)}</h3>
+              <h3 class="text-lg font-semibold text-gray-100">{panel.name}</h3>
               <p class="mt-1 text-sm text-gray-400">
-                {data.detail.scorecard.weapons.find((candidate) => candidate.canonical_entity_id === weapon.entityId)?.slot ?? "unknown"} weapon
+                {panel.slot ?? "unknown"} weapon
               </p>
             </div>
-            <div class="text-xs uppercase tracking-[0.18em] text-gray-500">
-              {matrix.rows.length} action rows
+            <div class="text-right">
+              <div class="text-xs uppercase tracking-[0.18em] text-gray-500">
+                {panel.status === "unsupported" ? "Unsupported" : `${matrix.rows.length} action rows`}
+              </div>
+              <div class="mt-1 text-xs text-gray-600">Expand for matrix</div>
             </div>
-          </div>
+          </summary>
 
-          {#if matrix.rows.length > 0 && matrix.breeds.length > 0}
+          {#if panel.status === "supported" && panel.weapon && matrix.rows.length > 0 && matrix.breeds.length > 0}
             <div class="mt-4 overflow-x-auto rounded-xl border border-gray-800">
               <table class="min-w-full text-xs">
                 <thead class="bg-gray-950 text-gray-400">
@@ -473,8 +654,7 @@
                   {#each matrix.rows as row}
                     <tr class="bg-gray-900">
                       <td class="sticky left-0 bg-gray-900 px-3 py-2">
-                        <div class="font-medium text-gray-100">{titleCase(row.action)}</div>
-                        <div class="text-[11px] text-gray-500">{row.profileId}</div>
+                        <div class="font-medium text-gray-100">{row.label}</div>
                       </td>
                       {#each row.values as value}
                         <td class="px-3 py-2 text-center tabular-nums {htkCellClass(value)}">
@@ -486,10 +666,14 @@
                 </tbody>
               </table>
             </div>
+          {:else if panel.message}
+            <div class="mt-4 rounded-xl border border-gray-800 bg-gray-950 p-4">
+              <p class="text-sm text-gray-400">{panel.message}</p>
+            </div>
           {:else}
             <p class="mt-4 text-sm text-gray-500">No breakpoint data is available for this scenario/difficulty slice.</p>
           {/if}
-        </article>
+        </details>
       {/each}
     </div>
   </section>

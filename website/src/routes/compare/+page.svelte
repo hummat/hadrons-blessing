@@ -6,6 +6,7 @@
   import { CLASS_COLORS, GRADE_STYLES, htkCellClass, scoreColor } from "$lib/builds";
   import {
     computeBreakpointDiff,
+    computeCurioPerkDiff,
     computeScoreDeltas,
     computeSetDiff,
     computeSlotDiff,
@@ -13,6 +14,13 @@
     talentEntries,
     weaponEntries,
   } from "$lib/compare";
+  import {
+    buildSelectionLabelMap,
+    formatCoverageFraction,
+    formatCoverageLabel,
+    formatSelectionList,
+    summarizeNameCounts,
+  } from "$lib/detail-format";
   import { DIMENSIONS } from "$lib/dimensions";
   import type { BuildDetailData, BuildSummary } from "$lib/types";
 
@@ -62,7 +70,13 @@
   });
 
   const scoreDeltas = $derived(buildA && buildB ? computeScoreDeltas(buildA, buildB) : []);
+  const scoredDeltas = $derived(
+    scoreDeltas
+      .filter((row) => row.delta != null && row.dimension !== "composite_score")
+      .sort((a, b) => Math.abs(b.delta ?? 0) - Math.abs(a.delta ?? 0)),
+  );
   const slotDiffs = $derived(buildA && buildB ? computeSlotDiff(buildA.structure, buildB.structure) : []);
+  const curioDiff = $derived(buildA && buildB ? computeCurioPerkDiff(buildA, buildB) : null);
   const talentDiff = $derived(buildA && buildB ? computeSetDiff(talentEntries(buildA), talentEntries(buildB)) : null);
   const weaponDiff = $derived(buildA && buildB ? computeSetDiff(weaponEntries(buildA), weaponEntries(buildB)) : null);
   const synergyDiff = $derived(buildA && buildB ? computeSynergyEdgeDiff(buildA.synergy, buildB.synergy) : null);
@@ -78,6 +92,24 @@
         )
       : [],
   );
+  const selectionLabels = $derived.by(() => {
+    const labels = new Map<string, string>();
+    for (const detail of [buildA, buildB]) {
+      if (!detail) continue;
+      for (const [id, label] of buildSelectionLabelMap(detail).entries()) {
+        if (!labels.has(id)) labels.set(id, label);
+      }
+    }
+    return labels;
+  });
+  const curioDiffCounts = $derived.by(() => {
+    if (!curioDiff) return null;
+    return {
+      only_a: summarizeNameCounts(curioDiff.only_a),
+      shared: summarizeNameCounts(curioDiff.shared),
+      only_b: summarizeNameCounts(curioDiff.only_b),
+    };
+  });
 
   const buildBOptions = $derived.by(() => {
     if (!buildA || buildBSlug) return data.builds;
@@ -124,6 +156,14 @@
 
   function antiSynergyKey(entry: { type: string; selections: string[]; reason: string }): string {
     return `${entry.type}::${entry.reason}::${[...entry.selections].sort().join("|")}`;
+  }
+
+  function selectionText(values: string[]): string {
+    return formatSelectionList(values, selectionLabels).join(" → ");
+  }
+
+  function coverageText(values: string[]): string {
+    return values.length > 0 ? values.map((value) => formatCoverageLabel(value)).join(", ") : "\u2014";
   }
 
   async function syncUrl(nextA: string, nextB: string): Promise<void> {
@@ -352,6 +392,19 @@
       </div>
 
       <div class="space-y-2">
+        {#if scoredDeltas.length > 0}
+          <div class="rounded-xl border border-gray-800 bg-gray-950 px-4 py-3 text-sm">
+            <span class="text-gray-500">Biggest swing:</span>
+            <span class="ml-2 text-gray-100">{scoredDeltas[0].label}</span>
+            <span class="ml-2 font-medium {deltaColor(scoredDeltas[0].delta)}">{formatDelta(scoredDeltas[0].delta)}</span>
+            {#if scoredDeltas.length > 1}
+              <span class="ml-4 text-gray-500">Next:</span>
+              <span class="ml-2 text-gray-100">{scoredDeltas[1].label}</span>
+              <span class="ml-2 font-medium {deltaColor(scoredDeltas[1].delta)}">{formatDelta(scoredDeltas[1].delta)}</span>
+            {/if}
+          </div>
+        {/if}
+
         {#each DIMENSIONS as dimension}
           {@const delta = scoreDeltas.find((row) => row.dimension === dimension.scorecard_key)?.delta ?? null}
           <div class="grid gap-2 rounded-xl border border-gray-800 bg-gray-950 px-4 py-3 md:grid-cols-[minmax(0,1fr)_120px_minmax(0,1fr)] md:items-center">
@@ -383,6 +436,44 @@
                 {slot.label}: {slot.a.name ?? "\u2014"} → {slot.b.name ?? "\u2014"}
               </span>
             {/each}
+          </div>
+        </div>
+      {/if}
+
+      {#if curioDiff}
+        <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <div class="mb-3 text-sm font-medium text-gray-200">Curio Perk Diff</div>
+          <div class="grid gap-4 md:grid-cols-3">
+            <div>
+              <div class="mb-2 text-xs uppercase tracking-[0.18em] text-gray-500">Only in A</div>
+              <div class="space-y-2 text-sm text-gray-300">
+                {#each curioDiffCounts?.only_a ?? [] as entry}
+                  <div>{entry.name}{entry.count > 1 ? ` ×${entry.count}` : ""}</div>
+                {:else}
+                  <div class="text-gray-500">None</div>
+                {/each}
+              </div>
+            </div>
+            <div>
+              <div class="mb-2 text-xs uppercase tracking-[0.18em] text-gray-500">Shared</div>
+              <div class="space-y-2 text-sm text-gray-300">
+                {#each curioDiffCounts?.shared ?? [] as entry}
+                  <div>{entry.name}{entry.count > 1 ? ` ×${entry.count}` : ""}</div>
+                {:else}
+                  <div class="text-gray-500">None</div>
+                {/each}
+              </div>
+            </div>
+            <div>
+              <div class="mb-2 text-xs uppercase tracking-[0.18em] text-gray-500">Only in B</div>
+              <div class="space-y-2 text-sm text-gray-300">
+                {#each curioDiffCounts?.only_b ?? [] as entry}
+                  <div>{entry.name}{entry.count > 1 ? ` ×${entry.count}` : ""}</div>
+                {:else}
+                  <div class="text-gray-500">None</div>
+                {/each}
+              </div>
+            </div>
           </div>
         </div>
       {/if}
@@ -518,9 +609,9 @@
             <div class="space-y-3">
               {#each synergyDiff.only_a as edge}
                 <div class="rounded-lg border border-gray-800 bg-gray-900 px-3 py-2 text-sm">
-                  <div class="font-medium text-gray-100">{edge.type}</div>
-                  <div class="text-gray-400">{edge.selections.join(" → ")}</div>
-                  <div class="text-xs text-gray-500">{edge.families.join(", ")}</div>
+                  <div class="font-medium text-gray-100">{titleCase(edge.type)}</div>
+                  <div class="text-gray-400">{selectionText(edge.selections)}</div>
+                  <div class="text-xs text-gray-500">{coverageText(edge.families)}</div>
                 </div>
               {:else}
                 <div class="text-sm text-gray-500">None</div>
@@ -532,9 +623,9 @@
             <div class="space-y-3">
               {#each synergyDiff.shared as edge}
                 <div class="rounded-lg border border-gray-800 bg-gray-900 px-3 py-2 text-sm">
-                  <div class="font-medium text-gray-100">{edge.type}</div>
-                  <div class="text-gray-400">{edge.selections.join(" → ")}</div>
-                  <div class="text-xs text-gray-500">{edge.families.join(", ")}</div>
+                  <div class="font-medium text-gray-100">{titleCase(edge.type)}</div>
+                  <div class="text-gray-400">{selectionText(edge.selections)}</div>
+                  <div class="text-xs text-gray-500">{coverageText(edge.families)}</div>
                 </div>
               {:else}
                 <div class="text-sm text-gray-500">None</div>
@@ -546,9 +637,9 @@
             <div class="space-y-3">
               {#each synergyDiff.only_b as edge}
                 <div class="rounded-lg border border-gray-800 bg-gray-900 px-3 py-2 text-sm">
-                  <div class="font-medium text-gray-100">{edge.type}</div>
-                  <div class="text-gray-400">{edge.selections.join(" → ")}</div>
-                  <div class="text-xs text-gray-500">{edge.families.join(", ")}</div>
+                  <div class="font-medium text-gray-100">{titleCase(edge.type)}</div>
+                  <div class="text-gray-400">{selectionText(edge.selections)}</div>
+                  <div class="text-xs text-gray-500">{coverageText(edge.families)}</div>
                 </div>
               {:else}
                 <div class="text-sm text-gray-500">None</div>
@@ -583,17 +674,17 @@
         <div class="grid gap-4 md:grid-cols-2">
           <article class="rounded-xl border border-gray-800 bg-gray-950 p-4 text-sm">
             <h2 class="mb-3 font-medium text-gray-200">Coverage A</h2>
-            <div class="text-gray-400">Calc coverage: {buildA.synergy.metadata.calc_coverage_pct}%</div>
+            <div class="text-gray-400">Calc coverage: {formatCoverageFraction(buildA.synergy.metadata.calc_coverage_pct)}</div>
             <div class="text-gray-400">Entities analyzed: {buildA.synergy.metadata.entities_analyzed}</div>
-            <div class="text-gray-400">Build identity: {buildA.synergy.coverage.build_identity.join(", ") || "\u2014"}</div>
-            <div class="text-gray-400">Coverage gaps: {buildA.synergy.coverage.coverage_gaps.join(", ") || "\u2014"}</div>
+            <div class="text-gray-400">Build identity: {coverageText(buildA.synergy.coverage.build_identity)}</div>
+            <div class="text-gray-400">Coverage gaps: {coverageText(buildA.synergy.coverage.coverage_gaps)}</div>
           </article>
           <article class="rounded-xl border border-gray-800 bg-gray-950 p-4 text-sm">
             <h2 class="mb-3 font-medium text-gray-200">Coverage B</h2>
-            <div class="text-gray-400">Calc coverage: {buildB.synergy.metadata.calc_coverage_pct}%</div>
+            <div class="text-gray-400">Calc coverage: {formatCoverageFraction(buildB.synergy.metadata.calc_coverage_pct)}</div>
             <div class="text-gray-400">Entities analyzed: {buildB.synergy.metadata.entities_analyzed}</div>
-            <div class="text-gray-400">Build identity: {buildB.synergy.coverage.build_identity.join(", ") || "\u2014"}</div>
-            <div class="text-gray-400">Coverage gaps: {buildB.synergy.coverage.coverage_gaps.join(", ") || "\u2014"}</div>
+            <div class="text-gray-400">Build identity: {coverageText(buildB.synergy.coverage.build_identity)}</div>
+            <div class="text-gray-400">Coverage gaps: {coverageText(buildB.synergy.coverage.coverage_gaps)}</div>
           </article>
         </div>
       </section>

@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import type { BuildDetailData, BuildSummary } from "./types.ts";
 import {
   computeBreakpointDiff,
+  computeCurioPerkDiff,
   computeScoreDeltas,
   computeSetDiff,
   computeSlotDiff,
@@ -235,6 +236,30 @@ describe("computeSetDiff", () => {
         "shared.gadget_trait.gadget_toughness_increase::+17% Toughness",
         "shared.gadget_trait.gadget_toughness_increase::+5% Toughness",
       ],
+    );
+  });
+
+  it("computes curio perk diff without collapsing duplicate families", () => {
+    const a = makeDetail();
+    const b = makeDetail();
+    b.structure.curio_perks = [
+      { id: "shared.gadget_trait.gadget_toughness_increase", name: "+17% Toughness" },
+      { id: "shared.gadget_trait.gadget_health_increase", name: "+21% Health" },
+    ];
+
+    const diff = computeCurioPerkDiff(a, b);
+
+    assert.deepEqual(
+      diff.shared.map((entry) => entry.name),
+      ["+17% Toughness"],
+    );
+    assert.deepEqual(
+      diff.only_a.map((entry) => entry.name),
+      ["+5% Toughness"],
+    );
+    assert.deepEqual(
+      diff.only_b.map((entry) => entry.name),
+      ["+21% Health"],
     );
   });
 });

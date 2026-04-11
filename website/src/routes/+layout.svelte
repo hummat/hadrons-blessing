@@ -6,7 +6,7 @@
 
 <div class="min-h-screen flex flex-col">
   <header class="bg-gray-900 border-b border-gray-800 px-6 py-4">
-    <nav class="max-w-7xl mx-auto flex items-center gap-6">
+    <nav class="max-w-[110rem] mx-auto flex items-center gap-6">
       <a href="{base}/" class="text-xl font-bold text-amber-400 hover:text-amber-300 transition-colors">
         Hadron's Blessing
       </a>
@@ -14,7 +14,7 @@
     </nav>
   </header>
 
-  <main class="flex-1 max-w-7xl mx-auto w-full px-6 py-8">
+  <main class="flex-1 max-w-[110rem] mx-auto w-full px-5 py-8 xl:px-8">
     {@render children()}
   </main>
 

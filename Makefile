@@ -51,7 +51,7 @@ check: require-source-root build class-side-build edges-build effects-build bree
 	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run check
 
 # Website
-.PHONY: website-data website-build website-dev
+.PHONY: website-data website-build website-dev website-preview website-smoke
 
 website-data: build
 	cd website && npx tsx scripts/generate-data.ts
@@ -61,3 +61,9 @@ website-build: website-data
 
 website-dev:
 	cd website && npm run dev
+
+website-preview:
+	cd website && npm run preview -- --host "$${HB_WEBSITE_HOST:-127.0.0.1}" --port "$${HB_WEBSITE_PORT:-4173}"
+
+website-smoke:
+	./scripts/website-smoke.sh $(ARGS)
