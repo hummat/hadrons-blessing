@@ -89,6 +89,9 @@ Resume from the website / calculator / payload cleanup pass that followed the GL
 - `npx tsx --test src/lib/extract-damage-profiles.test.ts`
 - `npx tsx --test src/lib/score-build.test.ts`
 - `npm run build`
+- `GROUND_TRUTH_SOURCE_ROOT=$(<.source-root) npm run calc:freeze`
+- `GROUND_TRUTH_SOURCE_ROOT=$(<.source-root) npx tsx --test src/lib/damage-calculator.test.ts`
+- `GROUND_TRUTH_SOURCE_ROOT=$(<.source-root) npm test`
 - `npm run score:freeze`
 - `cd website && npx tsx scripts/generate-data.ts`
 - `cd website && npm test`
@@ -109,15 +112,13 @@ Artifacts in `output/playwright/` include:
 - `ui-final-detail.png`
 - `ui-final-compare.png`
 
-### Important caveat
-- Full root `npm test` is **not** currently a clean gate, but not because of the null-perk fix.
-- It is failing in the `calc snapshot regression` suite due to older breakpoint snapshot drift from the earlier extractor/breakpoint work.
-- If you want a clean top-level gate before commit, refresh calc snapshots or isolate those extractor changes into a dedicated follow-up.
+### Root test gate
+- The earlier calc snapshot drift caveat is resolved.
+- `GROUND_TRUTH_SOURCE_ROOT=$(<.source-root) npm test` is now a clean top-level gate again after refreshing the frozen calc snapshots under `tests/fixtures/ground-truth/calc/`.
 
 ## Next Steps
 1. If continuing implementation next, the best queued tasks are:
    - `#22` unsupported ranged family calculator support
    - or `#25` hover detail system
    - or `#26` broader website redesign spec/implementation
-2. If requiring a clean root test gate before any further backend commit, address the calc snapshot drift first.
-3. Push only when explicitly requested.
+2. Push only when explicitly requested.
