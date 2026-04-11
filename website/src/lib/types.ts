@@ -71,7 +71,7 @@ export interface ScorecardPerk {
 
 export interface ScorecardWeaponPerks {
   score: number;
-  perks: Array<ScorecardPerk | null>;
+  perks: ScorecardPerk[];
 }
 
 export interface ScorecardBlessing {

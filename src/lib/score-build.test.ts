@@ -128,6 +128,22 @@ describe("scoreWeaponPerks", () => {
     const result = scoreWeaponPerks(weapon, "melee");
     assert.equal(result.score, 1);
   });
+
+  it("drops unparseable or unknown perks from the emitted perk list", () => {
+    const weapon = {
+      name: "Some Ranged Weapon",
+      perks: ["gibberish text", "5-10% Reload Speed"],
+    };
+    const result = scoreWeaponPerks(weapon, "ranged");
+    assert.equal(result.score, 5);
+    assert.deepEqual(result.perks, [
+      {
+        name: "Reload Speed",
+        tier: 4,
+        value: 0.1,
+      },
+    ]);
+  });
 });
 
 describe("scoreBlessings", () => {
@@ -356,6 +372,30 @@ describe("scoreCurios", () => {
 });
 
 describe("generateScorecard", () => {
+  it("does not emit null weapon perk placeholders in scorecard payloads", () => {
+    const result = generateScorecard({
+      title: "Null perk regression",
+      class: "zealot",
+      weapons: [
+        {
+          name: "Artemia Mk III Purgation Flamer",
+          perks: ["Unknown perk 1", "20-25% Damage (Unyielding)"],
+          blessings: [],
+        },
+      ],
+      curios: [],
+      talents: {},
+    });
+
+    assert.deepEqual(result.weapons[0].perks.perks, [
+      {
+        name: "Damage (Unyielding)",
+        tier: 4,
+        value: 0.25,
+      },
+    ]);
+  });
+
   it("preserves canonical metadata for BetterBots content item paths", () => {
     const result = generateScorecard({
       title: "BetterBots profile sample",

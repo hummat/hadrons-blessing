@@ -31,7 +31,7 @@ interface PerkValue {
 
 interface WeaponPerkResult {
   score: number;
-  perks: Array<ScoredPerk | null>;
+  perks: ScoredPerk[];
 }
 
 interface BlessingResult {
@@ -327,23 +327,21 @@ export function scoreWeaponPerks(weapon: WeaponInput, slot: string): WeaponPerkR
     return { score: 1, perks: [] };
   }
 
-  const scored: Array<ScoredPerk | null> = [];
+  const scored: ScoredPerk[] = [];
   for (const perkStr of weapon.perks) {
     const parsed = parsePerkString(perkStr);
     if (!parsed) {
-      scored.push(null);
       continue;
     }
     const result = scorePerk(parsed.name, parsed.max, slot);
-    scored.push(result);
+    if (result) scored.push(result);
   }
 
-  const valid = scored.filter((p): p is ScoredPerk => p !== null);
-  if (valid.length === 0) {
+  if (scored.length === 0) {
     return { score: 1, perks: scored };
   }
 
-  const avgTier = valid.reduce((sum, p) => sum + p.tier, 0) / valid.length;
+  const avgTier = scored.reduce((sum, p) => sum + p.tier, 0) / scored.length;
 
   let score: number;
   if (avgTier >= 4) {
@@ -773,8 +771,8 @@ export function generateScorecard(
       } else {
         const rangedResult = scoreWeaponPerks(normalizedWeapon, "ranged");
         const meleeResult = scoreWeaponPerks(normalizedWeapon, "melee");
-        const rangedResolved = rangedResult.perks.filter((p) => p !== null).length;
-        const meleeResolved = meleeResult.perks.filter((p) => p !== null).length;
+        const rangedResolved = rangedResult.perks.length;
+        const meleeResolved = meleeResult.perks.length;
         perkResult = rangedResolved >= meleeResolved ? rangedResult : meleeResult;
       }
     }

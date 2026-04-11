@@ -46,7 +46,7 @@ interface WeaponReport {
   slot: string | null;
   entity_id: string | null;
   perk_score: number | null;
-  perks: Array<PerkDescriptor | null>;
+  perks: PerkDescriptor[];
   blessings: BlessingDescriptor[];
 }
 
@@ -186,10 +186,11 @@ export async function generateReport(buildPath: string): Promise<BuildReport> {
   const weapons: WeaponReport[] = ((build.weapons as Array<Record<string, unknown>>) ?? []).map((buildWeapon, weaponIndex) => {
     const scorecardWeapon = scorecard.weapons[weaponIndex];
 
-    const perks: Array<PerkDescriptor | null> = ((scorecardWeapon?.perks?.perks ?? []) as Array<{ name: string; tier: number; value: number } | null>).map((p) => {
-      if (p == null) return null;
-      return { name: p.name, tier: p.tier, value: p.value };
-    });
+    const perks: PerkDescriptor[] = ((scorecardWeapon?.perks?.perks ?? []) as Array<{ name: string; tier: number; value: number }>).map((p) => ({
+      name: p.name,
+      tier: p.tier,
+      value: p.value,
+    }));
 
     const blessings: BlessingDescriptor[] = ((scorecardWeapon?.blessings?.blessings ?? []) as Array<{ name: string; known: boolean }>).map((b) => ({
       label: b.name,

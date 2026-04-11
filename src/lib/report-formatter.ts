@@ -28,7 +28,7 @@ export interface ReportBlessing {
 export interface ReportWeapon {
   slot: string | null;
   name: string;
-  perks: (ReportPerk | null)[];
+  perks: ReportPerk[];
   blessings: ReportBlessing[];
 }
 
