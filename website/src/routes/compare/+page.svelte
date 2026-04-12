@@ -256,14 +256,14 @@
   <title>Compare Builds — Hadron's Blessing</title>
 </svelte:head>
 
-<div class="space-y-6">
+<div class="page-stack page-stack--tight">
   <div class="space-y-3">
-    <a href={`${base}/`} class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-amber-300 transition-colors">
+    <a href={`${base}/`} class="crumb-link inline-flex items-center gap-2">
       <span aria-hidden="true">←</span>
       Back to builds
     </a>
     <div class="flex flex-wrap items-center gap-3">
-      <h1 class="text-2xl font-bold text-gray-50">Compare Builds</h1>
+      <h1 class="page-title">Compare Builds</h1>
       {#if buildA && buildB && buildA.summary.class !== buildB.summary.class}
         <span class="rounded-full border border-amber-800 bg-amber-950/40 px-3 py-1 text-xs uppercase tracking-[0.18em] text-amber-200">
           Cross-class comparison
@@ -277,14 +277,14 @@
     </div>
   </div>
 
-  <section class="rounded-2xl border border-gray-800 bg-gray-900 p-5">
+  <section class="panel-strong selection-tray p-5">
     <div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-end">
-      <label class="space-y-2">
-        <span class="text-sm font-medium text-gray-300">Build A</span>
+      <label class="field-stack">
+        <span class="field-label">Build A</span>
         <select
           bind:value={buildASlug}
           onchange={() => void syncUrl(buildASlug, buildBSlug)}
-          class="w-full rounded-lg border border-gray-700 bg-gray-950 px-3 py-2 text-sm text-gray-100 focus:border-amber-600 focus:outline-none"
+          class="form-control w-full"
         >
           <option value="">Select build…</option>
           {#each data.builds as build}
@@ -296,17 +296,17 @@
       <button
         type="button"
         onclick={() => void updateBuilds(buildBSlug, buildASlug)}
-        class="rounded-lg border border-gray-700 bg-gray-950 px-4 py-2 text-sm text-gray-200 transition-colors hover:border-amber-700 hover:text-amber-200"
+        class="button-secondary"
       >
         Swap A ↔ B
       </button>
 
-      <label class="space-y-2">
-        <span class="text-sm font-medium text-gray-300">Build B</span>
+      <label class="field-stack">
+        <span class="field-label">Build B</span>
         <select
           bind:value={buildBSlug}
           onchange={() => void syncUrl(buildASlug, buildBSlug)}
-          class="w-full rounded-lg border border-gray-700 bg-gray-950 px-3 py-2 text-sm text-gray-100 focus:border-amber-600 focus:outline-none"
+          class="form-control w-full"
         >
           <option value="">Select build…</option>
           {#each buildBOptions as build}
@@ -318,7 +318,7 @@
   </section>
 
   {#if loadingA && loadingB && !buildA && !buildB}
-    <div class="rounded-2xl border border-gray-800 bg-gray-900 px-6 py-10 text-center text-gray-400">
+    <div class="panel px-6 py-10 text-center text-gray-400">
       Loading builds...
     </div>
   {/if}
@@ -336,9 +336,9 @@
   </div>
 
   {#if activeTab === "overview"}
-    <section class="space-y-4 rounded-2xl border border-gray-800 bg-gray-900 p-5">
+    <section class="panel space-y-4 p-5">
       <div class="grid gap-4 md:grid-cols-[minmax(0,1fr)_120px_minmax(0,1fr)]">
-        <article class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+        <article class="panel-muted p-4">
           {#if buildA}
             <div class="space-y-3">
               <div class="flex flex-wrap items-center gap-3">
@@ -365,7 +365,7 @@
 
         <div class="hidden md:block"></div>
 
-        <article class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+        <article class="panel-muted p-4">
           {#if buildB}
             <div class="space-y-3">
               <div class="flex flex-wrap items-center gap-3">
@@ -393,7 +393,7 @@
 
       <div class="space-y-2">
         {#if scoredDeltas.length > 0}
-          <div class="rounded-xl border border-gray-800 bg-gray-950 px-4 py-3 text-sm">
+          <div class="panel-muted px-4 py-3 text-sm">
             <span class="text-gray-500">Biggest swing:</span>
             <span class="ml-2 text-gray-100">{scoredDeltas[0].label}</span>
             <span class="ml-2 font-medium {deltaColor(scoredDeltas[0].delta)}">{formatDelta(scoredDeltas[0].delta)}</span>
@@ -407,7 +407,7 @@
 
         {#each DIMENSIONS as dimension}
           {@const delta = scoreDeltas.find((row) => row.dimension === dimension.scorecard_key)?.delta ?? null}
-          <div class="grid gap-2 rounded-xl border border-gray-800 bg-gray-950 px-4 py-3 md:grid-cols-[minmax(0,1fr)_120px_minmax(0,1fr)] md:items-center">
+          <div class="panel-muted grid gap-2 px-4 py-3 md:grid-cols-[minmax(0,1fr)_120px_minmax(0,1fr)] md:items-center">
             <div class="flex items-center justify-between gap-3">
               <span class="text-sm text-gray-400">{dimension.label}</span>
               <span class="tabular-nums {scoreColor(scoreValue(buildA, dimension.summary_key))}">
@@ -428,7 +428,7 @@
       </div>
 
       {#if slotDiffs.length > 0}
-        <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+        <div class="panel-muted p-4">
           <div class="mb-3 text-sm font-medium text-gray-200">Slot Diff Summary</div>
           <div class="flex flex-wrap gap-2 text-sm">
             {#each slotDiffs as slot}
@@ -441,7 +441,7 @@
       {/if}
 
       {#if curioDiff}
-        <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+        <div class="panel-muted p-4">
           <div class="mb-3 text-sm font-medium text-gray-200">Curio Perk Diff</div>
           <div class="grid gap-4 md:grid-cols-3">
             <div>
@@ -482,9 +482,9 @@
 
   {#if activeTab === "talents"}
     {#if talentDiff}
-      <section class="space-y-4 rounded-2xl border border-gray-800 bg-gray-900 p-5">
+      <section class="panel space-y-4 p-5">
         <div class="grid gap-4 md:grid-cols-3">
-          <article class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <article class="panel-muted p-4">
             <h2 class="mb-3 text-sm font-medium text-gray-200">Only in A</h2>
             <div class="space-y-2 text-sm text-gray-300">
               {#each talentDiff.only_a as entry}
@@ -494,7 +494,7 @@
               {/each}
             </div>
           </article>
-          <article class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <article class="panel-muted p-4">
             <h2 class="mb-3 text-sm font-medium text-gray-200">Shared</h2>
             <div class="space-y-2 text-sm text-gray-300">
               {#each talentDiff.shared as entry}
@@ -504,7 +504,7 @@
               {/each}
             </div>
           </article>
-          <article class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <article class="panel-muted p-4">
             <h2 class="mb-3 text-sm font-medium text-gray-200">Only in B</h2>
             <div class="space-y-2 text-sm text-gray-300">
               {#each talentDiff.only_b as entry}
@@ -518,7 +518,7 @@
 
         <div class="grid gap-2 md:grid-cols-2">
           {#each slotDiffs as slot}
-            <div class="rounded-xl border border-gray-800 bg-gray-950 px-4 py-3 text-sm">
+            <div class="panel-muted px-4 py-3 text-sm">
               <div class="font-medium text-gray-200">{slot.label}</div>
               <div class="mt-1 text-gray-400">A: {slot.a.name ?? "\u2014"}</div>
               <div class="text-gray-400">B: {slot.b.name ?? "\u2014"}</div>
@@ -527,7 +527,7 @@
         </div>
       </section>
     {:else}
-      <div class="rounded-2xl border border-gray-800 bg-gray-900 px-6 py-10 text-center text-gray-400">
+      <div class="panel px-6 py-10 text-center text-gray-400">
         Select two builds to compare talents.
       </div>
     {/if}
@@ -535,9 +535,9 @@
 
   {#if activeTab === "weapons"}
     {#if weaponDiff}
-      <section class="space-y-4 rounded-2xl border border-gray-800 bg-gray-900 p-5">
+      <section class="panel space-y-4 p-5">
         <div class="grid gap-4 md:grid-cols-3">
-          <article class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <article class="panel-muted p-4">
             <h2 class="mb-3 text-sm font-medium text-gray-200">Only in A</h2>
             <div class="space-y-3">
               {#each weaponDiff.only_a as weapon}
@@ -550,7 +550,7 @@
               {/each}
             </div>
           </article>
-          <article class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <article class="panel-muted p-4">
             <h2 class="mb-3 text-sm font-medium text-gray-200">Shared</h2>
             <div class="space-y-3">
               {#each weaponDiff.shared as weapon}
@@ -576,7 +576,7 @@
               {/each}
             </div>
           </article>
-          <article class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <article class="panel-muted p-4">
             <h2 class="mb-3 text-sm font-medium text-gray-200">Only in B</h2>
             <div class="space-y-3">
               {#each weaponDiff.only_b as weapon}
@@ -592,7 +592,7 @@
         </div>
       </section>
     {:else}
-      <div class="rounded-2xl border border-gray-800 bg-gray-900 px-6 py-10 text-center text-gray-400">
+      <div class="panel px-6 py-10 text-center text-gray-400">
         Select two builds to compare weapons.
       </div>
     {/if}
@@ -602,9 +602,9 @@
     {#if buildA && buildB && synergyDiff}
       {@const antiA = buildA.synergy.anti_synergies.filter((entry) => !buildB.synergy.anti_synergies.some((other) => antiSynergyKey(other) === antiSynergyKey(entry)))}
       {@const antiB = buildB.synergy.anti_synergies.filter((entry) => !buildA.synergy.anti_synergies.some((other) => antiSynergyKey(other) === antiSynergyKey(entry)))}
-      <section class="space-y-4 rounded-2xl border border-gray-800 bg-gray-900 p-5">
+      <section class="panel space-y-4 p-5">
         <div class="grid gap-4 md:grid-cols-3">
-          <article class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <article class="panel-muted p-4">
             <h2 class="mb-3 text-sm font-medium text-gray-200">Only in A</h2>
             <div class="space-y-3">
               {#each synergyDiff.only_a as edge}
@@ -618,7 +618,7 @@
               {/each}
             </div>
           </article>
-          <article class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <article class="panel-muted p-4">
             <h2 class="mb-3 text-sm font-medium text-gray-200">Shared</h2>
             <div class="space-y-3">
               {#each synergyDiff.shared as edge}
@@ -632,7 +632,7 @@
               {/each}
             </div>
           </article>
-          <article class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <article class="panel-muted p-4">
             <h2 class="mb-3 text-sm font-medium text-gray-200">Only in B</h2>
             <div class="space-y-3">
               {#each synergyDiff.only_b as edge}
@@ -649,7 +649,7 @@
         </div>
 
         <div class="grid gap-4 md:grid-cols-2">
-          <article class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <article class="panel-muted p-4">
             <h2 class="mb-3 text-sm font-medium text-gray-200">Anti-Synergies Only in A</h2>
             <div class="space-y-2 text-sm text-gray-300">
               {#each antiA as entry}
@@ -659,7 +659,7 @@
               {/each}
             </div>
           </article>
-          <article class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <article class="panel-muted p-4">
             <h2 class="mb-3 text-sm font-medium text-gray-200">Anti-Synergies Only in B</h2>
             <div class="space-y-2 text-sm text-gray-300">
               {#each antiB as entry}
@@ -672,14 +672,14 @@
         </div>
 
         <div class="grid gap-4 md:grid-cols-2">
-          <article class="rounded-xl border border-gray-800 bg-gray-950 p-4 text-sm">
+          <article class="panel-muted p-4 text-sm">
             <h2 class="mb-3 font-medium text-gray-200">Coverage A</h2>
             <div class="text-gray-400">Calc coverage: {formatCoverageFraction(buildA.synergy.metadata.calc_coverage_pct)}</div>
             <div class="text-gray-400">Entities analyzed: {buildA.synergy.metadata.entities_analyzed}</div>
             <div class="text-gray-400">Build identity: {coverageText(buildA.synergy.coverage.build_identity)}</div>
             <div class="text-gray-400">Coverage gaps: {coverageText(buildA.synergy.coverage.coverage_gaps)}</div>
           </article>
-          <article class="rounded-xl border border-gray-800 bg-gray-950 p-4 text-sm">
+          <article class="panel-muted p-4 text-sm">
             <h2 class="mb-3 font-medium text-gray-200">Coverage B</h2>
             <div class="text-gray-400">Calc coverage: {formatCoverageFraction(buildB.synergy.metadata.calc_coverage_pct)}</div>
             <div class="text-gray-400">Entities analyzed: {buildB.synergy.metadata.entities_analyzed}</div>
@@ -689,7 +689,7 @@
         </div>
       </section>
     {:else}
-      <div class="rounded-2xl border border-gray-800 bg-gray-900 px-6 py-10 text-center text-gray-400">
+      <div class="panel px-6 py-10 text-center text-gray-400">
         Select two builds to compare synergy.
       </div>
     {/if}
@@ -697,19 +697,19 @@
 
   {#if activeTab === "breakpoints"}
     {#if buildA && buildB}
-      <section class="space-y-4 rounded-2xl border border-gray-800 bg-gray-900 p-5">
+      <section class="panel space-y-4 p-5">
         <div class="flex flex-wrap gap-3">
           <label class="space-y-1">
-            <span class="text-xs uppercase tracking-[0.18em] text-gray-500">Scenario</span>
-            <select bind:value={selectedScenario} class="rounded-lg border border-gray-700 bg-gray-950 px-3 py-2 text-sm text-gray-100 focus:border-amber-600 focus:outline-none">
+            <span class="field-label">Scenario</span>
+            <select bind:value={selectedScenario} class="form-control">
               {#each availableScenarios as scenario}
                 <option value={scenario}>{titleCase(scenario)}</option>
               {/each}
             </select>
           </label>
           <label class="space-y-1">
-            <span class="text-xs uppercase tracking-[0.18em] text-gray-500">Difficulty</span>
-            <select bind:value={selectedDifficulty} class="rounded-lg border border-gray-700 bg-gray-950 px-3 py-2 text-sm text-gray-100 focus:border-amber-600 focus:outline-none">
+            <span class="field-label">Difficulty</span>
+            <select bind:value={selectedDifficulty} class="form-control">
               {#each DIFFICULTIES as difficulty}
                 <option value={difficulty}>{titleCase(difficulty)}</option>
               {/each}
@@ -761,7 +761,7 @@
         <p class="text-sm text-gray-400">Lower HTK is better. Green delta = Build B kills faster.</p>
       </section>
     {:else}
-      <div class="rounded-2xl border border-gray-800 bg-gray-900 px-6 py-10 text-center text-gray-400">
+      <div class="panel px-6 py-10 text-center text-gray-400">
         Select two builds to compare breakpoints.
       </div>
     {/if}

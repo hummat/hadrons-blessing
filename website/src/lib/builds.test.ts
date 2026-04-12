@@ -13,29 +13,29 @@ describe("buildSlugFromFile", () => {
 });
 
 describe("scoreColor", () => {
-  it("maps high scores to green", () => {
-    assert.equal(scoreColor(5), "text-emerald-400");
+  it("maps high scores to semantic high-score class", () => {
+    assert.equal(scoreColor(5), "score-value score-value--high");
   });
 
-  it("maps null scores to muted gray", () => {
-    assert.equal(scoreColor(null), "text-gray-600");
+  it("maps null scores to semantic muted class", () => {
+    assert.equal(scoreColor(null), "score-value score-value--null");
   });
 });
 
 describe("htkCellClass", () => {
-  it("marks 1 HTK as green", () => {
-    assert.equal(htkCellClass(1), "bg-emerald-950/50 text-emerald-300");
+  it("marks 1 HTK as best semantic class", () => {
+    assert.equal(htkCellClass(1), "htk-cell htk-cell--best");
   });
 
-  it("marks 2 HTK as yellow", () => {
-    assert.equal(htkCellClass(2), "bg-yellow-950/50 text-yellow-300");
+  it("marks 2 HTK as mid semantic class", () => {
+    assert.equal(htkCellClass(2), "htk-cell htk-cell--mid");
   });
 
-  it("marks 3+ HTK as red", () => {
-    assert.equal(htkCellClass(4), "bg-red-950/50 text-red-300");
+  it("marks 3+ HTK as worst semantic class", () => {
+    assert.equal(htkCellClass(4), "htk-cell htk-cell--worst");
   });
 
-  it("marks unknown HTK as gray", () => {
-    assert.equal(htkCellClass(null), "bg-gray-900 text-gray-500");
+  it("marks unknown HTK as null semantic class", () => {
+    assert.equal(htkCellClass(null), "htk-cell htk-cell--null");
   });
 });

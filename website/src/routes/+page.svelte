@@ -102,28 +102,27 @@
   <title>Builds — Hadron's Blessing</title>
 </svelte:head>
 
-<div class="space-y-4 mb-6">
-  <div class="flex flex-wrap items-end justify-between gap-4">
+<div class="page-stack page-stack--tight">
+  <div class="page-heading">
     <div>
-      <h1 class="text-2xl font-bold text-gray-50">Builds</h1>
-      <p class="mt-1 text-sm text-gray-400">
+      <h1 class="page-title">Builds</h1>
+      <p class="page-subtitle">
         Browse the current fixture corpus, filter quickly, then compare two builds side by side.
       </p>
     </div>
-    <span class="text-gray-500 text-sm">
+    <span class="page-meta">
       {filtered.length} of {data.builds.length} builds
     </span>
   </div>
 
-  <section class="rounded-2xl border border-gray-800 bg-gray-900/90 p-4">
-    <div class="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
-      <div class="flex flex-1 flex-wrap gap-3">
-        <label class="space-y-1">
-          <span class="text-[11px] uppercase tracking-[0.18em] text-gray-500">Class</span>
+  <section class="panel control-surface">
+    <div class="control-surface__row">
+      <div class="control-cluster">
+        <label class="field-stack">
+          <span class="field-label">Class</span>
           <select
             bind:value={classFilter}
-            class="bg-gray-950 border border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-100
-                 focus:outline-none focus:border-amber-600"
+            class="form-control"
           >
             <option value="">All Classes</option>
             {#each CLASSES as cls}
@@ -132,23 +131,21 @@
           </select>
         </label>
 
-        <label class="space-y-1">
-          <span class="text-[11px] uppercase tracking-[0.18em] text-gray-500">Weapon</span>
+        <label class="field-stack">
+          <span class="field-label">Weapon</span>
           <input
             type="text"
             bind:value={weaponFilter}
             placeholder="Search weapon name..."
-            class="bg-gray-950 border border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-100 w-56
-                 focus:outline-none focus:border-amber-600"
+            class="form-control form-control--wide"
           />
         </label>
 
-        <label class="space-y-1">
-          <span class="text-[11px] uppercase tracking-[0.18em] text-gray-500">Minimum Grade</span>
+        <label class="field-stack">
+          <span class="field-label">Minimum Grade</span>
           <select
             bind:value={gradeFilter}
-            class="bg-gray-950 border border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-100
-                 focus:outline-none focus:border-amber-600"
+            class="form-control"
           >
             <option value="">Any Grade</option>
             {#each GRADES as grade}
@@ -161,23 +158,23 @@
           <button
             type="button"
             onclick={clearFilters}
-            class="self-end rounded-lg border border-gray-700 bg-gray-950 px-3 py-2 text-sm text-gray-300 transition-colors hover:border-gray-600 hover:text-gray-100"
+            class="button-secondary self-end"
           >
             Clear filters
           </button>
         {/if}
       </div>
 
-      <div class="flex min-w-72 items-center justify-between gap-4 rounded-xl border border-gray-800 bg-gray-950 px-4 py-3">
+      <div class="panel-muted compare-callout">
         <div>
-          <div class="text-[11px] uppercase tracking-[0.18em] text-gray-500">Compare</div>
-          <div class="mt-1 text-sm text-gray-300">{compareCountLabel}</div>
+          <div class="field-label">Compare</div>
+          <div class="compare-callout__copy">{compareCountLabel}</div>
         </div>
         <button
           type="button"
           onclick={() => void compareSelected()}
           disabled={!compareReady}
-          class="rounded-lg border px-3 py-2 text-sm transition-colors {compareReady ? 'border-amber-700 bg-amber-950/40 text-amber-200 hover:bg-amber-950/60' : 'border-gray-800 bg-gray-900 text-gray-600'}"
+          class={compareReady ? "button-primary" : "button-disabled"}
         >
           Compare selected
         </button>
@@ -187,10 +184,10 @@
 </div>
 
 <!-- Scorecard Table -->
-<div class="overflow-x-auto rounded-lg border border-gray-800">
-  <table class="w-full text-sm">
+<div class="panel data-table-wrap">
+  <table class="data-table">
     <thead>
-      <tr class="sticky top-0 z-10 bg-gray-900/95 text-gray-400 text-left backdrop-blur">
+      <tr class="text-left">
         <th class="px-3 py-3 font-medium text-center">Cmp</th>
         <th class="px-4 py-3 font-medium">Build</th>
         <th class="px-3 py-3 font-medium">Class</th>
@@ -198,7 +195,7 @@
         {#each COLUMNS as col}
           <th class="px-2 py-3 font-medium whitespace-nowrap">
             <button
-              class="hover:text-gray-200 transition-colors"
+              class="data-table__sort"
               onclick={() => toggleSort(col.key)}
             >
               <span class="hidden lg:inline">{col.label}</span>
@@ -212,17 +209,17 @@
         <th class="px-3 py-3 font-medium text-center">Grade</th>
       </tr>
     </thead>
-    <tbody class="divide-y divide-gray-900">
+    <tbody>
       {#each filtered as build (build.file)}
         {@const slug = buildSlugFromFile(build.file)}
-        <tr class="{selectedBuilds.includes(slug) ? 'bg-amber-950/10' : ''} hover:bg-gray-900/40 transition-colors">
+        <tr class={selectedBuilds.includes(slug) ? "bg-amber-950/10" : ""}>
           <td class="px-3 py-3 text-center">
             <input
               type="checkbox"
               checked={selectedBuilds.includes(slug)}
               disabled={!selectedBuilds.includes(slug) && selectedBuilds.length >= 2}
               onchange={() => toggleSelected(slug)}
-              class="h-4 w-4 rounded border-gray-700 bg-gray-900 text-amber-500 focus:ring-amber-600"
+              class="h-4 w-4 rounded border-gray-700 bg-gray-950 text-amber-500 focus:ring-amber-600"
             />
           </td>
           <td class="px-4 py-3 font-medium whitespace-nowrap">

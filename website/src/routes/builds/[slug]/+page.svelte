@@ -191,23 +191,23 @@
   <title>{data.detail.summary.title} — Hadron's Blessing</title>
 </svelte:head>
 
-<div class="space-y-8">
+<div class="page-stack">
   <div class="space-y-4">
     <div class="flex flex-wrap items-center gap-4">
-      <a href={`${base}/`} class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-amber-300 transition-colors">
+      <a href={`${base}/`} class="crumb-link inline-flex items-center gap-2">
         <span aria-hidden="true">←</span>
         Back to builds
       </a>
-      <a href={`${base}/compare?builds=${data.detail.slug},`} class="text-sm text-gray-400 hover:text-amber-300 transition-colors">
+      <a href={`${base}/compare?builds=${data.detail.slug},`} class="crumb-link">
         Compare with...
       </a>
     </div>
 
-    <section class="rounded-2xl border border-gray-800 bg-gray-900 px-6 py-6">
+    <section class="panel-strong hero-panel px-6 py-6">
       <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div class="space-y-3">
           <div class="flex flex-wrap items-center gap-3 text-sm">
-            <span class="rounded-full border border-gray-800 bg-gray-950 px-3 py-1 {CLASS_COLORS[data.detail.summary.class] ?? 'text-gray-300'}">
+            <span class="panel-muted px-3 py-1 {CLASS_COLORS[data.detail.summary.class] ?? 'text-gray-300'}">
               {titleCase(data.detail.summary.class)}
             </span>
             {#if data.detail.summary.ability}
@@ -226,7 +226,7 @@
           </div>
         </div>
 
-        <div class="rounded-xl border border-gray-800 bg-gray-950 px-4 py-3 text-right">
+        <div class="panel-muted px-4 py-3 text-right">
           <div class="text-xs uppercase tracking-[0.2em] text-gray-500">Grade</div>
           <div class="mt-2 flex items-center justify-end gap-3">
             <span class="inline-block rounded border px-3 py-1 text-lg font-bold {GRADE_STYLES[data.detail.summary.scores.grade] ?? ''}">
@@ -244,24 +244,24 @@
 
   <section class="space-y-4">
     <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-      <article class="rounded-2xl border border-gray-800 bg-gray-900 p-4">
+      <article class="panel p-4">
         <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Weapons</div>
         <div class="mt-2 text-2xl font-bold text-gray-100">{data.detail.summary.weapons.length}</div>
         <p class="mt-2 text-sm text-gray-400">{data.detail.summary.weapons.map((weapon) => weapon.name).join(" / ")}</p>
       </article>
-      <article class="rounded-2xl border border-gray-800 bg-gray-900 p-4">
+      <article class="panel p-4">
         <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Synergy Edges</div>
         <div class="mt-2 text-2xl font-bold text-gray-100">{data.detail.synergy.synergy_edges.length}</div>
         <p class="mt-2 text-sm text-gray-400">
           {data.detail.synergy.anti_synergies.length} anti-synergies · {data.detail.synergy.orphans.length} isolated picks
         </p>
       </article>
-      <article class="rounded-2xl border border-gray-800 bg-gray-900 p-4">
+      <article class="panel p-4">
         <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Calc Coverage</div>
         <div class="mt-2 text-2xl font-bold text-gray-100">{formatCoverageFraction(data.detail.synergy.metadata.calc_coverage_pct)}</div>
         <p class="mt-2 text-sm text-gray-400">{data.detail.synergy.metadata.unique_entities_with_calc} entities with calculator support</p>
       </article>
-      <article class="rounded-2xl border border-gray-800 bg-gray-900 p-4">
+      <article class="panel p-4">
         <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Build Identity</div>
         <div class="mt-2 text-base font-semibold text-gray-100">
           {coverageLabels(data.detail.synergy.coverage.build_identity)}
@@ -276,35 +276,35 @@
     </div>
 
     <div class="grid gap-4 xl:grid-cols-[1.1fr_1.4fr]">
-      <article class="rounded-2xl border border-gray-800 bg-gray-900 p-5">
+      <article class="panel p-5">
         <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Core Slots</h3>
         <div class="mt-4 grid gap-3 sm:grid-cols-2">
-          <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <div class="panel-muted p-4">
             <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Ability</div>
             <div class="mt-2 text-sm text-gray-100">{data.detail.structure.slots.ability.name ?? "\u2014"}</div>
           </div>
-          <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <div class="panel-muted p-4">
             <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Blitz</div>
             <div class="mt-2 text-sm text-gray-100">{data.detail.structure.slots.blitz.name ?? "\u2014"}</div>
           </div>
-          <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <div class="panel-muted p-4">
             <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Aura</div>
             <div class="mt-2 text-sm text-gray-100">{data.detail.structure.slots.aura.name ?? "\u2014"}</div>
           </div>
-          <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+          <div class="panel-muted p-4">
             <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Keystone</div>
             <div class="mt-2 text-sm text-gray-100">{data.detail.structure.slots.keystone.name ?? "\u2014"}</div>
           </div>
         </div>
       </article>
 
-      <article class="rounded-2xl border border-gray-800 bg-gray-900 p-5">
+      <article class="panel p-5">
         <div class="grid gap-5 lg:grid-cols-2">
           <div>
             <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Talents</h3>
             <div class="mt-4 flex flex-wrap gap-2">
               {#each data.detail.structure.talents as talent}
-                <span class="rounded-full border border-gray-800 bg-gray-950 px-3 py-1 text-sm text-gray-200">
+                <span class="panel-muted px-3 py-1 text-sm text-gray-200">
                   {talent.name}
                 </span>
               {:else}
@@ -317,7 +317,7 @@
             <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Curio Perks</h3>
             <div class="mt-4 flex flex-wrap gap-2">
               {#each data.detail.structure.curio_perks as perk}
-                <span class="rounded-full border border-gray-800 bg-gray-950 px-3 py-1 text-sm text-gray-200">
+                <span class="panel-muted px-3 py-1 text-sm text-gray-200">
                   {perk.name}
                 </span>
               {:else}
@@ -338,7 +338,7 @@
 
     <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
       {#each dimensionCards as card}
-        <article class="rounded-2xl border border-gray-800 bg-gray-900 p-4">
+        <article class="panel p-4">
           <div class="text-xs uppercase tracking-[0.18em] text-gray-500">{card.label}</div>
           <div class="mt-3 flex items-end justify-between">
             <div class="text-3xl font-bold {card.key === 'composite' ? 'text-gray-100' : scoreColor(card.score)}">
@@ -364,13 +364,13 @@
 
     <div class="grid gap-4 xl:grid-cols-2">
       {#each data.detail.scorecard.weapons as weapon (weapon.canonical_entity_id ?? weapon.name)}
-        <article class="rounded-2xl border border-gray-800 bg-gray-900 p-5">
+        <article class="panel p-5">
           <div class="flex items-start justify-between gap-4">
             <div>
               <h3 class="text-lg font-semibold text-gray-100">{weapon.name}</h3>
               <p class="mt-1 text-sm text-gray-400">{titleCase(weapon.slot ?? "unknown")} slot</p>
             </div>
-            <div class="rounded-lg border border-gray-800 bg-gray-950 px-3 py-2 text-right">
+            <div class="panel-muted px-3 py-2 text-right">
               <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Perk Optimality</div>
               <div class="mt-1 text-xl font-bold {scoreColor(weapon.perks.score)}">{weapon.perks.score}/5</div>
             </div>
@@ -382,7 +382,7 @@
               {#if weapon.perks.perks.length > 0}
                 <ul class="flex flex-wrap gap-2">
                   {#each weapon.perks.perks as perk}
-                    <li class="rounded-full border border-gray-800 bg-gray-950 px-3 py-2 text-sm text-gray-100">
+                    <li class="panel-muted px-3 py-2 text-sm text-gray-100">
                       <span>{perk.name}</span>
                       <span class="ml-2 text-xs text-gray-500">
                         {perkTierLabel(perk.tier)}{perk.value != null ? ` · ${Math.round(perk.value * 100)}%` : ""}
@@ -400,7 +400,7 @@
               {#if weapon.blessings.blessings.length > 0}
                 <ul class="flex flex-wrap gap-2">
                   {#each weapon.blessings.blessings as blessing}
-                    <li class="rounded-full border border-gray-800 bg-gray-950 px-3 py-2 text-sm text-gray-100">
+                    <li class="panel-muted px-3 py-2 text-sm text-gray-100">
                       <span>{blessing.name}</span>
                       {#if !blessing.known}
                         <span class="ml-2 rounded border border-yellow-800 px-2 py-0.5 text-[11px] text-yellow-300">
@@ -424,7 +424,7 @@
     <h2 class="text-xl font-semibold text-gray-100">Synergy</h2>
 
     <div class="grid gap-4 xl:grid-cols-[2fr_1fr]">
-      <article class="rounded-2xl border border-gray-800 bg-gray-900 p-5">
+      <article class="panel p-5">
         <div class="flex items-baseline justify-between">
           <h3 class="text-lg font-semibold text-gray-100">Synergy Edges</h3>
           <span class="text-sm text-gray-500">{data.detail.synergy.synergy_edges.length} edges</span>
@@ -433,7 +433,7 @@
         {#if data.detail.synergy.synergy_edges.length > 0}
           <ul class="mt-4 space-y-3">
             {#each synergyPreview as edge}
-              <li class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+              <li class="panel-muted p-4">
                 <div class="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.18em] text-gray-500">
                   <span>{titleCase(edge.type)}</span>
                   <span class="rounded-full border border-gray-700 px-2 py-0.5 text-gray-300">Strength {edge.strength}</span>
@@ -447,13 +447,13 @@
             {/each}
           </ul>
           {#if hiddenSynergyCount > 0}
-            <details class="mt-4 rounded-xl border border-gray-800 bg-gray-950 p-4">
+            <details class="disclosure mt-4 p-4">
               <summary class="cursor-pointer text-sm font-medium text-gray-200">
                 Show {hiddenSynergyCount} more synergy edge{hiddenSynergyCount === 1 ? "" : "s"}
               </summary>
               <ul class="mt-4 space-y-3">
                 {#each data.detail.synergy.synergy_edges.slice(synergyPreviewLimit) as edge}
-                  <li class="rounded-xl border border-gray-800 bg-gray-900 p-4">
+                  <li class="panel p-4">
                     <div class="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.18em] text-gray-500">
                       <span>{titleCase(edge.type)}</span>
                       <span class="rounded-full border border-gray-700 px-2 py-0.5 text-gray-300">Strength {edge.strength}</span>
@@ -474,7 +474,7 @@
       </article>
 
       <div class="space-y-4">
-        <article class="rounded-2xl border border-gray-800 bg-gray-900 p-5">
+        <article class="panel p-5">
           <div class="flex items-baseline justify-between">
             <h3 class="text-lg font-semibold text-gray-100">Anti-Synergies</h3>
             <span class="text-sm text-gray-500">{data.detail.synergy.anti_synergies.length}</span>
@@ -488,7 +488,7 @@
                 </span>
               {/each}
             </div>
-            <details class="mt-4 rounded-xl border border-gray-800 bg-gray-950 p-4">
+            <details class="disclosure mt-4 p-4">
               <summary class="cursor-pointer text-sm font-medium text-gray-200">Show detailed anti-synergy entries</summary>
               <ul class="mt-4 space-y-3">
                 {#each data.detail.synergy.anti_synergies as anti}
@@ -504,7 +504,7 @@
           {/if}
         </article>
 
-        <article class="rounded-2xl border border-gray-800 bg-gray-900 p-5">
+        <article class="panel p-5">
           <div class="flex items-baseline justify-between">
             <h3 class="text-lg font-semibold text-gray-100">Isolated Picks</h3>
             <span class="text-sm text-gray-500">{data.detail.synergy.orphans.length}</span>
@@ -513,16 +513,16 @@
           {#if data.detail.synergy.orphans.length > 0}
             <div class="mt-4 flex flex-wrap gap-2">
               {#each orphanCounts as orphan}
-                <span class="rounded-full border border-gray-800 bg-gray-950 px-3 py-1.5 text-sm text-gray-200">
+                <span class="panel-muted px-3 py-1.5 text-sm text-gray-200">
                   {orphan.name}{orphan.count > 1 ? ` ×${orphan.count}` : ""}
                 </span>
               {/each}
             </div>
-            <details class="mt-4 rounded-xl border border-gray-800 bg-gray-950 p-4">
+            <details class="disclosure mt-4 p-4">
               <summary class="cursor-pointer text-sm font-medium text-gray-200">Show isolated-pick reasons</summary>
               <ul class="mt-4 space-y-3">
                 {#each data.detail.synergy.orphans as orphan}
-                  <li class="rounded-xl border border-gray-800 bg-gray-900 p-4">
+                  <li class="panel p-4">
                     <div class="text-sm text-gray-200">{formatSelectionText(orphan.selection, selectionLabels)}</div>
                     <p class="mt-2 text-sm text-gray-400">{titleCase(orphan.reason)}</p>
                     <p class="mt-1 text-xs text-gray-500">
@@ -539,30 +539,30 @@
       </div>
     </div>
 
-    <article class="rounded-2xl border border-gray-800 bg-gray-900 p-5">
+    <article class="panel p-5">
       <h3 class="text-lg font-semibold text-gray-100">Coverage Stats</h3>
 
       <div class="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+        <div class="panel-muted p-4">
           <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Calc Coverage</div>
           <div class="mt-2 text-2xl font-bold text-gray-100">{formatCoverageFraction(data.detail.synergy.metadata.calc_coverage_pct)}</div>
         </div>
-        <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+        <div class="panel-muted p-4">
           <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Entities Analyzed</div>
           <div class="mt-2 text-2xl font-bold text-gray-100">{data.detail.synergy.metadata.entities_analyzed}</div>
         </div>
-        <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+        <div class="panel-muted p-4">
           <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Entities With Calc</div>
           <div class="mt-2 text-2xl font-bold text-gray-100">{data.detail.synergy.metadata.unique_entities_with_calc}</div>
         </div>
-        <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+        <div class="panel-muted p-4">
           <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Opaque Conditions</div>
           <div class="mt-2 text-2xl font-bold text-gray-100">{data.detail.synergy.metadata.opaque_conditions}</div>
         </div>
       </div>
 
       <div class="mt-4 grid gap-4 xl:grid-cols-3">
-        <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+        <div class="panel-muted p-4">
           <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Build Identity</h4>
           <p class="mt-3 text-sm text-gray-200">
             {coverageLabels(data.detail.synergy.coverage.build_identity)}
@@ -570,14 +570,14 @@
           <p class="mt-2 text-xs text-gray-500">Concentration {data.detail.synergy.coverage.concentration}</p>
         </div>
 
-        <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+        <div class="panel-muted p-4">
           <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Coverage Gaps</h4>
           <p class="mt-3 text-sm text-gray-200">
             {coverageLabels(data.detail.synergy.coverage.coverage_gaps)}
           </p>
         </div>
 
-        <div class="rounded-xl border border-gray-800 bg-gray-950 p-4">
+        <div class="panel-muted p-4">
           <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Slot Balance</h4>
           <div class="mt-3 space-y-2 text-sm text-gray-200">
             <div>Melee: {data.detail.synergy.coverage.slot_balance.melee.strength} selections</div>
@@ -623,7 +623,7 @@
     <div class="space-y-6">
       {#each breakpointPanels as panel (panel.entityId ?? panel.name)}
         {@const matrix = panel.weapon ? weaponMatrix(panel.weapon) : { breeds: [], rows: [] }}
-        <details class="rounded-2xl border border-gray-800 bg-gray-900 p-5 min-w-0 overflow-hidden" open={panel.defaultOpen}>
+        <details class="disclosure p-5 min-w-0 overflow-hidden" open={panel.defaultOpen}>
           <summary class="flex cursor-pointer list-none items-baseline justify-between gap-4">
             <div>
               <h3 class="text-lg font-semibold text-gray-100">{panel.name}</h3>
@@ -640,7 +640,7 @@
           </summary>
 
           {#if panel.status === "supported" && panel.weapon && matrix.rows.length > 0 && matrix.breeds.length > 0}
-            <div class="mt-4 overflow-x-auto rounded-xl border border-gray-800">
+            <div class="mt-4 overflow-x-auto panel-muted">
               <table class="min-w-full text-xs">
                 <thead class="bg-gray-950 text-gray-400">
                   <tr>
@@ -667,7 +667,7 @@
               </table>
             </div>
           {:else if panel.message}
-            <div class="mt-4 rounded-xl border border-gray-800 bg-gray-950 p-4">
+            <div class="panel-muted mt-4 p-4">
               <p class="text-sm text-gray-400">{panel.message}</p>
             </div>
           {:else}
