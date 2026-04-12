@@ -155,6 +155,21 @@ body {
   font-size: 0.85rem;
 }
 
+.crumb-link {
+  color: var(--hb-text-muted);
+  font-size: 0.9rem;
+  transition: color 160ms ease;
+}
+
+.crumb-link:hover {
+  color: var(--hb-text-main);
+}
+
+.hero-panel,
+.selection-tray {
+  padding: 1.5rem;
+}
+
 .control-surface {
   padding: 1rem;
 }
