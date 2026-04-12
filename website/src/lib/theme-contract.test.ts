@@ -39,4 +39,11 @@ describe("website theme contract", () => {
     assert.ok(!detail.includes("rounded-2xl border border-gray-800 bg-gray-900"));
     assert.ok(!compare.includes("rounded-2xl border border-gray-800 bg-gray-900 p-5"));
   });
+
+  it("keeps breakpoint matrix badges inside cells instead of restyling td elements", () => {
+    const detail = read("routes/builds/[slug]/+page.svelte");
+
+    assert.match(detail, /<span class="inline-flex rounded px-2 py-1 \{htkCellClass\(value\)\}">/);
+    assert.doesNotMatch(detail, /<td class="[^"]*\{htkCellClass\(value\)\}"/);
+  });
 });

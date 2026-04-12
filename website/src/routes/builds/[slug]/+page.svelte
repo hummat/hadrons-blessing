@@ -657,8 +657,10 @@
                         <div class="font-medium text-gray-100">{row.label}</div>
                       </td>
                       {#each row.values as value}
-                        <td class="px-3 py-2 text-center tabular-nums {htkCellClass(value)}">
-                          {value ?? "\u2014"}
+                        <td class="px-3 py-2 text-center tabular-nums">
+                          <span class="inline-flex rounded px-2 py-1 {htkCellClass(value)}">
+                            {value ?? "\u2014"}
+                          </span>
                         </td>
                       {/each}
                     </tr>
