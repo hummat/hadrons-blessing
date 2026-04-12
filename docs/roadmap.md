@@ -4,9 +4,9 @@ Last updated: 2026-04-12
 
 ## Current state
 
-Core analytical engine complete: entity resolution, synergy model, 7-dimension scoring, damage/stagger/cleave/toughness calculators, build browse/compare. 25 canonical build fixtures, 1068 tests passing, all 6 classes covered.
+Core analytical engine complete: entity resolution, synergy model, 7-dimension scoring, damage/stagger/cleave/toughness calculators, build browse/compare. 24 canonical build fixtures, full test suite green, all 6 classes covered.
 
-Website: SvelteKit static site on GitHub Pages. Build list, detail page, and comparison page functional (Plans 1–3 merged). No design system, no progressive disclosure, no visual hierarchy.
+Website: SvelteKit static site on GitHub Pages. Build list, detail page, and comparison page functional (Plans 1–3 merged). Design system foundation merged: shared shell, dark steel/ember theme tokens, semantic surface tiers, and route-wide disclosure/control styling. Broader IA/product-shaping work still open.
 
 ## Active sequence
 
@@ -14,9 +14,8 @@ Ordered by dependency. Each step builds on the previous.
 
 | Priority | Issue | Summary | Blocked by | Effort |
 |----------|-------|---------|------------|--------|
-| 1 | #27 | Design system foundation — typography, card tiers, progressive disclosure defaults | — | Medium |
-| 3 | #26 | Website IA redesign — verdict-first detail page, command-surface list, decisive compare | #27 | High |
-| 4 | #25 | Hover detail cards — shared primitive + content adapters for compressed/opaque items | #27, #26 | Medium |
+| 1 | #26 | Website IA redesign — verdict-first detail page, command-surface list, decisive compare | — | High |
+| 2 | #25 | Hover detail cards — shared primitive + content adapters for compressed/opaque items | #26 | Medium |
 
 ## Independent tracks
 
@@ -73,3 +72,4 @@ Per CLAUDE.md and design specs:
 | #23 | Null weapon perk entries fix | 2026-04 |
 | #6 Plans 1–3 | Website: list, detail, compare pages | 2026-04 |
 | #21 | GL alias coverage beyond fixture set | 2026-04 |
+| #27 | Website design system foundation | 2026-04 |
