@@ -333,30 +333,9 @@ Key paths for entity work:
 - `scripts/settings/breed/breeds/{faction}/*_breed.lua` — breed HP, armor, hitzones (#5)
 - `scripts/settings/difficulty/minion_difficulty_settings.lua` — difficulty scaling (#5)
 
-## Open Issues
+## Roadmap
 
-- `#6` Website architecture — Plans 1 (build list) and 2 (build detail page) merged to main. Plans 3–4 (comparison page, GL import) pending.
-- `#21` Expand GL alias coverage beyond the canonical fixture set — the canonical 24-build fixture corpus is clean, but fresh Games Lantern samples still expose a small weapon-side alias tail outside the curated set
-
-## Completed Issues
-
-- `#20` Scoring data gaps — blessing validation now derives weapon pools from the ground-truth edge graph, provisional weapon-family fallback is removed, and talent_coherence only penalizes measurable talents
-- `#19` Full class-side entity and Games Lantern alias coverage automation (source-generated class-side manifest, GL class-tree alias generation, full-tree completeness audits, downstream stat-family coverage fix)
-
-- `#16` Weapon mark mapping correction (43 corrections via in-game MasterItems dump; DMF mod in `tools/darktide-mods/weapon_dump/`; 16 weapons with broken game localization keep existing names)
-
-- `#1` TypeScript migration (strict types for all 97 source/test files, compiled `tsc` output, library entry point)
-
-- `#4` BetterBots integration contract
-- `#5` Calculator and dataflow layer (13-stage damage pipeline, `breeds:build` + `profiles:build` extraction, breakpoint matrix, scoring integration, `calc` CLI)
-- `#7` Buff semantic extraction (`effects:build` pipeline)
-- `#8` Synergy model (`synergy` CLI, 5 rules, stat aggregator)
-- `#9` Build quality scoring (7 dimensions: 2 mechanical [perk_optimality, curio_efficiency], 3 qualitative [talent_coherence, blessing_synergy, role_coverage], 2 calculator-derived [breakpoint_relevance, difficulty_scaling]; composite /35 + letter grade)
-- `#10` Modification recommendations v1 (analyze-gaps, swap-talent, swap-weapon; suggest-improvement deferred to v1.1)
-- `#11` Toughness and survivability calculator (defender-side: DR stacking, effective HP, bleedthrough, toughness regen, state TDR modifiers; `toughness` CLI; scoring deferred)
-- `#12` Stagger calculator (impact pipeline, stagger tier classification against breed thresholds, `stagger` CLI, scoring integration via stagger checklist entries)
-- `#13` Cleave multi-target simulation (cleave budget simulation against horde compositions, per-target damage, `cleave` CLI, scoring integration via cleave checklist entries)
-- `#3` Build-oriented CLI commands (`list` filterable/sortable build table with 7-dimension scores, `diff` structural + analytical build comparison; library modules exported for #6 website)
+See [`docs/roadmap.md`](docs/roadmap.md) for the current implementation sequence, open issues, dependency chain, and completed milestones.
 
 ## BetterBots Integration
 
