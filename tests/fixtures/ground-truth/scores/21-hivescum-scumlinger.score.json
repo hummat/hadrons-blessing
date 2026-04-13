@@ -3,7 +3,7 @@
   "class": "hive scum",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 24,
+  "composite_score": 25,
   "letter_grade": "B",
   "weapons": [
     {
@@ -172,7 +172,7 @@
       ]
     },
     "breakpoint_relevance": {
-      "score": 1,
+      "score": 2,
       "breakdown": [
         {
           "label": "One-shot Rager head",
@@ -218,8 +218,8 @@
         },
         {
           "label": "Horde one-shot body",
-          "met": false,
-          "best_htk": 2,
+          "met": true,
+          "best_htk": 1,
           "max_hits": 1,
           "weight": "medium"
         },
@@ -246,7 +246,7 @@
         }
       ],
       "explanations": [
-        "2/10 breakpoints met (weighted 3/20)",
+        "3/10 breakpoints met (weighted 5/20)",
         "Missed high-priority: One-shot Rager head, Two-hit Rager body, Two-hit Crusher"
       ]
     },

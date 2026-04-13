@@ -38,8 +38,8 @@ All stable output is machine-readable JSON with optional `--text` human-readable
 
 ## Source Root Contract
 
-Commands that use the ground-truth resolver currently require a pinned checkout
-of `Aussiemon/Darktide-Source-Code`:
+Commands that use the ground-truth resolver currently require a pinned, clean
+checkout of `Aussiemon/Darktide-Source-Code`:
 
 ```bash
 git clone --depth 1 https://github.com/Aussiemon/Darktide-Source-Code.git ../Darktide-Source-Code
@@ -49,7 +49,7 @@ Pass the path via `GROUND_TRUTH_SOURCE_ROOT`:
 
 ```bash
 GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run resolve -- --query "Warp Rider" --context '{"kind":"talent","class":"psyker"}'
-GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run audit -- scripts/builds/08-gandalf-melee-wizard.json
+GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run audit -- data/builds/08-gandalf-melee-wizard.json
 GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm test
 GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code make check
 ```

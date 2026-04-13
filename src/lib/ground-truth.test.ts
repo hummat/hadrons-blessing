@@ -1,5 +1,6 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
+import { execFileSync } from "node:child_process";
 import { existsSync, mkdtempSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { resolve, sep } from "node:path";
 import { join } from "node:path";
@@ -152,6 +153,41 @@ describe("source snapshot validation", () => {
     assert.equal(result.git_revision.length > 0, true);
     },
   );
+
+  it("fails when the pinned checkout has tracked git changes", async () => {
+    await loadSchemas();
+
+    const repoRoot = mkdtempSync(join(tmpdir(), "hb-source-root-"));
+    writeFileSync(join(repoRoot, "tracked.txt"), "clean\n");
+
+    execFileSync("git", ["init"], { cwd: repoRoot, stdio: "ignore" });
+    execFileSync("git", ["add", "tracked.txt"], { cwd: repoRoot, stdio: "ignore" });
+    execFileSync(
+      "git",
+      [
+        "-c",
+        "user.name=HB Test",
+        "-c",
+        "user.email=hb@example.com",
+        "commit",
+        "-m",
+        "init",
+      ],
+      { cwd: repoRoot, stdio: "ignore" },
+    );
+
+    const gitRevision = execFileSync("git", ["rev-parse", "HEAD"], {
+      cwd: repoRoot,
+      encoding: "utf8",
+    }).trim();
+
+    writeFileSync(join(repoRoot, "tracked.txt"), "dirty\n");
+
+    assert.throws(
+      () => validateSourceSnapshot(repoRoot, { id: "darktide-source.test", git_revision: gitRevision }),
+      /dirty git worktree/,
+    );
+  });
 });
 
 describe("buildIndex", () => {

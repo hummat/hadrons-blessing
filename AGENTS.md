@@ -24,7 +24,7 @@ make test                                            # or set env: GROUND_TRUTH_
 
 Local path: `/run/media/matthias/1274B04B74B032F9/git/Darktide-Source-Code`
 
-Never hardcode the source root. The Makefile reads `.source-root` as a fallback; the env var always takes precedence. Tests that require it are skipped when neither is set.
+Never hardcode the source root. The Makefile reads `.source-root` as a fallback; the env var always takes precedence. Tests that require it are skipped when neither is set. Source-backed commands now also require the pinned checkout to have a clean tracked git worktree; local edits in `Darktide-Source-Code` invalidate the snapshot contract.
 
 `npm test` alone runs ~914 tests but silently skips ~107 source-dependent integration tests (effects pipeline, talent settings parser, class-side manifest, GL alias coverage audit). Always use `make check` or `GROUND_TRUTH_SOURCE_ROOT="$(cat .source-root)" npm test` for full confidence (1028+ tests).
 
@@ -161,6 +161,8 @@ Shared cross-class entities use `shared` as domain: `shared.weapon.autogun_p1_m1
 **talent population edge-only fallback:** If `_resolvedIds` is absent from synergy output (unlikely in production), the fallback counts only talents that participate in edges — isolated talents are invisible, inflating coherence scores.
 
 **Cleave per-target damage falloff:** The profile extractor does not extract `targets[n]` per-target overrides from damage profiles (0/592 profiles have them). The cleave calculator uses the primary target's damage for all targets, which is conservative (real damage falls off for subsequent targets).
+
+**Ranged breakpoint distance policy:** Breakpoint matrices no longer use one hidden `20m` default. Ranged entries now evaluate `sustained` at `ranged_close` (default 12.5m) and `aimed` / `burst` at the midpoint between `ranged_close` and `ranged_far` (default 21.25m). This is still a scoring policy assumption, not a source-backed combat-context fact.
 
 **Toughness scoring deferred:** The toughness calculator produces full survivability profiles but does not feed into the scorecard. A `survivability` dimension needs its own design — it is qualitatively different from attacker-side dimensions (no breakpoint checklist analog).
 

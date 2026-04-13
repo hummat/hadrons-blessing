@@ -1795,6 +1795,74 @@ describe("computeBreakpoints (unit)", () => {
     assert.ok(matrix.metadata.timestamp, "should have timestamp");
   });
 
+  it("uses explicit scenario distances for ranged breakpoint evaluation", () => {
+    const build = {
+      ...MOCK_BUILD,
+      weapons: [
+        {
+          slot: "ranged",
+          name: {
+            raw_label: "Autogun",
+            canonical_entity_id: "shared.weapon.autogun_p1_m1",
+            resolution_status: "resolved",
+          },
+          blessings: [],
+          perks: [],
+        },
+      ],
+    };
+
+    const calcData = {
+      ...MOCK_CALC_DATA,
+      profiles: [{
+        id: "mock_ranged_distance_profile",
+        source_file: "test",
+        damage_type: "auto_bullet",
+        stagger_category: "killshot",
+        melee_attack_strength: null,
+        power_distribution: { attack: 60, impact: 2 },
+        armor_damage_modifier_ranged: {
+          near: { attack: { unarmored: 1.0 } },
+          far: { attack: { unarmored: 0.2 } },
+        },
+      }],
+      actionMaps: [{
+        weapon_template: "autogun_p1_m1",
+        actions: { shoot_hip: ["mock_ranged_distance_profile"] },
+      }],
+      breeds: [{
+        id: "test_ranged_target",
+        display_name: "Test Target",
+        faction: "test",
+        base_armor_type: "unarmored",
+        difficulty_health: { uprising: 50, malice: 60, heresy: 70, damnation: 80, auric: 90 },
+        hit_zones: {
+          head: { armor_type: "unarmored", weakspot: false, damage_multiplier: { melee: 1.0, ranged: 1.0 } },
+          torso: { armor_type: "unarmored", weakspot: false, damage_multiplier: { melee: 1.0, ranged: 1.0 } },
+        },
+      }],
+    };
+
+    const matrix = computeBreakpoints(build, MOCK_INDEX, calcData);
+    const action = matrix.weapons[0].actions[0];
+    const sustained = action.scenarios.sustained.breeds.find(
+      (entry) => entry.breed_id === "test_ranged_target" && entry.difficulty === "damnation",
+    );
+    const aimed = action.scenarios.aimed.breeds.find(
+      (entry) => entry.breed_id === "test_ranged_target" && entry.difficulty === "damnation",
+    );
+
+    assert.deepEqual(matrix.metadata.ranged_scenario_distances, {
+      sustained: 12.5,
+      aimed: 21.25,
+      burst: 21.25,
+    });
+    assert.ok(
+      sustained.damage > aimed.damage,
+      `expected sustained close-range damage ${sustained.damage} to exceed aimed mid-range damage ${aimed.damage}`,
+    );
+  });
+
   it("melee weapon has light and heavy actions", () => {
     const matrix = computeBreakpoints(MOCK_BUILD, MOCK_INDEX, MOCK_CALC_DATA);
     const melee = matrix.weapons.find(w => w.entityId === "shared.weapon.combatsword_p1_m1");

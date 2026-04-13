@@ -3,7 +3,11 @@ import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { readdirSync, readFileSync } from "node:fs";
 import { scoreFromSynergy, scoreFromCalculator } from "./build-scoring.js";
-import { scoreBreakpointRelevance, scoreDifficultyScaling } from "./breakpoint-checklist.js";
+import {
+  scoreBreakpointRelevance,
+  scoreCleaveRelevance,
+  scoreDifficultyScaling,
+} from "./breakpoint-checklist.js";
 import { generateScorecard } from "./score-build.js";
 import { analyzeBuild, loadIndex } from "./synergy-model.js";
 import { loadCalculatorData, computeBreakpoints } from "./damage-calculator.js";
@@ -464,6 +468,35 @@ describe("difficulty_scaling", () => {
   it("returns null when matrix has no weapons", () => {
     const result = scoreDifficultyScaling({ weapons: [], metadata: { scenarios: ["sustained", "aimed", "burst"] } });
     assert.equal(result, null);
+  });
+});
+
+describe("cleave_relevance", () => {
+  it("matches raw light swing action aliases, not just light_attack prefixes", () => {
+    const result = scoreCleaveRelevance({
+      weapons: [{
+        entityId: "shared.weapon.test_weapon_m1",
+        slot: 0,
+        actions: [{
+          type: "action_swing",
+          profileId: "test_profile",
+          compositions: {
+            mixed_melee_horde: { targets_killed: 2 },
+          },
+        }],
+        summary: { bestLight: null, bestHeavy: null, bestSpecial: null },
+      }],
+      metadata: {
+        quality: 0.8,
+        scenarios: ["sustained", "aimed", "burst"],
+        timestamp: "2026-01-01T00:00:00Z",
+      },
+    });
+
+    assert.ok(result != null);
+    const breakdown = result.breakdown.find((entry) => entry.label === "Light cleaves 2+ in mixed horde");
+    assert.ok(breakdown, "expected light cleave checklist entry");
+    assert.equal(breakdown.met, true);
   });
 });
 

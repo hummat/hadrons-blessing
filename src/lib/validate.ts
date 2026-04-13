@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process";
 import { existsSync, lstatSync, readFileSync, readdirSync } from "node:fs";
 import { isAbsolute, join, resolve } from "node:path";
 import AjvModule from "ajv";
@@ -101,6 +102,20 @@ function readGitRevision(repoRoot: string): string {
   throw new Error(`Unable to resolve git ref ${refName} in ${gitDir}`);
 }
 
+function hasTrackedGitChanges(repoRoot: string): boolean {
+  try {
+    const output = execFileSync(
+      "git",
+      ["status", "--porcelain", "--untracked-files=no"],
+      { cwd: repoRoot, encoding: "utf8" },
+    );
+    return output.trim().length > 0;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(`Unable to inspect git worktree state for ${repoRoot}: ${message}`);
+  }
+}
+
 function buildResult(validate: ValidateFunction): ValidationResult {
   return {
     ok: validate.errors == null,
@@ -202,7 +217,10 @@ function validateEvidenceRecord(record: unknown): ValidationResult {
   return buildResult(evidence);
 }
 
-function validateSourceSnapshot(sourceRoot?: string): SourceSnapshotInfo {
+function validateSourceSnapshot(
+  sourceRoot?: string,
+  manifestOverride?: Record<string, unknown>,
+): SourceSnapshotInfo {
   loadSchemas();
 
   const resolvedSourceRoot = resolveSourceRoot(sourceRoot);
@@ -216,13 +234,17 @@ function validateSourceSnapshot(sourceRoot?: string): SourceSnapshotInfo {
     );
   }
 
-  const manifest = loadSourceSnapshotManifest() as Record<string, unknown>;
+  const manifest = (manifestOverride ?? loadSourceSnapshotManifest()) as Record<string, unknown>;
   const gitRevision = readGitRevision(resolvedSourceRoot);
 
   if (gitRevision !== manifest.git_revision) {
     throw new Error(
       `Pinned source snapshot mismatch: expected ${manifest.git_revision as string}, got ${gitRevision}`,
     );
+  }
+
+  if (hasTrackedGitChanges(resolvedSourceRoot)) {
+    throw new Error(`Pinned source snapshot check failed: dirty git worktree at ${resolvedSourceRoot}`);
   }
 
   return {

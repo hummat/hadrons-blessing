@@ -289,6 +289,16 @@ describe("stat aggregator", () => {
       const cov = computeCoverage(selections);
       assert.ok(cov.coverage_gaps.includes("survivability"));
     });
+
+    it("detects missing survivability gap for ranged-offense builds too", () => {
+      const selections = [
+        { id: "r1", effects: [{ stat: "ranged_damage", type: "stat_buff", magnitude: 0.1 }] },
+        { id: "r2", effects: [{ stat: "ranged_damage", type: "stat_buff", magnitude: 0.1 }] },
+        { id: "r3", effects: [{ stat: "ranged_damage", type: "stat_buff", magnitude: 0.1 }] },
+      ];
+      const cov = computeCoverage(selections);
+      assert.ok(cov.coverage_gaps.includes("survivability"));
+    });
   });
 });
 

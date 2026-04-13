@@ -1081,6 +1081,20 @@ const SCENARIO_HITZONES: Record<string, string> = {
   burst: "head",
 };
 
+function resolveRangedScenarioDistance(
+  constants: CalculatorConstants,
+  scenarioName: string,
+): number {
+  const close = constants.ranged_close ?? 12.5;
+  const far = constants.ranged_far ?? 30;
+
+  if (scenarioName === "sustained") {
+    return close;
+  }
+
+  return close + (far - close) / 2;
+}
+
 /**
  * Adapts the generated breed-data.json hit_zones format to the shape
  * expected by computeHit.
@@ -1164,6 +1178,12 @@ export function computeBreakpoints(build: Build, index: EntityIndex, calcData: C
   }
 
   const weaponResults: unknown[] = [];
+  const rangedScenarioDistances = Object.fromEntries(
+    Object.keys(SCENARIO_PRESETS).map((scenarioName) => [
+      scenarioName,
+      resolveRangedScenarioDistance(calcData.constants, scenarioName),
+    ]),
+  ) as Record<string, number>;
 
   for (let slot = 0; slot < (build.weapons ?? []).length; slot++) {
     const weapon = build.weapons![slot];
@@ -1175,7 +1195,6 @@ export function computeBreakpoints(build: Build, index: EntityIndex, calcData: C
     if (!actionMap) continue;
 
     const isRanged = isWeaponRanged(weapon, templateName);
-    const distance = isRanged ? 20 : 0;
 
     const actionResults: unknown[] = [];
 
@@ -1193,6 +1212,7 @@ export function computeBreakpoints(build: Build, index: EntityIndex, calcData: C
           const hitZone = SCENARIO_HITZONES[scenarioName];
           const buffStack = buffStacks[scenarioName];
           const flags = SCENARIO_PRESETS[scenarioName];
+          const distance = isRanged ? rangedScenarioDistances[scenarioName] : 0;
           const breedResults: unknown[] = [];
 
           for (const breed of breeds) {
@@ -1256,6 +1276,7 @@ export function computeBreakpoints(build: Build, index: EntityIndex, calcData: C
     metadata: {
       quality,
       scenarios: Object.keys(SCENARIO_PRESETS),
+      ranged_scenario_distances: rangedScenarioDistances,
       timestamp: new Date().toISOString(),
     },
   };

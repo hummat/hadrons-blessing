@@ -204,10 +204,18 @@ export function computeCoverage(selections: SynergySelection[]): CoverageResult 
 
   // coverage_gaps
   const coverage_gaps: string[] = [];
+  const offensiveFamilies = new Set([
+    "melee_offense",
+    "ranged_offense",
+    "general_offense",
+    "crit",
+  ]);
+  const primaryIdentity = build_identity[0];
 
-  // "survivability": primary identity is melee_offense AND no toughness AND no damage_reduction
+  // "survivability": offense-primary build AND no toughness AND no damage_reduction
   if (
-    build_identity[0] === "melee_offense" &&
+    primaryIdentity != null &&
+    offensiveFamilies.has(primaryIdentity) &&
     (!profile["toughness"] || profile["toughness"].count === 0) &&
     (!profile["damage_reduction"] || profile["damage_reduction"].count === 0)
   ) {

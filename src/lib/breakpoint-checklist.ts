@@ -145,6 +145,10 @@ const ACTION_CATEGORY: Record<string, string> = {
   action_overheat_explode: "special",
 };
 
+function matchesActionCategory(actionType: string, expectedCategory: string): boolean {
+  return ACTION_CATEGORY[actionType] === expectedCategory;
+}
+
 /**
  * For a given weapon's actions at a specific scenario and difficulty,
  * find the best (lowest) hitsToKill across all actions for a breed+hitZone.
@@ -493,9 +497,12 @@ export function scoreCleaveRelevance(cleaveMatrix: BreakpointMatrix): ScoreResul
 
     for (const weapon of cleaveMatrix.weapons) {
       for (const action of weapon.actions) {
-        // Match action_category to action type prefix
-        if (entry.action_category === "heavy" && !action.type.startsWith("heavy_attack")) continue;
-        if (entry.action_category === "light" && !action.type.startsWith("light_attack")) continue;
+        if (
+          entry.action_category &&
+          !matchesActionCategory(action.type, entry.action_category)
+        ) {
+          continue;
+        }
 
         const compResult = action.compositions?.[entry.composition!];
         if (!compResult) continue;
