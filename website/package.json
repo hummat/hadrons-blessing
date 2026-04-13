@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "prebuild": "npm run generate-data",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",

@@ -62,7 +62,7 @@ website-build: website-data
 website-dev:
 	cd website && npm run dev
 
-website-preview:
+website-preview: website-build
 	cd website && npm run preview -- --host "$${HB_WEBSITE_HOST:-127.0.0.1}" --port "$${HB_WEBSITE_PORT:-4173}"
 
 website-smoke:

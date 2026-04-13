@@ -59,9 +59,9 @@ jobs:
         working-directory: website
         run: npm ci
 
-      - name: Generate website data
+      - name: Run website tests
         working-directory: website
-        run: npx tsx scripts/generate-data.ts
+        run: npm test
 
       - name: Build website
         working-directory: website

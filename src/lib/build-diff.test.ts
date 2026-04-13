@@ -1,5 +1,7 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
+import { join } from "node:path";
+import { REPO_ROOT } from "./load.js";
 import { diffBuilds } from "./build-diff.js";
 
 const BUILD_08 = "data/builds/09-psyker-2026.json";
@@ -70,6 +72,23 @@ describe("build-diff", () => {
             assert.equal(bp.delta, 0, `breakpoint ${bp.label} delta should be 0`);
           }
         }
+      }
+    });
+
+    it("detailed diff resolves checklist data independent of current working directory", () => {
+      const originalCwd = process.cwd();
+      process.chdir(join(REPO_ROOT, "website"));
+
+      try {
+        const diff = diffBuilds(
+          join(REPO_ROOT, BUILD_08),
+          join(REPO_ROOT, BUILD_01),
+          { detailed: true },
+        );
+
+        assert.ok(diff.analytical);
+      } finally {
+        process.chdir(originalCwd);
       }
     });
   });

@@ -4,7 +4,12 @@ import { existsSync, mkdtempSync, readFileSync, readdirSync, writeFileSync } fro
 import { resolve, sep } from "node:path";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
-import { REPO_ROOT, resolveSourceRoot } from "./load.js";
+import {
+  GENERATED_INDEX_PATH,
+  GENERATED_META_PATH,
+  REPO_ROOT,
+  resolveSourceRoot,
+} from "./load.js";
 import { normalizeText } from "./normalize.js";
 import {
   loadSchemas,
@@ -150,6 +155,24 @@ describe("source snapshot validation", () => {
 });
 
 describe("buildIndex", () => {
+  it("does not rewrite generated artifacts unless explicitly asked", async () => {
+    const originalIndex = readFileSync(GENERATED_INDEX_PATH, "utf8");
+    const originalMeta = readFileSync(GENERATED_META_PATH, "utf8");
+
+    try {
+      writeFileSync(GENERATED_INDEX_PATH, "{\n  \"sentinel\": true\n}\n");
+      writeFileSync(GENERATED_META_PATH, "{\n  \"sentinel\": true\n}\n");
+
+      await buildIndex();
+
+      assert.equal(readFileSync(GENERATED_INDEX_PATH, "utf8"), '{\n  "sentinel": true\n}\n');
+      assert.equal(readFileSync(GENERATED_META_PATH, "utf8"), '{\n  "sentinel": true\n}\n');
+    } finally {
+      writeFileSync(GENERATED_INDEX_PATH, originalIndex);
+      writeFileSync(GENERATED_META_PATH, originalMeta);
+    }
+  });
+
   it("generates exact-only synthetic aliases for internal_name and loc_key", async () => {
     const index = await buildIndex({ check: false });
     const warpRiderAliases = index.aliases.filter(

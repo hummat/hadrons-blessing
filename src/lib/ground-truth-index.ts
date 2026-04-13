@@ -79,6 +79,7 @@ export interface GroundTruthIndex {
 
 interface BuildIndexOptions {
   check?: boolean;
+  writeGenerated?: boolean;
   injectBadFixture?: string;
 }
 
@@ -580,7 +581,16 @@ function buildMeta({ shardFiles, sourceSnapshot }: {
 }
 
 async function buildIndex(options: BuildIndexOptions = {}): Promise<GroundTruthIndex> {
-  const { check = false, injectBadFixture: badFixtureName } = options;
+  const {
+    check = false,
+    writeGenerated = false,
+    injectBadFixture: badFixtureName,
+  } = options;
+
+  if (check && writeGenerated) {
+    throw new Error("buildIndex cannot verify and write generated artifacts in the same call");
+  }
+
   const sourceSnapshot = validateSourceSnapshot();
 
   const entityShards = readShardDirectory<EntityBaseSchemaJson>(ENTITIES_ROOT);
@@ -632,9 +642,13 @@ async function buildIndex(options: BuildIndexOptions = {}): Promise<GroundTruthI
 
   mkdirSync(GENERATED_ROOT, { recursive: true });
 
-  if (!check) {
+  if (writeGenerated) {
     writeFileSync(GENERATED_INDEX_PATH, `${JSON.stringify(index, null, 2)}\n`);
     writeFileSync(GENERATED_META_PATH, `${JSON.stringify(index.meta, null, 2)}\n`);
+    return index;
+  }
+
+  if (!check) {
     return index;
   }
 

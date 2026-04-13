@@ -356,6 +356,8 @@
                 <p class="mt-1 text-sm text-gray-400">{buildA.summary.weapons.map((weapon) => weapon.name).join(" / ")}</p>
               </div>
             </div>
+          {:else if loadingA}
+            <p class="text-sm text-gray-400">Loading side A...</p>
           {:else if errorA}
             <p class="text-sm text-red-300">{errorA}</p>
           {:else}
@@ -383,6 +385,8 @@
                 <p class="mt-1 text-sm text-gray-400">{buildB.summary.weapons.map((weapon) => weapon.name).join(" / ")}</p>
               </div>
             </div>
+          {:else if loadingB}
+            <p class="text-sm text-gray-400">Loading side B...</p>
           {:else if errorB}
             <p class="text-sm text-red-300">{errorB}</p>
           {:else}

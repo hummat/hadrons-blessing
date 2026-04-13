@@ -2,6 +2,7 @@
 // Structural and score diff between two canonical build files.
 
 import { readFileSync } from "node:fs";
+import { BREAKPOINT_CHECKLIST_PATH } from "./paths.js";
 import { loadScorecardDeps, buildScorecard } from "./scorecard-deps.js";
 
 // ---------------------------------------------------------------------------
@@ -325,7 +326,7 @@ function computeAnalyticalDiff(
   const breakpoints: BreakpointDelta[] = [];
   if (deps.computeBreakpoints && deps.calcData) {
     const checklistRaw = JSON.parse(
-      readFileSync("data/ground-truth/breakpoint-checklist.json", "utf-8")
+      readFileSync(BREAKPOINT_CHECKLIST_PATH, "utf-8")
     ) as AnyRecord;
     const damageEntries = ((checklistRaw.checklist as AnyRecord[]) ?? []).filter(
       (e) => !e.type

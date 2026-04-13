@@ -156,10 +156,10 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       options: {
         json: { type: "boolean", default: false },
         detailed: { type: "boolean", default: false },
-      },
-      allowPositionals: true,
-      strict: false,
-    });
+    },
+    allowPositionals: true,
+    strict: true,
+  });
 
     if (positionals.length < 2) {
       throw new Error(

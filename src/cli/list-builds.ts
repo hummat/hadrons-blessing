@@ -4,6 +4,8 @@ import { runCliMain } from "../lib/cli.js";
 import { listBuilds } from "../lib/build-list.js";
 import type { BuildSummary } from "../lib/build-list.js";
 
+const VALID_GRADES = new Set(["S", "A", "B", "C", "D"]);
+
 function formatTable(summaries: BuildSummary[]): string {
   const lines: string[] = [];
 
@@ -59,15 +61,20 @@ await runCliMain("list", async () => {
       json: { type: "boolean", default: false },
     },
     allowPositionals: true,
-    strict: false,
+    strict: true,
   });
 
   const dir = positionals[0] ?? "data/builds";
+  const minGrade = values.grade?.toUpperCase();
+
+  if (minGrade && !VALID_GRADES.has(minGrade)) {
+    throw new Error(`Invalid grade: "${values.grade}". Valid grades: S, A, B, C, D`);
+  }
 
   const summaries = listBuilds(dir, {
     class: values.class as string | undefined,
     weapon: values.weapon as string | undefined,
-    minGrade: values.grade as string | undefined,
+    minGrade,
     sort: values.sort as string | undefined,
     reverse: values.reverse as boolean | undefined,
   });

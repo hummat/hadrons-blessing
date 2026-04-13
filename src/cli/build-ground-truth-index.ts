@@ -2,8 +2,10 @@ import { runCliMain } from "../lib/cli.js";
 import { buildIndex } from "../lib/ground-truth-index.js";
 
 function parseArgs(argv: string[]) {
+  const check = argv.includes("--check");
   return {
-    check: argv.includes("--check"),
+    check,
+    writeGenerated: !check,
   };
 }
 

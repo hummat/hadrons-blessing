@@ -34,3 +34,11 @@ jobs:
         env:
           GROUND_TRUTH_SOURCE_ROOT: ../Darktide-Source-Code
         run: make check
+
+      - name: Install website dependencies
+        working-directory: website
+        run: npm ci
+
+      - name: Run website tests
+        working-directory: website
+        run: npm test

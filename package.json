@@ -44,7 +44,7 @@
     "stagger:freeze": "node dist/cli/calc-build.js --mode stagger data/builds/ --json --freeze",
     "cleave:freeze": "node dist/cli/calc-build.js --mode cleave data/builds/ --json --freeze",
     "toughness:freeze": "node dist/cli/calc-build.js --mode toughness data/builds/ --json --freeze",
-    "check": "npm run build && npm run class-side:build && npm run index:build && npm test && npm run index:check",
+    "check": "npm run build && npm run class-side:build && npm test",
     "entities:expand": "node dist/cli/expand-entity-coverage.js",
     "entities:enrich": "node dist/cli/enrich-entity-names.js",
     "gl:scrape": "node dist/cli/scrape-gl-catalog.js",

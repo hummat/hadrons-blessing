@@ -605,8 +605,12 @@ await runCliMain("calc", async () => {
       freeze: { type: "boolean", default: false },
     },
     allowPositionals: true,
-    strict: false,
+    strict: true,
   });
+
+  if (values.json && values.text) {
+    throw new Error("--json and --text are mutually exclusive");
+  }
 
   const target = positionals[0];
   if (!target) {

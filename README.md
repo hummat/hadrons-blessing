@@ -94,19 +94,19 @@ GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run resolve -- --query "con
 Audit a build file:
 
 ```bash
-GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run audit -- scripts/builds/08-gandalf-melee-wizard.json
+GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run audit -- data/builds/08-zealot-chorus-swiss-knife.json
 ```
 
 Canonicalize a scraped/raw build file:
 
 ```bash
-GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run canonicalize -- scripts/sample-build.json
+GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run canonicalize -- data/sample-build.json
 ```
 
 Re-resolve canonical build files in place:
 
 ```bash
-GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run reresolve -- --write scripts/builds
+GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run reresolve -- --write data/builds
 ```
 
 Build the generated index:
@@ -115,7 +115,7 @@ Build the generated index:
 GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run index:build
 ```
 
-Run the full verification flow (index + tests + freshness check):
+Run the full verification flow:
 
 ```bash
 GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code make check
@@ -147,16 +147,16 @@ Notes:
 Build scoring on canonical build fixtures:
 
 ```bash
-npm run score -- scripts/builds/08-gandalf-melee-wizard.json --json
-npm run score -- scripts/builds/08-gandalf-melee-wizard.json --text
+npm run score -- data/builds/08-zealot-chorus-swiss-knife.json --json
+npm run score -- data/builds/08-zealot-chorus-swiss-knife.json --text
 ```
 
 Damage breakpoint calculator:
 
 ```bash
-GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run calc -- scripts/builds/08-gandalf-melee-wizard.json
-GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run calc -- scripts/builds/08-gandalf-melee-wizard.json --json
-GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run calc -- scripts/builds/ --json            # batch
+GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run calc -- data/builds/08-zealot-chorus-swiss-knife.json
+GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run calc -- data/builds/08-zealot-chorus-swiss-knife.json --json
+GROUND_TRUTH_SOURCE_ROOT=../Darktide-Source-Code npm run calc -- data/builds/ --json            # batch
 ```
 
 Regenerate tree edges from Lua source (requires source root):

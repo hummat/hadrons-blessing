@@ -94,6 +94,16 @@ describe("CLI contract — list and diff", () => {
     assert.equal(parsed.length, 24);
   });
 
+  it("list rejects invalid grade filters", () => {
+    const result = runCli("src/cli/list-builds.ts", ["data/builds", "--grade", "Z"]);
+    assert.notEqual(result.status, 0);
+  });
+
+  it("list rejects unknown flags", () => {
+    const result = runCli("src/cli/list-builds.ts", ["data/builds", "--bogus-flag"]);
+    assert.notEqual(result.status, 0);
+  });
+
   it("diff exits zero with two builds", () => {
     const result = runCli("src/cli/diff-builds.ts", [
       "data/builds/09-psyker-2026.json",
@@ -116,8 +126,37 @@ describe("CLI contract — list and diff", () => {
     assert.ok(Array.isArray(parsed.score_deltas), "should have score deltas");
   });
 
+  it("diff rejects unknown flags", () => {
+    const result = runCli("src/cli/diff-builds.ts", [
+      "data/builds/09-psyker-2026.json",
+      "data/builds/01-veteran-havoc40-2026.json",
+      "--bogus-flag",
+    ]);
+    assert.notEqual(result.status, 0);
+  });
+
   it("diff exits non-zero with missing arguments", () => {
     const result = runCli("src/cli/diff-builds.ts", []);
+    assert.notEqual(result.status, 0);
+  });
+});
+
+describe("CLI contract — score and calc output modes", () => {
+  it("score rejects mutually exclusive --json and --text", () => {
+    const result = runCli("src/cli/score-build.ts", [
+      "data/builds/09-psyker-2026.json",
+      "--json",
+      "--text",
+    ]);
+    assert.notEqual(result.status, 0);
+  });
+
+  it("calc rejects mutually exclusive --json and --text", () => {
+    const result = runCli("src/cli/calc-build.ts", [
+      "data/builds/09-psyker-2026.json",
+      "--json",
+      "--text",
+    ]);
     assert.notEqual(result.status, 0);
   });
 });
