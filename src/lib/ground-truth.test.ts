@@ -1,9 +1,9 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdtempSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { resolve, sep } from "node:path";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { tmpdir } from "node:os";
 import {
   GENERATED_INDEX_PATH,
@@ -192,10 +192,15 @@ describe("source snapshot validation", () => {
 
 describe("buildIndex", () => {
   it("does not rewrite generated artifacts unless explicitly asked", async () => {
-    const originalIndex = readFileSync(GENERATED_INDEX_PATH, "utf8");
-    const originalMeta = readFileSync(GENERATED_META_PATH, "utf8");
+    const originalIndex = existsSync(GENERATED_INDEX_PATH)
+      ? readFileSync(GENERATED_INDEX_PATH, "utf8")
+      : null;
+    const originalMeta = existsSync(GENERATED_META_PATH)
+      ? readFileSync(GENERATED_META_PATH, "utf8")
+      : null;
 
     try {
+      mkdirSync(dirname(GENERATED_INDEX_PATH), { recursive: true });
       writeFileSync(GENERATED_INDEX_PATH, "{\n  \"sentinel\": true\n}\n");
       writeFileSync(GENERATED_META_PATH, "{\n  \"sentinel\": true\n}\n");
 
@@ -204,8 +209,17 @@ describe("buildIndex", () => {
       assert.equal(readFileSync(GENERATED_INDEX_PATH, "utf8"), '{\n  "sentinel": true\n}\n');
       assert.equal(readFileSync(GENERATED_META_PATH, "utf8"), '{\n  "sentinel": true\n}\n');
     } finally {
-      writeFileSync(GENERATED_INDEX_PATH, originalIndex);
-      writeFileSync(GENERATED_META_PATH, originalMeta);
+      if (originalIndex == null) {
+        rmSync(GENERATED_INDEX_PATH, { force: true });
+      } else {
+        writeFileSync(GENERATED_INDEX_PATH, originalIndex);
+      }
+
+      if (originalMeta == null) {
+        rmSync(GENERATED_META_PATH, { force: true });
+      } else {
+        writeFileSync(GENERATED_META_PATH, originalMeta);
+      }
     }
   });
 
