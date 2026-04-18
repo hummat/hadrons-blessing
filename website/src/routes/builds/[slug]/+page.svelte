@@ -19,6 +19,7 @@
     BuildDetailData,
     DimensionScoreDetail,
   } from "$lib/types";
+  import VerdictStrip from "$lib/VerdictStrip.svelte";
 
   type Props = {
     data: {
@@ -244,38 +245,13 @@
     <section class="ds-reveal ds-section">
       <header class="ds-section-heading">
         <div class="ds-section-heading__copy">
-          <span class="ds-label ds-label--parchment">Dossier Summary</span>
-          <h2 class="ds-h2">Ledger Entries</h2>
+          <span class="ds-label ds-label--parchment">Verdict</span>
+          <h2 class="ds-h2">Field Assessment</h2>
         </div>
         <div class="ds-rule"><span class="ds-rule__mark">✠</span></div>
       </header>
 
-      <div class="ds-ledger">
-        <article class="ds-parchment ds-ledger-card">
-          <div class="ds-ledger-card__label">Armaments</div>
-          <div class="ds-ledger-card__value">{data.detail.summary.weapons.length}</div>
-          <p class="ds-ledger-card__caption">{data.detail.summary.weapons.map((weapon) => weapon.name).join(" / ")}</p>
-        </article>
-        <article class="ds-parchment ds-ledger-card">
-          <div class="ds-ledger-card__label">Synergy Edges</div>
-          <div class="ds-ledger-card__value">{data.detail.synergy.synergy_edges.length}</div>
-          <p class="ds-ledger-card__caption">
-            {data.detail.synergy.anti_synergies.length} anti-synergies · {data.detail.synergy.orphans.length} isolated picks
-          </p>
-        </article>
-        <article class="ds-parchment ds-ledger-card">
-          <div class="ds-ledger-card__label">Calc Coverage</div>
-          <div class="ds-ledger-card__value">{formatCoverageFraction(data.detail.synergy.metadata.calc_coverage_pct)}</div>
-          <p class="ds-ledger-card__caption">{data.detail.synergy.metadata.unique_entities_with_calc} entities with calculator support</p>
-        </article>
-        <article class="ds-parchment ds-ledger-card">
-          <div class="ds-ledger-card__label">Build Identity</div>
-          <div class="ds-ledger-card__value ds-ledger-card__value--text">
-            {coverageLabels(data.detail.synergy.coverage.build_identity)}
-          </div>
-          <p class="ds-ledger-card__caption">Concentration {data.detail.synergy.coverage.concentration}</p>
-        </article>
-      </div>
+      <VerdictStrip detail={data.detail} />
     </section>
 
     <section class="ds-reveal ds-section">
@@ -338,31 +314,6 @@
             </div>
           </div>
         </article>
-      </div>
-    </section>
-
-    <section class="ds-reveal ds-section">
-      <header class="ds-section-heading">
-        <div class="ds-section-heading__copy">
-          <span class="ds-label ds-label--parchment">Assessment</span>
-          <h2 class="ds-h2">Seven Dimensions &amp; Composite</h2>
-        </div>
-        <div class="ds-rule"><span class="ds-rule__mark">✠</span></div>
-      </header>
-
-      <div class="ds-dim-grid">
-        {#each dimensionCards as card}
-          <article class="ds-parchment ds-dim-card">
-            <div class="ds-label">{card.label}</div>
-            <div class="ds-dim-card__head">
-              <span class="ds-score {dsScoreColor(card.score, card.key === 'composite')}">{card.score ?? "\u2014"}</span>
-              <span class="ds-numeral-max">/ {card.max}</span>
-            </div>
-            {#if card.explanation}
-              <p class="ds-dim-card__note">{card.explanation}</p>
-            {/if}
-          </article>
-        {/each}
       </div>
     </section>
 
@@ -557,47 +508,77 @@
         </div>
       </div>
 
-      <article class="ds-parchment ds-panel">
-        <h3 class="ds-h3">Coverage Stats</h3>
-        <div class="ds-rule ds-rule--standalone"><span class="ds-rule__mark">❖</span></div>
+      <details class="ds-discl">
+        <summary>Analytical coverage audit</summary>
+        <article class="ds-parchment ds-panel" style="margin-top:0.8rem">
+          <div class="ds-coverage-grid">
+            <div class="ds-coverage-cell">
+              <div class="ds-label">Calc Coverage</div>
+              <div class="ds-coverage-cell__value">{formatCoverageFraction(data.detail.synergy.metadata.calc_coverage_pct)}</div>
+            </div>
+            <div class="ds-coverage-cell">
+              <div class="ds-label">Entities Analyzed</div>
+              <div class="ds-coverage-cell__value">{data.detail.synergy.metadata.entities_analyzed}</div>
+            </div>
+            <div class="ds-coverage-cell">
+              <div class="ds-label">Entities With Calc</div>
+              <div class="ds-coverage-cell__value">{data.detail.synergy.metadata.unique_entities_with_calc}</div>
+            </div>
+            <div class="ds-coverage-cell">
+              <div class="ds-label">Opaque Conditions</div>
+              <div class="ds-coverage-cell__value">{data.detail.synergy.metadata.opaque_conditions}</div>
+            </div>
+          </div>
 
-        <div class="ds-coverage-grid">
-          <div class="ds-coverage-cell">
-            <div class="ds-label">Calc Coverage</div>
-            <div class="ds-coverage-cell__value">{formatCoverageFraction(data.detail.synergy.metadata.calc_coverage_pct)}</div>
+          <div class="ds-coverage-grid" style="grid-template-columns:1fr;margin-top:1rem">
+            <div class="ds-coverage-cell" style="background:rgba(26,15,8,0.05)">
+              <div class="ds-label">Build Identity</div>
+              <p class="ds-body" style="margin-top:0.55rem">{coverageLabels(data.detail.synergy.coverage.build_identity)}</p>
+              <p class="ds-label" style="margin-top:0.4rem">Concentration {data.detail.synergy.coverage.concentration}</p>
+            </div>
+            <div class="ds-coverage-cell" style="background:rgba(26,15,8,0.05)">
+              <div class="ds-label">Coverage Gaps</div>
+              <p class="ds-body" style="margin-top:0.55rem">{coverageLabels(data.detail.synergy.coverage.coverage_gaps)}</p>
+            </div>
+            <div class="ds-coverage-cell" style="background:rgba(26,15,8,0.05)">
+              <div class="ds-label">Slot Balance</div>
+              <p class="ds-body" style="margin-top:0.55rem">
+                Melee {data.detail.synergy.coverage.slot_balance.melee.strength} &middot; Ranged {data.detail.synergy.coverage.slot_balance.ranged.strength}
+              </p>
+            </div>
           </div>
-          <div class="ds-coverage-cell">
-            <div class="ds-label">Entities Analyzed</div>
-            <div class="ds-coverage-cell__value">{data.detail.synergy.metadata.entities_analyzed}</div>
-          </div>
-          <div class="ds-coverage-cell">
-            <div class="ds-label">Entities With Calc</div>
-            <div class="ds-coverage-cell__value">{data.detail.synergy.metadata.unique_entities_with_calc}</div>
-          </div>
-          <div class="ds-coverage-cell">
-            <div class="ds-label">Opaque Conditions</div>
-            <div class="ds-coverage-cell__value">{data.detail.synergy.metadata.opaque_conditions}</div>
-          </div>
-        </div>
+        </article>
+      </details>
+    </section>
 
-        <div class="ds-coverage-grid" style="grid-template-columns:1fr;margin-top:1rem">
-          <div class="ds-coverage-cell" style="background:rgba(26,15,8,0.05)">
-            <div class="ds-label">Build Identity</div>
-            <p class="ds-body" style="margin-top:0.55rem">{coverageLabels(data.detail.synergy.coverage.build_identity)}</p>
-            <p class="ds-label" style="margin-top:0.4rem">Concentration {data.detail.synergy.coverage.concentration}</p>
-          </div>
-          <div class="ds-coverage-cell" style="background:rgba(26,15,8,0.05)">
-            <div class="ds-label">Coverage Gaps</div>
-            <p class="ds-body" style="margin-top:0.55rem">{coverageLabels(data.detail.synergy.coverage.coverage_gaps)}</p>
-          </div>
-          <div class="ds-coverage-cell" style="background:rgba(26,15,8,0.05)">
-            <div class="ds-label">Slot Balance</div>
-            <p class="ds-body" style="margin-top:0.55rem">
-              Melee {data.detail.synergy.coverage.slot_balance.melee.strength} · Ranged {data.detail.synergy.coverage.slot_balance.ranged.strength}
-            </p>
-          </div>
+    <section class="ds-reveal ds-section">
+      <header class="ds-section-heading">
+        <div class="ds-section-heading__copy">
+          <span class="ds-label ds-label--parchment">Assessment</span>
+          <h2 class="ds-h2">Seven Dimensions &amp; Composite</h2>
         </div>
-      </article>
+        <div class="ds-rule"><span class="ds-rule__mark">✠</span></div>
+      </header>
+
+      <details class="ds-discl">
+        <summary>
+          Composite {data.detail.summary.scores.composite} / 35 &middot; Grade {data.detail.summary.scores.grade} &middot; show full scorecard
+        </summary>
+        <div class="ds-dim-grid" style="margin-top:0.9rem">
+          {#each dimensionCards as card}
+            <article class="ds-parchment ds-dim-card">
+              <div class="ds-label">{card.label}</div>
+              <div class="ds-dim-card__head">
+                <span class="ds-score {dsScoreColor(card.score, card.key === 'composite')}">{card.score ?? "\u2014"}</span>
+                <span class="ds-numeral-max">/ {card.max}</span>
+              </div>
+              {#if card.explanation}
+                <p class="ds-dim-card__note">{card.explanation}</p>
+              {/if}
+            </article>
+          {/each}
+        </div>
+      </details>
     </section>
 
     <section class="ds-reveal ds-section">
