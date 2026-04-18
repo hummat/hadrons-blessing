@@ -147,9 +147,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 27,
+        "blessing_edges": 31,
         "blessing_count": 4,
-        "edges_per_blessing": 6.75,
+        "edges_per_blessing": 7.75,
         "blessing_blessing_edges": 4,
         "orphaned_blessings": 0
       },
@@ -166,12 +166,13 @@
         "measurable_talent_count": 12,
         "edges_per_talent": 0.75,
         "graph_isolated_count": 1,
-        "concentration": 0.06,
+        "concentration": 0.08,
         "penalties": -0.5,
-        "bonuses": 0
+        "bonuses": 0.5
       },
       "explanations": [
         "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "High stat concentration (0.080) +0.5",
         "14 talent(s) without calc data excluded from isolation penalty"
       ]
     },
@@ -259,7 +260,7 @@
         "active_families": 9,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.9090909090909091
+        "slot_balance_ratio": 0.9230769230769231
       },
       "explanations": []
     },

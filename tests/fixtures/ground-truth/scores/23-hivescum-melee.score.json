@@ -3,8 +3,8 @@
   "class": "hive scum",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 23,
-  "letter_grade": "B",
+  "composite_score": 30,
+  "letter_grade": "A",
   "weapons": [
     {
       "name": "Improvised Mk I Shivs",
@@ -150,11 +150,11 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
-        "blessing_edges": 8,
+        "blessing_edges": 21,
         "blessing_count": 3,
-        "edges_per_blessing": 2.667,
+        "edges_per_blessing": 7,
         "blessing_blessing_edges": 1,
         "orphaned_blessings": 1
       },
@@ -165,43 +165,44 @@
       ]
     },
     "talent_coherence": {
-      "score": 2,
+      "score": 4,
       "breakdown": {
-        "talent_edges": 6,
+        "talent_edges": 17,
         "talent_count": 34,
-        "measurable_talent_count": 8,
-        "edges_per_talent": 0.75,
+        "measurable_talent_count": 12,
+        "edges_per_talent": 1.417,
         "graph_isolated_count": 2,
-        "concentration": 0.06,
+        "concentration": 0.13,
         "penalties": -1,
-        "bonuses": 0
+        "bonuses": 0.5
       },
       "explanations": [
         "2 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "26 talent(s) without calc data excluded from isolation penalty"
+        "High stat concentration (0.130) +0.5",
+        "22 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
-      "score": 3,
+      "score": 5,
       "breakdown": [
         {
           "label": "One-shot Rager head",
-          "met": false,
-          "best_htk": 3,
+          "met": true,
+          "best_htk": 1,
           "max_hits": 1,
           "weight": "high"
         },
         {
           "label": "Two-hit Rager body",
-          "met": false,
-          "best_htk": 4,
+          "met": true,
+          "best_htk": 2,
           "max_hits": 2,
           "weight": "high"
         },
         {
           "label": "Two-hit Crusher",
-          "met": false,
-          "best_htk": 6,
+          "met": true,
+          "best_htk": 2,
           "max_hits": 2,
           "weight": "high"
         },
@@ -235,15 +236,15 @@
         },
         {
           "label": "Three-hit Mauler",
-          "met": false,
-          "best_htk": 4,
+          "met": true,
+          "best_htk": 2,
           "max_hits": 3,
           "weight": "low"
         },
         {
           "label": "Two-hit Bulwark",
-          "met": false,
-          "best_htk": 4,
+          "met": true,
+          "best_htk": 2,
           "max_hits": 2,
           "weight": "low"
         },
@@ -256,8 +257,7 @@
         }
       ],
       "explanations": [
-        "5/10 breakpoints met (weighted 9/20)",
-        "Missed high-priority: One-shot Rager head, Two-hit Rager body, Two-hit Crusher"
+        "10/10 breakpoints met (weighted 20/20)"
       ]
     },
     "role_coverage": {
@@ -266,42 +266,43 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.625
+        "slot_balance_ratio": 0.7333333333333333
       },
       "explanations": []
     },
     "difficulty_scaling": {
-      "score": 1,
+      "score": 3,
       "breakdown": {
-        "auric_met": 0,
-        "damnation_met": 0,
+        "auric_met": 1,
+        "damnation_met": 3,
         "total": 3,
         "per_entry": [
           {
             "label": "One-shot Rager head",
-            "damnation_htk": 3,
-            "auric_htk": 3,
-            "damnation_met": false,
+            "damnation_htk": 1,
+            "auric_htk": 2,
+            "damnation_met": true,
             "auric_met": false
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 4,
-            "auric_htk": 5,
-            "damnation_met": false,
-            "auric_met": false
+            "damnation_htk": 2,
+            "auric_htk": 2,
+            "damnation_met": true,
+            "auric_met": true
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 6,
-            "auric_htk": 8,
-            "damnation_met": false,
+            "damnation_htk": 2,
+            "auric_htk": 3,
+            "damnation_met": true,
             "auric_met": false
           }
         ]
       },
       "explanations": [
-        "High-priority: 0/3 at damnation, 0/3 at auric"
+        "High-priority: 3/3 at damnation, 1/3 at auric",
+        "Degrades at auric: One-shot Rager head, Two-hit Crusher"
       ]
     }
   },

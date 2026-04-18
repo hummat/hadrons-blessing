@@ -152,9 +152,9 @@
     "blessing_synergy": {
       "score": 1,
       "breakdown": {
-        "blessing_edges": 6,
+        "blessing_edges": 8,
         "blessing_count": 4,
-        "edges_per_blessing": 1.5,
+        "edges_per_blessing": 2,
         "blessing_blessing_edges": 0,
         "orphaned_blessings": 2
       },
@@ -171,7 +171,7 @@
         "measurable_talent_count": 6,
         "edges_per_talent": 0.5,
         "graph_isolated_count": 0,
-        "concentration": 0.02,
+        "concentration": 0.04,
         "penalties": 0,
         "bonuses": 0
       },
@@ -199,7 +199,7 @@
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 5,
+          "best_htk": 4,
           "max_hits": 2,
           "weight": "high"
         },
@@ -264,7 +264,7 @@
         "active_families": 7,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.8
+        "slot_balance_ratio": 0.8571428571428571
       },
       "explanations": []
     },
@@ -291,7 +291,7 @@
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 5,
+            "damnation_htk": 4,
             "auric_htk": 6,
             "damnation_met": false,
             "auric_met": false

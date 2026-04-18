@@ -60,6 +60,8 @@ const FAMILY_STATS: Record<StatFamily, string[]> = {
     "damage_vs_healthy", "damage_vs_monsters", "damage_vs_ogryn",
     "damage_vs_chaos_plague_ogryn", "damage_vs_electrocuted",
     "damage_vs_nonthreat", "damage_vs_horde", "damage_vs_specials",
+    "armored_damage", "berserker_damage", "super_armor_damage",
+    "unarmored_damage",
     "weakspot_damage", "finesse_modifier_bonus",
     "impact_modifier", "explosion_radius_modifier",
     "flanking_damage", "backstab_damage", "backstab_rending_multiplier",

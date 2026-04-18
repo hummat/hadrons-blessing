@@ -152,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 19,
+        "blessing_edges": 27,
         "blessing_count": 4,
-        "edges_per_blessing": 4.75,
+        "edges_per_blessing": 6.75,
         "blessing_blessing_edges": 2,
         "orphaned_blessings": 0
       },
@@ -171,7 +171,7 @@
         "measurable_talent_count": 15,
         "edges_per_talent": 1,
         "graph_isolated_count": 1,
-        "concentration": 0.03,
+        "concentration": 0.05,
         "penalties": -0.5,
         "bonuses": 0
       },
@@ -200,7 +200,7 @@
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 8,
+          "best_htk": 7,
           "max_hits": 2,
           "weight": "high"
         },
@@ -235,7 +235,7 @@
         {
           "label": "Three-hit Mauler",
           "met": false,
-          "best_htk": 5,
+          "best_htk": 4,
           "max_hits": 3,
           "weight": "low"
         },
@@ -279,21 +279,21 @@
           {
             "label": "One-shot Rager head",
             "damnation_htk": 3,
-            "auric_htk": 4,
+            "auric_htk": 3,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Rager body",
             "damnation_htk": 5,
-            "auric_htk": 7,
+            "auric_htk": 6,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 8,
-            "auric_htk": 11,
+            "damnation_htk": 7,
+            "auric_htk": 10,
             "damnation_met": false,
             "auric_met": false
           }

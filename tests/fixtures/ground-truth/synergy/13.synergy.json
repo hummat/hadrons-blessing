@@ -42,7 +42,55 @@
       "type": "stat_alignment",
       "selections": [
         "ogryn.talent.ogryn_ogryn_killer",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "ogryn.talent.ogryn_ogryn_killer",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "ogryn.talent.ogryn_ogryn_killer",
         "shared.name_family.blessing.surgical"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "ogryn.talent.ogryn_ogryn_killer",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "ogryn.talent.ogryn_ogryn_killer",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage"
       ],
       "families": [
         "general_offense"
@@ -102,7 +150,55 @@
       "type": "stat_alignment",
       "selections": [
         "shared.stat_node.rending_boost",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.rending_boost",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.rending_boost",
         "shared.name_family.blessing.surgical"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.rending_boost",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.rending_boost",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage"
       ],
       "families": [
         "general_offense"
@@ -361,6 +457,126 @@
       ],
       "strength": 3,
       "explanation": "Both selections contribute persistent effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+        "shared.name_family.blessing.surgical"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+        "shared.name_family.blessing.surgical"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.surgical",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.surgical",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
     }
   ],
   "anti_synergies": [],
@@ -368,12 +584,16 @@
   "coverage": {
     "family_profile": {
       "general_offense": {
-        "count": 3,
-        "total_magnitude": 0.75,
+        "count": 7,
+        "total_magnitude": 1.15,
         "selections": [
           "ogryn.talent.ogryn_ogryn_killer",
           "shared.stat_node.rending_boost",
-          "shared.name_family.blessing.surgical"
+          "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+          "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "shared.name_family.blessing.surgical",
+          "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+          "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage"
         ]
       },
       "damage_reduction": {
@@ -437,7 +657,7 @@
           "melee_offense",
           "crit"
         ],
-        "strength": 9
+        "strength": 13
       },
       "ranged": {
         "families": [
@@ -445,16 +665,16 @@
           "ranged_offense",
           "crit"
         ],
-        "strength": 4
+        "strength": 8
       }
     },
     "build_identity": [
+      "general_offense",
       "melee_offense",
-      "toughness",
-      "damage_reduction"
+      "toughness"
     ],
     "coverage_gaps": [],
-    "concentration": 0.07
+    "concentration": 0.08
   },
   "_resolvedIds": [
     "ogryn.ability.ogryn_taunt_shout",
@@ -513,17 +733,21 @@
     "ogryn.talent.ogryn_weakspot_damage",
     "shared.name_family.blessing.thunderous",
     "shared.name_family.blessing.increase_power_on_hit",
+    "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+    "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
     "shared.name_family.blessing.power_bonus_on_first_shot",
     "shared.name_family.blessing.surgical",
+    "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+    "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage",
     "shared.gadget_trait.gadget_toughness_increase",
     "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
     "shared.gadget_trait.gadget_revive_speed_increase"
   ],
   "metadata": {
     "entities_analyzed": 52,
-    "unique_entities_with_calc": 18,
-    "entities_without_calc": 23,
+    "unique_entities_with_calc": 22,
+    "entities_without_calc": 19,
     "opaque_conditions": 0,
-    "calc_coverage_pct": 0.44
+    "calc_coverage_pct": 0.54
   }
 }

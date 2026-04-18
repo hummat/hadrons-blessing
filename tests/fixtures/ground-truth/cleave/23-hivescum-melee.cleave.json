@@ -17,7 +17,7 @@
                 {
                   "breed_id": "chaos_poxwalker",
                   "hit_mass": 1.5,
-                  "damage": 564.184,
+                  "damage": 1353.5240000000006,
                   "hp": 300,
                   "killed": true
                 }
@@ -30,7 +30,73 @@
                 {
                   "breed_id": "renegade_assault",
                   "hit_mass": 1.5,
-                  "damage": 529.4129999999999,
+                  "damage": 1270.1055000000006,
+                  "hp": 500,
+                  "killed": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "light_attack",
+          "profileId": "dual_shivs_light_ninja_stabby",
+          "cleave_budget": 2.6,
+          "compositions": {
+            "mixed_melee_horde": {
+              "targets_hit": 1,
+              "targets_killed": 1,
+              "per_target": [
+                {
+                  "breed_id": "chaos_poxwalker",
+                  "hit_mass": 1.5,
+                  "damage": 1353.5240000000006,
+                  "hp": 300,
+                  "killed": true
+                }
+              ]
+            },
+            "elite_mixed": {
+              "targets_hit": 1,
+              "targets_killed": 1,
+              "per_target": [
+                {
+                  "breed_id": "renegade_assault",
+                  "hit_mass": 1.5,
+                  "damage": 1270.1055000000006,
+                  "hp": 500,
+                  "killed": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "light_attack",
+          "profileId": "dual_shivs_light_ninja_stabby_plus",
+          "cleave_budget": 1.8,
+          "compositions": {
+            "mixed_melee_horde": {
+              "targets_hit": 1,
+              "targets_killed": 1,
+              "per_target": [
+                {
+                  "breed_id": "chaos_poxwalker",
+                  "hit_mass": 1.5,
+                  "damage": 1353.5240000000006,
+                  "hp": 300,
+                  "killed": true
+                }
+              ]
+            },
+            "elite_mixed": {
+              "targets_hit": 1,
+              "targets_killed": 1,
+              "per_target": [
+                {
+                  "breed_id": "renegade_assault",
+                  "hit_mass": 1.5,
+                  "damage": 1270.1055000000006,
                   "hp": 500,
                   "killed": true
                 }
@@ -50,7 +116,7 @@
                 {
                   "breed_id": "chaos_poxwalker",
                   "hit_mass": 1.5,
-                  "damage": 522.3279999999999,
+                  "damage": 1253.1080000000004,
                   "hp": 300,
                   "killed": true
                 }
@@ -63,7 +129,7 @@
                 {
                   "breed_id": "renegade_assault",
                   "hit_mass": 1.5,
-                  "damage": 561.568,
+                  "damage": 1347.2480000000007,
                   "hp": 500,
                   "killed": true
                 }
@@ -83,21 +149,21 @@
                 {
                   "breed_id": "chaos_poxwalker",
                   "hit_mass": 1.5,
-                  "damage": 522.3279999999999,
+                  "damage": 1253.1080000000004,
                   "hp": 300,
                   "killed": true
                 },
                 {
                   "breed_id": "chaos_poxwalker",
                   "hit_mass": 1.5,
-                  "damage": 522.3279999999999,
+                  "damage": 1253.1080000000004,
                   "hp": 300,
                   "killed": true
                 },
                 {
                   "breed_id": "renegade_assault",
                   "hit_mass": 1.5,
-                  "damage": 561.568,
+                  "damage": 1347.2480000000007,
                   "hp": 500,
                   "killed": true
                 }
@@ -110,7 +176,7 @@
                 {
                   "breed_id": "renegade_assault",
                   "hit_mass": 1.5,
-                  "damage": 561.568,
+                  "damage": 1347.2480000000007,
                   "hp": 500,
                   "killed": true
                 }
@@ -183,6 +249,39 @@
               ]
             }
           }
+        },
+        {
+          "type": "push_followup",
+          "profileId": "dual_shivs_light_ninja_stabby_plus",
+          "cleave_budget": 1.8,
+          "compositions": {
+            "mixed_melee_horde": {
+              "targets_hit": 1,
+              "targets_killed": 1,
+              "per_target": [
+                {
+                  "breed_id": "chaos_poxwalker",
+                  "hit_mass": 1.5,
+                  "damage": 1353.5240000000006,
+                  "hp": 300,
+                  "killed": true
+                }
+              ]
+            },
+            "elite_mixed": {
+              "targets_hit": 1,
+              "targets_killed": 1,
+              "per_target": [
+                {
+                  "breed_id": "renegade_assault",
+                  "hit_mass": 1.5,
+                  "damage": 1270.1055000000006,
+                  "hp": 500,
+                  "killed": true
+                }
+              ]
+            }
+          }
         }
       ]
     }
@@ -194,6 +293,6 @@
       "mixed_melee_horde",
       "elite_mixed"
     ],
-    "timestamp": "2026-04-10T05:28:35.469Z"
+    "timestamp": "2026-04-18T17:01:57.450Z"
   }
 }

@@ -3,7 +3,7 @@
   "class": "zealot",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 23,
+  "composite_score": 24,
   "letter_grade": "B",
   "weapons": [
     {
@@ -150,11 +150,11 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 2,
+      "score": 3,
       "breakdown": {
-        "blessing_edges": 11,
+        "blessing_edges": 14,
         "blessing_count": 4,
-        "edges_per_blessing": 2.75,
+        "edges_per_blessing": 3.5,
         "blessing_blessing_edges": 0,
         "orphaned_blessings": 2
       },
@@ -192,14 +192,14 @@
         {
           "label": "Two-hit Rager body",
           "met": false,
-          "best_htk": 4,
+          "best_htk": 3,
           "max_hits": 2,
           "weight": "high"
         },
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 6,
+          "best_htk": 5,
           "max_hits": 2,
           "weight": "high"
         },
@@ -233,8 +233,8 @@
         },
         {
           "label": "Three-hit Mauler",
-          "met": false,
-          "best_htk": 4,
+          "met": true,
+          "best_htk": 3,
           "max_hits": 3,
           "weight": "low"
         },
@@ -254,7 +254,7 @@
         }
       ],
       "explanations": [
-        "5/10 breakpoints met (weighted 9/20)",
+        "6/10 breakpoints met (weighted 10/20)",
         "Missed high-priority: One-shot Rager head, Two-hit Rager body, Two-hit Crusher"
       ]
     },
@@ -264,7 +264,7 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.45454545454545453
+        "slot_balance_ratio": 0.5714285714285714
       },
       "explanations": []
     },
@@ -284,15 +284,15 @@
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 4,
-            "auric_htk": 5,
+            "damnation_htk": 3,
+            "auric_htk": 4,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 6,
-            "auric_htk": 8,
+            "damnation_htk": 5,
+            "auric_htk": 6,
             "damnation_met": false,
             "auric_met": false
           }

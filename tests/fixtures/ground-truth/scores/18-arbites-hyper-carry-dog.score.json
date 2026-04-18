@@ -3,8 +3,8 @@
   "class": "arbites",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 30,
-  "letter_grade": "A",
+  "composite_score": 33,
+  "letter_grade": "S",
   "weapons": [
     {
       "name": "Branx Mk III Arbites Shock Maul",
@@ -150,11 +150,11 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
-        "blessing_edges": 12,
+        "blessing_edges": 23,
         "blessing_count": 4,
-        "edges_per_blessing": 3,
+        "edges_per_blessing": 5.75,
         "blessing_blessing_edges": 1,
         "orphaned_blessings": 1
       },
@@ -165,20 +165,21 @@
       ]
     },
     "talent_coherence": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
-        "talent_edges": 13,
+        "talent_edges": 23,
         "talent_count": 27,
-        "measurable_talent_count": 11,
-        "edges_per_talent": 1.182,
+        "measurable_talent_count": 13,
+        "edges_per_talent": 1.769,
         "graph_isolated_count": 1,
-        "concentration": 0.04,
+        "concentration": 0.09,
         "penalties": -0.5,
-        "bonuses": 0
+        "bonuses": 0.5
       },
       "explanations": [
         "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "16 talent(s) without calc data excluded from isolation penalty"
+        "High stat concentration (0.090) +0.5",
+        "14 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -265,14 +266,14 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.7777777777777778
+        "slot_balance_ratio": 0.8571428571428571
       },
       "explanations": []
     },
     "difficulty_scaling": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
-        "auric_met": 2,
+        "auric_met": 3,
         "damnation_met": 3,
         "total": 3,
         "per_entry": [
@@ -293,15 +294,14 @@
           {
             "label": "Two-hit Crusher",
             "damnation_htk": 2,
-            "auric_htk": 3,
+            "auric_htk": 2,
             "damnation_met": true,
-            "auric_met": false
+            "auric_met": true
           }
         ]
       },
       "explanations": [
-        "High-priority: 3/3 at damnation, 2/3 at auric",
-        "Degrades at auric: Two-hit Crusher"
+        "High-priority: 3/3 at damnation, 3/3 at auric"
       ]
     }
   },

@@ -3,7 +3,7 @@
   "class": "ogryn",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 24,
+  "composite_score": 25,
   "letter_grade": "B",
   "weapons": [
     {
@@ -172,7 +172,7 @@
         "measurable_talent_count": 10,
         "edges_per_talent": 1,
         "graph_isolated_count": 0,
-        "concentration": 0.03,
+        "concentration": 0.04,
         "penalties": 0,
         "bonuses": 0
       },
@@ -181,12 +181,12 @@
       ]
     },
     "breakpoint_relevance": {
-      "score": 3,
+      "score": 4,
       "breakdown": [
         {
           "label": "One-shot Rager head",
-          "met": false,
-          "best_htk": 2,
+          "met": true,
+          "best_htk": 1,
           "max_hits": 1,
           "weight": "high"
         },
@@ -241,8 +241,8 @@
         },
         {
           "label": "Two-hit Bulwark",
-          "met": false,
-          "best_htk": 3,
+          "met": true,
+          "best_htk": 2,
           "max_hits": 2,
           "weight": "low"
         },
@@ -255,8 +255,8 @@
         }
       ],
       "explanations": [
-        "6/10 breakpoints met (weighted 10/20)",
-        "Missed high-priority: One-shot Rager head, Two-hit Rager body, Two-hit Crusher"
+        "8/10 breakpoints met (weighted 14/20)",
+        "Missed high-priority: Two-hit Rager body, Two-hit Crusher"
       ]
     },
     "role_coverage": {
@@ -265,7 +265,7 @@
         "active_families": 5,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.4444444444444444
+        "slot_balance_ratio": 0.5833333333333334
       },
       "explanations": []
     },
@@ -273,14 +273,14 @@
       "score": 1,
       "breakdown": {
         "auric_met": 0,
-        "damnation_met": 0,
+        "damnation_met": 1,
         "total": 3,
         "per_entry": [
           {
             "label": "One-shot Rager head",
-            "damnation_htk": 2,
+            "damnation_htk": 1,
             "auric_htk": 2,
-            "damnation_met": false,
+            "damnation_met": true,
             "auric_met": false
           },
           {
@@ -300,7 +300,8 @@
         ]
       },
       "explanations": [
-        "High-priority: 0/3 at damnation, 0/3 at auric"
+        "High-priority: 1/3 at damnation, 0/3 at auric",
+        "Degrades at auric: One-shot Rager head"
       ]
     }
   },

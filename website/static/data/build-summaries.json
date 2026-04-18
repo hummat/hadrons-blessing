@@ -18,6 +18,66 @@
       }
     ],
     "scores": {
+      "composite": 33,
+      "grade": "S",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 4,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 5
+    }
+  },
+  {
+    "file": "18-arbites-hyper-carry-dog.json",
+    "title": "[Havoc 40 Meta] Hyper Carry Dog Build",
+    "class": "arbites",
+    "ability": "Castigators Stance",
+    "keystone": "Execution Order",
+    "weapons": [
+      {
+        "name": "Branx Mk III Arbites Shock Maul",
+        "slot": "melee",
+        "family": "powermaul_p2"
+      },
+      {
+        "name": "Exaction Mk III Exterminator Shotgun",
+        "slot": "ranged",
+        "family": "shotgun_p4"
+      }
+    ],
+    "scores": {
+      "composite": 33,
+      "grade": "S",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 4,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 5
+    }
+  },
+  {
+    "file": "20-arbites-immortal-provost.json",
+    "title": "[SM/LW/BTL/FF] 'The Immortal’ Grand Provost Marshal",
+    "class": "arbites",
+    "ability": "Break the Line",
+    "keystone": "Forceful",
+    "weapons": [
+      {
+        "name": "Branx Mk XI Shock Maul and Suppression Shield",
+        "slot": "melee",
+        "family": "powermaul_shield_p1"
+      },
+      {
+        "name": "Zarona Mk IIa Quickdraw Stub Revolver",
+        "slot": "ranged",
+        "family": "stubrevolver_p1"
+      }
+    ],
+    "scores": {
       "composite": 32,
       "grade": "S",
       "perk_optimality": 5,
@@ -90,21 +150,21 @@
     }
   },
   {
-    "file": "18-arbites-hyper-carry-dog.json",
-    "title": "[Havoc 40 Meta] Hyper Carry Dog Build",
-    "class": "arbites",
-    "ability": "Castigators Stance",
-    "keystone": "Execution Order",
+    "file": "23-hivescum-melee.json",
+    "title": "Hamdol's Melee Hive Scum - Havoc 40",
+    "class": "hive scum",
+    "ability": "Rampage",
+    "keystone": "Chemical Dependency",
     "weapons": [
       {
-        "name": "Branx Mk III Arbites Shock Maul",
+        "name": "Improvised Mk I Shivs",
         "slot": "melee",
-        "family": "powermaul_p2"
+        "family": "dual_shivs"
       },
       {
-        "name": "Exaction Mk III Exterminator Shotgun",
+        "name": "Branx MKII Needle Pistol",
         "slot": "ranged",
-        "family": "shotgun_p4"
+        "family": "needlepistol"
       }
     ],
     "scores": {
@@ -113,38 +173,38 @@
       "perk_optimality": 5,
       "curio_efficiency": 4,
       "talent_coherence": 4,
-      "blessing_synergy": 4,
+      "blessing_synergy": 5,
       "role_coverage": 4,
       "breakpoint_relevance": 5,
-      "difficulty_scaling": 4
+      "difficulty_scaling": 3
     }
   },
   {
-    "file": "20-arbites-immortal-provost.json",
-    "title": "[SM/LW/BTL/FF] 'The Immortal’ Grand Provost Marshal",
-    "class": "arbites",
-    "ability": "Break the Line",
-    "keystone": "Forceful",
+    "file": "16-ogryn-heavy-gunlugger.json",
+    "title": "Heavy Gun-Lugger | Point-Blank Barrage | Burst Limiter Override",
+    "class": "ogryn",
+    "ability": "Point Blank Barrage",
+    "keystone": "Burst Limiter Override",
     "weapons": [
       {
-        "name": "Branx Mk XI Shock Maul and Suppression Shield",
+        "name": "Achlys Mk I Power Maul",
         "slot": "melee",
-        "family": "powermaul_shield_p1"
+        "family": "ogryn_powermaul"
       },
       {
-        "name": "Zarona Mk IIa Quickdraw Stub Revolver",
+        "name": "Gorgonum Mk IV Twin-Linked Heavy Stubber",
         "slot": "ranged",
-        "family": "stubrevolver_p1"
+        "family": "ogryn_heavystubber_p2"
       }
     ],
     "scores": {
-      "composite": 30,
+      "composite": 29,
       "grade": "A",
       "perk_optimality": 5,
       "curio_efficiency": 4,
       "talent_coherence": 5,
       "blessing_synergy": 5,
-      "role_coverage": 4,
+      "role_coverage": 3,
       "breakpoint_relevance": 5,
       "difficulty_scaling": 2
     }
@@ -168,15 +228,135 @@
       }
     ],
     "scores": {
+      "composite": 29,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 4,
+      "blessing_synergy": 5,
+      "role_coverage": 4,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 2
+    }
+  },
+  {
+    "file": "22-hivescum-rampage.json",
+    "title": "Hamdol's Havoc 40 Updated Rampage Low Stim Scum",
+    "class": "hive scum",
+    "ability": "Rampage",
+    "keystone": "Chemical Dependency",
+    "weapons": [
+      {
+        "name": "Improvised Mk I Shivs",
+        "slot": "melee",
+        "family": "dual_shivs"
+      },
+      {
+        "name": "Branx MkVI Needle Pistol",
+        "slot": "ranged",
+        "family": "needlepistol_p1"
+      }
+    ],
+    "scores": {
+      "composite": 29,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 4,
+      "blessing_synergy": 5,
+      "role_coverage": 4,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 2
+    }
+  },
+  {
+    "file": "11-psyker-karen-mode.json",
+    "title": "Karen Mode Psyker Havoc 40",
+    "class": "psyker",
+    "ability": "Venting Shriek",
+    "keystone": "Warp Siphon",
+    "weapons": [
+      {
+        "name": "Maccabian Mk IV Duelling Sword",
+        "slot": "melee",
+        "family": "combatsword_p1"
+      },
+      {
+        "name": "Equinox Mk IV Voidstrike Force Staff",
+        "slot": "ranged",
+        "family": "forcestaff_p4"
+      }
+    ],
+    "scores": {
       "composite": 28,
       "grade": "A",
       "perk_optimality": 5,
       "curio_efficiency": 4,
       "talent_coherence": 4,
-      "blessing_synergy": 4,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 4,
+      "difficulty_scaling": 1
+    }
+  },
+  {
+    "file": "13-ogryn-bonktide.json",
+    "title": "BONKtide Havoc 40 by NRGaa",
+    "class": "ogryn",
+    "ability": "Loyal Protector",
+    "keystone": "Heavy Hitter",
+    "weapons": [
+      {
+        "name": "Branx Mk Ia Delver's Pickaxe",
+        "slot": "melee",
+        "family": "ogryn_pickaxe_2h_p1"
+      },
+      {
+        "name": "Achlys Mk II Heavy Stubber",
+        "slot": "ranged",
+        "family": "ogryn_heavystubber_p1"
+      }
+    ],
+    "scores": {
+      "composite": 28,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
       "role_coverage": 4,
-      "breakpoint_relevance": 5,
-      "difficulty_scaling": 2
+      "breakpoint_relevance": 4,
+      "difficulty_scaling": 1
+    }
+  },
+  {
+    "file": "21-hivescum-scumlinger.json",
+    "title": "Lihoe's Havoc 40 Scumlinger build.",
+    "class": "hive scum",
+    "ability": "Enhanced Desperado",
+    "keystone": "Chemical Dependency",
+    "weapons": [
+      {
+        "name": "Catachan Mk III Combat Blade",
+        "slot": "melee",
+        "family": "combatknife_p1"
+      },
+      {
+        "name": "Vraks Mk V Infantry Autogun",
+        "slot": "ranged",
+        "family": "autogun_p1"
+      }
+    ],
+    "scores": {
+      "composite": 28,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 4,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 4,
+      "difficulty_scaling": 1
     }
   },
   {
@@ -210,21 +390,21 @@
     }
   },
   {
-    "file": "11-psyker-karen-mode.json",
-    "title": "Karen Mode Psyker Havoc 40",
-    "class": "psyker",
-    "ability": "Venting Shriek",
-    "keystone": "Warp Siphon",
+    "file": "24-hivescum-stim-melee.json",
+    "title": "Stim Melee",
+    "class": "hive scum",
+    "ability": "Rampage",
+    "keystone": "Adrenaline Frenzy",
     "weapons": [
       {
-        "name": "Maccabian Mk IV Duelling Sword",
+        "name": "Catachan Mk VII \"Devil's Claw\" Sword",
         "slot": "melee",
-        "family": "combatsword_p1"
+        "family": "combatsword_p2"
       },
       {
-        "name": "Equinox Mk IV Voidstrike Force Staff",
+        "name": "Branx MkVI Needle Pistol",
         "slot": "ranged",
-        "family": "forcestaff_p4"
+        "family": "needlepistol_p1"
       }
     ],
     "scores": {
@@ -232,41 +412,11 @@
       "grade": "A",
       "perk_optimality": 5,
       "curio_efficiency": 4,
-      "talent_coherence": 4,
-      "blessing_synergy": 4,
-      "role_coverage": 5,
-      "breakpoint_relevance": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 4,
+      "breakpoint_relevance": 3,
       "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "16-ogryn-heavy-gunlugger.json",
-    "title": "Heavy Gun-Lugger | Point-Blank Barrage | Burst Limiter Override",
-    "class": "ogryn",
-    "ability": "Point Blank Barrage",
-    "keystone": "Burst Limiter Override",
-    "weapons": [
-      {
-        "name": "Achlys Mk I Power Maul",
-        "slot": "melee",
-        "family": "ogryn_powermaul"
-      },
-      {
-        "name": "Gorgonum Mk IV Twin-Linked Heavy Stubber",
-        "slot": "ranged",
-        "family": "ogryn_heavystubber_p2"
-      }
-    ],
-    "scores": {
-      "composite": 27,
-      "grade": "A",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 4,
-      "blessing_synergy": 4,
-      "role_coverage": 3,
-      "breakpoint_relevance": 5,
-      "difficulty_scaling": 2
     }
   },
   {
@@ -324,66 +474,6 @@
       "curio_efficiency": 4,
       "talent_coherence": 5,
       "blessing_synergy": 4,
-      "role_coverage": 4,
-      "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "13-ogryn-bonktide.json",
-    "title": "BONKtide Havoc 40 by NRGaa",
-    "class": "ogryn",
-    "ability": "Loyal Protector",
-    "keystone": "Heavy Hitter",
-    "weapons": [
-      {
-        "name": "Branx Mk Ia Delver's Pickaxe",
-        "slot": "melee",
-        "family": "ogryn_pickaxe_2h_p1"
-      },
-      {
-        "name": "Achlys Mk II Heavy Stubber",
-        "slot": "ranged",
-        "family": "ogryn_heavystubber_p1"
-      }
-    ],
-    "scores": {
-      "composite": 26,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 5,
-      "blessing_synergy": 4,
-      "role_coverage": 4,
-      "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "24-hivescum-stim-melee.json",
-    "title": "Stim Melee",
-    "class": "hive scum",
-    "ability": "Rampage",
-    "keystone": "Adrenaline Frenzy",
-    "weapons": [
-      {
-        "name": "Catachan Mk VII \"Devil's Claw\" Sword",
-        "slot": "melee",
-        "family": "combatsword_p2"
-      },
-      {
-        "name": "Branx MkVI Needle Pistol",
-        "slot": "ranged",
-        "family": "needlepistol_p1"
-      }
-    ],
-    "scores": {
-      "composite": 26,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 4,
-      "blessing_synergy": 5,
       "role_coverage": 4,
       "breakpoint_relevance": 3,
       "difficulty_scaling": 1
@@ -480,66 +570,6 @@
     }
   },
   {
-    "file": "21-hivescum-scumlinger.json",
-    "title": "Lihoe's Havoc 40 Scumlinger build.",
-    "class": "hive scum",
-    "ability": "Enhanced Desperado",
-    "keystone": "Chemical Dependency",
-    "weapons": [
-      {
-        "name": "Catachan Mk III Combat Blade",
-        "slot": "melee",
-        "family": "combatknife_p1"
-      },
-      {
-        "name": "Vraks Mk V Infantry Autogun",
-        "slot": "ranged",
-        "family": "autogun_p1"
-      }
-    ],
-    "scores": {
-      "composite": 25,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 3,
-      "blessing_synergy": 5,
-      "role_coverage": 5,
-      "breakpoint_relevance": 2,
-      "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "22-hivescum-rampage.json",
-    "title": "Hamdol's Havoc 40 Updated Rampage Low Stim Scum",
-    "class": "hive scum",
-    "ability": "Rampage",
-    "keystone": "Chemical Dependency",
-    "weapons": [
-      {
-        "name": "Improvised Mk I Shivs",
-        "slot": "melee",
-        "family": "dual_shivs"
-      },
-      {
-        "name": "Branx MkVI Needle Pistol",
-        "slot": "ranged",
-        "family": "needlepistol_p1"
-      }
-    ],
-    "scores": {
-      "composite": 25,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 3,
-      "blessing_synergy": 5,
-      "role_coverage": 4,
-      "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
     "file": "15-ogryn-shield-tank.json",
     "title": "Hamdol's Shield Ogryn for New Havoc 40",
     "class": "ogryn",
@@ -558,14 +588,14 @@
       }
     ],
     "scores": {
-      "composite": 24,
+      "composite": 25,
       "grade": "B",
       "perk_optimality": 5,
       "curio_efficiency": 4,
       "talent_coherence": 4,
       "blessing_synergy": 4,
       "role_coverage": 3,
-      "breakpoint_relevance": 3,
+      "breakpoint_relevance": 4,
       "difficulty_scaling": 1
     }
   },
@@ -588,12 +618,12 @@
       }
     ],
     "scores": {
-      "composite": 23,
+      "composite": 24,
       "grade": "B",
       "perk_optimality": 5,
       "curio_efficiency": 4,
       "talent_coherence": 4,
-      "blessing_synergy": 2,
+      "blessing_synergy": 3,
       "role_coverage": 4,
       "breakpoint_relevance": 3,
       "difficulty_scaling": 1
@@ -630,21 +660,21 @@
     }
   },
   {
-    "file": "23-hivescum-melee.json",
-    "title": "Hamdol's Melee Hive Scum - Havoc 40",
-    "class": "hive scum",
-    "ability": "Rampage",
-    "keystone": "Chemical Dependency",
+    "file": "14-ogryn-melee-meta.json",
+    "title": "Ogryn Melee Meta Havoc-40",
+    "class": "ogryn",
+    "ability": "Indomitable",
+    "keystone": "Heavy Hitter",
     "weapons": [
       {
-        "name": "Improvised Mk I Shivs",
+        "name": "\"Brunt's Basher\" Mk IIIb Bully Club",
         "slot": "melee",
-        "family": "dual_shivs"
+        "family": "ogryn_club_p2"
       },
       {
-        "name": "Branx MKII Needle Pistol",
+        "name": "Lorenz Mk VI Rumbler",
         "slot": "ranged",
-        "family": "needlepistol"
+        "family": "ogryn_thumper"
       }
     ],
     "scores": {
@@ -652,10 +682,10 @@
       "grade": "B",
       "perk_optimality": 5,
       "curio_efficiency": 4,
-      "talent_coherence": 2,
-      "blessing_synergy": 4,
-      "role_coverage": 4,
-      "breakpoint_relevance": 3,
+      "talent_coherence": 4,
+      "blessing_synergy": 2,
+      "role_coverage": 3,
+      "breakpoint_relevance": 4,
       "difficulty_scaling": 1
     }
   },
@@ -686,36 +716,6 @@
       "blessing_synergy": 1,
       "role_coverage": 4,
       "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "14-ogryn-melee-meta.json",
-    "title": "Ogryn Melee Meta Havoc-40",
-    "class": "ogryn",
-    "ability": "Indomitable",
-    "keystone": "Heavy Hitter",
-    "weapons": [
-      {
-        "name": "\"Brunt's Basher\" Mk IIIb Bully Club",
-        "slot": "melee",
-        "family": "ogryn_club_p2"
-      },
-      {
-        "name": "Lorenz Mk VI Rumbler",
-        "slot": "ranged",
-        "family": "ogryn_thumper"
-      }
-    ],
-    "scores": {
-      "composite": 21,
-      "grade": "C",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 3,
-      "blessing_synergy": 1,
-      "role_coverage": 3,
-      "breakpoint_relevance": 4,
       "difficulty_scaling": 1
     }
   }

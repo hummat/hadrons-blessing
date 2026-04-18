@@ -152,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 25,
+        "blessing_edges": 41,
         "blessing_count": 4,
-        "edges_per_blessing": 6.25,
+        "edges_per_blessing": 10.25,
         "blessing_blessing_edges": 6,
         "orphaned_blessings": 0
       },
@@ -171,13 +171,13 @@
         "measurable_talent_count": 13,
         "edges_per_talent": 1,
         "graph_isolated_count": 2,
-        "concentration": 0.09,
+        "concentration": 0.13,
         "penalties": -1,
         "bonuses": 0.5
       },
       "explanations": [
         "2 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.090) +0.5",
+        "High stat concentration (0.130) +0.5",
         "13 talent(s) without calc data excluded from isolation penalty"
       ]
     },
@@ -194,7 +194,7 @@
         {
           "label": "Two-hit Rager body",
           "met": true,
-          "best_htk": 2,
+          "best_htk": 1,
           "max_hits": 2,
           "weight": "high"
         },
@@ -285,7 +285,7 @@
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 2,
+            "damnation_htk": 1,
             "auric_htk": 2,
             "damnation_met": true,
             "auric_met": true

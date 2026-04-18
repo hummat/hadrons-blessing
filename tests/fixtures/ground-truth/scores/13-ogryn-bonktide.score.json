@@ -3,8 +3,8 @@
   "class": "ogryn",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 26,
-  "letter_grade": "B",
+  "composite_score": 28,
+  "letter_grade": "A",
   "weapons": [
     {
       "name": "Branx Mk Ia Delver's Pickaxe",
@@ -150,11 +150,11 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
-        "blessing_edges": 11,
+        "blessing_edges": 15,
         "blessing_count": 4,
-        "edges_per_blessing": 2.75,
+        "edges_per_blessing": 3.75,
         "blessing_blessing_edges": 1,
         "orphaned_blessings": 1
       },
@@ -172,17 +172,17 @@
         "measurable_talent_count": 11,
         "edges_per_talent": 1.182,
         "graph_isolated_count": 0,
-        "concentration": 0.07,
+        "concentration": 0.08,
         "penalties": 0,
         "bonuses": 0.5
       },
       "explanations": [
-        "High stat concentration (0.070) +0.5",
+        "High stat concentration (0.080) +0.5",
         "15 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
-      "score": 3,
+      "score": 4,
       "breakdown": [
         {
           "label": "One-shot Rager head",
@@ -193,15 +193,15 @@
         },
         {
           "label": "Two-hit Rager body",
-          "met": false,
-          "best_htk": 3,
+          "met": true,
+          "best_htk": 2,
           "max_hits": 2,
           "weight": "high"
         },
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 4,
+          "best_htk": 3,
           "max_hits": 2,
           "weight": "high"
         },
@@ -256,8 +256,8 @@
         }
       ],
       "explanations": [
-        "7/10 breakpoints met (weighted 11/20)",
-        "Missed high-priority: One-shot Rager head, Two-hit Rager body, Two-hit Crusher"
+        "8/10 breakpoints met (weighted 14/20)",
+        "Missed high-priority: One-shot Rager head, Two-hit Crusher"
       ]
     },
     "role_coverage": {
@@ -266,7 +266,7 @@
         "active_families": 7,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.4444444444444444
+        "slot_balance_ratio": 0.6153846153846154
       },
       "explanations": []
     },
@@ -274,7 +274,7 @@
       "score": 1,
       "breakdown": {
         "auric_met": 0,
-        "damnation_met": 0,
+        "damnation_met": 1,
         "total": 3,
         "per_entry": [
           {
@@ -286,22 +286,23 @@
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 3,
+            "damnation_htk": 2,
             "auric_htk": 3,
-            "damnation_met": false,
+            "damnation_met": true,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 4,
-            "auric_htk": 5,
+            "damnation_htk": 3,
+            "auric_htk": 4,
             "damnation_met": false,
             "auric_met": false
           }
         ]
       },
       "explanations": [
-        "High-priority: 0/3 at damnation, 0/3 at auric"
+        "High-priority: 1/3 at damnation, 0/3 at auric",
+        "Degrades at auric: Two-hit Rager body"
       ]
     }
   },

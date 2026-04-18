@@ -152,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 15,
+        "blessing_edges": 23,
         "blessing_count": 4,
-        "edges_per_blessing": 3.75,
+        "edges_per_blessing": 5.75,
         "blessing_blessing_edges": 2,
         "orphaned_blessings": 0
       },
@@ -171,7 +171,7 @@
         "measurable_talent_count": 14,
         "edges_per_talent": 0.929,
         "graph_isolated_count": 1,
-        "concentration": 0.03,
+        "concentration": 0.06,
         "penalties": -0.5,
         "bonuses": 0
       },
@@ -186,21 +186,21 @@
         {
           "label": "One-shot Rager head",
           "met": false,
-          "best_htk": 3,
+          "best_htk": 2,
           "max_hits": 1,
           "weight": "high"
         },
         {
           "label": "Two-hit Rager body",
           "met": false,
-          "best_htk": 5,
+          "best_htk": 4,
           "max_hits": 2,
           "weight": "high"
         },
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 9,
+          "best_htk": 8,
           "max_hits": 2,
           "weight": "high"
         },
@@ -265,7 +265,7 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.8
+        "slot_balance_ratio": 0.8571428571428571
       },
       "explanations": []
     },
@@ -278,22 +278,22 @@
         "per_entry": [
           {
             "label": "One-shot Rager head",
-            "damnation_htk": 3,
+            "damnation_htk": 2,
             "auric_htk": 3,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 5,
+            "damnation_htk": 4,
             "auric_htk": 6,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 9,
-            "auric_htk": 12,
+            "damnation_htk": 8,
+            "auric_htk": 11,
             "damnation_met": false,
             "auric_met": false
           }

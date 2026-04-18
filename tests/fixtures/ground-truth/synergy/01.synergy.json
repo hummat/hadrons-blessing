@@ -42,7 +42,55 @@
       "type": "stat_alignment",
       "selections": [
         "veteran.talent.veteran_crits_apply_rending",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_crits_apply_rending",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_crits_apply_rending",
         "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_crits_apply_rending",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_crits_apply_rending",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage"
       ],
       "families": [
         "general_offense"
@@ -234,7 +282,55 @@
       "type": "stat_alignment",
       "selections": [
         "veteran.talent.veteran_increase_damage_vs_elites",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increase_damage_vs_elites",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increase_damage_vs_elites",
         "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increase_damage_vs_elites",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_increase_damage_vs_elites",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage"
       ],
       "families": [
         "general_offense"
@@ -294,7 +390,55 @@
       "type": "stat_alignment",
       "selections": [
         "veteran.talent.veteran_big_game_hunter",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_big_game_hunter",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_big_game_hunter",
         "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_big_game_hunter",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_big_game_hunter",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage"
       ],
       "families": [
         "general_offense"
@@ -378,7 +522,139 @@
       "type": "stat_alignment",
       "selections": [
         "shared.name_family.blessing.increase_power_on_kill",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.increase_power_on_kill",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.increase_power_on_kill",
         "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.increase_power_on_kill",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.increase_power_on_kill",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+        "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+        "shared.name_family.blessing.rising_heat"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage"
       ],
       "families": [
         "general_offense"
@@ -401,6 +677,42 @@
     {
       "type": "stat_alignment",
       "selections": [
+        "shared.name_family.blessing.rising_heat",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.rising_heat",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
         "shared.gadget_trait.gadget_cooldown_reduction",
         "shared.gadget_trait.gadget_revive_speed_increase"
       ],
@@ -416,14 +728,18 @@
   "coverage": {
     "family_profile": {
       "general_offense": {
-        "count": 5,
-        "total_magnitude": 0.64,
+        "count": 9,
+        "total_magnitude": 1.04,
         "selections": [
           "veteran.talent.veteran_crits_apply_rending",
           "veteran.talent.veteran_increase_damage_vs_elites",
           "veteran.talent.veteran_big_game_hunter",
           "shared.name_family.blessing.increase_power_on_kill",
-          "shared.name_family.blessing.rising_heat"
+          "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+          "shared.name_family.blessing.rising_heat",
+          "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+          "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage"
         ]
       },
       "crit": {
@@ -496,7 +812,7 @@
           "crit",
           "melee_offense"
         ],
-        "strength": 10
+        "strength": 14
       },
       "ranged": {
         "families": [
@@ -504,16 +820,16 @@
           "crit",
           "ranged_offense"
         ],
-        "strength": 8
+        "strength": 12
       }
     },
     "build_identity": [
-      "melee_offense",
       "general_offense",
+      "melee_offense",
       "toughness"
     ],
     "coverage_gaps": [],
-    "concentration": 0.03
+    "concentration": 0.06
   },
   "_resolvedIds": [
     "veteran.ability.veteran_combat_ability_stagger_nearby_enemies",
@@ -576,17 +892,21 @@
     "shared.stat_node.melee_damage_boost",
     "shared.name_family.blessing.extended_activation_duration_on_chained_attacks",
     "shared.name_family.blessing.increase_power_on_kill",
+    "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+    "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
     "shared.name_family.blessing.rising_heat",
     "shared.name_family.blessing.gets_hot",
+    "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+    "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
     "shared.gadget_trait.gadget_toughness_increase",
     "shared.gadget_trait.gadget_cooldown_reduction",
     "shared.gadget_trait.gadget_revive_speed_increase"
   ],
   "metadata": {
     "entities_analyzed": 52,
-    "unique_entities_with_calc": 21,
-    "entities_without_calc": 21,
+    "unique_entities_with_calc": 25,
+    "entities_without_calc": 17,
     "opaque_conditions": 0,
-    "calc_coverage_pct": 0.5
+    "calc_coverage_pct": 0.6
   }
 }

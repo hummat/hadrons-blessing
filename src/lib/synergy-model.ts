@@ -7,6 +7,7 @@ import {
   resourceFlow,
   detectOrphans,
 } from "./synergy-rules.js";
+import { resolveClassDomain } from "./class-domain.js";
 import { ENTITIES_ROOT, EDGES_ROOT, listJsonFiles, loadJsonFile } from "./load.js";
 
 // ---------------------------------------------------------------------------
@@ -321,7 +322,7 @@ export function resolveSelections(
   }
 
   // Determine class domain for stat_node resolution
-  const classDomain = build.class?.canonical_entity_id?.split(".").pop() ?? null;
+  const classDomain = resolveClassDomain(build.class?.canonical_entity_id);
 
   // Build instance_of index: to_entity_id -> [from_entity_id]
   const instanceOfIndex = new Map<string, string[]>();

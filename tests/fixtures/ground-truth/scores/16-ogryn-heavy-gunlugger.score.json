@@ -3,7 +3,7 @@
   "class": "ogryn",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 27,
+  "composite_score": 29,
   "letter_grade": "A",
   "weapons": [
     {
@@ -145,11 +145,11 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
-        "blessing_edges": 12,
+        "blessing_edges": 21,
         "blessing_count": 4,
-        "edges_per_blessing": 3,
+        "edges_per_blessing": 5.25,
         "blessing_blessing_edges": 3,
         "orphaned_blessings": 1
       },
@@ -160,18 +160,19 @@
       ]
     },
     "talent_coherence": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
         "talent_edges": 11,
         "talent_count": 26,
         "measurable_talent_count": 11,
         "edges_per_talent": 1,
         "graph_isolated_count": 0,
-        "concentration": 0.06,
+        "concentration": 0.09,
         "penalties": 0,
-        "bonuses": 0
+        "bonuses": 0.5
       },
       "explanations": [
+        "High stat concentration (0.090) +0.5",
         "15 talent(s) without calc data excluded from isolation penalty"
       ]
     },
@@ -262,7 +263,7 @@
         "coverage_gaps": [
           "crit_chance_source"
         ],
-        "slot_balance_ratio": 0.6666666666666666
+        "slot_balance_ratio": 0.75
       },
       "explanations": [
         "Coverage gaps: crit_chance_source (-1 each)"
@@ -271,7 +272,7 @@
     "difficulty_scaling": {
       "score": 2,
       "breakdown": {
-        "auric_met": 0,
+        "auric_met": 1,
         "damnation_met": 2,
         "total": 3,
         "per_entry": [
@@ -285,9 +286,9 @@
           {
             "label": "Two-hit Rager body",
             "damnation_htk": 2,
-            "auric_htk": 3,
+            "auric_htk": 2,
             "damnation_met": true,
-            "auric_met": false
+            "auric_met": true
           },
           {
             "label": "Two-hit Crusher",
@@ -299,8 +300,8 @@
         ]
       },
       "explanations": [
-        "High-priority: 2/3 at damnation, 0/3 at auric",
-        "Degrades at auric: One-shot Rager head, Two-hit Rager body"
+        "High-priority: 2/3 at damnation, 1/3 at auric",
+        "Degrades at auric: One-shot Rager head"
       ]
     }
   },

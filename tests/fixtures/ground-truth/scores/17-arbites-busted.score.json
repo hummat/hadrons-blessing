@@ -3,7 +3,7 @@
   "class": "arbites",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 32,
+  "composite_score": 33,
   "letter_grade": "S",
   "weapons": [
     {
@@ -152,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 11,
+        "blessing_edges": 21,
         "blessing_count": 3,
-        "edges_per_blessing": 3.667,
+        "edges_per_blessing": 7,
         "blessing_blessing_edges": 1,
         "orphaned_blessings": 1
       },
@@ -167,18 +167,18 @@
     "talent_coherence": {
       "score": 5,
       "breakdown": {
-        "talent_edges": 14,
+        "talent_edges": 22,
         "talent_count": 27,
-        "measurable_talent_count": 10,
-        "edges_per_talent": 1.4,
+        "measurable_talent_count": 12,
+        "edges_per_talent": 1.833,
         "graph_isolated_count": 0,
-        "concentration": 0.07,
+        "concentration": 0.13,
         "penalties": 0,
         "bonuses": 0.5
       },
       "explanations": [
-        "High stat concentration (0.070) +0.5",
-        "17 talent(s) without calc data excluded from isolation penalty"
+        "High stat concentration (0.130) +0.5",
+        "15 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -270,9 +270,9 @@
       "explanations": []
     },
     "difficulty_scaling": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
-        "auric_met": 2,
+        "auric_met": 3,
         "damnation_met": 3,
         "total": 3,
         "per_entry": [
@@ -293,15 +293,14 @@
           {
             "label": "Two-hit Crusher",
             "damnation_htk": 2,
-            "auric_htk": 3,
+            "auric_htk": 2,
             "damnation_met": true,
-            "auric_met": false
+            "auric_met": true
           }
         ]
       },
       "explanations": [
-        "High-priority: 3/3 at damnation, 2/3 at auric",
-        "Degrades at auric: Two-hit Crusher"
+        "High-priority: 3/3 at damnation, 3/3 at auric"
       ]
     }
   },

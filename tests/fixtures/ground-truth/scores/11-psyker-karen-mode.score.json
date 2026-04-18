@@ -3,7 +3,7 @@
   "class": "psyker",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 27,
+  "composite_score": 28,
   "letter_grade": "A",
   "weapons": [
     {
@@ -145,11 +145,11 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
-        "blessing_edges": 13,
+        "blessing_edges": 19,
         "blessing_count": 4,
-        "edges_per_blessing": 3.25,
+        "edges_per_blessing": 4.75,
         "blessing_blessing_edges": 2,
         "orphaned_blessings": 1
       },
@@ -167,12 +167,13 @@
         "measurable_talent_count": 13,
         "edges_per_talent": 1.154,
         "graph_isolated_count": 1,
-        "concentration": 0.05,
+        "concentration": 0.07,
         "penalties": -0.5,
-        "bonuses": 0
+        "bonuses": 0.5
       },
       "explanations": [
         "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "High stat concentration (0.070) +0.5",
         "13 talent(s) without calc data excluded from isolation penalty"
       ]
     },
@@ -268,7 +269,7 @@
     "difficulty_scaling": {
       "score": 1,
       "breakdown": {
-        "auric_met": 0,
+        "auric_met": 1,
         "damnation_met": 1,
         "total": 3,
         "per_entry": [
@@ -282,9 +283,9 @@
           {
             "label": "Two-hit Rager body",
             "damnation_htk": 2,
-            "auric_htk": 3,
+            "auric_htk": 2,
             "damnation_met": true,
-            "auric_met": false
+            "auric_met": true
           },
           {
             "label": "Two-hit Crusher",
@@ -296,8 +297,7 @@
         ]
       },
       "explanations": [
-        "High-priority: 1/3 at damnation, 0/3 at auric",
-        "Degrades at auric: Two-hit Rager body"
+        "High-priority: 1/3 at damnation, 1/3 at auric"
       ]
     }
   },

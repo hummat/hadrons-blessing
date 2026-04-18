@@ -152,9 +152,9 @@
     "blessing_synergy": {
       "score": 4,
       "breakdown": {
-        "blessing_edges": 16,
+        "blessing_edges": 22,
         "blessing_count": 4,
-        "edges_per_blessing": 4,
+        "edges_per_blessing": 5.5,
         "blessing_blessing_edges": 1,
         "orphaned_blessings": 2
       },
@@ -172,13 +172,13 @@
         "measurable_talent_count": 13,
         "edges_per_talent": 1.538,
         "graph_isolated_count": 1,
-        "concentration": 0.07,
+        "concentration": 0.11,
         "penalties": -0.5,
         "bonuses": 0.5
       },
       "explanations": [
         "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.070) +0.5",
+        "High stat concentration (0.110) +0.5",
         "14 talent(s) without calc data excluded from isolation penalty"
       ]
     },
@@ -195,14 +195,14 @@
         {
           "label": "Two-hit Rager body",
           "met": false,
-          "best_htk": 5,
+          "best_htk": 4,
           "max_hits": 2,
           "weight": "high"
         },
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 8,
+          "best_htk": 7,
           "max_hits": 2,
           "weight": "high"
         },
@@ -237,7 +237,7 @@
         {
           "label": "Three-hit Mauler",
           "met": false,
-          "best_htk": 5,
+          "best_htk": 4,
           "max_hits": 3,
           "weight": "low"
         },
@@ -269,7 +269,7 @@
         "coverage_gaps": [
           "crit_chance_source"
         ],
-        "slot_balance_ratio": 0.8181818181818182
+        "slot_balance_ratio": 0.8571428571428571
       },
       "explanations": [
         "Coverage gaps: crit_chance_source (-1 each)"
@@ -285,21 +285,21 @@
           {
             "label": "One-shot Rager head",
             "damnation_htk": 3,
-            "auric_htk": 4,
+            "auric_htk": 3,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 5,
-            "auric_htk": 7,
+            "damnation_htk": 4,
+            "auric_htk": 6,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 8,
-            "auric_htk": 10,
+            "damnation_htk": 7,
+            "auric_htk": 9,
             "damnation_met": false,
             "auric_met": false
           }

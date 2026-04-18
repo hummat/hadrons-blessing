@@ -29,6 +29,42 @@
     {
       "type": "stat_alignment",
       "selections": [
+        "shared.stat_node.toughness_damage_reduction",
+        "arbites.talent.adamant_armor"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.toughness_damage_reduction",
+        "arbites.talent.adamant_plasteel_plates"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.toughness_damage_reduction",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
         "arbites.talent.adamant_armor",
         "arbites.talent.adamant_plasteel_plates"
       ],
@@ -71,6 +107,150 @@
       ],
       "strength": 2,
       "explanation": "Selections contribute different-category effects to the damage_reduction family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "arbites.talent.adamant_dodge_grants_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "arbites.talent.adamant_elite_special_kills_offensive_boost"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "arbites.talent.adamant_heavy_attacks_increase_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "arbites.talent.adamant_monster_hunter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "arbites.talent.adamant_first_melee_hit_increased_damage"
+      ],
+      "families": [
+        "melee_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the melee_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "arbites.talent.adamant_first_melee_hit_increased_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "shared.name_family.blessing.high_voltage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "shared.name_family.blessing.deathspitter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
     },
     {
       "type": "stat_alignment",
@@ -148,7 +328,55 @@
       "type": "stat_alignment",
       "selections": [
         "arbites.talent.adamant_dodge_grants_damage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_dodge_grants_damage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_dodge_grants_damage",
         "shared.name_family.blessing.deathspitter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_dodge_grants_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_dodge_grants_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
       ],
       "families": [
         "general_offense"
@@ -220,7 +448,55 @@
       "type": "stat_alignment",
       "selections": [
         "arbites.talent.adamant_elite_special_kills_offensive_boost",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_elite_special_kills_offensive_boost",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_elite_special_kills_offensive_boost",
         "shared.name_family.blessing.deathspitter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_elite_special_kills_offensive_boost",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_elite_special_kills_offensive_boost",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
       ],
       "families": [
         "general_offense"
@@ -268,7 +544,55 @@
       "type": "stat_alignment",
       "selections": [
         "arbites.talent.adamant_heavy_attacks_increase_damage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_heavy_attacks_increase_damage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_heavy_attacks_increase_damage",
         "shared.name_family.blessing.deathspitter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_heavy_attacks_increase_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_heavy_attacks_increase_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
       ],
       "families": [
         "general_offense"
@@ -328,7 +652,55 @@
       "type": "stat_alignment",
       "selections": [
         "arbites.talent.adamant_monster_hunter",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_monster_hunter",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_monster_hunter",
         "shared.name_family.blessing.deathspitter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_monster_hunter",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_monster_hunter",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
       ],
       "families": [
         "general_offense"
@@ -352,7 +724,79 @@
       "type": "stat_alignment",
       "selections": [
         "arbites.talent.adamant_first_melee_hit_increased_damage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_first_melee_hit_increased_damage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_first_melee_hit_increased_damage",
         "shared.name_family.blessing.deathspitter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_first_melee_hit_increased_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_first_melee_hit_increased_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.high_voltage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.high_voltage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
       ],
       "families": [
         "general_offense"
@@ -365,6 +809,150 @@
       "selections": [
         "shared.name_family.blessing.high_voltage",
         "shared.name_family.blessing.deathspitter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.high_voltage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.high_voltage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+        "shared.name_family.blessing.deathspitter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+        "shared.name_family.blessing.deathspitter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.deathspitter",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.deathspitter",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
       ],
       "families": [
         "general_offense"
@@ -399,25 +987,39 @@
         ]
       },
       "toughness": {
-        "count": 3,
-        "total_magnitude": 50.05,
+        "count": 4,
+        "total_magnitude": 49.95,
         "selections": [
+          "shared.stat_node.toughness_damage_reduction",
           "arbites.talent.adamant_armor",
           "arbites.talent.adamant_plasteel_plates",
           "shared.gadget_trait.gadget_toughness_increase"
         ]
       },
-      "general_offense": {
-        "count": 7,
-        "total_magnitude": 1.465,
+      "melee_offense": {
+        "count": 2,
+        "total_magnitude": 0.4,
         "selections": [
+          "shared.stat_node.cleave_boost",
+          "arbites.talent.adamant_first_melee_hit_increased_damage"
+        ]
+      },
+      "general_offense": {
+        "count": 12,
+        "total_magnitude": 2.365,
+        "selections": [
+          "shared.stat_node.cleave_boost",
           "arbites.talent.adamant_dodge_grants_damage",
           "arbites.talent.adamant_elite_special_kills_offensive_boost",
           "arbites.talent.adamant_heavy_attacks_increase_damage",
           "arbites.talent.adamant_monster_hunter",
           "arbites.talent.adamant_first_melee_hit_increased_damage",
           "shared.name_family.blessing.high_voltage",
-          "shared.name_family.blessing.deathspitter"
+          "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+          "shared.name_family.blessing.deathspitter",
+          "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+          "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
         ]
       },
       "mobility": {
@@ -437,13 +1039,6 @@
           "shared.gadget_trait.gadget_revive_speed_increase"
         ]
       },
-      "melee_offense": {
-        "count": 1,
-        "total_magnitude": 0.15,
-        "selections": [
-          "arbites.talent.adamant_first_melee_hit_increased_damage"
-        ]
-      },
       "stamina": {
         "count": 1,
         "total_magnitude": 0.2,
@@ -455,25 +1050,25 @@
     "slot_balance": {
       "melee": {
         "families": [
-          "general_offense",
-          "melee_offense"
+          "melee_offense",
+          "general_offense"
         ],
-        "strength": 7
+        "strength": 12
       },
       "ranged": {
         "families": [
           "general_offense"
         ],
-        "strength": 7
+        "strength": 12
       }
     },
     "build_identity": [
       "general_offense",
-      "damage_reduction",
-      "toughness"
+      "toughness",
+      "damage_reduction"
     ],
     "coverage_gaps": [],
-    "concentration": 0.07
+    "concentration": 0.13
   },
   "_resolvedIds": [
     "arbites.ability.adamant_stance",
@@ -523,8 +1118,10 @@
   ],
   "_entitiesWithCalcIds": [
     "arbites.talent.adamant_limit_dmg_taken_from_hits",
+    "shared.stat_node.toughness_damage_reduction",
     "arbites.talent.adamant_armor",
     "arbites.talent.adamant_damage_reduction_after_elite_kill",
+    "shared.stat_node.cleave_boost",
     "arbites.talent.adamant_plasteel_plates",
     "arbites.talent.adamant_dodge_grants_damage",
     "arbites.talent.adamant_elite_special_kills_offensive_boost",
@@ -534,7 +1131,11 @@
     "arbites.talent.adamant_monster_hunter",
     "arbites.talent.adamant_first_melee_hit_increased_damage",
     "shared.name_family.blessing.high_voltage",
+    "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+    "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
     "shared.name_family.blessing.deathspitter",
+    "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+    "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
     "shared.gadget_trait.gadget_toughness_increase",
     "shared.gadget_trait.gadget_cooldown_reduction",
     "shared.gadget_trait.gadget_stamina_regeneration",
@@ -543,9 +1144,9 @@
   ],
   "metadata": {
     "entities_analyzed": 52,
-    "unique_entities_with_calc": 18,
-    "entities_without_calc": 26,
+    "unique_entities_with_calc": 24,
+    "entities_without_calc": 20,
     "opaque_conditions": 0,
-    "calc_coverage_pct": 0.41
+    "calc_coverage_pct": 0.55
   }
 }

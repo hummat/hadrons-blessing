@@ -15,6 +15,7 @@
 
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { resolveClassDomain } from "./class-domain.js";
 import { GENERATED_ROOT } from "./paths.js";
 
 // -- Types --------------------------------------------------------------------
@@ -876,7 +877,7 @@ export function assembleBuildBuffStack(build: Build, index: EntityIndex, flags?:
   const _flags = flags ?? {};
   const entities = index.entities;
   const edges = index.edges ?? [];
-  const classDomain = build.class?.canonical_entity_id?.split(".").pop() ?? null;
+  const classDomain = resolveClassDomain(build.class?.canonical_entity_id);
 
   // Step 1: Collect all resolved entity IDs
   const entityIds: string[] = [];
