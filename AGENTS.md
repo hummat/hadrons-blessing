@@ -152,6 +152,8 @@ Shared cross-class entities use `shared` as domain: `shared.weapon.autogun_p1_m1
 
 **Residual fixture unresolveds:** none in the canonical 24-build fixture set. The last three unresolved entries were scrape-parser mistakes where the GL weapon perk string `Increase Ranged Critical Strike Chance by 2-5%` was misfiled into blessing slots; that extractor bug is fixed.
 
+**Weapons with a single scraped perk (5 fixtures):** builds 03, 08, 11, 16 (ranged) and 21 (melee) each carry only one weapon perk, even though the live GL pages list two. The surviving perks are well-formed and resolve cleanly; the second row was dropped during scraping. The scoring pipeline handles missing perks correctly — it just understates perk coverage for these builds. Requires a re-scrape to confirm whether the extractor mis-classified the second row or GL itself omitted it.
+
 ## Known Scoring/Calculator Limitations
 
 **Weapon blessing validation source split:** Blessing validation now derives weapon blessing pools from the ground-truth edge graph (`weapon_has_trait_pool` → `instance_of`) and only falls back to `build-scoring-data.json` when a weapon has no source-backed path. The hand-curated scoring catalog still matters for perk tier tables, curio ratings, and weapon role/class metadata.
