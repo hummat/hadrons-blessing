@@ -74,8 +74,8 @@ If no bullet 1–3 triggers, the tile shows a single line "Clean verdict — no 
 
 ## Components and scope
 
-- **New Svelte component:** `website/src/lib/components/VerdictStrip.svelte`. Takes `BuildDetailData` as a prop, returns three parchment tiles. Keeps the computation (family formatting, risk selection, strength selection) inside the component; the `+page.svelte` stays a layout file.
-- **New helper (inline in `VerdictStrip.svelte` or `detail-format.ts` if tests are needed):** `selectSignatureStrengths(qualitative)` and `buildRiskBullets(detail)`. Pure functions, easy to unit-test.
+- **New Svelte component:** `website/src/lib/VerdictStrip.svelte` (colocated with other lib modules — `website/src/lib/` is flat, no `components/` subdirectory today). Takes `BuildDetailData` as a prop, returns three parchment tiles.
+- **New helper module:** `website/src/lib/verdict.ts` exporting `selectSignatureStrengths(qualitative, summaryScores)` and `buildRiskBullets(detail)`. Pure functions so they're unit-testable with `node:test`. Tests in `website/src/lib/verdict.test.ts`.
 - **Modified file:** `+page.svelte` — section reorder, Ledger Entries removal, dimension grid wrapped in `<details>`, synergy coverage stats block removed (or moved into the synergy `<details>`).
 - **No changes to:** `types.ts`, `detail-format.ts` (beyond the two new helpers if we hoist them), compare route, list route, `generate-data.ts`, scoring pipeline, any library code in `src/`.
 
@@ -90,7 +90,7 @@ Screenshot before/after via Playwright on two representative builds:
 - A high-scoring build where Signature Strengths fills both slots and Noted Risks has no triggers 1–3 (should show "Clean verdict").
 - A mid/low-scoring build where Risks triggers all bullets (lowest dim ≤ 2, gaps present, anti-synergies > 0).
 
-Vitest unit tests for `selectSignatureStrengths` and `buildRiskBullets` in `website/src/lib/components/VerdictStrip.test.ts` (or in `detail-format.test.ts` if hoisted) — cover: no qualifying strengths, single strength, two strengths; empty gaps, populated gaps, zero anti-synergies, no triggers.
+Unit tests for `selectSignatureStrengths` and `buildRiskBullets` using `node:test` via `tsx --test` (the existing test runner in `website/package.json`). Location: `website/src/lib/verdict.test.ts`, colocated with other lib helper tests. Cover: no qualifying strengths, single strength, two strengths; empty gaps, populated gaps, zero anti-synergies, no triggers.
 
 ## Out of scope
 
