@@ -56,12 +56,16 @@ Rule for picking what to show:
 
 Structured as a short bulleted list, at most four bullets in priority order:
 
-1. Lowest-scoring qualitative dimension **if score ≤ 2** (otherwise skip). Format: `{Label} {score}/5 — {explanations[0]}`.
-2. `coverage_gaps` — join with `·` if non-empty, prefixed with `Gaps:`.
-3. Anti-synergy + orphan counts if either > 0: `{N} anti-synergies · {M} isolated picks`.
-4. Calc coverage trust line — always shown: `Calc coverage {pct}%`.
+1. `scoring_unavailable` — emitted when every qualitative dimension is null (all five scorecard entries missing). Text: `Qualitative scoring unavailable`.
+2. Lowest-scoring qualitative dimension **if score ≤ 2** (otherwise skip). Format: `{Label} {score}/5 — {explanations[0]}`.
+3. `coverage_gaps` — join with `·` if non-empty, prefixed with `Gaps:`.
+4. Anti-synergy + orphan counts if either > 0: `{N} anti-synergies · {M} isolated picks`.
+5. Calc coverage — one of three shapes depending on `synergy.metadata.calc_coverage_pct` (a fraction in 0..1):
+   - `calc_coverage_missing` **risk** bullet when the value is null or NaN: `Calc coverage unavailable`.
+   - `low_calc_coverage` **risk** bullet when the value is below the 0.6 threshold: `Low calc coverage — only {pct}% of selections simulated`.
+   - `calc_coverage` **informational** bullet otherwise (rendered after any risks): `Calc coverage {pct}%`.
 
-If no bullet 1–3 triggers, the tile shows a single line "Clean verdict — no flagged risks" above the calc-coverage line.
+The "Clean verdict — no flagged risks" line is emitted only when none of bullets 1–4 fire **and** calc coverage is healthy (≥ 0.6, not null/NaN). Low or missing coverage suppresses the clean fallback so the strip cannot claim a build is trustworthy while more than ~40% of its selections are outside calculator support.
 
 ## Progressive disclosure contract
 

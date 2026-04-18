@@ -4,7 +4,7 @@ import type {
   DimensionScoreDetail,
   ScorecardQualitative,
 } from "./types.ts";
-import { formatCoverageLabel } from "./detail-format.ts";
+import { formatCoverageFraction, formatCoverageLabel } from "./detail-format.ts";
 
 export type SignatureStrength = {
   key: keyof ScorecardQualitative;
@@ -20,6 +20,11 @@ const QUALITATIVE_LABELS: Record<keyof ScorecardQualitative, string> = {
   breakpoint_relevance: "Breakpoint Relevance",
   difficulty_scaling: "Difficulty Scaling",
 };
+
+// Below this fraction, the calc pipeline has simulated too few selections for
+// a "clean verdict" claim to be trustworthy. Codex audit flagged two Havoc 40
+// fixtures at 0.41 / 0.49 that read as clean despite the gap.
+const CALC_COVERAGE_RISK_THRESHOLD = 0.6;
 
 type QualitativeEntry = {
   key: keyof ScorecardQualitative;
@@ -65,35 +70,40 @@ export type RiskBullet =
   | { kind: "low_dimension"; text: string }
   | { kind: "gaps"; text: string }
   | { kind: "anti_orphan"; text: string }
+  | { kind: "scoring_unavailable"; text: string }
+  | { kind: "low_calc_coverage"; text: string }
+  | { kind: "calc_coverage_missing"; text: string }
   | { kind: "clean"; text: string }
   | { kind: "calc_coverage"; text: string };
 
-function pickLowestQualitative(
-  qualitative: ScorecardQualitative,
-  scores: BuildScores,
-): QualitativeEntry | null {
-  const entries = collectQualitative(qualitative, scores);
+function pickLowestQualitative(entries: QualitativeEntry[]): QualitativeEntry | null {
   if (entries.length === 0) return null;
   return entries.reduce((lowest, entry) => (entry.score < lowest.score ? entry : lowest), entries[0]);
 }
 
 export function buildRiskBullets(detail: BuildDetailData): RiskBullet[] {
-  const bullets: RiskBullet[] = [];
+  const risks: RiskBullet[] = [];
+  const informational: RiskBullet[] = [];
 
-  const lowest = pickLowestQualitative(detail.scorecard.qualitative, detail.summary.scores);
-  if (lowest && lowest.score <= 2) {
-    const label = QUALITATIVE_LABELS[lowest.key];
-    const explanation = lowest.detail.explanations[0] ?? "";
-    bullets.push({
-      kind: "low_dimension",
-      text: explanation ? `${label} ${lowest.score}/5 \u2014 ${explanation}` : `${label} ${lowest.score}/5`,
-    });
+  const qualitativeEntries = collectQualitative(detail.scorecard.qualitative, detail.summary.scores);
+  if (qualitativeEntries.length === 0) {
+    risks.push({ kind: "scoring_unavailable", text: "Qualitative scoring unavailable" });
+  } else {
+    const lowest = pickLowestQualitative(qualitativeEntries);
+    if (lowest && lowest.score <= 2) {
+      const label = QUALITATIVE_LABELS[lowest.key];
+      const explanation = lowest.detail.explanations[0] ?? "";
+      risks.push({
+        kind: "low_dimension",
+        text: explanation ? `${label} ${lowest.score}/5 \u2014 ${explanation}` : `${label} ${lowest.score}/5`,
+      });
+    }
   }
 
   const gaps = detail.synergy.coverage.coverage_gaps;
   if (gaps.length > 0) {
     const formatted = gaps.map((gap) => formatCoverageLabel(gap)).join(" \u00b7 ");
-    bullets.push({ kind: "gaps", text: `Gaps: ${formatted}` });
+    risks.push({ kind: "gaps", text: `Gaps: ${formatted}` });
   }
 
   const antiCount = detail.synergy.anti_synergies.length;
@@ -101,15 +111,24 @@ export function buildRiskBullets(detail: BuildDetailData): RiskBullet[] {
   if (antiCount > 0 || orphanCount > 0) {
     const antiLabel = `${antiCount} anti-synergies`;
     const orphanLabel = `${orphanCount} isolated pick${orphanCount === 1 ? "" : "s"}`;
-    bullets.push({ kind: "anti_orphan", text: `${antiLabel} \u00b7 ${orphanLabel}` });
+    risks.push({ kind: "anti_orphan", text: `${antiLabel} \u00b7 ${orphanLabel}` });
   }
 
-  if (bullets.length === 0) {
-    bullets.push({ kind: "clean", text: "Clean verdict \u2014 no flagged risks" });
+  const pct = detail.synergy.metadata.calc_coverage_pct;
+  if (pct == null || !Number.isFinite(pct)) {
+    risks.push({ kind: "calc_coverage_missing", text: "Calc coverage unavailable" });
+  } else if (pct < CALC_COVERAGE_RISK_THRESHOLD) {
+    risks.push({
+      kind: "low_calc_coverage",
+      text: `Low calc coverage \u2014 only ${formatCoverageFraction(pct)} of selections simulated`,
+    });
+  } else {
+    informational.push({ kind: "calc_coverage", text: `Calc coverage ${formatCoverageFraction(pct)}` });
   }
 
-  const pct = Math.round(detail.synergy.metadata.calc_coverage_pct * 100);
-  bullets.push({ kind: "calc_coverage", text: `Calc coverage ${pct}%` });
+  if (risks.length === 0) {
+    risks.push({ kind: "clean", text: "Clean verdict \u2014 no flagged risks" });
+  }
 
-  return bullets;
+  return [...risks, ...informational];
 }

@@ -13,10 +13,27 @@
   const risks: RiskBullet[] = $derived(buildRiskBullets(detail));
 
   function riskClass(kind: RiskBullet["kind"]): string {
-    if (kind === "low_dimension") return "ds-risk-bullets__low";
-    if (kind === "clean") return "ds-risk-bullets__clean";
-    if (kind === "calc_coverage") return "ds-risk-bullets__calc";
-    return "";
+    switch (kind) {
+      case "low_dimension":
+      case "gaps":
+      case "anti_orphan":
+      case "low_calc_coverage":
+      case "scoring_unavailable":
+      case "calc_coverage_missing":
+        return "ds-risk-bullets__low";
+      case "clean":
+        return "ds-risk-bullets__clean";
+      case "calc_coverage":
+        return "ds-risk-bullets__calc";
+    }
+  }
+
+  function scoreClass(score: number): string {
+    if (score >= 5) return "ds-score--best";
+    if (score >= 4) return "ds-score--good";
+    if (score >= 3) return "ds-score--mid";
+    if (score >= 2) return "ds-score--low";
+    return "ds-score--worst";
   }
 
   const identityLabel = $derived(
@@ -45,7 +62,7 @@
         <div>
           <div class="ds-verdict-tile__strength-line">
             <span>{strength.label}</span>
-            <span class="ds-score ds-score--mid">{strength.score}/5</span>
+            <span class="ds-score {scoreClass(strength.score)}">{strength.score}/5</span>
           </div>
           {#if strength.explanation}
             <p class="ds-verdict-tile__strength-note">{strength.explanation}</p>
@@ -62,7 +79,7 @@
     <span class="ds-corner ds-corner--br"></span>
     <span class="ds-label">Noted Risks</span>
     <ul class="ds-risk-bullets">
-      {#each risks as risk, i (i)}
+      {#each risks as risk (risk.kind + risk.text)}
         <li class={riskClass(risk.kind)}>{risk.text}</li>
       {/each}
     </ul>

@@ -71,7 +71,8 @@
   function blessingNameFromSlug(slug: string): string {
     for (const weapon of data.detail.structure.weapons) {
       for (const blessing of weapon.blessings) {
-        if ((blessing.id?.split(".").at(-1) ?? "") === slug) {
+        if (blessing.id == null) continue;
+        if (blessing.id.split(".").at(-1) === slug) {
           return blessing.name;
         }
       }

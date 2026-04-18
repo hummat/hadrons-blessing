@@ -85,6 +85,38 @@ describe("selectSignatureStrengths", () => {
     assert.equal(result.length, 1);
     assert.equal(result[0].key, "blessing_synergy");
   });
+
+  it("breaks score ties by QUALITATIVE_LABELS insertion order", () => {
+    const qualitative = makeQualitative({
+      talent_coherence: { score: 4, explanation: "tc" },
+      blessing_synergy: { score: 4, explanation: "bs" },
+    });
+    const scores: BuildScores = { ...BASE_SCORES, talent_coherence: 4, blessing_synergy: 4 };
+    const result = selectSignatureStrengths(qualitative, scores);
+
+    assert.equal(result.length, 2);
+    assert.equal(result[0].key, "talent_coherence");
+    assert.equal(result[1].key, "blessing_synergy");
+  });
+
+  it("returns empty array when every qualitative dimension is null", () => {
+    const qualitative = makeQualitative({
+      talent_coherence: null,
+      blessing_synergy: null,
+      role_coverage: null,
+      breakpoint_relevance: null,
+      difficulty_scaling: null,
+    });
+    const scores: BuildScores = {
+      ...BASE_SCORES,
+      talent_coherence: null,
+      blessing_synergy: null,
+      role_coverage: null,
+      breakpoint_relevance: null,
+      difficulty_scaling: null,
+    };
+    assert.deepEqual(selectSignatureStrengths(qualitative, scores), []);
+  });
 });
 
 function makeDetail(overrides: {
@@ -93,7 +125,7 @@ function makeDetail(overrides: {
   coverageGaps?: string[];
   antiSynergies?: number;
   orphans?: number;
-  calcCoveragePct?: number;
+  calcCoveragePct?: number | null;
 } = {}): BuildDetailData {
   return {
     slug: "test",
@@ -159,7 +191,9 @@ function makeDetail(overrides: {
         unique_entities_with_calc: 4,
         entities_without_calc: 6,
         opaque_conditions: 0,
-        calc_coverage_pct: overrides.calcCoveragePct ?? 50,
+        // Default is well above the 0.6 low-coverage threshold so tests that
+        // assert "clean verdict" don't accidentally trip the low-coverage risk.
+        calc_coverage_pct: overrides.calcCoveragePct === undefined ? 0.85 : overrides.calcCoveragePct,
       },
     },
     breakpoints: { weapons: [], metadata: { quality: 380, scenarios: [], timestamp: "" } },
@@ -223,25 +257,90 @@ describe("buildRiskBullets", () => {
     assert.equal(bullet?.text, "0 anti-synergies \u00b7 3 isolated picks");
   });
 
-  it("always includes the calc coverage bullet as the final entry", () => {
-    const bullets = buildRiskBullets(makeDetail({ calcCoveragePct: 0.38 }));
-    const last = bullets[bullets.length - 1];
-    assert.equal(last.kind, "calc_coverage");
-    assert.equal(last.text, "Calc coverage 38%");
+  it("formats calc_coverage_pct as a fraction 0..1 (not an already-scaled percent)", () => {
+    const fifty = buildRiskBullets(makeDetail({ calcCoveragePct: 0.5 }));
+    const fiftyBullet = fifty.find((b) => b.kind === "low_calc_coverage");
+    assert.ok(fiftyBullet, "0.5 should emit a low-coverage risk bullet");
+    assert.ok(fiftyBullet.text.includes("50%"), `expected "50%" in ${fiftyBullet.text}`);
+
+    const full = buildRiskBullets(makeDetail({ calcCoveragePct: 1 }));
+    const fullBullet = full.find((b) => b.kind === "calc_coverage");
+    assert.ok(fullBullet);
+    assert.equal(fullBullet.text, "Calc coverage 100%");
+
+    const high = buildRiskBullets(makeDetail({ calcCoveragePct: 0.85 }));
+    const highBullet = high.find((b) => b.kind === "calc_coverage");
+    assert.equal(highBullet?.text, "Calc coverage 85%");
   });
 
-  it("emits a single 'Clean verdict' bullet plus calc coverage when no risks trigger", () => {
+  it("rounds (not truncates) fractional percentages", () => {
+    const bullets = buildRiskBullets(makeDetail({ calcCoveragePct: 0.384 }));
+    const bullet = bullets.find((b) => b.kind === "low_calc_coverage");
+    assert.ok(bullet);
+    assert.ok(bullet.text.includes("38%"), `expected rounded "38%" in ${bullet.text}`);
+  });
+
+  it("emits a low-coverage risk bullet (not an informational one) when below the 0.6 threshold", () => {
+    const bullets = buildRiskBullets(makeDetail({ calcCoveragePct: 0.38 }));
+    assert.ok(bullets.some((b) => b.kind === "low_calc_coverage"));
+    assert.ok(!bullets.some((b) => b.kind === "calc_coverage"));
+  });
+
+  it("low calc coverage suppresses the clean verdict even when everything else is fine", () => {
+    // This is the Codex audit finding: 41% / 49% coverage builds were reading as "clean".
+    const bullets = buildRiskBullets(makeDetail({ calcCoveragePct: 0.41 }));
+    assert.ok(!bullets.some((b) => b.kind === "clean"),
+      "low calc coverage must suppress the clean fallback");
+    assert.ok(bullets.some((b) => b.kind === "low_calc_coverage"));
+  });
+
+  it("emits calc_coverage_missing (and no clean) when coverage is null or NaN", () => {
+    const missing = buildRiskBullets(makeDetail({ calcCoveragePct: null }));
+    assert.ok(missing.some((b) => b.kind === "calc_coverage_missing"));
+    assert.ok(!missing.some((b) => b.kind === "clean"));
+
+    const nan = buildRiskBullets(makeDetail({ calcCoveragePct: NaN }));
+    assert.ok(nan.some((b) => b.kind === "calc_coverage_missing"));
+    assert.ok(!nan.some((b) => b.kind === "clean"));
+  });
+
+  it("emits scoring_unavailable (and no clean) when every qualitative dimension is null", () => {
+    const detail = makeDetail({
+      qualitative: {
+        talent_coherence: null,
+        blessing_synergy: null,
+        role_coverage: null,
+        breakpoint_relevance: null,
+        difficulty_scaling: null,
+      },
+      scores: {
+        talent_coherence: null,
+        blessing_synergy: null,
+        role_coverage: null,
+        breakpoint_relevance: null,
+        difficulty_scaling: null,
+      },
+    });
+    const bullets = buildRiskBullets(detail);
+    assert.ok(bullets.some((b) => b.kind === "scoring_unavailable"));
+    assert.ok(!bullets.some((b) => b.kind === "clean"));
+  });
+
+  it("emits a single 'Clean verdict' plus informational calc coverage when no risks trigger", () => {
     const bullets = buildRiskBullets(makeDetail());
     assert.equal(bullets.length, 2);
     assert.equal(bullets[0].kind, "clean");
     assert.equal(bullets[0].text, "Clean verdict \u2014 no flagged risks");
     assert.equal(bullets[1].kind, "calc_coverage");
+    assert.equal(bullets[1].text, "Calc coverage 85%");
   });
 
-  it("narrows RiskBullet kinds exhaustively", () => {
-    const bullets: RiskBullet[] = buildRiskBullets(makeDetail({ antiSynergies: 1 }));
-    for (const bullet of bullets) {
-      assert.ok(["low_dimension", "gaps", "anti_orphan", "clean", "calc_coverage"].includes(bullet.kind));
-    }
+  it("places the informational calc_coverage bullet after all risks", () => {
+    const bullets = buildRiskBullets(makeDetail({
+      qualitative: { role_coverage: { score: 2, breakdown: {}, explanations: ["Narrow."] } },
+      scores: { role_coverage: 2 },
+    }));
+    const last = bullets[bullets.length - 1];
+    assert.equal(last.kind, "calc_coverage");
   });
 });
