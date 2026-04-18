@@ -480,6 +480,36 @@
     }
   },
   {
+    "file": "21-hivescum-scumlinger.json",
+    "title": "Lihoe's Havoc 40 Scumlinger build.",
+    "class": "hive scum",
+    "ability": "Enhanced Desperado",
+    "keystone": "Chemical Dependency",
+    "weapons": [
+      {
+        "name": "Catachan Mk III Combat Blade",
+        "slot": "melee",
+        "family": "combatknife_p1"
+      },
+      {
+        "name": "Vraks Mk V Infantry Autogun",
+        "slot": "ranged",
+        "family": "autogun_p1"
+      }
+    ],
+    "scores": {
+      "composite": 25,
+      "grade": "B",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 3,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 2,
+      "difficulty_scaling": 1
+    }
+  },
+  {
     "file": "22-hivescum-rampage.json",
     "title": "Hamdol's Havoc 40 Updated Rampage Low Stim Scum",
     "class": "hive scum",
@@ -536,36 +566,6 @@
       "blessing_synergy": 4,
       "role_coverage": 3,
       "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "21-hivescum-scumlinger.json",
-    "title": "Lihoe's Havoc 40 Scumlinger build.",
-    "class": "hive scum",
-    "ability": "Enhanced Desperado",
-    "keystone": "Chemical Dependency",
-    "weapons": [
-      {
-        "name": "Catachan Mk III Combat Blade",
-        "slot": "melee",
-        "family": "combatknife_p1"
-      },
-      {
-        "name": "Vraks Mk V Infantry Autogun",
-        "slot": "ranged",
-        "family": "autogun_p1"
-      }
-    ],
-    "scores": {
-      "composite": 24,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 3,
-      "blessing_synergy": 5,
-      "role_coverage": 5,
-      "breakpoint_relevance": 1,
       "difficulty_scaling": 1
     }
   },
