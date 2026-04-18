@@ -78,7 +78,39 @@ await runCliMain("effects:build", async () => {
     }
   }
 
-  // -- Phase 4: Load weapon trait tier data ----------------------------------
+  // -- Phase 4: Load weapon perk buff blocks ---------------------------------
+  const weaponPerkBuffs = new Map();
+  for (const file of ["weapon_perks_melee.lua", "weapon_perks_ranged.lua"]) {
+    const luaSource = readFileSync(join(sourceRoot, "scripts", "settings", "equipment", "weapon_traits", file), "utf8");
+    let result;
+    try {
+      result = extractTemplateBlocks(luaSource);
+    } catch (err: unknown) {
+      console.warn(`Warning: skipping weapon perk file ${file} — ${(err as Error).message}`);
+      continue;
+    }
+
+    const ctx = { aliases: result.aliases, localFunctions: result.localFunctions };
+    for (const block of result.blocks) {
+      const parsed = block.parsed as AnyRecord | null;
+      if (!parsed || typeof parsed !== "object") continue;
+      if (!parsed.buffs || typeof parsed.buffs !== "object") continue;
+
+      const buffEntries = [];
+      for (const [buffName, tierArray] of Object.entries(parsed.buffs)) {
+        if (!Array.isArray(tierArray) || tierArray.length === 0) continue;
+        const firstTier = tierArray[0];
+        if (!firstTier || typeof firstTier !== "object" || Array.isArray(firstTier)) continue;
+        buffEntries.push({ buffName, template: firstTier });
+      }
+
+      if (buffEntries.length > 0) {
+        weaponPerkBuffs.set(block.name, { buffEntries, ctx });
+      }
+    }
+  }
+
+  // -- Phase 5: Load weapon trait tier data ----------------------------------
   /** @type {Map<string, object[]>} traitName → 4-element tier array */
   const tierDataMap = new Map();
   const weaponTraitDir = join(sourceRoot, "scripts", "settings", "equipment", "weapon_traits");
@@ -111,7 +143,7 @@ await runCliMain("effects:build", async () => {
     }
   }
 
-  // -- Phase 5: Load existing entity files -----------------------------------
+  // -- Phase 6: Load existing entity files -----------------------------------
   /** @type {Map<string, { entity: object, file: string, index: number }>} */
   const entityIndex = new Map();
   /** @type {Map<string, object[]>} filePath → entity array */
@@ -126,7 +158,7 @@ await runCliMain("effects:build", async () => {
     }
   }
 
-  // -- Phase 6: Match and populate calc fields --------------------------------
+  // -- Phase 7: Match and populate calc fields --------------------------------
   const TALENT_KINDS = new Set(["talent", "ability", "aura", "keystone", "talent_modifier"]);
   let populated = 0;
   let partial = 0;
@@ -184,12 +216,37 @@ await runCliMain("effects:build", async () => {
       }
     }
 
-    // Strategy 3: Weapon perks — look up internal_name in resolved templates
+    // Strategy 3: Weapon perks — use authoritative buff blocks from weapon_perks_*.lua
     if (kind === "weapon_perk" && !calc) {
-      const template = resolvedTemplates.get(internalName);
-      if (template) {
-        const ctx = templateFileContext.get(internalName) || { aliases: {}, localFunctions: {} };
-        calc = extractEffects(template, settingsMap, ctx);
+      const perkBuff = weaponPerkBuffs.get(internalName);
+      if (perkBuff) {
+        const mergedEffects = [];
+        let mergedMeta: AnyRecord = {};
+        const buffTemplateNames = perkBuff.buffEntries.map((entry: AnyRecord) => entry.buffName);
+
+        for (const { buffName, template } of perkBuff.buffEntries) {
+          const extracted = extractEffects(template, settingsMap, perkBuff.ctx);
+          mergedEffects.push(...(extracted.effects ?? []));
+          for (const key of ["class_name", "max_stacks", "duration", "active_duration", "keywords"]) {
+            if ((extracted as AnyRecord)[key] !== undefined) mergedMeta[key] = (extracted as AnyRecord)[key];
+          }
+        }
+
+        calc = mergedEffects.length > 0
+          ? {
+            effects: mergedEffects,
+            ...mergedMeta,
+            buff_template_names: buffTemplateNames,
+          }
+          : {
+            buff_template_names: buffTemplateNames,
+          };
+      } else {
+        const template = resolvedTemplates.get(internalName);
+        if (template) {
+          const ctx = templateFileContext.get(internalName) || { aliases: {}, localFunctions: {} };
+          calc = extractEffects(template, settingsMap, ctx);
+        }
       }
     }
 
@@ -240,7 +297,7 @@ await runCliMain("effects:build", async () => {
     }
   }
 
-  // -- Phase 7: Create buff entities ------------------------------------------
+  // -- Phase 8: Create buff entities ------------------------------------------
   const newBuffEntities: AnyRecord[] = [];
   const buffEntityFile = join(ENTITIES_ROOT, "shared-buffs.json");
   const existingBuffs = entityFileContents.get(buffEntityFile) || [];
@@ -306,13 +363,13 @@ await runCliMain("effects:build", async () => {
     modifiedFiles.add(buffEntityFile);
   }
 
-  // -- Phase 8: Write updated entity files ------------------------------------
+  // -- Phase 9: Write updated entity files ------------------------------------
   for (const filePath of modifiedFiles) {
     const records = entityFileContents.get(filePath as string);
     writeFileSync(filePath as string, JSON.stringify(records, null, 2) + "\n");
   }
 
-  // -- Phase 9: Generate grants_buff edges ------------------------------------
+  // -- Phase 10: Generate grants_buff edges -----------------------------------
   /** @type {Map<string, object[]>} domain → edge records */
   const newEdgesByDomain = new Map();
 
@@ -358,7 +415,7 @@ await runCliMain("effects:build", async () => {
     }
   }
 
-  // -- Phase 10: Write edge files ---------------------------------------------
+  // -- Phase 11: Write edge files ---------------------------------------------
   let totalEdges = 0;
 
   for (const [domain, newEdges] of newEdgesByDomain) {
@@ -377,7 +434,7 @@ await runCliMain("effects:build", async () => {
     totalEdges += newEdges.length;
   }
 
-  // -- Phase 11: Report summary -----------------------------------------------
+  // -- Phase 12: Report summary -----------------------------------------------
   console.log(`Populated: ${populated}, Partial: ${partial}, Zero: ${zero}`);
   console.log(`Created ${newBuffEntities.length} new buff entities`);
   console.log(`Generated ${totalEdges} grants_buff edges`);

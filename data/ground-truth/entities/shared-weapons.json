@@ -499,7 +499,23 @@
     "attributes": {
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "armored_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "buff_template_names": [
+        "weapon_trait_melee_common_wield_increased_armored_damage_buff"
+      ]
+    }
   },
   {
     "id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
@@ -519,7 +535,23 @@
     "attributes": {
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "berserker_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "buff_template_names": [
+        "weapon_trait_melee_common_wield_increased_berserker_damage_buff"
+      ]
+    }
   },
   {
     "id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_disgustingly_resilient_damage",
@@ -539,7 +571,23 @@
     "attributes": {
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "disgustingly_resilient_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "buff_template_names": [
+        "weapon_trait_melee_common_wield_increased_disgustingly_resilient_damage_buff"
+      ]
+    }
   },
   {
     "id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
@@ -559,7 +607,23 @@
     "attributes": {
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "resistant_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "buff_template_names": [
+        "weapon_trait_melee_common_wield_increased_resistant_damage_buff"
+      ]
+    }
   },
   {
     "id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
@@ -579,7 +643,23 @@
     "attributes": {
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "super_armor_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "buff_template_names": [
+        "weapon_trait_melee_common_wield_increased_super_armor_damage_buff"
+      ]
+    }
   },
   {
     "id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_unarmored_damage",
@@ -599,7 +679,23 @@
     "attributes": {
       "slot": "melee"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "unarmored_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "buff_template_names": [
+        "weapon_trait_melee_common_wield_increased_unarmored_damage_buff"
+      ]
+    }
   },
   {
     "id": "shared.weapon_perk.melee.weapon_trait_increase_damage_elites",
@@ -623,16 +719,18 @@
       "effects": [
         {
           "stat": "damage_vs_elites",
-          "magnitude": 0.1,
+          "magnitude": 0.04,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_increase_damage_elites"
+      ]
     }
   },
   {
@@ -653,7 +751,23 @@
     "attributes": {
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "armored_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "buff_template_names": [
+        "weapon_trait_ranged_common_wield_increased_armored_damage_buff"
+      ]
+    }
   },
   {
     "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
@@ -673,7 +787,23 @@
     "attributes": {
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "berserker_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "buff_template_names": [
+        "weapon_trait_ranged_common_wield_increased_berserker_damage_buff"
+      ]
+    }
   },
   {
     "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
@@ -693,7 +823,23 @@
     "attributes": {
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "resistant_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "buff_template_names": [
+        "weapon_trait_ranged_common_wield_increased_resistant_damage_buff"
+      ]
+    }
   },
   {
     "id": "shared.weapon_perk.ranged.weapon_trait_ranged_increased_reload_speed",
@@ -717,16 +863,18 @@
       "effects": [
         {
           "stat": "reload_speed",
-          "magnitude": 0.08,
+          "magnitude": 0.05,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_ranged_increased_reload_speed"
+      ]
     }
   },
   {
@@ -747,7 +895,23 @@
     "attributes": {
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "super_armor_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "buff_template_names": [
+        "weapon_trait_ranged_common_wield_increased_super_armor_damage_buff"
+      ]
+    }
   },
   {
     "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_unarmored_damage",
@@ -767,7 +931,23 @@
     "attributes": {
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "unarmored_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "buff_template_names": [
+        "weapon_trait_ranged_common_wield_increased_unarmored_damage_buff"
+      ]
+    }
   },
   {
     "id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_disgustingly_resilient_damage",
@@ -787,7 +967,23 @@
     "attributes": {
       "slot": "ranged"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "disgustingly_resilient_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "buff_template_names": [
+        "weapon_trait_ranged_common_wield_increased_disgustingly_resilient_damage_buff"
+      ]
+    }
   },
   {
     "id": "shared.weapon_perk.melee.weapon_trait_increase_stamina",
@@ -815,12 +1011,14 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_increase_stamina"
+      ]
     }
   },
   {
@@ -46221,16 +46419,18 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.02,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_increase_crit_chance"
+      ]
     }
   },
   {
@@ -46255,16 +46455,18 @@
       "effects": [
         {
           "stat": "critical_strike_damage",
-          "magnitude": 0.1,
+          "magnitude": 0.04,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_increase_crit_damage"
+      ]
     }
   },
   {
@@ -46289,16 +46491,18 @@
       "effects": [
         {
           "stat": "weakspot_damage",
-          "magnitude": 0.1,
+          "magnitude": 0.04,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_increase_weakspot_damage"
+      ]
     }
   },
   {
@@ -46323,16 +46527,18 @@
       "effects": [
         {
           "stat": "damage",
-          "magnitude": 0.04,
+          "magnitude": 0.01,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_increase_damage"
+      ]
     }
   },
   {
@@ -46357,16 +46563,18 @@
       "effects": [
         {
           "stat": "finesse_modifier_bonus",
-          "magnitude": 0.04,
+          "magnitude": 0.01,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_increase_finesse"
+      ]
     }
   },
   {
@@ -46391,16 +46599,18 @@
       "effects": [
         {
           "stat": "power_level_modifier",
-          "magnitude": 0.04,
+          "magnitude": 0.01,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_increase_power"
+      ]
     }
   },
   {
@@ -46425,16 +46635,18 @@
       "effects": [
         {
           "stat": "impact_modifier",
-          "magnitude": 0.04,
+          "magnitude": 0.05,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_increase_impact"
+      ]
     }
   },
   {
@@ -46459,16 +46671,18 @@
       "effects": [
         {
           "stat": "block_cost_multiplier",
-          "magnitude": 0.8,
+          "magnitude": 0.95,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_reduced_block_cost"
+      ]
     }
   },
   {
@@ -46493,16 +46707,18 @@
       "effects": [
         {
           "stat": "damage_vs_horde",
-          "magnitude": 0.1,
+          "magnitude": 0.04,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_increase_damage_hordes"
+      ]
     }
   },
   {
@@ -46527,16 +46743,18 @@
       "effects": [
         {
           "stat": "damage_vs_specials",
-          "magnitude": 0.1,
+          "magnitude": 0.04,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_increase_damage_specials"
+      ]
     }
   },
   {
@@ -46561,16 +46779,18 @@
       "effects": [
         {
           "stat": "sprinting_cost_multiplier",
-          "magnitude": 0.8,
+          "magnitude": 0.94,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_reduce_sprint_cost"
+      ]
     }
   },
   {
@@ -46595,16 +46815,18 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.02,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_ranged_increase_crit_chance"
+      ]
     }
   },
   {
@@ -46629,16 +46851,18 @@
       "effects": [
         {
           "stat": "critical_strike_damage",
-          "magnitude": 0.1,
+          "magnitude": 0.04,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_ranged_increase_crit_damage"
+      ]
     }
   },
   {
@@ -46667,12 +46891,14 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_ranged_increase_stamina"
+      ]
     }
   },
   {
@@ -46697,16 +46923,18 @@
       "effects": [
         {
           "stat": "weakspot_damage",
-          "magnitude": 0.1,
+          "magnitude": 0.04,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_ranged_increase_weakspot_damage"
+      ]
     }
   },
   {
@@ -46731,16 +46959,18 @@
       "effects": [
         {
           "stat": "damage",
-          "magnitude": 0.04,
+          "magnitude": 0.01,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_ranged_increase_damage"
+      ]
     }
   },
   {
@@ -46765,16 +46995,18 @@
       "effects": [
         {
           "stat": "finesse_modifier_bonus",
-          "magnitude": 0.04,
+          "magnitude": 0.01,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_ranged_increase_finesse"
+      ]
     }
   },
   {
@@ -46799,16 +47031,18 @@
       "effects": [
         {
           "stat": "power_level_modifier",
-          "magnitude": 0.04,
+          "magnitude": 0.01,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_ranged_increase_power"
+      ]
     }
   },
   {
@@ -46833,16 +47067,18 @@
       "effects": [
         {
           "stat": "damage_vs_elites",
-          "magnitude": 0.1,
+          "magnitude": 0.04,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_ranged_increase_damage_elites"
+      ]
     }
   },
   {
@@ -46867,16 +47103,18 @@
       "effects": [
         {
           "stat": "damage_vs_horde",
-          "magnitude": 0.1,
+          "magnitude": 0.04,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_ranged_increase_damage_hordes"
+      ]
     }
   },
   {
@@ -46901,16 +47139,18 @@
       "effects": [
         {
           "stat": "damage_vs_specials",
-          "magnitude": 0.1,
+          "magnitude": 0.04,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "wielded",
+          "condition": null,
           "trigger": null,
-          "type": "conditional_stat_buff"
+          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "buff_template_names": [
+        "weapon_trait_ranged_increase_damage_specials"
+      ]
     }
   },
   {
