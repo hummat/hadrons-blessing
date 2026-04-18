@@ -31,8 +31,9 @@ describe("website theme contract", () => {
     assert.match(layout, /site-header/);
     assert.match(list, /panel/);
     assert.match(list, /form-control/);
-    assert.match(detail, /panel-strong/);
-    assert.match(detail, /disclosure/);
+    assert.match(detail, /dataslate-root/);
+    assert.match(detail, /ds-parchment/);
+    assert.match(detail, /ds-discl/);
     assert.match(compare, /panel-strong/);
 
     assert.ok(!list.includes("bg-gray-900/90"));
@@ -43,7 +44,8 @@ describe("website theme contract", () => {
   it("keeps breakpoint matrix badges inside cells instead of restyling td elements", () => {
     const detail = read("routes/builds/[slug]/+page.svelte");
 
-    assert.match(detail, /<span class="inline-flex rounded px-2 py-1 \{htkCellClass\(value\)\}">/);
+    assert.match(detail, /<span class="ds-htk \{dsHtkCell\(value\)\}">/);
+    assert.doesNotMatch(detail, /<td class="[^"]*\{dsHtkCell\(value\)\}"/);
     assert.doesNotMatch(detail, /<td class="[^"]*\{htkCellClass\(value\)\}"/);
   });
 });

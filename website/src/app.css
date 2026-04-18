@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -438,4 +439,1034 @@ body {
 .htk-cell--null {
   background: rgba(13, 17, 24, 0.94);
   color: var(--hb-text-faint);
+}
+
+/* ============================================================
+   IMPERIAL DATASLATE — scoped dossier treatment for detail view
+   ============================================================ */
+
+.dataslate-root {
+  --ds-void: #0a0705;
+  --ds-void-deep: #040201;
+  --ds-parchment: #ece0c3;
+  --ds-parchment-raw: #d9c79c;
+  --ds-parchment-shadow: #a8946b;
+  --ds-parchment-burnt: #7a6640;
+  --ds-parchment-scorch: #5a4428;
+  --ds-ink: #1a0f08;
+  --ds-ink-faded: #4a3826;
+  --ds-ink-erased: #7a6a55;
+  --ds-brass: #b58536;
+  --ds-brass-bright: #e1a947;
+  --ds-brass-deep: #7d5a1f;
+  --ds-blood: #6e1a15;
+  --ds-blood-bright: #a42b22;
+  --ds-sanctified: #4b7a51;
+  --ds-warp: #5a3a6b;
+  --ds-amber: #d9a94f;
+  --ds-amber-glow: #f4c56a;
+
+  position: relative;
+  color: var(--ds-ink);
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* atmospheric lantern-light on void linen */
+.dataslate-root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(217, 169, 79, 0.12), transparent 50%),
+    radial-gradient(ellipse at 80% 110%, rgba(110, 26, 21, 0.08), transparent 45%),
+    linear-gradient(180deg, var(--ds-void-deep) 0%, var(--ds-void) 45%, #020100 100%);
+}
+
+/* subtle film-grain across everything */
+.dataslate-root::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
+}
+
+/* ── typography ─────────────────────────────────────────── */
+
+.ds-display,
+.ds-ink-display {
+  font-family: "IM Fell English SC", "EB Garamond", Palatino, serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.ds-display { color: var(--ds-parchment); }
+.ds-ink-display { color: var(--ds-ink); }
+
+.ds-title-epic {
+  font-family: "IM Fell English", "EB Garamond", Palatino, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 3.6vw, 3.4rem);
+  line-height: 1.05;
+  color: var(--ds-ink);
+  letter-spacing: 0.005em;
+}
+
+.ds-h2 {
+  font-family: "IM Fell English SC", "EB Garamond", serif;
+  font-weight: 400;
+  color: var(--ds-parchment);
+  font-size: 1.55rem;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+
+.ds-h3 {
+  font-family: "IM Fell English SC", "EB Garamond", serif;
+  font-weight: 400;
+  color: var(--ds-ink);
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+}
+
+.ds-label {
+  font-family: "Oswald", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ds-ink-faded);
+}
+
+.ds-label--parchment {
+  color: var(--ds-parchment-shadow);
+}
+
+.ds-body {
+  font-family: "EB Garamond", Georgia, serif;
+  color: var(--ds-ink);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.ds-body--faint {
+  color: var(--ds-ink-faded);
+}
+
+.ds-numeral {
+  font-family: "EB Garamond", serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--ds-ink);
+}
+
+.ds-numeral--small { font-size: 2rem; }
+
+.ds-numeral-max {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: var(--ds-ink-erased);
+  text-transform: uppercase;
+}
+
+/* ── parchment surface ─────────────────────────────────── */
+
+.ds-parchment {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(168, 148, 107, 0.3), transparent 55%),
+    radial-gradient(ellipse at 100% 100%, rgba(122, 102, 64, 0.28), transparent 50%),
+    linear-gradient(162deg, #efe4ca 0%, #e6d8b2 48%, #d8c598 100%);
+  color: var(--ds-ink);
+  border: 1px solid var(--ds-parchment-burnt);
+  border-radius: 2px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 250, 230, 0.5),
+    inset 0 -2px 10px rgba(122, 102, 64, 0.22),
+    inset 0 0 0 1px rgba(234, 221, 186, 0.5),
+    0 14px 36px rgba(0, 0, 0, 0.55),
+    0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.ds-parchment::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.35  0 0 0 0 0.25  0 0 0 0 0.12  0 0 0 0.6 0'/></filter><rect width='180' height='180' filter='url(%23p)'/></svg>");
+}
+
+.ds-parchment--aged {
+  background:
+    radial-gradient(ellipse at 10% 10%, rgba(122, 102, 64, 0.38), transparent 45%),
+    radial-gradient(ellipse at 90% 90%, rgba(90, 68, 40, 0.4), transparent 45%),
+    linear-gradient(160deg, #e6d7ae 0%, #d6c292 50%, #baa16a 100%);
+}
+
+.ds-parchment--small {
+  padding: 1rem 1.1rem;
+}
+
+.ds-parchment > * { position: relative; z-index: 1; }
+
+/* ── corner brackets ────────────────────────────────────── */
+
+.ds-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--ds-brass-deep);
+  pointer-events: none;
+  z-index: 2;
+}
+.ds-corner--tl { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
+.ds-corner--tr { top: 10px; right: 10px; border-left: 0; border-bottom: 0; }
+.ds-corner--bl { bottom: 10px; left: 10px; border-right: 0; border-top: 0; }
+.ds-corner--br { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+
+/* ── section heading with brass rule ───────────────────── */
+
+.ds-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 0.25rem;
+}
+
+.ds-section-heading__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ds-section-heading__side {
+  margin-left: auto;
+  color: var(--ds-parchment-shadow);
+}
+
+.ds-rule {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: 1rem;
+  flex: 1;
+  color: var(--ds-brass);
+}
+
+.ds-rule::before,
+.ds-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--ds-brass-deep) 15%,
+    var(--ds-brass) 50%,
+    var(--ds-brass-deep) 85%,
+    transparent 100%
+  );
+}
+
+.ds-rule__mark {
+  font-size: 0.95rem;
+  color: var(--ds-brass-bright);
+  filter: drop-shadow(0 0 4px rgba(217, 169, 79, 0.4));
+}
+
+.ds-rule--standalone {
+  margin: 0.25rem 0 0.75rem;
+}
+
+/* ── stamps, chips ──────────────────────────────────────── */
+
+.ds-stamp {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid var(--ds-parchment-burnt);
+  background: rgba(26, 15, 8, 0.05);
+  color: var(--ds-ink);
+  font-family: "EB Garamond", serif;
+  font-size: 0.95rem;
+  border-radius: 1px;
+  line-height: 1.3;
+}
+
+.ds-stamp--ink {
+  border-color: var(--ds-ink);
+  background: var(--ds-ink);
+  color: var(--ds-parchment);
+  font-family: "Oswald", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+}
+
+.ds-stamp--blood {
+  border-color: var(--ds-blood);
+  background: rgba(110, 26, 21, 0.15);
+  color: var(--ds-blood);
+}
+
+.ds-stamp--brass {
+  border-color: var(--ds-brass-deep);
+  background: rgba(181, 133, 54, 0.12);
+  color: var(--ds-brass-deep);
+}
+
+.ds-class-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.75rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  border: 1px solid var(--ds-brass-deep);
+  background: rgba(10, 7, 5, 0.85);
+  color: var(--ds-brass-bright);
+  border-radius: 1px;
+}
+
+/* ── purity seal (grade) ───────────────────────────────── */
+
+.ds-seal-wrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+}
+
+.ds-seal {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 30%, #d14036 0%, #8a1a12 40%, #4a0806 95%);
+  box-shadow:
+    inset 0 3px 10px rgba(255, 200, 180, 0.35),
+    inset 0 -10px 20px rgba(0, 0, 0, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.6),
+    0 0 0 4px rgba(181, 133, 54, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "IM Fell English SC", serif;
+  font-size: 2.8rem;
+  color: #f1d48a;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  position: relative;
+  transform: rotate(-7deg);
+  animation: ds-seal-settle 1s cubic-bezier(0.25, 0.85, 0.25, 1.15) both;
+  animation-delay: 280ms;
+}
+
+.ds-seal::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(241, 212, 138, 0.35);
+}
+
+.ds-seal::after {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, transparent 60%, rgba(0, 0, 0, 0.2) 70%, transparent 85%);
+}
+
+@keyframes ds-seal-settle {
+  0% { transform: rotate(-28deg) scale(0.6); opacity: 0; }
+  55% { transform: rotate(-3deg) scale(1.08); opacity: 1; }
+  100% { transform: rotate(-7deg) scale(1); opacity: 1; }
+}
+
+.ds-seal-caption {
+  margin-top: 0.5rem;
+  text-align: center;
+  color: var(--ds-parchment-shadow);
+  font-family: "Oswald", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* ── hero panel ────────────────────────────────────────── */
+
+.ds-hero {
+  padding: 2.5rem 2rem 2.2rem;
+  min-height: 12rem;
+}
+
+.ds-hero-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ds-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.9rem;
+}
+
+.ds-hero-weapons {
+  margin-top: 0.9rem;
+  color: var(--ds-ink-faded);
+  font-size: 1.02rem;
+  font-style: italic;
+}
+
+.ds-hero-grade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.ds-hero-score {
+  margin-top: 0.6rem;
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--ds-ink);
+}
+
+/* ── ledger grid cards ─────────────────────────────────── */
+
+.ds-ledger {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 48rem) {
+  .ds-ledger { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 72rem) {
+  .ds-ledger { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.ds-ledger-card {
+  padding: 1.1rem 1.15rem;
+}
+
+.ds-ledger-card__label {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ds-ink-erased);
+}
+
+.ds-ledger-card__value {
+  font-family: "EB Garamond", serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.9rem;
+  color: var(--ds-ink);
+  margin-top: 0.45rem;
+  line-height: 1;
+}
+
+.ds-ledger-card__caption {
+  margin-top: 0.55rem;
+  color: var(--ds-ink-faded);
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.ds-ledger-card__value--text {
+  font-size: 1.15rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* ── structure grid ────────────────────────────────────── */
+
+.ds-structure {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 80rem) {
+  .ds-structure { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.4fr); }
+}
+
+.ds-panel {
+  padding: 1.35rem 1.4rem;
+}
+
+.ds-slot-grid {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+@media (min-width: 30rem) {
+  .ds-slot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.ds-slot {
+  padding: 0.85rem 0.95rem;
+  border: 1px dashed var(--ds-parchment-burnt);
+  background:
+    linear-gradient(180deg, rgba(216, 197, 152, 0.4), rgba(168, 148, 107, 0.22)),
+    rgba(26, 15, 8, 0.03);
+}
+
+.ds-slot__name {
+  margin-top: 0.4rem;
+  font-family: "EB Garamond", serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--ds-ink);
+}
+
+.ds-chip-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+}
+
+/* ── dimension grid ────────────────────────────────────── */
+
+.ds-dim-grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 48rem) {
+  .ds-dim-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 72rem) {
+  .ds-dim-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.ds-dim-card {
+  padding: 1.15rem;
+  min-height: 9rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-dim-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.ds-dim-card__note {
+  margin-top: 0.75rem;
+  color: var(--ds-ink-faded);
+  font-size: 0.94rem;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.ds-score {
+  font-family: "EB Garamond", serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 2.6rem;
+  line-height: 1;
+}
+.ds-score--composite { color: var(--ds-ink); }
+.ds-score--high { color: #2f5f3c; }
+.ds-score--mid { color: #5a4a22; }
+.ds-score--warn { color: #8a5014; }
+.ds-score--low { color: #7a1f17; }
+.ds-score--null { color: var(--ds-ink-erased); }
+
+/* ── weapons ──────────────────────────────────────────── */
+
+.ds-weapon-grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 72rem) {
+  .ds-weapon-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.ds-weapon-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ds-weapon-perk-score {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--ds-brass-deep);
+  background: rgba(181, 133, 54, 0.08);
+  text-align: right;
+}
+
+.ds-weapon-perk-score__value {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--ds-ink);
+  margin-top: 0.2rem;
+}
+
+.ds-weapon-lists {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+@media (min-width: 56rem) {
+  .ds-weapon-lists { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.ds-perk-stamp {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--ds-parchment-burnt);
+  background: rgba(26, 15, 8, 0.04);
+  color: var(--ds-ink);
+  font-size: 0.94rem;
+  border-radius: 1px;
+}
+
+.ds-perk-stamp__tier {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--ds-brass-deep);
+  border-left: 1px solid var(--ds-parchment-burnt);
+  padding-left: 0.55rem;
+}
+
+.ds-catalog-gap {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--ds-blood);
+  color: var(--ds-blood);
+  background: rgba(110, 26, 21, 0.08);
+  font-family: "Oswald", sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ── synergy ──────────────────────────────────────────── */
+
+.ds-synergy-grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 80rem) {
+  .ds-synergy-grid { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+}
+
+.ds-edge {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--ds-parchment-burnt);
+  background:
+    linear-gradient(180deg, rgba(232, 218, 183, 0.55), rgba(207, 187, 143, 0.35));
+  border-radius: 1px;
+}
+
+.ds-edge + .ds-edge { margin-top: 0.6rem; }
+
+.ds-edge-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ds-edge-selections {
+  margin-top: 0.7rem;
+  font-family: "EB Garamond", serif;
+  font-size: 1.02rem;
+  color: var(--ds-ink);
+}
+
+.ds-edge-explanation {
+  margin-top: 0.3rem;
+  color: var(--ds-ink-faded);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.ds-discl {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px dashed var(--ds-parchment-burnt);
+  background: rgba(26, 15, 8, 0.03);
+}
+
+.ds-discl > summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ds-ink);
+}
+
+.ds-discl > summary::after {
+  content: " ▾";
+  color: var(--ds-brass-deep);
+}
+
+.ds-discl[open] > summary::after {
+  content: " ▴";
+}
+
+/* ── coverage stats ────────────────────────────────────── */
+
+.ds-coverage-grid {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+@media (min-width: 56rem) {
+  .ds-coverage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 80rem) {
+  .ds-coverage-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.ds-coverage-cell {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--ds-parchment-burnt);
+  background: rgba(232, 218, 183, 0.35);
+}
+
+.ds-coverage-cell__value {
+  margin-top: 0.45rem;
+  font-family: "EB Garamond", serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.75rem;
+  color: var(--ds-ink);
+  line-height: 1;
+}
+
+/* ── cogitator — breakpoint matrix ─────────────────────── */
+
+.ds-cogitator-wrap {
+  padding: 1.2rem 1.3rem;
+  background:
+    linear-gradient(180deg, #0a0705 0%, #040302 100%);
+  border: 1px solid var(--ds-brass-deep);
+  border-radius: 2px;
+  box-shadow:
+    inset 0 0 48px rgba(217, 169, 79, 0.1),
+    inset 0 0 0 1px rgba(217, 169, 79, 0.18),
+    0 12px 30px rgba(0, 0, 0, 0.65);
+  position: relative;
+  overflow: hidden;
+}
+
+.ds-cogitator-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(217, 169, 79, 0.035) 3px,
+    transparent 4px
+  );
+}
+
+.ds-cogitator-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.ds-cogitator-wrap > * { position: relative; z-index: 1; }
+
+.ds-cogitator-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ds-cogitator-title {
+  font-family: "IM Fell English SC", serif;
+  color: var(--ds-amber-glow);
+  font-size: 1.4rem;
+  text-shadow: 0 0 12px rgba(217, 169, 79, 0.35);
+  letter-spacing: 0.04em;
+}
+
+.ds-cogitator-subtitle {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ds-amber);
+  margin-top: 0.3rem;
+}
+
+.ds-cogitator-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ds-cogitator-btn {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--ds-brass-deep);
+  background: rgba(20, 14, 8, 0.85);
+  color: var(--ds-amber);
+  font-family: "Oswald", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 160ms ease;
+  border-radius: 1px;
+}
+
+.ds-cogitator-btn:hover {
+  border-color: var(--ds-amber);
+  color: var(--ds-amber-glow);
+  box-shadow: 0 0 0 1px rgba(217, 169, 79, 0.3);
+}
+
+.ds-cogitator-btn--active {
+  border-color: var(--ds-amber);
+  background: rgba(217, 169, 79, 0.15);
+  color: var(--ds-amber-glow);
+  box-shadow: 0 0 12px rgba(217, 169, 79, 0.3);
+}
+
+.ds-cogitator-select {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--ds-brass-deep);
+  background: rgba(20, 14, 8, 0.85);
+  color: var(--ds-amber);
+  font-family: "Oswald", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 1px;
+}
+
+.ds-cogitator-panel {
+  margin-top: 1.2rem;
+  border: 1px solid rgba(125, 90, 31, 0.6);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 1rem 1.1rem;
+}
+
+.ds-cogitator-panel + .ds-cogitator-panel { margin-top: 0.8rem; }
+
+.ds-cogitator-panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px dashed rgba(125, 90, 31, 0.5);
+}
+
+.ds-cogitator-weapon-name {
+  font-family: "IM Fell English SC", serif;
+  color: var(--ds-amber-glow);
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+
+.ds-cogitator-weapon-slot {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ds-amber);
+  margin-top: 0.2rem;
+}
+
+.ds-cogitator-meta {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ds-brass);
+}
+
+.ds-cogitator-table-wrap {
+  margin-top: 0.8rem;
+  overflow-x: auto;
+}
+
+.ds-cogitator-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "JetBrains Mono", "Menlo", monospace;
+  font-size: 0.78rem;
+  color: var(--ds-amber);
+}
+
+.ds-cogitator-table th {
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid rgba(125, 90, 31, 0.6);
+  color: var(--ds-amber-glow);
+  font-family: "Oswald", sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ds-cogitator-table th:first-child,
+.ds-cogitator-table td:first-child {
+  text-align: left;
+  position: sticky;
+  left: 0;
+  background: rgba(4, 3, 2, 0.95);
+  z-index: 1;
+}
+
+.ds-cogitator-table td {
+  padding: 0.45rem 0.7rem;
+  text-align: center;
+  border-top: 1px solid rgba(125, 90, 31, 0.25);
+}
+
+.ds-cogitator-table tbody tr:hover td {
+  background: rgba(217, 169, 79, 0.05);
+}
+
+.ds-action-label {
+  font-family: "EB Garamond", serif;
+  color: var(--ds-amber-glow);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.ds-htk {
+  display: inline-block;
+  min-width: 1.6rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 1px;
+}
+
+.ds-htk--best { color: #8fe3b2; background: rgba(75, 122, 81, 0.25); }
+.ds-htk--mid { color: var(--ds-amber-glow); background: rgba(217, 169, 79, 0.12); }
+.ds-htk--worst { color: #f07064; background: rgba(110, 26, 21, 0.3); }
+.ds-htk--null { color: rgba(217, 169, 79, 0.3); }
+
+.ds-cogitator-empty {
+  margin-top: 0.9rem;
+  padding: 0.9rem;
+  border: 1px dashed rgba(125, 90, 31, 0.5);
+  font-family: "EB Garamond", serif;
+  color: var(--ds-amber);
+  font-style: italic;
+}
+
+/* ── navigation crumbs ─────────────────────────────────── */
+
+.ds-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+.ds-crumb {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ds-parchment-shadow);
+  transition: color 160ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.ds-crumb:hover { color: var(--ds-parchment); }
+
+/* ── reveal animation ──────────────────────────────────── */
+
+@keyframes ds-reveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ds-reveal {
+  animation: ds-reveal 0.75s cubic-bezier(0.22, 0.8, 0.3, 1) both;
+}
+
+.dataslate-root > .ds-reveal:nth-of-type(1) { animation-delay: 0ms; }
+.dataslate-root > .ds-reveal:nth-of-type(2) { animation-delay: 90ms; }
+.dataslate-root > .ds-reveal:nth-of-type(3) { animation-delay: 180ms; }
+.dataslate-root > .ds-reveal:nth-of-type(4) { animation-delay: 270ms; }
+.dataslate-root > .ds-reveal:nth-of-type(5) { animation-delay: 360ms; }
+.dataslate-root > .ds-reveal:nth-of-type(6) { animation-delay: 450ms; }
+.dataslate-root > .ds-reveal:nth-of-type(7) { animation-delay: 540ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-reveal { animation: none; }
+  .ds-seal { animation: none; }
+}
+
+/* ── page composition ─────────────────────────────────── */
+
+.ds-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ds-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.ds-grade-letter {
+  display: inline-block;
 }
