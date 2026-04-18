@@ -34,6 +34,8 @@ const COVERAGE_LABELS: Record<string, string> = {
 };
 
 const BLESSING_SYNERGY_PREFIX = "Blessings with synergy edges: ";
+const COVERAGE_GAPS_PREFIX = "Coverage gaps: ";
+const COVERAGE_GAPS_SUFFIX = " (-1 each)";
 
 function titleCaseWords(value: string): string {
   return value
@@ -43,24 +45,56 @@ function titleCaseWords(value: string): string {
     .join(" ");
 }
 
+export function formatOrphanReason(reason: string): string {
+  return titleCaseWords(reason);
+}
+
+export function formatOrphanMetaLine(resource: string | null | undefined, condition: string | null | undefined): string {
+  const parts: string[] = [];
+  if (resource) parts.push(titleCaseWords(resource));
+  if (condition && condition !== "unknown_condition") {
+    const colonIdx = condition.indexOf(":");
+    if (colonIdx >= 0) {
+      const head = titleCaseWords(condition.slice(0, colonIdx));
+      const tail = titleCaseWords(condition.slice(colonIdx + 1));
+      parts.push(`${head} · ${tail}`);
+    } else {
+      parts.push(titleCaseWords(condition));
+    }
+  }
+  return parts.join(" · ");
+}
+
 export function blessingNameFromSlug(slug: string, map: Record<string, string>): string {
   return map[slug] ?? titleCaseWords(slug);
 }
 
 export function rewriteExplanation(key: string, explanation: string, blessingMap: Record<string, string>): string {
-  if (key !== "blessing_synergy" || !explanation.startsWith(BLESSING_SYNERGY_PREFIX)) {
-    return explanation;
+  if (key === "blessing_synergy" && explanation.startsWith(BLESSING_SYNERGY_PREFIX)) {
+    const names = explanation
+      .slice(BLESSING_SYNERGY_PREFIX.length)
+      .split(",")
+      .map((entry) => entry.trim())
+      .filter(Boolean)
+      .map((slug) => blessingNameFromSlug(slug, blessingMap))
+      .join(", ");
+
+    return `Connected blessings: ${names}`;
   }
 
-  const names = explanation
-    .slice(BLESSING_SYNERGY_PREFIX.length)
-    .split(",")
-    .map((entry) => entry.trim())
-    .filter(Boolean)
-    .map((slug) => blessingNameFromSlug(slug, blessingMap))
-    .join(", ");
+  if (key === "role_coverage" && explanation.startsWith(COVERAGE_GAPS_PREFIX) && explanation.endsWith(COVERAGE_GAPS_SUFFIX)) {
+    const inner = explanation.slice(COVERAGE_GAPS_PREFIX.length, explanation.length - COVERAGE_GAPS_SUFFIX.length);
+    const labels = inner
+      .split(",")
+      .map((entry) => entry.trim())
+      .filter(Boolean)
+      .map((slug) => formatCoverageLabel(slug))
+      .join(", ");
 
-  return `Connected blessings: ${names}`;
+    return `Coverage gaps: ${labels} (-1 each)`;
+  }
+
+  return explanation;
 }
 
 function fallbackLabelFromId(id: string): string {

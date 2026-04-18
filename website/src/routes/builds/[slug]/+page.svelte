@@ -9,6 +9,8 @@
     rewriteExplanation,
     formatCoverageFraction,
     formatCoverageLabel,
+    formatOrphanMetaLine,
+    formatOrphanReason,
     formatSelectionList,
     formatSelectionText,
     summarizeNameCounts,
@@ -482,12 +484,13 @@
                 <summary>Reasons for isolation</summary>
                 <div style="margin-top:0.8rem;display:flex;flex-direction:column;gap:0.6rem">
                   {#each data.detail.synergy.orphans as orphan}
+                    {@const metaLine = formatOrphanMetaLine(orphan.resource, orphan.condition)}
                     <div class="ds-edge">
                       <div class="ds-edge-selections">{formatSelectionText(orphan.selection, selectionLabels)}</div>
-                      <p class="ds-edge-explanation">{titleCase(orphan.reason)}</p>
-                      <p class="ds-label" style="margin-top:0.2rem">
-                        {orphan.resource ? `${orphan.resource} · ` : ""}{orphan.condition}
-                      </p>
+                      <p class="ds-edge-explanation">{formatOrphanReason(orphan.reason)}</p>
+                      {#if metaLine}
+                        <p class="ds-label" style="margin-top:0.2rem">{metaLine}</p>
+                      {/if}
                     </div>
                   {/each}
                 </div>

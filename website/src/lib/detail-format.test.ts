@@ -6,6 +6,8 @@ import {
   buildSelectionLabelMap,
   formatCoverageFraction,
   formatCoverageLabel,
+  formatOrphanMetaLine,
+  formatOrphanReason,
   formatSelectionList,
   formatSelectionText,
   summarizeNameCounts,
@@ -218,6 +220,27 @@ describe("detail-format", () => {
       }),
       "Strong tree routing.",
     );
+  });
+
+  it("rewrites role-coverage gap explanations using coverage labels", async () => {
+    const module = (await import("./detail-format.ts")) as Record<string, unknown>;
+    const rewriteExplanation = module.rewriteExplanation as (
+      key: string,
+      explanation: string,
+      blessingMap: Record<string, string>,
+    ) => string;
+    assert.equal(
+      rewriteExplanation("role_coverage", "Coverage gaps: crit_chance_source, warp_charge_producer (-1 each)", {}),
+      "Coverage gaps: Crit chance source, Warp charge producer (-1 each)",
+    );
+  });
+
+  it("humanizes orphan reason slugs and suppresses unknown conditions", () => {
+    assert.equal(formatOrphanReason("unresolvable_condition"), "Unresolvable Condition");
+    assert.equal(formatOrphanMetaLine(null, "unknown_condition"), "");
+    assert.equal(formatOrphanMetaLine("toughness", "unknown_condition"), "Toughness");
+    assert.equal(formatOrphanMetaLine(null, "threshold:stamina"), "Threshold · Stamina");
+    assert.equal(formatOrphanMetaLine("warp_charge", "threshold:stamina"), "Warp Charge · Threshold · Stamina");
   });
 
   it("rewrites blessing synergy explanations with human blessing names", async () => {
