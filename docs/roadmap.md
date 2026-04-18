@@ -1,6 +1,6 @@
 # Roadmap
 
-Last updated: 2026-04-12
+Last updated: 2026-04-18
 
 ## Current state
 
@@ -23,6 +23,7 @@ Can interleave with the active sequence at any point.
 
 | Issue | Summary | Effort |
 |-------|---------|--------|
+| #28 | Survivability scoring dimension on top of the toughness calculator (breaks composite grade scale, regrades all 24 fixtures) | High |
 | #22 | Breakpoint support for unsupported ranged families (flamers, force staves, projectile weapons — 8 builds affected) | Medium-high |
 | #24 | Damage-profile extraction for non-fixture template variants (rippergun etc.) | Medium |
 
@@ -39,7 +40,6 @@ Per CLAUDE.md and design specs:
 - Build editor with interactive talent tree (Svelte Flow)
 - What-if swap analysis with live scoring
 - Damage pipeline storyboard
-- Toughness scorecard dimension
 
 ## v2+ horizon
 
