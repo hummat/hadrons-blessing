@@ -224,7 +224,7 @@ describe("buildRiskBullets", () => {
   });
 
   it("always includes the calc coverage bullet as the final entry", () => {
-    const bullets = buildRiskBullets(makeDetail({ calcCoveragePct: 38 }));
+    const bullets = buildRiskBullets(makeDetail({ calcCoveragePct: 0.38 }));
     const last = bullets[bullets.length - 1];
     assert.equal(last.kind, "calc_coverage");
     assert.equal(last.text, "Calc coverage 38%");

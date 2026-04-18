@@ -108,7 +108,7 @@ export function buildRiskBullets(detail: BuildDetailData): RiskBullet[] {
     bullets.push({ kind: "clean", text: "Clean verdict \u2014 no flagged risks" });
   }
 
-  const pct = Math.round(detail.synergy.metadata.calc_coverage_pct);
+  const pct = Math.round(detail.synergy.metadata.calc_coverage_pct * 100);
   bullets.push({ kind: "calc_coverage", text: `Calc coverage ${pct}%` });
 
   return bullets;
