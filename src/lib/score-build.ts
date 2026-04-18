@@ -273,6 +273,23 @@ export function parsePerkString(str: string): ParsedPerk | null {
     return { min: val, max: val, name: normalizePerkName(m[2]) };
   }
 
+  // Pattern 5: "Increase X by Y-Z%" (GL variant for some weapon perks)
+  m = str.match(/^Increase\s+(.+?)\s+by\s+(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)%$/i);
+  if (m) {
+    return {
+      min: parseFloat(m[2]) / 100,
+      max: parseFloat(m[3]) / 100,
+      name: normalizePerkName(m[1]),
+    };
+  }
+
+  // Pattern 6: "Increase X by Y%"
+  m = str.match(/^Increase\s+(.+?)\s+by\s+(\d+(?:\.\d+)?)%$/i);
+  if (m) {
+    const val = parseFloat(m[2]) / 100;
+    return { min: val, max: val, name: normalizePerkName(m[1]) };
+  }
+
   return null;
 }
 
@@ -287,7 +304,9 @@ function normalizePerkName(name: string): string {
     .replace(/^Damage Resistance \((.+)\)$/, (_, t: string) => `DR vs ${t.replace("Tox ", "")}`)
     .replace(/^Combat Ability Regeneration$/, "Combat Ability Regen")
     .replace(/^Revive Speed \(Ally\)$/, "Revive Speed")
-    .replace(/^Max Health$/, "Health");
+    .replace(/^Max Health$/, "Health")
+    .replace(/^Critical Strike Chance$/, "Critical Hit Chance")
+    .replace(/^Critical Strike Damage$/, "Critical Hit Damage");
 }
 
 /**
