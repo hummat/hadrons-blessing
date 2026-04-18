@@ -1,15 +1,23 @@
 <script lang="ts">
   import type { BuildDetailData } from "./types.ts";
-  import { formatCoverageLabel } from "./detail-format.ts";
+  import { formatCoverageLabel, rewriteExplanation } from "./detail-format.ts";
   import { selectSignatureStrengths, buildRiskBullets, type RiskBullet } from "./verdict.ts";
 
-  type Props = { detail: BuildDetailData };
-  let { detail }: Props = $props();
+  type Props = {
+    detail: BuildDetailData;
+    blessingMap: Record<string, string>;
+  };
+  let { detail, blessingMap }: Props = $props();
 
   const identity = $derived(detail.synergy.coverage.build_identity);
   const slotBalance = $derived(detail.synergy.coverage.slot_balance);
   const concentration = $derived(detail.synergy.coverage.concentration);
-  const strengths = $derived(selectSignatureStrengths(detail.scorecard.qualitative, detail.summary.scores));
+  const strengths = $derived(
+    selectSignatureStrengths(detail.scorecard.qualitative, detail.summary.scores).map((strength) => ({
+      ...strength,
+      explanation: rewriteExplanation(strength.key, strength.explanation, blessingMap),
+    })),
+  );
   const risks: RiskBullet[] = $derived(buildRiskBullets(detail));
 
   function riskClass(kind: RiskBullet["kind"]): string {

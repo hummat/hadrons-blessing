@@ -33,12 +33,34 @@ const COVERAGE_LABELS: Record<string, string> = {
   slot_imbalance: "Slot imbalance",
 };
 
+const BLESSING_SYNERGY_PREFIX = "Blessings with synergy edges: ";
+
 function titleCaseWords(value: string): string {
   return value
     .split(/[_\s]+/)
     .filter(Boolean)
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(" ");
+}
+
+export function blessingNameFromSlug(slug: string, map: Record<string, string>): string {
+  return map[slug] ?? titleCaseWords(slug);
+}
+
+export function rewriteExplanation(key: string, explanation: string, blessingMap: Record<string, string>): string {
+  if (key !== "blessing_synergy" || !explanation.startsWith(BLESSING_SYNERGY_PREFIX)) {
+    return explanation;
+  }
+
+  const names = explanation
+    .slice(BLESSING_SYNERGY_PREFIX.length)
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter(Boolean)
+    .map((slug) => blessingNameFromSlug(slug, blessingMap))
+    .join(", ");
+
+  return `Connected blessings: ${names}`;
 }
 
 function fallbackLabelFromId(id: string): string {

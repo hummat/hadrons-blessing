@@ -181,6 +181,67 @@ describe("detail-format", () => {
     assert.equal(formatCoverageFraction(null), "—");
   });
 
+  it("maps known blessing slugs to human names", async () => {
+    const module = (await import("./detail-format.ts")) as Record<string, unknown>;
+    assert.equal(typeof module.blessingNameFromSlug, "function");
+
+    const blessingNameFromSlug = module.blessingNameFromSlug as (slug: string, map: Record<string, string>) => string;
+    assert.equal(
+      blessingNameFromSlug("rising_heat", {
+        rising_heat: "Rising Heat",
+        increase_power_on_kill: "Power Cycler",
+      }),
+      "Rising Heat",
+    );
+  });
+
+  it("falls back to title-cased blessing slugs when no build name exists", async () => {
+    const module = (await import("./detail-format.ts")) as Record<string, unknown>;
+    assert.equal(typeof module.blessingNameFromSlug, "function");
+
+    const blessingNameFromSlug = module.blessingNameFromSlug as (slug: string, map: Record<string, string>) => string;
+    assert.equal(blessingNameFromSlug("increase_power_on_kill", {}), "Increase Power On Kill");
+  });
+
+  it("leaves non-blessing explanations unchanged", async () => {
+    const module = (await import("./detail-format.ts")) as Record<string, unknown>;
+    assert.equal(typeof module.rewriteExplanation, "function");
+
+    const rewriteExplanation = module.rewriteExplanation as (
+      key: string,
+      explanation: string,
+      blessingMap: Record<string, string>,
+    ) => string;
+    assert.equal(
+      rewriteExplanation("talent_coherence", "Strong tree routing.", {
+        rising_heat: "Rising Heat",
+      }),
+      "Strong tree routing.",
+    );
+  });
+
+  it("rewrites blessing synergy explanations with human blessing names", async () => {
+    const module = (await import("./detail-format.ts")) as Record<string, unknown>;
+    assert.equal(typeof module.rewriteExplanation, "function");
+
+    const rewriteExplanation = module.rewriteExplanation as (
+      key: string,
+      explanation: string,
+      blessingMap: Record<string, string>,
+    ) => string;
+    assert.equal(
+      rewriteExplanation(
+        "blessing_synergy",
+        "Blessings with synergy edges: increase_power_on_kill, rising_heat, unknown_slug",
+        {
+          increase_power_on_kill: "Power Cycler",
+          rising_heat: "Rising Heat",
+        },
+      ),
+      "Connected blessings: Power Cycler, Rising Heat, Unknown Slug",
+    );
+  });
+
   it("builds human action labels without exposing raw profile ids", () => {
     const labels = buildBreakpointActionLabels(makeDetail().breakpoints.weapons[0]);
     assert.deepEqual(labels, ["Light Attack 1", "Light Attack 2", "Heavy Attack"]);

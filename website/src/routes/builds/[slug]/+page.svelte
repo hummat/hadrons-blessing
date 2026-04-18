@@ -6,6 +6,7 @@
     buildBreakpointPanels,
     buildBreakpointActionLabels,
     buildSelectionLabelMap,
+    rewriteExplanation,
     formatCoverageFraction,
     formatCoverageLabel,
     formatSelectionList,
@@ -44,6 +45,17 @@
 
   let { data }: Props = $props();
   const selectionLabels = $derived(buildSelectionLabelMap(data.detail));
+  const blessingMap = $derived.by(() => {
+    const map: Record<string, string> = {};
+    for (const weapon of data.detail.structure.weapons) {
+      for (const blessing of weapon.blessings) {
+        const slug = blessing.id?.split(".").at(-1);
+        if (!slug) continue;
+        map[slug] = blessing.name;
+      }
+    }
+    return map;
+  });
 
   const availableScenarios = $derived(data.detail.breakpoints.metadata.scenarios);
 
@@ -68,18 +80,6 @@
     return data.detail.scorecard.qualitative[key as keyof typeof data.detail.scorecard.qualitative] ?? null;
   }
 
-  function blessingNameFromSlug(slug: string): string {
-    for (const weapon of data.detail.structure.weapons) {
-      for (const blessing of weapon.blessings) {
-        if (blessing.id == null) continue;
-        if (blessing.id.split(".").at(-1) === slug) {
-          return blessing.name;
-        }
-      }
-    }
-    return titleCase(slug);
-  }
-
   function dimensionExplanation(key: string): string | null {
     if (key === "composite") return `Grade ${data.detail.summary.scores.grade}`;
     if (key === "perk_optimality") return "Average weapon perk score across the build.";
@@ -88,17 +88,7 @@
     const detail = dimensionDetail(key);
     const explanation = detail?.explanations[0] ?? null;
     if (!explanation) return null;
-
-    if (key === "blessing_synergy" && explanation.startsWith("Blessings with synergy edges: ")) {
-      const names = explanation
-        .slice("Blessings with synergy edges: ".length)
-        .split(",")
-        .map((entry) => blessingNameFromSlug(entry.trim()))
-        .join(", ");
-      return `Connected blessings: ${names}`;
-    }
-
-    return explanation;
+    return rewriteExplanation(key, explanation, blessingMap);
   }
 
   function coverageLabels(values: string[]): string {
@@ -252,7 +242,7 @@
         <div class="ds-rule"><span class="ds-rule__mark">✠</span></div>
       </header>
 
-      <VerdictStrip detail={data.detail} />
+      <VerdictStrip detail={data.detail} {blessingMap} />
     </section>
 
     <section class="ds-reveal ds-section">
