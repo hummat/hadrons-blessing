@@ -37,43 +37,43 @@ npm run edges:build                               # regenerate tree edges from L
 npm run check                                     # build + index:build + test + index:check
 make check                                        # full quality gate (edges:build + effects:build + breeds:build + profiles:build + check)
 npm run effects:build                             # populate calc fields from Lua buff templates
-npm run synergy -- data/builds/08-gandalf-melee-wizard.json          # synergy analysis (text)
-npm run synergy -- data/builds/08-gandalf-melee-wizard.json --json   # synergy analysis (JSON)
+npm run synergy -- data/builds/08-zealot-chorus-swiss-knife.json          # synergy analysis (text)
+npm run synergy -- data/builds/08-zealot-chorus-swiss-knife.json --json   # synergy analysis (JSON)
 npm run synergy -- data/builds/                                       # batch synergy (all builds)
 npm run resolve -- --query "Warp Rider" --context '{"kind":"talent","class":"psyker"}'
-npm run audit -- data/builds/08-gandalf-melee-wizard.json
+npm run audit -- data/builds/08-zealot-chorus-swiss-knife.json
 npm run canonicalize -- data/sample-build.json    # raw scrape → canonical build JSON
 npm run reresolve -- --write data/builds          # batch re-resolve unresolved entries
 npm run coverage                                  # domain/kind coverage summary
 npm run inspect -- --id psyker.talent.psyker_damage_based_on_warp_charge
 npm run export:bot-weapons                        # regenerate data/exports/bot-weapon-recommendations.json
-npm run report -- data/builds/08-gandalf-melee-wizard.json           # human-readable text report
-npm run report -- data/builds/08-gandalf-melee-wizard.json --format md  # markdown report
+npm run report -- data/builds/08-zealot-chorus-swiss-knife.json           # human-readable text report
+npm run report -- data/builds/08-zealot-chorus-swiss-knife.json --format md  # markdown report
 npm run report -- data/builds/                                       # batch report (all builds)
 npm run list                                                                    # list all builds (scorecard table)
 npm run list -- --class psyker --sort breakpoint_relevance                      # filter + sort
 npm run list -- --json                                                          # list as JSON (BuildSummary[])
-npm run diff -- data/builds/08-gandalf-melee-wizard.json data/builds/01-veteran-squad-leader.json          # compare two builds
-npm run diff -- data/builds/08-gandalf-melee-wizard.json data/builds/01-veteran-squad-leader.json --detailed  # with synergy + breakpoint diff
-npm run diff -- data/builds/08-gandalf-melee-wizard.json data/builds/01-veteran-squad-leader.json --json      # compare as JSON
-npm run score -- data/builds/08-gandalf-melee-wizard.json --json             # build scoring (with qualitative)
-npm run score -- data/builds/08-gandalf-melee-wizard.json --text             # build scoring (human-readable)
-npm run recommend -- analyze-gaps data/builds/08-gandalf-melee-wizard.json   # coverage gap analysis
-npm run recommend -- swap-talent data/builds/08-gandalf-melee-wizard.json --from <id> --to <id>  # talent swap delta
-npm run recommend -- swap-weapon data/builds/08-gandalf-melee-wizard.json --from <id> --to <id>  # weapon swap delta
+npm run diff -- data/builds/08-zealot-chorus-swiss-knife.json data/builds/01-veteran-havoc40-2026.json          # compare two builds
+npm run diff -- data/builds/08-zealot-chorus-swiss-knife.json data/builds/01-veteran-havoc40-2026.json --detailed  # with synergy + breakpoint diff
+npm run diff -- data/builds/08-zealot-chorus-swiss-knife.json data/builds/01-veteran-havoc40-2026.json --json      # compare as JSON
+npm run score -- data/builds/08-zealot-chorus-swiss-knife.json --json             # build scoring (with qualitative)
+npm run score -- data/builds/08-zealot-chorus-swiss-knife.json --text             # build scoring (human-readable)
+npm run recommend -- analyze-gaps data/builds/08-zealot-chorus-swiss-knife.json   # coverage gap analysis
+npm run recommend -- swap-talent data/builds/08-zealot-chorus-swiss-knife.json --from <id> --to <id>  # talent swap delta
+npm run recommend -- swap-weapon data/builds/08-zealot-chorus-swiss-knife.json --from <id> --to <id>  # weapon swap delta
 npm run score:freeze                                                            # regenerate golden score snapshots
 npm run breeds:build                                                            # extract breed HP/armor/hitzones/stagger/hit_mass from Lua
 npm run profiles:build                                                          # extract damage profiles/action maps from Lua
-npm run calc -- data/builds/08-gandalf-melee-wizard.json                     # breakpoint calculator (damage, default mode)
-npm run calc -- data/builds/08-gandalf-melee-wizard.json --json              # breakpoint calculator (JSON)
-npm run calc -- data/builds/08-gandalf-melee-wizard.json --compare data/builds/01-veteran-squad-leader.json  # compare two builds
+npm run calc -- data/builds/08-zealot-chorus-swiss-knife.json                     # breakpoint calculator (damage, default mode)
+npm run calc -- data/builds/08-zealot-chorus-swiss-knife.json --json              # breakpoint calculator (JSON)
+npm run calc -- data/builds/08-zealot-chorus-swiss-knife.json --compare data/builds/01-veteran-havoc40-2026.json  # compare two builds
 npm run calc -- data/builds/                                                 # batch calc (all builds)
-npm run calc -- data/builds/08-gandalf-melee-wizard.json --mode stagger      # stagger analysis
-npm run calc -- data/builds/08-gandalf-melee-wizard.json --mode cleave       # cleave analysis
-npm run calc -- data/builds/08-gandalf-melee-wizard.json --mode toughness    # survivability analysis
-npm run stagger -- data/builds/08-gandalf-melee-wizard.json                  # stagger (alias)
-npm run cleave -- data/builds/08-gandalf-melee-wizard.json                   # cleave (alias)
-npm run toughness -- data/builds/08-gandalf-melee-wizard.json                # toughness (alias)
+npm run calc -- data/builds/08-zealot-chorus-swiss-knife.json --mode stagger      # stagger analysis
+npm run calc -- data/builds/08-zealot-chorus-swiss-knife.json --mode cleave       # cleave analysis
+npm run calc -- data/builds/08-zealot-chorus-swiss-knife.json --mode toughness    # survivability analysis
+npm run stagger -- data/builds/08-zealot-chorus-swiss-knife.json                  # stagger (alias)
+npm run cleave -- data/builds/08-zealot-chorus-swiss-knife.json                   # cleave (alias)
+npm run toughness -- data/builds/08-zealot-chorus-swiss-knife.json                # toughness (alias)
 npm run calc:freeze                                                             # regenerate golden calc snapshots
 npm run stagger:freeze                                                          # regenerate golden stagger snapshots
 npm run cleave:freeze                                                           # regenerate golden cleave snapshots
