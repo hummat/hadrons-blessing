@@ -238,7 +238,8 @@ describe("detail-format", () => {
   });
 
   it("humanizes orphan reason slugs and suppresses unknown conditions", () => {
-    assert.equal(formatOrphanReason("unresolvable_condition"), "Unresolvable Condition");
+    assert.equal(formatOrphanReason("unresolvable_condition"), "Condition not yet modeled");
+    assert.equal(formatOrphanReason("resource_consumer_without_producer"), "Missing modeled resource support");
     assert.equal(formatOrphanMetaLine(null, "unknown_condition"), "");
     assert.equal(formatOrphanMetaLine("toughness", "unknown_condition"), "Toughness");
     assert.equal(formatOrphanMetaLine(null, "threshold:stamina"), "Threshold · Stamina");

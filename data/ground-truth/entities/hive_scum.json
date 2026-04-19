@@ -189,7 +189,9 @@
     "calc": {
       "buff_template_names": [
         "broker_aura_gunslinger_improved"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -310,7 +312,8 @@
     "calc": {
       "buff_template_names": [
         "broker_keystone_adrenaline_junkie"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -936,7 +939,7 @@
       "effects": [
         {
           "stat": "count_as_dodge_vs_ranged",
-          "magnitude": 1,
+          "magnitude": 0,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -1320,7 +1323,8 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_blitz_inflicts_toxin"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1541,9 +1545,23 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_damage_after_toxined_enemies.damage_per_stack",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "threshold:toxined_nearby",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
       "buff_template_names": [
         "broker_passive_damage_after_toxined_enemies"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2273,7 +2291,8 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_melee_attacks_apply_toxin"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2350,7 +2369,8 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_melee_crit_instakill"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2526,7 +2546,8 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_ramping_backstabs"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2621,7 +2642,8 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_reduced_damage_by_toxined"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2774,7 +2796,9 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_replenish_toughness_while_toxined_enemies_in_proximity"
-      ]
+      ],
+      "class_name": "interval_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -3203,7 +3227,8 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_toxin_spread_on_kills"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {

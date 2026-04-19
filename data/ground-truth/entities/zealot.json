@@ -321,7 +321,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "resource_full",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -1487,9 +1487,24 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "melee_critical_strike_chance",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "zealot_bleeding_crits"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 3,
+      "duration": null
     }
   },
   {
@@ -1746,7 +1761,9 @@
     "calc": {
       "buff_template_names": [
         "zealot_recuperate_a_portion_of_damage_taken"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2450,7 +2467,9 @@
     "calc": {
       "buff_template_names": [
         "zealot_resist_death"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2476,7 +2495,9 @@
     "calc": {
       "buff_template_names": [
         "zealot_resist_death_improved_with_leech"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2724,7 +2745,8 @@
     "calc": {
       "buff_template_names": [
         "zealot_toughness_regen_in_melee"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {

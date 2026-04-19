@@ -491,7 +491,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_empowered_grenades_passive"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -569,7 +570,7 @@
           "magnitude_expr": "talent_settings_2.defensive_2.toughness_replenish_modifier",
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "threshold:warp_charge",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -868,7 +869,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_empowered_grenades_passive_improved"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2005,7 +2007,10 @@
     "calc": {
       "buff_template_names": [
         "psyker_aura_cooldown_reduction_on_elite_kill"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -2549,6 +2554,13 @@
     "calc": {
       "buff_template_names": [
         "psyker_elite_kills_add_warpfire"
+      ],
+      "class_name": "interval_buff",
+      "max_stacks": 31,
+      "duration": 8,
+      "keywords": [
+        "buff_keywords.burning",
+        "buff_keywords.warpfire_burning"
       ]
     }
   },

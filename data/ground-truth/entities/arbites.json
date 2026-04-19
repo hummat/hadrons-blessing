@@ -592,6 +592,10 @@
     "calc": {
       "buff_template_names": [
         "adamant_terminus_warrant"
+      ],
+      "class_name": "proc_buff",
+      "keywords": [
+        "adamant_terminus_warrant"
       ]
     }
   },
@@ -2710,7 +2714,8 @@
     "calc": {
       "buff_template_names": [
         "adamant_pinning_dog_kills_buff_allies"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {

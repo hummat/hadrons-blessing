@@ -152,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 33,
+        "blessing_edges": 35,
         "blessing_count": 4,
-        "edges_per_blessing": 8.25,
+        "edges_per_blessing": 8.75,
         "blessing_blessing_edges": 3,
         "orphaned_blessings": 1
       },
@@ -167,18 +167,18 @@
     "talent_coherence": {
       "score": 5,
       "breakdown": {
-        "talent_edges": 25,
+        "talent_edges": 28,
         "talent_count": 27,
-        "measurable_talent_count": 16,
-        "edges_per_talent": 1.563,
+        "measurable_talent_count": 17,
+        "edges_per_talent": 1.647,
         "graph_isolated_count": 0,
-        "concentration": 0.08,
+        "concentration": 0.07,
         "penalties": 0,
         "bonuses": 0.5
       },
       "explanations": [
-        "High stat concentration (0.080) +0.5",
-        "11 talent(s) without calc data excluded from isolation penalty"
+        "High stat concentration (0.070) +0.5",
+        "10 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -236,7 +236,7 @@
         {
           "label": "Three-hit Mauler",
           "met": true,
-          "best_htk": 2,
+          "best_htk": 1,
           "max_hits": 3,
           "weight": "low"
         },
@@ -265,7 +265,7 @@
         "active_families": 10,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.75
+        "slot_balance_ratio": 0.7647058823529411
       },
       "explanations": []
     },

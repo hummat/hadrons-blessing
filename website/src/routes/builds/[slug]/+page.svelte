@@ -1,12 +1,10 @@
 <script lang="ts">
   import { base } from "$app/paths";
   import { htkCellClass } from "$lib/builds";
-  import { DIMENSIONS } from "$lib/dimensions";
   import {
     buildBreakpointPanels,
     buildBreakpointActionLabels,
     buildSelectionLabelMap,
-    rewriteExplanation,
     formatCoverageFraction,
     formatCoverageLabel,
     formatOrphanMetaLine,
@@ -15,12 +13,13 @@
     formatSelectionText,
     summarizeNameCounts,
   } from "$lib/detail-format";
+  import HoverCard from "$lib/HoverCard.svelte";
+  import { buildPhaseAScoreHoverCards } from "$lib/hover/scorecard-cards";
   import type {
     BreakpointActionDetail,
     BreakpointBreedEntry,
     BreakpointWeaponDetail,
     BuildDetailData,
-    DimensionScoreDetail,
   } from "$lib/types";
   import VerdictStrip from "$lib/VerdictStrip.svelte";
 
@@ -28,14 +27,6 @@
     data: {
       detail: BuildDetailData;
     };
-  };
-
-  type DimensionCard = {
-    key: string;
-    label: string;
-    score: number | null;
-    max: number;
-    explanation: string | null;
   };
 
   type MatrixRow = {
@@ -78,32 +69,8 @@
       .join(" ");
   }
 
-  function dimensionDetail(key: string): DimensionScoreDetail | null {
-    return data.detail.scorecard.qualitative[key as keyof typeof data.detail.scorecard.qualitative] ?? null;
-  }
-
-  function dimensionExplanation(key: string): string | null {
-    if (key === "composite") return `Grade ${data.detail.summary.scores.grade}`;
-    if (key === "perk_optimality") return "Average weapon perk score across the build.";
-    if (key === "curio_efficiency") return "Curio perk mix quality for the build class.";
-
-    const detail = dimensionDetail(key);
-    const explanation = detail?.explanations[0] ?? null;
-    if (!explanation) return null;
-    return rewriteExplanation(key, explanation, blessingMap);
-  }
-
   function coverageLabels(values: string[]): string {
     return values.length > 0 ? values.map((value) => formatCoverageLabel(value)).join(", ") : "None";
-  }
-
-  function dsScoreColor(value: number | null, composite = false): string {
-    if (value == null) return "ds-score--null";
-    if (composite) return "ds-score--composite";
-    if (value >= 4) return "ds-score--high";
-    if (value >= 3) return "ds-score--mid";
-    if (value >= 2) return "ds-score--warn";
-    return "ds-score--low";
   }
 
   function dsHtkCell(value: number | null): string {
@@ -114,15 +81,7 @@
     return "ds-htk--null";
   }
 
-  let dimensionCards = $derived.by((): DimensionCard[] => [
-    ...DIMENSIONS.map((dimension) => ({
-      key: dimension.summary_key,
-      label: dimension.label,
-      score: data.detail.summary.scores[dimension.summary_key as keyof typeof data.detail.summary.scores] as number | null,
-      max: dimension.max,
-      explanation: dimensionExplanation(dimension.scorecard_key),
-    })),
-  ]);
+  let dimensionCards = $derived(buildPhaseAScoreHoverCards(data.detail));
 
   const synergyPreviewLimit = 6;
   let synergyPreview = $derived(data.detail.synergy.synergy_edges.slice(0, synergyPreviewLimit));
@@ -467,7 +426,7 @@
 
           <article class="ds-parchment ds-panel">
             <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem">
-              <h3 class="ds-h3">Isolated Picks</h3>
+              <h3 class="ds-h3">Condition &amp; Dependency Flags</h3>
               <span class="ds-label">{data.detail.synergy.orphans.length}</span>
             </div>
             <div class="ds-rule ds-rule--standalone"><span class="ds-rule__mark">❖</span></div>
@@ -481,7 +440,7 @@
                 {/each}
               </div>
               <details class="ds-discl">
-                <summary>Reasons for isolation</summary>
+                <summary>Why these picks were flagged</summary>
                 <div style="margin-top:0.8rem;display:flex;flex-direction:column;gap:0.6rem">
                   {#each data.detail.synergy.orphans as orphan}
                     {@const metaLine = formatOrphanMetaLine(orphan.resource, orphan.condition)}
@@ -496,7 +455,7 @@
                 </div>
               </details>
             {:else}
-              <p class="ds-body ds-body--faint">All selections participate in at least one synergy edge.</p>
+              <p class="ds-body ds-body--faint">No unresolved conditions or missing resource dependencies are currently flagged.</p>
             {/if}
           </article>
         </div>
@@ -568,16 +527,7 @@
         </summary>
         <div class="ds-dim-grid" style="margin-top:0.9rem">
           {#each dimensionCards as card}
-            <article class="ds-parchment ds-dim-card">
-              <div class="ds-label">{card.label}</div>
-              <div class="ds-dim-card__head">
-                <span class="ds-score {dsScoreColor(card.score, card.key === 'composite')}">{card.score ?? "\u2014"}</span>
-                <span class="ds-numeral-max">/ {card.max}</span>
-              </div>
-              {#if card.explanation}
-                <p class="ds-dim-card__note">{card.explanation}</p>
-              {/if}
-            </article>
+            <HoverCard {card} />
           {/each}
         </div>
       </details>

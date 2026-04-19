@@ -265,6 +265,73 @@ return templates
     assert.ok(localFunctions._my_condition.includes("template_data.active"));
   });
 
+  it("extracts `local function name(...)` definitions", () => {
+    const lua = `
+local function _follow_up_shots_conditional_stat_buff_func(template_data, template_context)
+  return template_data.active
+end
+local templates = {}
+templates.foo = {
+  conditional_stat_buffs_func = _follow_up_shots_conditional_stat_buff_func,
+}
+return templates
+`;
+    const { blocks, localFunctions } = extractTemplateBlocks(lua);
+    assert.equal(blocks[0].parsed.conditional_stat_buffs_func.$ref, "_follow_up_shots_conditional_stat_buff_func");
+    assert.ok(localFunctions._follow_up_shots_conditional_stat_buff_func.includes("template_data.active"));
+    assert.ok(localFunctions._follow_up_shots_conditional_stat_buff_func.startsWith("(template_data, template_context)"));
+  });
+
+  it("extracts forward-declared bare function definitions into localFunctions", () => {
+    const lua = `
+local _psyker_passive_conditional_stat_buffs
+
+function _psyker_passive_conditional_stat_buffs(template_data, template_context)
+  local soul_requirement = template_data.toughness_talent_soul_requirement
+  local num_souls = template_data.talent_resource_component.current_resource
+
+  return soul_requirement <= num_souls
+end
+
+local templates = {}
+templates.foo = {
+  conditional_stat_buffs_func = _psyker_passive_conditional_stat_buffs,
+}
+return templates
+`;
+    const { blocks, localFunctions } = extractTemplateBlocks(lua);
+    assert.equal(blocks[0].parsed.conditional_stat_buffs_func.$ref, "_psyker_passive_conditional_stat_buffs");
+    assert.ok(localFunctions._psyker_passive_conditional_stat_buffs.includes("soul_requirement <= num_souls"));
+    assert.ok(localFunctions._psyker_passive_conditional_stat_buffs.startsWith("(template_data, template_context)"));
+  });
+
+  it("does not swallow later templates after a local function with a for ... do loop", () => {
+    const lua = `
+local templates = {}
+templates.before = { class_name = "buff" }
+
+local function _looping_helper(values)
+  for i = 1, #values do
+    if values[i] then
+      return true
+    end
+  end
+
+  return false
+end
+
+templates.after = {
+  conditional_stat_buffs_func = _looping_helper,
+}
+return templates
+`;
+    const { blocks, localFunctions } = extractTemplateBlocks(lua);
+    assert.equal(blocks.length, 2);
+    assert.equal(blocks[1].name, "after");
+    assert.equal(blocks[1].parsed.conditional_stat_buffs_func.$ref, "_looping_helper");
+    assert.ok(localFunctions._looping_helper.includes("for i = 1, #values do"));
+  });
+
   it("extracts TalentSettings alias declarations", () => {
     const lua = `
 local talent_settings = TalentSettings.psyker

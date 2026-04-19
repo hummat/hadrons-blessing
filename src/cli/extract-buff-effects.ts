@@ -50,6 +50,7 @@ await runCliMain("effects:build", async () => {
   const allBlocks = [];
   const templateFileContext = new Map<string, TemplateContext>();
   let baseWeaponTraitTemplateBlocks: TemplateBlock[] = [];
+  let baseWeaponTraitTemplateContext: TemplateContext = EMPTY_TEMPLATE_CONTEXT;
 
   const buffTemplateFiles = collectBuffTemplateFiles(sourceRoot);
 
@@ -66,6 +67,7 @@ await runCliMain("effects:build", async () => {
     const ctx: TemplateContext = { aliases, localFunctions, localScalars };
     if (basename(filePath) === "base_weapon_trait_buff_templates.lua") {
       baseWeaponTraitTemplateBlocks = blocks;
+      baseWeaponTraitTemplateContext = ctx;
     }
     for (const block of blocks) {
       allBlocks.push(block);
@@ -74,7 +76,16 @@ await runCliMain("effects:build", async () => {
   }
 
   const externalTemplates = buildBaseWeaponTraitExternalTemplates(baseWeaponTraitTemplateBlocks);
+  const externalTemplateContexts = buildBaseWeaponTraitExternalTemplateContexts(
+    baseWeaponTraitTemplateBlocks,
+    baseWeaponTraitTemplateContext,
+  );
   const resolvedTemplates = resolveTemplateChain(allBlocks, externalTemplates);
+  const resolvedTemplateContext = buildResolvedTemplateContexts(
+    allBlocks,
+    templateFileContext,
+    externalTemplateContexts,
+  );
   console.log(`Resolved ${resolvedTemplates.size} buff templates`);
 
   // -- Phase 3: Load talent → buff_template_name links -----------------------
@@ -204,8 +215,8 @@ await runCliMain("effects:build", async () => {
         for (const bn of buffNames) {
           const template = resolvedTemplates.get(bn);
           if (!template) continue;
-          const ctx = templateFileContext.get(bn) ?? EMPTY_TEMPLATE_CONTEXT;
-          const c = extractSemanticCalc(bn, template, settingsMap, ctx, resolvedTemplates, templateFileContext);
+          const ctx = resolvedTemplateContext.get(bn) ?? EMPTY_TEMPLATE_CONTEXT;
+          const c = extractSemanticCalc(bn, template, settingsMap, ctx, resolvedTemplates, resolvedTemplateContext);
           mergeCalcResults(mergedCalc, c);
           // Carry metadata from last template that has it
           for (const key of ["class_name", "max_stacks", "duration", "active_duration", "keywords"]) {
@@ -234,13 +245,13 @@ await runCliMain("effects:build", async () => {
     if (kind === "weapon_trait" && !calc) {
       const template = resolvedTemplates.get(internalName);
       if (template) {
-        const ctx = templateFileContext.get(internalName) ?? EMPTY_TEMPLATE_CONTEXT;
-        calc = extractSemanticCalc(internalName, template, settingsMap, ctx, resolvedTemplates, templateFileContext);
+        const ctx = resolvedTemplateContext.get(internalName) ?? EMPTY_TEMPLATE_CONTEXT;
+        calc = extractSemanticCalc(internalName, template, settingsMap, ctx, resolvedTemplates, resolvedTemplateContext);
       }
       // Add tier data if available
       const tiers = tierDataMap.get(internalName);
       if (tiers) {
-        const tierCtx = templateFileContext.get(internalName) ?? EMPTY_TEMPLATE_CONTEXT;
+        const tierCtx = resolvedTemplateContext.get(internalName) ?? EMPTY_TEMPLATE_CONTEXT;
         const baseTemplate = resolvedTemplates.get(internalName);
         const tierResult = buildSemanticTierResults(
           internalName,
@@ -249,11 +260,11 @@ await runCliMain("effects:build", async () => {
           settingsMap,
           tierCtx,
           resolvedTemplates,
-          templateFileContext,
+          resolvedTemplateContext,
         );
         if (!calc) calc = {};
         calc.tiers = tierResult;
-        if ((!calc.effects || calc.effects.length === 0) && tierResult.length > 0) {
+        if (tierResult.length > 0) {
           calc.effects = [...(tierResult[tierResult.length - 1].effects ?? [])];
         }
       }
@@ -291,20 +302,20 @@ await runCliMain("effects:build", async () => {
             buff_template_names: buffTemplateNames,
           };
       } else {
-        const template = resolvedTemplates.get(internalName);
-        if (template) {
-          const ctx = templateFileContext.get(internalName) || { aliases: {}, localFunctions: {} };
-          calc = extractEffects(template, settingsMap, ctx);
-        }
+      const template = resolvedTemplates.get(internalName);
+      if (template) {
+        const ctx = resolvedTemplateContext.get(internalName) ?? EMPTY_TEMPLATE_CONTEXT;
+        calc = extractEffects(template, settingsMap, ctx);
       }
+    }
     }
 
     // Strategy 4: Gadget traits — look up internal_name in resolved templates
     if (kind === "gadget_trait" && !calc) {
       const template = resolvedTemplates.get(internalName);
       if (template) {
-        const ctx = templateFileContext.get(internalName) ?? EMPTY_TEMPLATE_CONTEXT;
-        calc = extractSemanticCalc(internalName, template, settingsMap, ctx, resolvedTemplates, templateFileContext);
+        const ctx = resolvedTemplateContext.get(internalName) ?? EMPTY_TEMPLATE_CONTEXT;
+        calc = extractSemanticCalc(internalName, template, settingsMap, ctx, resolvedTemplates, resolvedTemplateContext);
       }
     }
 
@@ -314,9 +325,19 @@ await runCliMain("effects:build", async () => {
       if (family) {
         const template = resolvedTemplates.get(family);
         if (template) {
-          const ctx = templateFileContext.get(family) ?? EMPTY_TEMPLATE_CONTEXT;
-          calc = extractSemanticCalc(family, template, settingsMap, ctx, resolvedTemplates, templateFileContext);
+          const ctx = resolvedTemplateContext.get(family) ?? EMPTY_TEMPLATE_CONTEXT;
+          calc = extractSemanticCalc(family, template, settingsMap, ctx, resolvedTemplates, resolvedTemplateContext);
         }
+      }
+    }
+
+    // Strategy 6: Existing buff entities — refresh from their source template
+    if (kind === "buff" && !calc) {
+      const template = resolvedTemplates.get(internalName);
+      if (template) {
+        const ctx = resolvedTemplateContext.get(internalName) ?? EMPTY_TEMPLATE_CONTEXT;
+        calc = extractSemanticCalc(internalName, template, settingsMap, ctx, resolvedTemplates, resolvedTemplateContext);
+        calc.buff_template_names = [internalName];
       }
     }
 
@@ -373,8 +394,8 @@ await runCliMain("effects:build", async () => {
       let buffCalc: AnyRecord = {};
       const template = resolvedTemplates.get(buffName);
       if (template) {
-        const ctx = templateFileContext.get(buffName) ?? EMPTY_TEMPLATE_CONTEXT;
-        const extracted = extractSemanticCalc(buffName, template, settingsMap, ctx, resolvedTemplates, templateFileContext);
+        const ctx = resolvedTemplateContext.get(buffName) ?? EMPTY_TEMPLATE_CONTEXT;
+        const extracted = extractSemanticCalc(buffName, template, settingsMap, ctx, resolvedTemplates, resolvedTemplateContext);
         sanitizeCalcMetadata(extracted);
         if (extracted.effects && extracted.effects.length > 0) {
           buffCalc = extracted;
@@ -504,6 +525,74 @@ function buildBaseWeaponTraitExternalTemplates(blocks: TemplateBlock[]): Map<str
   return external;
 }
 
+function buildBaseWeaponTraitExternalTemplateContexts(
+  blocks: TemplateBlock[],
+  ctx: TemplateContext,
+): Map<string, TemplateContext> {
+  const external = new Map<string, TemplateContext>();
+  for (const block of blocks) {
+    external.set(`BaseWeaponTraitBuffTemplates.${block.name}`, ctx);
+  }
+  return external;
+}
+
+function buildResolvedTemplateContexts(
+  blocks: TemplateBlock[],
+  templateFileContext: Map<string, TemplateContext>,
+  externalTemplateContexts: Map<string, TemplateContext> = new Map(),
+): Map<string, TemplateContext> {
+  const blockMap = new Map<string, TemplateBlock>();
+  for (const block of blocks) {
+    blockMap.set(block.name, block);
+  }
+
+  const resolved = new Map<string, TemplateContext>();
+  const resolving = new Set<string>();
+
+  const mergeContexts = (base: TemplateContext, own: TemplateContext): TemplateContext => ({
+    aliases: { ...base.aliases, ...own.aliases },
+    localFunctions: { ...base.localFunctions, ...own.localFunctions },
+    localScalars: { ...base.localScalars, ...own.localScalars },
+  });
+
+  const resolveContext = (name: string): TemplateContext => {
+    if (resolved.has(name)) {
+      return resolved.get(name)!;
+    }
+    if (externalTemplateContexts.has(name)) {
+      return externalTemplateContexts.get(name)!;
+    }
+
+    const own = templateFileContext.get(name) ?? EMPTY_TEMPLATE_CONTEXT;
+    const block = blockMap.get(name);
+    if (!block || resolving.has(name)) {
+      resolved.set(name, own);
+      return own;
+    }
+
+    resolving.add(name);
+    let merged = own;
+
+    if (block.type === "clone" && block.cloneSource) {
+      const base = resolveContext(block.cloneSource);
+      merged = mergeContexts(base, own);
+    } else if (block.type === "merge" && block.mergeBase) {
+      const base = resolveContext(block.mergeBase);
+      merged = mergeContexts(base, own);
+    }
+
+    resolving.delete(name);
+    resolved.set(name, merged);
+    return merged;
+  };
+
+  for (const block of blocks) {
+    resolveContext(block.name);
+  }
+
+  return resolved;
+}
+
 function buildSemanticTierResults(
   templateName: string,
   tierArray: AnyRecord[],
@@ -555,6 +644,8 @@ function extractSemanticCalc(
   calc.effects = [...(calc.effects ?? [])];
   const trigger = extractPrimaryTrigger(template);
 
+  applyTemplateConditionOverrides(calc, template);
+
   mergeCalcResults(calc, extractKeywordCalc(template));
   mergeCalcResults(calc, extractAmmoReplenishmentCalc(template, settingsMap, ctx, trigger));
   mergeCalcResults(calc, extractAbilityChargeCalc(template, settingsMap, ctx, trigger));
@@ -586,9 +677,7 @@ function extractSemanticCalc(
 
   const targetBuffData = asRecord(template.target_buff_data);
   if (targetBuffData) {
-    const targetBuffName = typeof targetBuffData.internal_buff_name === "string"
-      ? targetBuffData.internal_buff_name
-      : null;
+    const targetBuffName = resolveTargetBuffName(templateName, targetBuffData);
     if (targetBuffName) {
       const targetTemplate = resolvedTemplates.get(targetBuffName);
       if (targetTemplate) {
@@ -602,7 +691,7 @@ function extractSemanticCalc(
           templateFileContext,
           nextSeen,
         );
-        const stackCount = resolveNumericLuaValue(targetBuffData.num_stacks_on_proc, settingsMap, ctx) ?? 1;
+        const stackCount = resolveTargetBuffStackCount(targetBuffData, settingsMap, ctx);
         mergeCalcResults(calc, {
           ...targetCalc,
           effects: inheritEffectContext(scaleEffects(targetCalc.effects ?? [], stackCount), { trigger }),
@@ -631,6 +720,30 @@ function extractSemanticCalc(
   }
 
   return calc;
+}
+
+function applyTemplateConditionOverrides(calc: AnyRecord, template: AnyRecord) {
+  if (!Array.isArray(calc.effects) || calc.effects.length === 0) {
+    return;
+  }
+
+  const updateFunc = template.update_func;
+  if (!(updateFunc && typeof updateFunc === "object" && typeof updateFunc.$func === "string")) {
+    return;
+  }
+
+  if (!updateFunc.$func.includes("_is_in_weapon_alternate_fire_with_stamina(")) {
+    return;
+  }
+
+  for (const effect of calc.effects) {
+    if (!String(effect.type ?? "").startsWith("conditional_")) {
+      continue;
+    }
+    if (effect.condition === "active" || effect.condition === "active_and_unknown" || effect.condition === "unknown_condition") {
+      effect.condition = "ads_with_stamina";
+    }
+  }
 }
 
 function mergeCalcResults(target: AnyRecord, incoming: AnyRecord | null | undefined) {
@@ -683,7 +796,8 @@ function extractKeywordCalc(template: AnyRecord): AnyRecord | null {
 
   return {
     effects: [
-      makeSyntheticEffect("count_as_dodge_vs_ranged", 1, null, "stat_buff"),
+      // Keep the family/linkage signal without pretending a boolean keyword is a +100% scalar bonus.
+      makeSyntheticEffect("count_as_dodge_vs_ranged", 0, null, "stat_buff"),
     ],
   };
 }
@@ -907,6 +1021,51 @@ function scaleEffects(effects: AnyRecord[], factor: number): AnyRecord[] {
     }
     return scaled;
   });
+}
+
+function resolveTargetBuffStackCount(
+  targetBuffData: AnyRecord,
+  settingsMap: Map<string, number>,
+  ctx: TemplateContext,
+): number {
+  if (Array.isArray(targetBuffData.threshold_num_stacks_on_proc)) {
+    let maxStacks = 1;
+    for (const entry of targetBuffData.threshold_num_stacks_on_proc) {
+      const record = asRecord(entry);
+      if (!record) continue;
+      const count = resolveNumericLuaValue(record.num_stacks, settingsMap, ctx);
+      if (count != null) {
+        maxStacks = Math.max(maxStacks, count);
+      }
+    }
+    return maxStacks;
+  }
+
+  const directCount = resolveNumericLuaValue(targetBuffData.num_stacks_on_proc, settingsMap, ctx);
+  if (directCount != null) {
+    return directCount;
+  }
+
+  return 1;
+}
+
+function resolveTargetBuffName(templateName: string, targetBuffData: AnyRecord): string | null {
+  if (typeof targetBuffData.internal_buff_name === "string") {
+    return targetBuffData.internal_buff_name;
+  }
+
+  // The live lasgun charged-shot parent keeps the threshold stack override in the
+  // equipment-tier table, but the inherited `internal_buff_name = "rending_debuff"`
+  // is dropped by the current Lua block parser for the base template. Keep the
+  // fix scoped to the known source-backed path instead of guessing broadly.
+  if (
+    Array.isArray(targetBuffData.threshold_num_stacks_on_proc)
+    && templateName === "weapon_trait_bespoke_lasgun_p2_targets_receive_rending_debuff_on_charged_shots"
+  ) {
+    return "rending_debuff";
+  }
+
+  return null;
 }
 
 function inheritEffectContext(

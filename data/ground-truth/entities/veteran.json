@@ -143,10 +143,77 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage",
+          "magnitude": 0.3,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_shoot",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_shoot",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "threat_weight_multiplier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_shoot",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_near",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_shoot",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "weakspot_power_level_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_shoot",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_invisibility_on_combat_ability"
       ],
-      "class_name": "proc_buff"
+      "class_name": "veteran_stealth_bonuses_buff",
+      "max_stacks": 1,
+      "duration": 10,
+      "keywords": [
+        "invisible"
+      ]
     }
   },
   {
@@ -243,7 +310,9 @@
       ],
       "buff_template_names": [
         "veteran_aura_gain_ammo_on_elite_kill_improved"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -364,6 +433,11 @@
     "calc": {
       "buff_template_names": [
         "veteran_improved_tag"
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "keywords": [
+        "veteran_tag"
       ]
     }
   },
@@ -1555,7 +1629,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -1565,7 +1639,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -1575,7 +1649,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -1585,7 +1659,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -1649,9 +1723,22 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "coherency_radius_modifier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_share_toughness_gained"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1824,9 +1911,23 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "grenade_charge_restored",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_minion_death",
+          "type": "proc_stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_aura_gain_grenade_on_elite_kill"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2874,9 +2975,54 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "revive_speed_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "assist_speed_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "ally_requires_help_ahead",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 0.67,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_revive",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_increased_move_speed_when_moving_towards_disabled_allies"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -3187,9 +3333,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_replenish_toughness_of_ally_close_to_victim"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {

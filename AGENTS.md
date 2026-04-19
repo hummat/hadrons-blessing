@@ -214,11 +214,11 @@ The canonical build format is the single shared shape consumed by `audit`, `scor
 - `synergy-rules.ts` — 5 pure-function rules: stat-family alignment, slot coverage, trigger-target chains, resource flow, orphan detection
 - `synergy-model.ts` — orchestrator: selection resolution (direct calc, stat_node prefix match, blessing tier-4 traversal), stat aggregation (NHHI concentration, build identity, coverage gaps), output assembly. The stat_node prefix-match resolution path is mirrored in `damage-calculator.ts:assembleBuildBuffStack` for breakpoint accuracy.
 
-**Coverage:** ~40% per-build calc coverage. Blessing synergy partial (27/46 families via `instance_of` → weapon_trait tier traversal). Named gameplay talents at 48% calc coverage; stat-node talents and gadget traits at 100%.
+**Coverage:** Effect-modeled coverage averages ~71.7% per build (56% min, 82% max) across the 24-build fixture set. Source-linked coverage averages ~89.1% (65% min, 97% max). Blessing synergy remains partial because family-level blessing traversal still depends on `instance_of` → weapon_trait tier paths rather than full per-weapon runtime context.
 
 **Output consumed by:** #9 (scoring) and #10 (recommendations). Design spec: `docs/superpowers/specs/2026-03-16-synergy-model-design.md`.
 
-**Deferred:** Keyword affinity rule (no proficiency data in index), weak (1) strength edges, ~58 opaque conditions (reduced from 68 by condition tagger expansion in #5).
+**Deferred:** Keyword affinity rule (no proficiency data in index), weak (1) strength edges, and genuine pairwise orphan/coverage semantics that remain after the `unknown_condition` cleanup. The current build corpus now has `0` opaque conditions in emitted entity calc data; remaining low-score cases are graph/model limitations, not raw condition-tagging failures.
 
 Frozen synergy snapshots in `tests/fixtures/ground-truth/synergy/`. Re-freeze with `npm run synergy:freeze`.
 

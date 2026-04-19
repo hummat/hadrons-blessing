@@ -2010,6 +2010,16 @@
       "effects": [
         {
           "stat": "critical_strike_rending_multiplier",
+          "magnitude": 0.6,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "critical_strike_rending_multiplier",
           "magnitude": 1,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -2141,6 +2151,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_weakspot_damage",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_weakspot_damage",
           "magnitude": 0.5,
@@ -2311,6 +2331,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "melee_power_level_modifier",
+          "magnitude": 0.36,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "melee_power_level_modifier",
           "magnitude": 0.5,
@@ -2497,7 +2527,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -2703,6 +2733,16 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "critical_strike_chance",
           "magnitude": 0.02,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -2873,6 +2913,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.02,
@@ -3105,6 +3155,16 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "critical_strike_chance",
           "magnitude": 0.05,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -3247,7 +3307,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -3262,7 +3322,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -3276,7 +3336,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -3290,7 +3350,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -3304,7 +3364,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -3334,6 +3394,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "consumed_hit_mass_modifier_on_weakspot_hit",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "consumed_hit_mass_modifier_on_weakspot_hit",
           "magnitude": 0.5,
@@ -3469,7 +3539,7 @@
       "effects": [
         {
           "stat": "count_as_dodge_vs_ranged",
-          "magnitude": 1,
+          "magnitude": 0,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -3484,7 +3554,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -3498,7 +3568,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -3512,7 +3582,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -3526,7 +3596,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -3559,6 +3629,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "block_cost_multiplier",
+          "magnitude": 0.7,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "block_cost_multiplier",
           "magnitude": 1,
@@ -3728,7 +3808,7 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -3825,7 +3905,7 @@
       "effects": [
         {
           "stat": "finesse_modifier_bonus",
-          "magnitude": 0.05,
+          "magnitude": 0.6,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -3920,6 +4000,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "max_hit_mass_attack_modifier",
+          "magnitude": 2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "max_hit_mass_attack_modifier",
           "magnitude": 0.5,
@@ -4094,6 +4184,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "melee_weakspot_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "melee_weakspot_damage",
           "magnitude": 0.5,
@@ -4271,11 +4371,11 @@
       "effects": [
         {
           "stat": "damage_vs_staggered",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "target_staggered",
           "trigger": "on_hit",
           "type": "conditional_stat_buff"
         }
@@ -4292,7 +4392,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -4306,7 +4406,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -4320,7 +4420,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -4334,7 +4434,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -4366,7 +4466,7 @@
       "effects": [
         {
           "stat": "explosion_radius_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -4494,6 +4594,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "damage_vs_electrocuted",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "damage_vs_electrocuted",
           "magnitude": 0.5,
@@ -4629,11 +4739,11 @@
       "effects": [
         {
           "stat": "damage_vs_staggered",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "target_staggered",
           "trigger": "on_hit",
           "type": "conditional_stat_buff"
         }
@@ -4650,7 +4760,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -4664,7 +4774,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -4678,7 +4788,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -4692,7 +4802,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -4724,7 +4834,7 @@
       "effects": [
         {
           "stat": "explosion_radius_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -4851,6 +4961,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "damage_vs_electrocuted",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "damage_vs_electrocuted",
           "magnitude": 0.5,
@@ -5079,7 +5199,7 @@
       "effects": [
         {
           "stat": "overheat_over_time_amount",
-          "magnitude": 0.8,
+          "magnitude": 0.78,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -5089,7 +5209,7 @@
         },
         {
           "stat": "overheat_dissipation_multiplier",
-          "magnitude": 1.5,
+          "magnitude": 1.06,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -5225,6 +5345,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "power_level_modifier",
           "magnitude": 0.02,
@@ -5363,6 +5493,26 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "ranged_critical_strike_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.01,
@@ -5593,7 +5743,7 @@
       "effects": [
         {
           "stat": "overheat_immediate_amount_critical_strike",
-          "magnitude": 0.5,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -5686,7 +5836,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -5823,11 +5973,21 @@
       "effects": [
         {
           "stat": "damage_vs_ogryn_and_monsters",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_vs_ogryn_and_monsters",
           "magnitude": 1.5,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "wielded",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -5855,7 +6015,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "wielded",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -5879,7 +6039,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "wielded",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -5903,7 +6063,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "wielded",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -5927,7 +6087,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "wielded",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -5955,8 +6115,13 @@
       "weapon_family": "forcesword_2h"
     },
     "calc": {
-      "class_name": "proc_buff",
-      "max_stacks": 1,
+      "class_name": "interval_buff",
+      "max_stacks": 31,
+      "duration": 8,
+      "keywords": [
+        "buff_keywords.burning",
+        "buff_keywords.warpfire_burning"
+      ],
       "tiers": [
         {
           "effects": [],
@@ -6000,7 +6165,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.01,
+          "magnitude": 0.04,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -6482,7 +6647,7 @@
       "effects": [
         {
           "stat": "power_level_modifier",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -6583,6 +6748,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "damage_vs_staggered",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "damage_vs_staggered",
           "magnitude": 0.2,
@@ -6811,7 +6986,7 @@
       "effects": [
         {
           "stat": "power_level_modifier",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -7882,6 +8057,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "consumed_hit_mass_modifier",
+          "magnitude": 0.4,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "consumed_hit_mass_modifier",
           "magnitude": 0.5,
@@ -9943,7 +10128,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -10451,6 +10636,16 @@
       "effects": [
         {
           "stat": "reload_speed",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "reload_speed",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -10685,6 +10880,16 @@
       "effects": [
         {
           "stat": "flanking_damage",
+          "magnitude": 0.4,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "flanking_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -10818,7 +11023,7 @@
       "effects": [
         {
           "stat": "count_as_dodge_vs_ranged",
-          "magnitude": 1,
+          "magnitude": 0,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -10833,7 +11038,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -10847,7 +11052,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -10861,7 +11066,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -10875,7 +11080,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -10915,7 +11120,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -10930,7 +11135,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -10944,7 +11149,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -10958,7 +11163,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -10972,7 +11177,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -11004,11 +11209,11 @@
       "effects": [
         {
           "stat": "ranged_weakspot_damage",
-          "magnitude": 0.2,
+          "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -11023,7 +11228,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -11037,7 +11242,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -11051,7 +11256,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -11065,7 +11270,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -11597,7 +11802,7 @@
       "effects": [
         {
           "stat": "count_as_dodge_vs_ranged",
-          "magnitude": 1,
+          "magnitude": 0,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -11612,7 +11817,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -11626,7 +11831,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -11640,7 +11845,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -11654,7 +11859,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -11688,6 +11893,26 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "suppression_dealt",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_vs_suppressed",
+          "magnitude": 0.07,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "suppression_dealt",
           "magnitude": 0.5,
@@ -11916,6 +12141,26 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "alternate_fire_movement_speed_reduction_modifier",
+          "magnitude": 0.75,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "weapon_action_movespeed_reduction_multiplier",
+          "magnitude": 0.75,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "alternate_fire_movement_speed_reduction_modifier",
           "magnitude": 0.5,
@@ -12184,6 +12429,16 @@
         {
           "stat": "ranged_critical_strike_chance",
           "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.006,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -12496,6 +12751,16 @@
       "effects": [
         {
           "stat": "stagger_weakspot_reduction_modifier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "stagger_weakspot_reduction_modifier",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -12679,6 +12944,16 @@
       "effects": [
         {
           "stat": "stagger_count_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "stagger_count_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -12810,6 +13085,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.05,
@@ -12950,6 +13235,16 @@
       "effects": [
         {
           "stat": "critical_strike_weakspot_damage",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "critical_strike_weakspot_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -13083,11 +13378,21 @@
       "effects": [
         {
           "stat": "ranged_power_level_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "ranged_power_level_modifier",
           "magnitude": 0.02,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "first_shot",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -13112,7 +13417,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "first_shot",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -13136,7 +13441,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "first_shot",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -13160,7 +13465,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "first_shot",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -13184,7 +13489,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "first_shot",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -13214,6 +13519,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.01,
@@ -13389,6 +13704,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "power_level_modifier",
           "magnitude": 0.02,
@@ -13667,6 +13992,16 @@
       "effects": [
         {
           "stat": "flanking_damage",
+          "magnitude": 0.4,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "flanking_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -13804,7 +14139,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -13819,7 +14154,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -13833,7 +14168,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -13847,7 +14182,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -13861,7 +14196,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -13893,7 +14228,7 @@
       "effects": [
         {
           "stat": "recoil_modifier",
-          "magnitude": -0.5,
+          "magnitude": -0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -13903,7 +14238,7 @@
         },
         {
           "stat": "suppression_dealt",
-          "magnitude": 0.5,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -14197,7 +14532,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -14333,7 +14668,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -14426,6 +14761,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.05,
@@ -14606,6 +14951,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.01,
@@ -14963,7 +15318,7 @@
       "effects": [
         {
           "stat": "ranged_critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -15071,7 +15426,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -15205,6 +15560,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.05,
@@ -15475,6 +15840,16 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_vs_staggered",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
           "condition": "wielded",
           "trigger": null,
           "type": "conditional_stat_buff"
@@ -15604,7 +15979,7 @@
       "effects": [
         {
           "stat": "explosion_radius_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -15824,6 +16199,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "movement_speed",
           "magnitude": 0.5,
@@ -16240,7 +16625,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -16335,7 +16720,7 @@
       "effects": [
         {
           "stat": "rending_vs_staggered_multiplier",
-          "magnitude": 0.1,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -16473,6 +16858,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "movement_speed",
           "magnitude": 0.5,
@@ -16648,6 +17043,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "max_hit_mass_attack_modifier",
+          "magnitude": 2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "max_hit_mass_attack_modifier",
           "magnitude": 0.5,
@@ -16972,11 +17377,11 @@
       "effects": [
         {
           "stat": "melee_critical_strike_damage",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "all:wielded+unknown_condition",
+          "condition": "all:wielded+critical_strike_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -16991,7 +17396,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -17005,7 +17410,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -17019,7 +17424,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -17033,7 +17438,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -17065,7 +17470,7 @@
       "effects": [
         {
           "stat": "rending_vs_staggered_multiplier",
-          "magnitude": 0.1,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -17161,6 +17566,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "max_hit_mass_attack_modifier",
+          "magnitude": 2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "max_hit_mass_attack_modifier",
           "magnitude": 0.5,
@@ -17301,6 +17716,16 @@
       "effects": [
         {
           "stat": "melee_power_level_modifier",
+          "magnitude": 0.36,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -17437,6 +17862,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "max_hit_mass_attack_modifier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "max_hit_mass_attack_modifier",
           "magnitude": 0.5,
@@ -17840,6 +18275,16 @@
       "effects": [
         {
           "stat": "movement_speed",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "movement_speed",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -17976,6 +18421,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "movement_speed",
           "magnitude": 0.5,
@@ -18304,6 +18759,16 @@
       "effects": [
         {
           "stat": "melee_weakspot_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_weakspot_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -18529,7 +18994,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -18850,6 +19315,16 @@
         {
           "stat": "power_level_modifier",
           "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
+          "magnitude": 0.08,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -19267,6 +19742,16 @@
       "effects": [
         {
           "stat": "melee_weakspot_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_weakspot_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -19438,6 +19923,16 @@
         {
           "stat": "power_level_modifier",
           "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
+          "magnitude": 0.08,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -19708,7 +20203,7 @@
       "effects": [
         {
           "stat": "melee_weakspot_damage",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -20125,6 +20620,16 @@
           "condition": "wielded",
           "trigger": null,
           "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
         }
       ],
       "class_name": "stepped_stat_buff",
@@ -20448,11 +20953,11 @@
       "effects": [
         {
           "stat": "damage_vs_staggered",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "target_staggered",
           "trigger": "on_hit",
           "type": "conditional_stat_buff"
         }
@@ -20469,7 +20974,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -20483,7 +20988,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -20497,7 +21002,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -20511,7 +21016,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -20543,7 +21048,7 @@
       "effects": [
         {
           "stat": "weakspot_damage",
-          "magnitude": 0.01,
+          "magnitude": 0.6,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -20641,7 +21146,7 @@
       "effects": [
         {
           "stat": "impact_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -20960,7 +21465,7 @@
       "effects": [
         {
           "stat": "finesse_modifier_bonus",
-          "magnitude": 0.05,
+          "magnitude": 0.6,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -21058,7 +21563,7 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -21336,7 +21841,7 @@
       "effects": [
         {
           "stat": "melee_weakspot_damage_vs_bleeding",
-          "magnitude": 1,
+          "magnitude": 0.6,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -21705,6 +22210,16 @@
       "effects": [
         {
           "stat": "max_hit_mass_attack_modifier",
+          "magnitude": 2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "max_hit_mass_attack_modifier",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -21843,6 +22358,16 @@
       "effects": [
         {
           "stat": "melee_power_level_modifier",
+          "magnitude": 0.36,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -21979,6 +22504,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "max_hit_mass_attack_modifier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "max_hit_mass_attack_modifier",
           "magnitude": 0.5,
@@ -22215,7 +22750,7 @@
       "effects": [
         {
           "stat": "impact_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -22310,11 +22845,11 @@
       "effects": [
         {
           "stat": "damage_vs_staggered",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "target_staggered",
           "trigger": "on_hit",
           "type": "conditional_stat_buff"
         }
@@ -22331,7 +22866,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -22345,7 +22880,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -22359,7 +22894,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -22373,7 +22908,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -22589,6 +23124,16 @@
       "effects": [
         {
           "stat": "max_hit_mass_attack_modifier",
+          "magnitude": 2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "max_hit_mass_attack_modifier",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -22725,6 +23270,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "melee_power_level_modifier",
+          "magnitude": 0.36,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "melee_power_level_modifier",
           "magnitude": 0.5,
@@ -23049,6 +23604,16 @@
       "effects": [
         {
           "stat": "melee_weakspot_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_weakspot_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -23182,11 +23747,11 @@
       "effects": [
         {
           "stat": "melee_critical_strike_damage",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "all:wielded+unknown_condition",
+          "condition": "all:wielded+critical_strike_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -23201,7 +23766,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -23215,7 +23780,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -23229,7 +23794,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -23243,7 +23808,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -23463,7 +24028,7 @@
       "effects": [
         {
           "stat": "melee_critical_strike_chance",
-          "magnitude": 0.1,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -23749,7 +24314,7 @@
       "effects": [
         {
           "stat": "finesse_modifier_bonus",
-          "magnitude": 0.05,
+          "magnitude": 0.6,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -23847,7 +24412,7 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -23943,6 +24508,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "melee_power_level_modifier",
+          "magnitude": 0.36,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "melee_power_level_modifier",
           "magnitude": 0.5,
@@ -24271,7 +24846,7 @@
       "effects": [
         {
           "stat": "melee_weakspot_damage",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -24596,6 +25171,16 @@
           "condition": "wielded",
           "trigger": null,
           "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
         }
       ],
       "class_name": "stepped_stat_buff",
@@ -24823,7 +25408,7 @@
       "effects": [
         {
           "stat": "weakspot_damage",
-          "magnitude": 0.01,
+          "magnitude": 0.6,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -24921,7 +25506,7 @@
       "effects": [
         {
           "stat": "impact_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -25016,7 +25601,7 @@
       "effects": [
         {
           "stat": "rending_vs_staggered_multiplier",
-          "magnitude": 0.1,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -25114,7 +25699,7 @@
       "effects": [
         {
           "stat": "melee_fully_charged_damage",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -25302,7 +25887,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -25397,7 +25982,7 @@
       "effects": [
         {
           "stat": "melee_critical_strike_chance",
-          "magnitude": 0.01,
+          "magnitude": 0.125,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -25493,6 +26078,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.01,
@@ -25668,6 +26263,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "power_level_modifier",
           "magnitude": 0.02,
@@ -25946,6 +26551,16 @@
       "effects": [
         {
           "stat": "flanking_damage",
+          "magnitude": 0.4,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "flanking_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -26083,7 +26698,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -26098,7 +26713,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -26112,7 +26727,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -26126,7 +26741,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -26140,7 +26755,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -26172,7 +26787,7 @@
       "effects": [
         {
           "stat": "recoil_modifier",
-          "magnitude": -0.5,
+          "magnitude": -0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -26182,7 +26797,7 @@
         },
         {
           "stat": "suppression_dealt",
-          "magnitude": 0.5,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -26476,7 +27091,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -26740,7 +27355,7 @@
       "effects": [
         {
           "stat": "finesse_modifier_bonus",
-          "magnitude": 0.05,
+          "magnitude": 0.45,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -26838,7 +27453,7 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -27116,7 +27731,7 @@
       "effects": [
         {
           "stat": "melee_weakspot_damage_vs_bleeding",
-          "magnitude": 1,
+          "magnitude": 0.6,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -27249,6 +27864,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "flanking_damage",
+          "magnitude": 0.4,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "flanking_damage",
           "magnitude": 0.5,
@@ -27388,7 +28013,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -27403,7 +28028,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -27417,7 +28042,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -27431,7 +28056,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -27445,7 +28070,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -27477,7 +28102,7 @@
       "effects": [
         {
           "stat": "recoil_modifier",
-          "magnitude": -0.5,
+          "magnitude": -0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -27487,7 +28112,7 @@
         },
         {
           "stat": "suppression_dealt",
-          "magnitude": 0.5,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -27771,7 +28396,7 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -27960,6 +28585,16 @@
           "condition": "wielded",
           "trigger": null,
           "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.02,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
         }
       ],
       "class_name": "stepped_stat_buff",
@@ -28123,6 +28758,16 @@
       "effects": [
         {
           "stat": "power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "power_level_modifier",
           "magnitude": 0.02,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -28261,6 +28906,16 @@
       "effects": [
         {
           "stat": "reload_speed",
+          "magnitude": 0.36,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "reload_speed",
           "magnitude": 1.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -28392,6 +29047,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "power_level_modifier",
           "magnitude": 0.05,
@@ -28532,21 +29197,21 @@
       "effects": [
         {
           "stat": "stagger_burning_reduction_modifier",
-          "magnitude": 0.5,
+          "magnitude": 0.3,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "all:wielded+action_allowed",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
         {
           "stat": "ranged_impact_modifier",
-          "magnitude": 0.5,
+          "magnitude": 0.45,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "all:wielded+action_allowed",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -28561,7 +29226,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -28571,7 +29236,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -28585,7 +29250,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -28595,7 +29260,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -28609,7 +29274,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -28619,7 +29284,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -28633,7 +29298,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -28643,7 +29308,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -28898,7 +29563,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -29038,7 +29703,17 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -29053,7 +29728,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -29063,7 +29738,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -29077,7 +29752,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -29087,7 +29762,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -29101,7 +29776,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -29111,7 +29786,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -29125,7 +29800,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -29135,7 +29810,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -29164,8 +29839,13 @@
       "slot": "ranged"
     },
     "calc": {
-      "class_name": "proc_buff",
-      "max_stacks": 1,
+      "class_name": "interval_buff",
+      "max_stacks": 31,
+      "duration": 8,
+      "keywords": [
+        "buff_keywords.burning",
+        "buff_keywords.warpfire_burning"
+      ],
       "tiers": [
         {
           "effects": [],
@@ -29207,6 +29887,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.02,
@@ -29347,7 +30037,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -29446,11 +30136,11 @@
       "effects": [
         {
           "stat": "charge_movement_reduction_multiplier",
-          "magnitude": 0.9,
+          "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "all:wielded+action_allowed",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -29466,7 +30156,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -29481,7 +30171,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -29496,7 +30186,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -29511,7 +30201,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -29786,7 +30476,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -29920,6 +30610,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.02,
@@ -30060,11 +30760,11 @@
       "effects": [
         {
           "stat": "charge_movement_reduction_multiplier",
-          "magnitude": 0.9,
+          "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "all:wielded+action_allowed",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -30080,7 +30780,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -30095,7 +30795,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -30110,7 +30810,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -30125,7 +30825,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -30156,6 +30856,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "charge_up_time",
+          "magnitude": -0.085,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "charge_up_time",
           "magnitude": -0.04,
@@ -30296,7 +31006,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.01,
+          "magnitude": 0.04,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -30425,6 +31135,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "power_level_modifier",
           "magnitude": 0.02,
@@ -30617,7 +31337,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -30753,11 +31473,11 @@
       "effects": [
         {
           "stat": "charge_movement_reduction_multiplier",
-          "magnitude": 0.9,
+          "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "all:wielded+action_allowed",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -30773,7 +31493,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -30788,7 +31508,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -30803,7 +31523,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -30818,7 +31538,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -31088,7 +31808,17 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -31103,7 +31833,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -31113,7 +31843,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -31127,7 +31857,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -31137,7 +31867,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -31151,7 +31881,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -31161,7 +31891,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -31175,7 +31905,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -31185,7 +31915,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -31311,7 +32041,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -31451,7 +32181,17 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -31466,7 +32206,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -31476,7 +32216,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -31490,7 +32230,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -31500,7 +32240,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -31514,7 +32254,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -31524,7 +32264,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -31538,7 +32278,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -31548,7 +32288,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -31577,8 +32317,13 @@
       "slot": "ranged"
     },
     "calc": {
-      "class_name": "proc_buff",
-      "max_stacks": 1,
+      "class_name": "interval_buff",
+      "max_stacks": 31,
+      "duration": 8,
+      "keywords": [
+        "buff_keywords.burning",
+        "buff_keywords.warpfire_burning"
+      ],
       "tiers": [
         {
           "effects": [],
@@ -31622,11 +32367,11 @@
       "effects": [
         {
           "stat": "charge_movement_reduction_multiplier",
-          "magnitude": 0.9,
+          "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "all:wielded+action_allowed",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -31642,7 +32387,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -31657,7 +32402,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -31672,7 +32417,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -31687,7 +32432,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "all:wielded+action_allowed",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -31853,6 +32598,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "power_level_modifier",
           "magnitude": 0.05,
@@ -32201,6 +32956,16 @@
       "effects": [
         {
           "stat": "block_cost_multiplier",
+          "magnitude": 0.7,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "block_cost_multiplier",
           "magnitude": 1,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -32332,6 +33097,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "power_level_modifier",
           "magnitude": 0.05,
@@ -32660,7 +33435,7 @@
       "effects": [
         {
           "stat": "finesse_modifier_bonus",
-          "magnitude": 0.05,
+          "magnitude": 0.6,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -32758,7 +33533,7 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -33171,8 +33946,13 @@
       "slot": "melee"
     },
     "calc": {
-      "class_name": "proc_buff",
-      "max_stacks": 1,
+      "class_name": "interval_buff",
+      "max_stacks": 31,
+      "duration": 8,
+      "keywords": [
+        "buff_keywords.burning",
+        "buff_keywords.warpfire_burning"
+      ],
       "tiers": [
         {
           "effects": [],
@@ -33216,11 +33996,21 @@
       "effects": [
         {
           "stat": "fov_multiplier",
+          "magnitude": 0.85,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "fov_multiplier",
           "magnitude": 0.95,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -33245,7 +34035,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "ads_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -33269,7 +34059,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "ads_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -33293,7 +34083,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "ads_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -33317,7 +34107,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "ads_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -33566,6 +34356,16 @@
       "effects": [
         {
           "stat": "stagger_weakspot_reduction_modifier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "stagger_weakspot_reduction_modifier",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -33749,6 +34549,16 @@
       "effects": [
         {
           "stat": "stagger_count_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "stagger_count_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -33924,6 +34734,16 @@
       "effects": [
         {
           "stat": "critical_strike_weakspot_damage",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "critical_strike_weakspot_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -34057,11 +34877,21 @@
       "effects": [
         {
           "stat": "ranged_power_level_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "ranged_power_level_modifier",
           "magnitude": 0.02,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "first_shot",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -34086,7 +34916,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "first_shot",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -34110,7 +34940,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "first_shot",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -34134,7 +34964,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "first_shot",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -34158,7 +34988,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "first_shot",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -34230,6 +35060,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "stagger_weakspot_reduction_modifier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "stagger_weakspot_reduction_modifier",
           "magnitude": 0.5,
@@ -34415,6 +35255,16 @@
       "effects": [
         {
           "stat": "stagger_count_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "stagger_count_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -34546,6 +35396,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "charge_up_time",
+          "magnitude": -0.12,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "charge_up_time",
           "magnitude": -0.04,
@@ -34683,18 +35543,77 @@
       "slot": "ranged"
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "rending_multiplier",
+          "magnitude": 0.30000000000000004,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 16,
+      "duration": 5,
       "tiers": [
         {
-          "effects": []
+          "effects": [
+            {
+              "stat": "rending_multiplier",
+              "magnitude": 0.15000000000000002,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": "on_hit",
+              "type": "stat_buff"
+            }
+          ]
         },
         {
-          "effects": []
+          "effects": [
+            {
+              "stat": "rending_multiplier",
+              "magnitude": 0.2,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": "on_hit",
+              "type": "stat_buff"
+            }
+          ]
         },
         {
-          "effects": []
+          "effects": [
+            {
+              "stat": "rending_multiplier",
+              "magnitude": 0.25,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": "on_hit",
+              "type": "stat_buff"
+            }
+          ]
         },
         {
-          "effects": []
+          "effects": [
+            {
+              "stat": "rending_multiplier",
+              "magnitude": 0.30000000000000004,
+              "magnitude_expr": null,
+              "magnitude_min": null,
+              "magnitude_max": null,
+              "condition": null,
+              "trigger": "on_hit",
+              "type": "stat_buff"
+            }
+          ]
         }
       ]
     }
@@ -34956,7 +35875,7 @@
       "effects": [
         {
           "stat": "count_as_dodge_vs_ranged",
-          "magnitude": 1,
+          "magnitude": 0,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -34971,7 +35890,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -34985,7 +35904,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -34999,7 +35918,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -35013,7 +35932,7 @@
           "effects": [
             {
               "stat": "count_as_dodge_vs_ranged",
-              "magnitude": 1,
+              "magnitude": 0,
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
@@ -35053,7 +35972,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -35068,7 +35987,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -35082,7 +36001,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -35096,7 +36015,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -35110,7 +36029,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -35142,11 +36061,11 @@
       "effects": [
         {
           "stat": "ranged_weakspot_damage",
-          "magnitude": 0.2,
+          "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -35161,7 +36080,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -35175,7 +36094,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -35189,7 +36108,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -35203,7 +36122,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -35475,7 +36394,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -35747,6 +36666,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "flanking_damage",
+          "magnitude": 0.4,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "flanking_damage",
           "magnitude": 0.5,
@@ -36100,7 +37029,7 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -36300,7 +37229,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -36434,6 +37363,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "consumed_hit_mass_modifier_on_weakspot_hit",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "consumed_hit_mass_modifier_on_weakspot_hit",
           "magnitude": 0.5,
@@ -37061,7 +38000,7 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -37201,7 +38140,7 @@
       "effects": [
         {
           "stat": "ranged_critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -37433,7 +38372,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -37526,6 +38465,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "melee_weakspot_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "melee_weakspot_damage",
           "magnitude": 0.5,
@@ -37661,11 +38610,11 @@
       "effects": [
         {
           "stat": "damage_vs_staggered",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "target_staggered",
           "trigger": "on_hit",
           "type": "conditional_stat_buff"
         }
@@ -37682,7 +38631,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -37696,7 +38645,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -37710,7 +38659,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -37724,7 +38673,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -37756,11 +38705,11 @@
       "effects": [
         {
           "stat": "melee_critical_strike_damage",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "all:wielded+unknown_condition",
+          "condition": "all:wielded+critical_strike_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -37775,7 +38724,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -37789,7 +38738,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -37803,7 +38752,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -37817,7 +38766,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -37849,7 +38798,7 @@
       "effects": [
         {
           "stat": "rending_vs_staggered_multiplier",
-          "magnitude": 0.1,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -37948,6 +38897,16 @@
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "proc_stat_buff"
+        },
+        {
+          "stat": "melee_critical_strike_chance",
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -38085,11 +39044,11 @@
       "effects": [
         {
           "stat": "melee_critical_strike_damage",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "all:wielded+unknown_condition",
+          "condition": "all:wielded+critical_strike_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -38104,7 +39063,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -38118,7 +39077,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -38132,7 +39091,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -38146,7 +39105,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -38270,7 +39229,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -38444,11 +39403,11 @@
       "effects": [
         {
           "stat": "damage_vs_staggered",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "target_staggered",
           "trigger": "on_hit",
           "type": "conditional_stat_buff"
         }
@@ -38465,7 +39424,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -38479,7 +39438,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -38493,7 +39452,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -38507,7 +39466,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -38667,7 +39626,7 @@
       "effects": [
         {
           "stat": "toughness_extra_regen_rate",
-          "magnitude": 0.1,
+          "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -38765,7 +39724,7 @@
       "effects": [
         {
           "stat": "melee_critical_strike_chance",
-          "magnitude": 0.01,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -38955,6 +39914,16 @@
       "effects": [
         {
           "stat": "max_hit_mass_attack_modifier",
+          "magnitude": 2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "max_hit_mass_attack_modifier",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -39093,6 +40062,16 @@
       "effects": [
         {
           "stat": "power_level_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "power_level_modifier",
           "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -39226,7 +40205,7 @@
       "effects": [
         {
           "stat": "melee_fully_charged_damage",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -39320,6 +40299,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "max_hit_mass_attack_modifier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "max_hit_mass_attack_modifier",
           "magnitude": 0.5,
@@ -39631,6 +40620,16 @@
       "effects": [
         {
           "stat": "power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "power_level_modifier",
           "magnitude": 0.02,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -39853,7 +40852,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -39946,6 +40945,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "power_level_modifier",
           "magnitude": 0.05,
@@ -40086,7 +41095,7 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -40276,7 +41285,7 @@
       "effects": [
         {
           "stat": "melee_power_level_modifier",
-          "magnitude": 0.05,
+          "magnitude": 0.3,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -40379,7 +41388,7 @@
       "effects": [
         {
           "stat": "power_level_modifier",
-          "magnitude": 0.06,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -40512,6 +41521,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "power_level_modifier",
           "magnitude": 0.02,
@@ -40650,6 +41669,26 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "suppression_dealt",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_vs_suppressed",
+          "magnitude": 0.07,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "suppression_dealt",
           "magnitude": 0.5,
@@ -40878,6 +41917,26 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "alternate_fire_movement_speed_reduction_modifier",
+          "magnitude": 0.9,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "weapon_action_movespeed_reduction_multiplier",
+          "magnitude": 0.9,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "alternate_fire_movement_speed_reduction_modifier",
           "magnitude": 0.5,
@@ -41664,6 +42723,26 @@
       "effects": [
         {
           "stat": "alternate_fire_movement_speed_reduction_modifier",
+          "magnitude": 0.9,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "weapon_action_movespeed_reduction_multiplier",
+          "magnitude": 0.9,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "alternate_fire_movement_speed_reduction_modifier",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -42030,6 +43109,26 @@
       "effects": [
         {
           "stat": "suppression_dealt",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_vs_suppressed",
+          "magnitude": 0.07,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "suppression_dealt",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -42258,7 +43357,7 @@
       "effects": [
         {
           "stat": "ammo_to_clip_on_crit",
-          "magnitude": 5,
+          "magnitude": 1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -42447,7 +43546,7 @@
       "effects": [
         {
           "stat": "recoil_modifier",
-          "magnitude": -0.5,
+          "magnitude": -0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -42457,7 +43556,7 @@
         },
         {
           "stat": "suppression_dealt",
-          "magnitude": 0.5,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -42685,6 +43784,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.05,
@@ -42921,6 +44030,16 @@
       "effects": [
         {
           "stat": "stagger_count_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "stagger_count_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -43096,6 +44215,16 @@
       "effects": [
         {
           "stat": "critical_strike_weakspot_damage",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "critical_strike_weakspot_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -43227,6 +44356,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "power_level_modifier",
           "magnitude": 0.02,
@@ -43463,11 +44602,21 @@
       "effects": [
         {
           "stat": "ranged_power_level_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "ranged_power_level_modifier",
           "magnitude": 0.02,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "first_shot",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -43492,7 +44641,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "first_shot",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -43516,7 +44665,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "first_shot",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -43540,7 +44689,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "first_shot",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -43564,7 +44713,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "first_shot",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -43636,6 +44785,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.01,
@@ -43856,6 +45015,16 @@
         {
           "stat": "power_level_modifier",
           "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
+          "magnitude": 0.08,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -44361,7 +45530,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -44494,7 +45663,7 @@
       "effects": [
         {
           "stat": "damage_taken_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -44631,6 +45800,16 @@
       "effects": [
         {
           "stat": "melee_weakspot_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_weakspot_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -44764,7 +45943,7 @@
       "effects": [
         {
           "stat": "impact_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -44859,7 +46038,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -44954,11 +46133,11 @@
       "effects": [
         {
           "stat": "melee_critical_strike_damage",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "all:wielded+unknown_condition",
+          "condition": "all:wielded+critical_strike_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -44973,7 +46152,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -44987,7 +46166,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -45001,7 +46180,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -45015,7 +46194,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -45047,7 +46226,7 @@
       "effects": [
         {
           "stat": "rending_vs_staggered_multiplier",
-          "magnitude": 0.1,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -45145,11 +46324,11 @@
       "effects": [
         {
           "stat": "damage_vs_staggered",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "target_staggered",
           "trigger": "on_hit",
           "type": "conditional_stat_buff"
         }
@@ -45166,7 +46345,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -45180,7 +46359,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -45194,7 +46373,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -45208,7 +46387,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -45240,7 +46419,7 @@
       "effects": [
         {
           "stat": "impact_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -45335,11 +46514,11 @@
       "effects": [
         {
           "stat": "melee_critical_strike_damage",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "all:wielded+unknown_condition",
+          "condition": "all:wielded+critical_strike_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -45354,7 +46533,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -45368,7 +46547,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -45382,7 +46561,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -45396,7 +46575,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+critical_strike_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -45428,7 +46607,7 @@
       "effects": [
         {
           "stat": "rending_vs_staggered_multiplier",
-          "magnitude": 0.1,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -45618,7 +46797,7 @@
       "effects": [
         {
           "stat": "block_cost_multiplier",
-          "magnitude": 0.85,
+          "magnitude": 0.7,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -45891,7 +47070,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -45984,6 +47163,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.01,
@@ -46122,6 +47311,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "power_level_modifier",
           "magnitude": 0.02,
@@ -46314,7 +47513,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -46529,6 +47728,16 @@
       "effects": [
         {
           "stat": "power_level_modifier",
+          "magnitude": 0.09,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "power_level_modifier",
           "magnitude": 0.02,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -46665,6 +47874,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_chance",
           "magnitude": 0.05,
@@ -46805,7 +48024,7 @@
       "effects": [
         {
           "stat": "melee_power_level_modifier",
-          "magnitude": 0.05,
+          "magnitude": 0.42,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -46908,7 +48127,7 @@
       "effects": [
         {
           "stat": "power_level_modifier",
-          "magnitude": 0.05,
+          "magnitude": 0.3,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -47011,7 +48230,7 @@
       "effects": [
         {
           "stat": "ranged_power_level_modifier",
-          "magnitude": 0.05,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -47107,6 +48326,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "melee_impact_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "melee_impact_modifier",
           "magnitude": 0.05,
@@ -47284,6 +48513,16 @@
       "effects": [
         {
           "stat": "power_level_modifier",
+          "magnitude": 0.09,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "power_level_modifier",
           "magnitude": 0.02,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -47420,6 +48659,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "explosion_radius_modifier",
+          "magnitude": 0.06,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "explosion_radius_modifier",
           "magnitude": 0.03,
@@ -47560,7 +48809,7 @@
       "effects": [
         {
           "stat": "reload_speed",
-          "magnitude": 0.5,
+          "magnitude": 0.3,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -47661,6 +48910,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "melee_impact_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "melee_impact_modifier",
           "magnitude": 0.05,
@@ -47838,7 +49097,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -47931,6 +49190,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "charge_up_time",
+          "magnitude": -0.04,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "charge_up_time",
           "magnitude": -0.01,
@@ -48071,6 +49340,16 @@
       "effects": [
         {
           "stat": "power_level_modifier",
+          "magnitude": 0.04,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "power_level_modifier",
           "magnitude": 0.01,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -48207,6 +49486,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "overheat_amount",
+          "magnitude": 0.9,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "overheat_amount",
           "magnitude": 0.9,
@@ -48633,11 +49922,11 @@
       "effects": [
         {
           "stat": "damage_vs_staggered",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "target_staggered",
           "trigger": "on_hit",
           "type": "conditional_stat_buff"
         }
@@ -48654,7 +49943,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -48668,7 +49957,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -48682,7 +49971,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -48696,7 +49985,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -48728,7 +50017,7 @@
       "effects": [
         {
           "stat": "impact_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -48823,7 +50112,7 @@
       "effects": [
         {
           "stat": "rending_vs_staggered_multiplier",
-          "magnitude": 0.1,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -48921,7 +50210,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -49388,11 +50677,11 @@
       "effects": [
         {
           "stat": "damage_vs_staggered",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "target_staggered",
           "trigger": "on_hit",
           "type": "conditional_stat_buff"
         }
@@ -49409,7 +50698,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -49423,7 +50712,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -49437,7 +50726,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -49451,7 +50740,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -49483,7 +50772,7 @@
       "effects": [
         {
           "stat": "impact_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -49578,7 +50867,7 @@
       "effects": [
         {
           "stat": "rending_vs_staggered_multiplier",
-          "magnitude": 0.1,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -49674,6 +50963,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "stagger_weakspot_reduction_modifier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "stagger_weakspot_reduction_modifier",
           "magnitude": 0.5,
@@ -49951,6 +51250,16 @@
       "effects": [
         {
           "stat": "melee_power_level_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
           "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -50090,6 +51399,7 @@
       "slot": "melee"
     },
     "calc": {
+      "class_name": "proc_buff",
       "tiers": [
         {
           "effects": []
@@ -50169,6 +51479,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "damage_vs_electrocuted",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "damage_vs_electrocuted",
           "magnitude": 0.5,
@@ -50346,7 +51666,7 @@
       "effects": [
         {
           "stat": "impact_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -50544,6 +51864,16 @@
           "condition": "wielded",
           "trigger": null,
           "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
         }
       ],
       "class_name": "stepped_stat_buff",
@@ -50675,7 +52005,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -50768,6 +52098,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "stagger_weakspot_reduction_modifier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "stagger_weakspot_reduction_modifier",
           "magnitude": 0.5,
@@ -50953,6 +52293,16 @@
       "effects": [
         {
           "stat": "melee_power_level_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
           "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -51093,6 +52443,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "damage_vs_staggered",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "damage_vs_staggered",
           "magnitude": 0.2,
@@ -51270,11 +52630,11 @@
       "effects": [
         {
           "stat": "damage_vs_staggered",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "target_staggered",
           "trigger": "on_hit",
           "type": "conditional_stat_buff"
         }
@@ -51291,7 +52651,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -51305,7 +52665,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -51319,7 +52679,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -51333,7 +52693,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -51365,7 +52725,7 @@
       "effects": [
         {
           "stat": "impact_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -51460,7 +52820,7 @@
       "effects": [
         {
           "stat": "rending_vs_staggered_multiplier",
-          "magnitude": 0.1,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -51650,7 +53010,7 @@
       "effects": [
         {
           "stat": "block_cost_multiplier",
-          "magnitude": 0.85,
+          "magnitude": 0.7,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -51839,6 +53199,16 @@
       "effects": [
         {
           "stat": "melee_power_level_modifier",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
           "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -51988,6 +53358,16 @@
           "condition": "wielded",
           "trigger": null,
           "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
         }
       ],
       "class_name": "stepped_stat_buff",
@@ -52119,7 +53499,7 @@
       "effects": [
         {
           "stat": "melee_attack_speed",
-          "magnitude": 1.5,
+          "magnitude": 0.12,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -52215,6 +53595,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.04,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "power_level_modifier",
           "magnitude": 0.01,
@@ -52603,6 +53993,16 @@
       "effects": [
         {
           "stat": "melee_power_level_modifier",
+          "magnitude": 0.36,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -52925,6 +54325,16 @@
       "effects": [
         {
           "stat": "max_hit_mass_attack_modifier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "max_hit_mass_attack_modifier",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -53186,7 +54596,7 @@
       "effects": [
         {
           "stat": "overheat_over_time_amount",
-          "magnitude": 0.8,
+          "magnitude": 0.78,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -53196,7 +54606,7 @@
         },
         {
           "stat": "overheat_dissipation_multiplier",
-          "magnitude": 1.5,
+          "magnitude": 1.06,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -53334,7 +54744,7 @@
       "effects": [
         {
           "stat": "melee_attack_speed",
-          "magnitude": 1.5,
+          "magnitude": 0.12,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -53657,6 +55067,16 @@
       "effects": [
         {
           "stat": "melee_power_level_modifier",
+          "magnitude": 0.36,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_power_level_modifier",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -53793,6 +55213,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "melee_weakspot_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "melee_weakspot_damage",
           "magnitude": 0.5,
@@ -54020,7 +55450,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -54113,6 +55543,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "melee_heavy_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "melee_heavy_damage",
           "magnitude": 0.05,
@@ -54247,12 +55687,22 @@
     "calc": {
       "effects": [
         {
+          "stat": "melee_impact_modifier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
           "stat": "weapon_special_max_activations",
           "magnitude": 1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "all:wielded+unknown_condition",
+          "condition": "all:wielded+weapon_special_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -54262,7 +55712,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "all:wielded+unknown_condition",
+          "condition": "all:wielded+weapon_special_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -54288,7 +55738,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+weapon_special_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -54298,7 +55748,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+weapon_special_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -54323,7 +55773,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+weapon_special_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -54333,7 +55783,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+weapon_special_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -54358,7 +55808,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+weapon_special_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -54368,7 +55818,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+weapon_special_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -54393,7 +55843,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+weapon_special_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             },
@@ -54403,7 +55853,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "all:wielded+unknown_condition",
+              "condition": "all:wielded+weapon_special_active",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -54526,6 +55976,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.04,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "power_level_modifier",
           "magnitude": 0.01,
@@ -54664,6 +56124,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "melee_power_level_modifier",
+          "magnitude": 0.36,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "melee_power_level_modifier",
           "magnitude": 0.5,
@@ -54896,6 +56366,16 @@
       "effects": [
         {
           "stat": "max_hit_mass_attack_modifier",
+          "magnitude": 0.8,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "max_hit_mass_attack_modifier",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -55071,7 +56551,7 @@
       "effects": [
         {
           "stat": "melee_attack_speed",
-          "magnitude": 1.5,
+          "magnitude": 0.12,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -55762,7 +57242,7 @@
       "effects": [
         {
           "stat": "melee_weakspot_damage_vs_toxin_status",
-          "magnitude": 1,
+          "magnitude": 0.6,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -56223,7 +57703,7 @@
       "effects": [
         {
           "stat": "power_level_modifier",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -56460,6 +57940,16 @@
       "effects": [
         {
           "stat": "stagger_count_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "stagger_count_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -56593,7 +58083,7 @@
       "effects": [
         {
           "stat": "ranged_impact_modifier",
-          "magnitude": 0.05,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -57009,7 +58499,7 @@
       "effects": [
         {
           "stat": "ranged_impact_modifier",
-          "magnitude": 0.05,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -57107,7 +58597,7 @@
       "effects": [
         {
           "stat": "power_level_modifier",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -57398,7 +58888,7 @@
       "effects": [
         {
           "stat": "ranged_critical_strike_chance",
-          "magnitude": 0.01,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -57496,7 +58986,7 @@
       "effects": [
         {
           "stat": "spread_modifier",
-          "magnitude": -0.3,
+          "magnitude": -0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -57506,7 +58996,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -57642,11 +59132,11 @@
       "effects": [
         {
           "stat": "reload_speed",
-          "magnitude": 0.5,
+          "magnitude": 0.7,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "internal_buff:weapon_trait_bespoke_shotgun_p2_reload_speed_on_ranged_weapon_special_kill_effect",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -57662,7 +59152,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "internal_buff:weapon_trait_bespoke_shotgun_p2_reload_speed_on_ranged_weapon_special_kill_effect",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -57677,7 +59167,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "internal_buff:weapon_trait_bespoke_shotgun_p2_reload_speed_on_ranged_weapon_special_kill_effect",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -57692,7 +59182,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "internal_buff:weapon_trait_bespoke_shotgun_p2_reload_speed_on_ranged_weapon_special_kill_effect",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -57707,7 +59197,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "internal_buff:weapon_trait_bespoke_shotgun_p2_reload_speed_on_ranged_weapon_special_kill_effect",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -57958,6 +59448,16 @@
       "effects": [
         {
           "stat": "stagger_count_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "stagger_count_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -58091,7 +59591,7 @@
       "effects": [
         {
           "stat": "ranged_impact_modifier",
-          "magnitude": 0.05,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -58322,7 +59822,7 @@
       "effects": [
         {
           "stat": "spread_modifier",
-          "magnitude": -0.3,
+          "magnitude": -0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -58332,7 +59832,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -58510,6 +60010,16 @@
       "effects": [
         {
           "stat": "damage_vs_electrocuted",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_vs_electrocuted",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -58643,7 +60153,7 @@
       "effects": [
         {
           "stat": "recoil_modifier",
-          "magnitude": -0.5,
+          "magnitude": -0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -58653,7 +60163,7 @@
         },
         {
           "stat": "suppression_dealt",
-          "magnitude": 0.5,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -58841,11 +60351,11 @@
       "effects": [
         {
           "stat": "ranged_weakspot_damage",
-          "magnitude": 0.2,
+          "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -58860,7 +60370,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -58874,7 +60384,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -58888,7 +60398,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -58902,7 +60412,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -58938,7 +60448,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -58953,7 +60463,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -58967,7 +60477,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -58981,7 +60491,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -58995,7 +60505,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -59037,7 +60547,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -59311,6 +60821,16 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "critical_strike_chance",
           "magnitude": 0.05,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -59450,6 +60970,16 @@
         {
           "stat": "ranged_critical_strike_chance",
           "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.06,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -59682,7 +61212,7 @@
       "effects": [
         {
           "stat": "ranged_critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -59826,7 +61356,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -59841,7 +61371,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -59855,7 +61385,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -59869,7 +61399,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -59883,7 +61413,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -59913,6 +61443,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_rending_multiplier",
+          "magnitude": 0.6,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_rending_multiplier",
           "magnitude": 1,
@@ -60274,6 +61814,16 @@
       "effects": [
         {
           "stat": "stagger_count_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "stagger_count_damage",
           "magnitude": 0.5,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -60407,7 +61957,7 @@
       "effects": [
         {
           "stat": "ranged_impact_modifier",
-          "magnitude": 0.05,
+          "magnitude": 0.25,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -60503,6 +62053,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "damage_vs_electrocuted",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "damage_vs_electrocuted",
           "magnitude": 0.5,
@@ -60648,7 +62208,7 @@
         },
         {
           "stat": "damage_near",
-          "magnitude": 0.1,
+          "magnitude": 0.15,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -60922,6 +62482,16 @@
       "effects": [
         {
           "stat": "critical_strike_chance",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "critical_strike_chance",
           "magnitude": 0.05,
           "magnitude_expr": null,
           "magnitude_min": null,
@@ -61061,6 +62631,16 @@
         {
           "stat": "ranged_critical_strike_chance",
           "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.06,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -61293,7 +62873,7 @@
       "effects": [
         {
           "stat": "ranged_critical_strike_chance",
-          "magnitude": 0.05,
+          "magnitude": 0.2,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -61437,7 +63017,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "follow_up_shots",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -61452,7 +63032,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -61466,7 +63046,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -61480,7 +63060,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -61494,7 +63074,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "follow_up_shots",
               "trigger": null,
               "type": "conditional_stat_buff"
             }
@@ -61524,6 +63104,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "critical_strike_rending_multiplier",
+          "magnitude": 0.6,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "critical_strike_rending_multiplier",
           "magnitude": 1,
@@ -61657,6 +63247,16 @@
     },
     "calc": {
       "effects": [
+        {
+          "stat": "consumed_hit_mass_modifier",
+          "magnitude": 0.4,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
         {
           "stat": "consumed_hit_mass_modifier",
           "magnitude": 0.5,
@@ -61893,7 +63493,7 @@
       "effects": [
         {
           "stat": "impact_modifier",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -61988,11 +63588,11 @@
       "effects": [
         {
           "stat": "damage_vs_staggered",
-          "magnitude": 0.1,
+          "magnitude": 0.4,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "target_staggered",
           "trigger": "on_hit",
           "type": "conditional_stat_buff"
         }
@@ -62009,7 +63609,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -62023,7 +63623,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -62037,7 +63637,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -62051,7 +63651,7 @@
               "magnitude_expr": null,
               "magnitude_min": null,
               "magnitude_max": null,
-              "condition": "unknown_condition",
+              "condition": "target_staggered",
               "trigger": "on_hit",
               "type": "conditional_stat_buff"
             }
@@ -62120,7 +63720,7 @@
       "effects": [
         {
           "stat": "rending_multiplier",
-          "magnitude": 0.025,
+          "magnitude": 0.1,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,

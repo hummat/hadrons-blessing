@@ -1510,6 +1510,55 @@ describe("assembleBuildBuffStack", () => {
     approx(stack.additive_sum, 1.2); // uses magnitude directly
   });
 
+  it("handles conditional_lerped_stat_buff using the condition scale before the warp-charge fallback", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          {
+            stat: "damage",
+            magnitude: 0.2,
+            magnitude_min: 0.1,
+            magnitude_max: 0.5,
+            type: "conditional_lerped_stat_buff",
+            condition: "threshold:warp_charge",
+          },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+
+    const stack = assembleBuildBuffStack(build, mockIndex, { warp_charge: 0.25 });
+    approx(stack.additive_sum, 1.2); // lerp(0.1, 0.5, 0.25) = 0.2
+  });
+
+  it("uses stepped_stat_buff magnitudes as extracted when step metadata is absent", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.12, type: "stepped_stat_buff" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+
+    const stack = assembleBuildBuffStack(build, mockIndex, {});
+    approx(stack.additive_sum, 1.12);
+  });
+
   it("includes during_heavy condition unconditionally", () => {
     const mockIndex = {
       entities: new Map([

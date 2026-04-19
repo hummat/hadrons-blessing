@@ -480,6 +480,66 @@
     }
   },
   {
+    "file": "04-veteran-stealth-shotgun.json",
+    "title": "havoc stealth",
+    "class": "veteran",
+    "ability": "Infiltrate",
+    "keystone": "Weapons Specialist",
+    "weapons": [
+      {
+        "name": "Achlys Mk VI Power Sword",
+        "slot": "melee",
+        "family": "powersword_p1"
+      },
+      {
+        "name": "Agripinaa Mk VII Combat Shotgun",
+        "slot": "ranged",
+        "family": "shotgun_p1"
+      }
+    ],
+    "scores": {
+      "composite": 28,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 3,
+      "difficulty_scaling": 1
+    }
+  },
+  {
+    "file": "05-zealot-meta-havoc40.json",
+    "title": "SPICY'S META HAVOC 40 ZEALOT",
+    "class": "zealot",
+    "ability": "Chorus of Spiritual Fortitude",
+    "keystone": "Blazing Piety",
+    "weapons": [
+      {
+        "name": "Munitorum Mk X Relic Blade",
+        "slot": "melee",
+        "family": "powersword_2h"
+      },
+      {
+        "name": "Artemia Mk III Purgation Flamer",
+        "slot": "ranged",
+        "family": "flamer"
+      }
+    ],
+    "scores": {
+      "composite": 28,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 3,
+      "difficulty_scaling": 1
+    }
+  },
+  {
     "file": "12-psyker-trauma-voidblast.json",
     "title": "Meta Trauma/Voidblast Havoc 40",
     "class": "psyker",
@@ -535,36 +595,6 @@
       "talent_coherence": 5,
       "blessing_synergy": 5,
       "role_coverage": 5,
-      "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "05-zealot-meta-havoc40.json",
-    "title": "SPICY'S META HAVOC 40 ZEALOT",
-    "class": "zealot",
-    "ability": "Chorus of Spiritual Fortitude",
-    "keystone": "Blazing Piety",
-    "weapons": [
-      {
-        "name": "Munitorum Mk X Relic Blade",
-        "slot": "melee",
-        "family": "powersword_2h"
-      },
-      {
-        "name": "Artemia Mk III Purgation Flamer",
-        "slot": "ranged",
-        "family": "flamer"
-      }
-    ],
-    "scores": {
-      "composite": 27,
-      "grade": "A",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 5,
-      "blessing_synergy": 5,
-      "role_coverage": 4,
       "breakpoint_relevance": 3,
       "difficulty_scaling": 1
     }
@@ -675,36 +705,6 @@
         "name": "M35 Magnacore Mk II Plasma Gun",
         "slot": "ranged",
         "family": "plasmagun"
-      }
-    ],
-    "scores": {
-      "composite": 26,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 4,
-      "blessing_synergy": 5,
-      "role_coverage": 4,
-      "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "04-veteran-stealth-shotgun.json",
-    "title": "havoc stealth",
-    "class": "veteran",
-    "ability": "Infiltrate",
-    "keystone": "Weapons Specialist",
-    "weapons": [
-      {
-        "name": "Achlys Mk VI Power Sword",
-        "slot": "melee",
-        "family": "powersword_p1"
-      },
-      {
-        "name": "Agripinaa Mk VII Combat Shotgun",
-        "slot": "ranged",
-        "family": "shotgun_p1"
       }
     ],
     "scores": {

@@ -47,6 +47,38 @@ const CONDITIONAL_TAGS: Record<string, string> = {
  * `function` keyword or closing `end` — they start with the parameter list.
  */
 function tagInlineFunc(body: string): string {
+  const directConditionalMatch = body.match(/return\s+ConditionalFunctions\.(\w+)\s*\([^)]*\)\s*$/m);
+  if (directConditionalMatch) {
+    const tag = CONDITIONAL_TAGS[`ConditionalFunctions.${directConditionalMatch[1]}`];
+    if (tag) {
+      return tag;
+    }
+  }
+
+  if (
+    /(valid_actions|uninterruptable_actions)\s*\[\s*current_action_name\s*\]/.test(body)
+    && /ConditionalFunctions\.is_item_slot_wielded\s*\(/.test(body)
+  ) {
+    return "all:wielded+action_allowed";
+  }
+
+  if (/critical_strike_component\.is_active/.test(body)) {
+    return "critical_strike_active";
+  }
+
+  const internalBuffMatch = body.match(/has_buff_using_buff_template\s*\(\s*["']([^"']+)["']\s*\)/);
+  if (internalBuffMatch) {
+    return `internal_buff:${internalBuffMatch[1]}`;
+  }
+
+  if (/PlayerUnitStatus\.requires_help\s*\(/.test(body) && /dot\s*>\s*dot_threshold/.test(body)) {
+    return "ally_requires_help_ahead";
+  }
+
+  if (/inventory_slot_component\.special_active/.test(body) || /\breturn\s+special_active\b/.test(body)) {
+    return "weapon_special_active";
+  }
+
   if (/return\s+\w+\.(?:is_)?active\s*$/.test(body.trim()) ||
       /^\s*function\s*\([^)]*\)\s*\n?\s*return\s+\w+\.active\s*\n?\s*end\s*$/.test(body)) {
     return "active";
@@ -66,6 +98,14 @@ function tagInlineFunc(body: string): string {
 
   if (/params\.is_heavy\b|melee_attack_strength\s*==\s*"heavy"/.test(body)) {
     return "during_heavy";
+  }
+
+  if (/MinionState\.is_staggered\s*\(/.test(body)) {
+    return "target_staggered";
+  }
+
+  if (/MinionState\.is_electrocuted\s*\(/.test(body)) {
+    return "target_electrocuted";
   }
 
   const slotMatch = body.match(/wielded_slot\s*==\s*"(slot_\w+)"/);
@@ -94,6 +134,16 @@ function tagInlineFunc(body: string): string {
     return "threshold:toughness_high";
   }
 
+  if (/num_shots_fired\s*==\s*0/.test(body)) {
+    return "first_shot";
+  }
+
+  if (/is_follow_up_shots\b/.test(body) ||
+      /num_shots_fired\s*==\s*1|num_shots_fired\s*==\s*2|num_shots_fired\s*==\s*3/.test(body) ||
+      /combo_count\s*==\s*1|combo_count\s*==\s*2|combo_count\s*==\s*3/.test(body)) {
+    return "follow_up_shots";
+  }
+
   if (/stamina.*current_fraction|current_stamina_fraction/.test(body)) {
     if (/conditional_threshold/.test(body)) {
       return "threshold:stamina_full";
@@ -106,6 +156,23 @@ function tagInlineFunc(body: string): string {
       return "threshold:health_low";
     }
     return "threshold:health";
+  }
+
+  if (/soul_requirement\s*<=\s*num_souls|current_resource\s*>=\s*template_data\.toughness_talent_soul_requirement/.test(body)) {
+    return "threshold:warp_charge";
+  }
+
+  if (/num_toxined_in_range\s*>\s*0/.test(body)) {
+    return "threshold:toxined_nearby";
+  }
+
+  if (/current_resource\s*==\s*max_resource/.test(body)) {
+    return "resource_full";
+  }
+
+  const specialRuleMatch = body.match(/has_special_rule\s*\(\s*special_rules\.(\w+)\s*\)/);
+  if (specialRuleMatch) {
+    return `special_rule:${specialRuleMatch[1]}`;
   }
 
   if (/has_keyword\s*\(\s*keywords\.\w*combat_ability/.test(body) ||

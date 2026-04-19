@@ -145,7 +145,7 @@ export function slotCoverage(selections: SynergySelection[]): SlotCoverageResult
 // ---------------------------------------------------------------------------
 
 const THRESHOLD_RESOURCE_STATS: Record<string, string[]> = {
-  "threshold:warp_charge": ["warp_charge_amount"],
+  "threshold:warp_charge": ["warp_charge_amount", "max_souls"],
   "threshold:ammo": ["ammo_reserve_capacity", "clip_size_modifier"],
   "threshold:health": ["max_health_modifier", "toughness"],
 };
@@ -199,7 +199,7 @@ export function triggerTargetChain(selA: SynergySelection, selB: SynergySelectio
 // ---------------------------------------------------------------------------
 
 const RESOURCE_PRODUCERS: Record<string, { stats: string[] }> = {
-  warp_charge: { stats: ["warp_charge_amount", "vent_warp_charge_speed", "warp_charge_dissipation_multiplier"] },
+  warp_charge: { stats: ["warp_charge_amount", "max_souls", "vent_warp_charge_speed", "warp_charge_dissipation_multiplier"] },
   grenade: { stats: ["extra_max_amount_of_grenades", "extra_grenade_throw_chance", "grenade_ability_cooldown_modifier"] },
   stamina: { stats: ["stamina_modifier", "stamina_regeneration_modifier"] },
 };

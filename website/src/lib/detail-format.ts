@@ -36,6 +36,10 @@ const COVERAGE_LABELS: Record<string, string> = {
 const BLESSING_SYNERGY_PREFIX = "Blessings with synergy edges: ";
 const COVERAGE_GAPS_PREFIX = "Coverage gaps: ";
 const COVERAGE_GAPS_SUFFIX = " (-1 each)";
+const ORPHAN_REASON_LABELS: Record<string, string> = {
+  unresolvable_condition: "Condition not yet modeled",
+  resource_consumer_without_producer: "Missing modeled resource support",
+};
 
 function titleCaseWords(value: string): string {
   return value
@@ -46,7 +50,7 @@ function titleCaseWords(value: string): string {
 }
 
 export function formatOrphanReason(reason: string): string {
-  return titleCaseWords(reason);
+  return ORPHAN_REASON_LABELS[reason] ?? titleCaseWords(reason);
 }
 
 export function formatOrphanMetaLine(resource: string | null | undefined, condition: string | null | undefined): string {

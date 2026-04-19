@@ -110,7 +110,7 @@ export function buildRiskBullets(detail: BuildDetailData, blessingMap: Record<st
   const orphanCount = detail.synergy.orphans.length;
   if (antiCount > 0 || orphanCount > 0) {
     const antiLabel = `${antiCount} anti-synergies`;
-    const orphanLabel = `${orphanCount} isolated pick${orphanCount === 1 ? "" : "s"}`;
+    const orphanLabel = `${orphanCount} condition/dependency flag${orphanCount === 1 ? "" : "s"}`;
     risks.push({ kind: "anti_orphan", text: `${antiLabel} \u00b7 ${orphanLabel}` });
   }
 

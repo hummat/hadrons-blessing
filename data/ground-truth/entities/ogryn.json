@@ -320,7 +320,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "special_rule:ogryn_carapace_armor_more_toughness",
           "trigger": "on_player_hit_received",
           "type": "conditional_stat_buff"
         }
@@ -484,9 +484,24 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_ammo_consumed",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "ogryn_blo_ally_ranged_buffs"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -1549,7 +1564,8 @@
     "calc": {
       "buff_template_names": [
         "ogryn_charge_grants_allied_movement_speed"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1978,7 +1994,7 @@
           "magnitude_expr": "talent_settings_shared.ogryn_drain_stamina_for_handling.critical_strike_chance",
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -1988,7 +2004,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -1998,7 +2014,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -2008,7 +2024,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -2098,6 +2114,12 @@
     "calc": {
       "buff_template_names": [
         "ogryn_heavy_attacks_bleed"
+      ],
+      "class_name": "interval_buff",
+      "max_stacks": 16,
+      "duration": 1.5,
+      "keywords": [
+        "buff_keywords.bleeding"
       ]
     }
   },
@@ -2281,9 +2303,22 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings_2.defensive_2.min",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
       "buff_template_names": [
         "ogryn_reduce_damage_taken_on_disabled_allies"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2575,7 +2610,8 @@
     "calc": {
       "buff_template_names": [
         "ogryn_increased_reload_speed_on_multiple_hits"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2599,9 +2635,22 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings_2.defensive_1.min",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
       "buff_template_names": [
         "ogryn_reduce_damage_taken_per_bleed"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {

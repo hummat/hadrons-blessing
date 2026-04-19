@@ -83,6 +83,50 @@
       "explanation": "Both selections contribute persistent effects to the toughness family"
     },
     {
+      "type": "trigger_target",
+      "selections": [
+        "zealot.talent.zealot_crits_apply_bleed",
+        "zealot.talent.zealot_crits_reduce_toughness_damage"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_crits_apply_bleed",
+        "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge"
+      ],
+      "families": [
+        "crit"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the crit family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "zealot.talent.zealot_crits_apply_bleed",
+        "zealot.talent.zealot_hits_grant_stacking_damage"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "zealot.talent.zealot_crits_apply_bleed",
+        "shared.name_family.blessing.cranial_grounding"
+      ],
+      "families": [
+        "crit"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the crit family"
+    },
+    {
       "type": "stat_alignment",
       "selections": [
         "zealot.talent.zealot_backstab_damage",
@@ -1530,13 +1574,7 @@
     }
   ],
   "anti_synergies": [],
-  "orphans": [
-    {
-      "selection": "zealot.keystone.zealot_fanatic_rage",
-      "reason": "unresolvable_condition",
-      "condition": "unknown_condition"
-    }
-  ],
+  "orphans": [],
   "coverage": {
     "family_profile": {
       "grenade": {
@@ -1558,9 +1596,18 @@
           "shared.gadget_trait.gadget_toughness_increase"
         ]
       },
+      "crit": {
+        "count": 3,
+        "total_magnitude": 0.64,
+        "selections": [
+          "zealot.talent.zealot_crits_apply_bleed",
+          "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+          "shared.name_family.blessing.cranial_grounding"
+        ]
+      },
       "general_offense": {
         "count": 14,
-        "total_magnitude": 2.82,
+        "total_magnitude": 2.93,
         "selections": [
           "zealot.talent.zealot_backstab_damage",
           "zealot.talent.zealot_increased_damage_vs_resilient",
@@ -1576,14 +1623,6 @@
           "shared.name_family.blessing.penetrating_flame",
           "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
           "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
-        ]
-      },
-      "crit": {
-        "count": 2,
-        "total_magnitude": 0.54,
-        "selections": [
-          "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
-          "shared.name_family.blessing.cranial_grounding"
         ]
       },
       "mobility": {
@@ -1642,19 +1681,19 @@
     "slot_balance": {
       "melee": {
         "families": [
-          "general_offense",
           "crit",
+          "general_offense",
           "melee_offense"
         ],
-        "strength": 17
+        "strength": 18
       },
       "ranged": {
         "families": [
-          "general_offense",
           "crit",
+          "general_offense",
           "ranged_offense"
         ],
-        "strength": 15
+        "strength": 16
       }
     },
     "build_identity": [
@@ -1662,10 +1701,8 @@
       "toughness",
       "damage_reduction"
     ],
-    "coverage_gaps": [
-      "crit_chance_source"
-    ],
-    "concentration": 0.1
+    "coverage_gaps": [],
+    "concentration": 0.09
   },
   "_resolvedIds": [
     "zealot.ability.zealot_bolstering_prayer",
@@ -1717,6 +1754,7 @@
   "_entitiesWithCalcIds": [
     "zealot.ability.zealot_throwing_knives",
     "zealot.keystone.zealot_fanatic_rage",
+    "zealot.talent.zealot_crits_apply_bleed",
     "zealot.talent.zealot_backstab_damage",
     "zealot.talent.zealot_increased_damage_vs_resilient",
     "zealot.talent.zealot_increase_ranged_close_damage",
@@ -1750,11 +1788,11 @@
   ],
   "metadata": {
     "entities_analyzed": 52,
-    "unique_entities_with_calc": 32,
+    "unique_entities_with_calc": 33,
     "unique_entities_with_linked_source": 38,
-    "entities_without_calc": 11,
-    "opaque_conditions": 1,
-    "calc_coverage_pct": 0.74,
+    "entities_without_calc": 10,
+    "opaque_conditions": 0,
+    "calc_coverage_pct": 0.77,
     "linked_coverage_pct": 0.88
   }
 }

@@ -3,7 +3,7 @@
   "class": "zealot",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 27,
+  "composite_score": 28,
   "letter_grade": "A",
   "weapons": [
     {
@@ -152,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 40,
+        "blessing_edges": 41,
         "blessing_count": 4,
-        "edges_per_blessing": 10,
+        "edges_per_blessing": 10.25,
         "blessing_blessing_edges": 4,
         "orphaned_blessings": 0
       },
@@ -166,18 +166,18 @@
     "talent_coherence": {
       "score": 5,
       "breakdown": {
-        "talent_edges": 37,
+        "talent_edges": 40,
         "talent_count": 27,
-        "measurable_talent_count": 17,
-        "edges_per_talent": 2.176,
+        "measurable_talent_count": 18,
+        "edges_per_talent": 2.222,
         "graph_isolated_count": 0,
-        "concentration": 0.1,
+        "concentration": 0.09,
         "penalties": 0,
         "bonuses": 0.5
       },
       "explanations": [
-        "High stat concentration (0.100) +0.5",
-        "10 talent(s) without calc data excluded from isolation penalty"
+        "High stat concentration (0.090) +0.5",
+        "9 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -235,7 +235,7 @@
         {
           "label": "Three-hit Mauler",
           "met": true,
-          "best_htk": 3,
+          "best_htk": 2,
           "max_hits": 3,
           "weight": "low"
         },
@@ -260,18 +260,14 @@
       ]
     },
     "role_coverage": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
         "active_families": 10,
         "total_families": 11,
-        "coverage_gaps": [
-          "crit_chance_source"
-        ],
-        "slot_balance_ratio": 0.8823529411764706
+        "coverage_gaps": [],
+        "slot_balance_ratio": 0.8888888888888888
       },
-      "explanations": [
-        "Coverage gaps: crit_chance_source (-1 each)"
-      ]
+      "explanations": []
     },
     "difficulty_scaling": {
       "score": 1,

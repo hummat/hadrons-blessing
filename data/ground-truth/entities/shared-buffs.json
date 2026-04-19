@@ -15,7 +15,24 @@
     ],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "block_cost_multiplier",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "can_block_ranged"
+      ]
+    }
   },
   {
     "id": "shared.buff.warp_fire",
@@ -33,7 +50,18 @@
     ],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "interval_buff",
+      "max_stacks": 31,
+      "duration": 8,
+      "keywords": [
+        "buff_keywords.burning",
+        "buff_keywords.warpfire_burning"
+      ],
+      "buff_template_names": [
+        "warp_fire"
+      ]
+    }
   },
   {
     "id": "shared.buff.weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_child",
@@ -51,7 +79,25 @@
     ],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "charge_up_time",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 3,
+      "buff_template_names": [
+        "weapon_trait_bespoke_forcestaff_p3_faster_charge_on_chained_secondary_attacks_child"
+      ]
+    }
   },
   {
     "id": "shared.buff.weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_child",
@@ -69,7 +115,25 @@
     ],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "charge_up_time",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 3,
+      "buff_template_names": [
+        "weapon_trait_bespoke_forcestaff_p4_faster_charge_on_chained_secondary_attacks_child"
+      ]
+    }
   },
   {
     "id": "shared.buff.weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_child",
@@ -87,7 +151,25 @@
     ],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "wielded",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 5,
+      "buff_template_names": [
+        "weapon_trait_bespoke_forcesword_2h_p1_chained_hits_increases_crit_chance_child"
+      ]
+    }
   },
   {
     "id": "shared.buff.weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance",
@@ -105,7 +187,25 @@
     ],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_successful_dodge",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "active_duration": 6,
+      "buff_template_names": [
+        "weapon_trait_bespoke_forcesword_2h_p1_dodge_grants_critical_strike_chance"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_charge_passive_buff",
@@ -118,7 +218,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_charge_passive_buff"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_charge_cooldown_buff",
@@ -131,7 +237,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_charge_cooldown_buff"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_charge_toughness_buff",
@@ -144,7 +256,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_charge_toughness_buff"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_charge_increased_distance",
@@ -171,7 +289,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_charge_increased_distance"
+      ]
     }
   },
   {
@@ -200,7 +321,10 @@
       ],
       "class_name": "proc_buff",
       "max_stacks": 1,
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_hunt_stance_dog_bloodlust"
+      ]
     }
   },
   {
@@ -214,7 +338,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_whistle_replenishment"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_grenade_cluster_kills_tracking_buff",
@@ -227,7 +357,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_grenade_cluster_kills_tracking_buff"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_no_companion_coherency",
@@ -240,7 +376,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_no_companion_coherency"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_companion_counts_for_coherency",
@@ -253,7 +394,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_companion_counts_for_coherency"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_disable_companion_buff",
@@ -309,7 +456,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_disable_companion_buff"
+      ]
     }
   },
   {
@@ -323,7 +473,24 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "grenade_charge_restored",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_grenade_replenishment"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_elite_special_kills_offensive_boost",
@@ -360,7 +527,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_elite_special_kills_offensive_boost"
+      ]
     }
   },
   {
@@ -388,7 +558,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_damage_reduction_after_elite_kill"
+      ]
     }
   },
   {
@@ -402,7 +575,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_toughness_regen_near_companion"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_perfect_block_damage_boost",
@@ -426,9 +604,34 @@
           "condition": null,
           "trigger": null,
           "type": "stat_buff"
+        },
+        {
+          "stat": "damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_perfect_block",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "attack_speed",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_perfect_block",
+          "type": "stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "adamant_perfect_block_damage_boost"
+      ]
     }
   },
   {
@@ -442,7 +645,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 0.97,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "adamant_staggers_reduce_damage_taken"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_damage_after_reloading",
@@ -469,7 +691,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_damage_after_reloading"
+      ]
     }
   },
   {
@@ -497,7 +722,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_multiple_hits_attack_speed"
+      ]
     }
   },
   {
@@ -511,7 +739,14 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "adamant_elite_special_kills_replenish_toughness"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_close_kills_restore_toughness",
@@ -524,7 +759,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_close_kills_restore_toughness"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_staggers_replenish_toughness",
@@ -537,7 +778,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_staggers_replenish_toughness"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_dog_attacks_electrocute",
@@ -550,7 +797,17 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "interval_buff",
+      "max_stacks": 1,
+      "duration": null,
+      "keywords": [
+        "electrocuted"
+      ],
+      "buff_template_names": [
+        "adamant_dog_attacks_electrocute"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_limit_dmg_taken_from_hits",
@@ -580,6 +837,9 @@
       "max_stacks": 1,
       "keywords": [
         "limit_health_damage_taken"
+      ],
+      "buff_template_names": [
+        "adamant_limit_dmg_taken_from_hits"
       ]
     }
   },
@@ -607,7 +867,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_armor"
+      ]
     }
   },
   {
@@ -634,7 +897,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_plasteel_plates"
+      ]
     }
   },
   {
@@ -661,7 +927,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_ammo_belt"
+      ]
     }
   },
   {
@@ -698,7 +967,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_rebreather"
+      ]
     }
   },
   {
@@ -712,7 +984,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_shield_plates"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_cleave_after_push",
@@ -739,7 +1017,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_cleave_after_push"
+      ]
     }
   },
   {
@@ -766,7 +1047,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_melee_attacks_on_staggered_rend"
+      ]
     }
   },
   {
@@ -794,7 +1078,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_heavy_attacks_increase_damage"
+      ]
     }
   },
   {
@@ -822,7 +1109,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_dog_damage_after_ability"
+      ]
     }
   },
   {
@@ -850,7 +1140,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_hitting_multiple_gives_tdr"
+      ]
     }
   },
   {
@@ -864,7 +1157,17 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "interval_buff",
+      "max_stacks": 16,
+      "duration": 1.5,
+      "keywords": [
+        "buff_keywords.bleeding"
+      ],
+      "buff_template_names": [
+        "adamant_dog_pounces_bleed_nearby"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_dog_applies_brittleness",
@@ -877,7 +1180,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "rending_multiplier",
+          "magnitude": 0.025,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 16,
+      "duration": 5,
+      "buff_template_names": [
+        "adamant_dog_applies_brittleness"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_forceful",
@@ -890,7 +1212,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "adamant_forceful"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_forceful_stagger",
@@ -903,7 +1230,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_forceful_stagger"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_terminus_warrant",
@@ -916,7 +1248,15 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "keywords": [
+        "adamant_terminus_warrant"
+      ],
+      "buff_template_names": [
+        "adamant_terminus_warrant"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_execution_order",
@@ -929,7 +1269,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "adamant_execution_order"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_crit_chance_on_kill",
@@ -942,7 +1287,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.02,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "adamant_crit_chance_on_kill"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_crits_rend",
@@ -968,7 +1332,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_crits_rend"
+      ]
     }
   },
   {
@@ -995,7 +1362,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_companion_focus_ranged"
+      ]
     }
   },
   {
@@ -1032,7 +1402,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_companion_focus_elite"
+      ]
     }
   },
   {
@@ -1059,7 +1432,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_damage_vs_suppressed"
+      ]
     }
   },
   {
@@ -1086,7 +1462,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_clip_size"
+      ]
     }
   },
   {
@@ -1100,7 +1479,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.02,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "adamant_stacking_damage"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_staggering_increases_damage_taken",
@@ -1113,7 +1511,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "adamant_staggering_increases_damage_taken"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_staggered_enemies_deal_less_damage",
@@ -1126,7 +1529,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "adamant_staggered_enemies_deal_less_damage"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_melee_weakspot_hits_count_as_stagger",
@@ -1139,7 +1547,16 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "duration": null,
+      "keywords": [
+        "count_as_staggered"
+      ],
+      "buff_template_names": [
+        "adamant_melee_weakspot_hits_count_as_stagger"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_increased_damage_to_high_health",
@@ -1166,7 +1583,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_increased_damage_to_high_health"
+      ]
     }
   },
   {
@@ -1194,7 +1614,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_movement_speed_on_block"
+      ]
     }
   },
   {
@@ -1208,7 +1631,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "adamant_elite_special_kills_reload_speed"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_dodge_grants_damage",
@@ -1235,7 +1663,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_dodge_grants_damage"
+      ]
     }
   },
   {
@@ -1249,7 +1680,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "weakspot_power_level_modifier",
+          "magnitude": 0.02,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "adamant_stacking_weakspot_strength"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_ranged_damage_on_melee_stagger",
@@ -1276,7 +1726,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_ranged_damage_on_melee_stagger"
+      ]
     }
   },
   {
@@ -1313,7 +1766,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_dodge_improvement"
+      ]
     }
   },
   {
@@ -1327,7 +1783,14 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "adamant_stamina_spent_replenish_toughness"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_monster_hunter",
@@ -1353,7 +1816,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "adamant_monster_hunter"
+      ]
     }
   },
   {
@@ -1375,7 +1841,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active_and_unknown",
+          "condition": "active",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -1385,12 +1851,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active_and_unknown",
+          "condition": "active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "adamant_first_melee_hit_increased_damage"
+      ]
     }
   },
   {
@@ -1404,7 +1873,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "adamant_pinning_dog_bonus_moving_towards"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_pinning_dog_elite_damage",
@@ -1417,7 +1891,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "adamant_pinning_dog_elite_damage"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_pinning_dog_kills_buff_allies",
@@ -1430,7 +1909,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "adamant_pinning_dog_kills_buff_allies"
+      ]
+    }
   },
   {
     "id": "arbites.buff.adamant_sprinting_sliding",
@@ -1457,7 +1941,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "adamant_sprinting_sliding"
+      ]
     }
   },
   {
@@ -1471,7 +1958,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "adamant_sprinting_sliding_kills"
+      ]
+    }
   },
   {
     "id": "veteran.buff.reduced_stamina_regen_delay_2",
@@ -1497,7 +1989,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "reduced_stamina_regen_delay_2"
+      ]
     }
   },
   {
@@ -1524,7 +2019,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_low_2"
+      ]
     }
   },
   {
@@ -1551,7 +2049,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_low_5"
+      ]
     }
   },
   {
@@ -1578,7 +2079,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_medium_1"
+      ]
     }
   },
   {
@@ -1605,7 +2109,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_medium_2"
+      ]
     }
   },
   {
@@ -1632,7 +2139,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_medium_4"
+      ]
     }
   },
   {
@@ -1659,7 +2169,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_node_buff_medium_5"
+      ]
     }
   },
   {
@@ -1686,7 +2199,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_damage_reduction_node_buff_low_4"
+      ]
     }
   },
   {
@@ -1713,7 +2229,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_damage_reduction_node_buff_low_5"
+      ]
     }
   },
   {
@@ -1740,7 +2259,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_toughness_damage_reduction_node_buff_medium_1"
+      ]
     }
   },
   {
@@ -1767,7 +2289,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_impact_node_buff_medium_1"
+      ]
     }
   },
   {
@@ -1804,7 +2329,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_cleave_node_buff_medium_1"
+      ]
     }
   },
   {
@@ -1831,7 +2359,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_melee_damage_node_buff_medium_1"
+      ]
     }
   },
   {
@@ -1858,7 +2389,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_melee_damage_node_buff_medium_2"
+      ]
     }
   },
   {
@@ -1885,7 +2419,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_melee_damage_node_buff_medium_4"
+      ]
     }
   },
   {
@@ -1912,7 +2449,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_melee_damage_node_buff_high_1"
+      ]
     }
   },
   {
@@ -1939,7 +2479,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_ranged_damage_node_buff_medium_1"
+      ]
     }
   },
   {
@@ -1966,7 +2509,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_ranged_damage_node_buff_medium_4"
+      ]
     }
   },
   {
@@ -1993,7 +2539,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "base_toxin_power_boost_1"
+      ]
     }
   },
   {
@@ -2020,7 +2569,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_armor_pen_node_buff_low_1"
+      ]
     }
   },
   {
@@ -2047,7 +2599,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_reload_speed_node_buff_low_1"
+      ]
     }
   },
   {
@@ -2074,7 +2629,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_reload_speed_node_buff_medium_1"
+      ]
     }
   },
   {
@@ -2101,7 +2659,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_stamina_node_buff_low_1"
+      ]
     }
   },
   {
@@ -2128,7 +2689,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_stamina_node_buff_low_2"
+      ]
     }
   },
   {
@@ -2155,7 +2719,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_crit_chance_node_buff_low_1"
+      ]
     }
   },
   {
@@ -2182,7 +2749,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_movement_speed_node_buff_low_1"
+      ]
     }
   },
   {
@@ -2209,7 +2779,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_movement_speed_node_buff_low_4"
+      ]
     }
   },
   {
@@ -2236,7 +2809,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "player_warp_charge_node_buff_medium_3"
+      ]
     }
   },
   {
@@ -2250,7 +2826,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "interval_buff",
+      "buff_template_names": [
+        "broker_ability_stimm_field_sub_3"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_first_target_damage",
@@ -2276,7 +2857,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_first_target_damage"
+      ]
     }
   },
   {
@@ -2308,7 +2892,7 @@
           "magnitude_expr": "talent_settings.broker_passive_reduce_swap_time.recoil_modifier",
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -2318,12 +2902,15 @@
           "magnitude_expr": "talent_settings.broker_passive_reduce_swap_time.spread_modifier",
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_reduce_swap_time"
+      ]
     }
   },
   {
@@ -2350,7 +2937,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_increased_ranged_dodges"
+      ]
     }
   },
   {
@@ -2387,7 +2977,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_close_ranged_damage"
+      ]
     }
   },
   {
@@ -2416,7 +3009,10 @@
       ],
       "class_name": "proc_buff",
       "max_stacks": null,
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "broker_passive_ninja_grants_crit_chance"
+      ]
     }
   },
   {
@@ -2453,7 +3049,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_punk_grit"
+      ]
     }
   },
   {
@@ -2467,7 +3066,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_passive_stamina_on_successful_dodge"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_improved_dodges",
@@ -2503,7 +3107,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_improved_dodges"
+      ]
     }
   },
   {
@@ -2517,7 +3124,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_dodge_melee_on_slide"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_restore_toughness_on_close_ranged_kill",
@@ -2530,7 +3142,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_passive_restore_toughness_on_close_ranged_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_restore_toughness_on_weakspot_kill",
@@ -2543,7 +3160,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_passive_restore_toughness_on_weakspot_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_reduced_toughness_damage_during_reload",
@@ -2564,13 +3186,16 @@
           "magnitude_expr": "talent_settings.broker_passive_reduced_toughness_damage_during_reload.toughness_damage_taken_modifier",
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "during_reload",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
       "class_name": "proc_buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "broker_passive_reduced_toughness_damage_during_reload"
+      ]
     }
   },
   {
@@ -2584,7 +3209,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "threat_weight_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_sprinting_reduces_threat.threat_weight_multiplier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "broker_passive_sprinting_reduces_threat"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_reload_speed_on_close_kill",
@@ -2597,7 +3241,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "broker_passive_reload_speed_on_close_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_improved_sprint_dodge",
@@ -2626,6 +3276,9 @@
       "class_name": "buff",
       "keywords": [
         "sprint_dodge_in_overtime"
+      ],
+      "buff_template_names": [
+        "broker_passive_improved_sprint_dodge"
       ]
     }
   },
@@ -2648,12 +3301,15 @@
           "magnitude_expr": "talent_settings.broker_passive_improved_dodges_at_full_stamina.dodge_cooldown_reset_modifier",
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "threshold:stamina_full",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_improved_dodges_at_full_stamina"
+      ]
     }
   },
   {
@@ -2681,7 +3337,10 @@
         }
       ],
       "class_name": "stepped_stat_buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "broker_passive_stamina_grants_atk_speed"
+      ]
     }
   },
   {
@@ -2708,7 +3367,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_increased_weakspot_damage"
+      ]
     }
   },
   {
@@ -2735,7 +3397,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_extended_mag"
+      ]
     }
   },
   {
@@ -2763,7 +3428,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "broker_passive_close_range_damage_on_dodge"
+      ]
     }
   },
   {
@@ -2777,7 +3445,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_passive_ramping_backstabs"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_stun_immunity_on_toughness_broken",
@@ -2790,7 +3463,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "broker_passive_stun_immunity_on_toughness_broken"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_replenish_toughness_on_ranged_toughness_damage",
@@ -2803,7 +3482,29 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_regen_percent",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_replenish_toughness_on_ranged_toughness_damage.toughness / talent_settings.broker_passive_replenish_toughness_on_ranged_toughness_damage.duration",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_damage_taken",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "duration": null,
+      "keywords": [
+        "prevent_toughness_regen_when_depleted"
+      ],
+      "buff_template_names": [
+        "broker_passive_replenish_toughness_on_ranged_toughness_damage"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_stimm_increased_duration",
@@ -2829,7 +3530,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_stimm_increased_duration"
+      ]
     }
   },
   {
@@ -2843,7 +3547,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "broker_passive_stimm_cleanse_on_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_damage_on_reload",
@@ -2856,7 +3566,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_reload",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "broker_passive_damage_on_reload"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_melee_crit_instakill",
@@ -2869,7 +3598,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_passive_melee_crit_instakill"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_dr_damage_tradeoff_on_stamina",
@@ -2905,7 +3639,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_dr_damage_tradeoff_on_stamina"
+      ]
     }
   },
   {
@@ -2942,7 +3679,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_damage_vs_elites_monsters"
+      ]
     }
   },
   {
@@ -2970,7 +3710,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "broker_passive_melee_damage_carry_over"
+      ]
     }
   },
   {
@@ -2984,7 +3727,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "max_melee_hit_mass_attack_modifier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 5,
+      "duration": 5,
+      "buff_template_names": [
+        "broker_passive_melee_cleave_on_melee_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_cleave_on_cleave",
@@ -2997,7 +3759,34 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "max_hit_mass_attack_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_cleave_on_cleave.max_hit_mass_attack_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "max_hit_mass_impact_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_cleave_on_cleave.max_hit_mass_attack_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_passive_cleave_on_cleave"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_increased_blitz_ammo",
@@ -3023,7 +3812,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_increased_blitz_ammo"
+      ]
     }
   },
   {
@@ -3037,7 +3829,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_passive_stimm_cd_on_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_increased_aura_size",
@@ -3063,7 +3860,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_increased_aura_size"
+      ]
     }
   },
   {
@@ -3077,7 +3877,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_damage_vs_heavy_staggered"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_reduced_damage_by_toxined",
@@ -3090,7 +3895,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_passive_reduced_damage_by_toxined"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_damage_after_toxined_enemies",
@@ -3103,7 +3913,25 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_damage_after_toxined_enemies.damage_per_stack",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "threshold:toxined_nearby",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "broker_passive_damage_after_toxined_enemies"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_toughness_on_toxined_kill",
@@ -3116,7 +3944,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "broker_passive_toughness_on_toxined_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_low_ammo_regen",
@@ -3129,7 +3963,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_passive_low_ammo_regen"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_melee_attacks_apply_toxin",
@@ -3142,7 +3981,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_passive_melee_attacks_apply_toxin"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_blitz_inflicts_toxin",
@@ -3155,7 +3999,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_passive_blitz_inflicts_toxin"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_keystone_vultures_mark_on_kill",
@@ -3168,7 +4017,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_keystone_vultures_mark_on_kill"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_keystone_vultures_mark_aoe_stagger",
@@ -3181,7 +4035,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_keystone_vultures_mark_aoe_stagger"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_keystone_vultures_mark_dodge_on_ranged_crit",
@@ -3194,7 +4053,30 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "count_as_dodge_vs_ranged",
+          "magnitude": 0,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "keywords": [
+        "count_as_dodge_vs_melee",
+        "count_as_dodge_vs_ranged"
+      ],
+      "buff_template_names": [
+        "broker_keystone_vultures_mark_dodge_on_ranged_crit"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_keystone_chemical_dependency",
@@ -3207,7 +4089,46 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "combat_ability_cooldown_regen_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_keystone_chemical_dependency.combat_ability_cooldown_regen_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_syringe_used",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_keystone_chemical_dependency.critical_strike_chance",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_syringe_used",
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_keystone_chemical_dependency.toughness_damage_taken_multiplier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_syringe_used",
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "broker_keystone_chemical_dependency"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_keystone_adrenaline_junkie",
@@ -3220,7 +4141,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_keystone_adrenaline_junkie"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_taunt_staggers_reduce_cooldown",
@@ -3233,7 +4159,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_taunt_staggers_reduce_cooldown"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_friend_grenade_replenishment",
@@ -3246,7 +4177,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_friend_grenade_replenishment"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_frag_grenade_thrown",
@@ -3259,7 +4195,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_frag_grenade_thrown"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_leadbelcher_aura_tracking_buff",
@@ -3272,7 +4213,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_leadbelcher_aura_tracking_buff"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_blo_new_passive",
@@ -3285,7 +4231,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.02,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "ogryn_blo_new_passive"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_passive_proc_combat_ability_cooldown_reduction",
@@ -3298,7 +4263,14 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "ogryn_passive_proc_combat_ability_cooldown_reduction"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_passive_heavy_hitter",
@@ -3311,7 +4283,35 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "attack_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "toughness_melee_replenish",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings_shared.ogryn_heavy_hitter.toughness_melee_replenish * heavy_hitter_max_stacks",
+          "magnitude_min": 0,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "ogryn_passive_heavy_hitter"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_suppression_increase",
@@ -3337,7 +4337,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_suppression_increase"
+      ]
     }
   },
   {
@@ -3365,7 +4368,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "ogryn_movement_speed_on_ranged_kill"
+      ]
     }
   },
   {
@@ -3379,7 +4385,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_regen_toughness_on_braced"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_increased_coherency_regen",
@@ -3405,7 +4416,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_increased_coherency_regen"
+      ]
     }
   },
   {
@@ -3419,7 +4433,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_heavy_hits_toughness"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_multiple_enemy_heavy_hits_restore_toughness",
@@ -3432,7 +4451,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_multiple_enemy_heavy_hits_restore_toughness"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_reduce_damage_taken_per_bleed",
@@ -3445,7 +4469,24 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings_2.defensive_1.min",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_reduce_damage_taken_per_bleed"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_reduce_damage_taken_on_disabled_allies",
@@ -3458,7 +4499,24 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings_2.defensive_2.min",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "lerped_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_reduce_damage_taken_on_disabled_allies"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_increased_toughness_at_low_health",
@@ -3479,12 +4537,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "threshold:health",
+          "condition": "threshold:health_low",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_increased_toughness_at_low_health"
+      ]
     }
   },
   {
@@ -3506,12 +4567,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "during_windup",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_windup_reduces_damage_taken"
+      ]
     }
   },
   {
@@ -3533,12 +4597,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "during_windup",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_windup_is_uninterruptible"
+      ]
     }
   },
   {
@@ -3560,12 +4627,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_bracing_reduces_damage_taken"
+      ]
     }
   },
   {
@@ -3579,7 +4649,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.02,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "ogryn_crit_chance_on_kill"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_blocking_ranged_taunts",
@@ -3592,7 +4681,16 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "duration": 8,
+      "keywords": [
+        "buff_keywords.taunted"
+      ],
+      "buff_template_names": [
+        "ogryn_blocking_ranged_taunts"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_increased_reload_speed_on_multiple_hits",
@@ -3605,7 +4703,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_increased_reload_speed_on_multiple_hits"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_increased_damage_after_reload",
@@ -3632,7 +4735,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "ogryn_increased_damage_after_reload"
+      ]
     }
   },
   {
@@ -3659,7 +4765,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_passive_stagger"
+      ]
     }
   },
   {
@@ -3686,7 +4795,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_increased_ammo_reserve_passive"
+      ]
     }
   },
   {
@@ -3743,7 +4855,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_better_ogryn_fighting"
+      ]
     }
   },
   {
@@ -3757,7 +4872,17 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "interval_buff",
+      "max_stacks": 16,
+      "duration": 1.5,
+      "keywords": [
+        "buff_keywords.bleeding"
+      ],
+      "buff_template_names": [
+        "ogryn_heavy_attacks_bleed"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_melee_revenge_damage",
@@ -3770,7 +4895,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_player_hit_received",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "ogryn_melee_revenge_damage"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_staggering_increases_damage_taken",
@@ -3783,7 +4927,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_staggering_increases_damage_taken"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_hitting_multiple_with_melee_grants_melee_damage_bonus",
@@ -3809,7 +4958,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_hitting_multiple_with_melee_grants_melee_damage_bonus"
+      ]
     }
   },
   {
@@ -3837,7 +4989,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": 10
+      "active_duration": 10,
+      "buff_template_names": [
+        "ogryn_rending_on_elite_kills"
+      ]
     }
   },
   {
@@ -3864,7 +5019,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_bigger_coherency_radius"
+      ]
     }
   },
   {
@@ -3878,7 +5036,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_charge_grants_allied_movement_speed"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_cooldown_on_elite_kills_by_coherence",
@@ -3891,7 +5054,14 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "ogryn_cooldown_on_elite_kills_by_coherence"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_charge_bleed",
@@ -3904,7 +5074,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_charge_bleed"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_bull_rush_hits_replenish_toughness",
@@ -3917,7 +5092,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_bull_rush_hits_replenish_toughness"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_charge_trample",
@@ -3930,7 +5110,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.025,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 20,
+      "duration": 10,
+      "buff_template_names": [
+        "ogryn_charge_trample"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_carapace_armor_parent",
@@ -3943,7 +5142,45 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_replenish_modifier",
+          "magnitude": 0.03,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_player_hit_received",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.97,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_player_hit_received",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "toughness_replenish_modifier",
+          "magnitude": 0.025,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "special_rule:ogryn_carapace_armor_more_toughness",
+          "trigger": "on_player_hit_received",
+          "type": "conditional_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 10,
+      "buff_template_names": [
+        "ogryn_carapace_armor_parent"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_targets_recieve_damage_taken_increase_debuff",
@@ -3956,7 +5193,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_modifier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": 5,
+      "buff_template_names": [
+        "ogryn_targets_recieve_damage_taken_increase_debuff"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_increase_explosion_radius",
@@ -3983,7 +5239,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "ogryn_increase_explosion_radius"
+      ]
     }
   },
   {
@@ -4005,13 +5264,16 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active_and_unknown",
+          "condition": "active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
       "class_name": "proc_buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "ogryn_empowered_push"
+      ]
     }
   },
   {
@@ -4025,7 +5287,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "ogryn_windup_increases_power_parent"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_replenish_rock_on_miss",
@@ -4038,7 +5306,24 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "grenade_charge_restored",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_player_projectile_finished",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_replenish_rock_on_miss"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_melee_attacks_give_mtdr",
@@ -4051,7 +5336,25 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage_taken_multiplier",
+          "magnitude": 0.96,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_sweep_finish",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": null,
+      "buff_template_names": [
+        "ogryn_melee_attacks_give_mtdr"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_damage_reduction_after_elite_kill",
@@ -4078,7 +5381,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "ogryn_damage_reduction_after_elite_kill"
+      ]
     }
   },
   {
@@ -4092,7 +5398,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_attack_speed",
+          "magnitude": 0.025,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_sweep_finish",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "ogryn_stacking_attack_speed"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_explosions_burn",
@@ -4105,7 +5430,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "ogryn_explosions_burn"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_damage_reduction_on_high_stamina",
@@ -4126,12 +5457,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "threshold:stamina_high",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_damage_reduction_on_high_stamina"
+      ]
     }
   },
   {
@@ -4159,7 +5493,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "ogryn_melee_damage_after_heavy"
+      ]
     }
   },
   {
@@ -4187,7 +5524,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "ogryn_protect_allies"
+      ]
     }
   },
   {
@@ -4225,7 +5565,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "ogryn_protect_allies_toughness_broken"
+      ]
     }
   },
   {
@@ -4252,7 +5595,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_corruption_resistance"
+      ]
     }
   },
   {
@@ -4274,12 +5620,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_reload_speed_on_empty"
+      ]
     }
   },
   {
@@ -4307,7 +5656,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "ogryn_ranged_damage_immunity"
+      ]
     }
   },
   {
@@ -4321,7 +5673,11 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "ogryn_heavy_hitter_tdr"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_heavy_hitter_cleave",
@@ -4348,7 +5704,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "ogryn_heavy_hitter_cleave"
+      ]
     }
   },
   {
@@ -4376,7 +5735,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "ogryn_heavy_hitter_stagger"
+      ]
     }
   },
   {
@@ -4390,7 +5752,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "ogryn_blo_melee"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_pushing_applies_brittleness",
@@ -4403,7 +5770,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "rending_multiplier",
+          "magnitude": 0.025,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_push_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 16,
+      "duration": 5,
+      "buff_template_names": [
+        "ogryn_pushing_applies_brittleness"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_block_all_attacks_perfect",
@@ -4416,7 +5802,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_perfect_block",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "ogryn_block_all_attacks_perfect"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_taunt_restore_toughness",
@@ -4429,7 +5834,14 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "ogryn_taunt_restore_toughness"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_wield_speed_increase",
@@ -4446,7 +5858,7 @@
       "effects": [
         {
           "stat": "wield_speed",
-          "magnitude": 0.2,
+          "magnitude": 0.35,
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
@@ -4455,7 +5867,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_wield_speed_increase"
+      ]
     }
   },
   {
@@ -4469,7 +5884,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.03,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "ogryn_melee_improves_ranged"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_ranged_improves_melee",
@@ -4506,7 +5940,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "ogryn_ranged_improves_melee"
+      ]
     }
   },
   {
@@ -4528,7 +5965,7 @@
           "magnitude_expr": "talent_settings_shared.ogryn_drain_stamina_for_handling.critical_strike_chance",
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -4538,7 +5975,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -4548,7 +5985,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -4558,12 +5995,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_drain_stamina_for_handling"
+      ]
     }
   },
   {
@@ -4590,7 +6030,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_weakspot_damage"
+      ]
     }
   },
   {
@@ -4617,7 +6060,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_big_box_of_hurt_more_bombs"
+      ]
     }
   },
   {
@@ -4645,7 +6091,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "ogryn_blo_fire_rate"
+      ]
     }
   },
   {
@@ -4659,7 +6108,36 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "power_level_modifier",
+          "magnitude": 0.02,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_damage_taken",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.85,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_damage_taken",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "ogryn_damage_taken_by_all_increases_strength_tdr"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_blo_ally_ranged_buffs",
@@ -4672,7 +6150,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_ammo_consumed",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "ogryn_blo_ally_ranged_buffs"
+      ]
+    }
   },
   {
     "id": "ogryn.buff.ogryn_crit_damage_increase",
@@ -4698,7 +6195,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "ogryn_crit_damage_increase"
+      ]
     }
   },
   {
@@ -4720,12 +6220,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active_and_unknown",
+          "condition": "active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_overcharge_reduced_toughness_damage_taken"
+      ]
     }
   },
   {
@@ -4739,7 +6242,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_knife_replenishment"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_kills_during_smite_tracking",
@@ -4752,7 +6260,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_kills_during_smite_tracking"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_increased_chain_lightning_size",
@@ -4798,7 +6311,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_increased_chain_lightning_size"
+      ]
     }
   },
   {
@@ -4825,7 +6341,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_brain_burst_improved"
+      ]
     }
   },
   {
@@ -4839,7 +6358,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_shout_reduces_warp_generation"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_souls_increase_damage",
@@ -4865,7 +6389,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_souls_increase_damage"
+      ]
     }
   },
   {
@@ -4887,12 +6414,15 @@
           "magnitude_expr": "talent_settings_2.defensive_2.toughness_replenish_modifier",
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "threshold:warp_charge",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "psyker_passive_buff"
+      "class_name": "psyker_passive_buff",
+      "buff_template_names": [
+        "psyker_passive_souls_from_elite_kills"
+      ]
     }
   },
   {
@@ -4919,7 +6449,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_chance_to_vent_on_kill"
+      ]
     }
   },
   {
@@ -4941,7 +6474,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active_and_unknown",
+          "condition": "active",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -4951,12 +6484,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active_and_unknown",
+          "condition": "active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_overcharge_reduced_warp_charge"
+      ]
     }
   },
   {
@@ -4978,12 +6514,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active_and_unknown",
+          "condition": "active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_overcharge_increased_movement_speed"
+      ]
     }
   },
   {
@@ -4997,7 +6536,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_empowered_grenades_passive"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_throwing_knives_piercing",
@@ -5033,7 +6577,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_throwing_knives_piercing"
+      ]
     }
   },
   {
@@ -5060,7 +6607,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_reduced_throwing_knife_cooldown"
+      ]
     }
   },
   {
@@ -5074,7 +6624,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "psyker_toughness_on_warp_kill"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_toughness_on_vent",
@@ -5087,7 +6643,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "psyker_toughness_on_vent"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_toughness_on_warp_generation",
@@ -5100,7 +6662,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "psyker_toughness_on_warp_generation"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_toughness_on_melee",
@@ -5113,7 +6681,14 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "psyker_toughness_on_melee"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_increased_vent_speed",
@@ -5139,7 +6714,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_increased_vent_speed"
+      ]
     }
   },
   {
@@ -5153,7 +6731,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": null,
+      "buff_template_names": [
+        "psyker_guaranteed_crit_on_multiple_weakspot_hits"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_kills_stack_other_weapon_damage",
@@ -5166,7 +6750,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_kills_stack_other_weapon_damage"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_crits_empower_warp",
@@ -5179,7 +6768,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_crits_empower_warp"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_warp_charge_increase_force_weapon_damage",
@@ -5205,7 +6799,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_warp_charge_increase_force_weapon_damage"
+      ]
     }
   },
   {
@@ -5232,7 +6829,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_reduced_warp_charge_cost_and_venting_speed"
+      ]
     }
   },
   {
@@ -5246,7 +6846,18 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "interval_buff",
+      "max_stacks": 31,
+      "duration": 8,
+      "keywords": [
+        "buff_keywords.burning",
+        "buff_keywords.warpfire_burning"
+      ],
+      "buff_template_names": [
+        "psyker_elite_kills_add_warpfire"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_shield_stun_passive",
@@ -5259,7 +6870,17 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "interval_buff",
+      "max_stacks": 1,
+      "duration": null,
+      "keywords": [
+        "electrocuted"
+      ],
+      "buff_template_names": [
+        "psyker_shield_stun_passive"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_coherency_aura_size_increase",
@@ -5285,7 +6906,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_coherency_aura_size_increase"
+      ]
     }
   },
   {
@@ -5299,7 +6923,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "psyker_aura_souls_on_kill"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_aura_cooldown_reduction_on_elite_kill",
@@ -5312,7 +6942,14 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "psyker_aura_cooldown_reduction_on_elite_kill"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_dodge_after_crits",
@@ -5325,7 +6962,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "active_duration": 1,
+      "buff_template_names": [
+        "psyker_dodge_after_crits"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_crits_regen_toughness_movement_speed",
@@ -5338,7 +6981,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_crits_regen_toughness_movement_speed"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_improved_dodge",
@@ -5374,7 +7022,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_improved_dodge"
+      ]
     }
   },
   {
@@ -5401,7 +7052,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_block_costs_warp_charge"
+      ]
     }
   },
   {
@@ -5428,7 +7082,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_warp_charge_reduces_toughness_damage_taken"
+      ]
     }
   },
   {
@@ -5465,7 +7122,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_venting_improvements"
+      ]
     }
   },
   {
@@ -5479,7 +7139,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_smite_on_hit"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_empowered_grenades_passive_improved",
@@ -5492,7 +7157,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_empowered_grenades_passive_improved"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_shout_applies_warpfire",
@@ -5505,7 +7175,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_shout_applies_warpfire"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_soul_on_warpfire_kill",
@@ -5518,7 +7193,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_soul_on_warpfire_kill"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_ability_increase_brain_burst_speed",
@@ -5531,7 +7211,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_ability_increase_brain_burst_speed"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_combat_ability_extra_charge",
@@ -5558,7 +7243,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "psyker_combat_ability_extra_charge"
+      ]
     }
   },
   {
@@ -5572,7 +7260,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_marked_enemies_passive"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_melee_attack_speed",
@@ -5596,19 +7289,12 @@
           "condition": null,
           "trigger": null,
           "type": "stat_buff"
-        },
-        {
-          "stat": "ranged_attack_speed",
-          "magnitude": 0.1,
-          "magnitude_expr": null,
-          "magnitude_min": null,
-          "magnitude_max": null,
-          "condition": null,
-          "trigger": null,
-          "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_melee_attack_speed"
+      ]
     }
   },
   {
@@ -5635,7 +7321,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_cleave_from_peril"
+      ]
     }
   },
   {
@@ -5663,7 +7352,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "psyker_melee_weaving"
+      ]
     }
   },
   {
@@ -5677,7 +7369,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_killing_enemy_with_warpfire_boosts"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_warp_attacks_rending",
@@ -5703,7 +7400,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_warp_attacks_rending"
+      ]
     }
   },
   {
@@ -5740,7 +7440,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_warp_glass_cannon"
+      ]
     }
   },
   {
@@ -5754,7 +7457,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_ranged_crits_vent"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_reload_speed_warp",
@@ -5780,7 +7488,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_reload_speed_warp"
+      ]
     }
   },
   {
@@ -5794,7 +7505,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_chain_lightning_heavy_attacks"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_force_staff_quick_attack_bonus",
@@ -5807,7 +7523,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "warp_damage_taken_multiplier",
+          "magnitude": 1.06,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 5,
+      "duration": 10,
+      "buff_template_names": [
+        "psyker_force_staff_quick_attack_bonus"
+      ]
+    }
   },
   {
     "id": "psyker.buff.psyker_damage_to_peril_conversion",
@@ -5833,7 +7568,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_damage_to_peril_conversion"
+      ]
     }
   },
   {
@@ -5860,7 +7598,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_damage_resistance_stun_immunity"
+      ]
     }
   },
   {
@@ -5907,7 +7648,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_stat_mix"
+      ]
     }
   },
   {
@@ -5934,7 +7678,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "psyker_damage_vs_ogryns_and_monsters"
+      ]
     }
   },
   {
@@ -5981,7 +7728,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "psyker_alternative_peril_explosion"
+      ]
     }
   },
   {
@@ -5995,7 +7745,36 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "force_staff_single_target_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_action_finish",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "force_staff_secondary_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_action_finish",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "psyker_force_staff_bonus"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_extra_grenade",
@@ -6021,7 +7800,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_extra_grenade"
+      ]
     }
   },
   {
@@ -6048,7 +7830,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_extra_grenade_throw_chance"
+      ]
     }
   },
   {
@@ -6105,7 +7890,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_improved_grenades"
+      ]
     }
   },
   {
@@ -6127,7 +7915,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -6137,7 +7925,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -6147,7 +7935,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -6157,12 +7945,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "ads_with_stamina",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "veteran_ads_stamina_boost"
+      ]
     }
   },
   {
@@ -6184,7 +7975,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active_and_unknown",
+          "condition": "active",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -6194,7 +7985,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active_and_unknown",
+          "condition": "active",
           "trigger": null,
           "type": "conditional_stat_buff"
         },
@@ -6204,12 +7995,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active_and_unknown",
+          "condition": "active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_combat_ability_increased_ranged_and_weakspot_damage_outlines"
+      ]
     }
   },
   {
@@ -6223,7 +8017,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_combat_ability_increased_damage_vs_ogryn_and_monsters"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_combat_ability_revive_nearby_allies",
@@ -6260,7 +8059,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_combat_ability_revive_nearby_allies"
+      ]
     }
   },
   {
@@ -6298,7 +8100,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_combat_ability_extra_charge"
+      ]
     }
   },
   {
@@ -6312,7 +8117,14 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "veteran_combat_ability_cooldown_reduction_on_elite_kills"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_allies_kills_chance_to_trigger_increased_damage",
@@ -6325,7 +8137,46 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "suppression_dealt",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_minion_death",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_minion_death",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_impact_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_minion_death",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "veteran_allies_kills_chance_to_trigger_increased_damage"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_increase_ranged_far_damage",
@@ -6361,7 +8212,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_increase_ranged_far_damage"
+      ]
     }
   },
   {
@@ -6389,7 +8243,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_increase_suppression"
+      ]
     }
   },
   {
@@ -6417,7 +8274,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_increase_elite_damage"
+      ]
     }
   },
   {
@@ -6431,7 +8291,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.0625,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 4,
+      "duration": 10,
+      "buff_template_names": [
+        "veteran_damage_after_sprinting"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_reload_speed_on_elite_kill",
@@ -6444,7 +8323,25 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "reload_speed",
+          "magnitude": 0.3,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_reload_speed_on_elite_kill"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_increased_weakspot_damage",
@@ -6470,7 +8367,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_increased_weakspot_damage"
+      ]
     }
   },
   {
@@ -6484,7 +8384,17 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "interval_buff",
+      "max_stacks": 16,
+      "duration": 1.5,
+      "keywords": [
+        "buff_keywords.bleeding"
+      ],
+      "buff_template_names": [
+        "veteran_frag_grenade_bleed"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_big_game_hunter",
@@ -6510,7 +8420,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_big_game_hunter"
+      ]
     }
   },
   {
@@ -6538,7 +8451,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": 6
+      "active_duration": 6,
+      "buff_template_names": [
+        "veteran_melee_crits_increase_damage"
+      ]
     }
   },
   {
@@ -6552,7 +8468,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "veteran_consecutive_hits_apply_rending"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_dodging_grants_crit",
@@ -6565,7 +8486,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_successful_dodge",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 5,
+      "duration": 8,
+      "buff_template_names": [
+        "veteran_dodging_grants_crit"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_buffs_after_combat_ability",
@@ -6578,7 +8518,46 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "threat_weight_multiplier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_near",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "weakspot_power_level_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "veteran_stealth_bonuses_buff",
+      "max_stacks": 1,
+      "duration": 10,
+      "buff_template_names": [
+        "veteran_buffs_after_combat_ability"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_toughness_damage_reduction_per_ally_in_coherency",
@@ -6604,7 +8583,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_toughness_damage_reduction_per_ally_in_coherency"
+      ]
     }
   },
   {
@@ -6618,7 +8600,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "veteran_all_kills_replenish_bonus_toughness"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_toughness_on_elite_kill",
@@ -6631,7 +8618,14 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "veteran_toughness_on_elite_kill"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_ranged_power_out_of_melee",
@@ -6657,7 +8651,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "veteran_ranged_power_out_of_melee"
+      ]
     }
   },
   {
@@ -6685,7 +8682,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_bonus_crit_chance_on_ammo"
+      ]
     }
   },
   {
@@ -6699,7 +8699,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_no_ammo_consumption_on_lasweapon_crit"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_movement_bonuses_on_toughness_broken",
@@ -6712,7 +8717,16 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "active_duration": 6,
+      "keywords": [
+        "stun_immune_toughness_broken"
+      ],
+      "buff_template_names": [
+        "veteran_movement_bonuses_on_toughness_broken"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_increased_move_speed_when_moving_towards_disabled_allies",
@@ -6725,7 +8739,56 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "revive_speed_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "assist_speed_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        },
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": "ally_requires_help_ahead",
+          "trigger": null,
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 0.67,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_revive",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "veteran_increased_move_speed_when_moving_towards_disabled_allies"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_stamina_on_ranged_dodges",
@@ -6738,7 +8801,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "veteran_stamina_on_ranged_dodges"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_hits_cause_bleed",
@@ -6751,7 +8819,17 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "interval_buff",
+      "max_stacks": 16,
+      "duration": 1.5,
+      "keywords": [
+        "buff_keywords.bleeding"
+      ],
+      "buff_template_names": [
+        "veteran_hits_cause_bleed"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_melee_kills_grant_range_damage",
@@ -6778,7 +8856,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": 6
+      "active_duration": 6,
+      "buff_template_names": [
+        "veteran_melee_kills_grant_range_damage"
+      ]
     }
   },
   {
@@ -6806,7 +8887,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": 6
+      "active_duration": 6,
+      "buff_template_names": [
+        "veteran_ranged_kills_grant_melee_damage"
+      ]
     }
   },
   {
@@ -6833,7 +8917,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_reduce_swap_time"
+      ]
     }
   },
   {
@@ -6870,7 +8957,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_increased_melee_crit_chance_and_melee_finesse"
+      ]
     }
   },
   {
@@ -6884,7 +8974,16 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "keywords": [
+        "improved_medical_crate",
+        "improved_ammo_pickups"
+      ],
+      "buff_template_names": [
+        "veteran_better_deployables"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_grenade_replenishment",
@@ -6897,7 +8996,24 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "grenade_charge_restored",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_grenade_replenishment"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_invisibility_on_combat_ability",
@@ -6910,7 +9026,79 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.25,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage",
+          "magnitude": 0.3,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_shoot",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_shoot",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "threat_weight_multiplier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_shoot",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_near",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_shoot",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "weakspot_power_level_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_shoot",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "veteran_stealth_bonuses_buff",
+      "max_stacks": 1,
+      "duration": 10,
+      "keywords": [
+        "invisible"
+      ],
+      "buff_template_names": [
+        "veteran_invisibility_on_combat_ability"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_aura_gain_grenade_on_elite_kill",
@@ -6923,7 +9111,25 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "grenade_charge_restored",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_minion_death",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_aura_gain_grenade_on_elite_kill"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_tdr_on_high_toughness",
@@ -6944,12 +9150,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "threshold:toughness_high",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_tdr_on_high_toughness"
+      ]
     }
   },
   {
@@ -6963,7 +9172,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "veteran_replenish_toughness_of_ally_close_to_victim"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_ranged_weakspot_toughness_recovery",
@@ -6976,7 +9204,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.9,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "veteran_ranged_weakspot_toughness_recovery"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_share_toughness_gained",
@@ -6989,7 +9236,24 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "coherency_radius_modifier",
+          "magnitude": 0.5,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "veteran_share_toughness_gained"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_reload_speed_on_non_empty_clip",
@@ -7010,12 +9274,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_reload_speed_on_non_empty_clip"
+      ]
     }
   },
   {
@@ -7029,7 +9296,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "veteran_toughness_regen_out_of_melee"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_rending_bonus",
@@ -7055,7 +9327,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_rending_bonus"
+      ]
     }
   },
   {
@@ -7082,7 +9357,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_ammo_increase"
+      ]
     }
   },
   {
@@ -7109,7 +9387,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_attack_speed"
+      ]
     }
   },
   {
@@ -7123,7 +9404,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "veteran_snipers_focus"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_weapon_switch_passive_buff",
@@ -7136,7 +9422,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "veteran_weapon_switch_passive_buff"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_improved_tag",
@@ -7149,7 +9440,16 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "keywords": [
+        "veteran_tag"
+      ],
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_improved_tag"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_clip_size",
@@ -7175,7 +9475,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_clip_size"
+      ]
     }
   },
   {
@@ -7205,6 +9508,9 @@
       "class_name": "buff",
       "keywords": [
         "allow_flanking"
+      ],
+      "buff_template_names": [
+        "veteran_flanking_damage"
       ]
     }
   },
@@ -7232,7 +9538,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_improved_stun_grenade"
+      ]
     }
   },
   {
@@ -7246,7 +9555,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_flame_grenade_thrown"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_passive_replenish_throwing_knives_from_melee_kills",
@@ -7259,7 +9573,24 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "grenade_charge_restored",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_passive_replenish_throwing_knives_from_melee_kills"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_combat_ability_crits_reduce_cooldown",
@@ -7272,7 +9603,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_combat_ability_crits_reduce_cooldown"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_cooldown_based_on_health",
@@ -7285,7 +9621,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "zealot_cooldown_based_on_health"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_improved_toughness_on_aura_tracking_buff",
@@ -7298,7 +9640,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_improved_toughness_on_aura_tracking_buff"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_martyrdom_base",
@@ -7324,7 +9671,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "zealot_passive_buff"
+      "class_name": "zealot_passive_buff",
+      "buff_template_names": [
+        "zealot_martyrdom_base"
+      ]
     }
   },
   {
@@ -7338,7 +9688,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "max_stacks": null,
+      "buff_template_names": [
+        "zealot_quickness_passive"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_fanatic_rage",
@@ -7359,12 +9715,15 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "unknown_condition",
+          "condition": "resource_full",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_fanatic_rage"
+      ]
     }
   },
   {
@@ -7391,7 +9750,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_pious_stabguy_increased_weaskpot_impact"
+      ]
     }
   },
   {
@@ -7418,7 +9780,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_more_power_when_low_on_stamina"
+      ]
     }
   },
   {
@@ -7432,7 +9797,14 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "zealot_combat_ability_weakspot_backstab_hit_cooldown"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_critstrike_damage_on_dodge",
@@ -7459,7 +9831,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": 3
+      "active_duration": 3,
+      "buff_template_names": [
+        "zealot_critstrike_damage_on_dodge"
+      ]
     }
   },
   {
@@ -7500,6 +9875,9 @@
       "keywords": [
         "allow_backstabbing",
         "allow_flanking"
+      ],
+      "buff_template_names": [
+        "zealot_backstab_damage"
       ]
     }
   },
@@ -7540,6 +9918,9 @@
       "class_name": "buff",
       "keywords": [
         "zealot_toughness"
+      ],
+      "buff_template_names": [
+        "zealot_preacher_damage_vs_disgusting"
       ]
     }
   },
@@ -7567,7 +9948,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_preacher_melee_increase_next_melee_proc"
+      ]
     }
   },
   {
@@ -7594,7 +9978,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_increased_melee_attack_speed"
+      ]
     }
   },
   {
@@ -7608,7 +9995,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_critical_strike_chance",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 3,
+      "duration": null,
+      "buff_template_names": [
+        "zealot_bleeding_crits"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_multi_hits_increase_impact",
@@ -7621,7 +10027,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "impact_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_sweep_finish",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "zealot_multi_hits_increase_impact"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_martyrdom_attack_speed",
@@ -7648,7 +10073,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "zealot_martyrdom_attack_speed"
+      ]
     }
   },
   {
@@ -7687,7 +10115,10 @@
       ],
       "class_name": "proc_buff",
       "max_stacks": 1,
-      "active_duration": 3
+      "active_duration": 3,
+      "buff_template_names": [
+        "zealot_improved_weapon_handling_after_dodge"
+      ]
     }
   },
   {
@@ -7714,7 +10145,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_close_ranged_damage"
+      ]
     }
   },
   {
@@ -7728,7 +10162,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 0.04,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "zealot_stacking_melee_damage"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_elite_kills_empowers",
@@ -7741,7 +10194,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "zealot_elite_kills_empowers"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_uninterruptible_no_slow_heavies",
@@ -7767,7 +10239,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_uninterruptible_no_slow_heavies"
+      ]
     }
   },
   {
@@ -7794,7 +10269,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_damage_vs_elites"
+      ]
     }
   },
   {
@@ -7808,7 +10286,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 0.85,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "zealot_weakspot_damage_reduction"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_stacking_melee_damage_after_dodge",
@@ -7821,7 +10318,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_successful_dodge",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "zealot_stacking_melee_damage_after_dodge"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_bled_enemies_take_more_damage",
@@ -7834,7 +10350,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 1.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_buff_added",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "zealot_bled_enemies_take_more_damage"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_damage_vs_nonthreat",
@@ -7860,7 +10395,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_damage_vs_nonthreat"
+      ]
     }
   },
   {
@@ -7885,9 +10423,34 @@
           "condition": null,
           "trigger": null,
           "type": "stat_buff"
+        },
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_revive",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.85,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_revive",
+          "type": "stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null,
+      "buff_template_names": [
+        "zealot_revive_speed"
+      ]
     }
   },
   {
@@ -7901,7 +10464,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "zealot_melee_crits_restore_stamina"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_stamina_on_block_break",
@@ -7914,7 +10483,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "zealot_stamina_on_block_break"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_martyrdom_toughness_modifier",
@@ -7941,7 +10516,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "zealot_martyrdom_toughness_modifier"
+      ]
     }
   },
   {
@@ -7978,7 +10556,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "proc_buff"
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "zealot_sprint_improvements"
+      ]
     }
   },
   {
@@ -8006,7 +10588,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": null
+      "active_duration": null,
+      "buff_template_names": [
+        "zealot_push_attacks_attack_speed"
+      ]
     }
   },
   {
@@ -8020,7 +10605,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_stealth_cooldown_regeneration"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_suppress_on_backstab_kill",
@@ -8033,7 +10623,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_suppress_on_backstab_kill"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_block_dodging_synergy",
@@ -8046,7 +10641,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "zealot_block_dodging_synergy"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_reload_from_backstab",
@@ -8059,7 +10660,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": null,
+      "buff_template_names": [
+        "zealot_reload_from_backstab"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_corruption_resistance_stacking",
@@ -8085,7 +10692,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_corruption_resistance_stacking"
+      ]
     }
   },
   {
@@ -8122,7 +10732,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_offensive_vs_many"
+      ]
     }
   },
   {
@@ -8144,7 +10757,7 @@
           "magnitude_expr": null,
           "magnitude_min": null,
           "magnitude_max": null,
-          "condition": "active_and_unknown",
+          "condition": "active",
           "trigger": null,
           "type": "conditional_stat_buff"
         }
@@ -8152,6 +10765,9 @@
       "class_name": "proc_buff",
       "keywords": [
         "allow_backstabbing"
+      ],
+      "buff_template_names": [
+        "zealot_backstab_periodic_damage"
       ]
     }
   },
@@ -8180,7 +10796,10 @@
         }
       ],
       "class_name": "proc_buff",
-      "active_duration": 2.5
+      "active_duration": 2.5,
+      "buff_template_names": [
+        "zealot_damage_reduction_after_dodge"
+      ]
     }
   },
   {
@@ -8208,7 +10827,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "zealot_preacher_more_segments"
+      ]
     }
   },
   {
@@ -8222,7 +10844,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "zealot_resist_death"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_increased_toughness_recovery_from_kills",
@@ -8248,7 +10876,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_increased_toughness_recovery_from_kills"
+      ]
     }
   },
   {
@@ -8262,7 +10893,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_toughness_on_heavy_kills"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_toughness_on_dodge",
@@ -8275,7 +10911,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_toughness_on_dodge"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_toughness_on_ranged_kill",
@@ -8288,7 +10929,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_toughness_on_ranged_kill"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_reduced_toughness_damage_taken_on_critical_strike_hits",
@@ -8301,7 +10947,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.6,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "buff_template_names": [
+        "zealot_reduced_toughness_damage_taken_on_critical_strike_hits"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_toughness_regen_in_melee",
@@ -8314,7 +10979,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "buff",
+      "buff_template_names": [
+        "zealot_toughness_regen_in_melee"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_resist_death_improved_with_leech",
@@ -8327,7 +10997,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "zealot_resist_death_improved_with_leech"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_movement_enhanced",
@@ -8358,6 +11034,9 @@
       "keywords": [
         "slowdown_immune",
         "stun_immune"
+      ],
+      "buff_template_names": [
+        "zealot_movement_enhanced"
       ]
     }
   },
@@ -8372,7 +11051,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "active_duration": null,
+      "buff_template_names": [
+        "zealot_recuperate_a_portion_of_damage_taken"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_preacher_push_on_hit",
@@ -8385,7 +11070,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "zealot_preacher_push_on_hit"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_preacher_segment_breaking_half_damage",
@@ -8415,6 +11105,9 @@
       "max_stacks": 1,
       "keywords": [
         "health_segment_breaking_reduce_damage_taken"
+      ],
+      "buff_template_names": [
+        "zealot_preacher_segment_breaking_half_damage"
       ]
     }
   },
@@ -8443,7 +11136,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "zealot_martyrdom_toughness"
+      ]
     }
   },
   {
@@ -8457,7 +11153,25 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 0.4,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_damage_taken",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "duration": null,
+      "buff_template_names": [
+        "zealot_preacher_ally_defensive"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_longer_dodges",
@@ -8483,7 +11197,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_longer_dodges"
+      ]
     }
   },
   {
@@ -8497,7 +11214,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "buff_template_names": [
+        "broker_passive_toxin_spread_on_kills"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_toxin_infected_enemies_take_increased_damage",
@@ -8510,7 +11232,26 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_modifier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_buff_added",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": 5,
+      "buff_template_names": [
+        "broker_passive_toxin_infected_enemies_take_increased_damage"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_knockback_on_taking_melee_damage",
@@ -8523,7 +11264,25 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_player_hit_received",
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "duration": 3,
+      "buff_template_names": [
+        "broker_passive_knockback_on_taking_melee_damage"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_passive_crit_grants_damage",
@@ -8549,7 +11308,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "broker_passive_crit_grants_damage"
+      ]
     }
   },
   {
@@ -8563,7 +11325,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "interval_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "broker_passive_replenish_toughness_while_toxined_enemies_in_proximity"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_increased_ranged_cleave",
@@ -8589,7 +11357,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff"
+      "class_name": "buff",
+      "buff_template_names": [
+        "veteran_increased_ranged_cleave"
+      ]
     }
   },
   {
@@ -8617,7 +11388,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_reload_speed_aura"
+      ]
     }
   },
   {
@@ -8645,7 +11419,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_damage_vs_staggered_aura"
+      ]
     }
   },
   {
@@ -8673,7 +11450,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "adamant_companion_aura"
+      ]
     }
   },
   {
@@ -8687,7 +11467,13 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "broker_aura_gunslinger_improved"
+      ]
+    }
   },
   {
     "id": "hive_scum.buff.broker_coherency_melee_damage",
@@ -8714,7 +11500,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": null
+      "max_stacks": null,
+      "buff_template_names": [
+        "broker_coherency_melee_damage"
+      ]
     }
   },
   {
@@ -8742,7 +11531,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": null
+      "max_stacks": null,
+      "buff_template_names": [
+        "broker_coherency_critical_chance"
+      ]
     }
   },
   {
@@ -8770,7 +11562,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": null
+      "max_stacks": null,
+      "buff_template_names": [
+        "ogryn_melee_damage_coherency_improved"
+      ]
     }
   },
   {
@@ -8798,7 +11593,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "ogryn_aura_increased_damage_vs_suppressed"
+      ]
     }
   },
   {
@@ -8826,7 +11624,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "ogryn_toughness_regen_aura"
+      ]
     }
   },
   {
@@ -8854,7 +11655,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": null
+      "max_stacks": null,
+      "buff_template_names": [
+        "psyker_aura_ability_cooldown"
+      ]
     }
   },
   {
@@ -8882,7 +11686,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": null
+      "max_stacks": null,
+      "buff_template_names": [
+        "psyker_aura_ability_cooldown_improved"
+      ]
     }
   },
   {
@@ -8910,7 +11717,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "psyker_aura_crit_chance_aura"
+      ]
     }
   },
   {
@@ -8938,7 +11748,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": null
+      "max_stacks": null,
+      "buff_template_names": [
+        "psyker_aura_damage_vs_elites"
+      ]
     }
   },
   {
@@ -8952,7 +11765,25 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "ammo_replenishment_percent",
+          "magnitude": 0.01,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_minion_death",
+          "type": "proc_stat_buff"
+        }
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_aura_gain_ammo_on_elite_kill_improved"
+      ]
+    }
   },
   {
     "id": "veteran.buff.veteran_damage_coherency",
@@ -8979,7 +11810,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_damage_coherency"
+      ]
     }
   },
   {
@@ -9007,7 +11841,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": 1
+      "max_stacks": 1,
+      "buff_template_names": [
+        "veteran_movement_speed_coherency"
+      ]
     }
   },
   {
@@ -9035,7 +11872,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": null
+      "max_stacks": null,
+      "buff_template_names": [
+        "zealot_coherency_toughness_damage_resistance_improved"
+      ]
     }
   },
   {
@@ -9049,7 +11889,12 @@
     "refs": [],
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
-    "calc": {}
+    "calc": {
+      "class_name": "interval_buff",
+      "buff_template_names": [
+        "zealot_preacher_coherency_corruption_healing_improved"
+      ]
+    }
   },
   {
     "id": "zealot.buff.zealot_stamina_cost_multiplier_aura",
@@ -9086,7 +11931,10 @@
         }
       ],
       "class_name": "buff",
-      "max_stacks": null
+      "max_stacks": null,
+      "buff_template_names": [
+        "zealot_stamina_cost_multiplier_aura"
+      ]
     }
   }
 ]

@@ -166,10 +166,10 @@
     "talent_coherence": {
       "score": 4,
       "breakdown": {
-        "talent_edges": 23,
+        "talent_edges": 26,
         "talent_count": 27,
-        "measurable_talent_count": 17,
-        "edges_per_talent": 1.353,
+        "measurable_talent_count": 18,
+        "edges_per_talent": 1.444,
         "graph_isolated_count": 1,
         "concentration": 0.05,
         "penalties": -0.5,
@@ -177,7 +177,7 @@
       },
       "explanations": [
         "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "10 talent(s) without calc data excluded from isolation penalty"
+        "9 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {

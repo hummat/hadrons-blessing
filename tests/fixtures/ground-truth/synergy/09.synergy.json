@@ -123,6 +123,16 @@
       "explanation": "Both selections contribute persistent effects to the utility family"
     },
     {
+      "type": "trigger_target",
+      "selections": [
+        "psyker.talent_modifier.psyker_overcharge_reduced_warp_charge",
+        "psyker.keystone.psyker_passive_souls_from_elite_kills"
+      ],
+      "families": [],
+      "strength": 3,
+      "explanation": "psyker.talent_modifier.psyker_overcharge_reduced_warp_charge produces resource needed by threshold:warp_charge condition"
+    },
+    {
       "type": "stat_alignment",
       "selections": [
         "psyker.keystone.psyker_passive_souls_from_elite_kills",
@@ -145,6 +155,16 @@
       ],
       "strength": 3,
       "explanation": "Both selections contribute dynamic effects to the general_offense family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "psyker.talent_modifier.psyker_increased_max_souls",
+        "psyker.keystone.psyker_passive_souls_from_elite_kills"
+      ],
+      "families": [],
+      "strength": 3,
+      "explanation": "psyker.talent_modifier.psyker_increased_max_souls produces resource needed by threshold:warp_charge condition"
     },
     {
       "type": "stat_alignment",
@@ -1180,13 +1200,7 @@
     }
   ],
   "anti_synergies": [],
-  "orphans": [
-    {
-      "selection": "psyker.keystone.psyker_passive_souls_from_elite_kills",
-      "reason": "unresolvable_condition",
-      "condition": "unknown_condition"
-    }
-  ],
+  "orphans": [],
   "coverage": {
     "family_profile": {
       "toughness": {
@@ -1222,7 +1236,7 @@
       },
       "general_offense": {
         "count": 12,
-        "total_magnitude": 1.54,
+        "total_magnitude": 1.72,
         "selections": [
           "psyker.keystone.psyker_passive_souls_from_elite_kills",
           "psyker.talent.psyker_damage_based_on_warp_charge",
@@ -1263,7 +1277,7 @@
       },
       "crit": {
         "count": 2,
-        "total_magnitude": 0.07,
+        "total_magnitude": 0.12,
         "selections": [
           "shared.stat_node.critical_chance_boost",
           "shared.name_family.blessing.warp_nexus"
@@ -1373,7 +1387,7 @@
     "unique_entities_with_calc": 27,
     "unique_entities_with_linked_source": 37,
     "entities_without_calc": 12,
-    "opaque_conditions": 1,
+    "opaque_conditions": 0,
     "calc_coverage_pct": 0.69,
     "linked_coverage_pct": 0.95
   }

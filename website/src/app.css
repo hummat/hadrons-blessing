@@ -937,10 +937,10 @@ body {
 }
 
 .ds-dim-card {
-  padding: 1.15rem;
   min-height: 9rem;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
+  position: relative;
+  overflow: visible;
 }
 
 .ds-dim-card__head {
@@ -956,6 +956,111 @@ body {
   font-size: 0.94rem;
   line-height: 1.4;
   flex: 1;
+}
+
+.ds-hovercard > summary {
+  list-style: none;
+  cursor: help;
+  display: flex;
+  flex-direction: column;
+  min-height: 9rem;
+  padding: 1.15rem;
+}
+
+.ds-hovercard > summary::-webkit-details-marker {
+  display: none;
+}
+
+.ds-hovercard--warn > summary {
+  box-shadow: inset 0 0 0 1px rgba(138, 80, 20, 0.18);
+}
+
+.ds-hovercard--danger > summary {
+  box-shadow: inset 0 0 0 1px rgba(122, 31, 23, 0.2);
+}
+
+.ds-hovercard__panel {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.55rem);
+  width: min(32rem, calc(100vw - 2rem));
+  transform: translateX(-50%) translateY(0.4rem);
+  z-index: 20;
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--ds-brass-deep);
+  background:
+    linear-gradient(180deg, rgba(242, 232, 205, 0.98), rgba(219, 199, 158, 0.96));
+  box-shadow: 0 0.95rem 2rem rgba(26, 15, 8, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.ds-hovercard:hover .ds-hovercard__panel,
+.ds-hovercard:focus-within .ds-hovercard__panel,
+.ds-hovercard[open] .ds-hovercard__panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.ds-hovercard__head {
+  display: flex;
+  gap: 0.9rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.ds-hovercard__title {
+  font-family: "EB Garamond", serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--ds-ink);
+}
+
+.ds-hovercard__subtitle {
+  margin-top: 0.2rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ds-ink-faded);
+}
+
+.ds-hovercard__summarycopy {
+  margin-top: 0.75rem;
+  color: var(--ds-ink);
+  font-size: 0.97rem;
+  line-height: 1.45;
+}
+
+.ds-hovercard__facts {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.ds-hovercard__fact {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.ds-hovercard__fact dt {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ds-brass-deep);
+}
+
+.ds-hovercard__fact dd {
+  margin: 0;
+  color: var(--ds-ink);
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .ds-score {
@@ -1422,4 +1527,629 @@ body {
 
 .ds-grade-letter {
   display: inline-block;
+}
+
+/* ---------------------------------------------------------------
+ * Commander's Manifest (list route)
+ *
+ * Extends the Imperial Dataslate aesthetic to the list page. The
+ * detail page is a single parchment dossier; the list is the ledger
+ * that indexes them. Cheaper surface (no noise overlay, no corner
+ * brackets) since 24 rows would be too heavy otherwise.
+ * --------------------------------------------------------------- */
+
+.ds-manifest {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.ds-manifest--tray-active { padding-bottom: 6.5rem; }
+
+.ds-manifest-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.25rem;
+}
+
+.ds-manifest-head__copy { display: flex; flex-direction: column; gap: 0.35rem; }
+
+.ds-manifest-title {
+  font-family: "IM Fell English", "EB Garamond", Palatino, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 2.6vw, 2.6rem);
+  line-height: 1.05;
+  color: var(--ds-parchment);
+  letter-spacing: 0.005em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.ds-manifest-kicker {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ds-brass);
+}
+
+.ds-manifest-meta {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ds-parchment-shadow);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ds-manifest-meta__count {
+  color: var(--ds-amber-glow);
+  font-weight: 500;
+}
+
+/* Query bar — parchment strip with inset controls */
+
+.ds-query-bar {
+  position: relative;
+  padding: 1.2rem 1.3rem 1rem;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(168, 148, 107, 0.22), transparent 60%),
+    linear-gradient(180deg, #eadcb8 0%, #dcc9a0 100%);
+  border: 1px solid var(--ds-parchment-burnt);
+  border-radius: 2px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 250, 230, 0.45),
+    inset 0 -2px 8px rgba(122, 102, 64, 0.18),
+    0 10px 26px rgba(0, 0, 0, 0.4);
+}
+
+.ds-query-grid {
+  display: grid;
+  gap: 0.9rem 1.1rem;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+}
+
+@media (min-width: 48rem) {
+  .ds-query-grid {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr) minmax(0, 0.8fr) minmax(0, 1fr) auto;
+  }
+}
+
+.ds-query-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.ds-query-cell .ds-label { color: var(--ds-ink-faded); }
+
+.ds-query-input,
+.ds-query-select {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--ds-parchment-burnt);
+  background: rgba(255, 250, 230, 0.35);
+  color: var(--ds-ink);
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 0.98rem;
+  border-radius: 1px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.ds-query-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--ds-brass-deep) 50%),
+    linear-gradient(135deg, var(--ds-brass-deep) 50%, transparent 50%);
+  background-position:
+    calc(100% - 15px) 55%,
+    calc(100% - 10px) 55%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 1.8rem;
+}
+
+.ds-query-input::placeholder { color: var(--ds-ink-erased); font-style: italic; }
+
+.ds-query-input:focus,
+.ds-query-select:focus {
+  outline: none;
+  border-color: var(--ds-brass-deep);
+  box-shadow: 0 0 0 2px rgba(181, 133, 54, 0.28);
+}
+
+.ds-query-reset {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--ds-parchment-burnt);
+  background: rgba(26, 15, 8, 0.05);
+  color: var(--ds-ink);
+  font-family: "Oswald", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 1px;
+  transition: all 160ms ease;
+  align-self: end;
+}
+
+.ds-query-reset:hover:not(:disabled) {
+  border-color: var(--ds-blood);
+  color: var(--ds-blood);
+}
+
+.ds-query-reset:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Ledger — tabular with parchment surface, dashed row rules */
+
+.ds-ledger {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(168, 148, 107, 0.24), transparent 55%),
+    radial-gradient(ellipse at 100% 100%, rgba(122, 102, 64, 0.2), transparent 50%),
+    linear-gradient(180deg, #ece0c3 0%, #dfcea4 100%);
+  border: 1px solid var(--ds-parchment-burnt);
+  border-radius: 2px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 250, 230, 0.5),
+    inset 0 -2px 10px rgba(122, 102, 64, 0.18),
+    0 16px 38px rgba(0, 0, 0, 0.55);
+  overflow-x: auto;
+}
+
+.ds-ledger-table {
+  width: 100%;
+  min-width: 64rem;
+  border-collapse: collapse;
+  font-family: "EB Garamond", Georgia, serif;
+}
+
+.ds-ledger-table thead th {
+  padding: 0.75rem 0.7rem 0.6rem;
+  border-bottom: 1px solid var(--ds-brass-deep);
+  background:
+    linear-gradient(180deg, rgba(181, 133, 54, 0.1), transparent),
+    rgba(26, 15, 8, 0.02);
+  color: var(--ds-ink-faded);
+  font-family: "Oswald", sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.ds-ledger-table thead th:first-child,
+.ds-ledger-table thead th:nth-child(2),
+.ds-ledger-table thead th:nth-child(3),
+.ds-ledger-table thead th:nth-child(4),
+.ds-ledger-table thead th:nth-child(5) {
+  text-align: left;
+}
+
+.ds-ledger-sort {
+  all: unset;
+  cursor: pointer;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 160ms ease;
+}
+
+.ds-ledger-sort:hover { color: var(--ds-ink); }
+
+.ds-ledger-sort--active { color: var(--ds-ink); }
+
+.ds-ledger-sort__mark {
+  color: var(--ds-brass-bright);
+  font-size: 0.7rem;
+  filter: drop-shadow(0 0 3px rgba(217, 169, 79, 0.3));
+}
+
+.ds-ledger-row td {
+  padding: 1rem 0.7rem;
+  border-top: 1px dashed rgba(122, 102, 64, 0.5);
+  vertical-align: middle;
+  color: var(--ds-ink);
+  font-size: 0.95rem;
+}
+
+.ds-ledger-row:hover td {
+  background: rgba(26, 15, 8, 0.04);
+}
+
+.ds-ledger-row--selected td {
+  background: rgba(217, 169, 79, 0.14);
+  border-top-color: var(--ds-brass);
+}
+
+.ds-ledger-row--selected td:first-child {
+  box-shadow: inset 3px 0 0 var(--ds-blood);
+}
+
+.ds-ledger-cmp-cell {
+  width: 2.6rem;
+  text-align: center;
+}
+
+.ds-ledger-cmp {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1px solid var(--ds-parchment-burnt);
+  background: rgba(255, 250, 230, 0.5);
+  cursor: pointer;
+  position: relative;
+  border-radius: 1px;
+  transition: all 160ms ease;
+}
+
+.ds-ledger-cmp:hover:not(:disabled) {
+  border-color: var(--ds-brass-deep);
+}
+
+.ds-ledger-cmp:checked {
+  background: var(--ds-blood);
+  border-color: var(--ds-blood);
+}
+
+.ds-ledger-cmp:checked::after {
+  content: "";
+  position: absolute;
+  inset: 2px 4px;
+  border-right: 2px solid var(--ds-parchment);
+  border-bottom: 2px solid var(--ds-parchment);
+  transform: rotate(45deg) translate(-1px, -2px);
+}
+
+.ds-ledger-cmp:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.ds-ledger-score-cell {
+  width: 5.4rem;
+  text-align: left;
+  line-height: 1;
+  padding-left: 1rem !important;
+}
+
+.ds-ledger-score {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--ds-ink);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.15rem;
+}
+
+.ds-ledger-score__max {
+  font-family: "Oswald", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--ds-ink-erased);
+}
+
+.ds-ledger-title-cell {
+  min-width: 18rem;
+  max-width: 26rem;
+}
+
+.ds-ledger-title {
+  font-family: "IM Fell English SC", "EB Garamond", serif;
+  font-size: 1.05rem;
+  color: var(--ds-ink);
+  letter-spacing: 0.015em;
+  line-height: 1.2;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 160ms ease;
+}
+
+.ds-ledger-title:hover {
+  color: var(--ds-blood);
+}
+
+.ds-ledger-title-cell .ds-ledger-sub {
+  margin-top: 0.3rem;
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--ds-ink-faded);
+  line-height: 1.3;
+}
+
+.ds-ledger-class-cell { width: 8.5rem; }
+
+.ds-ledger-class {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.65rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid var(--ds-parchment-burnt);
+  background: rgba(26, 15, 8, 0.05);
+  color: var(--ds-ink);
+  border-radius: 1px;
+  white-space: nowrap;
+}
+
+.ds-ledger-class--veteran { border-color: #8b6428; color: #6c4e18; background: rgba(181, 133, 54, 0.14); }
+.ds-ledger-class--zealot { border-color: #8b2a1c; color: #7a1f17; background: rgba(110, 26, 21, 0.12); }
+.ds-ledger-class--psyker { border-color: #4e3d78; color: #3f2f66; background: rgba(90, 58, 107, 0.14); }
+.ds-ledger-class--ogryn { border-color: #4f6b3f; color: #3a5230; background: rgba(75, 122, 81, 0.14); }
+.ds-ledger-class--arbites { border-color: #2f557b; color: #254464; background: rgba(60, 102, 150, 0.12); }
+.ds-ledger-class--scum { border-color: #6d5a2b; color: #57461e; background: rgba(192, 168, 95, 0.16); }
+
+.ds-ledger-loadout-cell { min-width: 18rem; max-width: 22rem; }
+
+.ds-ledger-weapon-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  line-height: 1.35;
+  font-family: "EB Garamond", serif;
+  font-size: 0.92rem;
+  color: var(--ds-ink);
+}
+
+.ds-ledger-weapon-line + .ds-ledger-weapon-line { margin-top: 0.25rem; }
+
+.ds-ledger-weapon-slot {
+  flex-shrink: 0;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ds-brass-deep);
+  min-width: 3rem;
+}
+
+.ds-ledger-dim {
+  width: 3.4rem;
+  font-family: "JetBrains Mono", "Menlo", monospace;
+  font-size: 0.92rem;
+  text-align: center;
+  color: var(--ds-ink-faded);
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-ledger-dim--high { color: var(--ds-sanctified); font-weight: 700; }
+.ds-ledger-dim--mid { color: var(--ds-ink); }
+.ds-ledger-dim--warn { color: var(--ds-brass-deep); }
+.ds-ledger-dim--low { color: var(--ds-blood); font-weight: 700; }
+.ds-ledger-dim--null { color: var(--ds-ink-erased); font-style: italic; }
+
+.ds-ledger-grade-cell {
+  width: 5rem;
+  text-align: center;
+}
+
+.ds-grade-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.2rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--ds-parchment-burnt);
+  background: rgba(26, 15, 8, 0.04);
+  color: var(--ds-ink);
+  font-family: "IM Fell English SC", serif;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  border-radius: 1px;
+  text-shadow: 0 1px 0 rgba(255, 250, 230, 0.4);
+  transform: rotate(-1.5deg);
+}
+
+.ds-grade-stamp--s {
+  border-color: var(--ds-brass-deep);
+  background: rgba(217, 169, 79, 0.22);
+  color: var(--ds-brass-deep);
+  box-shadow: 0 0 0 1px rgba(217, 169, 79, 0.4), 0 2px 8px rgba(217, 169, 79, 0.25);
+  transform: rotate(-2.5deg);
+}
+
+.ds-grade-stamp--a {
+  border-color: var(--ds-sanctified);
+  background: rgba(75, 122, 81, 0.18);
+  color: var(--ds-sanctified);
+}
+
+.ds-grade-stamp--b {
+  border-color: #2f557b;
+  background: rgba(47, 85, 123, 0.14);
+  color: #2f557b;
+}
+
+.ds-grade-stamp--c {
+  border-color: var(--ds-brass-deep);
+  background: rgba(181, 133, 54, 0.1);
+  color: var(--ds-brass-deep);
+  transform: rotate(1.5deg);
+}
+
+.ds-grade-stamp--d {
+  border-color: var(--ds-blood);
+  background: rgba(110, 26, 21, 0.12);
+  color: var(--ds-blood);
+  transform: rotate(2deg);
+}
+
+/* Sticky compare tray — amber cogitator glow */
+
+.ds-compare-tray {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  z-index: 50;
+  transform: translateX(-50%) translateY(calc(100% + 2rem));
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.85rem 1.2rem;
+  background:
+    linear-gradient(180deg, #0a0705 0%, #040302 100%);
+  border: 1px solid var(--ds-brass-deep);
+  border-radius: 2px;
+  box-shadow:
+    inset 0 0 32px rgba(217, 169, 79, 0.1),
+    inset 0 0 0 1px rgba(217, 169, 79, 0.2),
+    0 14px 34px rgba(0, 0, 0, 0.7);
+  transition: transform 260ms cubic-bezier(0.3, 0.8, 0.3, 1), opacity 180ms ease;
+  max-width: calc(100% - 2rem);
+}
+
+.ds-compare-tray::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(217, 169, 79, 0.03) 3px,
+    transparent 4px
+  );
+  border-radius: inherit;
+}
+
+.ds-compare-tray > * { position: relative; }
+
+.ds-compare-tray--active {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ds-compare-tray__label {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ds-amber);
+}
+
+.ds-compare-tray__slots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "EB Garamond", serif;
+  color: var(--ds-amber-glow);
+  font-size: 0.9rem;
+  max-width: 32rem;
+}
+
+.ds-compare-tray__slot {
+  padding: 0.3rem 0.65rem;
+  border: 1px dashed rgba(217, 169, 79, 0.4);
+  min-width: 10rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 16rem;
+}
+
+.ds-compare-tray__slot--empty {
+  color: rgba(217, 169, 79, 0.35);
+  font-style: italic;
+}
+
+.ds-compare-tray__slot--filled {
+  background: rgba(217, 169, 79, 0.08);
+  border-style: solid;
+  border-color: var(--ds-brass-deep);
+  color: var(--ds-amber-glow);
+}
+
+.ds-compare-tray__joiner {
+  font-family: "IM Fell English SC", serif;
+  color: var(--ds-amber);
+  font-size: 1rem;
+}
+
+.ds-compare-tray__go {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--ds-amber);
+  background: rgba(217, 169, 79, 0.15);
+  color: var(--ds-amber-glow);
+  font-family: "Oswald", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 1px;
+  transition: all 160ms ease;
+}
+
+.ds-compare-tray__go:hover:not(:disabled) {
+  background: rgba(217, 169, 79, 0.28);
+  box-shadow: 0 0 16px rgba(217, 169, 79, 0.35);
+}
+
+.ds-compare-tray__go:disabled {
+  border-color: rgba(125, 90, 31, 0.5);
+  color: rgba(217, 169, 79, 0.45);
+  cursor: not-allowed;
+}
+
+.ds-compare-tray__clear {
+  background: none;
+  border: none;
+  color: var(--ds-brass-deep);
+  font-family: "Oswald", sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.3rem 0.4rem;
+  transition: color 160ms ease;
+}
+
+.ds-compare-tray__clear:hover {
+  color: var(--ds-amber);
+}
+
+.ds-ledger-empty {
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--ds-ink-faded);
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 80rem) {
+  .ds-compare-tray {
+    flex-wrap: wrap;
+    justify-content: center;
+    bottom: 0.5rem;
+  }
+  .ds-compare-tray__slots { justify-content: center; }
 }

@@ -47,6 +47,10 @@ describe("synergy-stat-families", () => {
       assert.ok(getFamilies("damage").has("general_offense"));
     });
 
+    it("maps assist_speed_modifier to utility", () => {
+      assert.ok(getFamilies("assist_speed_modifier").has("utility"));
+    });
+
     it("maps block_cost_multiplier to both stamina and damage_reduction", () => {
       const families = getFamilies("block_cost_multiplier");
       assert.ok(families.has("stamina"));
@@ -172,6 +176,13 @@ describe("synergy-rules", () => {
       const edges = triggerTargetChain(selA, selB);
       assert.ok(edges.length > 0);
     });
+
+    it("detects warp_charge threshold + max_souls producer pairing", () => {
+      const selA = { id: "a", effects: [{ stat: "max_souls", type: "stat_buff", magnitude: 6 }] };
+      const selB = { id: "b", effects: [{ stat: "melee_damage", type: "conditional_stat_buff", magnitude: 0.1, condition: "threshold:warp_charge" }] };
+      const edges = triggerTargetChain(selA, selB);
+      assert.ok(edges.length > 0);
+    });
   });
 
   describe("resourceFlow", () => {
@@ -183,6 +194,16 @@ describe("synergy-rules", () => {
       const result = resourceFlow(selections);
       assert.ok(result.warp_charge.producers.includes("producer"));
       assert.ok(result.warp_charge.consumers.includes("consumer"));
+      assert.equal(result.warp_charge.orphaned_consumers.length, 0);
+    });
+
+    it("treats max_souls as a warp_charge producer", () => {
+      const selections = [
+        { id: "producer", effects: [{ stat: "max_souls", type: "stat_buff", magnitude: 6 }] },
+        { id: "consumer", effects: [{ stat: "warp_charge_block_cost", type: "stat_buff", magnitude: 0.1 }] },
+      ];
+      const result = resourceFlow(selections);
+      assert.ok(result.warp_charge.producers.includes("producer"));
       assert.equal(result.warp_charge.orphaned_consumers.length, 0);
     });
 
@@ -219,6 +240,12 @@ describe("synergy-rules", () => {
     it("does not flag effects without conditions", () => {
       const sel = { id: "a", effects: [{ stat: "damage", type: "stat_buff", magnitude: 0.1 }] };
       assert.equal(detectOrphans(sel, []).length, 0);
+    });
+
+    it("does not flag threshold:warp_charge when another selection provides max_souls", () => {
+      const consumer = { id: "consumer", effects: [{ stat: "damage", type: "conditional_stat_buff", magnitude: 0.1, condition: "threshold:warp_charge" }] };
+      const producer = { id: "producer", effects: [{ stat: "max_souls", type: "stat_buff", magnitude: 6 }] };
+      assert.equal(detectOrphans(consumer, [consumer, producer]).length, 0);
     });
   });
 });

@@ -3,6 +3,16 @@
   "class": "veteran",
   "synergy_edges": [
     {
+      "type": "trigger_target",
+      "selections": [
+        "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
+        "veteran.talent.veteran_aura_elite_kills_restore_grenade"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_minion_death"
+    },
+    {
       "type": "stat_alignment",
       "selections": [
         "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
@@ -85,6 +95,42 @@
       ],
       "strength": 2,
       "explanation": "Selections contribute different-category effects to the utility family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_aura_elite_kills_restore_grenade",
+        "veteran.talent.veteran_extra_grenade"
+      ],
+      "families": [
+        "grenade"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the grenade family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_aura_elite_kills_restore_grenade",
+        "veteran.talent.veteran_improved_grenades"
+      ],
+      "families": [
+        "grenade"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the grenade family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "veteran.talent.veteran_aura_elite_kills_restore_grenade",
+        "veteran.talent.veteran_replenish_grenades"
+      ],
+      "families": [
+        "grenade"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute dynamic effects to the grenade family"
     },
     {
       "type": "stat_alignment",
@@ -1144,9 +1190,19 @@
           "shared.gadget_trait.gadget_revive_speed_increase"
         ]
       },
+      "grenade": {
+        "count": 4,
+        "total_magnitude": 5.45,
+        "selections": [
+          "veteran.talent.veteran_aura_elite_kills_restore_grenade",
+          "veteran.talent.veteran_extra_grenade",
+          "veteran.talent.veteran_improved_grenades",
+          "veteran.talent.veteran_replenish_grenades"
+        ]
+      },
       "general_offense": {
         "count": 11,
-        "total_magnitude": 1.753,
+        "total_magnitude": 1.853,
         "selections": [
           "veteran.talent.veteran_crits_apply_rending",
           "veteran.talent.veteran_increase_damage_after_sprinting",
@@ -1163,7 +1219,7 @@
       },
       "crit": {
         "count": 3,
-        "total_magnitude": 0.42,
+        "total_magnitude": 0.62,
         "selections": [
           "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
           "veteran.talent.veteran_dodging_grants_crit",
@@ -1172,22 +1228,13 @@
       },
       "melee_offense": {
         "count": 5,
-        "total_magnitude": 0.775,
+        "total_magnitude": 0.875,
         "selections": [
           "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
           "veteran.talent.veteran_kill_grants_damage_to_other_slot",
           "veteran.talent.veteran_attack_speed",
           "shared.stat_node.melee_damage_boost",
           "shared.name_family.blessing.extended_activation_duration_on_chained_attacks"
-        ]
-      },
-      "grenade": {
-        "count": 3,
-        "total_magnitude": 4.45,
-        "selections": [
-          "veteran.talent.veteran_extra_grenade",
-          "veteran.talent.veteran_improved_grenades",
-          "veteran.talent.veteran_replenish_grenades"
         ]
       },
       "toughness": {
@@ -1280,6 +1327,7 @@
   ],
   "_entitiesWithCalcIds": [
     "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
+    "veteran.talent.veteran_aura_elite_kills_restore_grenade",
     "veteran.talent.veteran_crits_apply_rending",
     "veteran.talent.veteran_increase_damage_after_sprinting",
     "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
@@ -1311,11 +1359,11 @@
   ],
   "metadata": {
     "entities_analyzed": 52,
-    "unique_entities_with_calc": 29,
+    "unique_entities_with_calc": 30,
     "unique_entities_with_linked_source": 35,
-    "entities_without_calc": 11,
+    "entities_without_calc": 10,
     "opaque_conditions": 0,
-    "calc_coverage_pct": 0.73,
+    "calc_coverage_pct": 0.75,
     "linked_coverage_pct": 0.88
   }
 }

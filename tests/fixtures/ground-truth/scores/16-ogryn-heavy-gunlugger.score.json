@@ -166,10 +166,10 @@
     "talent_coherence": {
       "score": 5,
       "breakdown": {
-        "talent_edges": 30,
+        "talent_edges": 33,
         "talent_count": 26,
-        "measurable_talent_count": 15,
-        "edges_per_talent": 2,
+        "measurable_talent_count": 16,
+        "edges_per_talent": 2.063,
         "graph_isolated_count": 0,
         "concentration": 0.11,
         "penalties": 0,
@@ -177,7 +177,7 @@
       },
       "explanations": [
         "High stat concentration (0.110) +0.5",
-        "11 talent(s) without calc data excluded from isolation penalty"
+        "10 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -264,7 +264,7 @@
         "active_families": 7,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.7894736842105263
+        "slot_balance_ratio": 0.75
       },
       "explanations": []
     },

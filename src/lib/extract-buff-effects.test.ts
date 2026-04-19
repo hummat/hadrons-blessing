@@ -293,13 +293,237 @@ describe("effects:build pipeline", () => {
 
     assert.ok(strippedDown, "Expected to find Stripped Down blessing trait");
     assert.equal(strippedDown.calc?.tiers?.[3]?.effects?.[0]?.stat, "count_as_dodge_vs_ranged");
-    assert.equal(strippedDown.calc?.tiers?.[3]?.effects?.[0]?.magnitude, 1);
+    assert.equal(strippedDown.calc?.tiers?.[3]?.effects?.[0]?.magnitude, 0);
     assert.equal(strippedDown.calc?.tiers?.[3]?.effects?.[0]?.type, "stat_buff");
 
     assert.ok(heatsink, "Expected to find Heatsink blessing trait");
     assert.equal(heatsink.calc?.tiers?.[3]?.effects?.[0]?.stat, "overheat_immediate_reduction");
     assert.equal(heatsink.calc?.tiers?.[3]?.effects?.[0]?.magnitude, 0.1);
     assert.equal(heatsink.calc?.tiers?.[3]?.effects?.[0]?.type, "proc_stat_buff");
+  });
+
+  it("models charged-shot target debuffs that derive stack count from thresholds", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "shared-weapons.json"), "utf8"),
+    );
+    const noRespite = entities.find(
+      (e) => e.id === "shared.weapon_trait.weapon_trait_bespoke_lasgun_p2_targets_receive_rending_debuff_on_charged_shots",
+    );
+
+    assert.ok(noRespite, "Expected to find No Respite blessing trait");
+    assert.equal(noRespite.calc?.tiers?.[0]?.effects?.[0]?.stat, "rending_multiplier");
+    assert.ok(Math.abs((noRespite.calc?.tiers?.[0]?.effects?.[0]?.magnitude ?? 0) - 0.15) < 1e-9);
+    assert.ok(Math.abs((noRespite.calc?.tiers?.[3]?.effects?.[0]?.magnitude ?? 0) - 0.3) < 1e-9);
+    assert.ok(Math.abs((noRespite.calc?.effects?.[0]?.magnitude ?? 0) - 0.3) < 1e-9);
+  });
+
+  it("preserves inherited local condition helpers for follow-up-shot blessings cloned from base weapon traits", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "shared-weapons.json"), "utf8"),
+    );
+    const sustainedFire = entities.find(
+      (e) => e.id === "shared.weapon_trait.weapon_trait_bespoke_shotgun_p4_followup_shots_ranged_damage",
+    );
+
+    assert.ok(sustainedFire, "Expected to find Sustained Fire blessing trait");
+    assert.equal(sustainedFire.calc?.effects?.[0]?.condition, "follow_up_shots");
+    assert.equal(sustainedFire.calc?.tiers?.[3]?.effects?.[0]?.condition, "follow_up_shots");
+  });
+
+  it("tags Warp Siphon toughness regen gating as threshold:warp_charge", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "psyker.json"), "utf8"),
+    );
+    const warpSiphon = entities.find(
+      (e) => e.id === "psyker.keystone.psyker_passive_souls_from_elite_kills",
+    );
+
+    assert.ok(warpSiphon, "Expected to find Warp Siphon keystone");
+    const toughnessEffect = warpSiphon.calc?.effects?.find(
+      (effect) => effect.stat === "toughness_replenish_modifier",
+    );
+    assert.equal(toughnessEffect?.condition, "threshold:warp_charge");
+  });
+
+  it("refreshes existing generated buff entities instead of leaving stale unknown conditions", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "shared-buffs.json"), "utf8"),
+    );
+    const warpSiphonBuff = entities.find(
+      (e) => e.id === "psyker.buff.psyker_passive_souls_from_elite_kills",
+    );
+    const brokerStaminaBuff = entities.find(
+      (e) => e.id === "hive_scum.buff.broker_passive_improved_dodges_at_full_stamina",
+    );
+
+    assert.ok(warpSiphonBuff, "Expected to find shared buff entity for Warp Siphon");
+    assert.ok(brokerStaminaBuff, "Expected to find shared buff entity for broker stamina dodge buff");
+    assert.equal(
+      warpSiphonBuff.calc?.effects?.find((effect) => effect.stat === "toughness_replenish_modifier")?.condition,
+      "threshold:warp_charge",
+    );
+    assert.equal(
+      brokerStaminaBuff.calc?.effects?.find((effect) => effect.stat === "dodge_cooldown_reset_modifier")?.condition,
+      "threshold:stamina_full",
+    );
+  });
+
+  it("tags Adhesive Charge as wielded instead of unknown_condition", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "shared-weapons.json"), "utf8"),
+    );
+    const adhesiveCharge = entities.find(
+      (e) => e.id === "shared.weapon_trait.weapon_trait_bespoke_ogryn_thumper_p2_grenades_stick_to_monsters",
+    );
+
+    assert.ok(adhesiveCharge, "Expected to find Adhesive Charge blessing trait");
+    const conditionalEffect = adhesiveCharge.calc?.effects?.find(
+      (effect) => effect.type === "conditional_stat_buff",
+    );
+    assert.equal(conditionalEffect?.condition, "wielded");
+  });
+
+  it("tags Carapace Armor upgrade gating by special rule instead of unknown_condition", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "ogryn.json"), "utf8"),
+    );
+    const carapaceArmor = entities.find(
+      (e) => e.id === "ogryn.keystone.ogryn_carapace_armor",
+    );
+
+    assert.ok(carapaceArmor, "Expected to find Carapace Armor keystone");
+    const conditionalEffect = carapaceArmor.calc?.effects?.find(
+      (effect) => effect.type === "conditional_stat_buff" && effect.stat === "toughness_replenish_modifier",
+    );
+    assert.equal(conditionalEffect?.condition, "special_rule:ogryn_carapace_armor_more_toughness");
+  });
+
+  it("tags toxined-enemy proximity checks instead of unknown_condition", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "hive_scum.json"), "utf8"),
+    );
+    const toxinedDamage = entities.find(
+      (e) => e.id === "hive_scum.talent.broker_passive_damage_after_toxined_enemies",
+    );
+
+    assert.ok(toxinedDamage, "Expected to find toxin-nearby damage talent");
+    const conditionalEffect = toxinedDamage.calc?.effects?.find(
+      (effect) => effect.type === "conditional_stat_buff" && effect.stat === "damage",
+    );
+    assert.equal(conditionalEffect?.condition, "threshold:toxined_nearby");
+  });
+
+  it("tags crit-active weapon traits instead of leaving pass-past-armor blessings partially unknown", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "shared-weapons.json"), "utf8"),
+    );
+    const chainsword = entities.find(
+      (e) => e.id === "shared.weapon_trait.weapon_trait_bespoke_chainsword_2h_p1_pass_past_armor_on_crit",
+    );
+
+    assert.ok(chainsword, "Expected to find chainsword pass-past-armor blessing trait");
+    assert.equal(chainsword.calc?.effects?.[0]?.condition, "all:wielded+critical_strike_active");
+    assert.equal(chainsword.calc?.tiers?.[3]?.effects?.[0]?.condition, "all:wielded+critical_strike_active");
+  });
+
+  it("tags action-allowlist weapon traits instead of leaving them unknown", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "shared-weapons.json"), "utf8"),
+    );
+    const flamer = entities.find(
+      (e) => e.id === "shared.weapon_trait.weapon_trait_bespoke_flamer_p1_negate_stagger_reduction_with_primary_on_burning",
+    );
+    const forceStaff = entities.find(
+      (e) => e.id === "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p1_uninterruptable_while_charging",
+    );
+
+    assert.ok(flamer, "Expected to find flamer stagger-reduction blessing trait");
+    assert.ok(forceStaff, "Expected to find force staff charging blessing trait");
+    assert.equal(flamer.calc?.effects?.[0]?.condition, "all:wielded+action_allowed");
+    assert.equal(forceStaff.calc?.effects?.[0]?.condition, "all:wielded+action_allowed");
+  });
+
+  it("tags internal-buff activation conditions for shotgun special-kill reload buffs", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "shared-weapons.json"), "utf8"),
+    );
+    const shotgun = entities.find(
+      (e) => e.id === "shared.weapon_trait.weapon_trait_bespoke_shotgun_p2_reload_speed_on_ranged_weapon_special_kill",
+    );
+
+    assert.ok(shotgun, "Expected to find shotgun special-kill reload blessing trait");
+    assert.equal(
+      shotgun.calc?.effects?.[0]?.condition,
+      "internal_buff:weapon_trait_bespoke_shotgun_p2_reload_speed_on_ranged_weapon_special_kill_effect",
+    );
+  });
+
+  it("tags disabled-ally movement buffs as ally_requires_help_ahead", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "veteran.json"), "utf8"),
+    );
+    const movementBuff = entities.find(
+      (e) => e.id === "veteran.talent.veteran_movement_speed_towards_downed",
+    );
+
+    assert.ok(movementBuff, "Expected to find veteran movement-speed-to-downed talent");
+    const movementEffect = movementBuff.calc?.effects?.find(
+      (effect) => effect.stat === "movement_speed" && effect.type === "conditional_stat_buff",
+    );
+    assert.equal(movementEffect?.condition, "ally_requires_help_ahead");
+  });
+
+  it("tags template_data.is_active helper-driven buffs when alternate fire with stamina gates them", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "shared-buffs.json"), "utf8"),
+    );
+    const veteranAds = entities.find(
+      (e) => e.id === "veteran.buff.veteran_ads_stamina_boost",
+    );
+    const ogrynAds = entities.find(
+      (e) => e.id === "ogryn.buff.ogryn_drain_stamina_for_handling",
+    );
+
+    assert.ok(veteranAds, "Expected to find veteran ADS stamina buff entity");
+    assert.ok(ogrynAds, "Expected to find ogryn ADS stamina buff entity");
+    assert.equal(veteranAds.calc?.effects?.[0]?.condition, "ads_with_stamina");
+    assert.equal(ogrynAds.calc?.effects?.[0]?.condition, "ads_with_stamina");
   });
 
   it("generates grants_buff edges", { skip: !sourceRoot }, () => {

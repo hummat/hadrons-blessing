@@ -156,6 +156,7 @@ const FAMILY_STATS: Record<StatFamily, string[]> = {
   ],
   utility: [
     "coherency_radius_modifier", "wield_speed", "revive_speed_modifier",
+    "assist_speed_modifier",
     "combat_ability_cooldown_modifier", "ability_cooldown_modifier",
     "ability_extra_charges", "shout_radius_modifier",
     "companion_damage_modifier", "companion_damage_vs_elites",

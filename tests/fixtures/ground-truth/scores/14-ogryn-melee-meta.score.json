@@ -166,18 +166,18 @@
     "talent_coherence": {
       "score": 5,
       "breakdown": {
-        "talent_edges": 32,
+        "talent_edges": 34,
         "talent_count": 26,
-        "measurable_talent_count": 14,
-        "edges_per_talent": 2.286,
+        "measurable_talent_count": 15,
+        "edges_per_talent": 2.267,
         "graph_isolated_count": 0,
-        "concentration": 0.14,
+        "concentration": 0.13,
         "penalties": 0,
         "bonuses": 0.5
       },
       "explanations": [
-        "High stat concentration (0.140) +0.5",
-        "12 talent(s) without calc data excluded from isolation penalty"
+        "High stat concentration (0.130) +0.5",
+        "11 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -193,7 +193,7 @@
         {
           "label": "Two-hit Rager body",
           "met": true,
-          "best_htk": 2,
+          "best_htk": 1,
           "max_hits": 2,
           "weight": "high"
         },
@@ -235,7 +235,7 @@
         {
           "label": "Three-hit Mauler",
           "met": true,
-          "best_htk": 2,
+          "best_htk": 1,
           "max_hits": 3,
           "weight": "low"
         },
@@ -284,7 +284,7 @@
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 2,
+            "damnation_htk": 1,
             "auric_htk": 2,
             "damnation_met": true,
             "auric_met": true

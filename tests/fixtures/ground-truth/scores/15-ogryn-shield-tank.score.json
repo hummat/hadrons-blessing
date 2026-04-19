@@ -152,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 28,
+        "blessing_edges": 29,
         "blessing_count": 4,
-        "edges_per_blessing": 7,
+        "edges_per_blessing": 7.25,
         "blessing_blessing_edges": 1,
         "orphaned_blessings": 0
       },
@@ -166,17 +166,17 @@
     "talent_coherence": {
       "score": 5,
       "breakdown": {
-        "talent_edges": 34,
+        "talent_edges": 37,
         "talent_count": 26,
-        "measurable_talent_count": 15,
-        "edges_per_talent": 2.267,
+        "measurable_talent_count": 16,
+        "edges_per_talent": 2.313,
         "graph_isolated_count": 0,
         "concentration": 0.06,
         "penalties": 0,
         "bonuses": 0
       },
       "explanations": [
-        "11 talent(s) without calc data excluded from isolation penalty"
+        "10 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {

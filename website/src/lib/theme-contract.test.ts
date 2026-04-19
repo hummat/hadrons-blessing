@@ -29,14 +29,16 @@ describe("website theme contract", () => {
 
     assert.match(layout, /site-shell/);
     assert.match(layout, /site-header/);
-    assert.match(list, /panel/);
-    assert.match(list, /form-control/);
+    assert.match(list, /dataslate-root/);
+    assert.match(list, /ds-ledger/);
+    assert.match(list, /ds-query-bar/);
     assert.match(detail, /dataslate-root/);
     assert.match(detail, /ds-parchment/);
     assert.match(detail, /ds-discl/);
     assert.match(compare, /panel-strong/);
 
     assert.ok(!list.includes("bg-gray-900/90"));
+    assert.ok(!list.includes("data-table"), "list page should use Dataslate ledger, not generic data-table");
     assert.ok(!detail.includes("rounded-2xl border border-gray-800 bg-gray-900"));
     assert.ok(!compare.includes("rounded-2xl border border-gray-800 bg-gray-900 p-5"));
   });

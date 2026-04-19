@@ -1,0 +1,318 @@
+[
+  {
+    "key": "composite",
+    "label": "Overall",
+    "score": 32,
+    "max": 35,
+    "tierLabel": "S",
+    "triggerNote": "Grade S",
+    "title": "Grade S · 32/35",
+    "subtitle": "Our grading",
+    "summary": "Overall score from the seven dimensions, plus the letter bucket it lands in.",
+    "facts": [
+      {
+        "label": "Score",
+        "value": "32/35 · Grade S"
+      },
+      {
+        "label": "Dimensions contributing",
+        "value": "7/7"
+      },
+      {
+        "label": "Grading bands",
+        "value": "S ≥32 · A ≥27 · B ≥22 · C ≥17 · D <17"
+      },
+      {
+        "label": "Dimensions",
+        "value": "Perk Optimality · Curio Efficiency · Talent Coherence · Blessing Synergy · Role Coverage · Breakpoint Relevance · Difficulty Scaling"
+      },
+      {
+        "label": "Scaling rule",
+        "value": "If a dimension was unscorable, the composite scales up from the dimensions we could score so missing data does not force a lower letter."
+      },
+      {
+        "label": "Implies",
+        "value": "Two builds with the same composite can look very different — same sum, different shape. The grade is a starting point; the dimensions are the story."
+      },
+      {
+        "label": "Caveat",
+        "value": "Our grading, not community consensus. The cutoffs are calibrated against the 24 fixture meta builds."
+      }
+    ],
+    "sourceLabel": "scorecard",
+    "tone": "default"
+  },
+  {
+    "key": "perk_optimality",
+    "label": "Perks",
+    "score": 5,
+    "max": 5,
+    "tierLabel": "Exemplary",
+    "triggerNote": "Exemplary",
+    "title": "Perk Optimality",
+    "subtitle": "5/5 Exemplary",
+    "summary": "How close your weapon perks are to max rolls, averaged across weapons.",
+    "facts": [
+      {
+        "label": "Score",
+        "value": "5/5 — Exemplary"
+      },
+      {
+        "label": "Range",
+        "value": "1 (low-tier rolls) to 5 (all T4 or near)"
+      },
+      {
+        "label": "Derivation",
+        "value": "Each perk snaps to its nearest tier 1–4, averaged per weapon, then across weapons."
+      },
+      {
+        "label": "This build",
+        "value": "2 weapons · avg perk tier 4/4"
+      },
+      {
+        "label": "Implies",
+        "value": "Near-max rolls across the board — no breakpoint left on the table from sub-tier perks."
+      },
+      {
+        "label": "Caveat",
+        "value": "Judges roll quality, not perk choice. A T4 perk on the wrong stat still scores well here; Role Coverage and Breakpoint Relevance catch that."
+      }
+    ],
+    "sourceLabel": "scorecard",
+    "tone": "default"
+  },
+  {
+    "key": "curio_efficiency",
+    "label": "Curios",
+    "score": 4,
+    "max": 5,
+    "tierLabel": "Strong",
+    "triggerNote": "Strong",
+    "title": "Curio Efficiency",
+    "subtitle": "4/5 Strong",
+    "summary": "Whether your curio perks fit this class's usual toolkit, and whether they're rolled high.",
+    "facts": [
+      {
+        "label": "Score",
+        "value": "4/5 — Strong"
+      },
+      {
+        "label": "Range",
+        "value": "1 (an 'avoid' perk present) to 5 (all class-optimal, all near-max)"
+      },
+      {
+        "label": "Derivation",
+        "value": "Each curio perk gets a class-specific rating (optimal / solid / neutral / avoid) plus a tier 1–4 from its roll value."
+      },
+      {
+        "label": "This build",
+        "value": "4 optimal · 6 solid · 2 neutral · 0 avoid · avg tier 4/4"
+      },
+      {
+        "label": "Implies",
+        "value": "Most are class-appropriate; some are sub-tier or off-profile."
+      },
+      {
+        "label": "Caveat",
+        "value": "Our per-class ratings are a starting point. A niche curio line can still make sense for a specific play pattern."
+      }
+    ],
+    "sourceLabel": "scorecard",
+    "tone": "default"
+  },
+  {
+    "key": "talent_coherence",
+    "label": "Talents",
+    "score": 4,
+    "max": 5,
+    "tierLabel": "Strong",
+    "triggerNote": "Strong",
+    "title": "Talent Coherence",
+    "subtitle": "4/5 Strong",
+    "summary": "How tightly your talents feed each other — do they stack the same stats or chain into each other, or do they work in isolation?",
+    "facts": [
+      {
+        "label": "Score",
+        "value": "4/5 — Strong"
+      },
+      {
+        "label": "Range",
+        "value": "1 (scattered picks) to 5 (tightly amplifying core)"
+      },
+      {
+        "label": "Derivation",
+        "value": "Count talent-to-talent synergies, divide by talent count, then adjust for focus and talents that do not interact with anything."
+      },
+      {
+        "label": "This build",
+        "value": "26 talents · 12 synergy pairs · 0 standalone picks"
+      },
+      {
+        "label": "Implies",
+        "value": "Nearly every talent either stacks the same category or chains into another pick — the build has a clear thesis."
+      },
+      {
+        "label": "Important caveat",
+        "value": "Only scores synergies the simulator can see. Teammate-coherency buffs, positional play, and narrative talents can work even when they do not produce visible synergy pairs."
+      }
+    ],
+    "sourceLabel": "synergy model",
+    "tone": "default"
+  },
+  {
+    "key": "blessing_synergy",
+    "label": "Blessings",
+    "score": 5,
+    "max": 5,
+    "tierLabel": "Exemplary",
+    "triggerNote": "Exemplary",
+    "title": "Blessing Synergy",
+    "subtitle": "5/5 Exemplary",
+    "summary": "Whether your blessings feed your talents and each other, or sit alone on their weapons.",
+    "facts": [
+      {
+        "label": "Score",
+        "value": "5/5 — Exemplary"
+      },
+      {
+        "label": "Range",
+        "value": "1 (blessings work in isolation) to 5 (deeply woven in)"
+      },
+      {
+        "label": "Derivation",
+        "value": "Count synergies that involve at least one blessing, per blessing. Bonus if two blessings cooperate; penalty per blessing that does not interact with anything."
+      },
+      {
+        "label": "This build",
+        "value": "4 blessings · 36 synergies · 0 with no interaction"
+      },
+      {
+        "label": "Implies",
+        "value": "Blessings amplify your talents or each other."
+      },
+      {
+        "label": "Caveat",
+        "value": "A blessing that is perfect for its weapon but has no visible synergy with your talents gets no credit here. That is a modeling limit, not necessarily a build flaw."
+      }
+    ],
+    "sourceLabel": "synergy model",
+    "tone": "default"
+  },
+  {
+    "key": "role_coverage",
+    "label": "Role",
+    "score": 5,
+    "max": 5,
+    "tierLabel": "Exemplary",
+    "triggerNote": "Exemplary",
+    "title": "Role Coverage",
+    "subtitle": "5/5 Exemplary",
+    "summary": "How broad your build is across stat categories, and whether it has any obvious gaps.",
+    "facts": [
+      {
+        "label": "Score",
+        "value": "5/5 — Exemplary"
+      },
+      {
+        "label": "Range",
+        "value": "1 (very narrow plus a clear gap) to 5 (broad coverage, no gaps)"
+      },
+      {
+        "label": "Derivation",
+        "value": "Count the active stat categories out of 11, then subtract for any named gap and for severe melee/ranged imbalance."
+      },
+      {
+        "label": "This build",
+        "value": "9/11 categories active · balanced"
+      },
+      {
+        "label": "Implies",
+        "value": "Broad coverage, no flagged gaps."
+      }
+    ],
+    "sourceLabel": "synergy model",
+    "tone": "default"
+  },
+  {
+    "key": "breakpoint_relevance",
+    "label": "Breakpoints",
+    "score": 5,
+    "max": 5,
+    "tierLabel": "Exemplary",
+    "triggerNote": "Exemplary",
+    "title": "Breakpoint Relevance",
+    "subtitle": "5/5 Exemplary",
+    "summary": "How many of our Damnation breakpoint checklist entries your build hits, weighted by importance.",
+    "facts": [
+      {
+        "label": "Score",
+        "value": "5/5 — Exemplary"
+      },
+      {
+        "label": "Range",
+        "value": "1 (most checklist breakpoints missed) to 5 (nearly all met)"
+      },
+      {
+        "label": "Derivation",
+        "value": "For each checklist entry, we find your best hits-to-kill across all weapons at that enemy, hit location, and scenario."
+      },
+      {
+        "label": "This build",
+        "value": "10/10 breakpoints met"
+      },
+      {
+        "label": "Implies",
+        "value": "You hit the muscle-memory breakpoints — one-shot Trapper/Hound head, two-hit Crusher, two-hit Rager body, and similar anchors."
+      },
+      {
+        "label": "Caveat",
+        "value": "Our checklist, not the game's. The list is curated for decisive breakpoints, not exhaustive coverage of every matchup."
+      },
+      {
+        "label": "Coverage caveat",
+        "value": "If a weapon family is not fully modelled yet, the score can under-credit it. The per-weapon breakpoint panels may show Unsupported."
+      }
+    ],
+    "sourceLabel": "calculator",
+    "tone": "default"
+  },
+  {
+    "key": "difficulty_scaling",
+    "label": "Scaling",
+    "score": 4,
+    "max": 5,
+    "tierLabel": "Strong",
+    "triggerNote": "Strong",
+    "title": "Difficulty Scaling",
+    "subtitle": "4/5 Strong",
+    "summary": "Do your key breakpoints still hold at Auric, or do they break down on the harder difficulty?",
+    "facts": [
+      {
+        "label": "Score",
+        "value": "4/5 — Strong"
+      },
+      {
+        "label": "Range",
+        "value": "1 (breaks at Damnation already) to 5 (holds through Auric)"
+      },
+      {
+        "label": "Derivation",
+        "value": "Tracks only the high-priority breakpoints and compares whether they still land at Damnation versus Auric."
+      },
+      {
+        "label": "This build",
+        "value": "High-priority breakpoints met: 3/3 at Damnation · 2/3 at Auric · breaks at Auric: Two-hit Crusher"
+      },
+      {
+        "label": "Implies",
+        "value": "Holds at Damnation; some key breakpoints break at Auric."
+      },
+      {
+        "label": "Important caveat",
+        "value": "Auric is our proxy for high-intensity play. Havoc layers extra resistance modifiers we do not model — holding at Auric is a good sign, not a guarantee."
+      }
+    ],
+    "sourceLabel": "calculator",
+    "tone": "default"
+  }
+]

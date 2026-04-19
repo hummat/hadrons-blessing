@@ -1906,13 +1906,7 @@
     }
   ],
   "anti_synergies": [],
-  "orphans": [
-    {
-      "selection": "shared.name_family.blessing.execution",
-      "reason": "unresolvable_condition",
-      "condition": "unknown_condition"
-    }
-  ],
+  "orphans": [],
   "coverage": {
     "family_profile": {
       "toughness": {
@@ -1946,7 +1940,7 @@
       },
       "general_offense": {
         "count": 16,
-        "total_magnitude": 3.07,
+        "total_magnitude": 3.62,
         "selections": [
           "shared.stat_node.cleave_boost",
           "arbites.talent.adamant_dodge_grants_damage",
@@ -2106,7 +2100,7 @@
     "unique_entities_with_calc": 30,
     "unique_entities_with_linked_source": 38,
     "entities_without_calc": 12,
-    "opaque_conditions": 1,
+    "opaque_conditions": 0,
     "calc_coverage_pct": 0.71,
     "linked_coverage_pct": 0.9
   }

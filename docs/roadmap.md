@@ -1,12 +1,12 @@
 # Roadmap
 
-Last updated: 2026-04-18
+Last updated: 2026-04-19
 
 ## Current state
 
 Core analytical engine complete: entity resolution, synergy model, 7-dimension scoring, damage/stagger/cleave/toughness calculators, build browse/compare. 24 canonical build fixtures, full test suite green, all 6 classes covered.
 
-Website: SvelteKit static site on GitHub Pages. Build list, detail page, and comparison page functional (Plans 1–3 merged). Design system foundation merged: shared shell, dark steel/ember theme tokens, semantic surface tiers, and route-wide disclosure/control styling. Broader IA/product-shaping work still open.
+Website: SvelteKit static site on GitHub Pages. Build list, detail page, and comparison page functional (Plans 1–3 merged). Imperial Dataslate aesthetic now covers the detail page and list route; compare page still on the original `panel-strong` theme pending its verdict-first IA pass.
 
 ## Active sequence
 
@@ -14,7 +14,7 @@ Ordered by dependency. Each step builds on the previous.
 
 | Priority | Issue | Summary | Blocked by | Effort |
 |----------|-------|---------|------------|--------|
-| 1 | #26 | Website IA redesign — verdict-first detail page, command-surface list, decisive compare | — | High |
+| 1 | #26 | Website IA redesign — compare page verdict-first overview, route-wide progressive disclosure (detail + list tranches already shipped) | — | Medium |
 | 2 | #25 | Hover detail cards — shared primitive + content adapters for compressed/opaque items | #26 | Medium |
 
 ## Independent tracks
@@ -73,3 +73,5 @@ Per CLAUDE.md and design specs:
 | #6 Plans 1–3 | Website: list, detail, compare pages | 2026-04 |
 | #21 | GL alias coverage beyond fixture set | 2026-04 |
 | #27 | Website design system foundation | 2026-04 |
+| #26 detail tranche | Detail page verdict-first IA | 2026-04 |
+| #26 list tranche | List page as Commander's Manifest (Dataslate theme) | 2026-04 |

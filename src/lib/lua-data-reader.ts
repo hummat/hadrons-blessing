@@ -244,6 +244,7 @@ function captureFunctionBody(src: string, pos: number): { body: string; endPos: 
   const bodyStart = pos;
   let depth = 1;
   let i = pos;
+  let pendingLoopDo = false;
 
   // We need to track word boundaries to match keywords
   while (i < src.length && depth > 0) {
@@ -265,20 +266,37 @@ function captureFunctionBody(src: string, pos: number): { body: string; endPos: 
       }
 
       // Keywords that open a block (need matching end)
-      if (word === "function" || word === "if" || word === "do" || word === "for" || word === "while") {
+      if (word === "function" || word === "if") {
         depth++;
+      } else if (word === "for" || word === "while") {
+        depth++;
+        pendingLoopDo = true;
+      } else if (word === "do") {
+        if (!pendingLoopDo) {
+          depth++;
+        }
+        pendingLoopDo = false;
       } else if (word === "end") {
         depth--;
+        pendingLoopDo = false;
       }
       continue;
     }
 
+    if (ch === "\n") {
+      pendingLoopDo = false;
+    }
     i++;
   }
 
   // i is now right after the closing "end"
   const body = src.slice(bodyStart, i - 3).trim(); // -3 to strip "end"
   return { body, endPos: i };
+}
+
+function normalizeCapturedLocalFunctionBody(body: string): string {
+  const namedFunctionMatch = body.match(/^(\w+)\s*(\([\s\S]*)$/);
+  return namedFunctionMatch ? namedFunctionMatch[2].trim() : body;
 }
 
 // -- Parser -------------------------------------------------------------------
@@ -522,6 +540,12 @@ export interface ExtractResult {
 function extractTemplateBlocks(luaSource: string): ExtractResult {
   const cleaned = stripComments(luaSource);
   const lines = cleaned.split("\n");
+  const lineOffsets: number[] = [];
+  let runningOffset = 0;
+  for (const sourceLine of lines) {
+    lineOffsets.push(runningOffset);
+    runningOffset += sourceLine.length + 1;
+  }
 
   const aliases: Record<string, string> = {};
   const localFunctions: Record<string, string> = {};
@@ -573,36 +597,26 @@ function extractTemplateBlocks(luaSource: string): ExtractResult {
       continue;
     }
 
-    // 2. Local function: `local <name> = function(...) ... end`
-    const funcMatch = trimmed.match(/^local\s+(\w+)\s*=\s*function\s*\(/);
+    // 2. Local/helper function:
+    //    - `local <name> = function(...) ... end`
+    //    - `local function <name>(...) ... end`
+    //    - `function <name>(...) ... end` for forward-declared locals
+    const funcMatch = trimmed.match(/^local\s+(\w+)\s*=\s*function\s*\(/)
+      || trimmed.match(/^local\s+function\s+(\w+)\s*\(/)
+      || trimmed.match(/^function\s+(\w+)\s*\(/);
     if (funcMatch) {
       const funcName = funcMatch[1];
-      // Collect lines until we find the closing `end` at depth 0
-      let depth = 1;
-      const bodyLines = [lines[i]];
-      i++;
-      while (i < lines.length && depth > 0) {
-        const fl = lines[i].trim();
-        bodyLines.push(lines[i]);
-        // Count block openers/closers on this line
-        const words = fl.match(/\b(function|if|do|for|while|end)\b/g) || [];
-        for (const w of words) {
-          if (w === "end") depth--;
-          else depth++;
-        }
+      const lineStartOffset = lineOffsets[i];
+      const functionKeywordOffset = cleaned.indexOf("function", lineStartOffset);
+      if (functionKeywordOffset === -1) {
+        i++;
+        continue;
+      }
+      const { body, endPos } = captureFunctionBody(cleaned, functionKeywordOffset + "function".length);
+      localFunctions[funcName] = normalizeCapturedLocalFunctionBody(body);
+      while (i < lines.length && lineOffsets[i] < endPos) {
         i++;
       }
-      // Store everything between `function(` and the final `end`
-      const fullText = bodyLines.join("\n");
-      // Extract body: from after "function(" to before final "end"
-      const funcBodyStart = fullText.indexOf("function");
-      const funcBodyStr = fullText.slice(funcBodyStart);
-      // Strip the `local name = ` prefix and the final `end`
-      const afterFunc = funcBodyStr.slice("function".length).trim();
-      // Remove the trailing "end"
-      const endIdx = afterFunc.lastIndexOf("end");
-      const body = afterFunc.slice(0, endIdx).trim();
-      localFunctions[funcName] = body;
       continue;
     }
 

@@ -294,13 +294,13 @@ describe("buildRiskBullets", () => {
     const some = buildRiskBullets(makeDetail({ antiSynergies: 2, orphans: 1 }));
     const bullet = some.find((b) => b.kind === "anti_orphan");
     assert.ok(bullet);
-    assert.equal(bullet.text, "2 anti-synergies \u00b7 1 isolated pick");
+    assert.equal(bullet.text, "2 anti-synergies \u00b7 1 condition/dependency flag");
   });
 
-  it("pluralizes isolated picks correctly", () => {
+  it("pluralizes condition/dependency flags correctly", () => {
     const bullets = buildRiskBullets(makeDetail({ antiSynergies: 0, orphans: 3 }));
     const bullet = bullets.find((b) => b.kind === "anti_orphan");
-    assert.equal(bullet?.text, "0 anti-synergies \u00b7 3 isolated picks");
+    assert.equal(bullet?.text, "0 anti-synergies \u00b7 3 condition/dependency flags");
   });
 
   it("formats calc_coverage_pct as a fraction 0..1 (not an already-scaled percent)", () => {

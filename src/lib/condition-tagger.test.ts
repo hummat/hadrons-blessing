@@ -60,6 +60,27 @@ describe("tagCondition", () => {
     assert.equal(tagCondition(node), "weapon_keyword:bolter");
   });
 
+  it("tags inline ConditionalFunctions.is_item_slot_wielded wrappers as wielded", () => {
+    const node = {
+      $func: "function (template_data, template_context)\n\t\treturn ConditionalFunctions.is_item_slot_wielded(template_data, template_context)",
+    };
+    assert.equal(tagCondition(node), "wielded");
+  });
+
+  it("tags MinionState.is_staggered as target_staggered", () => {
+    const node = {
+      $func: "function (template_data, template_context)\n\tlocal unit = template_context.unit\n\n\treturn MinionState.is_staggered(unit)\nend",
+    };
+    assert.equal(tagCondition(node), "target_staggered");
+  });
+
+  it("tags MinionState.is_electrocuted as target_electrocuted", () => {
+    const node = {
+      $func: "function (template_data, template_context)\n\tlocal unit = template_context.unit\n\tlocal buff_extension = ScriptUnit.has_extension(unit, \"buff_system\")\n\n\treturn MinionState.is_electrocuted(buff_extension)\nend",
+    };
+    assert.equal(tagCondition(node), "target_electrocuted");
+  });
+
   it("returns unknown_condition for unrecognized inline function", () => {
     const node = {
       $func: "function(td, tc)\n  return some_complex_logic(td, tc)\nend",
@@ -120,6 +141,20 @@ describe("tagCondition", () => {
     assert.equal(tagCondition(node), "threshold:toughness_high");
   });
 
+  it("tags first-shot checks as first_shot", () => {
+    const node = {
+      $func: "function (template_data, template_context)\n\tif not ConditionalFunctions.is_item_slot_wielded(template_data, template_context) then\n\t\treturn false\n\tend\n\n\tlocal num_shots_fired = template_data.shooting_status.num_shots\n\n\tif num_shots_fired == 0 then\n\t\treturn true\n\tend\n\n\treturn false\nend",
+    };
+    assert.equal(tagCondition(node), "first_shot");
+  });
+
+  it("tags follow-up shot checks as follow_up_shots", () => {
+    const node = {
+      $func: "function (template_data, template_context)\n\tif not ConditionalFunctions.is_item_slot_wielded(template_data, template_context) then\n\t\treturn false\n\tend\n\n\tlocal shooting_status_component = template_data.shooting_status_component\n\tlocal num_shots_fired = shooting_status_component.num_shots\n\tlocal is_follow_up_shots = num_shots_fired == 1 or num_shots_fired == 2 or num_shots_fired == 3\n\n\treturn is_follow_up_shots\nend",
+    };
+    assert.equal(tagCondition(node), "follow_up_shots");
+  });
+
   it("tags toughness_percent with talent_settings threshold as threshold:toughness_high", () => {
     // Zealot variant with talent_settings threshold
     const node = {
@@ -150,6 +185,72 @@ describe("tagCondition", () => {
       $func: "function (template_data, template_context)\n\tlocal unit = template_context.unit\n\tlocal health_extension = ScriptUnit.has_extension(unit, \"health_system\")\n\n\tif health_extension then\n\t\tlocal current_health_percent = health_extension:current_health_percent()\n\n\t\treturn current_health_percent < increased_toughness_health_threshold\n\tend\nend",
     };
     assert.equal(tagCondition(node), "threshold:health_low");
+  });
+
+  it("tags Warp Siphon soul requirements as threshold:warp_charge", () => {
+    const node = {
+      $func: "function _psyker_passive_conditional_stat_buffs(template_data, template_context)\n\tif template_data.psyker_toughness_regen_soul then\n\t\tlocal soul_requirement = template_data.toughness_talent_soul_requirement\n\t\tlocal num_souls = template_data.talent_resource_component.current_resource\n\n\t\treturn soul_requirement <= num_souls\n\tend\nend",
+    };
+    assert.equal(tagCondition(node), "threshold:warp_charge");
+  });
+
+  it("tags toxined-enemy proximity checks as threshold:toxined_nearby", () => {
+    const node = {
+      $func: "function (template_data, template_context)\n\t\treturn template_data.num_toxined_in_range > 0",
+    };
+    assert.equal(tagCondition(node), "threshold:toxined_nearby");
+  });
+
+  it("tags special-rule gates by special rule name", () => {
+    const node = {
+      $func: "function (template_data, template_context)\n\t\tlocal talent_extension = template_data.talent_extension\n\t\tlocal ogryn_carapace_armor_more_toughness_special_rule = talent_extension:has_special_rule(special_rules.ogryn_carapace_armor_more_toughness)\n\n\t\treturn ogryn_carapace_armor_more_toughness_special_rule",
+    };
+    assert.equal(tagCondition(node), "special_rule:ogryn_carapace_armor_more_toughness");
+  });
+
+  it("tags critical strike component active checks", () => {
+    const node = {
+      $func: "function (template_data, template_context)\n\t\treturn template_data.critical_strike_component.is_active\n\tend",
+    };
+    assert.equal(tagCondition(node), "critical_strike_active");
+  });
+
+  it("tags internal buff presence checks", () => {
+    const node = {
+      $func: "function (template_data, template_context)\n\t\tlocal owner_unit = template_context.unit\n\t\tlocal buff_extension = ScriptUnit.has_extension(owner_unit, \"buff_system\")\n\n\t\treturn not not buff_extension and not not buff_extension:has_buff_using_buff_template(\"weapon_trait_bespoke_shotgun_p2_reload_speed_on_ranged_weapon_special_kill_effect\")\n\tend",
+    };
+    assert.equal(
+      tagCondition(node),
+      "internal_buff:weapon_trait_bespoke_shotgun_p2_reload_speed_on_ranged_weapon_special_kill_effect",
+    );
+  });
+
+  it("tags action allowlist checks combined with wielded state", () => {
+    const node = {
+      $func: "function (template_data, template_context)\n\t\tlocal valid_actions = template_context.template.valid_actions\n\t\tlocal weapon_action_component = template_data.weapon_action_component\n\t\tlocal current_action_name = weapon_action_component.current_action_name\n\n\t\treturn valid_actions[current_action_name] and ConditionalFunctions.is_item_slot_wielded(template_data, template_context)\n\tend",
+    };
+    assert.equal(tagCondition(node), "all:wielded+action_allowed");
+  });
+
+  it("tags weapon special active checks combined with wielded state", () => {
+    const node = {
+      $func: "function (template_data, template_context)\n\t\tlocal inventory_slot_component = template_data.inventory_slot_component\n\t\tlocal special_active = inventory_slot_component.special_active\n\n\t\treturn special_active\n\tend",
+    };
+    assert.equal(tagCondition(node), "weapon_special_active");
+  });
+
+  it("tags disabled ally facing checks", () => {
+    const node = {
+      $func: "function (template_data, template_context)\n\t\tlocal requires_help = PlayerUnitStatus.requires_help(character_state_component)\n\n\t\tif requires_help then\n\t\t\tlocal dot = Vector3.dot(look_direction, ally_direction)\n\n\t\t\tif dot > dot_threshold then\n\t\t\t\treturn true\n\t\t\tend\n\t\tend\n\tend",
+    };
+    assert.equal(tagCondition(node), "ally_requires_help_ahead");
+  });
+
+  it("tags maxed talent resource checks as resource_full", () => {
+    const node = {
+      $func: "function (template_data, template_context)\n\tif not template_data.toughness_on_max then\n\t\treturn false\n\tend\n\n\tlocal current_resource = template_data.talent_resource_component.current_resource\n\tlocal max_resource = template_data.talent_resource_component.max_resource\n\n\treturn current_resource == max_resource\nend",
+    };
+    assert.equal(tagCondition(node), "resource_full");
   });
 
   it("tags action_settings.kind == windup as during_windup", () => {
