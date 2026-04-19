@@ -101,6 +101,28 @@ describe("effects:build pipeline", () => {
     assert.ok(found, "Expected at least one weapon trait with 4 tiers");
   });
 
+  it("preserves all four tiers for weapon perks and exposes the max tier in calc.effects", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "shared-weapons.json"), "utf8"),
+    );
+    const perk = entities.find(
+      (e) => e.id === "shared.weapon_perk.ranged.weapon_trait_ranged_increase_crit_chance",
+    );
+
+    assert.ok(perk, "Expected to find ranged crit chance weapon perk");
+    assert.equal(perk.calc?.tiers?.length, 4, "Expected all four perk tiers to be preserved");
+    assert.equal(perk.calc?.tiers?.[0]?.effects?.[0]?.magnitude, 0.02);
+    assert.equal(perk.calc?.tiers?.[3]?.effects?.[0]?.magnitude, 0.05);
+    assert.equal(
+      perk.calc?.effects?.[0]?.magnitude,
+      0.05,
+      "Expected calc.effects to use the endgame-tier perk magnitude",
+    );
+  });
+
   it("generates grants_buff edges", { skip: !sourceRoot }, () => {
     const edgeFiles = readdirSync(fixtureEdgesRoot()).filter((f) => f.endsWith(".json"));
     let grantsBuff = 0;

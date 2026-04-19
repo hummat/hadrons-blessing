@@ -18,7 +18,7 @@
       explanation: rewriteExplanation(strength.key, strength.explanation, blessingMap),
     })),
   );
-  const risks: RiskBullet[] = $derived(buildRiskBullets(detail));
+  const risks: RiskBullet[] = $derived(buildRiskBullets(detail, blessingMap));
 
   function riskClass(kind: RiskBullet["kind"]): string {
     switch (kind) {

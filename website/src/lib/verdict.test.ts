@@ -221,6 +221,50 @@ describe("buildRiskBullets", () => {
     assert.ok(bullets.some((b) => b.kind === "low_dimension" && b.text.includes("Role Coverage 2/5")));
   });
 
+  it("humanizes role-coverage low-dimension explanations before rendering", () => {
+    const detail = makeDetail({
+      qualitative: {
+        role_coverage: {
+          score: 2,
+          breakdown: {},
+          explanations: ["Coverage gaps: crit_chance_source, warp_charge_producer (-1 each)"],
+        },
+      },
+      scores: { role_coverage: 2 },
+    });
+
+    const bullets = buildRiskBullets(detail);
+    const bullet = bullets.find((b) => b.kind === "low_dimension");
+
+    assert.equal(
+      bullet?.text,
+      "Role Coverage 2/5 \u2014 Coverage gaps: Crit chance source, Warp charge producer (-1 each)",
+    );
+  });
+
+  it("humanizes blessing low-dimension explanations before rendering", () => {
+    const detail = makeDetail({
+      qualitative: {
+        blessing_synergy: {
+          score: 2,
+          breakdown: {},
+          explanations: ["Blessings with synergy edges: increase_power_on_kill, unknown_slug"],
+        },
+      },
+      scores: { blessing_synergy: 2 },
+    });
+
+    const bullets = buildRiskBullets(detail, {
+      increase_power_on_kill: "Headtaker",
+    });
+    const bullet = bullets.find((b) => b.kind === "low_dimension");
+
+    assert.equal(
+      bullet?.text,
+      "Blessing Synergy 2/5 \u2014 Connected blessings: Headtaker, Unknown Slug",
+    );
+  });
+
   it("does NOT add a low-dimension bullet when every qualitative score is >= 3", () => {
     const detail = makeDetail();
     const bullets = buildRiskBullets(detail);

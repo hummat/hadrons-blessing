@@ -99,9 +99,9 @@ await runCliMain("effects:build", async () => {
       const buffEntries = [];
       for (const [buffName, tierArray] of Object.entries(parsed.buffs)) {
         if (!Array.isArray(tierArray) || tierArray.length === 0) continue;
-        const firstTier = tierArray[0];
-        if (!firstTier || typeof firstTier !== "object" || Array.isArray(firstTier)) continue;
-        buffEntries.push({ buffName, template: firstTier });
+        const tiers = tierArray.filter((tier) => tier && typeof tier === "object" && !Array.isArray(tier));
+        if (tiers.length === 0) continue;
+        buffEntries.push({ buffName, tiers });
       }
 
       if (buffEntries.length > 0) {
@@ -221,20 +221,26 @@ await runCliMain("effects:build", async () => {
       const perkBuff = weaponPerkBuffs.get(internalName);
       if (perkBuff) {
         const mergedEffects = [];
+        const mergedTiers: AnyRecord[] = [];
         let mergedMeta: AnyRecord = {};
         const buffTemplateNames = perkBuff.buffEntries.map((entry: AnyRecord) => entry.buffName);
 
-        for (const { buffName, template } of perkBuff.buffEntries) {
-          const extracted = extractEffects(template, settingsMap, perkBuff.ctx);
+        for (const { tiers } of perkBuff.buffEntries) {
+          const extractedTiers = extractTiers(tiers, settingsMap, perkBuff.ctx);
+          mergeTierResults(mergedTiers, extractedTiers);
+
+          const maxTierTemplate = tiers[tiers.length - 1];
+          const extracted = extractEffects(maxTierTemplate, settingsMap, perkBuff.ctx);
           mergedEffects.push(...(extracted.effects ?? []));
           for (const key of ["class_name", "max_stacks", "duration", "active_duration", "keywords"]) {
             if ((extracted as AnyRecord)[key] !== undefined) mergedMeta[key] = (extracted as AnyRecord)[key];
           }
         }
 
-        calc = mergedEffects.length > 0
+        calc = mergedEffects.length > 0 || mergedTiers.length > 0
           ? {
             effects: mergedEffects,
+            tiers: mergedTiers,
             ...mergedMeta,
             buff_template_names: buffTemplateNames,
           }
@@ -513,6 +519,25 @@ function sanitizeCalcMetadata(calc: AnyRecord) {
           }
         }
       }
+    }
+  }
+}
+
+function mergeTierResults(target: AnyRecord[], incoming: AnyRecord[]) {
+  for (let i = 0; i < incoming.length; i++) {
+    const tier = incoming[i];
+    if (!target[i]) {
+      target[i] = {
+        ...tier,
+        effects: [...(tier.effects ?? [])],
+      };
+      continue;
+    }
+
+    target[i].effects = [...(target[i].effects ?? []), ...(tier.effects ?? [])];
+    for (const [key, value] of Object.entries(tier)) {
+      if (key === "effects" || value === undefined) continue;
+      target[i][key] = value;
     }
   }
 }

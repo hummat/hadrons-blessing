@@ -4,7 +4,7 @@ import type {
   DimensionScoreDetail,
   ScorecardQualitative,
 } from "./types.ts";
-import { formatCoverageFraction, formatCoverageLabel } from "./detail-format.ts";
+import { formatCoverageFraction, formatCoverageLabel, rewriteExplanation } from "./detail-format.ts";
 
 export type SignatureStrength = {
   key: keyof ScorecardQualitative;
@@ -81,7 +81,7 @@ function pickLowestQualitative(entries: QualitativeEntry[]): QualitativeEntry | 
   return entries.reduce((lowest, entry) => (entry.score < lowest.score ? entry : lowest), entries[0]);
 }
 
-export function buildRiskBullets(detail: BuildDetailData): RiskBullet[] {
+export function buildRiskBullets(detail: BuildDetailData, blessingMap: Record<string, string> = {}): RiskBullet[] {
   const risks: RiskBullet[] = [];
   const informational: RiskBullet[] = [];
 
@@ -92,7 +92,7 @@ export function buildRiskBullets(detail: BuildDetailData): RiskBullet[] {
     const lowest = pickLowestQualitative(qualitativeEntries);
     if (lowest && lowest.score <= 2) {
       const label = QUALITATIVE_LABELS[lowest.key];
-      const explanation = lowest.detail.explanations[0] ?? "";
+      const explanation = rewriteExplanation(lowest.key, lowest.detail.explanations[0] ?? "", blessingMap);
       risks.push({
         kind: "low_dimension",
         text: explanation ? `${label} ${lowest.score}/5 \u2014 ${explanation}` : `${label} ${lowest.score}/5`,
