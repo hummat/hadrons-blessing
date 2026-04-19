@@ -350,6 +350,52 @@ describe("analyzeBuild", () => {
     assert.ok(result.synergy_edges.length > 0, "Expected synergy edges");
     assert.ok(result.coverage.build_identity.length > 0);
   });
+
+  it("does not count weapon shells against calc coverage", () => {
+    const build = {
+      title: "coverage-metric",
+      class: { raw_label: "psyker", canonical_entity_id: "psyker.class.psyker" },
+      ability: { raw_label: "Ability", canonical_entity_id: "psyker.ability.some_ability" },
+      blitz: { raw_label: "Blitz", canonical_entity_id: null },
+      aura: { raw_label: "Aura", canonical_entity_id: null },
+      keystone: null,
+      talents: [],
+      weapons: [
+        {
+          slot: "melee",
+          name: { raw_label: "Melee", canonical_entity_id: "shared.weapon.fake_melee" },
+          blessings: [],
+          perks: [],
+        },
+        {
+          slot: "ranged",
+          name: { raw_label: "Ranged", canonical_entity_id: "shared.weapon.fake_ranged" },
+          blessings: [],
+          perks: [],
+        },
+      ],
+      curios: [],
+    };
+
+    const index = {
+      entities: new Map([
+        ["psyker.class.psyker", { id: "psyker.class.psyker", kind: "class", calc: {} }],
+        ["psyker.ability.some_ability", {
+          id: "psyker.ability.some_ability",
+          kind: "ability",
+          calc: { effects: [{ stat: "damage", type: "stat_buff", magnitude: 0.1 }] },
+        }],
+        ["shared.weapon.fake_melee", { id: "shared.weapon.fake_melee", kind: "weapon", calc: {} }],
+        ["shared.weapon.fake_ranged", { id: "shared.weapon.fake_ranged", kind: "weapon", calc: {} }],
+      ]),
+      edges: [],
+    };
+
+    const result = analyzeBuild(build as never, index as never);
+    assert.equal(result.metadata.unique_entities_with_calc, 1);
+    assert.equal(result.metadata.entities_without_calc, 0);
+    assert.equal(result.metadata.calc_coverage_pct, 1);
+  });
 });
 
 describe("golden tests", () => {

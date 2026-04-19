@@ -1,22 +1,39 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { spawnSync } from "node:child_process";
+import { closeSync, mkdtempSync, openSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import { tmpdir } from "node:os";
 import { REPO_ROOT } from "../lib/load.js";
 import { formatCliError } from "../lib/cli.js";
 
 function runCli(scriptPath, args = []) {
-  return spawnSync(process.execPath, [
-    `${REPO_ROOT}/node_modules/tsx/dist/cli.mjs`,
+  const captureDir = mkdtempSync(join(tmpdir(), "hb-cli-contract-"));
+  const stdoutPath = join(captureDir, "stdout.txt");
+  const stderrPath = join(captureDir, "stderr.txt");
+  const stdoutFd = openSync(stdoutPath, "w");
+  const stderrFd = openSync(stderrPath, "w");
+  const result = spawnSync(process.execPath, [
+    "--import",
+    "tsx",
     scriptPath,
     ...args,
   ], {
     cwd: REPO_ROOT,
-    encoding: "utf8",
     env: {
       ...process.env,
       GROUND_TRUTH_SOURCE_ROOT: "/nonexistent/source-root",
     },
+    stdio: ["ignore", stdoutFd, stderrFd],
   });
+  closeSync(stdoutFd);
+  closeSync(stderrFd);
+
+  return {
+    ...result,
+    stdout: readFileSync(stdoutPath, "utf8"),
+    stderr: readFileSync(stderrPath, "utf8"),
+  };
 }
 
 describe("CLI setup errors", () => {

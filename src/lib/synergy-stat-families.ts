@@ -122,6 +122,7 @@ const FAMILY_STATS: Record<StatFamily, string[]> = {
   ],
   warp_resource: [
     "warp_charge_amount", "warp_charge_block_cost",
+    "max_souls",
     "warp_charge_dissipation_multiplier", "vent_warp_charge_speed",
     "vent_warp_charge_decrease_movement_reduction",
     "warp_attacks_rending_multiplier", "smite_damage_multiplier",
@@ -139,7 +140,7 @@ const FAMILY_STATS: Record<StatFamily, string[]> = {
   ],
   stamina: [
     "stamina_modifier", "stamina_regeneration_modifier",
-    "stamina_regeneration_delay", "block_cost_multiplier",
+    "stamina_regeneration_delay", "block_cost_multiplier", "stamina_cost_multiplier",
     "push_impact_modifier",
   ],
   utility: [

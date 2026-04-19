@@ -3,7 +3,7 @@
   "class": "arbites",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 29,
+  "composite_score": 31,
   "letter_grade": "A",
   "weapons": [
     {
@@ -152,14 +152,14 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 21,
+        "blessing_edges": 23,
         "blessing_count": 4,
-        "edges_per_blessing": 5.25,
+        "edges_per_blessing": 5.75,
         "blessing_blessing_edges": 1,
         "orphaned_blessings": 1
       },
       "explanations": [
-        "Blessings with synergy edges: relentless_strikes, high_voltage, run_n_gun",
+        "Blessings with synergy edges: high_voltage, run_n_gun, relentless_strikes",
         "1 blessing-blessing edge(s) +0.5",
         "1 blessing(s) participate in no synergy edges (-1 each)"
       ]
@@ -172,13 +172,13 @@
         "measurable_talent_count": 12,
         "edges_per_talent": 1.417,
         "graph_isolated_count": 1,
-        "concentration": 0.13,
+        "concentration": 0.15,
         "penalties": -0.5,
         "bonuses": 0.5
       },
       "explanations": [
         "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.130) +0.5",
+        "High stat concentration (0.150) +0.5",
         "15 talent(s) without calc data excluded from isolation penalty"
       ]
     },
@@ -267,14 +267,14 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.7857142857142857
+        "slot_balance_ratio": 0.8
       },
       "explanations": []
     },
     "difficulty_scaling": {
-      "score": 2,
+      "score": 4,
       "breakdown": {
-        "auric_met": 1,
+        "auric_met": 2,
         "damnation_met": 2,
         "total": 3,
         "per_entry": [
@@ -288,9 +288,9 @@
           {
             "label": "Two-hit Rager body",
             "damnation_htk": 2,
-            "auric_htk": 3,
+            "auric_htk": 2,
             "damnation_met": true,
-            "auric_met": false
+            "auric_met": true
           },
           {
             "label": "Two-hit Crusher",
@@ -302,8 +302,7 @@
         ]
       },
       "explanations": [
-        "High-priority: 2/3 at damnation, 1/3 at auric",
-        "Degrades at auric: Two-hit Rager body"
+        "High-priority: 2/3 at damnation, 2/3 at auric"
       ]
     }
   },

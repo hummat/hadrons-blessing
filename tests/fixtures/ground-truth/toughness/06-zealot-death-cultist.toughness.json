@@ -9,6 +9,13 @@
   },
   "dr_sources": [
     {
+      "source_entity": "zealot.aura.zealot_toughness_damage_reduction_coherency_improved",
+      "stat": "toughness_damage_taken_multiplier",
+      "value": 0.85,
+      "type": "stat_buff",
+      "condition": null
+    },
+    {
       "source_entity": "shared.stat_node.toughness_damage_reduction",
       "stat": "toughness_damage_taken_modifier",
       "value": -0.1,
@@ -16,27 +23,27 @@
       "condition": null
     }
   ],
-  "total_dr": 0.1,
+  "total_dr": 0,
   "max_toughness": 126.5,
-  "effective_toughness": 140.56,
+  "effective_toughness": 126.5,
   "health_pool": 1260,
-  "effective_hp": 1400.56,
+  "effective_hp": 1386.5,
   "max_health_modifier": 0.05,
   "state_modifiers": {
     "dodging": {
       "tdr": 0.5,
-      "damage_multiplier": 0.45,
-      "effective_toughness": 281.11
+      "damage_multiplier": 0.5,
+      "effective_toughness": 253
     },
     "sliding": {
       "tdr": 0.5,
-      "damage_multiplier": 0.45,
-      "effective_toughness": 281.11
+      "damage_multiplier": 0.5,
+      "effective_toughness": 253
     },
     "sprinting": {
       "tdr": 0.5,
-      "damage_multiplier": 0.45,
-      "effective_toughness": 281.11
+      "damage_multiplier": 0.5,
+      "effective_toughness": 253
     }
   },
   "toughness_regen": {

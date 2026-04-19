@@ -552,6 +552,21 @@ export function resolveTemplateChain(
 export function extractTalentBuffLinks(talentLuaSource: string): Map<string, string[]> {
   const links = new Map<string, string[]>();
   const lines = talentLuaSource.split("\n");
+  const countBraces = (value: string): number => {
+    let depth = 0;
+    for (const ch of value) {
+      if (ch === "{") depth++;
+      if (ch === "}") depth--;
+    }
+    return depth;
+  };
+  const pushLink = (talentName: string, buffName: string): void => {
+    const existing = links.get(talentName) ?? [];
+    if (!existing.includes(buffName)) {
+      existing.push(buffName);
+      links.set(talentName, existing);
+    }
+  };
 
   // Phase 1: Find the talents block start.
   let talentsLineIdx = -1;
@@ -583,13 +598,12 @@ export function extractTalentBuffLinks(talentLuaSource: string): Map<string, str
   }
   if (talentIndent === -1) return links;
 
-  // Phase 3: Track current talent name and passive blocks
+  // Phase 3: Track current talent and direct child blocks that can own buff_template_name.
   let currentTalent: string | null = null;
-  let insidePassive = false;
-  let passiveDepth = 0;
-  let insidePassiveBuffArray = false;
+  let currentDirectBlockDepth = 0;
   let buffArrayDepth = 0;
   let buffArrayNames: string[] = [];
+  let insideBuffArray = false;
 
   for (let i = talentsLineIdx; i < lines.length; i++) {
     const line = lines[i];
@@ -598,113 +612,72 @@ export function extractTalentBuffLinks(talentLuaSource: string): Map<string, str
 
     // Detect talent-level keys at the determined indent
     const talentMatch = line.match(/^(\t+)(\w+)\s*=\s*\{/);
-    if (talentMatch && !insidePassive) {
+    if (talentMatch) {
       const indent = talentMatch[1].length;
       if (indent === talentIndent) {
         currentTalent = talentMatch[2];
-      }
-    }
-
-    // Detect passive block start
-    if (currentTalent && !insidePassive && /^\s*passive\s*=\s*\{/.test(line)) {
-      insidePassive = true;
-      passiveDepth = 0;
-      // Count braces on this line
-      for (const ch of trimmed) {
-        if (ch === "{") passiveDepth++;
-        if (ch === "}") passiveDepth--;
-      }
-      // Check for single-line passive
-      if (passiveDepth === 0) {
-        // Single-line passive — extract inline
-        const m = trimmed.match(/buff_template_name\s*=\s*"([^"]+)"/);
-        if (m) {
-          const existing = links.get(currentTalent!) || [];
-          if (!existing.includes(m[1])) existing.push(m[1]);
-          links.set(currentTalent!, existing);
-        }
-        insidePassive = false;
-      }
-      continue;
-    }
-
-    // Inside a passive block
-    if (insidePassive) {
-      // Track brace depth
-      for (const ch of trimmed) {
-        if (ch === "{") passiveDepth++;
-        if (ch === "}") passiveDepth--;
-      }
-
-      // Handle buff_template_name array across lines
-      if (insidePassiveBuffArray) {
-        const inlineNames = trimmed.match(/"([^"]+)"/g);
-        if (inlineNames) {
-          for (const n of inlineNames) {
-            buffArrayNames.push(n.replace(/"/g, ""));
-          }
-        }
-        // Check if array closed
-        let arrDepth = buffArrayDepth;
-        for (const ch of trimmed) {
-          if (ch === "{") arrDepth++;
-          if (ch === "}") arrDepth--;
-        }
-        buffArrayDepth = arrDepth;
-        if (arrDepth <= 0) {
-          insidePassiveBuffArray = false;
-          const existing = links.get(currentTalent!) || [];
-          for (const n of buffArrayNames) {
-            if (!existing.includes(n)) existing.push(n);
-          }
-          if (existing.length > 0) links.set(currentTalent!, existing);
-          buffArrayNames = [];
-        }
-        if (passiveDepth <= 0) insidePassive = false;
-        continue;
-      }
-
-      // Single string: buff_template_name = "name"
-      const singleMatch = trimmed.match(/^buff_template_name\s*=\s*"([^"]+)"/);
-      if (singleMatch) {
-        const existing = links.get(currentTalent!) || [];
-        if (!existing.includes(singleMatch[1])) {
-          existing.push(singleMatch[1]);
-        }
-        links.set(currentTalent!, existing);
-      }
-
-      // Array start: buff_template_name = {
-      const arrayMatch = trimmed.match(/^buff_template_name\s*=\s*\{/);
-      if (arrayMatch) {
-        insidePassiveBuffArray = true;
+        currentDirectBlockDepth = 0;
+        insideBuffArray = false;
         buffArrayDepth = 0;
         buffArrayNames = [];
-        for (const ch of trimmed) {
-          if (ch === "{") buffArrayDepth++;
-          if (ch === "}") buffArrayDepth--;
-        }
-        // Collect any names on this line
+        continue;
+      }
+      if (currentTalent && indent === talentIndent + 1 && currentDirectBlockDepth === 0) {
+        currentDirectBlockDepth = countBraces(trimmed);
+        continue;
+      }
+    }
+
+    if (currentTalent && currentDirectBlockDepth > 0) {
+      if (insideBuffArray) {
         const inlineNames = trimmed.match(/"([^"]+)"/g);
         if (inlineNames) {
-          for (const n of inlineNames) {
-            buffArrayNames.push(n.replace(/"/g, ""));
+          for (const name of inlineNames) {
+            buffArrayNames.push(name.replace(/"/g, ""));
           }
         }
-        // Check if array closed on same line
+        buffArrayDepth += countBraces(trimmed);
         if (buffArrayDepth <= 0) {
-          insidePassiveBuffArray = false;
-          const existing = links.get(currentTalent!) || [];
-          for (const n of buffArrayNames) {
-            if (!existing.includes(n)) existing.push(n);
+          insideBuffArray = false;
+          for (const buffName of buffArrayNames) {
+            pushLink(currentTalent, buffName);
           }
-          if (existing.length > 0) links.set(currentTalent!, existing);
           buffArrayNames = [];
+        }
+      } else {
+        const directPropertyMatch = line.match(/^(\t+)buff_template_name\s*=\s*(.+)$/);
+        if (directPropertyMatch && directPropertyMatch[1].length === talentIndent + 2) {
+          const assignment = directPropertyMatch[2].trim();
+          const singleMatch = assignment.match(/^"([^"]+)"/);
+          if (singleMatch) {
+            pushLink(currentTalent, singleMatch[1]);
+          } else if (assignment.startsWith("{")) {
+            insideBuffArray = true;
+            buffArrayDepth = countBraces(assignment);
+            buffArrayNames = [];
+            const inlineNames = assignment.match(/"([^"]+)"/g);
+            if (inlineNames) {
+              for (const name of inlineNames) {
+                buffArrayNames.push(name.replace(/"/g, ""));
+              }
+            }
+            if (buffArrayDepth <= 0) {
+              insideBuffArray = false;
+              for (const buffName of buffArrayNames) {
+                pushLink(currentTalent, buffName);
+              }
+              buffArrayNames = [];
+            }
+          }
         }
       }
 
-      if (passiveDepth <= 0) {
-        insidePassive = false;
+      currentDirectBlockDepth += countBraces(trimmed);
+      if (currentDirectBlockDepth <= 0) {
+        currentDirectBlockDepth = 0;
+        insideBuffArray = false;
+        buffArrayDepth = 0;
+        buffArrayNames = [];
       }
     }
   }

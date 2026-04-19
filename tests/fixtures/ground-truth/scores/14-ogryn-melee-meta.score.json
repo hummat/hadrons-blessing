@@ -152,14 +152,14 @@
     "blessing_synergy": {
       "score": 2,
       "breakdown": {
-        "blessing_edges": 10,
+        "blessing_edges": 11,
         "blessing_count": 4,
-        "edges_per_blessing": 2.5,
+        "edges_per_blessing": 2.75,
         "blessing_blessing_edges": 0,
         "orphaned_blessings": 2
       },
       "explanations": [
-        "Blessings with synergy edges: adhesive_charge, thunderous",
+        "Blessings with synergy edges: thunderous, adhesive_charge",
         "2 blessing(s) participate in no synergy edges (-1 each)"
       ]
     },
@@ -265,14 +265,14 @@
         "active_families": 6,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.6666666666666666
+        "slot_balance_ratio": 0.6153846153846154
       },
       "explanations": []
     },
     "difficulty_scaling": {
       "score": 1,
       "breakdown": {
-        "auric_met": 0,
+        "auric_met": 1,
         "damnation_met": 1,
         "total": 3,
         "per_entry": [
@@ -286,22 +286,21 @@
           {
             "label": "Two-hit Rager body",
             "damnation_htk": 2,
-            "auric_htk": 3,
+            "auric_htk": 2,
             "damnation_met": true,
-            "auric_met": false
+            "auric_met": true
           },
           {
             "label": "Two-hit Crusher",
             "damnation_htk": 3,
-            "auric_htk": 4,
+            "auric_htk": 3,
             "damnation_met": false,
             "auric_met": false
           }
         ]
       },
       "explanations": [
-        "High-priority: 1/3 at damnation, 0/3 at auric",
-        "Degrades at auric: Two-hit Rager body"
+        "High-priority: 1/3 at damnation, 1/3 at auric"
       ]
     }
   },

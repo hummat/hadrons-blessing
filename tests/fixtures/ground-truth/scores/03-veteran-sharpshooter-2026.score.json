@@ -58,6 +58,11 @@
             "name": "Damage (Unyielding)",
             "tier": 4,
             "value": 0.25
+          },
+          {
+            "name": "Critical Hit Chance",
+            "tier": 4,
+            "value": 0.05
           }
         ]
       },
@@ -147,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 26,
+        "blessing_edges": 31,
         "blessing_count": 4,
-        "edges_per_blessing": 6.5,
+        "edges_per_blessing": 7.75,
         "blessing_blessing_edges": 4,
         "orphaned_blessings": 1
       },
@@ -183,7 +188,7 @@
         {
           "label": "One-shot Rager head",
           "met": false,
-          "best_htk": 3,
+          "best_htk": 2,
           "max_hits": 1,
           "weight": "high"
         },
@@ -262,7 +267,7 @@
         "active_families": 9,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.625
+        "slot_balance_ratio": 0.6470588235294118
       },
       "explanations": []
     },
@@ -275,8 +280,8 @@
         "per_entry": [
           {
             "label": "One-shot Rager head",
-            "damnation_htk": 3,
-            "auric_htk": 3,
+            "damnation_htk": 2,
+            "auric_htk": 2,
             "damnation_met": false,
             "auric_met": false
           },

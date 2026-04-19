@@ -127,4 +127,36 @@ describe("parseItemCardLines", () => {
       ],
     });
   });
+
+  it("keeps non-percent range perks out of blessing slots", () => {
+    const item = parseItemCardLines([
+      "Catachan Mk III Combat Blade",
+      "Transcendant",
+      "1-2 Stamina",
+      "5-20% Sprint Efficiency",
+      "Uncanny Strike",
+      "+24% Rending on Enemy Weak Spot Hit for 3.5s. Stacks 5 times.",
+      "Precognition",
+      "+60% Finesse Damage for 2s on successful Dodge.",
+    ]);
+
+    assert.deepEqual(item, {
+      name: "Catachan Mk III Combat Blade",
+      rarity: "Transcendant",
+      perks: [
+        "1-2 Stamina",
+        "5-20% Sprint Efficiency",
+      ],
+      blessings: [
+        {
+          name: "Uncanny Strike",
+          description: "+24% Rending on Enemy Weak Spot Hit for 3.5s. Stacks 5 times.",
+        },
+        {
+          name: "Precognition",
+          description: "+60% Finesse Damage for 2s on successful Dodge.",
+        },
+      ],
+    });
+  });
 });

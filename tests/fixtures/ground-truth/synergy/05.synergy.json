@@ -1043,7 +1043,7 @@
       },
       "general_offense": {
         "count": 12,
-        "total_magnitude": 2.2,
+        "total_magnitude": 2.71,
         "selections": [
           "zealot.talent.zealot_backstab_damage",
           "zealot.talent.zealot_increased_damage_vs_resilient",
@@ -1223,8 +1223,8 @@
   "metadata": {
     "entities_analyzed": 52,
     "unique_entities_with_calc": 26,
-    "entities_without_calc": 19,
+    "entities_without_calc": 17,
     "opaque_conditions": 1,
-    "calc_coverage_pct": 0.58
+    "calc_coverage_pct": 0.6
   }
 }

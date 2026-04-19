@@ -10,7 +10,7 @@
     "source_kind": "gameslantern",
     "source_url": "https://darktide.gameslantern.com/builds/a1297069-4ca7-4b84-a8b0-f78378bdc91e/veteran-sharpshooter-in-2026",
     "author": "Alexandria38",
-    "scraped_at": "2026-03-31T23:09:35.082Z"
+    "scraped_at": "2026-04-19T08:15:53.050Z"
   },
   "ability": {
     "raw_label": "Executioners Stance",
@@ -169,7 +169,7 @@
       "slot": "melee",
       "name": {
         "raw_label": "Catachan Mk VII \"Devil's Claw\" Sword",
-        "canonical_entity_id": "shared.weapon.combatsword_p1_m3",
+        "canonical_entity_id": "shared.weapon.combatsword_p2_m1",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -222,6 +222,16 @@
           "value": {
             "min": 0.1,
             "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "Increase Ranged Critical Strike Chance by 2-5%",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_crit_chance",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
             "unit": "percent"
           }
         }

@@ -152,14 +152,14 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 23,
+        "blessing_edges": 25,
         "blessing_count": 4,
-        "edges_per_blessing": 5.75,
+        "edges_per_blessing": 6.25,
         "blessing_blessing_edges": 1,
         "orphaned_blessings": 1
       },
       "explanations": [
-        "Blessings with synergy edges: relentless_strikes, high_voltage, deathspitter",
+        "Blessings with synergy edges: high_voltage, deathspitter, relentless_strikes",
         "1 blessing-blessing edge(s) +0.5",
         "1 blessing(s) participate in no synergy edges (-1 each)"
       ]
@@ -172,13 +172,13 @@
         "measurable_talent_count": 13,
         "edges_per_talent": 1.769,
         "graph_isolated_count": 1,
-        "concentration": 0.09,
+        "concentration": 0.1,
         "penalties": -0.5,
         "bonuses": 0.5
       },
       "explanations": [
         "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.090) +0.5",
+        "High stat concentration (0.100) +0.5",
         "14 talent(s) without calc data excluded from isolation penalty"
       ]
     },
@@ -266,7 +266,7 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.8571428571428571
+        "slot_balance_ratio": 0.8666666666666667
       },
       "explanations": []
     },

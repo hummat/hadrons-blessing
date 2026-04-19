@@ -3,7 +3,7 @@
   "class": "ogryn",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 28,
+  "composite_score": 30,
   "letter_grade": "A",
   "weapons": [
     {
@@ -152,14 +152,14 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 15,
+        "blessing_edges": 17,
         "blessing_count": 4,
-        "edges_per_blessing": 3.75,
+        "edges_per_blessing": 4.25,
         "blessing_blessing_edges": 1,
         "orphaned_blessings": 1
       },
       "explanations": [
-        "Blessings with synergy edges: surgical, thunderous, increase_power_on_hit",
+        "Blessings with synergy edges: thunderous, increase_power_on_hit, surgical",
         "1 blessing-blessing edge(s) +0.5",
         "1 blessing(s) participate in no synergy edges (-1 each)"
       ]
@@ -182,12 +182,12 @@
       ]
     },
     "breakpoint_relevance": {
-      "score": 4,
+      "score": 5,
       "breakdown": [
         {
           "label": "One-shot Rager head",
-          "met": false,
-          "best_htk": 2,
+          "met": true,
+          "best_htk": 1,
           "max_hits": 1,
           "weight": "high"
         },
@@ -256,8 +256,8 @@
         }
       ],
       "explanations": [
-        "8/10 breakpoints met (weighted 14/20)",
-        "Missed high-priority: One-shot Rager head, Two-hit Crusher"
+        "9/10 breakpoints met (weighted 17/20)",
+        "Missed high-priority: Two-hit Crusher"
       ]
     },
     "role_coverage": {
@@ -266,22 +266,22 @@
         "active_families": 7,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.6153846153846154
+        "slot_balance_ratio": 0.5714285714285714
       },
       "explanations": []
     },
     "difficulty_scaling": {
-      "score": 1,
+      "score": 2,
       "breakdown": {
         "auric_met": 0,
-        "damnation_met": 1,
+        "damnation_met": 2,
         "total": 3,
         "per_entry": [
           {
             "label": "One-shot Rager head",
-            "damnation_htk": 2,
+            "damnation_htk": 1,
             "auric_htk": 2,
-            "damnation_met": false,
+            "damnation_met": true,
             "auric_met": false
           },
           {
@@ -301,8 +301,8 @@
         ]
       },
       "explanations": [
-        "High-priority: 1/3 at damnation, 0/3 at auric",
-        "Degrades at auric: Two-hit Rager body"
+        "High-priority: 2/3 at damnation, 0/3 at auric",
+        "Degrades at auric: One-shot Rager head, Two-hit Rager body"
       ]
     }
   },

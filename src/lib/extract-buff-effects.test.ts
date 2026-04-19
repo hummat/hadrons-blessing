@@ -82,6 +82,50 @@ describe("effects:build pipeline", () => {
     assert.ok(talent.calc.buff_template_names?.length > 0, "Expected buff_template_names");
   });
 
+  it("populates calc on known psyker coherency aura", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "psyker.json"), "utf8"),
+    );
+    const aura = entities.find(
+      (e) => e.internal_name === "psyker_cooldown_aura_improved",
+    );
+    assert.ok(aura, "Expected to find psyker aura");
+    assert.ok(aura.calc.effects?.length > 0, "Expected non-empty calc.effects");
+    assert.deepEqual(
+      aura.calc.buff_template_names,
+      ["psyker_aura_ability_cooldown_improved"],
+      "Expected coherency buff template to be linked into calc metadata",
+    );
+  });
+
+  it("populates calc on the Warp Siphon max-souls modifier", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "psyker.json"), "utf8"),
+    );
+    const modifier = entities.find(
+      (e) => e.internal_name === "psyker_increased_max_souls",
+    );
+    assert.ok(modifier, "Expected to find Warp Siphon max-souls modifier");
+    assert.deepEqual(modifier.calc.effects, [
+      {
+        stat: "max_souls",
+        magnitude: 6,
+        magnitude_expr: null,
+        magnitude_min: null,
+        magnitude_max: null,
+        condition: null,
+        trigger: null,
+        type: "stat_buff",
+      },
+    ]);
+  });
+
   it("populates tiers on known weapon trait", { skip: !sourceRoot }, () => {
     const allFiles = readdirSync(fixtureEntitiesRoot()).filter((f) => f.endsWith(".json"));
     let found = false;

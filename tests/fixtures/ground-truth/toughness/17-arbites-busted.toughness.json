@@ -7,28 +7,36 @@
     "toughness": 80,
     "stamina": 3
   },
-  "dr_sources": [],
-  "total_dr": 0,
+  "dr_sources": [
+    {
+      "source_entity": "arbites.aura.adamant_companion_coherency",
+      "stat": "toughness_damage_taken_modifier",
+      "value": -0.075,
+      "type": "stat_buff",
+      "condition": null
+    }
+  ],
+  "total_dr": 0.075,
   "max_toughness": 149.5,
-  "effective_toughness": 149.5,
+  "effective_toughness": 161.62,
   "health_pool": 400,
-  "effective_hp": 549.5,
+  "effective_hp": 561.62,
   "max_health_modifier": 0,
   "state_modifiers": {
     "dodging": {
       "tdr": 0.5,
-      "damage_multiplier": 0.5,
-      "effective_toughness": 299
+      "damage_multiplier": 0.4625,
+      "effective_toughness": 323.24
     },
     "sliding": {
       "tdr": 0.5,
-      "damage_multiplier": 0.5,
-      "effective_toughness": 299
+      "damage_multiplier": 0.4625,
+      "effective_toughness": 323.24
     },
     "sprinting": {
       "tdr": 0,
-      "damage_multiplier": 1,
-      "effective_toughness": 149.5
+      "damage_multiplier": 0.925,
+      "effective_toughness": 161.62
     }
   },
   "toughness_regen": {

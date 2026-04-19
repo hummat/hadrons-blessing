@@ -188,7 +188,7 @@
         {
           "label": "One-shot Rager head",
           "met": false,
-          "best_htk": 3,
+          "best_htk": 2,
           "max_hits": 1,
           "weight": "high"
         },
@@ -202,7 +202,7 @@
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 7,
+          "best_htk": 5,
           "max_hits": 2,
           "weight": "high"
         },
@@ -236,8 +236,8 @@
         },
         {
           "label": "Three-hit Mauler",
-          "met": false,
-          "best_htk": 4,
+          "met": true,
+          "best_htk": 3,
           "max_hits": 3,
           "weight": "low"
         },
@@ -257,7 +257,7 @@
         }
       ],
       "explanations": [
-        "5/10 breakpoints met (weighted 9/20)",
+        "6/10 breakpoints met (weighted 10/20)",
         "Missed high-priority: One-shot Rager head, Two-hit Rager body, Two-hit Crusher"
       ]
     },
@@ -284,7 +284,7 @@
         "per_entry": [
           {
             "label": "One-shot Rager head",
-            "damnation_htk": 3,
+            "damnation_htk": 2,
             "auric_htk": 3,
             "damnation_met": false,
             "auric_met": false
@@ -292,14 +292,14 @@
           {
             "label": "Two-hit Rager body",
             "damnation_htk": 4,
-            "auric_htk": 6,
+            "auric_htk": 5,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 7,
-            "auric_htk": 9,
+            "damnation_htk": 5,
+            "auric_htk": 7,
             "damnation_met": false,
             "auric_met": false
           }

@@ -3,8 +3,8 @@
   "class": "ogryn",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 29,
-  "letter_grade": "A",
+  "composite_score": 32,
+  "letter_grade": "S",
   "weapons": [
     {
       "name": "Achlys Mk I Power Maul",
@@ -58,6 +58,11 @@
             "name": "Damage (Carapace)",
             "tier": 4,
             "value": 0.25
+          },
+          {
+            "name": "Critical Hit Chance",
+            "tier": 4,
+            "value": 0.05
           }
         ]
       },
@@ -147,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 21,
+        "blessing_edges": 24,
         "blessing_count": 4,
-        "edges_per_blessing": 5.25,
+        "edges_per_blessing": 6,
         "blessing_blessing_edges": 3,
         "orphaned_blessings": 1
       },
@@ -167,12 +172,12 @@
         "measurable_talent_count": 11,
         "edges_per_talent": 1,
         "graph_isolated_count": 0,
-        "concentration": 0.09,
+        "concentration": 0.08,
         "penalties": 0,
         "bonuses": 0.5
       },
       "explanations": [
-        "High stat concentration (0.090) +0.5",
+        "High stat concentration (0.080) +0.5",
         "15 talent(s) without calc data excluded from isolation penalty"
       ]
     },
@@ -195,8 +200,8 @@
         },
         {
           "label": "Two-hit Crusher",
-          "met": false,
-          "best_htk": 3,
+          "met": true,
+          "best_htk": 2,
           "max_hits": 2,
           "weight": "high"
         },
@@ -251,37 +256,32 @@
         }
       ],
       "explanations": [
-        "9/10 breakpoints met (weighted 17/20)",
-        "Missed high-priority: Two-hit Crusher"
+        "10/10 breakpoints met (weighted 20/20)"
       ]
     },
     "role_coverage": {
-      "score": 3,
+      "score": 4,
       "breakdown": {
         "active_families": 7,
         "total_families": 11,
-        "coverage_gaps": [
-          "crit_chance_source"
-        ],
-        "slot_balance_ratio": 0.75
+        "coverage_gaps": [],
+        "slot_balance_ratio": 0.7692307692307693
       },
-      "explanations": [
-        "Coverage gaps: crit_chance_source (-1 each)"
-      ]
+      "explanations": []
     },
     "difficulty_scaling": {
-      "score": 2,
+      "score": 4,
       "breakdown": {
-        "auric_met": 1,
-        "damnation_met": 2,
+        "auric_met": 2,
+        "damnation_met": 3,
         "total": 3,
         "per_entry": [
           {
             "label": "One-shot Rager head",
             "damnation_htk": 1,
-            "auric_htk": 2,
+            "auric_htk": 1,
             "damnation_met": true,
-            "auric_met": false
+            "auric_met": true
           },
           {
             "label": "Two-hit Rager body",
@@ -292,16 +292,16 @@
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 3,
-            "auric_htk": 4,
-            "damnation_met": false,
+            "damnation_htk": 2,
+            "auric_htk": 3,
+            "damnation_met": true,
             "auric_met": false
           }
         ]
       },
       "explanations": [
-        "High-priority: 2/3 at damnation, 1/3 at auric",
-        "Degrades at auric: One-shot Rager head"
+        "High-priority: 3/3 at damnation, 2/3 at auric",
+        "Degrades at auric: Two-hit Crusher"
       ]
     }
   },

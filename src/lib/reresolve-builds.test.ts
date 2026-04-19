@@ -238,7 +238,7 @@ describe("reresolveBuildTargets", () => {
     const filePath = join(tempDir, "invalid.json");
     writeFileSync(filePath, JSON.stringify({ title: "bad" }, null, 2));
 
-    const result = spawnSync("tsx", ["src/cli/reresolve-builds.ts", filePath], {
+    const result = spawnSync(process.execPath, ["--import", "tsx", "src/cli/reresolve-builds.ts", filePath], {
       cwd: process.cwd(),
       encoding: "utf8",
     });

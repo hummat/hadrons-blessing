@@ -6,7 +6,7 @@
     "predicate": "display_name_loc_key",
     "value": "loc_talent_psyker_damage_based_on_warp_charge",
     "value_type": "loc_key",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "refs": [
       {
         "path": "scripts/settings/ability/archetype_talents/talents/psyker_talents.lua",
@@ -23,7 +23,7 @@
     "predicate": "display_name_loc_key",
     "value": "loc_talent_psyker_brain_burst_improved",
     "value_type": "loc_key",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "refs": [
       {
         "path": "scripts/settings/ability/archetype_talents/talents/psyker_talents.lua",
@@ -40,7 +40,7 @@
     "predicate": "identifier",
     "value": "psyker_aura_crit_chance_aura",
     "value_type": "internal_name",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "refs": [
       {
         "path": "scripts/settings/ability/archetype_talents/talents/psyker_talents.lua",
@@ -57,7 +57,7 @@
     "predicate": "tree_presence",
     "value": "psyker_block_costs_warp_charge",
     "value_type": "internal_name",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "refs": [
       {
         "path": "scripts/ui/views/talent_builder_view/layouts/psyker_tree.lua",

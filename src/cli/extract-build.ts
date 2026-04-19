@@ -128,7 +128,7 @@ export function parseItemCardLines(lines: string[]): ParsedItemCard | null {
     /^(Warp Resistance|Cleave|Finesse|Defences|Damage|Quell|Charge|Blast|Mobility|Attack Speed|Critical|Stamina|Peril|Dodge|Sprint|Block|Push|First Target|Reload)/;
   const statValue = /^[\d.]+$/;
   const statRange = /^\[[\d. |]+\]$/;
-  const prefixRangePerk = /^\d+(?:\.\d+)?-\d+(?:\.\d+)?%\s/;
+  const prefixRangePerk = /^\d+(?:\.\d+)?-\d+(?:\.\d+)?(?:%|\b)\s/;
   const prefixedNumberPerk = /^\+\d/;
   const suffixRangePerk = /^(Increase|Decreases?)\b.+\bby\s+\d+(?:\.\d+)?-\d+(?:\.\d+)?%$/i;
 
@@ -225,7 +225,7 @@ async function extractBuild(url: string) {
           /^(Warp Resistance|Cleave|Finesse|Defences|Damage|Quell|Charge|Blast|Mobility|Attack Speed|Critical|Stamina|Peril|Dodge|Sprint|Block|Push|First Target|Reload)/;
         const statValue = /^[\d.]+$/;
         const statRange = /^\[[\d. |]+\]$/;
-        const prefixRangePerk = /^\d+(?:\.\d+)?-\d+(?:\.\d+)?%\s/;
+        const prefixRangePerk = /^\d+(?:\.\d+)?-\d+(?:\.\d+)?(?:%|\b)\s/;
         const prefixedNumberPerk = /^\+\d/;
         const suffixRangePerk = /^(Increase|Decreases?)\b.+\bby\s+\d+(?:\.\d+)?-\d+(?:\.\d+)?%$/i;
 

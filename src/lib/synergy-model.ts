@@ -497,9 +497,15 @@ export function analyzeBuild(build: CanonicalBuildInput, index: SynergyIndex): A
     }
   }
 
+  // Weapon shell selections are modeled through breakpoint/action-map paths rather than calc.effects.
+  const coverageEligible = allResolved.filter((sel) => {
+    const entity = entities.get(sel.id);
+    return entity?.kind !== "weapon";
+  });
+  const coverageWithEffects = coverageEligible.filter((sel) => sel.effects.length > 0);
   const calcCoveragePct =
-    allResolved.length > 0
-      ? Math.round((withEffects.length / allResolved.length) * 100) / 100
+    coverageEligible.length > 0
+      ? Math.round((coverageWithEffects.length / coverageEligible.length) * 100) / 100
       : 0;
 
   return {
@@ -514,7 +520,7 @@ export function analyzeBuild(build: CanonicalBuildInput, index: SynergyIndex): A
     metadata: {
       entities_analyzed: totalSelections,
       unique_entities_with_calc: withEffects.length,
-      entities_without_calc: allResolved.length - withEffects.length,
+      entities_without_calc: coverageEligible.length - coverageWithEffects.length,
       opaque_conditions: opaqueCount,
       calc_coverage_pct: calcCoveragePct,
     },

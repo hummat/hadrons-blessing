@@ -186,14 +186,14 @@
         {
           "label": "One-shot Rager head",
           "met": false,
-          "best_htk": 3,
+          "best_htk": 2,
           "max_hits": 1,
           "weight": "high"
         },
         {
           "label": "Two-hit Rager body",
           "met": false,
-          "best_htk": 5,
+          "best_htk": 4,
           "max_hits": 2,
           "weight": "high"
         },
@@ -242,7 +242,7 @@
         {
           "label": "Two-hit Bulwark",
           "met": false,
-          "best_htk": 4,
+          "best_htk": 3,
           "max_hits": 2,
           "weight": "low"
         },
@@ -278,22 +278,22 @@
         "per_entry": [
           {
             "label": "One-shot Rager head",
-            "damnation_htk": 3,
+            "damnation_htk": 2,
             "auric_htk": 3,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 5,
-            "auric_htk": 6,
+            "damnation_htk": 4,
+            "auric_htk": 5,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
             "damnation_htk": 7,
-            "auric_htk": 10,
+            "auric_htk": 9,
             "damnation_met": false,
             "auric_met": false
           }

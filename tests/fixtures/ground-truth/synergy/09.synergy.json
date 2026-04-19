@@ -101,6 +101,30 @@
     {
       "type": "stat_alignment",
       "selections": [
+        "psyker.ability.psyker_brain_burst_improved",
+        "psyker.talent_modifier.psyker_increased_max_souls"
+      ],
+      "families": [
+        "warp_resource"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the warp_resource family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.aura.psyker_cooldown_aura_improved",
+        "shared.gadget_trait.gadget_cooldown_reduction"
+      ],
+      "families": [
+        "utility"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the utility family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
         "psyker.keystone.psyker_passive_souls_from_elite_kills",
         "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken"
       ],
@@ -305,6 +329,18 @@
     {
       "type": "stat_alignment",
       "selections": [
+        "psyker.talent_modifier.psyker_overcharge_reduced_warp_charge",
+        "psyker.talent_modifier.psyker_increased_max_souls"
+      ],
+      "families": [
+        "warp_resource"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the warp_resource family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
         "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
         "shared.stat_node.toughness_damage_reduction"
       ],
@@ -349,6 +385,18 @@
       ],
       "strength": 2,
       "explanation": "Selections contribute different-category effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "psyker.talent.psyker_increased_vent_speed",
+        "psyker.talent_modifier.psyker_increased_max_souls"
+      ],
+      "families": [
+        "warp_resource"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the warp_resource family"
     },
     {
       "type": "stat_alignment",
@@ -1155,17 +1203,26 @@
         ]
       },
       "warp_resource": {
-        "count": 3,
-        "total_magnitude": 3.7,
+        "count": 4,
+        "total_magnitude": 9.7,
         "selections": [
           "psyker.ability.psyker_brain_burst_improved",
           "psyker.talent_modifier.psyker_overcharge_reduced_warp_charge",
-          "psyker.talent.psyker_increased_vent_speed"
+          "psyker.talent.psyker_increased_vent_speed",
+          "psyker.talent_modifier.psyker_increased_max_souls"
+        ]
+      },
+      "utility": {
+        "count": 2,
+        "total_magnitude": -0.15,
+        "selections": [
+          "psyker.aura.psyker_cooldown_aura_improved",
+          "shared.gadget_trait.gadget_cooldown_reduction"
         ]
       },
       "general_offense": {
         "count": 12,
-        "total_magnitude": 0.94,
+        "total_magnitude": 1.54,
         "selections": [
           "psyker.keystone.psyker_passive_souls_from_elite_kills",
           "psyker.talent.psyker_damage_based_on_warp_charge",
@@ -1211,13 +1268,6 @@
           "shared.stat_node.critical_chance_boost",
           "shared.name_family.blessing.warp_nexus"
         ]
-      },
-      "utility": {
-        "count": 1,
-        "total_magnitude": -0.05,
-        "selections": [
-          "shared.gadget_trait.gadget_cooldown_reduction"
-        ]
       }
     },
     "slot_balance": {
@@ -1244,7 +1294,7 @@
       "warp_resource"
     ],
     "coverage_gaps": [],
-    "concentration": 0.13
+    "concentration": 0.11
   },
   "_resolvedIds": [
     "psyker.ability.psyker_combat_ability_stance",
@@ -1292,11 +1342,13 @@
   "_entitiesWithCalcIds": [
     "psyker.ability.psyker_combat_ability_stance",
     "psyker.ability.psyker_brain_burst_improved",
+    "psyker.aura.psyker_cooldown_aura_improved",
     "psyker.keystone.psyker_passive_souls_from_elite_kills",
     "psyker.talent_modifier.psyker_overcharge_reduced_warp_charge",
     "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
     "psyker.talent.psyker_increased_vent_speed",
     "psyker.talent.psyker_damage_based_on_warp_charge",
+    "psyker.talent_modifier.psyker_increased_max_souls",
     "shared.stat_node.toughness_damage_reduction",
     "psyker.talent.psyker_cleave_from_peril",
     "shared.stat_node.toughness_boost",
@@ -1318,9 +1370,9 @@
   ],
   "metadata": {
     "entities_analyzed": 52,
-    "unique_entities_with_calc": 25,
-    "entities_without_calc": 16,
+    "unique_entities_with_calc": 27,
+    "entities_without_calc": 12,
     "opaque_conditions": 1,
-    "calc_coverage_pct": 0.61
+    "calc_coverage_pct": 0.69
   }
 }

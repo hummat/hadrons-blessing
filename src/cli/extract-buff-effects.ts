@@ -199,6 +199,11 @@ await runCliMain("effects:build", async () => {
       }
     }
 
+    // Strategy 1b: Special-rule-only nodes with source-backed scalar effects.
+    if (TALENT_KINDS.has(kind) && !calc) {
+      calc = buildSpecialRuleCalc(internalName, settingsMap);
+    }
+
     // Strategy 2: Weapon traits — look up internal_name directly in resolved templates
     if (kind === "weapon_trait" && !calc) {
       const template = resolvedTemplates.get(internalName);
@@ -540,6 +545,30 @@ function mergeTierResults(target: AnyRecord[], incoming: AnyRecord[]) {
       target[i][key] = value;
     }
   }
+}
+
+function buildSpecialRuleCalc(internalName: string, settingsMap: Map<string, number>): AnyRecord | null {
+  if (internalName === "psyker_increased_max_souls") {
+    const maxSouls = settingsMap.get("psyker_2.offensive_2_1.max_souls_talent");
+    if (typeof maxSouls === "number") {
+      return {
+        effects: [
+          {
+            stat: "max_souls",
+            magnitude: maxSouls,
+            magnitude_expr: null,
+            magnitude_min: null,
+            magnitude_max: null,
+            condition: null,
+            trigger: null,
+            type: "stat_buff",
+          },
+        ],
+      };
+    }
+  }
+
+  return null;
 }
 
 /**

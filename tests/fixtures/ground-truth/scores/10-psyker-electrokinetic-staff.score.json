@@ -152,14 +152,14 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 31,
+        "blessing_edges": 36,
         "blessing_count": 4,
-        "edges_per_blessing": 7.75,
+        "edges_per_blessing": 9,
         "blessing_blessing_edges": 4,
         "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: riposte, warp_nexus, double_shot_on_crit, increased_weakspot_damage_against_bleeding",
+        "Blessings with synergy edges: riposte, double_shot_on_crit, warp_nexus, increased_weakspot_damage_against_bleeding",
         "4 blessing-blessing edge(s) +0.5"
       ]
     },
@@ -168,17 +168,17 @@
       "breakdown": {
         "talent_edges": 9,
         "talent_count": 26,
-        "measurable_talent_count": 12,
-        "edges_per_talent": 0.75,
-        "graph_isolated_count": 1,
-        "concentration": 0.08,
-        "penalties": -0.5,
+        "measurable_talent_count": 13,
+        "edges_per_talent": 0.692,
+        "graph_isolated_count": 2,
+        "concentration": 0.09,
+        "penalties": -1,
         "bonuses": 0.5
       },
       "explanations": [
-        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.080) +0.5",
-        "14 talent(s) without calc data excluded from isolation penalty"
+        "2 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "High stat concentration (0.090) +0.5",
+        "13 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -236,7 +236,7 @@
         {
           "label": "Three-hit Mauler",
           "met": true,
-          "best_htk": 2,
+          "best_htk": 1,
           "max_hits": 3,
           "weight": "low"
         },
@@ -265,7 +265,7 @@
         "active_families": 9,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.9230769230769231
+        "slot_balance_ratio": 0.9285714285714286
       },
       "explanations": []
     },

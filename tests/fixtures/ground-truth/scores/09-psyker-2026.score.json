@@ -3,7 +3,7 @@
   "class": "psyker",
   "perk_optimality": 5,
   "curio_efficiency": 3,
-  "composite_score": 30,
+  "composite_score": 29,
   "letter_grade": "A",
   "weapons": [
     {
@@ -164,21 +164,21 @@
       ]
     },
     "talent_coherence": {
-      "score": 4,
+      "score": 2,
       "breakdown": {
         "talent_edges": 13,
         "talent_count": 26,
-        "measurable_talent_count": 13,
-        "edges_per_talent": 1,
-        "graph_isolated_count": 2,
-        "concentration": 0.13,
-        "penalties": -1,
+        "measurable_talent_count": 14,
+        "edges_per_talent": 0.929,
+        "graph_isolated_count": 3,
+        "concentration": 0.12,
+        "penalties": -1.5,
         "bonuses": 0.5
       },
       "explanations": [
-        "2 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.130) +0.5",
-        "13 talent(s) without calc data excluded from isolation penalty"
+        "3 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "High stat concentration (0.120) +0.5",
+        "12 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -270,9 +270,9 @@
       "explanations": []
     },
     "difficulty_scaling": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
-        "auric_met": 2,
+        "auric_met": 3,
         "damnation_met": 3,
         "total": 3,
         "per_entry": [
@@ -286,22 +286,21 @@
           {
             "label": "Two-hit Rager body",
             "damnation_htk": 1,
-            "auric_htk": 2,
+            "auric_htk": 1,
             "damnation_met": true,
             "auric_met": true
           },
           {
             "label": "Two-hit Crusher",
             "damnation_htk": 2,
-            "auric_htk": 3,
+            "auric_htk": 2,
             "damnation_met": true,
-            "auric_met": false
+            "auric_met": true
           }
         ]
       },
       "explanations": [
-        "High-priority: 3/3 at damnation, 2/3 at auric",
-        "Degrades at auric: Two-hit Crusher"
+        "High-priority: 3/3 at damnation, 3/3 at auric"
       ]
     }
   },

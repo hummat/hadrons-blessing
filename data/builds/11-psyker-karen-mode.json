@@ -10,7 +10,7 @@
     "source_kind": "gameslantern",
     "source_url": "https://darktide.gameslantern.com/builds/a086e693-6c42-4ed3-9ff1-d86aa21cf4dd/karen-mode-psyker-havoc-40",
     "author": "ScottZi115",
-    "scraped_at": "2026-03-31T23:11:22.601Z"
+    "scraped_at": "2026-04-19T08:16:17.507Z"
   },
   "ability": {
     "raw_label": "Venting Shriek",
@@ -211,7 +211,7 @@
       "slot": "ranged",
       "name": {
         "raw_label": "Equinox Mk IV Voidstrike Force Staff",
-        "canonical_entity_id": "shared.weapon.forcestaff_p4_m1",
+        "canonical_entity_id": "shared.weapon.forcestaff_p1_m1",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -222,6 +222,16 @@
           "value": {
             "min": 0.1,
             "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "Increase Ranged Critical Strike Chance by 2-5%",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_crit_chance",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
             "unit": "percent"
           }
         }

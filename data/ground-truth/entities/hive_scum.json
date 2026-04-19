@@ -17,7 +17,7 @@
         "line": 58
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "ability",
       "group_name": null,
@@ -44,7 +44,7 @@
         "line": 216
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "ability",
       "group_name": null,
@@ -71,7 +71,7 @@
         "line": 451
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "ability",
       "group_name": null,
@@ -98,7 +98,7 @@
         "line": 599
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "tactical",
       "group_name": null,
@@ -125,7 +125,7 @@
         "line": 679
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "tactical",
       "group_name": null,
@@ -152,7 +152,7 @@
         "line": 628
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "tactical",
       "group_name": null,
@@ -179,14 +179,18 @@
         "line": 739
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "aura",
       "group_name": null,
       "tree_widget_name": null,
       "exclusive_group": "aura_1"
     },
-    "calc": {}
+    "calc": {
+      "buff_template_names": [
+        "broker_aura_gunslinger_improved"
+      ]
+    }
   },
   {
     "id": "hive_scum.aura.broker_coherency_anarchist",
@@ -206,14 +210,32 @@
         "line": 783
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "aura",
       "group_name": null,
       "tree_widget_name": null,
       "exclusive_group": "aura_1"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.coherency.anarchist.critical_strike_chance",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "buff_template_names": [
+        "broker_coherency_critical_chance"
+      ]
+    }
   },
   {
     "id": "hive_scum.aura.broker_coherency_melee_damage",
@@ -233,14 +255,32 @@
         "line": 765
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "aura",
       "group_name": null,
       "tree_widget_name": null,
       "exclusive_group": "aura_1"
     },
-    "calc": {}
+    "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.coherency.ruffian.melee_damage",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "buff_template_names": [
+        "broker_coherency_melee_damage"
+      ]
+    }
   },
   {
     "id": "hive_scum.keystone.broker_keystone_adrenaline_junkie",
@@ -260,7 +300,7 @@
         "line": 2409
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone",
       "group_name": null,
@@ -291,7 +331,7 @@
         "line": 2260
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone",
       "group_name": null,
@@ -322,7 +362,7 @@
         "line": 2183
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone",
       "group_name": null,
@@ -353,7 +393,7 @@
         "line": 126
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "ability_modifier",
       "group_name": null,
@@ -380,7 +420,7 @@
         "line": 175
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "ability_modifier",
       "group_name": null,
@@ -407,7 +447,7 @@
         "line": 287
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "ability_modifier",
       "group_name": null,
@@ -434,7 +474,7 @@
         "line": 328
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "ability_modifier",
       "group_name": null,
@@ -461,7 +501,7 @@
         "line": 381
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "ability_modifier",
       "group_name": null,
@@ -488,7 +528,7 @@
         "line": 412
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "ability_modifier",
       "group_name": null,
@@ -515,7 +555,7 @@
         "line": 479
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "ability_modifier",
       "group_name": null,
@@ -542,7 +582,7 @@
         "line": 507
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "ability_modifier",
       "group_name": null,
@@ -569,7 +609,7 @@
         "line": 530
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "ability_modifier",
       "group_name": null,
@@ -600,7 +640,7 @@
         "line": 2493
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone_modifier",
       "group_name": null,
@@ -627,7 +667,7 @@
         "line": 2523
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone_modifier",
       "group_name": null,
@@ -654,7 +694,7 @@
         "line": 2564
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone_modifier",
       "group_name": null,
@@ -681,7 +721,7 @@
         "line": 2593
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone_modifier",
       "group_name": null,
@@ -708,7 +748,7 @@
         "line": 2622
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone_modifier",
       "group_name": null,
@@ -735,7 +775,7 @@
         "line": 2307
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone_modifier",
       "group_name": null,
@@ -762,7 +802,7 @@
         "line": 2334
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone_modifier",
       "group_name": null,
@@ -789,7 +829,7 @@
         "line": 2374
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone_modifier",
       "group_name": null,
@@ -816,7 +856,7 @@
         "line": 2221
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone_modifier",
       "group_name": null,
@@ -847,7 +887,7 @@
         "line": 2245
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone_modifier",
       "group_name": null,
@@ -878,7 +918,7 @@
         "line": 2230
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone_modifier",
       "group_name": null,
@@ -901,7 +941,7 @@
         "line": 377
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone_modifier",
       "tree_widget_name": "node_81fd0da4-87be-4750-a5b7-c51bb4eb9fef",
@@ -950,7 +990,7 @@
         "line": 1828
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "keystone_modifier",
       "tree_widget_name": "node_f6f53560-cd00-4602-9903-4961484ade18",
@@ -993,7 +1033,7 @@
         "line": 2623
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "stat",
       "group_name": null,
@@ -1037,7 +1077,7 @@
         "line": 1038
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "stat",
       "group_name": null,
@@ -1081,7 +1121,7 @@
         "line": 183
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "stat",
       "group_name": null,
@@ -1125,7 +1165,7 @@
         "line": 207
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "stat",
       "group_name": null,
@@ -1169,7 +1209,7 @@
         "line": 1758
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "stat",
       "group_name": null,
@@ -1213,7 +1253,7 @@
         "line": 2123
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1244,7 +1284,7 @@
         "line": 1823
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1275,7 +1315,7 @@
         "line": 1422
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1320,7 +1360,7 @@
         "line": 885
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1370,7 +1410,7 @@
         "line": 941
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "tree_widget_name": "node_fac6179f-a86a-489f-bb1a-b9382fd6630a",
@@ -1413,7 +1453,7 @@
         "line": 2016
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1444,7 +1484,7 @@
         "line": 1619
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1475,7 +1515,7 @@
         "line": 1725
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1529,7 +1569,7 @@
         "line": 1941
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1560,7 +1600,7 @@
         "line": 1066
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1591,7 +1631,7 @@
         "line": 1693
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1645,7 +1685,7 @@
         "line": 1354
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1689,7 +1729,7 @@
         "line": 821
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1733,7 +1773,7 @@
         "line": 1028
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1787,7 +1827,7 @@
         "line": 1299
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1831,7 +1871,7 @@
         "line": 1264
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1878,7 +1918,7 @@
         "line": 1918
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1922,7 +1962,7 @@
         "line": 1856
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -1966,7 +2006,7 @@
         "line": 869
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2010,7 +2050,7 @@
         "line": 1338
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2050,7 +2090,7 @@
         "line": 915
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "tree_widget_name": "node_c194e0f2-7b23-4667-bca2-57f4bdfa03cc",
@@ -2080,7 +2120,7 @@
         "line": 2077
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2111,7 +2151,7 @@
         "line": 2098
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2142,7 +2182,7 @@
         "line": 1780
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2173,7 +2213,7 @@
         "line": 1672
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2204,7 +2244,7 @@
         "line": 1748
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2249,7 +2289,7 @@
         "line": 914
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2295,7 +2335,7 @@
         "line": 974
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2349,7 +2389,7 @@
         "line": 1460
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2380,7 +2420,7 @@
         "line": 837
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2444,7 +2484,7 @@
         "line": 1974
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2475,7 +2515,7 @@
         "line": 1119
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2520,7 +2560,7 @@
         "line": 1169
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2551,7 +2591,7 @@
         "line": 1534
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2578,7 +2618,7 @@
         "line": 1176
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "tree_widget_name": "node_b2bbbec7-1551-42ea-9d9b-9771eda40654",
@@ -2608,7 +2648,7 @@
         "line": 1075
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2639,7 +2679,7 @@
         "line": 1096
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2670,7 +2710,7 @@
         "line": 1138
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2701,7 +2741,7 @@
         "line": 1322
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2746,7 +2786,7 @@
         "line": 1012
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2777,7 +2817,7 @@
         "line": 1879
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2808,7 +2848,7 @@
         "line": 1588
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2839,7 +2879,7 @@
         "line": 1572
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2883,7 +2923,7 @@
         "line": 1480
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2914,7 +2954,7 @@
         "line": 2041
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "group_name": null,
@@ -2941,7 +2981,7 @@
         "line": 1009
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "tree_widget_name": "node_735140ff-109a-4bc2-a2b9-761614c238cc",
@@ -2967,7 +3007,7 @@
         "line": 1055
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "default",
       "tree_widget_name": "node_50641b61-dfb0-4865-87e7-30e4dd71acdc",
@@ -2993,7 +3033,7 @@
         "line": 481
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3016,7 +3056,7 @@
         "line": 490
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3039,7 +3079,7 @@
         "line": 505
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3062,7 +3102,7 @@
         "line": 516
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3085,7 +3125,7 @@
         "line": 527
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3108,7 +3148,7 @@
         "line": 532
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3131,7 +3171,7 @@
         "line": 540
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3154,7 +3194,7 @@
         "line": 563
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3177,7 +3217,7 @@
         "line": 568
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3200,7 +3240,7 @@
         "line": 573
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3223,7 +3263,7 @@
         "line": 578
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3246,7 +3286,7 @@
         "line": 596
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3269,7 +3309,7 @@
         "line": 614
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3292,7 +3332,7 @@
         "line": 587
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3315,7 +3355,7 @@
         "line": 605
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3338,7 +3378,7 @@
         "line": 623
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3361,7 +3401,7 @@
         "line": 715
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3384,7 +3424,7 @@
         "line": 720
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3407,7 +3447,7 @@
         "line": 725
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3430,7 +3470,7 @@
         "line": 730
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3453,7 +3493,7 @@
         "line": 735
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3476,7 +3516,7 @@
         "line": 740
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3499,7 +3539,7 @@
         "line": 751
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3522,7 +3562,7 @@
         "line": 632
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3545,7 +3585,7 @@
         "line": 649
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3568,7 +3608,7 @@
         "line": 666
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3591,7 +3631,7 @@
         "line": 683
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3614,7 +3654,7 @@
         "line": 700
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,
@@ -3637,7 +3677,7 @@
         "line": 705
       }
     ],
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {
       "tree_type": "broker_stimm",
       "group_name": null,

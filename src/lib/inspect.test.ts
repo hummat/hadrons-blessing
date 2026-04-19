@@ -22,7 +22,9 @@ describe("inspectEntity", () => {
 
 describe("inspect-ground-truth CLI", () => {
   it("runs successfully for a known canonical id without source-root setup", () => {
-    const result = spawnSync("tsx", [
+    const result = spawnSync(process.execPath, [
+      "--import",
+      "tsx",
       "src/cli/inspect-ground-truth.ts",
       "--id",
       "psyker.talent.psyker_damage_based_on_warp_charge",
@@ -39,7 +41,9 @@ describe("inspect-ground-truth CLI", () => {
   });
 
   it("fails non-zero for an unknown canonical id", () => {
-    const result = spawnSync("tsx", [
+    const result = spawnSync(process.execPath, [
+      "--import",
+      "tsx",
       "src/cli/inspect-ground-truth.ts",
       "--id",
       "shared.weapon.definitely_fake",

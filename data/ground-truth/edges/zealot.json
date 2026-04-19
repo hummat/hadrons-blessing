@@ -4,7 +4,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.base_melee_damage_node_buff_medium_1",
     "to_entity_id": "zealot.tree_node.node_ac2f3e1c-641a-4132-98f5-5e13c199a21a",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -19,7 +19,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.base_melee_damage_node_buff_medium_4",
     "to_entity_id": "zealot.tree_node.node_cf60d947-e174-49d8-881d-79aaa602cc4d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -34,7 +34,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.base_movement_speed_node_buff_low_4",
     "to_entity_id": "zealot.tree_node.node_94333107-ec28-44ca-b37e-2f714fc57ed5",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -49,7 +49,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.base_toughness_damage_reduction_node_buff_medium_1",
     "to_entity_id": "zealot.tree_node.node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -64,7 +64,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.base_toughness_node_buff_medium_2",
     "to_entity_id": "zealot.tree_node.node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -79,7 +79,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_additional_charge_of_ability",
     "to_entity_id": "zealot.tree_node.node_f562ee33-5fec-4016-a312-d10e7af1cd32",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -94,7 +94,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_additional_wounds",
     "to_entity_id": "zealot.tree_node.node_5b313422-552e-4e6c-b89c-d35acad88fc9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -109,7 +109,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_ally_damage_taken_reduced",
     "to_entity_id": "zealot.tree_node.node_101154ca-57f6-45a4-beea-41dcd21be41f",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -124,7 +124,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_attack_speed",
     "to_entity_id": "zealot.tree_node.node_81b042fd-5ffb-4317-917d-8ea465181053",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -139,7 +139,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.ability.zealot_attack_speed_post_ability",
     "to_entity_id": "zealot.tree_node.node_5bf70f4d-96f3-446a-8a74-f4b4db160455",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -154,7 +154,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_backstab_damage",
     "to_entity_id": "zealot.tree_node.node_36d9319a-e724-493d-baf1-efdbd77f736c",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -169,7 +169,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_backstab_kills_restore_cd",
     "to_entity_id": "zealot.tree_node.node_5321e553-acec-4b27-9d43-a5af507fa953",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -184,7 +184,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_backstab_periodic_damage",
     "to_entity_id": "zealot.tree_node.node_1fbb7b5c-aac2-4489-9a39-9a9eab68f484",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -199,7 +199,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_bled_enemies_take_more_damage",
     "to_entity_id": "zealot.tree_node.node_3f11f576-443e-42b0-b6f9-cedcafb6a224",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -214,7 +214,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_block_dodging_synergy",
     "to_entity_id": "zealot.tree_node.node_2a5c7e89-6bfb-4394-ad08-a7aa014c2cc5",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -229,7 +229,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.ability.zealot_bolstering_prayer",
     "to_entity_id": "zealot.tree_node.node_c286494b-4e57-42a2-9c41-04809ee97c41",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -244,7 +244,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_channel_grants_damage",
     "to_entity_id": "zealot.tree_node.node_518fc5ca-a334-46b2-9177-42cc04f43002",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -259,7 +259,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_channel_grants_toughness_damage_reduction",
     "to_entity_id": "zealot.tree_node.node_72c78ca8-a422-429a-90cf-b85d0b36aa19",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -274,7 +274,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.aura.zealot_corruption_healing_coherency_improved",
     "to_entity_id": "zealot.tree_node.node_69985978-58fd-4215-9404-5ebfe1869483",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -289,7 +289,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_corruption_resistance_stacking",
     "to_entity_id": "zealot.tree_node.node_ccd0b423-3a44-4f74-8339-7c7b65ba2d63",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -304,7 +304,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_crits_apply_bleed",
     "to_entity_id": "zealot.tree_node.node_0e6bc32b-bdab-4856-94e7-f141355cc9a0",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -319,7 +319,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_crits_grant_cd",
     "to_entity_id": "zealot.tree_node.node_5e1591e1-f942-4d8d-9b53-0d11864a59ef",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -334,7 +334,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_crits_reduce_toughness_damage",
     "to_entity_id": "zealot.tree_node.node_0dbb9346-b495-40d9-81d2-3d69b24056f7",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -349,7 +349,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_damage_boosts_movement",
     "to_entity_id": "zealot.tree_node.node_9b7ccd7d-8eba-4b0e-9759-7e674c7dfde9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -364,7 +364,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_damage_vs_elites",
     "to_entity_id": "zealot.tree_node.node_16cdb92c-ed3f-48f6-9d30-bbe86d8eae5d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -379,7 +379,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_damage_vs_nonthreat",
     "to_entity_id": "zealot.tree_node.node_e35a5d28-2c2c-493c-a5bb-c5c107fccd07",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -394,7 +394,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_defensive_knockback",
     "to_entity_id": "zealot.tree_node.node_2593e8b0-8838-45fd-b0ff-ac8ea327fb14",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -409,7 +409,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_elite_kills_empowers",
     "to_entity_id": "zealot.tree_node.node_5f95669c-df41-4278-bbcb-01eb63cf1c85",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -424,7 +424,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.keystone.zealot_fanatic_rage",
     "to_entity_id": "zealot.tree_node.node_9e19621f-a49c-46a1-837a-056d1ea935bb",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -439,7 +439,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_fanatic_rage_improved",
     "to_entity_id": "zealot.tree_node.node_23264a41-d011-4792-a45e-ea68c7d5b27f",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -454,7 +454,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_fanatic_rage_toughness_on_max",
     "to_entity_id": "zealot.tree_node.node_e079e0d7-8d4b-45de-8e6b-5ed57f82c641",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -469,7 +469,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.ability.zealot_flame_grenade",
     "to_entity_id": "zealot.tree_node.node_998a79be-ed3f-4b78-acb5-cb788438a76c",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -484,7 +484,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_fotf_refund_cooldown",
     "to_entity_id": "zealot.tree_node.node_1a024b73-36a7-4c24-a4be-f9844f422b4f",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -499,7 +499,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_heal_part_of_damage_taken",
     "to_entity_id": "zealot.tree_node.node_53add57a-526d-4fc6-b8b2-1899b30b37a8",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -514,7 +514,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_hits_grant_stacking_damage",
     "to_entity_id": "zealot.tree_node.node_18bd9f66-02ab-4d6b-93ef-c860bbdf62e4",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -529,7 +529,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.ability.zealot_improved_stun_grenade",
     "to_entity_id": "zealot.tree_node.node_efeefa9a-f503-46e7-afae-a61d76ad3a7e",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -544,7 +544,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_improved_weapon_handling_after_dodge",
     "to_entity_id": "zealot.tree_node.node_9c80efef-1de3-44ab-ab0c-44fb665ad925",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -559,7 +559,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_increase_ranged_close_damage",
     "to_entity_id": "zealot.tree_node.node_80eebf49-eccb-40ef-b6ca-5916f3f088b0",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -574,7 +574,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
     "to_entity_id": "zealot.tree_node.node_664d1608-49a2-47bc-8aa6-b2c9b655e865",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -589,7 +589,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_increased_damage_vs_resilient",
     "to_entity_id": "zealot.tree_node.node_a827f270-b198-4fa8-be77-59feaebb2fc1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -604,7 +604,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_increased_duration",
     "to_entity_id": "zealot.tree_node.node_374f4845-26ff-40f4-a893-75b4e4ac324d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -619,7 +619,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_increased_stagger_on_weakspot_melee",
     "to_entity_id": "zealot.tree_node.node_2aa8cb10-8d27-4716-b001-85aa3bf9cc41",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -634,7 +634,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_leaving_stealth_restores_toughness",
     "to_entity_id": "zealot.tree_node.node_d4c52149-9efe-492d-947e-f4c9e1b4bef7",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -649,7 +649,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.keystone.zealot_martyrdom",
     "to_entity_id": "zealot.tree_node.node_00de95af-259d-4c82-ae16-91fa3b533ed9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -664,7 +664,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_attack_speed",
     "to_entity_id": "zealot.tree_node.node_9d8273b3-4c5d-4317-b480-54a125376f0d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -679,7 +679,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_toughness",
     "to_entity_id": "zealot.tree_node.node_2d176f63-527c-4758-a1c1-eed8dfd6ac78",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -694,7 +694,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_martyrdom_toughness_modifier",
     "to_entity_id": "zealot.tree_node.node_4db4d1f1-d5b8-4d3f-a352-b50194ef96e4",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -709,7 +709,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_melee_crits_restore_stamina",
     "to_entity_id": "zealot.tree_node.node_5832cbce-960a-4303-b772-3f8813fde6d0",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -724,7 +724,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_momentum_toughness_replenish",
     "to_entity_id": "zealot.tree_node.node_1473ca58-1a77-4543-b2e5-9c4491d240c8",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -739,7 +739,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_more_damage_when_low_on_stamina",
     "to_entity_id": "zealot.tree_node.node_cb819666-6781-499a-bb33-9a43ed61b4b3",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -754,7 +754,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_more_toughness_on_melee",
     "to_entity_id": "zealot.tree_node.node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -769,7 +769,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_multi_hits_grant_impact_and_uninterruptible",
     "to_entity_id": "zealot.tree_node.node_6ab8617d-6ddd-4d56-a6c3-7ead4e4f1648",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -784,7 +784,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_multi_hits_increase_damage",
     "to_entity_id": "zealot.tree_node.node_88dfd7e8-94f2-4d58-8bfa-06e53dca3286",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -799,7 +799,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_offensive_vs_many",
     "to_entity_id": "zealot.tree_node.node_5f6902c3-f9af-4bbf-b4ad-68a0d7da94a1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -814,7 +814,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_push_attacks_attack_speed",
     "to_entity_id": "zealot.tree_node.node_e6beb408-b6d9-4b1b-b30c-91e9a92d0590",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -829,7 +829,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_quickness_increased_duration",
     "to_entity_id": "zealot.tree_node.node_8b72c79c-2b0f-4081-b919-f730aaee433d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -844,7 +844,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.keystone.zealot_quickness_passive",
     "to_entity_id": "zealot.tree_node.node_86295aae-d8b7-4c66-9862-29d98ae57798",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -859,7 +859,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_quickness_passive_dodge_stacks",
     "to_entity_id": "zealot.tree_node.node_4edf073e-7aa4-4234-9d90-c0551ccdfb32",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -874,7 +874,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_reduced_damage_after_dodge",
     "to_entity_id": "zealot.tree_node.node_7ee3c5f1-cc73-412b-9e62-f013af339bc4",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -889,7 +889,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_reduced_damage_on_wound",
     "to_entity_id": "zealot.tree_node.node_a5510705-1db7-4086-aa35-04833ebb8527",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -904,7 +904,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_reload_from_backstab",
     "to_entity_id": "zealot.tree_node.node_d98a3747-d645-472e-8188-38903a86cf0e",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -919,7 +919,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_resist_death",
     "to_entity_id": "zealot.tree_node.node_0581bad8-f8c0-4321-a90b-756013fd3981",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -934,7 +934,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_resist_death_healing",
     "to_entity_id": "zealot.tree_node.node_18bc94af-2948-4b9a-84e8-5c9408b37343",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -949,7 +949,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_restore_stealth_cd_on_damage",
     "to_entity_id": "zealot.tree_node.node_5a6a015e-77a8-4675-a51b-7fd233eb1b26",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -964,7 +964,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_revive_speed",
     "to_entity_id": "zealot.tree_node.node_b0817c40-bea3-4c97-b423-7645d970edbb",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -979,7 +979,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_shared_fanatic_rage",
     "to_entity_id": "zealot.tree_node.node_2a3a12a6-983c-4998-8541-83e9266b031d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -994,7 +994,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_sprint_improvements",
     "to_entity_id": "zealot.tree_node.node_72f07a65-a83f-4264-99fe-6d3551d135e1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1009,7 +1009,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_stacking_melee_damage_after_dodge",
     "to_entity_id": "zealot.tree_node.node_324c71cf-ae7e-4441-acb6-203a35ae041d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1024,7 +1024,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.aura.zealot_stamina_cost_multiplier_aura",
     "to_entity_id": "zealot.tree_node.node_a943bfdb-5117-4252-a3bb-ecaf704d5b9d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1039,7 +1039,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_stamina_on_block_break",
     "to_entity_id": "zealot.tree_node.node_d80353e9-c157-4d7d-b736-33b0666def5e",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1054,7 +1054,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.ability.zealot_stealth",
     "to_entity_id": "zealot.tree_node.node_f1b10508-b92d-45c4-8661-941d3eadac13",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1069,7 +1069,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent_modifier.zealot_stealth_cooldown_regeneration",
     "to_entity_id": "zealot.tree_node.node_de287eb8-d0e5-46ab-98c2-d71496a3bd4a",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1084,7 +1084,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_suppress_on_backstab_kill",
     "to_entity_id": "zealot.tree_node.node_09a97b15-e79d-4953-a189-f24beac4a40d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1099,7 +1099,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.ability.zealot_throwing_knives",
     "to_entity_id": "zealot.tree_node.node_f830003e-bb99-448f-aac6-f8a4dbf61d50",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1114,7 +1114,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.aura.zealot_toughness_damage_reduction_coherency_improved",
     "to_entity_id": "zealot.tree_node.node_4411a1ae-e625-4cd6-9ae3-403b4a346801",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1129,7 +1129,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_toughness_in_melee",
     "to_entity_id": "zealot.tree_node.node_019a38fd-8454-4e5c-961b-7e74d408f0af",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1144,7 +1144,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_toughness_on_dodge",
     "to_entity_id": "zealot.tree_node.node_7e007113-75ff-4081-af02-5512abe200dc",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1159,7 +1159,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_toughness_on_heavy_kills",
     "to_entity_id": "zealot.tree_node.node_b71544c5-61d9-4c06-8de3-0b834357c0c9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1174,7 +1174,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_toughness_on_ranged_kill",
     "to_entity_id": "zealot.tree_node.node_b5ef81ae-d72f-4e83-8fd4-077fad7f6fe0",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1189,7 +1189,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_uninterruptible_no_slow_heavies",
     "to_entity_id": "zealot.tree_node.node_4afa8c9e-b961-4078-8231-963c3c9cbeab",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1204,7 +1204,7 @@
     "type": "belongs_to_tree_node",
     "from_entity_id": "zealot.talent.zealot_weakspot_damage_reduction",
     "to_entity_id": "zealot.tree_node.node_df2f87b7-6abf-45d0-b9a7-bc99a34d5f82",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1219,7 +1219,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_00de95af-259d-4c82-ae16-91fa3b533ed9",
     "to_entity_id": "zealot.tree_node.node_2d176f63-527c-4758-a1c1-eed8dfd6ac78",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1234,7 +1234,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_00de95af-259d-4c82-ae16-91fa3b533ed9",
     "to_entity_id": "zealot.tree_node.node_9d8273b3-4c5d-4317-b480-54a125376f0d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1249,7 +1249,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_00de95af-259d-4c82-ae16-91fa3b533ed9",
     "to_entity_id": "zealot.tree_node.node_ccd0b423-3a44-4f74-8339-7c7b65ba2d63",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1264,7 +1264,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_00de95af-259d-4c82-ae16-91fa3b533ed9",
     "to_entity_id": "zealot.tree_node.node_f9d86a08-326e-4af4-b074-f4418883772f",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1279,7 +1279,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_019a38fd-8454-4e5c-961b-7e74d408f0af",
     "to_entity_id": "zealot.tree_node.node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1294,7 +1294,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_019a38fd-8454-4e5c-961b-7e74d408f0af",
     "to_entity_id": "zealot.tree_node.node_a827f270-b198-4fa8-be77-59feaebb2fc1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1309,7 +1309,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_019a38fd-8454-4e5c-961b-7e74d408f0af",
     "to_entity_id": "zealot.tree_node.node_b5ef81ae-d72f-4e83-8fd4-077fad7f6fe0",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1324,7 +1324,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_0581bad8-f8c0-4321-a90b-756013fd3981",
     "to_entity_id": "zealot.tree_node.node_18bc94af-2948-4b9a-84e8-5c9408b37343",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1339,7 +1339,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_0581bad8-f8c0-4321-a90b-756013fd3981",
     "to_entity_id": "zealot.tree_node.node_18bd9f66-02ab-4d6b-93ef-c860bbdf62e4",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1354,7 +1354,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_0581bad8-f8c0-4321-a90b-756013fd3981",
     "to_entity_id": "zealot.tree_node.node_9b7ccd7d-8eba-4b0e-9759-7e674c7dfde9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1369,7 +1369,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_09a97b15-e79d-4953-a189-f24beac4a40d",
     "to_entity_id": "zealot.tree_node.node_72f07a65-a83f-4264-99fe-6d3551d135e1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1384,7 +1384,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_09a97b15-e79d-4953-a189-f24beac4a40d",
     "to_entity_id": "zealot.tree_node.node_86295aae-d8b7-4c66-9862-29d98ae57798",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1399,7 +1399,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_0dbb9346-b495-40d9-81d2-3d69b24056f7",
     "to_entity_id": "zealot.tree_node.node_5832cbce-960a-4303-b772-3f8813fde6d0",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1414,7 +1414,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_0dbb9346-b495-40d9-81d2-3d69b24056f7",
     "to_entity_id": "zealot.tree_node.node_5f95669c-df41-4278-bbcb-01eb63cf1c85",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1429,7 +1429,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_0e6bc32b-bdab-4856-94e7-f141355cc9a0",
     "to_entity_id": "zealot.tree_node.node_3f11f576-443e-42b0-b6f9-cedcafb6a224",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1444,7 +1444,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_0e6bc32b-bdab-4856-94e7-f141355cc9a0",
     "to_entity_id": "zealot.tree_node.node_5f95669c-df41-4278-bbcb-01eb63cf1c85",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1459,7 +1459,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_101154ca-57f6-45a4-beea-41dcd21be41f",
     "to_entity_id": "zealot.tree_node.node_b0817c40-bea3-4c97-b423-7645d970edbb",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1474,7 +1474,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
     "to_entity_id": "zealot.tree_node.node_5a6a015e-77a8-4675-a51b-7fd233eb1b26",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1489,7 +1489,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
     "to_entity_id": "zealot.tree_node.node_94333107-ec28-44ca-b37e-2f714fc57ed5",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1504,7 +1504,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
     "to_entity_id": "zealot.tree_node.node_a5510705-1db7-4086-aa35-04833ebb8527",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1519,7 +1519,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
     "to_entity_id": "zealot.tree_node.node_ac2f3e1c-641a-4132-98f5-5e13c199a21a",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1534,7 +1534,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
     "to_entity_id": "zealot.tree_node.node_e6beb408-b6d9-4b1b-b30c-91e9a92d0590",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1549,7 +1549,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_1473ca58-1a77-4543-b2e5-9c4491d240c8",
     "to_entity_id": "zealot.tree_node.node_8b72c79c-2b0f-4081-b919-f730aaee433d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1564,7 +1564,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_18bc94af-2948-4b9a-84e8-5c9408b37343",
     "to_entity_id": "zealot.tree_node.node_101154ca-57f6-45a4-beea-41dcd21be41f",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1579,7 +1579,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_18bc94af-2948-4b9a-84e8-5c9408b37343",
     "to_entity_id": "zealot.tree_node.node_5f6902c3-f9af-4bbf-b4ad-68a0d7da94a1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1594,7 +1594,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_18bc94af-2948-4b9a-84e8-5c9408b37343",
     "to_entity_id": "zealot.tree_node.node_cb18fcab-1f3d-463c-b796-1fa04f33e026",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1609,7 +1609,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_18bd9f66-02ab-4d6b-93ef-c860bbdf62e4",
     "to_entity_id": "zealot.tree_node.node_6ab8617d-6ddd-4d56-a6c3-7ead4e4f1648",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1624,7 +1624,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_18bd9f66-02ab-4d6b-93ef-c860bbdf62e4",
     "to_entity_id": "zealot.tree_node.node_cb819666-6781-499a-bb33-9a43ed61b4b3",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1639,7 +1639,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_1fbb7b5c-aac2-4489-9a39-9a9eab68f484",
     "to_entity_id": "zealot.tree_node.node_09a97b15-e79d-4953-a189-f24beac4a40d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1654,7 +1654,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_1fbb7b5c-aac2-4489-9a39-9a9eab68f484",
     "to_entity_id": "zealot.tree_node.node_72f07a65-a83f-4264-99fe-6d3551d135e1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1669,7 +1669,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_23264a41-d011-4792-a45e-ea68c7d5b27f",
     "to_entity_id": "zealot.tree_node.node_e079e0d7-8d4b-45de-8e6b-5ed57f82c641",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1684,7 +1684,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_2a3a12a6-983c-4998-8541-83e9266b031d",
     "to_entity_id": "zealot.tree_node.node_e079e0d7-8d4b-45de-8e6b-5ed57f82c641",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1699,7 +1699,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_2d176f63-527c-4758-a1c1-eed8dfd6ac78",
     "to_entity_id": "zealot.tree_node.node_4db4d1f1-d5b8-4d3f-a352-b50194ef96e4",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1714,7 +1714,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_2e95d28a-ee00-43d3-8bff-5b2461aa8ecf",
     "to_entity_id": "zealot.tree_node.node_36d9319a-e724-493d-baf1-efdbd77f736c",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1729,7 +1729,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_2e95d28a-ee00-43d3-8bff-5b2461aa8ecf",
     "to_entity_id": "zealot.tree_node.node_80eebf49-eccb-40ef-b6ca-5916f3f088b0",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1744,7 +1744,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_2e95d28a-ee00-43d3-8bff-5b2461aa8ecf",
     "to_entity_id": "zealot.tree_node.node_88dfd7e8-94f2-4d58-8bfa-06e53dca3286",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1759,7 +1759,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_324c71cf-ae7e-4441-acb6-203a35ae041d",
     "to_entity_id": "zealot.tree_node.node_72f07a65-a83f-4264-99fe-6d3551d135e1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1774,7 +1774,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_324c71cf-ae7e-4441-acb6-203a35ae041d",
     "to_entity_id": "zealot.tree_node.node_86295aae-d8b7-4c66-9862-29d98ae57798",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1789,7 +1789,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_36d9319a-e724-493d-baf1-efdbd77f736c",
     "to_entity_id": "zealot.tree_node.node_7e007113-75ff-4081-af02-5512abe200dc",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1804,7 +1804,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_36d9319a-e724-493d-baf1-efdbd77f736c",
     "to_entity_id": "zealot.tree_node.node_b71544c5-61d9-4c06-8de3-0b834357c0c9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1819,7 +1819,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_374f4845-26ff-40f4-a893-75b4e4ac324d",
     "to_entity_id": "zealot.tree_node.node_de287eb8-d0e5-46ab-98c2-d71496a3bd4a",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1834,7 +1834,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_3f11f576-443e-42b0-b6f9-cedcafb6a224",
     "to_entity_id": "zealot.tree_node.node_5f95669c-df41-4278-bbcb-01eb63cf1c85",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1849,7 +1849,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_3f11f576-443e-42b0-b6f9-cedcafb6a224",
     "to_entity_id": "zealot.tree_node.node_9e19621f-a49c-46a1-837a-056d1ea935bb",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1864,7 +1864,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_4411a1ae-e625-4cd6-9ae3-403b4a346801",
     "to_entity_id": "zealot.tree_node.node_16bb35c6-cb04-4156-afa8-c9de10fdaba9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1879,7 +1879,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_4411a1ae-e625-4cd6-9ae3-403b4a346801",
     "to_entity_id": "zealot.tree_node.node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1894,7 +1894,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_4afa8c9e-b961-4078-8231-963c3c9cbeab",
     "to_entity_id": "zealot.tree_node.node_00de95af-259d-4c82-ae16-91fa3b533ed9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1909,7 +1909,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_4afa8c9e-b961-4078-8231-963c3c9cbeab",
     "to_entity_id": "zealot.tree_node.node_5b313422-552e-4e6c-b89c-d35acad88fc9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1924,7 +1924,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_4edf073e-7aa4-4234-9d90-c0551ccdfb32",
     "to_entity_id": "zealot.tree_node.node_8b72c79c-2b0f-4081-b919-f730aaee433d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1939,7 +1939,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5321e553-acec-4b27-9d43-a5af507fa953",
     "to_entity_id": "zealot.tree_node.node_72f07a65-a83f-4264-99fe-6d3551d135e1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1954,7 +1954,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_53add57a-526d-4fc6-b8b2-1899b30b37a8",
     "to_entity_id": "zealot.tree_node.node_00de95af-259d-4c82-ae16-91fa3b533ed9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1969,7 +1969,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_53add57a-526d-4fc6-b8b2-1899b30b37a8",
     "to_entity_id": "zealot.tree_node.node_5b313422-552e-4e6c-b89c-d35acad88fc9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1984,7 +1984,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5832cbce-960a-4303-b772-3f8813fde6d0",
     "to_entity_id": "zealot.tree_node.node_5f95669c-df41-4278-bbcb-01eb63cf1c85",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -1999,7 +1999,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5832cbce-960a-4303-b772-3f8813fde6d0",
     "to_entity_id": "zealot.tree_node.node_9e19621f-a49c-46a1-837a-056d1ea935bb",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2014,7 +2014,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5a6a015e-77a8-4675-a51b-7fd233eb1b26",
     "to_entity_id": "zealot.tree_node.node_5b313422-552e-4e6c-b89c-d35acad88fc9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2029,7 +2029,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5a6a015e-77a8-4675-a51b-7fd233eb1b26",
     "to_entity_id": "zealot.tree_node.node_cb18fcab-1f3d-463c-b796-1fa04f33e026",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2044,7 +2044,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5b313422-552e-4e6c-b89c-d35acad88fc9",
     "to_entity_id": "zealot.tree_node.node_00de95af-259d-4c82-ae16-91fa3b533ed9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2059,7 +2059,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5b313422-552e-4e6c-b89c-d35acad88fc9",
     "to_entity_id": "zealot.tree_node.node_4afa8c9e-b961-4078-8231-963c3c9cbeab",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2074,7 +2074,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5b313422-552e-4e6c-b89c-d35acad88fc9",
     "to_entity_id": "zealot.tree_node.node_53add57a-526d-4fc6-b8b2-1899b30b37a8",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2089,7 +2089,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5bf70f4d-96f3-446a-8a74-f4b4db160455",
     "to_entity_id": "zealot.tree_node.node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2104,7 +2104,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5bf70f4d-96f3-446a-8a74-f4b4db160455",
     "to_entity_id": "zealot.tree_node.node_1a024b73-36a7-4c24-a4be-f9844f422b4f",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2119,7 +2119,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5bf70f4d-96f3-446a-8a74-f4b4db160455",
     "to_entity_id": "zealot.tree_node.node_ac2f3e1c-641a-4132-98f5-5e13c199a21a",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2134,7 +2134,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5bf70f4d-96f3-446a-8a74-f4b4db160455",
     "to_entity_id": "zealot.tree_node.node_f562ee33-5fec-4016-a312-d10e7af1cd32",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2149,7 +2149,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5e1591e1-f942-4d8d-9b53-0d11864a59ef",
     "to_entity_id": "zealot.tree_node.node_5f95669c-df41-4278-bbcb-01eb63cf1c85",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2164,7 +2164,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5f6902c3-f9af-4bbf-b4ad-68a0d7da94a1",
     "to_entity_id": "zealot.tree_node.node_b0817c40-bea3-4c97-b423-7645d970edbb",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2179,7 +2179,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5f95669c-df41-4278-bbcb-01eb63cf1c85",
     "to_entity_id": "zealot.tree_node.node_3f11f576-443e-42b0-b6f9-cedcafb6a224",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2194,7 +2194,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5f95669c-df41-4278-bbcb-01eb63cf1c85",
     "to_entity_id": "zealot.tree_node.node_5832cbce-960a-4303-b772-3f8813fde6d0",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2209,7 +2209,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_5f95669c-df41-4278-bbcb-01eb63cf1c85",
     "to_entity_id": "zealot.tree_node.node_9e19621f-a49c-46a1-837a-056d1ea935bb",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2224,7 +2224,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
     "to_entity_id": "zealot.tree_node.node_16bb35c6-cb04-4156-afa8-c9de10fdaba9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2239,7 +2239,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
     "to_entity_id": "zealot.tree_node.node_5bf70f4d-96f3-446a-8a74-f4b4db160455",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2254,7 +2254,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
     "to_entity_id": "zealot.tree_node.node_c286494b-4e57-42a2-9c41-04809ee97c41",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2269,7 +2269,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
     "to_entity_id": "zealot.tree_node.node_cadd181a-a8bc-4595-b335-a939925cbede",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2284,7 +2284,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
     "to_entity_id": "zealot.tree_node.node_f1b10508-b92d-45c4-8661-941d3eadac13",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2299,7 +2299,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
     "to_entity_id": "zealot.tree_node.node_019a38fd-8454-4e5c-961b-7e74d408f0af",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2314,7 +2314,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
     "to_entity_id": "zealot.tree_node.node_664d1608-49a2-47bc-8aa6-b2c9b655e865",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2329,7 +2329,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
     "to_entity_id": "zealot.tree_node.node_7e007113-75ff-4081-af02-5512abe200dc",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2344,7 +2344,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
     "to_entity_id": "zealot.tree_node.node_a827f270-b198-4fa8-be77-59feaebb2fc1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2359,7 +2359,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_664d1608-49a2-47bc-8aa6-b2c9b655e865",
     "to_entity_id": "zealot.tree_node.node_a827f270-b198-4fa8-be77-59feaebb2fc1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2374,7 +2374,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_664d1608-49a2-47bc-8aa6-b2c9b655e865",
     "to_entity_id": "zealot.tree_node.node_cf60d947-e174-49d8-881d-79aaa602cc4d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2389,7 +2389,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_69985978-58fd-4215-9404-5ebfe1869483",
     "to_entity_id": "zealot.tree_node.node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2404,7 +2404,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_6ab8617d-6ddd-4d56-a6c3-7ead4e4f1648",
     "to_entity_id": "zealot.tree_node.node_81b042fd-5ffb-4317-917d-8ea465181053",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2419,7 +2419,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_72f07a65-a83f-4264-99fe-6d3551d135e1",
     "to_entity_id": "zealot.tree_node.node_09a97b15-e79d-4953-a189-f24beac4a40d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2434,7 +2434,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_72f07a65-a83f-4264-99fe-6d3551d135e1",
     "to_entity_id": "zealot.tree_node.node_324c71cf-ae7e-4441-acb6-203a35ae041d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2449,7 +2449,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_72f07a65-a83f-4264-99fe-6d3551d135e1",
     "to_entity_id": "zealot.tree_node.node_86295aae-d8b7-4c66-9862-29d98ae57798",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2464,7 +2464,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_7e007113-75ff-4081-af02-5512abe200dc",
     "to_entity_id": "zealot.tree_node.node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2479,7 +2479,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_7e007113-75ff-4081-af02-5512abe200dc",
     "to_entity_id": "zealot.tree_node.node_664d1608-49a2-47bc-8aa6-b2c9b655e865",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2494,7 +2494,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_7e007113-75ff-4081-af02-5512abe200dc",
     "to_entity_id": "zealot.tree_node.node_b71544c5-61d9-4c06-8de3-0b834357c0c9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2509,7 +2509,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_7ee3c5f1-cc73-412b-9e62-f013af339bc4",
     "to_entity_id": "zealot.tree_node.node_2aa8cb10-8d27-4716-b001-85aa3bf9cc41",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2524,7 +2524,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_7ee3c5f1-cc73-412b-9e62-f013af339bc4",
     "to_entity_id": "zealot.tree_node.node_9c80efef-1de3-44ab-ab0c-44fb665ad925",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2539,7 +2539,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_7ee3c5f1-cc73-412b-9e62-f013af339bc4",
     "to_entity_id": "zealot.tree_node.node_a943bfdb-5117-4252-a3bb-ecaf704d5b9d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2554,7 +2554,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_7ee3c5f1-cc73-412b-9e62-f013af339bc4",
     "to_entity_id": "zealot.tree_node.node_b0817c40-bea3-4c97-b423-7645d970edbb",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2569,7 +2569,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_80eebf49-eccb-40ef-b6ca-5916f3f088b0",
     "to_entity_id": "zealot.tree_node.node_019a38fd-8454-4e5c-961b-7e74d408f0af",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2584,7 +2584,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_80eebf49-eccb-40ef-b6ca-5916f3f088b0",
     "to_entity_id": "zealot.tree_node.node_b5ef81ae-d72f-4e83-8fd4-077fad7f6fe0",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2599,7 +2599,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_81b042fd-5ffb-4317-917d-8ea465181053",
     "to_entity_id": "zealot.tree_node.node_2a5c7e89-6bfb-4394-ad08-a7aa014c2cc5",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2614,7 +2614,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_81b042fd-5ffb-4317-917d-8ea465181053",
     "to_entity_id": "zealot.tree_node.node_4411a1ae-e625-4cd6-9ae3-403b4a346801",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2629,7 +2629,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_81b042fd-5ffb-4317-917d-8ea465181053",
     "to_entity_id": "zealot.tree_node.node_b0817c40-bea3-4c97-b423-7645d970edbb",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2644,7 +2644,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_81b042fd-5ffb-4317-917d-8ea465181053",
     "to_entity_id": "zealot.tree_node.node_d80353e9-c157-4d7d-b736-33b0666def5e",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2659,7 +2659,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_86295aae-d8b7-4c66-9862-29d98ae57798",
     "to_entity_id": "zealot.tree_node.node_1473ca58-1a77-4543-b2e5-9c4491d240c8",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2674,7 +2674,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_86295aae-d8b7-4c66-9862-29d98ae57798",
     "to_entity_id": "zealot.tree_node.node_4edf073e-7aa4-4234-9d90-c0551ccdfb32",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2689,7 +2689,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_88dfd7e8-94f2-4d58-8bfa-06e53dca3286",
     "to_entity_id": "zealot.tree_node.node_019a38fd-8454-4e5c-961b-7e74d408f0af",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2704,7 +2704,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_88dfd7e8-94f2-4d58-8bfa-06e53dca3286",
     "to_entity_id": "zealot.tree_node.node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2719,7 +2719,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_88dfd7e8-94f2-4d58-8bfa-06e53dca3286",
     "to_entity_id": "zealot.tree_node.node_7e007113-75ff-4081-af02-5512abe200dc",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2734,7 +2734,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_94333107-ec28-44ca-b37e-2f714fc57ed5",
     "to_entity_id": "zealot.tree_node.node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2749,7 +2749,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_94333107-ec28-44ca-b37e-2f714fc57ed5",
     "to_entity_id": "zealot.tree_node.node_1fbb7b5c-aac2-4489-9a39-9a9eab68f484",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2764,7 +2764,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_94333107-ec28-44ca-b37e-2f714fc57ed5",
     "to_entity_id": "zealot.tree_node.node_5321e553-acec-4b27-9d43-a5af507fa953",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2779,7 +2779,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_94333107-ec28-44ca-b37e-2f714fc57ed5",
     "to_entity_id": "zealot.tree_node.node_df2f87b7-6abf-45d0-b9a7-bc99a34d5f82",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2794,7 +2794,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_998a79be-ed3f-4b78-acb5-cb788438a76c",
     "to_entity_id": "zealot.tree_node.node_0581bad8-f8c0-4321-a90b-756013fd3981",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2809,7 +2809,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_9b7ccd7d-8eba-4b0e-9759-7e674c7dfde9",
     "to_entity_id": "zealot.tree_node.node_d98a3747-d645-472e-8188-38903a86cf0e",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2824,7 +2824,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_9b7ccd7d-8eba-4b0e-9759-7e674c7dfde9",
     "to_entity_id": "zealot.tree_node.node_e35a5d28-2c2c-493c-a5bb-c5c107fccd07",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2839,7 +2839,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_9d8273b3-4c5d-4317-b480-54a125376f0d",
     "to_entity_id": "zealot.tree_node.node_4db4d1f1-d5b8-4d3f-a352-b50194ef96e4",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2854,7 +2854,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_9e19621f-a49c-46a1-837a-056d1ea935bb",
     "to_entity_id": "zealot.tree_node.node_23264a41-d011-4792-a45e-ea68c7d5b27f",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2869,7 +2869,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_9e19621f-a49c-46a1-837a-056d1ea935bb",
     "to_entity_id": "zealot.tree_node.node_2a3a12a6-983c-4998-8541-83e9266b031d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2884,7 +2884,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_a5510705-1db7-4086-aa35-04833ebb8527",
     "to_entity_id": "zealot.tree_node.node_53add57a-526d-4fc6-b8b2-1899b30b37a8",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2899,7 +2899,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_a5510705-1db7-4086-aa35-04833ebb8527",
     "to_entity_id": "zealot.tree_node.node_5b313422-552e-4e6c-b89c-d35acad88fc9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2914,7 +2914,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_a827f270-b198-4fa8-be77-59feaebb2fc1",
     "to_entity_id": "zealot.tree_node.node_664d1608-49a2-47bc-8aa6-b2c9b655e865",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2929,7 +2929,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_a827f270-b198-4fa8-be77-59feaebb2fc1",
     "to_entity_id": "zealot.tree_node.node_cf60d947-e174-49d8-881d-79aaa602cc4d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2944,7 +2944,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_a943bfdb-5117-4252-a3bb-ecaf704d5b9d",
     "to_entity_id": "zealot.tree_node.node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2959,7 +2959,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_a943bfdb-5117-4252-a3bb-ecaf704d5b9d",
     "to_entity_id": "zealot.tree_node.node_cadd181a-a8bc-4595-b335-a939925cbede",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2974,7 +2974,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_ac2f3e1c-641a-4132-98f5-5e13c199a21a",
     "to_entity_id": "zealot.tree_node.node_0dbb9346-b495-40d9-81d2-3d69b24056f7",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -2989,7 +2989,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_ac2f3e1c-641a-4132-98f5-5e13c199a21a",
     "to_entity_id": "zealot.tree_node.node_0e6bc32b-bdab-4856-94e7-f141355cc9a0",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3004,7 +3004,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_ac2f3e1c-641a-4132-98f5-5e13c199a21a",
     "to_entity_id": "zealot.tree_node.node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3019,7 +3019,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_ac2f3e1c-641a-4132-98f5-5e13c199a21a",
     "to_entity_id": "zealot.tree_node.node_5e1591e1-f942-4d8d-9b53-0d11864a59ef",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3034,7 +3034,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_b0817c40-bea3-4c97-b423-7645d970edbb",
     "to_entity_id": "zealot.tree_node.node_16cdb92c-ed3f-48f6-9d30-bbe86d8eae5d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3049,7 +3049,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_b0817c40-bea3-4c97-b423-7645d970edbb",
     "to_entity_id": "zealot.tree_node.node_2593e8b0-8838-45fd-b0ff-ac8ea327fb14",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3064,7 +3064,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_b0817c40-bea3-4c97-b423-7645d970edbb",
     "to_entity_id": "zealot.tree_node.node_69985978-58fd-4215-9404-5ebfe1869483",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3079,7 +3079,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_b0817c40-bea3-4c97-b423-7645d970edbb",
     "to_entity_id": "zealot.tree_node.node_7ee3c5f1-cc73-412b-9e62-f013af339bc4",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3094,7 +3094,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_b0817c40-bea3-4c97-b423-7645d970edbb",
     "to_entity_id": "zealot.tree_node.node_81b042fd-5ffb-4317-917d-8ea465181053",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3109,7 +3109,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_b5ef81ae-d72f-4e83-8fd4-077fad7f6fe0",
     "to_entity_id": "zealot.tree_node.node_019a38fd-8454-4e5c-961b-7e74d408f0af",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3124,7 +3124,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_b5ef81ae-d72f-4e83-8fd4-077fad7f6fe0",
     "to_entity_id": "zealot.tree_node.node_a827f270-b198-4fa8-be77-59feaebb2fc1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3139,7 +3139,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_b71544c5-61d9-4c06-8de3-0b834357c0c9",
     "to_entity_id": "zealot.tree_node.node_664d1608-49a2-47bc-8aa6-b2c9b655e865",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3154,7 +3154,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_b71544c5-61d9-4c06-8de3-0b834357c0c9",
     "to_entity_id": "zealot.tree_node.node_7e007113-75ff-4081-af02-5512abe200dc",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3169,7 +3169,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_c286494b-4e57-42a2-9c41-04809ee97c41",
     "to_entity_id": "zealot.tree_node.node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3184,7 +3184,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_c286494b-4e57-42a2-9c41-04809ee97c41",
     "to_entity_id": "zealot.tree_node.node_518fc5ca-a334-46b2-9177-42cc04f43002",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3199,7 +3199,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_c286494b-4e57-42a2-9c41-04809ee97c41",
     "to_entity_id": "zealot.tree_node.node_72c78ca8-a422-429a-90cf-b85d0b36aa19",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3214,7 +3214,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_cb819666-6781-499a-bb33-9a43ed61b4b3",
     "to_entity_id": "zealot.tree_node.node_81b042fd-5ffb-4317-917d-8ea465181053",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3229,7 +3229,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_ccd0b423-3a44-4f74-8339-7c7b65ba2d63",
     "to_entity_id": "zealot.tree_node.node_4db4d1f1-d5b8-4d3f-a352-b50194ef96e4",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3244,7 +3244,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_cf60d947-e174-49d8-881d-79aaa602cc4d",
     "to_entity_id": "zealot.tree_node.node_998a79be-ed3f-4b78-acb5-cb788438a76c",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3259,7 +3259,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_cf60d947-e174-49d8-881d-79aaa602cc4d",
     "to_entity_id": "zealot.tree_node.node_efeefa9a-f503-46e7-afae-a61d76ad3a7e",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3274,7 +3274,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_cf60d947-e174-49d8-881d-79aaa602cc4d",
     "to_entity_id": "zealot.tree_node.node_f830003e-bb99-448f-aac6-f8a4dbf61d50",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3289,7 +3289,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_d4c52149-9efe-492d-947e-f4c9e1b4bef7",
     "to_entity_id": "zealot.tree_node.node_de287eb8-d0e5-46ab-98c2-d71496a3bd4a",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3304,7 +3304,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_d98a3747-d645-472e-8188-38903a86cf0e",
     "to_entity_id": "zealot.tree_node.node_7ee3c5f1-cc73-412b-9e62-f013af339bc4",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3319,7 +3319,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_df2f87b7-6abf-45d0-b9a7-bc99a34d5f82",
     "to_entity_id": "zealot.tree_node.node_324c71cf-ae7e-4441-acb6-203a35ae041d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3334,7 +3334,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_df2f87b7-6abf-45d0-b9a7-bc99a34d5f82",
     "to_entity_id": "zealot.tree_node.node_72f07a65-a83f-4264-99fe-6d3551d135e1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3349,7 +3349,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_e35a5d28-2c2c-493c-a5bb-c5c107fccd07",
     "to_entity_id": "zealot.tree_node.node_7ee3c5f1-cc73-412b-9e62-f013af339bc4",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3364,7 +3364,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_e6beb408-b6d9-4b1b-b30c-91e9a92d0590",
     "to_entity_id": "zealot.tree_node.node_4afa8c9e-b961-4078-8231-963c3c9cbeab",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3379,7 +3379,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_e6beb408-b6d9-4b1b-b30c-91e9a92d0590",
     "to_entity_id": "zealot.tree_node.node_5b313422-552e-4e6c-b89c-d35acad88fc9",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3394,7 +3394,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_efeefa9a-f503-46e7-afae-a61d76ad3a7e",
     "to_entity_id": "zealot.tree_node.node_0581bad8-f8c0-4321-a90b-756013fd3981",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3409,7 +3409,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_f1b10508-b92d-45c4-8661-941d3eadac13",
     "to_entity_id": "zealot.tree_node.node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3424,7 +3424,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_f1b10508-b92d-45c4-8661-941d3eadac13",
     "to_entity_id": "zealot.tree_node.node_374f4845-26ff-40f4-a893-75b4e4ac324d",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3439,7 +3439,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_f1b10508-b92d-45c4-8661-941d3eadac13",
     "to_entity_id": "zealot.tree_node.node_748ebcf8-f38e-4ff1-badf-8f74f9b2efb7",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3454,7 +3454,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_f1b10508-b92d-45c4-8661-941d3eadac13",
     "to_entity_id": "zealot.tree_node.node_94333107-ec28-44ca-b37e-2f714fc57ed5",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3469,7 +3469,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_f1b10508-b92d-45c4-8661-941d3eadac13",
     "to_entity_id": "zealot.tree_node.node_d4c52149-9efe-492d-947e-f4c9e1b4bef7",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3484,7 +3484,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_f562ee33-5fec-4016-a312-d10e7af1cd32",
     "to_entity_id": "zealot.tree_node.node_c2d4e355-cfd0-4ca6-8068-a5bc7335ffbd",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3499,7 +3499,7 @@
     "type": "parent_of",
     "from_entity_id": "zealot.tree_node.node_f830003e-bb99-448f-aac6-f8a4dbf61d50",
     "to_entity_id": "zealot.tree_node.node_0581bad8-f8c0-4321-a90b-756013fd3981",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3514,7 +3514,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.base_movement_speed_node_buff_low_4",
     "to_entity_id": "zealot.buff.player_movement_speed_node_buff_low_4",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3529,7 +3529,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.ability.zealot_improved_stun_grenade",
     "to_entity_id": "zealot.buff.zealot_improved_stun_grenade",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3544,7 +3544,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.ability.zealot_flame_grenade",
     "to_entity_id": "zealot.buff.zealot_flame_grenade_thrown",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3559,7 +3559,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.ability.zealot_throwing_knives",
     "to_entity_id": "zealot.buff.zealot_passive_replenish_throwing_knives_from_melee_kills",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3574,7 +3574,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent_modifier.zealot_crits_grant_cd",
     "to_entity_id": "zealot.buff.zealot_combat_ability_crits_reduce_cooldown",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3589,7 +3589,22 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent_modifier.zealot_restore_stealth_cd_on_damage",
     "to_entity_id": "zealot.buff.zealot_cooldown_based_on_health",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.aura.zealot_toughness_damage_reduction_coherency_improved--grants_buff--zealot.buff.zealot_coherency_toughness_damage_resistance_improved",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.aura.zealot_toughness_damage_reduction_coherency_improved",
+    "to_entity_id": "zealot.buff.zealot_coherency_toughness_damage_resistance_improved",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3604,7 +3619,37 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.aura.zealot_toughness_damage_reduction_coherency_improved",
     "to_entity_id": "zealot.buff.zealot_improved_toughness_on_aura_tracking_buff",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.aura.zealot_corruption_healing_coherency_improved--grants_buff--zealot.buff.zealot_preacher_coherency_corruption_healing_improved",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.aura.zealot_corruption_healing_coherency_improved",
+    "to_entity_id": "zealot.buff.zealot_preacher_coherency_corruption_healing_improved",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
+    "conditions": {
+      "predicates": [],
+      "aggregation": "additive",
+      "stacking_mode": "binary",
+      "exclusive_scope": null
+    },
+    "calc": {},
+    "evidence_ids": []
+  },
+  {
+    "id": "zealot.aura.zealot_stamina_cost_multiplier_aura--grants_buff--zealot.buff.zealot_stamina_cost_multiplier_aura",
+    "type": "grants_buff",
+    "from_entity_id": "zealot.aura.zealot_stamina_cost_multiplier_aura",
+    "to_entity_id": "zealot.buff.zealot_stamina_cost_multiplier_aura",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3619,7 +3664,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.keystone.zealot_martyrdom",
     "to_entity_id": "zealot.buff.zealot_martyrdom_base",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3634,7 +3679,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.keystone.zealot_quickness_passive",
     "to_entity_id": "zealot.buff.zealot_quickness_passive",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3649,7 +3694,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.keystone.zealot_fanatic_rage",
     "to_entity_id": "zealot.buff.zealot_fanatic_rage",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3664,7 +3709,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_increased_stagger_on_weakspot_melee",
     "to_entity_id": "zealot.buff.zealot_pious_stabguy_increased_weaskpot_impact",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3679,7 +3724,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_more_damage_when_low_on_stamina",
     "to_entity_id": "zealot.buff.zealot_more_power_when_low_on_stamina",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3694,7 +3739,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent_modifier.zealot_backstab_kills_restore_cd",
     "to_entity_id": "zealot.buff.zealot_combat_ability_weakspot_backstab_hit_cooldown",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3709,7 +3754,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
     "to_entity_id": "zealot.buff.zealot_critstrike_damage_on_dodge",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3724,7 +3769,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_backstab_damage",
     "to_entity_id": "zealot.buff.zealot_backstab_damage",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3739,7 +3784,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_increased_damage_vs_resilient",
     "to_entity_id": "zealot.buff.zealot_preacher_damage_vs_disgusting",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3754,7 +3799,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_multi_hits_increase_damage",
     "to_entity_id": "zealot.buff.zealot_preacher_melee_increase_next_melee_proc",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3769,7 +3814,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_attack_speed",
     "to_entity_id": "zealot.buff.zealot_increased_melee_attack_speed",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3784,7 +3829,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_crits_apply_bleed",
     "to_entity_id": "zealot.buff.zealot_bleeding_crits",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3799,7 +3844,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_multi_hits_grant_impact_and_uninterruptible",
     "to_entity_id": "zealot.buff.zealot_multi_hits_increase_impact",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3814,7 +3859,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_attack_speed",
     "to_entity_id": "zealot.buff.zealot_martyrdom_attack_speed",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3829,7 +3874,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_improved_weapon_handling_after_dodge",
     "to_entity_id": "zealot.buff.zealot_improved_weapon_handling_after_dodge",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3844,7 +3889,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_increase_ranged_close_damage",
     "to_entity_id": "zealot.buff.zealot_close_ranged_damage",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3859,7 +3904,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_hits_grant_stacking_damage",
     "to_entity_id": "zealot.buff.zealot_stacking_melee_damage",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3874,7 +3919,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_elite_kills_empowers",
     "to_entity_id": "zealot.buff.zealot_elite_kills_empowers",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3889,7 +3934,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_uninterruptible_no_slow_heavies",
     "to_entity_id": "zealot.buff.zealot_uninterruptible_no_slow_heavies",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3904,7 +3949,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_damage_vs_elites",
     "to_entity_id": "zealot.buff.zealot_damage_vs_elites",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3919,7 +3964,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_weakspot_damage_reduction",
     "to_entity_id": "zealot.buff.zealot_weakspot_damage_reduction",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3934,7 +3979,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_stacking_melee_damage_after_dodge",
     "to_entity_id": "zealot.buff.zealot_stacking_melee_damage_after_dodge",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3949,7 +3994,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_bled_enemies_take_more_damage",
     "to_entity_id": "zealot.buff.zealot_bled_enemies_take_more_damage",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3964,7 +4009,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_damage_vs_nonthreat",
     "to_entity_id": "zealot.buff.zealot_damage_vs_nonthreat",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3979,7 +4024,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_revive_speed",
     "to_entity_id": "zealot.buff.zealot_revive_speed",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -3994,7 +4039,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_melee_crits_restore_stamina",
     "to_entity_id": "zealot.buff.zealot_melee_crits_restore_stamina",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4009,7 +4054,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_stamina_on_block_break",
     "to_entity_id": "zealot.buff.zealot_stamina_on_block_break",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4024,7 +4069,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent_modifier.zealot_martyrdom_toughness_modifier",
     "to_entity_id": "zealot.buff.zealot_martyrdom_toughness_modifier",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4039,7 +4084,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_sprint_improvements",
     "to_entity_id": "zealot.buff.zealot_sprint_improvements",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4054,7 +4099,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_push_attacks_attack_speed",
     "to_entity_id": "zealot.buff.zealot_push_attacks_attack_speed",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4069,7 +4114,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent_modifier.zealot_stealth_cooldown_regeneration",
     "to_entity_id": "zealot.buff.zealot_stealth_cooldown_regeneration",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4084,7 +4129,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_suppress_on_backstab_kill",
     "to_entity_id": "zealot.buff.zealot_suppress_on_backstab_kill",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4099,7 +4144,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_block_dodging_synergy",
     "to_entity_id": "zealot.buff.zealot_block_dodging_synergy",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4114,7 +4159,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_reload_from_backstab",
     "to_entity_id": "zealot.buff.zealot_reload_from_backstab",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4129,7 +4174,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent_modifier.zealot_corruption_resistance_stacking",
     "to_entity_id": "zealot.buff.zealot_corruption_resistance_stacking",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4144,7 +4189,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_offensive_vs_many",
     "to_entity_id": "zealot.buff.zealot_offensive_vs_many",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4159,7 +4204,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_backstab_periodic_damage",
     "to_entity_id": "zealot.buff.zealot_backstab_periodic_damage",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4174,7 +4219,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_reduced_damage_after_dodge",
     "to_entity_id": "zealot.buff.zealot_damage_reduction_after_dodge",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4189,7 +4234,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_additional_wounds",
     "to_entity_id": "zealot.buff.zealot_preacher_more_segments",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4204,7 +4249,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_resist_death",
     "to_entity_id": "zealot.buff.zealot_resist_death",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4219,7 +4264,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_more_toughness_on_melee",
     "to_entity_id": "zealot.buff.zealot_increased_toughness_recovery_from_kills",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4234,7 +4279,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_toughness_on_heavy_kills",
     "to_entity_id": "zealot.buff.zealot_toughness_on_heavy_kills",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4249,7 +4294,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_toughness_on_dodge",
     "to_entity_id": "zealot.buff.zealot_toughness_on_dodge",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4264,7 +4309,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_toughness_on_ranged_kill",
     "to_entity_id": "zealot.buff.zealot_toughness_on_ranged_kill",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4279,7 +4324,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_crits_reduce_toughness_damage",
     "to_entity_id": "zealot.buff.zealot_reduced_toughness_damage_taken_on_critical_strike_hits",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4294,7 +4339,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_toughness_in_melee",
     "to_entity_id": "zealot.buff.zealot_toughness_regen_in_melee",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4309,7 +4354,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_resist_death_healing",
     "to_entity_id": "zealot.buff.zealot_resist_death_improved_with_leech",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4324,7 +4369,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_damage_boosts_movement",
     "to_entity_id": "zealot.buff.zealot_movement_enhanced",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4339,7 +4384,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_heal_part_of_damage_taken",
     "to_entity_id": "zealot.buff.zealot_recuperate_a_portion_of_damage_taken",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4354,7 +4399,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_defensive_knockback",
     "to_entity_id": "zealot.buff.zealot_preacher_push_on_hit",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4369,7 +4414,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_reduced_damage_on_wound",
     "to_entity_id": "zealot.buff.zealot_preacher_segment_breaking_half_damage",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4384,7 +4429,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_toughness",
     "to_entity_id": "zealot.buff.zealot_martyrdom_toughness",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",
@@ -4399,7 +4444,7 @@
     "type": "grants_buff",
     "from_entity_id": "zealot.talent.zealot_ally_damage_taken_reduced",
     "to_entity_id": "zealot.buff.zealot_preacher_ally_defensive",
-    "source_snapshot_id": "darktide-source.f63d836",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
     "conditions": {
       "predicates": [],
       "aggregation": "additive",

@@ -152,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 21,
+        "blessing_edges": 24,
         "blessing_count": 3,
-        "edges_per_blessing": 7,
+        "edges_per_blessing": 8,
         "blessing_blessing_edges": 1,
         "orphaned_blessings": 1
       },
@@ -172,13 +172,13 @@
         "measurable_talent_count": 12,
         "edges_per_talent": 1.417,
         "graph_isolated_count": 2,
-        "concentration": 0.13,
+        "concentration": 0.14,
         "penalties": -1,
         "bonuses": 0.5
       },
       "explanations": [
         "2 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.130) +0.5",
+        "High stat concentration (0.140) +0.5",
         "22 talent(s) without calc data excluded from isolation penalty"
       ]
     },
@@ -195,7 +195,7 @@
         {
           "label": "Two-hit Rager body",
           "met": true,
-          "best_htk": 2,
+          "best_htk": 1,
           "max_hits": 2,
           "weight": "high"
         },
@@ -237,7 +237,7 @@
         {
           "label": "Three-hit Mauler",
           "met": true,
-          "best_htk": 2,
+          "best_htk": 1,
           "max_hits": 3,
           "weight": "low"
         },
@@ -266,7 +266,7 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.7333333333333333
+        "slot_balance_ratio": 0.75
       },
       "explanations": []
     },
@@ -286,7 +286,7 @@
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 2,
+            "damnation_htk": 1,
             "auric_htk": 2,
             "damnation_met": true,
             "auric_met": true

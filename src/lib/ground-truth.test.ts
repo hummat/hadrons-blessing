@@ -1087,7 +1087,7 @@ describe("auditBuildFile", () => {
     const ogrynMeleeResult = await auditBuildFile("data/builds/14-ogryn-melee-meta.json");
 
     for (const [result, field, entityId] of [
-      [veteranSniperResult, "weapons[0].name", "shared.weapon.combatsword_p1_m3"],
+      [veteranSniperResult, "weapons[0].name", "shared.weapon.combatsword_p2_m1"],
       [veteranSniperResult, "weapons[1].name", "shared.weapon.lasgun_p1_m3"],
       [zealotHammerResult, "weapons[0].name", "shared.weapon.thunderhammer_2h_p1_m1"],
       [zealotHammerResult, "weapons[1].name", "shared.weapon.flamer_p1_m1"],

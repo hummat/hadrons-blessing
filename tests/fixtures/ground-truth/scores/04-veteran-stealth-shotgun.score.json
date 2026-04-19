@@ -193,14 +193,14 @@
         {
           "label": "Two-hit Rager body",
           "met": false,
-          "best_htk": 11,
+          "best_htk": 10,
           "max_hits": 2,
           "weight": "high"
         },
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 18,
+          "best_htk": 16,
           "max_hits": 2,
           "weight": "high"
         },
@@ -235,7 +235,7 @@
         {
           "label": "Three-hit Mauler",
           "met": false,
-          "best_htk": 11,
+          "best_htk": 9,
           "max_hits": 3,
           "weight": "low"
         },
@@ -285,15 +285,15 @@
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 11,
-            "auric_htk": 15,
+            "damnation_htk": 10,
+            "auric_htk": 13,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 18,
-            "auric_htk": 24,
+            "damnation_htk": 16,
+            "auric_htk": 21,
             "damnation_met": false,
             "auric_met": false
           }

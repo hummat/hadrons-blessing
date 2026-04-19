@@ -729,7 +729,7 @@
     "family_profile": {
       "general_offense": {
         "count": 9,
-        "total_magnitude": 1.04,
+        "total_magnitude": 1.64,
         "selections": [
           "veteran.talent.veteran_crits_apply_rending",
           "veteran.talent.veteran_increase_damage_vs_elites",
@@ -905,8 +905,8 @@
   "metadata": {
     "entities_analyzed": 52,
     "unique_entities_with_calc": 25,
-    "entities_without_calc": 17,
+    "entities_without_calc": 15,
     "opaque_conditions": 0,
-    "calc_coverage_pct": 0.6
+    "calc_coverage_pct": 0.63
   }
 }

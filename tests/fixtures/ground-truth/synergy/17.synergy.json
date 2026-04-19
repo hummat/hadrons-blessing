@@ -5,6 +5,54 @@
     {
       "type": "stat_alignment",
       "selections": [
+        "arbites.aura.adamant_companion_coherency",
+        "shared.stat_node.toughness_damage_reduction"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.aura.adamant_companion_coherency",
+        "arbites.talent.adamant_armor"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.aura.adamant_companion_coherency",
+        "arbites.talent.adamant_plasteel_plates"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.aura.adamant_companion_coherency",
+        "shared.gadget_trait.gadget_toughness_increase"
+      ],
+      "families": [
+        "toughness"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the toughness family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
         "arbites.talent.adamant_limit_dmg_taken_from_hits",
         "arbites.talent.adamant_damage_reduction_after_elite_kill"
       ],
@@ -977,6 +1025,17 @@
   "orphans": [],
   "coverage": {
     "family_profile": {
+      "toughness": {
+        "count": 5,
+        "total_magnitude": 49.875,
+        "selections": [
+          "arbites.aura.adamant_companion_coherency",
+          "shared.stat_node.toughness_damage_reduction",
+          "arbites.talent.adamant_armor",
+          "arbites.talent.adamant_plasteel_plates",
+          "shared.gadget_trait.gadget_toughness_increase"
+        ]
+      },
       "damage_reduction": {
         "count": 3,
         "total_magnitude": 53.15,
@@ -984,16 +1043,6 @@
           "arbites.talent.adamant_limit_dmg_taken_from_hits",
           "arbites.talent.adamant_damage_reduction_after_elite_kill",
           "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
-        ]
-      },
-      "toughness": {
-        "count": 4,
-        "total_magnitude": 49.95,
-        "selections": [
-          "shared.stat_node.toughness_damage_reduction",
-          "arbites.talent.adamant_armor",
-          "arbites.talent.adamant_plasteel_plates",
-          "shared.gadget_trait.gadget_toughness_increase"
         ]
       },
       "melee_offense": {
@@ -1006,7 +1055,7 @@
       },
       "general_offense": {
         "count": 12,
-        "total_magnitude": 2.365,
+        "total_magnitude": 2.965,
         "selections": [
           "shared.stat_node.cleave_boost",
           "arbites.talent.adamant_dodge_grants_damage",
@@ -1068,7 +1117,7 @@
       "damage_reduction"
     ],
     "coverage_gaps": [],
-    "concentration": 0.13
+    "concentration": 0.12
   },
   "_resolvedIds": [
     "arbites.ability.adamant_stance",
@@ -1117,6 +1166,7 @@
     "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
   ],
   "_entitiesWithCalcIds": [
+    "arbites.aura.adamant_companion_coherency",
     "arbites.talent.adamant_limit_dmg_taken_from_hits",
     "shared.stat_node.toughness_damage_reduction",
     "arbites.talent.adamant_armor",
@@ -1144,9 +1194,9 @@
   ],
   "metadata": {
     "entities_analyzed": 52,
-    "unique_entities_with_calc": 24,
-    "entities_without_calc": 20,
+    "unique_entities_with_calc": 25,
+    "entities_without_calc": 17,
     "opaque_conditions": 0,
-    "calc_coverage_pct": 0.55
+    "calc_coverage_pct": 0.6
   }
 }

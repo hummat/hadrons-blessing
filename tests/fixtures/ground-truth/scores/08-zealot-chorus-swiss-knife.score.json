@@ -3,7 +3,7 @@
   "class": "zealot",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 25,
+  "composite_score": 26,
   "letter_grade": "B",
   "weapons": [
     {
@@ -58,6 +58,11 @@
             "name": "Damage (Flak Armoured)",
             "tier": 4,
             "value": 0.25
+          },
+          {
+            "name": "Critical Hit Chance",
+            "tier": 4,
+            "value": 0.05
           }
         ]
       },
@@ -147,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 23,
+        "blessing_edges": 27,
         "blessing_count": 4,
-        "edges_per_blessing": 5.75,
+        "edges_per_blessing": 6.75,
         "blessing_blessing_edges": 3,
         "orphaned_blessings": 1
       },
@@ -160,18 +165,19 @@
       ]
     },
     "talent_coherence": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
         "talent_edges": 10,
         "talent_count": 27,
         "measurable_talent_count": 10,
         "edges_per_talent": 1,
         "graph_isolated_count": 0,
-        "concentration": 0.06,
+        "concentration": 0.07,
         "penalties": 0,
-        "bonuses": 0
+        "bonuses": 0.5
       },
       "explanations": [
+        "High stat concentration (0.070) +0.5",
         "17 talent(s) without calc data excluded from isolation penalty"
       ]
     },
@@ -195,7 +201,7 @@
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 7,
+          "best_htk": 6,
           "max_hits": 2,
           "weight": "high"
         },
@@ -260,7 +266,7 @@
         "active_families": 6,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.6923076923076923
+        "slot_balance_ratio": 0.7142857142857143
       },
       "explanations": []
     },
@@ -274,21 +280,21 @@
           {
             "label": "One-shot Rager head",
             "damnation_htk": 3,
-            "auric_htk": 4,
+            "auric_htk": 3,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Rager body",
             "damnation_htk": 4,
-            "auric_htk": 6,
+            "auric_htk": 5,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 7,
-            "auric_htk": 9,
+            "damnation_htk": 6,
+            "auric_htk": 8,
             "damnation_met": false,
             "auric_met": false
           }

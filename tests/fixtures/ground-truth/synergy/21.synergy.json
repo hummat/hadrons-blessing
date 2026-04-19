@@ -938,19 +938,12 @@
     }
   ],
   "anti_synergies": [],
-  "orphans": [
-    {
-      "selection": "shared.weapon_perk.melee.weapon_trait_reduce_sprint_cost",
-      "reason": "resource_consumer_without_producer",
-      "resource": "stamina",
-      "condition": "threshold:stamina"
-    }
-  ],
+  "orphans": [],
   "coverage": {
     "family_profile": {
       "general_offense": {
         "count": 12,
-        "total_magnitude": 1.57,
+        "total_magnitude": 1.75,
         "selections": [
           "hive_scum.talent.broker_passive_close_ranged_damage",
           "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
@@ -968,7 +961,7 @@
       },
       "crit": {
         "count": 4,
-        "total_magnitude": 0.67,
+        "total_magnitude": 0.7,
         "selections": [
           "hive_scum.talent.broker_passive_ninja_grants_crit_chance",
           "shared.stat_node.critical_chance_boost",
@@ -1016,10 +1009,17 @@
       },
       "mobility": {
         "count": 2,
-        "total_magnitude": 0.94,
+        "total_magnitude": 0.85,
         "selections": [
           "hive_scum.talent_modifier.broker_passive_longer_dodges",
           "shared.weapon_perk.melee.weapon_trait_reduce_sprint_cost"
+        ]
+      },
+      "stamina": {
+        "count": 1,
+        "total_magnitude": 2,
+        "selections": [
+          "shared.weapon_perk.melee.weapon_trait_increase_stamina"
         ]
       },
       "utility": {
@@ -1055,7 +1055,7 @@
       "toughness"
     ],
     "coverage_gaps": [],
-    "concentration": 0.14
+    "concentration": 0.13
   },
   "_resolvedIds": [
     "hive_scum.ability.broker_ability_focus_improved",
@@ -1096,6 +1096,7 @@
     "shared.weapon.combatknife_p1_m1",
     "shared.name_family.blessing.uncanny_strike",
     "shared.name_family.blessing.precognition",
+    "shared.weapon_perk.melee.weapon_trait_increase_stamina",
     "shared.weapon_perk.melee.weapon_trait_reduce_sprint_cost",
     "shared.weapon.autogun_p1_m2",
     "shared.name_family.blessing.fire_frenzy",
@@ -1122,6 +1123,7 @@
     "hive_scum.talent_modifier.broker_passive_longer_dodges",
     "shared.name_family.blessing.uncanny_strike",
     "shared.name_family.blessing.precognition",
+    "shared.weapon_perk.melee.weapon_trait_increase_stamina",
     "shared.weapon_perk.melee.weapon_trait_reduce_sprint_cost",
     "shared.name_family.blessing.fire_frenzy",
     "shared.name_family.blessing.consecutive_hits_increases_close_damage",
@@ -1132,10 +1134,10 @@
     "shared.gadget_trait.gadget_revive_speed_increase"
   ],
   "metadata": {
-    "entities_analyzed": 56,
-    "unique_entities_with_calc": 23,
-    "entities_without_calc": 24,
+    "entities_analyzed": 57,
+    "unique_entities_with_calc": 24,
+    "entities_without_calc": 22,
     "opaque_conditions": 0,
-    "calc_coverage_pct": 0.49
+    "calc_coverage_pct": 0.52
   }
 }

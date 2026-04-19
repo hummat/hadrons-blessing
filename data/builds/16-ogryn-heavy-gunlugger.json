@@ -10,7 +10,7 @@
     "source_kind": "gameslantern",
     "source_url": "https://darktide.gameslantern.com/builds/9e86fcae-dffb-4dfb-9db2-c57d43512156/heavy-gun-lugger-point-blank-barrage-burst-limiter-override",
     "author": "gassytaco",
-    "scraped_at": "2026-03-31T23:12:25.014Z"
+    "scraped_at": "2026-04-19T08:16:29.784Z"
   },
   "ability": {
     "raw_label": "Point Blank Barrage",
@@ -211,7 +211,7 @@
       "slot": "ranged",
       "name": {
         "raw_label": "Gorgonum Mk IV Twin-Linked Heavy Stubber",
-        "canonical_entity_id": "shared.weapon.ogryn_heavystubber_p1_m2",
+        "canonical_entity_id": "shared.weapon.ogryn_heavystubber_p2_m1",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -222,6 +222,16 @@
           "value": {
             "min": 0.1,
             "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "Increase Ranged Critical Strike Chance by 2-5%",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_crit_chance",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
             "unit": "percent"
           }
         }

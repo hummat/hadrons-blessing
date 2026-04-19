@@ -172,12 +172,12 @@
         "measurable_talent_count": 12,
         "edges_per_talent": 1.833,
         "graph_isolated_count": 0,
-        "concentration": 0.13,
+        "concentration": 0.12,
         "penalties": 0,
         "bonuses": 0.5
       },
       "explanations": [
-        "High stat concentration (0.130) +0.5",
+        "High stat concentration (0.120) +0.5",
         "15 talent(s) without calc data excluded from isolation penalty"
       ]
     },
@@ -286,7 +286,7 @@
           {
             "label": "Two-hit Rager body",
             "damnation_htk": 1,
-            "auric_htk": 2,
+            "auric_htk": 1,
             "damnation_met": true,
             "auric_met": true
           },

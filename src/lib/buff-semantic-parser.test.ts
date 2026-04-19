@@ -293,6 +293,51 @@ return archetype_talents
     assert.deepEqual(links.get("multi_talent"), ["buff_a", "buff_b", "buff_c"]);
   });
 
+  it("extracts direct coherency buff_template_name links", () => {
+    const talentLua = `
+local archetype_talents = {
+\tarchetype = "test",
+\ttalents = {
+\t\taura_talent = {
+\t\t\tdescription = "test",
+\t\t\tcoherency = {
+\t\t\t\tbuff_template_name = "team_aura_buff",
+\t\t\t\tidentifier = "test_aura",
+\t\t\t\tpriority = 2,
+\t\t\t},
+\t\t},
+\t},
+}
+return archetype_talents
+`;
+    const links = extractTalentBuffLinks(talentLua);
+    assert.deepEqual(links.get("aura_talent"), ["team_aura_buff"]);
+  });
+
+  it("ignores nested format_values find_value buff references without a direct talent link", () => {
+    const talentLua = `
+local archetype_talents = {
+\tarchetype = "test",
+\ttalents = {
+\t\tformat_only = {
+\t\t\tdescription = "test",
+\t\t\tformat_values = {
+\t\t\t\tbonus = {
+\t\t\t\t\tfind_value = {
+\t\t\t\t\t\tbuff_template_name = "display_only_lookup",
+\t\t\t\t\t\tpath = { "stat_buffs", "damage" },
+\t\t\t\t\t},
+\t\t\t\t},
+\t\t\t},
+\t\t},
+\t},
+}
+return archetype_talents
+`;
+    const links = extractTalentBuffLinks(talentLua);
+    assert.equal(links.has("format_only"), false);
+  });
+
   it("skips talents without passive.buff_template_name", () => {
     const talentLua = `
 local archetype_talents = {

@@ -3,7 +3,7 @@
   "class": "psyker",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 28,
+  "composite_score": 31,
   "letter_grade": "A",
   "weapons": [
     {
@@ -47,9 +47,9 @@
     {
       "name": "Equinox Mk IV Voidstrike Force Staff",
       "slot": "ranged",
-      "canonical_entity_id": "shared.weapon.forcestaff_p4_m1",
-      "internal_name": "forcestaff_p4_m1",
-      "weapon_family": "forcestaff_p4",
+      "canonical_entity_id": "shared.weapon.forcestaff_p1_m1",
+      "internal_name": "forcestaff_p1_m1",
+      "weapon_family": "forcestaff_p1",
       "resolution_source": "ground_truth",
       "perks": {
         "score": 5,
@@ -58,6 +58,11 @@
             "name": "Damage (Carapace)",
             "tier": 4,
             "value": 0.25
+          },
+          {
+            "name": "Critical Hit Chance",
+            "tier": 4,
+            "value": 0.05
           }
         ]
       },
@@ -67,12 +72,12 @@
           {
             "name": "Warp Nexus",
             "known": true,
-            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p4_warp_charge_critical_strike_chance_bonus"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p1_warp_charge_critical_strike_chance_bonus"
           },
           {
             "name": "Surge",
             "known": true,
-            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p4_double_shot_on_crit"
+            "internal": "shared.weapon_trait.weapon_trait_bespoke_forcestaff_p1_double_shot_on_crit"
           }
         ]
       }
@@ -147,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 19,
+        "blessing_edges": 23,
         "blessing_count": 4,
-        "edges_per_blessing": 4.75,
+        "edges_per_blessing": 5.75,
         "blessing_blessing_edges": 2,
         "orphaned_blessings": 1
       },
@@ -164,26 +169,26 @@
       "breakdown": {
         "talent_edges": 15,
         "talent_count": 26,
-        "measurable_talent_count": 13,
-        "edges_per_talent": 1.154,
-        "graph_isolated_count": 1,
+        "measurable_talent_count": 14,
+        "edges_per_talent": 1.071,
+        "graph_isolated_count": 2,
         "concentration": 0.07,
-        "penalties": -0.5,
+        "penalties": -1,
         "bonuses": 0.5
       },
       "explanations": [
-        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "2 measurable talent(s) participate in no synergy edges (-0.5 each)",
         "High stat concentration (0.070) +0.5",
-        "13 talent(s) without calc data excluded from isolation penalty"
+        "12 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
-      "score": 4,
+      "score": 5,
       "breakdown": [
         {
           "label": "One-shot Rager head",
-          "met": false,
-          "best_htk": 2,
+          "met": true,
+          "best_htk": 1,
           "max_hits": 1,
           "weight": "high"
         },
@@ -196,8 +201,8 @@
         },
         {
           "label": "Two-hit Crusher",
-          "met": false,
-          "best_htk": 3,
+          "met": true,
+          "best_htk": 2,
           "max_hits": 2,
           "weight": "high"
         },
@@ -232,7 +237,7 @@
         {
           "label": "Three-hit Mauler",
           "met": true,
-          "best_htk": 2,
+          "best_htk": 1,
           "max_hits": 3,
           "weight": "low"
         },
@@ -252,8 +257,7 @@
         }
       ],
       "explanations": [
-        "8/10 breakpoints met (weighted 14/20)",
-        "Missed high-priority: One-shot Rager head, Two-hit Crusher"
+        "10/10 breakpoints met (weighted 20/20)"
       ]
     },
     "role_coverage": {
@@ -267,17 +271,17 @@
       "explanations": []
     },
     "difficulty_scaling": {
-      "score": 1,
+      "score": 3,
       "breakdown": {
         "auric_met": 1,
-        "damnation_met": 1,
+        "damnation_met": 3,
         "total": 3,
         "per_entry": [
           {
             "label": "One-shot Rager head",
-            "damnation_htk": 2,
+            "damnation_htk": 1,
             "auric_htk": 2,
-            "damnation_met": false,
+            "damnation_met": true,
             "auric_met": false
           },
           {
@@ -289,15 +293,16 @@
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 3,
-            "auric_htk": 4,
-            "damnation_met": false,
+            "damnation_htk": 2,
+            "auric_htk": 3,
+            "damnation_met": true,
             "auric_met": false
           }
         ]
       },
       "explanations": [
-        "High-priority: 1/3 at damnation, 1/3 at auric"
+        "High-priority: 3/3 at damnation, 1/3 at auric",
+        "Degrades at auric: One-shot Rager head, Two-hit Crusher"
       ]
     }
   },
