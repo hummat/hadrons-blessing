@@ -189,8 +189,10 @@ function makeDetail(overrides: {
       metadata: {
         entities_analyzed: 10,
         unique_entities_with_calc: 4,
+        unique_entities_with_linked_source: 9,
         entities_without_calc: 6,
         opaque_conditions: 0,
+        linked_coverage_pct: 0.9,
         // Default is well above the 0.6 low-coverage threshold so tests that
         // assert "clean verdict" don't accidentally trip the low-coverage risk.
         calc_coverage_pct: overrides.calcCoveragePct === undefined ? 0.85 : overrides.calcCoveragePct,
@@ -310,11 +312,11 @@ describe("buildRiskBullets", () => {
     const full = buildRiskBullets(makeDetail({ calcCoveragePct: 1 }));
     const fullBullet = full.find((b) => b.kind === "calc_coverage");
     assert.ok(fullBullet);
-    assert.equal(fullBullet.text, "Calc coverage 100%");
+    assert.equal(fullBullet.text, "Effect-modeled coverage 100%");
 
     const high = buildRiskBullets(makeDetail({ calcCoveragePct: 0.85 }));
     const highBullet = high.find((b) => b.kind === "calc_coverage");
-    assert.equal(highBullet?.text, "Calc coverage 85%");
+    assert.equal(highBullet?.text, "Effect-modeled coverage 85%");
   });
 
   it("rounds (not truncates) fractional percentages", () => {
@@ -376,7 +378,7 @@ describe("buildRiskBullets", () => {
     assert.equal(bullets[0].kind, "clean");
     assert.equal(bullets[0].text, "Clean verdict \u2014 no flagged risks");
     assert.equal(bullets[1].kind, "calc_coverage");
-    assert.equal(bullets[1].text, "Calc coverage 85%");
+    assert.equal(bullets[1].text, "Effect-modeled coverage 85%");
   });
 
   it("places the informational calc_coverage bullet after all risks", () => {

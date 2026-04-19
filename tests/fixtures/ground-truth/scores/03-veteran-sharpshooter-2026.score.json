@@ -152,34 +152,32 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 31,
+        "blessing_edges": 45,
         "blessing_count": 4,
-        "edges_per_blessing": 7.75,
-        "blessing_blessing_edges": 4,
-        "orphaned_blessings": 1
+        "edges_per_blessing": 11.25,
+        "blessing_blessing_edges": 7,
+        "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: lethal_proximity, stacking_crit_chance_on_weakspot, chained_hits_increases_melee_cleave",
-        "4 blessing-blessing edge(s) +0.5",
-        "1 blessing(s) participate in no synergy edges (-1 each)"
+        "Blessings with synergy edges: lethal_proximity, stacking_crit_chance_on_weakspot, chained_hits_increases_melee_cleave, skullcrusher",
+        "7 blessing-blessing edge(s) +0.5"
       ]
     },
     "talent_coherence": {
       "score": 5,
       "breakdown": {
-        "talent_edges": 37,
+        "talent_edges": 41,
         "talent_count": 28,
-        "measurable_talent_count": 16,
-        "edges_per_talent": 2.313,
-        "graph_isolated_count": 1,
+        "measurable_talent_count": 18,
+        "edges_per_talent": 2.278,
+        "graph_isolated_count": 0,
         "concentration": 0.08,
-        "penalties": -0.5,
+        "penalties": 0,
         "bonuses": 0.5
       },
       "explanations": [
-        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
         "High stat concentration (0.080) +0.5",
-        "12 talent(s) without calc data excluded from isolation penalty"
+        "10 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -264,10 +262,10 @@
     "role_coverage": {
       "score": 5,
       "breakdown": {
-        "active_families": 9,
+        "active_families": 10,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.6470588235294118
+        "slot_balance_ratio": 0.65
       },
       "explanations": []
     },

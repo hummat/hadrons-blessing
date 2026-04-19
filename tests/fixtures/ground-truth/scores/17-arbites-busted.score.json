@@ -152,33 +152,32 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 21,
+        "blessing_edges": 48,
         "blessing_count": 3,
-        "edges_per_blessing": 7,
-        "blessing_blessing_edges": 1,
-        "orphaned_blessings": 1
+        "edges_per_blessing": 16,
+        "blessing_blessing_edges": 3,
+        "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: high_voltage, deathspitter",
-        "1 blessing-blessing edge(s) +0.5",
-        "1 blessing(s) participate in no synergy edges (-1 each)"
+        "Blessings with synergy edges: execution, high_voltage, deathspitter",
+        "3 blessing-blessing edge(s) +0.5"
       ]
     },
     "talent_coherence": {
       "score": 5,
       "breakdown": {
-        "talent_edges": 22,
+        "talent_edges": 59,
         "talent_count": 27,
-        "measurable_talent_count": 12,
-        "edges_per_talent": 1.833,
+        "measurable_talent_count": 16,
+        "edges_per_talent": 3.688,
         "graph_isolated_count": 0,
-        "concentration": 0.12,
+        "concentration": 0.17,
         "penalties": 0,
         "bonuses": 0.5
       },
       "explanations": [
-        "High stat concentration (0.120) +0.5",
-        "15 talent(s) without calc data excluded from isolation penalty"
+        "High stat concentration (0.170) +0.5",
+        "11 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -201,7 +200,7 @@
         {
           "label": "Two-hit Crusher",
           "met": true,
-          "best_htk": 2,
+          "best_htk": 1,
           "max_hits": 2,
           "weight": "high"
         },
@@ -262,7 +261,7 @@
     "role_coverage": {
       "score": 4,
       "breakdown": {
-        "active_families": 7,
+        "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
         "slot_balance_ratio": 1
@@ -292,8 +291,8 @@
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 2,
-            "auric_htk": 2,
+            "damnation_htk": 1,
+            "auric_htk": 1,
             "damnation_met": true,
             "auric_met": true
           }

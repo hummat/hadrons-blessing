@@ -37,10 +37,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_brain_burst_improved"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -132,10 +132,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_overcharge_reduced_toughness_damage_taken"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -196,11 +196,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_kills_during_smite_tracking",
         "psyker_increased_chain_lightning_size"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -255,7 +255,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_knife_replenishment"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -320,11 +321,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": null,
       "buff_template_names": [
         "psyker_aura_ability_cooldown"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null
     }
   },
   {
@@ -365,11 +366,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "psyker_aura_crit_chance_aura"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -410,11 +411,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": null,
       "buff_template_names": [
         "psyker_aura_damage_vs_elites"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null
     }
   },
   {
@@ -455,11 +456,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": null,
       "buff_template_names": [
         "psyker_aura_ability_cooldown_improved"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null
     }
   },
   {
@@ -521,7 +522,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_marked_enemies_passive"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -572,11 +574,11 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "psyker_passive_buff",
       "buff_template_names": [
         "psyker_souls_increase_damage",
         "psyker_passive_souls_from_elite_kills"
-      ]
+      ],
+      "class_name": "psyker_passive_buff"
     }
   },
   {
@@ -607,7 +609,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_ability_increase_brain_burst_speed"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -638,7 +641,9 @@
     "calc": {
       "buff_template_names": [
         "psyker_aura_souls_on_kill"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -696,7 +701,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_chain_lightning_heavy_attacks"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1051,10 +1057,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_overcharge_increased_movement_speed"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1105,10 +1111,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_overcharge_reduced_warp_charge"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1203,10 +1209,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_reduced_warp_charge_cost_and_venting_speed"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1247,11 +1253,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "psyker_combat_ability_extra_charge"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -1282,6 +1288,12 @@
     "calc": {
       "buff_template_names": [
         "psyker_shield_stun_passive"
+      ],
+      "class_name": "interval_buff",
+      "max_stacks": 1,
+      "duration": null,
+      "keywords": [
+        "electrocuted"
       ]
     }
   },
@@ -1313,7 +1325,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_shout_reduces_warp_generation"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1344,7 +1357,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_smite_on_hit"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1412,10 +1426,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_reduced_throwing_knife_cooldown"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1466,10 +1480,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_throwing_knives_piercing"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1527,7 +1541,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_soul_on_warpfire_kill"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1558,7 +1573,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_shout_applies_warpfire"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1595,10 +1611,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_crit_chance_node_buff_low_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1635,10 +1651,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_melee_damage_node_buff_medium_4"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1675,10 +1691,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_movement_speed_node_buff_low_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1715,10 +1731,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_ranged_damage_node_buff_medium_4"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1755,10 +1771,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_stamina_node_buff_low_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1795,10 +1811,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_toughness_damage_reduction_node_buff_low_4"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1835,10 +1851,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_toughness_damage_reduction_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1875,10 +1891,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_toughness_node_buff_medium_4"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1915,10 +1931,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_toughness_node_buff_medium_5"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1955,10 +1971,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_warp_charge_node_buff_medium_3"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2050,10 +2066,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "proc_buff",
       "buff_template_names": [
         "psyker_alternative_peril_explosion"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2094,10 +2110,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_block_costs_warp_charge"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2138,10 +2154,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "proc_buff",
       "buff_template_names": [
         "psyker_chance_to_vent_on_kill"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2182,10 +2198,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_cleave_from_peril"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2226,10 +2242,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_coherency_aura_size_increase"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2260,7 +2276,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_crits_empower_warp"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2291,7 +2308,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_crits_regen_toughness_movement_speed"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2332,10 +2350,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_warp_charge_increase_force_weapon_damage"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2376,10 +2394,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_damage_resistance_stun_immunity"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2420,10 +2438,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
       "buff_template_names": [
         "psyker_damage_to_peril_conversion"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2464,10 +2482,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_damage_vs_ogryns_and_monsters"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2498,7 +2516,9 @@
     "calc": {
       "buff_template_names": [
         "psyker_dodge_after_crits"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": 1
     }
   },
   {
@@ -2558,9 +2578,34 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "force_staff_single_target_damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_action_finish",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "force_staff_secondary_damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_action_finish",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "psyker_force_staff_bonus"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -2589,9 +2634,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "warp_damage_taken_multiplier",
+          "magnitude": 1.06,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "psyker_force_staff_quick_attack_bonus"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 5,
+      "duration": 10
     }
   },
   {
@@ -2622,7 +2682,9 @@
     "calc": {
       "buff_template_names": [
         "psyker_guaranteed_crit_on_multiple_weakspot_hits"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": null
     }
   },
   {
@@ -2673,10 +2735,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_improved_dodge"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2717,10 +2779,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_increased_vent_speed"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2751,7 +2813,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_killing_enemy_with_warpfire_boosts"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2782,7 +2845,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_kills_stack_other_weapon_damage"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2823,10 +2887,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_melee_attack_speed"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2867,11 +2931,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "psyker_melee_weaving"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2902,7 +2966,8 @@
     "calc": {
       "buff_template_names": [
         "psyker_ranged_crits_vent"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2943,10 +3008,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
       "buff_template_names": [
         "psyker_reload_speed_warp"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -3034,10 +3099,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_stat_mix"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -3068,7 +3133,10 @@
     "calc": {
       "buff_template_names": [
         "psyker_toughness_on_melee"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -3100,7 +3168,9 @@
       "buff_template_names": [
         "psyker_toughness_on_vent",
         "psyker_toughness_on_warp_generation"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -3131,7 +3201,9 @@
     "calc": {
       "buff_template_names": [
         "psyker_toughness_on_warp_kill"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -3182,10 +3254,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_venting_improvements"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -3226,10 +3298,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_warp_attacks_rending"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -3270,10 +3342,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_warp_charge_reduces_toughness_damage_taken"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -3324,10 +3396,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "psyker_warp_glass_cannon"
-      ]
+      ],
+      "class_name": "buff"
     }
   }
 ]

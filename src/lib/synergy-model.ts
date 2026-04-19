@@ -22,6 +22,7 @@ interface EntityBase {
   calc?: {
     effects?: SynergyEffect[];
     tiers?: Array<{ effects?: SynergyEffect[] }>;
+    buff_template_names?: string[];
   };
   [key: string]: unknown;
 }
@@ -69,9 +70,15 @@ interface AntiSynergy {
 interface SynergyMetadata {
   entities_analyzed: number;
   unique_entities_with_calc: number;
+  unique_entities_with_linked_source: number;
   entities_without_calc: number;
   opaque_conditions: number;
   calc_coverage_pct: number;
+  linked_coverage_pct: number;
+}
+
+interface ResolvedSelection extends SynergySelection {
+  linked_source: boolean;
 }
 
 export interface AnalyzeBuildResult {
@@ -286,7 +293,7 @@ export function resolveSelections(
   build: CanonicalBuildInput,
   entities: Map<string, EntityBase>,
   edges: EdgeBase[],
-): SynergySelection[] {
+): ResolvedSelection[] {
   // Extract all entity IDs from the build
   const ids = new Set<string>();
 
@@ -334,17 +341,18 @@ export function resolveSelections(
     instanceOfIndex.get(edge.to_entity_id)!.push(edge.from_entity_id);
   }
 
-  const resolved: SynergySelection[] = [];
+  const resolved: ResolvedSelection[] = [];
 
   for (const entityId of ids) {
     if (!entityId) continue;
     const entity = entities.get(entityId);
     if (!entity) {
-      resolved.push({ id: entityId, effects: [] });
+      resolved.push({ id: entityId, effects: [], linked_source: false });
       continue;
     }
 
     let effects: SynergyEffect[] = [];
+    let linkedSource = entityHasLinkedSource(entity);
 
     // Path 1: entity has calc.effects directly
     if (entity.calc?.effects && entity.calc.effects.length > 0) {
@@ -356,6 +364,7 @@ export function resolveSelections(
       for (const fromId of fromIds) {
         const fromEntity = entities.get(fromId);
         if (!fromEntity) continue;
+        linkedSource ||= entityHasLinkedSource(fromEntity);
         if (fromEntity.calc?.effects && fromEntity.calc.effects.length > 0) {
           effects = fromEntity.calc.effects;
           break;
@@ -377,17 +386,23 @@ export function resolveSelections(
           e.domain === classDomain &&
           e.kind === "talent" &&
           typeof e.internal_name === "string" &&
-          e.internal_name.startsWith(prefix) &&
-          e.calc?.effects &&
-          e.calc.effects.length > 0
+          e.internal_name.startsWith(prefix)
         ) {
-          effects = e.calc.effects;
-          break;
+          linkedSource ||= entityHasLinkedSource(e);
+          if (e.calc?.effects && e.calc.effects.length > 0) {
+            effects = e.calc.effects;
+            break;
+          }
+          if (e.calc?.tiers && e.calc.tiers.length > 0) {
+            const lastTier = e.calc.tiers[e.calc.tiers.length - 1];
+            effects = lastTier.effects ?? [];
+            break;
+          }
         }
       }
     }
 
-    resolved.push({ id: entityId, effects });
+    resolved.push({ id: entityId, effects, linked_source: linkedSource });
   }
 
   return resolved;
@@ -503,9 +518,14 @@ export function analyzeBuild(build: CanonicalBuildInput, index: SynergyIndex): A
     return entity?.kind !== "weapon";
   });
   const coverageWithEffects = coverageEligible.filter((sel) => sel.effects.length > 0);
+  const coverageWithLinkedSource = coverageEligible.filter((sel) => sel.linked_source);
   const calcCoveragePct =
     coverageEligible.length > 0
       ? Math.round((coverageWithEffects.length / coverageEligible.length) * 100) / 100
+      : 0;
+  const linkedCoveragePct =
+    coverageEligible.length > 0
+      ? Math.round((coverageWithLinkedSource.length / coverageEligible.length) * 100) / 100
       : 0;
 
   return {
@@ -520,9 +540,18 @@ export function analyzeBuild(build: CanonicalBuildInput, index: SynergyIndex): A
     metadata: {
       entities_analyzed: totalSelections,
       unique_entities_with_calc: withEffects.length,
+      unique_entities_with_linked_source: coverageWithLinkedSource.length,
       entities_without_calc: coverageEligible.length - coverageWithEffects.length,
       opaque_conditions: opaqueCount,
       calc_coverage_pct: calcCoveragePct,
+      linked_coverage_pct: linkedCoveragePct,
     },
   };
+}
+
+function entityHasLinkedSource(entity: EntityBase | undefined): boolean {
+  if (!entity?.calc) return false;
+  return (entity.calc.effects?.length ?? 0) > 0
+    || (entity.calc.tiers?.length ?? 0) > 0
+    || (entity.calc.buff_template_names?.length ?? 0) > 0;
 }

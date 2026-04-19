@@ -678,14 +678,16 @@
         <div class="grid gap-4 md:grid-cols-2">
           <article class="panel-muted p-4 text-sm">
             <h2 class="mb-3 font-medium text-gray-200">Coverage A</h2>
-            <div class="text-gray-400">Calc coverage: {formatCoverageFraction(buildA.synergy.metadata.calc_coverage_pct)}</div>
+            <div class="text-gray-400">Effect-modeled coverage: {formatCoverageFraction(buildA.synergy.metadata.calc_coverage_pct)}</div>
+            <div class="text-gray-400">Source-linked coverage: {formatCoverageFraction(buildA.synergy.metadata.linked_coverage_pct)}</div>
             <div class="text-gray-400">Entities analyzed: {buildA.synergy.metadata.entities_analyzed}</div>
             <div class="text-gray-400">Build identity: {coverageText(buildA.synergy.coverage.build_identity)}</div>
             <div class="text-gray-400">Coverage gaps: {coverageText(buildA.synergy.coverage.coverage_gaps)}</div>
           </article>
           <article class="panel-muted p-4 text-sm">
             <h2 class="mb-3 font-medium text-gray-200">Coverage B</h2>
-            <div class="text-gray-400">Calc coverage: {formatCoverageFraction(buildB.synergy.metadata.calc_coverage_pct)}</div>
+            <div class="text-gray-400">Effect-modeled coverage: {formatCoverageFraction(buildB.synergy.metadata.calc_coverage_pct)}</div>
+            <div class="text-gray-400">Source-linked coverage: {formatCoverageFraction(buildB.synergy.metadata.linked_coverage_pct)}</div>
             <div class="text-gray-400">Entities analyzed: {buildB.synergy.metadata.entities_analyzed}</div>
             <div class="text-gray-400">Build identity: {coverageText(buildB.synergy.coverage.build_identity)}</div>
             <div class="text-gray-400">Coverage gaps: {coverageText(buildB.synergy.coverage.coverage_gaps)}</div>

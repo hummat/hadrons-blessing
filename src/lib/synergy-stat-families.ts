@@ -12,7 +12,12 @@ export const ALL_FAMILIES = [
 export type StatFamily = (typeof ALL_FAMILIES)[number];
 
 const PERSISTENT_TYPES = new Set(["stat_buff", "conditional_stat_buff"]);
-const DYNAMIC_TYPES = new Set(["proc_stat_buff", "lerped_stat_buff"]);
+const DYNAMIC_TYPES = new Set([
+  "proc_stat_buff",
+  "lerped_stat_buff",
+  "conditional_lerped_stat_buff",
+  "stepped_stat_buff",
+]);
 
 export type EffectCategory = "persistent" | "dynamic" | "unknown";
 
@@ -51,7 +56,9 @@ const FAMILY_STATS: Record<StatFamily, string[]> = {
     "alternate_fire_movement_speed_reduction_modifier",
     "explosion_arming_distance_multiplier", "fov_multiplier",
     "charge_level_modifier", "charge_movement_reduction_multiplier",
-    "charge_up_time",
+    "charge_up_time", "ammo_replenishment_percent", "ammo_to_clip_on_crit",
+    "overheat_immediate_reduction", "force_staff_single_target_damage",
+    "force_staff_secondary_damage",
   ],
   general_offense: [
     "damage", "power_level_modifier", "rending_multiplier",
@@ -74,6 +81,7 @@ const FAMILY_STATS: Record<StatFamily, string[]> = {
     "toxin_power", "disgustingly_resilient_damage", "resistant_damage",
     "stagger_count_damage", "stagger_weakspot_reduction_modifier",
     "stagger_burning_reduction_modifier", "rending_vs_staggered_multiplier",
+    "weakspot_power_level_modifier", "damage_taken_modifier",
   ],
   crit: [
     "critical_strike_chance", "critical_strike_damage",
@@ -87,7 +95,7 @@ const FAMILY_STATS: Record<StatFamily, string[]> = {
     "toughness_damage_taken_multiplier", "toughness_replenish_modifier",
     "toughness_replenish_multiplier", "toughness_regen_rate_modifier",
     "toughness_melee_replenish", "toughness_extra_regen_rate",
-    "toughness_regen_delay_multiplier",
+    "toughness_regen_delay_multiplier", "toughness_regen_percent",
   ],
   damage_reduction: [
     "damage_taken_multiplier", "corruption_taken_multiplier",
@@ -113,12 +121,14 @@ const FAMILY_STATS: Record<StatFamily, string[]> = {
     "damage_taken_by_chaos_poxwalker_bomber_multiplier",
     "ogryn_damage_taken_multiplier", "ranged_damage_taken_multiplier",
     "damage_taken_from_toxic_gas_multiplier", "syringe_duration",
+    "melee_damage_taken_multiplier",
   ],
   mobility: [
     "movement_speed", "sprint_movement_speed", "sprinting_cost_multiplier",
     "extra_consecutive_dodges", "dodge_speed_multiplier",
     "dodge_distance_modifier", "dodge_linger_time_modifier", "dodge_linger_time",
     "dodge_cooldown_reset_modifier", "sprint_dodge_reduce_angle_threshold_rad",
+    "count_as_dodge_vs_ranged",
   ],
   warp_resource: [
     "warp_charge_amount", "warp_charge_block_cost",
@@ -130,13 +140,14 @@ const FAMILY_STATS: Record<StatFamily, string[]> = {
     "chain_lightning_max_angle", "chain_lightning_staff_max_jumps",
     "psyker_smite_max_hit_mass_attack_modifier",
     "psyker_smite_max_hit_mass_impact_modifier",
+    "warp_damage_taken_multiplier",
   ],
   grenade: [
     "extra_max_amount_of_grenades", "grenade_ability_cooldown_modifier",
     "extra_grenade_throw_chance", "frag_damage",
     "explosion_radius_modifier_frag", "krak_damage",
     "smoke_fog_duration_modifier", "explosion_radius_modifier_shock",
-    "ogryn_grenade_box_cluster_amount",
+    "ogryn_grenade_box_cluster_amount", "grenade_charge_restored",
   ],
   stamina: [
     "stamina_modifier", "stamina_regeneration_modifier",
@@ -149,6 +160,8 @@ const FAMILY_STATS: Record<StatFamily, string[]> = {
     "ability_extra_charges", "shout_radius_modifier",
     "companion_damage_modifier", "companion_damage_vs_elites",
     "companion_damage_vs_special", "companion_damage_vs_ranged",
+    "combat_ability_cooldown_regen_modifier", "ammo_replenishment_percent",
+    "threat_weight_multiplier", "weapon_special_max_activations",
   ],
 };
 

@@ -3,7 +3,7 @@
   "class": "veteran",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 25,
+  "composite_score": 26,
   "letter_grade": "B",
   "weapons": [
     {
@@ -152,32 +152,32 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 23,
+        "blessing_edges": 34,
         "blessing_count": 4,
-        "edges_per_blessing": 5.75,
+        "edges_per_blessing": 8.5,
         "blessing_blessing_edges": 2,
         "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: increase_power_on_kill, rising_heat, extended_activation_duration_on_chained_attacks, gets_hot",
+        "Blessings with synergy edges: extended_activation_duration_on_chained_attacks, rising_heat, gets_hot, increase_power_on_kill",
         "2 blessing-blessing edge(s) +0.5"
       ]
     },
     "talent_coherence": {
-      "score": 3,
+      "score": 4,
       "breakdown": {
-        "talent_edges": 13,
+        "talent_edges": 23,
         "talent_count": 27,
-        "measurable_talent_count": 14,
-        "edges_per_talent": 0.929,
+        "measurable_talent_count": 17,
+        "edges_per_talent": 1.353,
         "graph_isolated_count": 1,
-        "concentration": 0.06,
+        "concentration": 0.05,
         "penalties": -0.5,
         "bonuses": 0
       },
       "explanations": [
         "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "13 talent(s) without calc data excluded from isolation penalty"
+        "10 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -265,7 +265,7 @@
         "active_families": 8,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.8571428571428571
+        "slot_balance_ratio": 0.9375
       },
       "explanations": []
     },

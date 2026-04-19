@@ -16,6 +16,13 @@
       "condition": null
     },
     {
+      "source_entity": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
+      "stat": "toughness_damage_taken_multiplier",
+      "value": 0.85,
+      "type": "stat_buff",
+      "condition": null
+    },
+    {
       "source_entity": "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
       "stat": "damage_taken_multiplier",
       "value": 0.875,
@@ -23,27 +30,27 @@
       "condition": "threshold:stamina_high"
     }
   ],
-  "total_dr": 0,
+  "total_dr": 0.2934,
   "max_toughness": 112.12,
-  "effective_toughness": 112.12,
+  "effective_toughness": 158.68,
   "health_pool": 900,
-  "effective_hp": 1012.13,
+  "effective_hp": 1058.68,
   "max_health_modifier": 0,
   "state_modifiers": {
     "dodging": {
       "tdr": 0,
-      "damage_multiplier": 1,
-      "effective_toughness": 112.12
+      "damage_multiplier": 0.7066,
+      "effective_toughness": 158.68
     },
     "sliding": {
       "tdr": 0,
-      "damage_multiplier": 1,
-      "effective_toughness": 112.12
+      "damage_multiplier": 0.7066,
+      "effective_toughness": 158.68
     },
     "sprinting": {
       "tdr": 0,
-      "damage_multiplier": 1,
-      "effective_toughness": 112.12
+      "damage_multiplier": 0.7066,
+      "effective_toughness": 158.68
     }
   },
   "toughness_regen": {

@@ -3,8 +3,8 @@
   "class": "zealot",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 26,
-  "letter_grade": "B",
+  "composite_score": 27,
+  "letter_grade": "A",
   "weapons": [
     {
       "name": "Munitorum Mk X Relic Blade",
@@ -150,36 +150,34 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
-        "blessing_edges": 22,
+        "blessing_edges": 40,
         "blessing_count": 4,
-        "edges_per_blessing": 5.5,
-        "blessing_blessing_edges": 1,
-        "orphaned_blessings": 2
+        "edges_per_blessing": 10,
+        "blessing_blessing_edges": 4,
+        "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: cranial_grounding, blaze_away",
-        "1 blessing-blessing edge(s) +0.5",
-        "2 blessing(s) participate in no synergy edges (-1 each)"
+        "Blessings with synergy edges: heatsink, cranial_grounding, blaze_away, penetrating_flame",
+        "4 blessing-blessing edge(s) +0.5"
       ]
     },
     "talent_coherence": {
       "score": 5,
       "breakdown": {
-        "talent_edges": 20,
+        "talent_edges": 37,
         "talent_count": 27,
-        "measurable_talent_count": 13,
-        "edges_per_talent": 1.538,
-        "graph_isolated_count": 1,
-        "concentration": 0.11,
-        "penalties": -0.5,
+        "measurable_talent_count": 17,
+        "edges_per_talent": 2.176,
+        "graph_isolated_count": 0,
+        "concentration": 0.1,
+        "penalties": 0,
         "bonuses": 0.5
       },
       "explanations": [
-        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.110) +0.5",
-        "14 talent(s) without calc data excluded from isolation penalty"
+        "High stat concentration (0.100) +0.5",
+        "10 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -195,14 +193,14 @@
         {
           "label": "Two-hit Rager body",
           "met": false,
-          "best_htk": 4,
+          "best_htk": 3,
           "max_hits": 2,
           "weight": "high"
         },
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 5,
+          "best_htk": 4,
           "max_hits": 2,
           "weight": "high"
         },
@@ -244,7 +242,7 @@
         {
           "label": "Two-hit Bulwark",
           "met": false,
-          "best_htk": 4,
+          "best_htk": 3,
           "max_hits": 2,
           "weight": "low"
         },
@@ -264,12 +262,12 @@
     "role_coverage": {
       "score": 4,
       "breakdown": {
-        "active_families": 9,
+        "active_families": 10,
         "total_families": 11,
         "coverage_gaps": [
           "crit_chance_source"
         ],
-        "slot_balance_ratio": 0.8571428571428571
+        "slot_balance_ratio": 0.8823529411764706
       },
       "explanations": [
         "Coverage gaps: crit_chance_source (-1 each)"
@@ -285,21 +283,21 @@
           {
             "label": "One-shot Rager head",
             "damnation_htk": 2,
-            "auric_htk": 3,
+            "auric_htk": 2,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 4,
-            "auric_htk": 5,
+            "damnation_htk": 3,
+            "auric_htk": 3,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 5,
-            "auric_htk": 7,
+            "damnation_htk": 4,
+            "auric_htk": 5,
             "damnation_met": false,
             "auric_met": false
           }

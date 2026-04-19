@@ -3,7 +3,7 @@
   "class": "psyker",
   "perk_optimality": 5,
   "curio_efficiency": 3,
-  "composite_score": 29,
+  "composite_score": 31,
   "letter_grade": "A",
   "weapons": [
     {
@@ -164,20 +164,20 @@
       ]
     },
     "talent_coherence": {
-      "score": 2,
+      "score": 4,
       "breakdown": {
-        "talent_edges": 13,
+        "talent_edges": 16,
         "talent_count": 26,
         "measurable_talent_count": 14,
-        "edges_per_talent": 0.929,
-        "graph_isolated_count": 3,
-        "concentration": 0.12,
-        "penalties": -1.5,
+        "edges_per_talent": 1.143,
+        "graph_isolated_count": 2,
+        "concentration": 0.11,
+        "penalties": -1,
         "bonuses": 0.5
       },
       "explanations": [
-        "3 measurable talent(s) participate in no synergy edges (-0.5 each)",
-        "High stat concentration (0.120) +0.5",
+        "2 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "High stat concentration (0.110) +0.5",
         "12 talent(s) without calc data excluded from isolation penalty"
       ]
     },

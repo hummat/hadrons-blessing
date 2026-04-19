@@ -98,9 +98,10 @@ interface LerpedValue {
  * Strip "stat_buffs." prefix from a stat key.
  */
 function extractStatKey(key: string): string {
-  const prefix = "stat_buffs.";
-  if (key.startsWith(prefix)) {
-    return key.slice(prefix.length);
+  for (const prefix of ["stat_buffs.", "buff_stat_buffs."]) {
+    if (key.startsWith(prefix)) {
+      return key.slice(prefix.length);
+    }
   }
   return key;
 }

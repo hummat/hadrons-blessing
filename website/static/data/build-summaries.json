@@ -1,5 +1,125 @@
 [
   {
+    "file": "18-arbites-hyper-carry-dog.json",
+    "title": "[Havoc 40 Meta] Hyper Carry Dog Build",
+    "class": "arbites",
+    "ability": "Castigators Stance",
+    "keystone": "Execution Order",
+    "weapons": [
+      {
+        "name": "Branx Mk III Arbites Shock Maul",
+        "slot": "melee",
+        "family": "powermaul_p2"
+      },
+      {
+        "name": "Exaction Mk III Exterminator Shotgun",
+        "slot": "ranged",
+        "family": "shotgun_p4"
+      }
+    ],
+    "scores": {
+      "composite": 34,
+      "grade": "S",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 5
+    }
+  },
+  {
+    "file": "19-arbites-arbitrator-meta.json",
+    "title": "The Havoc 40 Arbitrator meta build",
+    "class": "arbites",
+    "ability": "Break the Line",
+    "keystone": "Execution Order",
+    "weapons": [
+      {
+        "name": "Branx Mk III Arbites Shock Maul",
+        "slot": "melee",
+        "family": "powermaul_p2"
+      },
+      {
+        "name": "Godwyn-Branx Mk IV Bolt Pistol",
+        "slot": "ranged",
+        "family": "boltpistol_p1"
+      }
+    ],
+    "scores": {
+      "composite": 34,
+      "grade": "S",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 5
+    }
+  },
+  {
+    "file": "06-zealot-death-cultist.json",
+    "title": "\"Death Cultist\" | Havoc 40 Relic Blade Zealot",
+    "class": "zealot",
+    "ability": "Chorus of Spiritual Fortitude",
+    "keystone": "Martyrdom",
+    "weapons": [
+      {
+        "name": "Munitorum Mk II Relic Blade",
+        "slot": "melee",
+        "family": "powersword_2h"
+      },
+      {
+        "name": "Godwyn-Branx Mk IV Bolt Pistol",
+        "slot": "ranged",
+        "family": "boltpistol_p1"
+      }
+    ],
+    "scores": {
+      "composite": 33,
+      "grade": "S",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 4
+    }
+  },
+  {
+    "file": "08-zealot-chorus-swiss-knife.json",
+    "title": "Chorus Swiss knife  ( Havoc )",
+    "class": "zealot",
+    "ability": "Chorus of Spiritual Fortitude",
+    "keystone": "Blazing Piety",
+    "weapons": [
+      {
+        "name": "Catachan Mk VI Combat Blade",
+        "slot": "melee",
+        "family": "combatknife_p1"
+      },
+      {
+        "name": "Artemia Mk III Purgation Flamer",
+        "slot": "ranged",
+        "family": "flamer"
+      }
+    ],
+    "scores": {
+      "composite": 33,
+      "grade": "S",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 4
+    }
+  },
+  {
     "file": "17-arbites-busted.json",
     "title": "BUSTED - Havoc 40",
     "class": "arbites",
@@ -30,21 +150,21 @@
     }
   },
   {
-    "file": "18-arbites-hyper-carry-dog.json",
-    "title": "[Havoc 40 Meta] Hyper Carry Dog Build",
+    "file": "20-arbites-immortal-provost.json",
+    "title": "[SM/LW/BTL/FF] 'The Immortal’ Grand Provost Marshal",
     "class": "arbites",
-    "ability": "Castigators Stance",
-    "keystone": "Execution Order",
+    "ability": "Break the Line",
+    "keystone": "Forceful",
     "weapons": [
       {
-        "name": "Branx Mk III Arbites Shock Maul",
+        "name": "Branx Mk XI Shock Maul and Suppression Shield",
         "slot": "melee",
-        "family": "powermaul_p2"
+        "family": "powermaul_shield_p1"
       },
       {
-        "name": "Exaction Mk III Exterminator Shotgun",
+        "name": "Zarona Mk IIa Quickdraw Stub Revolver",
         "slot": "ranged",
-        "family": "shotgun_p4"
+        "family": "stubrevolver_p1"
       }
     ],
     "scores": {
@@ -120,21 +240,21 @@
     }
   },
   {
-    "file": "20-arbites-immortal-provost.json",
-    "title": "[SM/LW/BTL/FF] 'The Immortal’ Grand Provost Marshal",
-    "class": "arbites",
-    "ability": "Break the Line",
-    "keystone": "Forceful",
+    "file": "23-hivescum-melee.json",
+    "title": "Hamdol's Melee Hive Scum - Havoc 40",
+    "class": "hive scum",
+    "ability": "Rampage",
+    "keystone": "Chemical Dependency",
     "weapons": [
       {
-        "name": "Branx Mk XI Shock Maul and Suppression Shield",
+        "name": "Improvised Mk I Shivs",
         "slot": "melee",
-        "family": "powermaul_shield_p1"
+        "family": "dual_shivs"
       },
       {
-        "name": "Zarona Mk IIa Quickdraw Stub Revolver",
+        "name": "Branx MKII Needle Pistol",
         "slot": "ranged",
-        "family": "stubrevolver_p1"
+        "family": "needlepistol"
       }
     ],
     "scores": {
@@ -144,9 +264,9 @@
       "curio_efficiency": 4,
       "talent_coherence": 5,
       "blessing_synergy": 5,
-      "role_coverage": 4,
+      "role_coverage": 5,
       "breakpoint_relevance": 5,
-      "difficulty_scaling": 4
+      "difficulty_scaling": 3
     }
   },
   {
@@ -210,21 +330,51 @@
     }
   },
   {
-    "file": "19-arbites-arbitrator-meta.json",
-    "title": "The Havoc 40 Arbitrator meta build",
-    "class": "arbites",
-    "ability": "Break the Line",
-    "keystone": "Execution Order",
+    "file": "21-hivescum-scumlinger.json",
+    "title": "Lihoe's Havoc 40 Scumlinger build.",
+    "class": "hive scum",
+    "ability": "Enhanced Desperado",
+    "keystone": "Chemical Dependency",
     "weapons": [
       {
-        "name": "Branx Mk III Arbites Shock Maul",
+        "name": "Catachan Mk III Combat Blade",
         "slot": "melee",
-        "family": "powermaul_p2"
+        "family": "combatknife_p1"
       },
       {
-        "name": "Godwyn-Branx Mk IV Bolt Pistol",
+        "name": "Vraks Mk V Infantry Autogun",
         "slot": "ranged",
-        "family": "boltpistol_p1"
+        "family": "autogun_p1"
+      }
+    ],
+    "scores": {
+      "composite": 31,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 2
+    }
+  },
+  {
+    "file": "22-hivescum-rampage.json",
+    "title": "Hamdol's Havoc 40 Updated Rampage Low Stim Scum",
+    "class": "hive scum",
+    "ability": "Rampage",
+    "keystone": "Chemical Dependency",
+    "weapons": [
+      {
+        "name": "Improvised Mk I Shivs",
+        "slot": "melee",
+        "family": "dual_shivs"
+      },
+      {
+        "name": "Branx MkVI Needle Pistol",
+        "slot": "ranged",
+        "family": "needlepistol_p1"
       }
     ],
     "scores": {
@@ -234,9 +384,9 @@
       "curio_efficiency": 4,
       "talent_coherence": 4,
       "blessing_synergy": 5,
-      "role_coverage": 4,
+      "role_coverage": 5,
       "breakpoint_relevance": 5,
-      "difficulty_scaling": 4
+      "difficulty_scaling": 3
     }
   },
   {
@@ -270,21 +420,21 @@
     }
   },
   {
-    "file": "21-hivescum-scumlinger.json",
-    "title": "Lihoe's Havoc 40 Scumlinger build.",
-    "class": "hive scum",
-    "ability": "Enhanced Desperado",
-    "keystone": "Chemical Dependency",
+    "file": "14-ogryn-melee-meta.json",
+    "title": "Ogryn Melee Meta Havoc-40",
+    "class": "ogryn",
+    "ability": "Indomitable",
+    "keystone": "Heavy Hitter",
     "weapons": [
       {
-        "name": "Catachan Mk III Combat Blade",
+        "name": "\"Brunt's Basher\" Mk IIIb Bully Club",
         "slot": "melee",
-        "family": "combatknife_p1"
+        "family": "ogryn_club_p2"
       },
       {
-        "name": "Vraks Mk V Infantry Autogun",
+        "name": "Lorenz Mk VI Rumbler",
         "slot": "ranged",
-        "family": "autogun_p1"
+        "family": "ogryn_thumper"
       }
     ],
     "scores": {
@@ -292,71 +442,71 @@
       "grade": "A",
       "perk_optimality": 5,
       "curio_efficiency": 4,
-      "talent_coherence": 4,
+      "talent_coherence": 5,
       "blessing_synergy": 5,
-      "role_coverage": 5,
+      "role_coverage": 3,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 3
+    }
+  },
+  {
+    "file": "15-ogryn-shield-tank.json",
+    "title": "Hamdol's Shield Ogryn for New Havoc 40",
+    "class": "ogryn",
+    "ability": "Loyal Protector",
+    "keystone": "Feel No Pain",
+    "weapons": [
+      {
+        "name": "Orox Mk II & Mk III Battle Maul & Slab Shield",
+        "slot": "melee",
+        "family": "ogryn_powermaul_slabshield"
+      },
+      {
+        "name": "Blastoom Mk III Grenadier Gauntlet",
+        "slot": "ranged",
+        "family": "ogryn_gauntlet_p1"
+      }
+    ],
+    "scores": {
+      "composite": 29,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 3,
       "breakpoint_relevance": 5,
       "difficulty_scaling": 2
     }
   },
   {
-    "file": "22-hivescum-rampage.json",
-    "title": "Hamdol's Havoc 40 Updated Rampage Low Stim Scum",
-    "class": "hive scum",
-    "ability": "Rampage",
-    "keystone": "Chemical Dependency",
+    "file": "12-psyker-trauma-voidblast.json",
+    "title": "Meta Trauma/Voidblast Havoc 40",
+    "class": "psyker",
+    "ability": "Telekine Shield",
+    "keystone": "Warp Siphon",
     "weapons": [
       {
-        "name": "Improvised Mk I Shivs",
+        "name": "Deimos Mk IV Blaze Force Sword",
         "slot": "melee",
-        "family": "dual_shivs"
+        "family": "forcesword_p1"
       },
       {
-        "name": "Branx MkVI Needle Pistol",
+        "name": "Equinox Mk III Voidblast Force Staff",
         "slot": "ranged",
-        "family": "needlepistol_p1"
+        "family": "forcestaff_p1"
       }
     ],
     "scores": {
-      "composite": 30,
+      "composite": 28,
       "grade": "A",
       "perk_optimality": 5,
       "curio_efficiency": 4,
-      "talent_coherence": 4,
+      "talent_coherence": 3,
       "blessing_synergy": 5,
       "role_coverage": 4,
       "breakpoint_relevance": 5,
-      "difficulty_scaling": 3
-    }
-  },
-  {
-    "file": "23-hivescum-melee.json",
-    "title": "Hamdol's Melee Hive Scum - Havoc 40",
-    "class": "hive scum",
-    "ability": "Rampage",
-    "keystone": "Chemical Dependency",
-    "weapons": [
-      {
-        "name": "Improvised Mk I Shivs",
-        "slot": "melee",
-        "family": "dual_shivs"
-      },
-      {
-        "name": "Branx MKII Needle Pistol",
-        "slot": "ranged",
-        "family": "needlepistol"
-      }
-    ],
-    "scores": {
-      "composite": 30,
-      "grade": "A",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 4,
-      "blessing_synergy": 5,
-      "role_coverage": 4,
-      "breakpoint_relevance": 5,
-      "difficulty_scaling": 3
+      "difficulty_scaling": 2
     }
   },
   {
@@ -390,6 +540,66 @@
     }
   },
   {
+    "file": "05-zealot-meta-havoc40.json",
+    "title": "SPICY'S META HAVOC 40 ZEALOT",
+    "class": "zealot",
+    "ability": "Chorus of Spiritual Fortitude",
+    "keystone": "Blazing Piety",
+    "weapons": [
+      {
+        "name": "Munitorum Mk X Relic Blade",
+        "slot": "melee",
+        "family": "powersword_2h"
+      },
+      {
+        "name": "Artemia Mk III Purgation Flamer",
+        "slot": "ranged",
+        "family": "flamer"
+      }
+    ],
+    "scores": {
+      "composite": 27,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 4,
+      "breakpoint_relevance": 3,
+      "difficulty_scaling": 1
+    }
+  },
+  {
+    "file": "07-zealot-hammer-flamer.json",
+    "title": "Havoc Hammer-Flamer",
+    "class": "zealot",
+    "ability": "Chorus of Spiritual Fortitude",
+    "keystone": "Martyrdom",
+    "weapons": [
+      {
+        "name": "Crucis Mk II Thunder Hammer",
+        "slot": "melee",
+        "family": "thunderhammer_2h"
+      },
+      {
+        "name": "Artemia Mk III Purgation Flamer",
+        "slot": "ranged",
+        "family": "flamer"
+      }
+    ],
+    "scores": {
+      "composite": 27,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 4,
+      "role_coverage": 5,
+      "breakpoint_relevance": 3,
+      "difficulty_scaling": 1
+    }
+  },
+  {
     "file": "24-hivescum-stim-melee.json",
     "title": "Stim Melee",
     "class": "hive scum",
@@ -413,6 +623,36 @@
       "perk_optimality": 5,
       "curio_efficiency": 4,
       "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 4,
+      "breakpoint_relevance": 3,
+      "difficulty_scaling": 1
+    }
+  },
+  {
+    "file": "01-veteran-havoc40-2026.json",
+    "title": "THE Havoc40 Vet Build 2026",
+    "class": "veteran",
+    "ability": "Voice of Command",
+    "keystone": "Focus Target",
+    "weapons": [
+      {
+        "name": "Achlys Mk VI Power Sword",
+        "slot": "melee",
+        "family": "powersword_p1"
+      },
+      {
+        "name": "M35 Magnacore Mk II Plasma Gun",
+        "slot": "ranged",
+        "family": "plasmagun"
+      }
+    ],
+    "scores": {
+      "composite": 26,
+      "grade": "B",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 4,
       "blessing_synergy": 5,
       "role_coverage": 4,
       "breakpoint_relevance": 3,
@@ -450,96 +690,6 @@
     }
   },
   {
-    "file": "05-zealot-meta-havoc40.json",
-    "title": "SPICY'S META HAVOC 40 ZEALOT",
-    "class": "zealot",
-    "ability": "Chorus of Spiritual Fortitude",
-    "keystone": "Blazing Piety",
-    "weapons": [
-      {
-        "name": "Munitorum Mk X Relic Blade",
-        "slot": "melee",
-        "family": "powersword_2h"
-      },
-      {
-        "name": "Artemia Mk III Purgation Flamer",
-        "slot": "ranged",
-        "family": "flamer"
-      }
-    ],
-    "scores": {
-      "composite": 26,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 5,
-      "blessing_synergy": 4,
-      "role_coverage": 4,
-      "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "08-zealot-chorus-swiss-knife.json",
-    "title": "Chorus Swiss knife  ( Havoc )",
-    "class": "zealot",
-    "ability": "Chorus of Spiritual Fortitude",
-    "keystone": "Blazing Piety",
-    "weapons": [
-      {
-        "name": "Catachan Mk VI Combat Blade",
-        "slot": "melee",
-        "family": "combatknife_p1"
-      },
-      {
-        "name": "Artemia Mk III Purgation Flamer",
-        "slot": "ranged",
-        "family": "flamer"
-      }
-    ],
-    "scores": {
-      "composite": 26,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 5,
-      "blessing_synergy": 5,
-      "role_coverage": 3,
-      "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "01-veteran-havoc40-2026.json",
-    "title": "THE Havoc40 Vet Build 2026",
-    "class": "veteran",
-    "ability": "Voice of Command",
-    "keystone": "Focus Target",
-    "weapons": [
-      {
-        "name": "Achlys Mk VI Power Sword",
-        "slot": "melee",
-        "family": "powersword_p1"
-      },
-      {
-        "name": "M35 Magnacore Mk II Plasma Gun",
-        "slot": "ranged",
-        "family": "plasmagun"
-      }
-    ],
-    "scores": {
-      "composite": 25,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 3,
-      "blessing_synergy": 5,
-      "role_coverage": 4,
-      "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
     "file": "04-veteran-stealth-shotgun.json",
     "title": "havoc stealth",
     "class": "veteran",
@@ -558,164 +708,14 @@
       }
     ],
     "scores": {
-      "composite": 25,
+      "composite": 26,
       "grade": "B",
       "perk_optimality": 5,
       "curio_efficiency": 4,
-      "talent_coherence": 3,
+      "talent_coherence": 4,
       "blessing_synergy": 5,
       "role_coverage": 4,
       "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "15-ogryn-shield-tank.json",
-    "title": "Hamdol's Shield Ogryn for New Havoc 40",
-    "class": "ogryn",
-    "ability": "Loyal Protector",
-    "keystone": "Feel No Pain",
-    "weapons": [
-      {
-        "name": "Orox Mk II & Mk III Battle Maul & Slab Shield",
-        "slot": "melee",
-        "family": "ogryn_powermaul_slabshield"
-      },
-      {
-        "name": "Blastoom Mk III Grenadier Gauntlet",
-        "slot": "ranged",
-        "family": "ogryn_gauntlet_p1"
-      }
-    ],
-    "scores": {
-      "composite": 25,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 4,
-      "blessing_synergy": 4,
-      "role_coverage": 3,
-      "breakpoint_relevance": 4,
-      "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "06-zealot-death-cultist.json",
-    "title": "\"Death Cultist\" | Havoc 40 Relic Blade Zealot",
-    "class": "zealot",
-    "ability": "Chorus of Spiritual Fortitude",
-    "keystone": "Martyrdom",
-    "weapons": [
-      {
-        "name": "Munitorum Mk II Relic Blade",
-        "slot": "melee",
-        "family": "powersword_2h"
-      },
-      {
-        "name": "Godwyn-Branx Mk IV Bolt Pistol",
-        "slot": "ranged",
-        "family": "boltpistol_p1"
-      }
-    ],
-    "scores": {
-      "composite": 24,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 4,
-      "blessing_synergy": 3,
-      "role_coverage": 4,
-      "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "12-psyker-trauma-voidblast.json",
-    "title": "Meta Trauma/Voidblast Havoc 40",
-    "class": "psyker",
-    "ability": "Telekine Shield",
-    "keystone": "Warp Siphon",
-    "weapons": [
-      {
-        "name": "Deimos Mk IV Blaze Force Sword",
-        "slot": "melee",
-        "family": "forcesword_p1"
-      },
-      {
-        "name": "Equinox Mk III Voidblast Force Staff",
-        "slot": "ranged",
-        "family": "forcestaff_p1"
-      }
-    ],
-    "scores": {
-      "composite": 24,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 3,
-      "blessing_synergy": 1,
-      "role_coverage": 4,
-      "breakpoint_relevance": 5,
-      "difficulty_scaling": 2
-    }
-  },
-  {
-    "file": "07-zealot-hammer-flamer.json",
-    "title": "Havoc Hammer-Flamer",
-    "class": "zealot",
-    "ability": "Chorus of Spiritual Fortitude",
-    "keystone": "Martyrdom",
-    "weapons": [
-      {
-        "name": "Crucis Mk II Thunder Hammer",
-        "slot": "melee",
-        "family": "thunderhammer_2h"
-      },
-      {
-        "name": "Artemia Mk III Purgation Flamer",
-        "slot": "ranged",
-        "family": "flamer"
-      }
-    ],
-    "scores": {
-      "composite": 23,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 5,
-      "blessing_synergy": 1,
-      "role_coverage": 4,
-      "breakpoint_relevance": 3,
-      "difficulty_scaling": 1
-    }
-  },
-  {
-    "file": "14-ogryn-melee-meta.json",
-    "title": "Ogryn Melee Meta Havoc-40",
-    "class": "ogryn",
-    "ability": "Indomitable",
-    "keystone": "Heavy Hitter",
-    "weapons": [
-      {
-        "name": "\"Brunt's Basher\" Mk IIIb Bully Club",
-        "slot": "melee",
-        "family": "ogryn_club_p2"
-      },
-      {
-        "name": "Lorenz Mk VI Rumbler",
-        "slot": "ranged",
-        "family": "ogryn_thumper"
-      }
-    ],
-    "scores": {
-      "composite": 23,
-      "grade": "B",
-      "perk_optimality": 5,
-      "curio_efficiency": 4,
-      "talent_coherence": 4,
-      "blessing_synergy": 2,
-      "role_coverage": 3,
-      "breakpoint_relevance": 4,
       "difficulty_scaling": 1
     }
   }

@@ -116,14 +116,14 @@ export function buildRiskBullets(detail: BuildDetailData, blessingMap: Record<st
 
   const pct = detail.synergy.metadata.calc_coverage_pct;
   if (pct == null || !Number.isFinite(pct)) {
-    risks.push({ kind: "calc_coverage_missing", text: "Calc coverage unavailable" });
+    risks.push({ kind: "calc_coverage_missing", text: "Effect-modeled coverage unavailable" });
   } else if (pct < CALC_COVERAGE_RISK_THRESHOLD) {
     risks.push({
       kind: "low_calc_coverage",
-      text: `Low calc coverage \u2014 only ${formatCoverageFraction(pct)} of selections simulated`,
+      text: `Low effect-modeled coverage \u2014 only ${formatCoverageFraction(pct)} of selections simulated`,
     });
   } else {
-    informational.push({ kind: "calc_coverage", text: `Calc coverage ${formatCoverageFraction(pct)}` });
+    informational.push({ kind: "calc_coverage", text: `Effect-modeled coverage ${formatCoverageFraction(pct)}` });
   }
 
   if (risks.length === 0) {

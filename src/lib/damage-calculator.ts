@@ -812,6 +812,7 @@ const MULTIPLICATIVE_STATS = new Set([
 
 /** Target-side multiplier stats -- combined into target_modifier. */
 const TARGET_MULTIPLIER_STATS = new Set([
+  "damage_taken_modifier",
   "damage_taken_multiplier",
   "damage_taken_melee_multiplier",
   "damage_taken_ranged_multiplier",
@@ -977,11 +978,17 @@ export function assembleBuildBuffStack(build: Build, index: EntityIndex, flags?:
         if (
           e.domain === classDomain &&
           e.kind === "talent" &&
-          e.internal_name?.startsWith(prefix) &&
-          e.calc?.effects && e.calc.effects.length > 0
+          e.internal_name?.startsWith(prefix)
         ) {
-          effects = e.calc.effects;
-          break;
+          if (e.calc?.effects && e.calc.effects.length > 0) {
+            effects = e.calc.effects;
+            break;
+          }
+          if (e.calc?.tiers && e.calc.tiers.length > 0) {
+            const lastTier = e.calc.tiers[e.calc.tiers.length - 1];
+            effects = lastTier.effects ?? [];
+            break;
+          }
         }
       }
     }
@@ -1010,6 +1017,16 @@ export function assembleBuildBuffStack(build: Build, index: EntityIndex, flags?:
           const t = _flags.warp_charge ?? 0;
           effectiveMagnitude = magnitude_min + (magnitude_max - magnitude_min) * t;
         }
+      } else if (type === "conditional_lerped_stat_buff") {
+        const result = isConditionActive(condition, _flags);
+        if (!result.active) continue;
+        const { magnitude_min, magnitude_max } = effect;
+        if (magnitude_min != null && magnitude_max != null) {
+          const t = result.scale ?? (_flags.warp_charge ?? 0);
+          effectiveMagnitude = magnitude_min + (magnitude_max - magnitude_min) * t;
+        }
+      } else if (type === "stepped_stat_buff") {
+        // Step count metadata is not modeled yet; use the extracted magnitude as-is.
       } else {
         continue;
       }

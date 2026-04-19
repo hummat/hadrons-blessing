@@ -14,29 +14,36 @@
       "value": -0.05,
       "type": "stat_buff",
       "condition": null
+    },
+    {
+      "source_entity": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
+      "stat": "toughness_damage_taken_multiplier",
+      "value": 0.85,
+      "type": "stat_buff",
+      "condition": null
     }
   ],
-  "total_dr": 0.05,
+  "total_dr": 0.1925,
   "max_toughness": 126.75,
-  "effective_toughness": 133.42,
+  "effective_toughness": 156.97,
   "health_pool": 900,
-  "effective_hp": 1033.42,
+  "effective_hp": 1056.97,
   "max_health_modifier": 0,
   "state_modifiers": {
     "dodging": {
       "tdr": 0,
-      "damage_multiplier": 0.95,
-      "effective_toughness": 133.42
+      "damage_multiplier": 0.8075,
+      "effective_toughness": 156.97
     },
     "sliding": {
       "tdr": 0,
-      "damage_multiplier": 0.95,
-      "effective_toughness": 133.42
+      "damage_multiplier": 0.8075,
+      "effective_toughness": 156.97
     },
     "sprinting": {
       "tdr": 0,
-      "damage_multiplier": 0.95,
-      "effective_toughness": 133.42
+      "damage_multiplier": 0.8075,
+      "effective_toughness": 156.97
     }
   },
   "toughness_regen": {

@@ -230,11 +230,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": null,
       "buff_template_names": [
         "broker_coherency_critical_chance"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null
     }
   },
   {
@@ -275,11 +275,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": null,
       "buff_template_names": [
         "broker_coherency_melee_damage"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null
     }
   },
   {
@@ -339,9 +339,44 @@
       "exclusive_group": "keystone_1"
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "combat_ability_cooldown_regen_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_keystone_chemical_dependency.combat_ability_cooldown_regen_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_syringe_used",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_keystone_chemical_dependency.critical_strike_chance",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_syringe_used",
+          "type": "conditional_stat_buff"
+        },
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_keystone_chemical_dependency.toughness_damage_taken_multiplier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_syringe_used",
+          "type": "conditional_stat_buff"
+        }
+      ],
       "buff_template_names": [
         "broker_keystone_chemical_dependency"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null
     }
   },
   {
@@ -372,7 +407,8 @@
     "calc": {
       "buff_template_names": [
         "broker_keystone_vultures_mark_on_kill"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -619,7 +655,8 @@
     "calc": {
       "buff_template_names": [
         "broker_ability_stimm_field_sub_3"
-      ]
+      ],
+      "class_name": "interval_buff"
     }
   },
   {
@@ -866,7 +903,8 @@
     "calc": {
       "buff_template_names": [
         "broker_keystone_vultures_mark_aoe_stagger"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -895,8 +933,27 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "count_as_dodge_vs_ranged",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "broker_keystone_vultures_mark_dodge_on_ranged_crit"
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null,
+      "keywords": [
+        "count_as_dodge_vs_melee",
+        "count_as_dodge_vs_ranged"
       ]
     }
   },
@@ -970,10 +1027,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_improved_dodges"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1009,10 +1066,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_longer_dodges"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1053,10 +1110,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_crit_chance_node_buff_low_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1097,10 +1154,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_melee_damage_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1141,10 +1198,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_toughness_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1185,10 +1242,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_toughness_node_buff_medium_2"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1229,10 +1286,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "base_toxin_power_boost_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1292,9 +1349,32 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "max_hit_mass_attack_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_cleave_on_cleave.max_hit_mass_attack_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "max_hit_mass_impact_modifier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_cleave_on_cleave.max_hit_mass_attack_modifier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "broker_passive_cleave_on_cleave"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1335,11 +1415,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "broker_passive_close_range_damage_on_dodge"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -1390,10 +1470,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_close_ranged_damage"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1429,10 +1509,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_crit_grants_damage"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1492,9 +1572,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "ranged_damage",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_reload",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "broker_passive_damage_on_reload"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -1545,10 +1640,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_damage_vs_elites_monsters"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1579,7 +1674,8 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_damage_vs_heavy_staggered"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1610,7 +1706,8 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_dodge_melee_on_slide"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1661,10 +1758,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_dr_damage_tradeoff_on_stamina"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1705,10 +1802,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_extended_mag"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1749,10 +1846,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_first_target_damage"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1803,10 +1900,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_improved_dodges"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1847,10 +1944,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_improved_dodges_at_full_stamina"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1891,12 +1988,12 @@
           "type": "stat_buff"
         }
       ],
+      "buff_template_names": [
+        "broker_passive_improved_sprint_dodge"
+      ],
       "class_name": "buff",
       "keywords": [
         "sprint_dodge_in_overtime"
-      ],
-      "buff_template_names": [
-        "broker_passive_improved_sprint_dodge"
       ]
     }
   },
@@ -1938,10 +2035,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_increased_aura_size"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1982,10 +2079,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_increased_blitz_ammo"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2026,10 +2123,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_increased_ranged_dodges"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2070,10 +2167,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_increased_weakspot_damage"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2097,9 +2194,23 @@
       "coverage_slot": "talents"
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_player_hit_received",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "broker_passive_knockback_on_taking_melee_damage"
-      ]
+      ],
+      "class_name": "buff",
+      "duration": 3
     }
   },
   {
@@ -2130,7 +2241,8 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_low_ammo_regen"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2190,9 +2302,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "max_melee_hit_mass_attack_modifier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "broker_passive_melee_cleave_on_melee_kill"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 5,
+      "duration": 5
     }
   },
   {
@@ -2264,11 +2391,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "broker_passive_melee_damage_carry_over"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2309,12 +2436,12 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "max_stacks": null,
-      "active_duration": null,
       "buff_template_names": [
         "broker_passive_ninja_grants_crit_chance"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": null,
+      "active_duration": null
     }
   },
   {
@@ -2365,10 +2492,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_punk_grit"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2460,10 +2587,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_reduce_swap_time"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2535,11 +2662,11 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "broker_passive_reduced_toughness_damage_during_reload"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2570,7 +2697,9 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_reload_speed_on_close_kill"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2599,8 +2728,26 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "toughness_regen_percent",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_replenish_toughness_on_ranged_toughness_damage.toughness / talent_settings.broker_passive_replenish_toughness_on_ranged_toughness_damage.duration",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_damage_taken",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "broker_passive_replenish_toughness_on_ranged_toughness_damage"
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "duration": null,
+      "keywords": [
+        "prevent_toughness_regen_when_depleted"
       ]
     }
   },
@@ -2658,7 +2805,8 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_restore_toughness_on_close_ranged_kill"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2689,7 +2837,8 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_restore_toughness_on_weakspot_kill"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2718,9 +2867,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "threat_weight_multiplier",
+          "magnitude": null,
+          "magnitude_expr": "talent_settings.broker_passive_sprinting_reduces_threat.threat_weight_multiplier",
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "broker_passive_sprinting_reduces_threat"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": null,
+      "duration": null
     }
   },
   {
@@ -2761,11 +2925,11 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "stepped_stat_buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "broker_passive_stamina_grants_atk_speed"
-      ]
+      ],
+      "class_name": "stepped_stat_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2796,7 +2960,8 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_stamina_on_successful_dodge"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2827,7 +2992,8 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_stimm_cd_on_kill"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2858,7 +3024,9 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_stimm_cleanse_on_kill"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2899,10 +3067,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "broker_passive_stimm_increased_duration"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2933,7 +3101,9 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_stun_immunity_on_toughness_broken"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2964,7 +3134,9 @@
     "calc": {
       "buff_template_names": [
         "broker_passive_toughness_on_toxined_kill"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2988,9 +3160,24 @@
       "coverage_slot": "talents"
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_modifier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_buff_added",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "broker_passive_toxin_infected_enemies_take_increased_damage"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": 5
     }
   },
   {

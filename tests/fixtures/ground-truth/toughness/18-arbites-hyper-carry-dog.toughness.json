@@ -7,28 +7,36 @@
     "toughness": 80,
     "stamina": 3
   },
-  "dr_sources": [],
-  "total_dr": 0,
+  "dr_sources": [
+    {
+      "source_entity": "arbites.talent.adamant_staggers_reduce_damage_taken",
+      "stat": "damage_taken_multiplier",
+      "value": 0.97,
+      "type": "stat_buff",
+      "condition": null
+    }
+  ],
+  "total_dr": 0.03,
   "max_toughness": 136.5,
-  "effective_toughness": 136.5,
+  "effective_toughness": 140.72,
   "health_pool": 420,
-  "effective_hp": 556.5,
+  "effective_hp": 560.72,
   "max_health_modifier": 0.05,
   "state_modifiers": {
     "dodging": {
       "tdr": 0.5,
-      "damage_multiplier": 0.5,
-      "effective_toughness": 273
+      "damage_multiplier": 0.485,
+      "effective_toughness": 281.44
     },
     "sliding": {
       "tdr": 0.5,
-      "damage_multiplier": 0.5,
-      "effective_toughness": 273
+      "damage_multiplier": 0.485,
+      "effective_toughness": 281.44
     },
     "sprinting": {
       "tdr": 0,
-      "damage_multiplier": 1,
-      "effective_toughness": 136.5
+      "damage_multiplier": 0.97,
+      "effective_toughness": 140.72
     }
   },
   "toughness_regen": {

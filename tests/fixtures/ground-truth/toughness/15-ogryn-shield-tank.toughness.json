@@ -9,34 +9,48 @@
   },
   "dr_sources": [
     {
+      "source_entity": "ogryn.keystone.ogryn_carapace_armor",
+      "stat": "toughness_damage_taken_multiplier",
+      "value": 0.97,
+      "type": "stat_buff",
+      "condition": null
+    },
+    {
       "source_entity": "shared.stat_node.toughness_damage_reduction",
       "stat": "toughness_damage_taken_modifier",
       "value": -0.05,
       "type": "stat_buff",
       "condition": null
+    },
+    {
+      "source_entity": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
+      "stat": "toughness_damage_taken_multiplier",
+      "value": 0.85,
+      "type": "stat_buff",
+      "condition": null
     }
   ],
-  "total_dr": 0.05,
+  "total_dr": 0.2167,
   "max_toughness": 126.75,
-  "effective_toughness": 133.42,
+  "effective_toughness": 161.82,
   "health_pool": 1035,
-  "effective_hp": 1168.42,
+  "effective_hp": 1196.82,
   "max_health_modifier": 0.15,
   "state_modifiers": {
     "dodging": {
       "tdr": 0,
-      "damage_multiplier": 0.95,
-      "effective_toughness": 133.42
+      "damage_multiplier": 0.7833,
+      "effective_toughness": 161.82
     },
     "sliding": {
       "tdr": 0,
-      "damage_multiplier": 0.95,
-      "effective_toughness": 133.42
+      "damage_multiplier": 0.7833,
+      "effective_toughness": 161.82
     },
     "sprinting": {
       "tdr": 0,
-      "damage_multiplier": 0.95,
-      "effective_toughness": 133.42
+      "damage_multiplier": 0.7833,
+      "effective_toughness": 161.82
     }
   },
   "toughness_regen": {
@@ -49,7 +63,7 @@
       "two_allies": 3.75,
       "three_allies": 5
     },
-    "melee_kill_recovery_percent": 0.25,
-    "melee_kill_recovery": 31.69
+    "melee_kill_recovery_percent": 0.28,
+    "melee_kill_recovery": 35.49
   }
 }

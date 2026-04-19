@@ -66,7 +66,8 @@
     "calc": {
       "buff_template_names": [
         "zealot_flame_grenade_thrown"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -102,10 +103,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "zealot_improved_stun_grenade"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -151,9 +152,22 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "grenade_charge_restored",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "proc_stat_buff"
+        }
+      ],
       "buff_template_names": [
         "zealot_passive_replenish_throwing_knives_from_melee_kills"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -179,7 +193,8 @@
     "calc": {
       "buff_template_names": [
         "zealot_preacher_coherency_corruption_healing_improved"
-      ]
+      ],
+      "class_name": "interval_buff"
     }
   },
   {
@@ -230,11 +245,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": null,
       "buff_template_names": [
         "zealot_stamina_cost_multiplier_aura"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null
     }
   },
   {
@@ -270,12 +285,12 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "max_stacks": null,
       "buff_template_names": [
         "zealot_coherency_toughness_damage_resistance_improved",
         "zealot_improved_toughness_on_aura_tracking_buff"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": null
     }
   },
   {
@@ -311,10 +326,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
       "buff_template_names": [
         "zealot_fanatic_rage"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -350,10 +365,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "zealot_passive_buff",
       "buff_template_names": [
         "zealot_martyrdom_base"
-      ]
+      ],
+      "class_name": "zealot_passive_buff"
     }
   },
   {
@@ -379,7 +394,9 @@
     "calc": {
       "buff_template_names": [
         "zealot_quickness_passive"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null
     }
   },
   {
@@ -427,7 +444,10 @@
     "calc": {
       "buff_template_names": [
         "zealot_combat_ability_weakspot_backstab_hit_cooldown"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -517,10 +537,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "zealot_corruption_resistance_stacking"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -546,7 +566,8 @@
     "calc": {
       "buff_template_names": [
         "zealot_combat_ability_crits_reduce_cooldown"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -692,11 +713,11 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "zealot_martyrdom_attack_speed"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -732,11 +753,11 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "zealot_martyrdom_toughness"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -772,11 +793,11 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "zealot_martyrdom_toughness_modifier"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -878,7 +899,9 @@
     "calc": {
       "buff_template_names": [
         "zealot_cooldown_based_on_health"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -931,7 +954,8 @@
     "calc": {
       "buff_template_names": [
         "zealot_stealth_cooldown_regeneration"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -972,10 +996,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_melee_damage_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1016,10 +1040,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_melee_damage_node_buff_medium_4"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1060,10 +1084,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_movement_speed_node_buff_low_4"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1104,10 +1128,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_toughness_damage_reduction_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1148,10 +1172,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_toughness_node_buff_medium_2"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1187,11 +1211,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "zealot_preacher_more_segments"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -1215,9 +1239,23 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 0.4,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_damage_taken",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "zealot_preacher_ally_defensive"
-      ]
+      ],
+      "class_name": "buff",
+      "duration": null
     }
   },
   {
@@ -1253,10 +1291,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "zealot_increased_melee_attack_speed"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1302,13 +1340,13 @@
           "type": "stat_buff"
         }
       ],
+      "buff_template_names": [
+        "zealot_backstab_damage"
+      ],
       "class_name": "buff",
       "keywords": [
         "allow_backstabbing",
         "allow_flanking"
-      ],
-      "buff_template_names": [
-        "zealot_backstab_damage"
       ]
     }
   },
@@ -1345,12 +1383,12 @@
           "type": "conditional_stat_buff"
         }
       ],
+      "buff_template_names": [
+        "zealot_backstab_periodic_damage"
+      ],
       "class_name": "proc_buff",
       "keywords": [
         "allow_backstabbing"
-      ],
-      "buff_template_names": [
-        "zealot_backstab_periodic_damage"
       ]
     }
   },
@@ -1375,9 +1413,24 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 1.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_buff_added",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "zealot_bled_enemies_take_more_damage"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null
     }
   },
   {
@@ -1408,7 +1461,9 @@
     "calc": {
       "buff_template_names": [
         "zealot_block_dodging_synergy"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -1458,9 +1513,24 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.6,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "zealot_reduced_toughness_damage_taken_on_critical_strike_hits"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -1496,14 +1566,14 @@
           "type": "proc_stat_buff"
         }
       ],
+      "buff_template_names": [
+        "zealot_movement_enhanced"
+      ],
       "class_name": "proc_buff",
       "active_duration": null,
       "keywords": [
         "slowdown_immune",
         "stun_immune"
-      ],
-      "buff_template_names": [
-        "zealot_movement_enhanced"
       ]
     }
   },
@@ -1540,10 +1610,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "zealot_damage_vs_elites"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1579,10 +1649,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "zealot_damage_vs_nonthreat"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1608,7 +1678,8 @@
     "calc": {
       "buff_template_names": [
         "zealot_preacher_push_on_hit"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1632,9 +1703,24 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "zealot_elite_kills_empowers"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null
     }
   },
   {
@@ -1684,9 +1770,24 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 0.04,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "zealot_stacking_melee_damage"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null
     }
   },
   {
@@ -1732,12 +1833,12 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "max_stacks": 1,
-      "active_duration": 3,
       "buff_template_names": [
         "zealot_improved_weapon_handling_after_dodge"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "active_duration": 3
     }
   },
   {
@@ -1773,10 +1874,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "zealot_close_ranged_damage"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1812,11 +1913,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": 3,
       "buff_template_names": [
         "zealot_critstrike_damage_on_dodge"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": 3
     }
   },
   {
@@ -1862,12 +1963,12 @@
           "type": "stat_buff"
         }
       ],
+      "buff_template_names": [
+        "zealot_preacher_damage_vs_disgusting"
+      ],
       "class_name": "buff",
       "keywords": [
         "zealot_toughness"
-      ],
-      "buff_template_names": [
-        "zealot_preacher_damage_vs_disgusting"
       ]
     }
   },
@@ -1909,10 +2010,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "zealot_pious_stabguy_increased_weaskpot_impact"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1943,7 +2044,9 @@
     "calc": {
       "buff_template_names": [
         "zealot_melee_crits_restore_stamina"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -1984,10 +2087,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "zealot_more_power_when_low_on_stamina"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2023,10 +2126,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "zealot_increased_toughness_recovery_from_kills"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2055,9 +2158,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "impact_modifier",
+          "magnitude": 0.08,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_sweep_finish",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "zealot_multi_hits_increase_impact"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null
     }
   },
   {
@@ -2093,10 +2211,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
       "buff_template_names": [
         "zealot_preacher_melee_increase_next_melee_proc"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2142,10 +2260,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "zealot_offensive_vs_many"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2186,11 +2304,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "zealot_push_attacks_attack_speed"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2226,11 +2344,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": 2.5,
       "buff_template_names": [
         "zealot_damage_reduction_after_dodge"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": 2.5
     }
   },
   {
@@ -2266,13 +2384,13 @@
           "type": "stat_buff"
         }
       ],
+      "buff_template_names": [
+        "zealot_preacher_segment_breaking_half_damage"
+      ],
       "class_name": "buff",
       "max_stacks": 1,
       "keywords": [
         "health_segment_breaking_reduce_damage_taken"
-      ],
-      "buff_template_names": [
-        "zealot_preacher_segment_breaking_half_damage"
       ]
     }
   },
@@ -2304,7 +2422,9 @@
     "calc": {
       "buff_template_names": [
         "zealot_reload_from_backstab"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": null
     }
   },
   {
@@ -2390,12 +2510,34 @@
           "condition": null,
           "trigger": null,
           "type": "stat_buff"
+        },
+        {
+          "stat": "movement_speed",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_revive",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.85,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_revive",
+          "type": "stat_buff"
         }
       ],
-      "class_name": "proc_buff",
       "buff_template_names": [
         "zealot_revive_speed"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null
     }
   },
   {
@@ -2446,10 +2588,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "proc_buff",
       "buff_template_names": [
         "zealot_sprint_improvements"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2473,9 +2616,24 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "melee_damage",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_successful_dodge",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "zealot_stacking_melee_damage_after_dodge"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null
     }
   },
   {
@@ -2506,7 +2664,9 @@
     "calc": {
       "buff_template_names": [
         "zealot_stamina_on_block_break"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2537,7 +2697,8 @@
     "calc": {
       "buff_template_names": [
         "zealot_suppress_on_backstab_kill"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2589,7 +2750,8 @@
     "calc": {
       "buff_template_names": [
         "zealot_toughness_on_dodge"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2620,7 +2782,8 @@
     "calc": {
       "buff_template_names": [
         "zealot_toughness_on_heavy_kills"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2651,7 +2814,8 @@
     "calc": {
       "buff_template_names": [
         "zealot_toughness_on_ranged_kill"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2692,10 +2856,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "zealot_uninterruptible_no_slow_heavies"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2719,9 +2883,24 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 0.85,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "zealot_weakspot_damage_reduction"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null
     }
   }
 ]

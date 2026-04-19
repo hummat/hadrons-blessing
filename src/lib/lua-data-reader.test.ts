@@ -279,6 +279,20 @@ return templates
     assert.equal(aliases.stimm_talent_settings, "broker");
   });
 
+  it("extracts simple local scalar declarations for later semantic modeling", () => {
+    const lua = `
+local ABILITY_TYPE = "grenade_ability"
+local grenades_restored = talent_settings_2.offensive_1_3.grenade_restored
+local templates = {}
+return templates
+`;
+    const { localScalars } = extractTemplateBlocks(lua);
+    assert.equal(localScalars.ABILITY_TYPE, "grenade_ability");
+    assert.deepEqual(localScalars.grenades_restored, {
+      $ref: "talent_settings_2.offensive_1_3.grenade_restored",
+    });
+  });
+
   it("auto-detects the template table variable name", () => {
     const lua = `
 local base_templates = {}

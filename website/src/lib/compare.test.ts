@@ -102,9 +102,11 @@ function makeDetail(): BuildDetailData {
       metadata: {
         entities_analyzed: 0,
         unique_entities_with_calc: 0,
+        unique_entities_with_linked_source: 0,
         entities_without_calc: 0,
         opaque_conditions: 0,
         calc_coverage_pct: 0,
+        linked_coverage_pct: 0,
       },
     },
     breakpoints: {

@@ -66,6 +66,18 @@
       "type": "stat_alignment",
       "selections": [
         "arbites.talent.adamant_limit_dmg_taken_from_hits",
+        "arbites.talent.adamant_staggers_reduce_damage_taken"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_limit_dmg_taken_from_hits",
         "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
       ],
       "families": [
@@ -135,10 +147,72 @@
       "explanation": "Both selections contribute persistent effects to the toughness family"
     },
     {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_damage_reduction_after_elite_kill",
+        "arbites.talent.adamant_staggers_reduce_damage_taken"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the damage_reduction family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_damage_reduction_after_elite_kill",
+        "arbites.talent.adamant_staggers_reduce_damage_taken"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_damage_reduction_after_elite_kill",
+        "arbites.talent.adamant_stacking_weakspot_strength"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
       "type": "trigger_target",
       "selections": [
         "arbites.talent.adamant_damage_reduction_after_elite_kill",
         "arbites.talent.adamant_elite_special_kills_offensive_boost"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_damage_reduction_after_elite_kill",
+        "arbites.talent.adamant_crit_chance_on_kill"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_damage_reduction_after_elite_kill",
+        "arbites.talent.adamant_stacking_damage"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_damage_reduction_after_elite_kill",
+        "shared.name_family.blessing.execution"
       ],
       "families": [],
       "strength": 2,
@@ -157,6 +231,68 @@
       "explanation": "Selections contribute different-category effects to the damage_reduction family"
     },
     {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_staggers_reduce_damage_taken",
+        "arbites.talent.adamant_stacking_weakspot_strength"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_staggers_reduce_damage_taken",
+        "arbites.talent.adamant_elite_special_kills_offensive_boost"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_staggers_reduce_damage_taken",
+        "arbites.talent.adamant_crit_chance_on_kill"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_staggers_reduce_damage_taken",
+        "arbites.talent.adamant_stacking_damage"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_staggers_reduce_damage_taken",
+        "shared.name_family.blessing.execution"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_staggers_reduce_damage_taken",
+        "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
+      ],
+      "families": [
+        "damage_reduction"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the damage_reduction family"
+    },
+    {
       "type": "stat_alignment",
       "selections": [
         "shared.stat_node.cleave_boost",
@@ -167,6 +303,18 @@
       ],
       "strength": 2,
       "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "arbites.talent.adamant_stacking_weakspot_strength"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
     },
     {
       "type": "stat_alignment",
@@ -191,6 +339,18 @@
       ],
       "strength": 2,
       "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "arbites.talent.adamant_crit_chance_on_kill"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
     },
     {
       "type": "stat_alignment",
@@ -221,6 +381,30 @@
       "selections": [
         "shared.stat_node.cleave_boost",
         "arbites.talent.adamant_first_melee_hit_increased_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "arbites.talent.adamant_stacking_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.stat_node.cleave_boost",
+        "shared.name_family.blessing.execution"
       ],
       "families": [
         "general_offense"
@@ -316,6 +500,18 @@
       "type": "stat_alignment",
       "selections": [
         "arbites.talent.adamant_dodge_grants_damage",
+        "arbites.talent.adamant_stacking_weakspot_strength"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_dodge_grants_damage",
         "arbites.talent.adamant_elite_special_kills_offensive_boost"
       ],
       "families": [
@@ -340,6 +536,18 @@
       "type": "stat_alignment",
       "selections": [
         "arbites.talent.adamant_dodge_grants_damage",
+        "arbites.talent.adamant_crit_chance_on_kill"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_dodge_grants_damage",
         "arbites.talent.adamant_monster_hunter"
       ],
       "families": [
@@ -353,6 +561,30 @@
       "selections": [
         "arbites.talent.adamant_dodge_grants_damage",
         "arbites.talent.adamant_first_melee_hit_increased_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_dodge_grants_damage",
+        "arbites.talent.adamant_stacking_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_dodge_grants_damage",
+        "shared.name_family.blessing.execution"
       ],
       "families": [
         "general_offense"
@@ -435,6 +667,202 @@
     {
       "type": "stat_alignment",
       "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "arbites.talent.adamant_elite_special_kills_offensive_boost"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "arbites.talent.adamant_elite_special_kills_offensive_boost"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "arbites.talent.adamant_heavy_attacks_increase_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "arbites.talent.adamant_crit_chance_on_kill"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "arbites.talent.adamant_crit_chance_on_kill"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "arbites.talent.adamant_monster_hunter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "arbites.talent.adamant_first_melee_hit_increased_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "arbites.talent.adamant_stacking_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "arbites.talent.adamant_stacking_damage"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "shared.name_family.blessing.execution"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "shared.name_family.blessing.execution"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "shared.name_family.blessing.high_voltage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "shared.name_family.blessing.deathspitter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_weakspot_strength",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
         "arbites.talent.adamant_elite_special_kills_offensive_boost",
         "arbites.talent.adamant_heavy_attacks_increase_damage"
       ],
@@ -443,6 +871,28 @@
       ],
       "strength": 3,
       "explanation": "Both selections contribute dynamic effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_elite_special_kills_offensive_boost",
+        "arbites.talent.adamant_crit_chance_on_kill"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_elite_special_kills_offensive_boost",
+        "arbites.talent.adamant_crit_chance_on_kill"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
     },
     {
       "type": "stat_alignment",
@@ -484,6 +934,50 @@
       "type": "stat_alignment",
       "selections": [
         "arbites.talent.adamant_elite_special_kills_offensive_boost",
+        "arbites.talent.adamant_stacking_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_elite_special_kills_offensive_boost",
+        "arbites.talent.adamant_stacking_damage"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_elite_special_kills_offensive_boost",
+        "shared.name_family.blessing.execution"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_elite_special_kills_offensive_boost",
+        "shared.name_family.blessing.execution"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_elite_special_kills_offensive_boost",
         "shared.name_family.blessing.high_voltage"
       ],
       "families": [
@@ -545,6 +1039,18 @@
       "selections": [
         "arbites.talent.adamant_elite_special_kills_offensive_boost",
         "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_heavy_attacks_increase_damage",
+        "arbites.talent.adamant_crit_chance_on_kill"
       ],
       "families": [
         "general_offense"
@@ -580,6 +1086,30 @@
       "type": "stat_alignment",
       "selections": [
         "arbites.talent.adamant_heavy_attacks_increase_damage",
+        "arbites.talent.adamant_stacking_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_heavy_attacks_increase_damage",
+        "shared.name_family.blessing.execution"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 2,
+      "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_heavy_attacks_increase_damage",
         "shared.name_family.blessing.high_voltage"
       ],
       "families": [
@@ -647,6 +1177,146 @@
       ],
       "strength": 2,
       "explanation": "Selections contribute different-category effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_crit_chance_on_kill",
+        "arbites.talent.adamant_monster_hunter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_crit_chance_on_kill",
+        "arbites.talent.adamant_first_melee_hit_increased_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_crit_chance_on_kill",
+        "arbites.talent.adamant_stacking_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_crit_chance_on_kill",
+        "arbites.talent.adamant_stacking_damage"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_crit_chance_on_kill",
+        "shared.name_family.blessing.execution"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_crit_chance_on_kill",
+        "shared.name_family.blessing.execution"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_crit_chance_on_kill",
+        "shared.name_family.blessing.high_voltage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_crit_chance_on_kill",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_crit_chance_on_kill",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_crit_chance_on_kill",
+        "shared.name_family.blessing.deathspitter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_crit_chance_on_kill",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_crit_chance_on_kill",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
     },
     {
       "type": "stat_alignment",
@@ -688,6 +1358,30 @@
       "type": "stat_alignment",
       "selections": [
         "arbites.talent.adamant_monster_hunter",
+        "arbites.talent.adamant_stacking_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_monster_hunter",
+        "shared.name_family.blessing.execution"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_monster_hunter",
         "shared.name_family.blessing.high_voltage"
       ],
       "families": [
@@ -760,6 +1454,30 @@
       "type": "stat_alignment",
       "selections": [
         "arbites.talent.adamant_first_melee_hit_increased_damage",
+        "arbites.talent.adamant_stacking_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_first_melee_hit_increased_damage",
+        "shared.name_family.blessing.execution"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_first_melee_hit_increased_damage",
         "shared.name_family.blessing.high_voltage"
       ],
       "families": [
@@ -820,6 +1538,172 @@
       "type": "stat_alignment",
       "selections": [
         "arbites.talent.adamant_first_melee_hit_increased_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_damage",
+        "shared.name_family.blessing.execution"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "trigger_target",
+      "selections": [
+        "arbites.talent.adamant_stacking_damage",
+        "shared.name_family.blessing.execution"
+      ],
+      "families": [],
+      "strength": 2,
+      "explanation": "Both activate on on_hit"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_damage",
+        "shared.name_family.blessing.high_voltage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_damage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_damage",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_damage",
+        "shared.name_family.blessing.deathspitter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "arbites.talent.adamant_stacking_damage",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.execution",
+        "shared.name_family.blessing.high_voltage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.execution",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.execution",
+        "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.execution",
+        "shared.name_family.blessing.deathspitter"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.execution",
+        "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage"
+      ],
+      "families": [
+        "general_offense"
+      ],
+      "strength": 3,
+      "explanation": "Both selections contribute persistent effects to the general_offense family"
+    },
+    {
+      "type": "stat_alignment",
+      "selections": [
+        "shared.name_family.blessing.execution",
         "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage"
       ],
       "families": [
@@ -1022,7 +1906,13 @@
     }
   ],
   "anti_synergies": [],
-  "orphans": [],
+  "orphans": [
+    {
+      "selection": "shared.name_family.blessing.execution",
+      "reason": "unresolvable_condition",
+      "condition": "unknown_condition"
+    }
+  ],
   "coverage": {
     "family_profile": {
       "toughness": {
@@ -1037,11 +1927,12 @@
         ]
       },
       "damage_reduction": {
-        "count": 3,
-        "total_magnitude": 53.15,
+        "count": 4,
+        "total_magnitude": 54.12,
         "selections": [
           "arbites.talent.adamant_limit_dmg_taken_from_hits",
           "arbites.talent.adamant_damage_reduction_after_elite_kill",
+          "arbites.talent.adamant_staggers_reduce_damage_taken",
           "shared.gadget_trait.gadget_damage_reduction_vs_gunners"
         ]
       },
@@ -1054,15 +1945,19 @@
         ]
       },
       "general_offense": {
-        "count": 12,
-        "total_magnitude": 2.965,
+        "count": 16,
+        "total_magnitude": 3.07,
         "selections": [
           "shared.stat_node.cleave_boost",
           "arbites.talent.adamant_dodge_grants_damage",
+          "arbites.talent.adamant_stacking_weakspot_strength",
           "arbites.talent.adamant_elite_special_kills_offensive_boost",
           "arbites.talent.adamant_heavy_attacks_increase_damage",
+          "arbites.talent.adamant_crit_chance_on_kill",
           "arbites.talent.adamant_monster_hunter",
           "arbites.talent.adamant_first_melee_hit_increased_damage",
+          "arbites.talent.adamant_stacking_damage",
+          "shared.name_family.blessing.execution",
           "shared.name_family.blessing.high_voltage",
           "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
           "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
@@ -1077,6 +1972,13 @@
         "selections": [
           "arbites.talent.adamant_elite_special_kills_offensive_boost",
           "arbites.talent.adamant_dodge_improvement"
+        ]
+      },
+      "crit": {
+        "count": 1,
+        "total_magnitude": 0.02,
+        "selections": [
+          "arbites.talent.adamant_crit_chance_on_kill"
         ]
       },
       "utility": {
@@ -1100,15 +2002,17 @@
       "melee": {
         "families": [
           "melee_offense",
-          "general_offense"
+          "general_offense",
+          "crit"
         ],
-        "strength": 12
+        "strength": 16
       },
       "ranged": {
         "families": [
-          "general_offense"
+          "general_offense",
+          "crit"
         ],
-        "strength": 12
+        "strength": 16
       }
     },
     "build_identity": [
@@ -1117,7 +2021,7 @@
       "damage_reduction"
     ],
     "coverage_gaps": [],
-    "concentration": 0.12
+    "concentration": 0.17
   },
   "_resolvedIds": [
     "arbites.ability.adamant_stance",
@@ -1171,15 +2075,20 @@
     "shared.stat_node.toughness_damage_reduction",
     "arbites.talent.adamant_armor",
     "arbites.talent.adamant_damage_reduction_after_elite_kill",
+    "arbites.talent.adamant_staggers_reduce_damage_taken",
     "shared.stat_node.cleave_boost",
     "arbites.talent.adamant_plasteel_plates",
     "arbites.talent.adamant_dodge_grants_damage",
+    "arbites.talent.adamant_stacking_weakspot_strength",
     "arbites.talent.adamant_elite_special_kills_offensive_boost",
     "arbites.talent.adamant_heavy_attacks_increase_damage",
+    "arbites.talent.adamant_crit_chance_on_kill",
     "arbites.keystone.adamant_companion_focus_ranged",
     "arbites.talent.adamant_dodge_improvement",
     "arbites.talent.adamant_monster_hunter",
     "arbites.talent.adamant_first_melee_hit_increased_damage",
+    "arbites.talent.adamant_stacking_damage",
+    "shared.name_family.blessing.execution",
     "shared.name_family.blessing.high_voltage",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
     "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
@@ -1194,9 +2103,11 @@
   ],
   "metadata": {
     "entities_analyzed": 52,
-    "unique_entities_with_calc": 25,
-    "entities_without_calc": 17,
-    "opaque_conditions": 0,
-    "calc_coverage_pct": 0.6
+    "unique_entities_with_calc": 30,
+    "unique_entities_with_linked_source": 38,
+    "entities_without_calc": 12,
+    "opaque_conditions": 1,
+    "calc_coverage_pct": 0.71,
+    "linked_coverage_pct": 0.9
   }
 }

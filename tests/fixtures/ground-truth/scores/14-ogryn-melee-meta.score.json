@@ -3,8 +3,8 @@
   "class": "ogryn",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 23,
-  "letter_grade": "B",
+  "composite_score": 30,
+  "letter_grade": "A",
   "weapons": [
     {
       "name": "\"Brunt's Basher\" Mk IIIb Bully Club",
@@ -150,43 +150,43 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 2,
+      "score": 5,
       "breakdown": {
-        "blessing_edges": 11,
+        "blessing_edges": 52,
         "blessing_count": 4,
-        "edges_per_blessing": 2.75,
-        "blessing_blessing_edges": 0,
-        "orphaned_blessings": 2
+        "edges_per_blessing": 13,
+        "blessing_blessing_edges": 4,
+        "orphaned_blessings": 0
       },
       "explanations": [
-        "Blessings with synergy edges: thunderous, adhesive_charge",
-        "2 blessing(s) participate in no synergy edges (-1 each)"
+        "Blessings with synergy edges: thunderous, skullcrusher, adhesive_charge, shattering_impact",
+        "4 blessing-blessing edge(s) +0.5"
       ]
     },
     "talent_coherence": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
-        "talent_edges": 8,
+        "talent_edges": 32,
         "talent_count": 26,
-        "measurable_talent_count": 9,
-        "edges_per_talent": 0.889,
+        "measurable_talent_count": 14,
+        "edges_per_talent": 2.286,
         "graph_isolated_count": 0,
-        "concentration": 0.07,
+        "concentration": 0.14,
         "penalties": 0,
         "bonuses": 0.5
       },
       "explanations": [
-        "High stat concentration (0.070) +0.5",
-        "17 talent(s) without calc data excluded from isolation penalty"
+        "High stat concentration (0.140) +0.5",
+        "12 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
-      "score": 4,
+      "score": 5,
       "breakdown": [
         {
           "label": "One-shot Rager head",
-          "met": false,
-          "best_htk": 2,
+          "met": true,
+          "best_htk": 1,
           "max_hits": 1,
           "weight": "high"
         },
@@ -199,8 +199,8 @@
         },
         {
           "label": "Two-hit Crusher",
-          "met": false,
-          "best_htk": 3,
+          "met": true,
+          "best_htk": 2,
           "max_hits": 2,
           "weight": "high"
         },
@@ -242,7 +242,7 @@
         {
           "label": "Two-hit Bulwark",
           "met": true,
-          "best_htk": 2,
+          "best_htk": 1,
           "max_hits": 2,
           "weight": "low"
         },
@@ -255,8 +255,7 @@
         }
       ],
       "explanations": [
-        "8/10 breakpoints met (weighted 14/20)",
-        "Missed high-priority: One-shot Rager head, Two-hit Crusher"
+        "10/10 breakpoints met (weighted 20/20)"
       ]
     },
     "role_coverage": {
@@ -265,22 +264,22 @@
         "active_families": 6,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.6153846153846154
+        "slot_balance_ratio": 0.7142857142857143
       },
       "explanations": []
     },
     "difficulty_scaling": {
-      "score": 1,
+      "score": 3,
       "breakdown": {
         "auric_met": 1,
-        "damnation_met": 1,
+        "damnation_met": 3,
         "total": 3,
         "per_entry": [
           {
             "label": "One-shot Rager head",
-            "damnation_htk": 2,
+            "damnation_htk": 1,
             "auric_htk": 2,
-            "damnation_met": false,
+            "damnation_met": true,
             "auric_met": false
           },
           {
@@ -292,15 +291,16 @@
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 3,
+            "damnation_htk": 2,
             "auric_htk": 3,
-            "damnation_met": false,
+            "damnation_met": true,
             "auric_met": false
           }
         ]
       },
       "explanations": [
-        "High-priority: 1/3 at damnation, 1/3 at auric"
+        "High-priority: 3/3 at damnation, 1/3 at auric",
+        "Degrades at auric: One-shot Rager head, Two-hit Crusher"
       ]
     }
   },

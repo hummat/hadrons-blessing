@@ -3,7 +3,7 @@
   "class": "hive scum",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 30,
+  "composite_score": 31,
   "letter_grade": "A",
   "weapons": [
     {
@@ -152,9 +152,9 @@
     "blessing_synergy": {
       "score": 5,
       "breakdown": {
-        "blessing_edges": 31,
+        "blessing_edges": 36,
         "blessing_count": 3,
-        "edges_per_blessing": 10.333,
+        "edges_per_blessing": 12,
         "blessing_blessing_edges": 3,
         "orphaned_blessings": 0
       },
@@ -166,10 +166,10 @@
     "talent_coherence": {
       "score": 4,
       "breakdown": {
-        "talent_edges": 14,
+        "talent_edges": 19,
         "talent_count": 27,
-        "measurable_talent_count": 12,
-        "edges_per_talent": 1.167,
+        "measurable_talent_count": 14,
+        "edges_per_talent": 1.357,
         "graph_isolated_count": 1,
         "concentration": 0.09,
         "penalties": -0.5,
@@ -178,7 +178,7 @@
       "explanations": [
         "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
         "High stat concentration (0.090) +0.5",
-        "15 talent(s) without calc data excluded from isolation penalty"
+        "13 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -260,12 +260,12 @@
       ]
     },
     "role_coverage": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
-        "active_families": 8,
+        "active_families": 9,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.8
+        "slot_balance_ratio": 0.7647058823529411
       },
       "explanations": []
     },

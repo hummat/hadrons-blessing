@@ -167,17 +167,17 @@
     "talent_coherence": {
       "score": 4,
       "breakdown": {
-        "talent_edges": 15,
+        "talent_edges": 19,
         "talent_count": 26,
         "measurable_talent_count": 14,
-        "edges_per_talent": 1.071,
-        "graph_isolated_count": 2,
+        "edges_per_talent": 1.357,
+        "graph_isolated_count": 1,
         "concentration": 0.07,
-        "penalties": -1,
+        "penalties": -0.5,
         "bonuses": 0.5
       },
       "explanations": [
-        "2 measurable talent(s) participate in no synergy edges (-0.5 each)",
+        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
         "High stat concentration (0.070) +0.5",
         "12 talent(s) without calc data excluded from isolation penalty"
       ]

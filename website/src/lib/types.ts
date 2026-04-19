@@ -170,9 +170,11 @@ export interface CoverageResultDetail {
 export interface SynergyMetadataDetail {
   entities_analyzed: number;
   unique_entities_with_calc: number;
+  unique_entities_with_linked_source: number;
   entities_without_calc: number;
   opaque_conditions: number;
   calc_coverage_pct: number;
+  linked_coverage_pct: number;
 }
 
 export interface SynergyAnalysisDetail {

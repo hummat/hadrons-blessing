@@ -28,7 +28,20 @@ describe("buildDetailRecord", () => {
     };
 
     const scorecard = { title: "BUSTED - Havoc 40" };
-    const synergy = { synergy_edges: [], anti_synergies: [], orphans: [] };
+    const synergy = {
+      synergy_edges: [],
+      anti_synergies: [],
+      orphans: [],
+      metadata: {
+        calc_coverage_pct: 0.5,
+        linked_coverage_pct: 0.9,
+        unique_entities_with_calc: 5,
+        unique_entities_with_linked_source: 9,
+        entities_analyzed: 10,
+        entities_without_calc: 5,
+        opaque_conditions: 0,
+      },
+    };
     const breakpoints = { weapons: [], metadata: { quality: 0.8 } };
     const structure = {
       slots: {

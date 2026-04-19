@@ -348,11 +348,17 @@ export function collectDefensiveSources(
         if (
           e.domain === classDomain &&
           e.kind === "talent" &&
-          e.internal_name?.startsWith(prefix) &&
-          e.calc?.effects && e.calc.effects.length > 0
+          e.internal_name?.startsWith(prefix)
         ) {
-          effects = e.calc.effects;
-          break;
+          if (e.calc?.effects && e.calc.effects.length > 0) {
+            effects = e.calc.effects;
+            break;
+          }
+          if (e.calc?.tiers && e.calc.tiers.length > 0) {
+            const lastTier = e.calc.tiers[e.calc.tiers.length - 1];
+            effects = lastTier.effects ?? [];
+            break;
+          }
         }
       }
       // Fallback: stat_nodes with matching buff via instance_of edges
@@ -395,6 +401,16 @@ export function collectDefensiveSources(
           const t = _flags.warp_charge ?? 0;
           effectiveMagnitude = magnitude_min + (magnitude_max - magnitude_min) * t;
         }
+      } else if (type === "conditional_lerped_stat_buff") {
+        const condResult = isConditionActive(condition ?? null, _flags);
+        if (!condResult.active) continue;
+        const { magnitude_min, magnitude_max } = effect;
+        if (magnitude_min != null && magnitude_max != null) {
+          const t = condResult.scale ?? (_flags.warp_charge ?? 0);
+          effectiveMagnitude = magnitude_min + (magnitude_max - magnitude_min) * t;
+        }
+      } else if (type === "stepped_stat_buff") {
+        // Step count metadata is not modeled yet; use the extracted magnitude as-is.
       } else {
         continue; // Unknown type -- skip
       }
@@ -482,20 +498,25 @@ function isConditionActive(
  */
 export function computeToughnessDR(drSources: DRSource[]): ToughnessDRResult {
   let additiveModifierSum = 0;
+  let additiveDirectProduct = 1;
   let multiplicativeProduct = 1;
 
   for (const source of drSources) {
     if (source.stat === "toughness_damage_taken_modifier") {
-      additiveModifierSum += source.value;
+      if (source.value > 0) {
+        additiveDirectProduct *= source.value;
+      } else {
+        additiveModifierSum += source.value;
+      }
     } else if (
       source.stat === "toughness_damage_taken_multiplier" ||
       source.stat === "damage_taken_multiplier"
     ) {
-      multiplicativeProduct *= (1 + source.value);
+      multiplicativeProduct *= normalizeDamageFactor(source.value);
     }
   }
 
-  const additiveFactor = 1 + additiveModifierSum;
+  const additiveFactor = additiveDirectProduct * (1 + additiveModifierSum);
   const damageMultiplier = additiveFactor * multiplicativeProduct;
 
   // Clamp to [0, 1]
@@ -506,6 +527,13 @@ export function computeToughnessDR(drSources: DRSource[]): ToughnessDRResult {
     total_dr: round4(totalDR),
     damage_multiplier: round4(clampedMultiplier),
   };
+}
+
+function normalizeDamageFactor(value: number): number {
+  // Source-backed calc data now preserves literal multipliers (0.75 means 25% DR).
+  // Keep supporting older delta-style values (-0.25 means 25% DR) for unit tests
+  // and any stale fixtures.
+  return value > 0 ? value : 1 + value;
 }
 
 // -- Effective HP -------------------------------------------------------------

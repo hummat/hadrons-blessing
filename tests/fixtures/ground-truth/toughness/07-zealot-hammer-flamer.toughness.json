@@ -14,29 +14,36 @@
       "value": -0.1,
       "type": "stat_buff",
       "condition": null
+    },
+    {
+      "source_entity": "zealot.talent.zealot_revive_speed",
+      "stat": "toughness_damage_taken_multiplier",
+      "value": 0.85,
+      "type": "stat_buff",
+      "condition": null
     }
   ],
-  "total_dr": 0.1,
+  "total_dr": 0.235,
   "max_toughness": 126.5,
-  "effective_toughness": 140.56,
+  "effective_toughness": 165.36,
   "health_pool": 1260,
-  "effective_hp": 1400.56,
+  "effective_hp": 1425.36,
   "max_health_modifier": 0.05,
   "state_modifiers": {
     "dodging": {
       "tdr": 0.5,
-      "damage_multiplier": 0.45,
-      "effective_toughness": 281.11
+      "damage_multiplier": 0.3825,
+      "effective_toughness": 330.72
     },
     "sliding": {
       "tdr": 0.5,
-      "damage_multiplier": 0.45,
-      "effective_toughness": 281.11
+      "damage_multiplier": 0.3825,
+      "effective_toughness": 330.72
     },
     "sprinting": {
       "tdr": 0.5,
-      "damage_multiplier": 0.45,
-      "effective_toughness": 281.11
+      "damage_multiplier": 0.3825,
+      "effective_toughness": 330.72
     }
   },
   "toughness_regen": {

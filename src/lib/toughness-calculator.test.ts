@@ -49,9 +49,17 @@ describe("computeToughnessDR", () => {
   });
 
   it("handles single additive modifier", () => {
-    // -0.1 modifier = 10% DR
+    // Legacy delta encoding: -0.1 modifier = 10% DR
     const result = computeToughnessDR([
       { stat: "toughness_damage_taken_modifier", value: -0.1 },
+    ]);
+    approx(result.total_dr, 0.1);
+    approx(result.damage_multiplier, 0.9);
+  });
+
+  it("handles direct additive factor encoding", () => {
+    const result = computeToughnessDR([
+      { stat: "toughness_damage_taken_modifier", value: 0.9 },
     ]);
     approx(result.total_dr, 0.1);
     approx(result.damage_multiplier, 0.9);
@@ -68,9 +76,17 @@ describe("computeToughnessDR", () => {
   });
 
   it("handles single multiplicative modifier", () => {
-    // -0.15 = 15% DR multiplicatively
+    // Legacy delta encoding: -0.15 = 15% DR multiplicatively
     const result = computeToughnessDR([
       { stat: "toughness_damage_taken_multiplier", value: -0.15 },
+    ]);
+    approx(result.total_dr, 0.15);
+    approx(result.damage_multiplier, 0.85);
+  });
+
+  it("handles direct multiplicative factor encoding", () => {
+    const result = computeToughnessDR([
+      { stat: "toughness_damage_taken_multiplier", value: 0.85 },
     ]);
     approx(result.total_dr, 0.15);
     approx(result.damage_multiplier, 0.85);
@@ -104,6 +120,14 @@ describe("computeToughnessDR", () => {
     ]);
     approx(result.total_dr, 0.20);
     approx(result.damage_multiplier, 0.80);
+  });
+
+  it("handles direct generic damage-taken factors", () => {
+    const result = computeToughnessDR([
+      { stat: "damage_taken_multiplier", value: 0.75 },
+    ]);
+    approx(result.total_dr, 0.25);
+    approx(result.damage_multiplier, 0.75);
   });
 
   it("clamps damage_multiplier to [0, 1]", () => {

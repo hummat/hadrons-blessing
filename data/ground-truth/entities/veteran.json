@@ -52,10 +52,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_combat_ability_increased_ranged_and_weakspot_damage_outlines"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -113,6 +113,12 @@
     "calc": {
       "buff_template_names": [
         "veteran_frag_grenade_bleed"
+      ],
+      "class_name": "interval_buff",
+      "max_stacks": 16,
+      "duration": 1.5,
+      "keywords": [
+        "buff_keywords.bleeding"
       ]
     }
   },
@@ -139,7 +145,8 @@
     "calc": {
       "buff_template_names": [
         "veteran_invisibility_on_combat_ability"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -222,6 +229,18 @@
       "exclusive_group": "aura"
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "ammo_replenishment_percent",
+          "magnitude": 0.01,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_minion_death",
+          "type": "proc_stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_aura_gain_ammo_on_elite_kill_improved"
       ]
@@ -265,11 +284,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "veteran_damage_coherency"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -310,11 +329,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "veteran_movement_speed_coherency"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -371,7 +390,8 @@
     "calc": {
       "buff_template_names": [
         "veteran_snipers_focus"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -397,7 +417,8 @@
     "calc": {
       "buff_template_names": [
         "veteran_weapon_switch_passive_buff"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -475,11 +496,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "veteran_combat_ability_extra_charge"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -532,7 +553,8 @@
     "calc": {
       "buff_template_names": [
         "veteran_combat_ability_increased_damage_vs_ogryn_and_monsters"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -724,9 +746,44 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "threat_weight_multiplier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_near",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "weakspot_power_level_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_buffs_after_combat_ability"
-      ]
+      ],
+      "class_name": "veteran_stealth_bonuses_buff",
+      "max_stacks": 1,
+      "duration": 10
     }
   },
   {
@@ -750,9 +807,44 @@
     "source_snapshot_id": "darktide-source.fd8bcc4",
     "attributes": {},
     "calc": {
+      "effects": [
+        {
+          "stat": "threat_weight_multiplier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_near",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "weakspot_power_level_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_buffs_after_combat_ability"
-      ]
+      ],
+      "class_name": "veteran_stealth_bonuses_buff",
+      "max_stacks": 1,
+      "duration": 10
     }
   },
   {
@@ -781,9 +873,44 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "threat_weight_multiplier",
+          "magnitude": 0.1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage_near",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "weakspot_power_level_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_combat_ability",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_buffs_after_combat_ability"
-      ]
+      ],
+      "class_name": "veteran_stealth_bonuses_buff",
+      "max_stacks": 1,
+      "duration": 10
     }
   },
   {
@@ -993,10 +1120,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_melee_damage_node_buff_high_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1037,10 +1164,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_movement_speed_node_buff_low_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1081,10 +1208,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_ranged_damage_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1125,10 +1252,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_reload_speed_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1169,10 +1296,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_stamina_node_buff_low_2"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1213,10 +1340,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "reduced_stamina_regen_delay_2"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1257,10 +1384,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_toughness_damage_reduction_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1301,10 +1428,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_toughness_node_buff_low_5"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1345,10 +1472,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_toughness_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1389,10 +1516,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_toughness_node_buff_medium_2"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1463,10 +1590,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
       "buff_template_names": [
         "veteran_ads_stamina_boost"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1492,7 +1619,8 @@
     "calc": {
       "buff_template_names": [
         "veteran_all_kills_replenish_bonus_toughness"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1552,9 +1680,44 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "suppression_dealt",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_minion_death",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "damage",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_minion_death",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "melee_impact_modifier",
+          "magnitude": 0.2,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_minion_death",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_allies_kills_chance_to_trigger_increased_damage"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -1590,10 +1753,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_ammo_increase"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1634,10 +1797,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_attack_speed"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1689,6 +1852,11 @@
     "calc": {
       "buff_template_names": [
         "veteran_better_deployables"
+      ],
+      "class_name": "buff",
+      "keywords": [
+        "improved_medical_crate",
+        "improved_ammo_pickups"
       ]
     }
   },
@@ -1730,10 +1898,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_big_game_hunter"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1774,11 +1942,11 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "veteran_bonus_crit_chance_on_ammo"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -1819,10 +1987,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_clip_size"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1853,7 +2021,8 @@
     "calc": {
       "buff_template_names": [
         "veteran_consecutive_hits_apply_rending"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1894,11 +2063,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": 6,
       "buff_template_names": [
         "veteran_melee_crits_increase_damage"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": 6
     }
   },
   {
@@ -1927,9 +2096,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.05,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_successful_dodge",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_dodging_grants_crit"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 5,
+      "duration": 8
     }
   },
   {
@@ -1960,7 +2144,8 @@
     "calc": {
       "buff_template_names": [
         "veteran_stamina_on_ranged_dodges"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1991,7 +2176,10 @@
     "calc": {
       "buff_template_names": [
         "veteran_combat_ability_cooldown_reduction_on_elite_kills"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -2022,7 +2210,10 @@
     "calc": {
       "buff_template_names": [
         "veteran_toughness_on_elite_kill"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -2073,11 +2264,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_extra_grenade",
         "veteran_extra_grenade_throw_chance"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2118,10 +2309,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_reload_speed_on_non_empty_clip"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2152,6 +2343,12 @@
     "calc": {
       "buff_template_names": [
         "veteran_hits_cause_bleed"
+      ],
+      "class_name": "interval_buff",
+      "max_stacks": 16,
+      "duration": 1.5,
+      "keywords": [
+        "buff_keywords.bleeding"
       ]
     }
   },
@@ -2223,10 +2420,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_improved_grenades"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2255,9 +2452,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.0625,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_damage_after_sprinting"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 4,
+      "duration": 10
     }
   },
   {
@@ -2298,11 +2510,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "veteran_increase_elite_damage"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2343,11 +2555,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "veteran_increase_suppression"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2398,10 +2610,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_increase_ranged_far_damage"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2442,12 +2654,12 @@
           "type": "stat_buff"
         }
       ],
+      "buff_template_names": [
+        "veteran_flanking_damage"
+      ],
       "class_name": "buff",
       "keywords": [
         "allow_flanking"
-      ],
-      "buff_template_names": [
-        "veteran_flanking_damage"
       ]
     }
   },
@@ -2499,10 +2711,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_increased_melee_crit_chance_and_melee_finesse"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2543,10 +2755,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_increased_weakspot_damage"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2592,12 +2804,12 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": 6,
       "buff_template_names": [
         "veteran_melee_kills_grant_range_damage",
         "veteran_ranged_kills_grant_melee_damage"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": 6
     }
   },
   {
@@ -2628,6 +2840,11 @@
     "calc": {
       "buff_template_names": [
         "veteran_movement_bonuses_on_toughness_broken"
+      ],
+      "class_name": "proc_buff",
+      "active_duration": 6,
+      "keywords": [
+        "stun_immune_toughness_broken"
       ]
     }
   },
@@ -2685,7 +2902,8 @@
     "calc": {
       "buff_template_names": [
         "veteran_no_ammo_consumption_on_lasweapon_crit"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2721,10 +2939,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
       "buff_template_names": [
         "veteran_ranged_power_out_of_melee"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2760,10 +2978,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_reduce_swap_time"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2804,10 +3022,10 @@
           "type": "lerped_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_toughness_damage_reduction_per_ally_in_coherency"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2836,9 +3054,23 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "reload_speed",
+          "magnitude": 0.3,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_kill",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_reload_speed_on_elite_kill"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2879,10 +3111,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_rending_bonus"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2911,9 +3143,22 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "grenade_charge_restored",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "proc_stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_grenade_replenishment"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2973,9 +3218,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "toughness_damage_taken_multiplier",
+          "magnitude": 0.9,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "veteran_ranged_weakspot_toughness_recovery"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null
     }
   },
   {
@@ -3006,7 +3266,8 @@
     "calc": {
       "buff_template_names": [
         "veteran_toughness_regen_out_of_melee"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -3047,10 +3308,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_tdr_on_high_toughness"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -3091,10 +3352,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "veteran_increased_ranged_cleave"
-      ]
+      ],
+      "class_name": "buff"
     }
   }
 ]

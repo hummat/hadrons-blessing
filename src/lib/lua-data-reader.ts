@@ -504,6 +504,7 @@ export interface ExtractResult {
   blocks: TemplateBlock[];
   aliases: Record<string, string>;
   localFunctions: Record<string, string>;
+  localScalars: Record<string, LuaValue>;
 }
 
 /**
@@ -524,6 +525,7 @@ function extractTemplateBlocks(luaSource: string): ExtractResult {
 
   const aliases: Record<string, string> = {};
   const localFunctions: Record<string, string> = {};
+  const localScalars: Record<string, LuaValue> = {};
   const blocksByName = new Map<string, TemplateBlock>(); // name -> block object
   const blockOrder: string[] = []; // insertion-ordered names
 
@@ -601,6 +603,18 @@ function extractTemplateBlocks(luaSource: string): ExtractResult {
       const endIdx = afterFunc.lastIndexOf("end");
       const body = afterFunc.slice(0, endIdx).trim();
       localFunctions[funcName] = body;
+      continue;
+    }
+
+    // 2b. Simple local scalar: `local <name> = <scalar>`
+    const scalarMatch = trimmed.match(/^local\s+(\w+)\s*=\s*(.+)$/);
+    if (scalarMatch) {
+      const [, scalarName, scalarRhs] = scalarMatch;
+      const rhs = scalarRhs.trim();
+      if (isSimpleLocalScalar(rhs)) {
+        localScalars[scalarName] = parseScalar(rhs);
+      }
+      i++;
       continue;
     }
 
@@ -763,7 +777,7 @@ function extractTemplateBlocks(luaSource: string): ExtractResult {
   }
 
   const blocks = blockOrder.map((name) => blocksByName.get(name)!);
-  return { blocks, aliases, localFunctions };
+  return { blocks, aliases, localFunctions, localScalars };
 }
 
 /**
@@ -787,6 +801,13 @@ function parseScalar(text: string): LuaValue {
   if (text === "nil") return null;
   // Identifier reference
   return { $ref: text };
+}
+
+function isSimpleLocalScalar(text: string): boolean {
+  return /^-?(?:\d+(?:\.\d+)?|\.\d+)$/.test(text)
+    || /^(?:"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')$/.test(text)
+    || /^(?:true|false|nil)$/.test(text)
+    || /^[A-Za-z_][A-Za-z0-9_\.]*$/.test(text);
 }
 
 export { parseLuaTable, extractTemplateBlocks };

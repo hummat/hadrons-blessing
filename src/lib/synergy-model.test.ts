@@ -70,6 +70,14 @@ describe("synergy-stat-families", () => {
     it("classifies lerped_stat_buff as dynamic", () => {
       assert.equal(getEffectCategory("lerped_stat_buff"), "dynamic");
     });
+
+    it("classifies conditional_lerped_stat_buff as dynamic", () => {
+      assert.equal(getEffectCategory("conditional_lerped_stat_buff"), "dynamic");
+    });
+
+    it("classifies stepped_stat_buff as dynamic", () => {
+      assert.equal(getEffectCategory("stepped_stat_buff"), "dynamic");
+    });
   });
 
   describe("ALL_FAMILIES", () => {
@@ -393,8 +401,49 @@ describe("analyzeBuild", () => {
 
     const result = analyzeBuild(build as never, index as never);
     assert.equal(result.metadata.unique_entities_with_calc, 1);
+    assert.equal(result.metadata.unique_entities_with_linked_source, 1);
     assert.equal(result.metadata.entities_without_calc, 0);
     assert.equal(result.metadata.calc_coverage_pct, 1);
+    assert.equal(result.metadata.linked_coverage_pct, 1);
+  });
+
+  it("reports linked coverage separately from effect-modeled coverage", () => {
+    const build = {
+      title: "linked-vs-modeled",
+      class: { raw_label: "veteran", canonical_entity_id: "veteran.class.veteran" },
+      ability: { raw_label: "Ability", canonical_entity_id: "veteran.ability.link_only" },
+      blitz: null,
+      aura: null,
+      keystone: null,
+      talents: [
+        { canonical_entity_id: "veteran.talent.modeled" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+
+    const index = {
+      entities: new Map([
+        ["veteran.class.veteran", { id: "veteran.class.veteran", kind: "class", calc: {} }],
+        ["veteran.ability.link_only", {
+          id: "veteran.ability.link_only",
+          kind: "ability",
+          calc: { buff_template_names: ["veteran_grenade_replenishment"] },
+        }],
+        ["veteran.talent.modeled", {
+          id: "veteran.talent.modeled",
+          kind: "talent",
+          calc: { effects: [{ stat: "damage", type: "stat_buff", magnitude: 0.1 }] },
+        }],
+      ]),
+      edges: [],
+    };
+
+    const result = analyzeBuild(build as never, index as never);
+    assert.equal(result.metadata.unique_entities_with_calc, 1);
+    assert.equal(result.metadata.calc_coverage_pct, 0.5);
+    assert.equal(result.metadata.unique_entities_with_linked_source, 2);
+    assert.equal(result.metadata.linked_coverage_pct, 1);
   });
 });
 

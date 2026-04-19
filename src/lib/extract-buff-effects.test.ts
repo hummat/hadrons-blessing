@@ -101,6 +101,49 @@ describe("effects:build pipeline", () => {
     );
   });
 
+  it("models veteran ammo aura as a procedural source-backed effect", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "veteran.json"), "utf8"),
+    );
+    const aura = entities.find(
+      (e) => e.internal_name === "veteran_aura_gain_ammo_on_elite_kill_improved",
+    );
+
+    assert.ok(aura, "Expected to find veteran ammo aura");
+    assert.ok(
+      aura.calc.effects.some((effect) =>
+        effect.stat === "ammo_replenishment_percent"
+        && effect.magnitude === 0.01
+        && effect.trigger === "on_minion_death"
+      ),
+      "Expected procedural ammo aura to emit ammo_replenishment_percent",
+    );
+  });
+
+  it("models veteran grenade replenishment as a procedural grenade effect", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "veteran.json"), "utf8"),
+    );
+    const talent = entities.find(
+      (e) => e.internal_name === "veteran_replenish_grenades",
+    );
+
+    assert.ok(talent, "Expected to find veteran replenish grenades talent");
+    assert.ok(
+      talent.calc.effects.some((effect) =>
+        effect.stat === "grenade_charge_restored"
+        && effect.magnitude === 1
+      ),
+      "Expected grenade replenishment to emit grenade_charge_restored",
+    );
+  });
+
   it("populates calc on the Warp Siphon max-souls modifier", { skip: !sourceRoot }, () => {
     const result = runEffectsBuildFixture();
     assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
@@ -165,6 +208,98 @@ describe("effects:build pipeline", () => {
       0.05,
       "Expected calc.effects to use the endgame-tier perk magnitude",
     );
+  });
+
+  it("follows internally spawned child buffs for chemical dependency", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "hive_scum.json"), "utf8"),
+    );
+    const keystone = entities.find(
+      (e) => e.internal_name === "broker_keystone_chemical_dependency",
+    );
+
+    assert.ok(keystone, "Expected to find broker chemical dependency keystone");
+    const stats = new Set((keystone.calc.effects ?? []).map((effect) => effect.stat));
+    assert.ok(
+      stats.has("combat_ability_cooldown_regen_modifier"),
+      "Expected chemical dependency to inherit stack buff effects",
+    );
+    assert.ok(
+      stats.has("critical_strike_chance"),
+      "Expected chemical dependency crit branch to be modeled from child buff",
+    );
+    assert.ok(
+      stats.has("toughness_damage_taken_multiplier"),
+      "Expected chemical dependency toughness branch to be modeled from child buff",
+    );
+  });
+
+  it("models ammo-from-reserve blessing tiers from external base templates", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "shared-weapons.json"), "utf8"),
+    );
+    const trait = entities.find(
+      (e) => e.id === "shared.weapon_trait.weapon_trait_bespoke_ogryn_heavystubber_p1_ammo_from_reserve_on_crit",
+    );
+
+    assert.ok(trait, "Expected to find heavystubber ammo-from-reserve blessing");
+    assert.equal(trait.calc?.tiers?.[3]?.effects?.[0]?.stat, "ammo_to_clip_on_crit");
+    assert.equal(trait.calc?.tiers?.[3]?.effects?.[0]?.magnitude, 5);
+    assert.equal(trait.calc?.effects?.[0]?.magnitude, 5);
+  });
+
+  it("models debuff-stack blessing tiers through target_buff_data indirection", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "shared-weapons.json"), "utf8"),
+    );
+    const skullcrusher = entities.find(
+      (e) => e.id === "shared.weapon_trait.weapon_trait_bespoke_combataxe_p3_staggered_targets_receive_increased_damage_debuff",
+    );
+    const shatteringImpact = entities.find(
+      (e) => e.id === "shared.weapon_trait.weapon_trait_bespoke_bolter_p1_targets_receive_rending_debuff",
+    );
+
+    assert.ok(skullcrusher, "Expected to find Skullcrusher blessing trait");
+    assert.equal(skullcrusher.calc?.tiers?.[3]?.effects?.[0]?.stat, "damage_vs_staggered");
+    assert.equal(skullcrusher.calc?.tiers?.[3]?.effects?.[0]?.magnitude, 0.4);
+
+    assert.ok(shatteringImpact, "Expected to find Shattering Impact blessing trait");
+    assert.equal(shatteringImpact.calc?.tiers?.[3]?.effects?.[0]?.stat, "rending_multiplier");
+    assert.equal(shatteringImpact.calc?.tiers?.[3]?.effects?.[0]?.magnitude, 0.1);
+  });
+
+  it("models keyword-only and overheat blessings instead of leaving their tiers empty", { skip: !sourceRoot }, () => {
+    const result = runEffectsBuildFixture();
+    assert.equal(result.status, 0, `Pipeline failed:\n${result.stderr}`);
+
+    const entities = JSON.parse(
+      readFileSync(join(fixtureEntitiesRoot(), "shared-weapons.json"), "utf8"),
+    );
+    const strippedDown = entities.find(
+      (e) => e.id === "shared.weapon_trait.weapon_trait_bespoke_autogun_p1_increased_sprint_speed",
+    );
+    const heatsink = entities.find(
+      (e) => e.id === "shared.weapon_trait.weapon_trait_bespoke_powersword_2h_p1_reduce_fixed_overheat_amount_parent",
+    );
+
+    assert.ok(strippedDown, "Expected to find Stripped Down blessing trait");
+    assert.equal(strippedDown.calc?.tiers?.[3]?.effects?.[0]?.stat, "count_as_dodge_vs_ranged");
+    assert.equal(strippedDown.calc?.tiers?.[3]?.effects?.[0]?.magnitude, 1);
+    assert.equal(strippedDown.calc?.tiers?.[3]?.effects?.[0]?.type, "stat_buff");
+
+    assert.ok(heatsink, "Expected to find Heatsink blessing trait");
+    assert.equal(heatsink.calc?.tiers?.[3]?.effects?.[0]?.stat, "overheat_immediate_reduction");
+    assert.equal(heatsink.calc?.tiers?.[3]?.effects?.[0]?.magnitude, 0.1);
+    assert.equal(heatsink.calc?.tiers?.[3]?.effects?.[0]?.type, "proc_stat_buff");
   });
 
   it("generates grants_buff edges", { skip: !sourceRoot }, () => {

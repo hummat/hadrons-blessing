@@ -37,27 +37,27 @@
       "condition": null
     }
   ],
-  "total_dr": 0,
+  "total_dr": 0.352,
   "max_toughness": 120.75,
-  "effective_toughness": 120.75,
+  "effective_toughness": 186.34,
   "health_pool": 300,
-  "effective_hp": 420.75,
+  "effective_hp": 486.34,
   "max_health_modifier": 0,
   "state_modifiers": {
     "dodging": {
       "tdr": 0.5,
-      "damage_multiplier": 0.5,
-      "effective_toughness": 241.5
+      "damage_multiplier": 0.324,
+      "effective_toughness": 372.69
     },
     "sliding": {
       "tdr": 0.5,
-      "damage_multiplier": 0.5,
-      "effective_toughness": 241.5
+      "damage_multiplier": 0.324,
+      "effective_toughness": 372.69
     },
     "sprinting": {
       "tdr": 0,
-      "damage_multiplier": 1,
-      "effective_toughness": 120.75
+      "damage_multiplier": 0.648,
+      "effective_toughness": 186.34
     }
   },
   "toughness_regen": {

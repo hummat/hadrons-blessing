@@ -507,16 +507,24 @@
         <article class="ds-parchment ds-panel" style="margin-top:0.8rem">
           <div class="ds-coverage-grid">
             <div class="ds-coverage-cell">
-              <div class="ds-label">Calc Coverage</div>
+              <div class="ds-label">Effect-Modeled Coverage</div>
               <div class="ds-coverage-cell__value">{formatCoverageFraction(data.detail.synergy.metadata.calc_coverage_pct)}</div>
+            </div>
+            <div class="ds-coverage-cell">
+              <div class="ds-label">Source-Linked Coverage</div>
+              <div class="ds-coverage-cell__value">{formatCoverageFraction(data.detail.synergy.metadata.linked_coverage_pct)}</div>
             </div>
             <div class="ds-coverage-cell">
               <div class="ds-label">Entities Analyzed</div>
               <div class="ds-coverage-cell__value">{data.detail.synergy.metadata.entities_analyzed}</div>
             </div>
             <div class="ds-coverage-cell">
-              <div class="ds-label">Entities With Calc</div>
+              <div class="ds-label">Effect-Modeled Entities</div>
               <div class="ds-coverage-cell__value">{data.detail.synergy.metadata.unique_entities_with_calc}</div>
+            </div>
+            <div class="ds-coverage-cell">
+              <div class="ds-label">Source-Linked Entities</div>
+              <div class="ds-coverage-cell__value">{data.detail.synergy.metadata.unique_entities_with_linked_source}</div>
             </div>
             <div class="ds-coverage-cell">
               <div class="ds-label">Opaque Conditions</div>

@@ -9,34 +9,62 @@
   },
   "dr_sources": [
     {
+      "source_entity": "zealot.talent.zealot_crits_reduce_toughness_damage",
+      "stat": "toughness_damage_taken_multiplier",
+      "value": 0.6,
+      "type": "stat_buff",
+      "condition": null
+    },
+    {
+      "source_entity": "zealot.talent.zealot_ally_damage_taken_reduced",
+      "stat": "damage_taken_multiplier",
+      "value": 0.4,
+      "type": "stat_buff",
+      "condition": null
+    },
+    {
       "source_entity": "shared.stat_node.toughness_damage_reduction",
       "stat": "toughness_damage_taken_modifier",
       "value": -0.1,
       "type": "stat_buff",
       "condition": null
+    },
+    {
+      "source_entity": "zealot.talent.zealot_bled_enemies_take_more_damage",
+      "stat": "damage_taken_multiplier",
+      "value": 1.15,
+      "type": "stat_buff",
+      "condition": null
+    },
+    {
+      "source_entity": "zealot.talent.zealot_revive_speed",
+      "stat": "toughness_damage_taken_multiplier",
+      "value": 0.85,
+      "type": "stat_buff",
+      "condition": null
     }
   ],
-  "total_dr": 0.1,
+  "total_dr": 0.7889,
   "max_toughness": 138,
-  "effective_toughness": 153.33,
+  "effective_toughness": 653.72,
   "health_pool": 400,
-  "effective_hp": 553.33,
+  "effective_hp": 1053.72,
   "max_health_modifier": 0,
   "state_modifiers": {
     "dodging": {
       "tdr": 0.5,
-      "damage_multiplier": 0.45,
-      "effective_toughness": 306.67
+      "damage_multiplier": 0.1056,
+      "effective_toughness": 1307.44
     },
     "sliding": {
       "tdr": 0.5,
-      "damage_multiplier": 0.45,
-      "effective_toughness": 306.67
+      "damage_multiplier": 0.1056,
+      "effective_toughness": 1307.44
     },
     "sprinting": {
       "tdr": 0.5,
-      "damage_multiplier": 0.45,
-      "effective_toughness": 306.67
+      "damage_multiplier": 0.1056,
+      "effective_toughness": 1307.44
     }
   },
   "toughness_regen": {

@@ -54,7 +54,9 @@
     "calc": {
       "buff_template_names": [
         "adamant_charge_passive_buff"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -85,7 +87,9 @@
     "calc": {
       "buff_template_names": [
         "adamant_grenade_cluster_kills_tracking_buff"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -170,7 +174,9 @@
     "calc": {
       "buff_template_names": [
         "adamant_whistle_replenishment"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -211,12 +217,12 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "adamant_companion_counts_for_coherency",
         "adamant_companion_aura"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -257,12 +263,12 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "adamant_damage_vs_staggered_aura",
         "adamant_no_companion_coherency"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -303,12 +309,12 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "adamant_reload_speed_aura",
         "adamant_no_companion_coherency"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -359,10 +365,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "adamant_companion_focus_elite"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -403,10 +409,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "adamant_companion_focus_ranged"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -475,13 +481,23 @@
           "condition": null,
           "trigger": null,
           "type": "stat_buff"
+        },
+        {
+          "stat": "grenade_charge_restored",
+          "magnitude": 1,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": null,
+          "type": "proc_stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "adamant_disable_companion_buff",
         "adamant_grenade_replenishment"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -512,7 +528,8 @@
     "calc": {
       "buff_template_names": [
         "adamant_execution_order"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -543,7 +560,8 @@
     "calc": {
       "buff_template_names": [
         "adamant_forceful"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -605,7 +623,9 @@
     "calc": {
       "buff_template_names": [
         "adamant_charge_cooldown_buff"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -646,11 +666,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "adamant_charge_increased_distance"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -681,7 +701,9 @@
     "calc": {
       "buff_template_names": [
         "adamant_charge_toughness_buff"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -722,11 +744,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "adamant_dog_damage_after_ability"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -973,7 +995,8 @@
     "calc": {
       "buff_template_names": [
         "adamant_forceful_stagger"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1058,7 +1081,8 @@
     "calc": {
       "buff_template_names": [
         "adamant_pinning_dog_bonus_moving_towards"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -1099,12 +1123,12 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "max_stacks": 1,
-      "active_duration": null,
       "buff_template_names": [
         "adamant_hunt_stance_dog_bloodlust"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1,
+      "active_duration": null
     }
   },
   {
@@ -1373,10 +1397,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "adamant_ammo_belt"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1417,10 +1441,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "adamant_armor"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1461,11 +1485,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "adamant_cleave_after_push"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -1506,10 +1530,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "adamant_clip_size"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1540,7 +1564,9 @@
     "calc": {
       "buff_template_names": [
         "adamant_close_kills_restore_toughness"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -1569,9 +1595,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "critical_strike_chance",
+          "magnitude": 0.02,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "adamant_crit_chance_on_kill"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null
     }
   },
   {
@@ -1612,10 +1653,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "adamant_crits_rend"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1656,11 +1697,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "adamant_damage_after_reloading"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -1701,11 +1742,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "adamant_damage_reduction_after_elite_kill"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -1746,10 +1787,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "adamant_damage_vs_suppressed"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1790,11 +1831,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "adamant_dodge_grants_damage"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -1845,10 +1886,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "adamant_dodge_improvement"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -1877,9 +1918,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "rending_multiplier",
+          "magnitude": 0.025,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "adamant_dog_applies_brittleness"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 16,
+      "duration": 5
     }
   },
   {
@@ -1910,6 +1966,12 @@
     "calc": {
       "buff_template_names": [
         "adamant_dog_attacks_electrocute"
+      ],
+      "class_name": "interval_buff",
+      "max_stacks": 1,
+      "duration": null,
+      "keywords": [
+        "electrocuted"
       ]
     }
   },
@@ -1941,6 +2003,12 @@
     "calc": {
       "buff_template_names": [
         "adamant_dog_pounces_bleed_nearby"
+      ],
+      "class_name": "interval_buff",
+      "max_stacks": 16,
+      "duration": 1.5,
+      "keywords": [
+        "buff_keywords.bleeding"
       ]
     }
   },
@@ -1992,11 +2060,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "adamant_elite_special_kills_offensive_boost"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2027,7 +2095,8 @@
     "calc": {
       "buff_template_names": [
         "adamant_elite_special_kills_reload_speed"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2058,7 +2127,10 @@
     "calc": {
       "buff_template_names": [
         "adamant_elite_special_kills_replenish_toughness"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -2109,10 +2181,10 @@
           "type": "conditional_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
       "buff_template_names": [
         "adamant_first_melee_hit_increased_damage"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2153,11 +2225,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "adamant_heavy_attacks_increase_damage"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2198,11 +2270,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "adamant_hitting_multiple_gives_tdr"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2243,11 +2315,11 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
-      "max_stacks": 1,
       "buff_template_names": [
         "adamant_increased_damage_to_high_health"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2288,13 +2360,13 @@
           "type": "stat_buff"
         }
       ],
+      "buff_template_names": [
+        "adamant_limit_dmg_taken_from_hits"
+      ],
       "class_name": "buff",
       "max_stacks": 1,
       "keywords": [
         "limit_health_damage_taken"
-      ],
-      "buff_template_names": [
-        "adamant_limit_dmg_taken_from_hits"
       ]
     }
   },
@@ -2336,10 +2408,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "adamant_melee_attacks_on_staggered_rend"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2370,6 +2442,11 @@
     "calc": {
       "buff_template_names": [
         "adamant_melee_weakspot_hits_count_as_stagger"
+      ],
+      "class_name": "buff",
+      "duration": null,
+      "keywords": [
+        "count_as_staggered"
       ]
     }
   },
@@ -2411,10 +2488,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "adamant_monster_hunter"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2455,11 +2532,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "adamant_movement_speed_on_block"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2500,11 +2577,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "adamant_multiple_hits_attack_speed"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2543,12 +2620,34 @@
           "condition": null,
           "trigger": null,
           "type": "stat_buff"
+        },
+        {
+          "stat": "damage",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_perfect_block",
+          "type": "stat_buff"
+        },
+        {
+          "stat": "attack_speed",
+          "magnitude": 0.15,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_perfect_block",
+          "type": "stat_buff"
         }
       ],
-      "class_name": "proc_buff",
       "buff_template_names": [
         "adamant_perfect_block_damage_boost"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -2579,7 +2678,8 @@
     "calc": {
       "buff_template_names": [
         "adamant_pinning_dog_elite_damage"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2651,10 +2751,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "adamant_plasteel_plates"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2695,11 +2795,11 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "adamant_ranged_damage_on_melee_stagger"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2750,10 +2850,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "adamant_rebreather"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -2784,7 +2884,9 @@
     "calc": {
       "buff_template_names": [
         "adamant_shield_plates"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -2825,12 +2927,12 @@
           "type": "proc_stat_buff"
         }
       ],
-      "class_name": "proc_buff",
-      "active_duration": null,
       "buff_template_names": [
         "adamant_sprinting_sliding",
         "adamant_sprinting_sliding_kills"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "active_duration": null
     }
   },
   {
@@ -2859,9 +2961,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "damage",
+          "magnitude": 0.02,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "adamant_stacking_damage"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null
     }
   },
   {
@@ -2890,9 +3007,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "weakspot_power_level_modifier",
+          "magnitude": 0.02,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "adamant_stacking_weakspot_strength"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": null,
+      "duration": null
     }
   },
   {
@@ -2923,7 +3055,8 @@
     "calc": {
       "buff_template_names": [
         "adamant_staggered_enemies_deal_less_damage"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2954,7 +3087,8 @@
     "calc": {
       "buff_template_names": [
         "adamant_staggering_increases_damage_taken"
-      ]
+      ],
+      "class_name": "proc_buff"
     }
   },
   {
@@ -2983,9 +3117,24 @@
       "exclusive_group": null
     },
     "calc": {
+      "effects": [
+        {
+          "stat": "damage_taken_multiplier",
+          "magnitude": 0.97,
+          "magnitude_expr": null,
+          "magnitude_min": null,
+          "magnitude_max": null,
+          "condition": null,
+          "trigger": "on_hit",
+          "type": "stat_buff"
+        }
+      ],
       "buff_template_names": [
         "adamant_staggers_reduce_damage_taken"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": null,
+      "duration": null
     }
   },
   {
@@ -3016,7 +3165,9 @@
     "calc": {
       "buff_template_names": [
         "adamant_staggers_replenish_toughness"
-      ]
+      ],
+      "class_name": "proc_buff",
+      "max_stacks": 1
     }
   },
   {
@@ -3047,7 +3198,10 @@
     "calc": {
       "buff_template_names": [
         "adamant_stamina_spent_replenish_toughness"
-      ]
+      ],
+      "class_name": "buff",
+      "max_stacks": 1,
+      "duration": null
     }
   },
   {
@@ -3078,7 +3232,8 @@
     "calc": {
       "buff_template_names": [
         "adamant_toughness_regen_near_companion"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -3129,10 +3284,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_cleave_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -3173,10 +3328,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_impact_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -3217,10 +3372,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_melee_damage_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -3261,10 +3416,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_ranged_damage_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   },
   {
@@ -3305,10 +3460,10 @@
           "type": "stat_buff"
         }
       ],
-      "class_name": "buff",
       "buff_template_names": [
         "player_toughness_damage_reduction_node_buff_medium_1"
-      ]
+      ],
+      "class_name": "buff"
     }
   }
 ]

@@ -445,16 +445,19 @@ function formatCleaveText(matrix: AnyRecord, build: AnyRecord): string {
  */
 function formatDRValue(source: AnyRecord): string {
   const { stat, value } = source;
+  const directFactor = typeof value === "number" && value > 0 ? value : 1 + value;
+  const drPct = (1 - directFactor) * 100;
+  const damageIncreasePct = (directFactor - 1) * 100;
+
   if (stat === "toughness_damage_taken_modifier") {
-    const pct = Math.abs(value) * 100;
-    const multiplier = 1 + value;
-    const label = value < 0 ? "DR" : "damage increase";
-    return `${multiplier.toFixed(2)} (${pct.toFixed(0)}% ${label}, additive)`;
+    const label = directFactor <= 1 ? "DR" : "damage increase";
+    const pct = directFactor <= 1 ? drPct : damageIncreasePct;
+    return `${directFactor.toFixed(2)} (${pct.toFixed(0)}% ${label}, additive)`;
   }
-  const multiplier = 1 + value;
-  const pct = Math.abs(value) * 100;
-  const label = value < 0 ? "DR" : "damage increase";
-  return `${multiplier.toFixed(2)} (${pct.toFixed(0)}% ${label})`;
+
+  const label = directFactor <= 1 ? "DR" : "damage increase";
+  const pct = directFactor <= 1 ? drPct : damageIncreasePct;
+  return `${directFactor.toFixed(2)} (${pct.toFixed(0)}% ${label})`;
 }
 
 // ── Toughness mode text formatter ─────────────────────────────────────

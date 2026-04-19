@@ -3,8 +3,8 @@
   "class": "zealot",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 23,
-  "letter_grade": "B",
+  "composite_score": 27,
+  "letter_grade": "A",
   "weapons": [
     {
       "name": "Crucis Mk II Thunder Hammer",
@@ -150,34 +150,35 @@
   },
   "qualitative": {
     "blessing_synergy": {
-      "score": 1,
+      "score": 4,
       "breakdown": {
-        "blessing_edges": 2,
+        "blessing_edges": 13,
         "blessing_count": 3,
-        "edges_per_blessing": 0.667,
+        "edges_per_blessing": 4.333,
         "blessing_blessing_edges": 0,
-        "orphaned_blessings": 2
+        "orphaned_blessings": 1
       },
       "explanations": [
-        "Blessings with synergy edges: thunderous",
-        "2 blessing(s) participate in no synergy edges (-1 each)"
+        "Blessings with synergy edges: thunderous, penetrating_flame",
+        "1 blessing(s) participate in no synergy edges (-1 each)"
       ]
     },
     "talent_coherence": {
       "score": 5,
       "breakdown": {
-        "talent_edges": 31,
+        "talent_edges": 37,
         "talent_count": 27,
-        "measurable_talent_count": 18,
-        "edges_per_talent": 1.722,
-        "graph_isolated_count": 0,
+        "measurable_talent_count": 19,
+        "edges_per_talent": 1.947,
+        "graph_isolated_count": 1,
         "concentration": 0.1,
-        "penalties": 0,
+        "penalties": -0.5,
         "bonuses": 0.5
       },
       "explanations": [
+        "1 measurable talent(s) participate in no synergy edges (-0.5 each)",
         "High stat concentration (0.100) +0.5",
-        "9 talent(s) without calc data excluded from isolation penalty"
+        "8 talent(s) without calc data excluded from isolation penalty"
       ]
     },
     "breakpoint_relevance": {
@@ -193,14 +194,14 @@
         {
           "label": "Two-hit Rager body",
           "met": false,
-          "best_htk": 5,
+          "best_htk": 3,
           "max_hits": 2,
           "weight": "high"
         },
         {
           "label": "Two-hit Crusher",
           "met": false,
-          "best_htk": 8,
+          "best_htk": 4,
           "max_hits": 2,
           "weight": "high"
         },
@@ -234,15 +235,15 @@
         },
         {
           "label": "Three-hit Mauler",
-          "met": false,
-          "best_htk": 5,
+          "met": true,
+          "best_htk": 3,
           "max_hits": 3,
           "weight": "low"
         },
         {
           "label": "Two-hit Bulwark",
-          "met": false,
-          "best_htk": 3,
+          "met": true,
+          "best_htk": 2,
           "max_hits": 2,
           "weight": "low"
         },
@@ -255,17 +256,17 @@
         }
       ],
       "explanations": [
-        "5/10 breakpoints met (weighted 9/20)",
+        "7/10 breakpoints met (weighted 11/20)",
         "Missed high-priority: One-shot Rager head, Two-hit Rager body, Two-hit Crusher"
       ]
     },
     "role_coverage": {
-      "score": 4,
+      "score": 5,
       "breakdown": {
-        "active_families": 8,
+        "active_families": 10,
         "total_families": 11,
         "coverage_gaps": [],
-        "slot_balance_ratio": 0.7857142857142857
+        "slot_balance_ratio": 0.8666666666666667
       },
       "explanations": []
     },
@@ -279,21 +280,21 @@
           {
             "label": "One-shot Rager head",
             "damnation_htk": 2,
-            "auric_htk": 3,
+            "auric_htk": 2,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Rager body",
-            "damnation_htk": 5,
-            "auric_htk": 6,
+            "damnation_htk": 3,
+            "auric_htk": 4,
             "damnation_met": false,
             "auric_met": false
           },
           {
             "label": "Two-hit Crusher",
-            "damnation_htk": 8,
-            "auric_htk": 10,
+            "damnation_htk": 4,
+            "auric_htk": 5,
             "damnation_met": false,
             "auric_met": false
           }
