@@ -1,0 +1,1948 @@
+{
+  "domain": "zealot",
+  "source_file": "scripts/ui/views/talent_builder_view/layouts/zealot_tree.lua",
+  "source_snapshot_id": "darktide-source.fd8bcc4",
+  "archetype_name": "zealot",
+  "version": 24,
+  "node_points": 30,
+  "talent_points": 30,
+  "canvas": {
+    "width": 1915,
+    "height": 2800
+  },
+  "nodes": [
+    {
+      "widget_name": "node_00de95af-259d-4c82-ae16-91fa3b533ed9",
+      "entity_id": "zealot.keystone.zealot_martyrdom",
+      "selection_ids": [
+        "zealot.keystone.zealot_martyrdom"
+      ],
+      "talent_internal_name": "zealot_martyrdom",
+      "type": "keystone",
+      "group_name": null,
+      "x": 1070.0000274718752,
+      "y": 2240.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_keystone_martyrdom",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_f9d86a08-326e-4af4-b074-f4418883772f",
+        "node_2d176f63-527c-4758-a1c1-eed8dfd6ac78",
+        "node_9d8273b3-4c5d-4317-b480-54a125376f0d",
+        "node_ccd0b423-3a44-4f74-8339-7c7b65ba2d63"
+      ],
+      "parents": [
+        "node_cb18fcab-1f3d-463c-b796-1fa04f33e026",
+        "node_5b313422-552e-4e6c-b89c-d35acad88fc9",
+        "node_53add57a-526d-4fc6-b8b2-1899b30b37a8",
+        "node_4afa8c9e-b961-4078-8231-963c3c9cbeab"
+      ]
+    },
+    {
+      "widget_name": "node_019a38fd-8454-4e5c-961b-7e74d408f0af",
+      "entity_id": "zealot.talent.zealot_toughness_in_melee",
+      "selection_ids": [
+        "zealot.talent.zealot_toughness_in_melee"
+      ],
+      "talent_internal_name": "zealot_toughness_in_melee",
+      "type": "default",
+      "group_name": null,
+      "x": 965,
+      "y": 545,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_toughness_in_melee",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_a827f270-b198-4fa8-be77-59feaebb2fc1",
+        "node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
+        "node_b5ef81ae-d72f-4e83-8fd4-077fad7f6fe0"
+      ],
+      "parents": [
+        "node_80eebf49-eccb-40ef-b6ca-5916f3f088b0",
+        "node_88dfd7e8-94f2-4d58-8bfa-06e53dca3286",
+        "node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
+        "node_b5ef81ae-d72f-4e83-8fd4-077fad7f6fe0"
+      ]
+    },
+    {
+      "widget_name": "node_0581bad8-f8c0-4321-a90b-756013fd3981",
+      "entity_id": "zealot.talent.zealot_resist_death",
+      "selection_ids": [
+        "zealot.talent.zealot_resist_death"
+      ],
+      "talent_internal_name": "zealot_resist_death",
+      "type": "default",
+      "group_name": null,
+      "x": 1085.0000274718752,
+      "y": 1025.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_resist_death",
+      "gradient_color": null,
+      "children": [
+        "node_18bd9f66-02ab-4d6b-93ef-c860bbdf62e4",
+        "node_18bc94af-2948-4b9a-84e8-5c9408b37343",
+        "node_9b7ccd7d-8eba-4b0e-9759-7e674c7dfde9"
+      ],
+      "parents": [
+        "node_efeefa9a-f503-46e7-afae-a61d76ad3a7e",
+        "node_998a79be-ed3f-4b78-acb5-cb788438a76c",
+        "node_f830003e-bb99-448f-aac6-f8a4dbf61d50"
+      ]
+    },
+    {
+      "widget_name": "node_09a97b15-e79d-4953-a189-f24beac4a40d",
+      "entity_id": "zealot.talent.zealot_suppress_on_backstab_kill",
+      "selection_ids": [
+        "zealot.talent.zealot_suppress_on_backstab_kill"
+      ],
+      "talent_internal_name": "zealot_suppress_on_backstab_kill",
+      "type": "default",
+      "group_name": null,
+      "x": 1325.0000274718752,
+      "y": 2134.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_heavy_multihits_increase_melee_damage",
+      "gradient_color": null,
+      "children": [
+        "node_86295aae-d8b7-4c66-9862-29d98ae57798",
+        "node_72f07a65-a83f-4264-99fe-6d3551d135e1"
+      ],
+      "parents": [
+        "node_72f07a65-a83f-4264-99fe-6d3551d135e1",
+        "node_1fbb7b5c-aac2-4489-9a39-9a9eab68f484"
+      ]
+    },
+    {
+      "widget_name": "node_0dbb9346-b495-40d9-81d2-3d69b24056f7",
+      "entity_id": "zealot.talent.zealot_crits_reduce_toughness_damage",
+      "selection_ids": [
+        "zealot.talent.zealot_crits_reduce_toughness_damage"
+      ],
+      "talent_internal_name": "zealot_crits_reduce_toughness_damage",
+      "type": "default",
+      "group_name": null,
+      "x": 845.0000274718752,
+      "y": 2014.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_crits_reduce_toughness_damage",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_5832cbce-960a-4303-b772-3f8813fde6d0",
+        "node_5f95669c-df41-4278-bbcb-01eb63cf1c85"
+      ],
+      "parents": [
+        "node_ac2f3e1c-641a-4132-98f5-5e13c199a21a"
+      ]
+    },
+    {
+      "widget_name": "node_0e6bc32b-bdab-4856-94e7-f141355cc9a0",
+      "entity_id": "zealot.talent.zealot_crits_apply_bleed",
+      "selection_ids": [
+        "zealot.talent.zealot_crits_apply_bleed"
+      ],
+      "talent_internal_name": "zealot_crits_apply_bleed",
+      "type": "default",
+      "group_name": null,
+      "x": 605.0000274718752,
+      "y": 2014.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_crits_apply_bleed",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_3f11f576-443e-42b0-b6f9-cedcafb6a224",
+        "node_5f95669c-df41-4278-bbcb-01eb63cf1c85"
+      ],
+      "parents": [
+        "node_ac2f3e1c-641a-4132-98f5-5e13c199a21a"
+      ]
+    },
+    {
+      "widget_name": "node_101154ca-57f6-45a4-beea-41dcd21be41f",
+      "entity_id": "zealot.talent.zealot_ally_damage_taken_reduced",
+      "selection_ids": [
+        "zealot.talent.zealot_ally_damage_taken_reduced"
+      ],
+      "talent_internal_name": "zealot_ally_damage_taken_reduced",
+      "type": "default",
+      "group_name": null,
+      "x": 1175.0000274718752,
+      "y": 1234.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_ally_damage_taken_reduced",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_b0817c40-bea3-4c97-b423-7645d970edbb"
+      ],
+      "parents": [
+        "node_18bc94af-2948-4b9a-84e8-5c9408b37343"
+      ]
+    },
+    {
+      "widget_name": "node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
+      "entity_id": "zealot.talent.base_toughness_damage_reduction_node_buff_medium_1",
+      "selection_ids": [
+        "zealot.talent.base_toughness_damage_reduction_node_buff_medium_1",
+        "shared.stat_node.toughness_damage_reduction"
+      ],
+      "talent_internal_name": "base_toughness_damage_reduction_node_buff_medium_1",
+      "type": "stat",
+      "group_name": null,
+      "x": 1084.0000274718752,
+      "y": 1894.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_default_general_talent",
+      "gradient_color": null,
+      "children": [
+        "node_ac2f3e1c-641a-4132-98f5-5e13c199a21a",
+        "node_94333107-ec28-44ca-b37e-2f714fc57ed5",
+        "node_a5510705-1db7-4086-aa35-04833ebb8527",
+        "node_5a6a015e-77a8-4675-a51b-7fd233eb1b26",
+        "node_e6beb408-b6d9-4b1b-b30c-91e9a92d0590"
+      ],
+      "parents": [
+        "node_c286494b-4e57-42a2-9c41-04809ee97c41",
+        "node_ac2f3e1c-641a-4132-98f5-5e13c199a21a",
+        "node_94333107-ec28-44ca-b37e-2f714fc57ed5",
+        "node_5bf70f4d-96f3-446a-8a74-f4b4db160455",
+        "node_f1b10508-b92d-45c4-8661-941d3eadac13"
+      ]
+    },
+    {
+      "widget_name": "node_1473ca58-1a77-4543-b2e5-9c4491d240c8",
+      "entity_id": "zealot.talent_modifier.zealot_momentum_toughness_replenish",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_momentum_toughness_replenish"
+      ],
+      "talent_internal_name": "zealot_momentum_toughness_replenish",
+      "type": "keystone_modifier",
+      "group_name": null,
+      "x": 1355,
+      "y": 2345,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_quickness_toughness_per_stack",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_8b72c79c-2b0f-4081-b919-f730aaee433d"
+      ],
+      "parents": [
+        "node_86295aae-d8b7-4c66-9862-29d98ae57798"
+      ]
+    },
+    {
+      "widget_name": "node_16cdb92c-ed3f-48f6-9d30-bbe86d8eae5d",
+      "entity_id": "zealot.talent.zealot_damage_vs_elites",
+      "selection_ids": [
+        "zealot.talent.zealot_damage_vs_elites"
+      ],
+      "talent_internal_name": "zealot_damage_vs_elites",
+      "type": "default",
+      "group_name": null,
+      "x": 995,
+      "y": 1415.0000060658174,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_damage_vs_elites",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_b0817c40-bea3-4c97-b423-7645d970edbb"
+      ]
+    },
+    {
+      "widget_name": "node_18bc94af-2948-4b9a-84e8-5c9408b37343",
+      "entity_id": "zealot.talent.zealot_resist_death_healing",
+      "selection_ids": [
+        "zealot.talent.zealot_resist_death_healing"
+      ],
+      "talent_internal_name": "zealot_resist_death_healing",
+      "type": "default",
+      "group_name": null,
+      "x": 1085.0000274718752,
+      "y": 1144.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_resist_death_healing",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_cb18fcab-1f3d-463c-b796-1fa04f33e026",
+        "node_101154ca-57f6-45a4-beea-41dcd21be41f",
+        "node_5f6902c3-f9af-4bbf-b4ad-68a0d7da94a1"
+      ],
+      "parents": [
+        "node_0581bad8-f8c0-4321-a90b-756013fd3981"
+      ]
+    },
+    {
+      "widget_name": "node_18bd9f66-02ab-4d6b-93ef-c860bbdf62e4",
+      "entity_id": "zealot.talent.zealot_hits_grant_stacking_damage",
+      "selection_ids": [
+        "zealot.talent.zealot_hits_grant_stacking_damage"
+      ],
+      "talent_internal_name": "zealot_hits_grant_stacking_damage",
+      "type": "default",
+      "group_name": null,
+      "x": 815.0000274718752,
+      "y": 1144.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_hits_grant_stacking_damage",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_6ab8617d-6ddd-4d56-a6c3-7ead4e4f1648",
+        "node_cb819666-6781-499a-bb33-9a43ed61b4b3"
+      ],
+      "parents": [
+        "node_0581bad8-f8c0-4321-a90b-756013fd3981"
+      ]
+    },
+    {
+      "widget_name": "node_1a024b73-36a7-4c24-a4be-f9844f422b4f",
+      "entity_id": "zealot.talent_modifier.zealot_fotf_refund_cooldown",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_fotf_refund_cooldown"
+      ],
+      "talent_internal_name": "zealot_fotf_refund_cooldown",
+      "type": "ability_modifier",
+      "group_name": null,
+      "x": 575.0000274718752,
+      "y": 1774.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_dash_increased_duration",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_5bf70f4d-96f3-446a-8a74-f4b4db160455"
+      ]
+    },
+    {
+      "widget_name": "node_1fbb7b5c-aac2-4489-9a39-9a9eab68f484",
+      "entity_id": "zealot.talent.zealot_backstab_periodic_damage",
+      "selection_ids": [
+        "zealot.talent.zealot_backstab_periodic_damage"
+      ],
+      "talent_internal_name": "zealot_backstab_periodic_damage",
+      "type": "default",
+      "group_name": null,
+      "x": 1325,
+      "y": 2015.0000060658174,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_crits_rend",
+      "gradient_color": null,
+      "children": [
+        "node_09a97b15-e79d-4953-a189-f24beac4a40d",
+        "node_72f07a65-a83f-4264-99fe-6d3551d135e1"
+      ],
+      "parents": [
+        "node_94333107-ec28-44ca-b37e-2f714fc57ed5"
+      ]
+    },
+    {
+      "widget_name": "node_23264a41-d011-4792-a45e-ea68c7d5b27f",
+      "entity_id": "zealot.talent_modifier.zealot_fanatic_rage_improved",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_fanatic_rage_improved"
+      ],
+      "talent_internal_name": "zealot_fanatic_rage_improved",
+      "type": "keystone_modifier",
+      "group_name": null,
+      "x": 815,
+      "y": 2345,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_fanatic_rage_improved",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_e079e0d7-8d4b-45de-8e6b-5ed57f82c641"
+      ],
+      "parents": [
+        "node_9e19621f-a49c-46a1-837a-056d1ea935bb"
+      ]
+    },
+    {
+      "widget_name": "node_2593e8b0-8838-45fd-b0ff-ac8ea327fb14",
+      "entity_id": "zealot.talent.zealot_defensive_knockback",
+      "selection_ids": [
+        "zealot.talent.zealot_defensive_knockback"
+      ],
+      "talent_internal_name": "zealot_defensive_knockback",
+      "type": "default",
+      "group_name": null,
+      "x": 1175.0000274718752,
+      "y": 1414.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_defensive_knockback",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_b0817c40-bea3-4c97-b423-7645d970edbb"
+      ]
+    },
+    {
+      "widget_name": "node_2a3a12a6-983c-4998-8541-83e9266b031d",
+      "entity_id": "zealot.talent_modifier.zealot_shared_fanatic_rage",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_shared_fanatic_rage"
+      ],
+      "talent_internal_name": "zealot_shared_fanatic_rage",
+      "type": "keystone_modifier",
+      "group_name": null,
+      "x": 635,
+      "y": 2345,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_shared_fanatic_rage",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_e079e0d7-8d4b-45de-8e6b-5ed57f82c641"
+      ],
+      "parents": [
+        "node_9e19621f-a49c-46a1-837a-056d1ea935bb"
+      ]
+    },
+    {
+      "widget_name": "node_2a5c7e89-6bfb-4394-ad08-a7aa014c2cc5",
+      "entity_id": "zealot.talent.zealot_block_dodging_synergy",
+      "selection_ids": [
+        "zealot.talent.zealot_block_dodging_synergy"
+      ],
+      "talent_internal_name": "zealot_block_dodging_synergy",
+      "type": "default",
+      "group_name": null,
+      "x": 725.0000274718752,
+      "y": 1414.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_dodge_improvements",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_81b042fd-5ffb-4317-917d-8ea465181053"
+      ]
+    },
+    {
+      "widget_name": "node_2aa8cb10-8d27-4716-b001-85aa3bf9cc41",
+      "entity_id": "zealot.talent.zealot_increased_stagger_on_weakspot_melee",
+      "selection_ids": [
+        "zealot.talent.zealot_increased_stagger_on_weakspot_melee"
+      ],
+      "talent_internal_name": "zealot_increased_stagger_on_weakspot_melee",
+      "type": "default",
+      "group_name": null,
+      "x": 1445.0000274718752,
+      "y": 1414.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_increased_stagger_on_weakspot_melee",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [],
+      "parents": [
+        "node_7ee3c5f1-cc73-412b-9e62-f013af339bc4"
+      ]
+    },
+    {
+      "widget_name": "node_2d176f63-527c-4758-a1c1-eed8dfd6ac78",
+      "entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_toughness",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_martyrdom_grants_toughness"
+      ],
+      "talent_internal_name": "zealot_martyrdom_grants_toughness",
+      "type": "keystone_modifier",
+      "group_name": null,
+      "x": 995,
+      "y": 2375,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_martyrdom_grants_toughness",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_4db4d1f1-d5b8-4d3f-a352-b50194ef96e4"
+      ],
+      "parents": [
+        "node_00de95af-259d-4c82-ae16-91fa3b533ed9"
+      ]
+    },
+    {
+      "widget_name": "node_2e95d28a-ee00-43d3-8bff-5b2461aa8ecf",
+      "entity_id": null,
+      "selection_ids": [],
+      "talent_internal_name": null,
+      "type": "start",
+      "group_name": null,
+      "x": 1120,
+      "y": 370,
+      "cost": 0,
+      "max_points": 1,
+      "icon_key": "starting_points/starting_point_zealot",
+      "gradient_color": null,
+      "children": [
+        "node_88dfd7e8-94f2-4d58-8bfa-06e53dca3286",
+        "node_36d9319a-e724-493d-baf1-efdbd77f736c",
+        "node_80eebf49-eccb-40ef-b6ca-5916f3f088b0"
+      ],
+      "parents": []
+    },
+    {
+      "widget_name": "node_324c71cf-ae7e-4441-acb6-203a35ae041d",
+      "entity_id": "zealot.talent.zealot_stacking_melee_damage_after_dodge",
+      "selection_ids": [
+        "zealot.talent.zealot_stacking_melee_damage_after_dodge"
+      ],
+      "talent_internal_name": "zealot_stacking_melee_damage_after_dodge",
+      "type": "default",
+      "group_name": null,
+      "x": 1565,
+      "y": 2135.0000060658176,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_stacking_melee_damage_after_dodge",
+      "gradient_color": null,
+      "children": [
+        "node_86295aae-d8b7-4c66-9862-29d98ae57798",
+        "node_72f07a65-a83f-4264-99fe-6d3551d135e1"
+      ],
+      "parents": [
+        "node_df2f87b7-6abf-45d0-b9a7-bc99a34d5f82",
+        "node_72f07a65-a83f-4264-99fe-6d3551d135e1"
+      ]
+    },
+    {
+      "widget_name": "node_36d9319a-e724-493d-baf1-efdbd77f736c",
+      "entity_id": "zealot.talent.zealot_backstab_damage",
+      "selection_ids": [
+        "zealot.talent.zealot_backstab_damage"
+      ],
+      "talent_internal_name": "zealot_backstab_damage",
+      "type": "default",
+      "group_name": null,
+      "x": 1325,
+      "y": 425,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_backstab_damage",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_7e007113-75ff-4081-af02-5512abe200dc",
+        "node_b71544c5-61d9-4c06-8de3-0b834357c0c9"
+      ],
+      "parents": [
+        "node_2e95d28a-ee00-43d3-8bff-5b2461aa8ecf"
+      ]
+    },
+    {
+      "widget_name": "node_374f4845-26ff-40f4-a893-75b4e4ac324d",
+      "entity_id": "zealot.talent_modifier.zealot_increased_duration",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_increased_duration"
+      ],
+      "talent_internal_name": "zealot_increased_duration",
+      "type": "ability_modifier",
+      "group_name": null,
+      "x": 1625,
+      "y": 1775,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_increased_duration",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_de287eb8-d0e5-46ab-98c2-d71496a3bd4a"
+      ],
+      "parents": [
+        "node_f1b10508-b92d-45c4-8661-941d3eadac13"
+      ]
+    },
+    {
+      "widget_name": "node_3f11f576-443e-42b0-b6f9-cedcafb6a224",
+      "entity_id": "zealot.talent.zealot_bled_enemies_take_more_damage",
+      "selection_ids": [
+        "zealot.talent.zealot_bled_enemies_take_more_damage"
+      ],
+      "talent_internal_name": "zealot_bled_enemies_take_more_damage",
+      "type": "default",
+      "group_name": null,
+      "x": 605.0000274718752,
+      "y": 2135.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_bled_enemies_take_more_damage",
+      "gradient_color": null,
+      "children": [
+        "node_9e19621f-a49c-46a1-837a-056d1ea935bb",
+        "node_5f95669c-df41-4278-bbcb-01eb63cf1c85"
+      ],
+      "parents": [
+        "node_5f95669c-df41-4278-bbcb-01eb63cf1c85",
+        "node_0e6bc32b-bdab-4856-94e7-f141355cc9a0"
+      ]
+    },
+    {
+      "widget_name": "node_4411a1ae-e625-4cd6-9ae3-403b4a346801",
+      "entity_id": "zealot.aura.zealot_toughness_damage_reduction_coherency_improved",
+      "selection_ids": [
+        "zealot.aura.zealot_toughness_damage_reduction_coherency_improved"
+      ],
+      "talent_internal_name": "zealot_toughness_damage_reduction_coherency_improved",
+      "type": "aura",
+      "group_name": null,
+      "x": 800.0000274718752,
+      "y": 1519.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_aura_the_emperor_demand",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
+        "node_16bb35c6-cb04-4156-afa8-c9de10fdaba9"
+      ],
+      "parents": [
+        "node_81b042fd-5ffb-4317-917d-8ea465181053"
+      ]
+    },
+    {
+      "widget_name": "node_4afa8c9e-b961-4078-8231-963c3c9cbeab",
+      "entity_id": "zealot.talent.zealot_uninterruptible_no_slow_heavies",
+      "selection_ids": [
+        "zealot.talent.zealot_uninterruptible_no_slow_heavies"
+      ],
+      "talent_internal_name": "zealot_uninterruptible_no_slow_heavies",
+      "type": "default",
+      "group_name": null,
+      "x": 965.000004440097,
+      "y": 2134.9999877287837,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_uninterruptible_no_slow_heavies",
+      "gradient_color": null,
+      "children": [
+        "node_00de95af-259d-4c82-ae16-91fa3b533ed9",
+        "node_5b313422-552e-4e6c-b89c-d35acad88fc9"
+      ],
+      "parents": [
+        "node_e6beb408-b6d9-4b1b-b30c-91e9a92d0590",
+        "node_5b313422-552e-4e6c-b89c-d35acad88fc9"
+      ]
+    },
+    {
+      "widget_name": "node_4db4d1f1-d5b8-4d3f-a352-b50194ef96e4",
+      "entity_id": "zealot.talent_modifier.zealot_martyrdom_toughness_modifier",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_martyrdom_toughness_modifier"
+      ],
+      "talent_internal_name": "zealot_martyrdom_toughness_modifier",
+      "type": "keystone_modifier",
+      "group_name": null,
+      "x": 1085,
+      "y": 2495,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_bleed_kills_stacking_damage",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_9d8273b3-4c5d-4317-b480-54a125376f0d",
+        "node_2d176f63-527c-4758-a1c1-eed8dfd6ac78",
+        "node_ccd0b423-3a44-4f74-8339-7c7b65ba2d63"
+      ]
+    },
+    {
+      "widget_name": "node_4edf073e-7aa4-4234-9d90-c0551ccdfb32",
+      "entity_id": "zealot.talent_modifier.zealot_quickness_passive_dodge_stacks",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_quickness_passive_dodge_stacks"
+      ],
+      "talent_internal_name": "zealot_quickness_passive_dodge_stacks",
+      "type": "keystone_modifier",
+      "group_name": null,
+      "x": 1535,
+      "y": 2345,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_quickness_passive_dodge_stacks",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_8b72c79c-2b0f-4081-b919-f730aaee433d"
+      ],
+      "parents": [
+        "node_86295aae-d8b7-4c66-9862-29d98ae57798"
+      ]
+    },
+    {
+      "widget_name": "node_518fc5ca-a334-46b2-9177-42cc04f43002",
+      "entity_id": "zealot.talent_modifier.zealot_channel_grants_damage",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_channel_grants_damage"
+      ],
+      "talent_internal_name": "zealot_channel_grants_damage",
+      "type": "ability_modifier",
+      "group_name": null,
+      "x": 1235.0000274718752,
+      "y": 1775.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_channel_grants_damage",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [],
+      "parents": [
+        "node_c286494b-4e57-42a2-9c41-04809ee97c41"
+      ]
+    },
+    {
+      "widget_name": "node_5321e553-acec-4b27-9d43-a5af507fa953",
+      "entity_id": "zealot.talent_modifier.zealot_backstab_kills_restore_cd",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_backstab_kills_restore_cd"
+      ],
+      "talent_internal_name": "zealot_backstab_kills_restore_cd",
+      "type": "keystone_modifier",
+      "group_name": null,
+      "x": 1445,
+      "y": 2015.0000060658174,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_backstab_kills_restore_cd",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_72f07a65-a83f-4264-99fe-6d3551d135e1"
+      ],
+      "parents": [
+        "node_94333107-ec28-44ca-b37e-2f714fc57ed5"
+      ]
+    },
+    {
+      "widget_name": "node_53add57a-526d-4fc6-b8b2-1899b30b37a8",
+      "entity_id": "zealot.talent.zealot_heal_part_of_damage_taken",
+      "selection_ids": [
+        "zealot.talent.zealot_heal_part_of_damage_taken"
+      ],
+      "talent_internal_name": "zealot_heal_part_of_damage_taken",
+      "type": "default",
+      "group_name": null,
+      "x": 1205.0000274718752,
+      "y": 2135.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_heal_part_of_damage_taken",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_5b313422-552e-4e6c-b89c-d35acad88fc9",
+        "node_00de95af-259d-4c82-ae16-91fa3b533ed9"
+      ],
+      "parents": [
+        "node_a5510705-1db7-4086-aa35-04833ebb8527",
+        "node_5b313422-552e-4e6c-b89c-d35acad88fc9"
+      ]
+    },
+    {
+      "widget_name": "node_5832cbce-960a-4303-b772-3f8813fde6d0",
+      "entity_id": "zealot.talent.zealot_melee_crits_restore_stamina",
+      "selection_ids": [
+        "zealot.talent.zealot_melee_crits_restore_stamina"
+      ],
+      "talent_internal_name": "zealot_melee_crits_restore_stamina",
+      "type": "default",
+      "group_name": null,
+      "x": 845.0000274718752,
+      "y": 2135.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_melee_crits_restore_stamina",
+      "gradient_color": null,
+      "children": [
+        "node_9e19621f-a49c-46a1-837a-056d1ea935bb",
+        "node_5f95669c-df41-4278-bbcb-01eb63cf1c85"
+      ],
+      "parents": [
+        "node_5f95669c-df41-4278-bbcb-01eb63cf1c85",
+        "node_0dbb9346-b495-40d9-81d2-3d69b24056f7"
+      ]
+    },
+    {
+      "widget_name": "node_5a6a015e-77a8-4675-a51b-7fd233eb1b26",
+      "entity_id": "zealot.talent_modifier.zealot_restore_stealth_cd_on_damage",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_restore_stealth_cd_on_damage"
+      ],
+      "talent_internal_name": "zealot_restore_stealth_cd_on_damage",
+      "type": "keystone_modifier",
+      "group_name": null,
+      "x": 1085.0000274718752,
+      "y": 2014.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_restore_stealth_cd_on_damage",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_cb18fcab-1f3d-463c-b796-1fa04f33e026",
+        "node_5b313422-552e-4e6c-b89c-d35acad88fc9"
+      ],
+      "parents": [
+        "node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1"
+      ]
+    },
+    {
+      "widget_name": "node_5b313422-552e-4e6c-b89c-d35acad88fc9",
+      "entity_id": "zealot.talent.zealot_additional_wounds",
+      "selection_ids": [
+        "zealot.talent.zealot_additional_wounds"
+      ],
+      "talent_internal_name": "zealot_additional_wounds",
+      "type": "default",
+      "group_name": null,
+      "x": 1085.0000274718752,
+      "y": 2134.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_additional_wounds",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_00de95af-259d-4c82-ae16-91fa3b533ed9",
+        "node_53add57a-526d-4fc6-b8b2-1899b30b37a8",
+        "node_4afa8c9e-b961-4078-8231-963c3c9cbeab"
+      ],
+      "parents": [
+        "node_53add57a-526d-4fc6-b8b2-1899b30b37a8",
+        "node_5a6a015e-77a8-4675-a51b-7fd233eb1b26",
+        "node_4afa8c9e-b961-4078-8231-963c3c9cbeab",
+        "node_e6beb408-b6d9-4b1b-b30c-91e9a92d0590",
+        "node_a5510705-1db7-4086-aa35-04833ebb8527"
+      ]
+    },
+    {
+      "widget_name": "node_5bf70f4d-96f3-446a-8a74-f4b4db160455",
+      "entity_id": "zealot.ability.zealot_attack_speed_post_ability",
+      "selection_ids": [
+        "zealot.ability.zealot_attack_speed_post_ability"
+      ],
+      "talent_internal_name": "zealot_attack_speed_post_ability",
+      "type": "ability",
+      "group_name": null,
+      "x": 699.0000274718752,
+      "y": 1748.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_attack_speed_post_ability",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_1a024b73-36a7-4c24-a4be-f9844f422b4f",
+        "node_f562ee33-5fec-4016-a312-d10e7af1cd32",
+        "node_ac2f3e1c-641a-4132-98f5-5e13c199a21a",
+        "node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1"
+      ],
+      "parents": [
+        "node_16bb35c6-cb04-4156-afa8-c9de10fdaba9",
+        "node_624be7c0-5f2c-402d-81ba-f9d6de01897c"
+      ]
+    },
+    {
+      "widget_name": "node_5e1591e1-f942-4d8d-9b53-0d11864a59ef",
+      "entity_id": "zealot.talent_modifier.zealot_crits_grant_cd",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_crits_grant_cd"
+      ],
+      "talent_internal_name": "zealot_crits_grant_cd",
+      "type": "keystone_modifier",
+      "group_name": null,
+      "x": 725.0000274718752,
+      "y": 2014.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_crits_grant_cd",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_5f95669c-df41-4278-bbcb-01eb63cf1c85"
+      ],
+      "parents": [
+        "node_ac2f3e1c-641a-4132-98f5-5e13c199a21a"
+      ]
+    },
+    {
+      "widget_name": "node_5f6902c3-f9af-4bbf-b4ad-68a0d7da94a1",
+      "entity_id": "zealot.talent.zealot_offensive_vs_many",
+      "selection_ids": [
+        "zealot.talent.zealot_offensive_vs_many"
+      ],
+      "talent_internal_name": "zealot_offensive_vs_many",
+      "type": "default",
+      "group_name": null,
+      "x": 995,
+      "y": 1235.0000060658174,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_damage_after_heavy_attack",
+      "gradient_color": null,
+      "children": [
+        "node_b0817c40-bea3-4c97-b423-7645d970edbb"
+      ],
+      "parents": [
+        "node_18bc94af-2948-4b9a-84e8-5c9408b37343"
+      ]
+    },
+    {
+      "widget_name": "node_5f95669c-df41-4278-bbcb-01eb63cf1c85",
+      "entity_id": "zealot.talent.zealot_elite_kills_empowers",
+      "selection_ids": [
+        "zealot.talent.zealot_elite_kills_empowers"
+      ],
+      "talent_internal_name": "zealot_elite_kills_empowers",
+      "type": "default",
+      "group_name": null,
+      "x": 724.0000274718752,
+      "y": 2134.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_elite_kills_empowers",
+      "gradient_color": null,
+      "children": [
+        "node_9e19621f-a49c-46a1-837a-056d1ea935bb",
+        "node_5832cbce-960a-4303-b772-3f8813fde6d0",
+        "node_3f11f576-443e-42b0-b6f9-cedcafb6a224"
+      ],
+      "parents": [
+        "node_3f11f576-443e-42b0-b6f9-cedcafb6a224",
+        "node_5832cbce-960a-4303-b772-3f8813fde6d0",
+        "node_5e1591e1-f942-4d8d-9b53-0d11864a59ef",
+        "node_0dbb9346-b495-40d9-81d2-3d69b24056f7",
+        "node_0e6bc32b-bdab-4856-94e7-f141355cc9a0"
+      ]
+    },
+    {
+      "widget_name": "node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
+      "entity_id": "zealot.talent.base_toughness_node_buff_medium_2",
+      "selection_ids": [
+        "zealot.talent.base_toughness_node_buff_medium_2",
+        "shared.stat_node.toughness_boost"
+      ],
+      "talent_internal_name": "base_toughness_node_buff_medium_2",
+      "type": "stat",
+      "group_name": null,
+      "x": 1084.0000274718752,
+      "y": 1654.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_damage_boosts_movement",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_16bb35c6-cb04-4156-afa8-c9de10fdaba9",
+        "node_cadd181a-a8bc-4595-b335-a939925cbede",
+        "node_c286494b-4e57-42a2-9c41-04809ee97c41",
+        "node_f1b10508-b92d-45c4-8661-941d3eadac13",
+        "node_5bf70f4d-96f3-446a-8a74-f4b4db160455"
+      ],
+      "parents": [
+        "node_69985978-58fd-4215-9404-5ebfe1869483",
+        "node_a943bfdb-5117-4252-a3bb-ecaf704d5b9d",
+        "node_4411a1ae-e625-4cd6-9ae3-403b4a346801",
+        "node_cadd181a-a8bc-4595-b335-a939925cbede",
+        "node_16bb35c6-cb04-4156-afa8-c9de10fdaba9"
+      ]
+    },
+    {
+      "widget_name": "node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
+      "entity_id": "zealot.talent.zealot_more_toughness_on_melee",
+      "selection_ids": [
+        "zealot.talent.zealot_more_toughness_on_melee"
+      ],
+      "talent_internal_name": "zealot_more_toughness_on_melee",
+      "type": "default",
+      "group_name": null,
+      "x": 1085,
+      "y": 545,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_more_toughness_on_melee",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_a827f270-b198-4fa8-be77-59feaebb2fc1",
+        "node_664d1608-49a2-47bc-8aa6-b2c9b655e865",
+        "node_7e007113-75ff-4081-af02-5512abe200dc",
+        "node_019a38fd-8454-4e5c-961b-7e74d408f0af"
+      ],
+      "parents": [
+        "node_88dfd7e8-94f2-4d58-8bfa-06e53dca3286",
+        "node_019a38fd-8454-4e5c-961b-7e74d408f0af",
+        "node_7e007113-75ff-4081-af02-5512abe200dc"
+      ]
+    },
+    {
+      "widget_name": "node_664d1608-49a2-47bc-8aa6-b2c9b655e865",
+      "entity_id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+      "selection_ids": [
+        "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge"
+      ],
+      "talent_internal_name": "zealot_increased_crit_and_weakspot_damage_after_dodge",
+      "type": "default",
+      "group_name": null,
+      "x": 1205.0000274718752,
+      "y": 664.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_increased_crit_and_weakspot_damage_after_dodge",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_cf60d947-e174-49d8-881d-79aaa602cc4d",
+        "node_a827f270-b198-4fa8-be77-59feaebb2fc1"
+      ],
+      "parents": [
+        "node_b71544c5-61d9-4c06-8de3-0b834357c0c9",
+        "node_7e007113-75ff-4081-af02-5512abe200dc",
+        "node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
+        "node_a827f270-b198-4fa8-be77-59feaebb2fc1"
+      ]
+    },
+    {
+      "widget_name": "node_69985978-58fd-4215-9404-5ebfe1869483",
+      "entity_id": "zealot.aura.zealot_corruption_healing_coherency_improved",
+      "selection_ids": [
+        "zealot.aura.zealot_corruption_healing_coherency_improved"
+      ],
+      "talent_internal_name": "zealot_corruption_healing_coherency_improved",
+      "type": "aura",
+      "group_name": null,
+      "x": 1070.0000274718752,
+      "y": 1520.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_aura_cleansing_prayer",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_624be7c0-5f2c-402d-81ba-f9d6de01897c"
+      ],
+      "parents": [
+        "node_b0817c40-bea3-4c97-b423-7645d970edbb"
+      ]
+    },
+    {
+      "widget_name": "node_6ab8617d-6ddd-4d56-a6c3-7ead4e4f1648",
+      "entity_id": "zealot.talent.zealot_multi_hits_grant_impact_and_uninterruptible",
+      "selection_ids": [
+        "zealot.talent.zealot_multi_hits_grant_impact_and_uninterruptible"
+      ],
+      "talent_internal_name": "zealot_multi_hits_grant_impact_and_uninterruptible",
+      "type": "default",
+      "group_name": null,
+      "x": 905.0000274718752,
+      "y": 1234.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_multi_hits_grant_impact_and_uninterruptible",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_81b042fd-5ffb-4317-917d-8ea465181053"
+      ],
+      "parents": [
+        "node_18bd9f66-02ab-4d6b-93ef-c860bbdf62e4"
+      ]
+    },
+    {
+      "widget_name": "node_72c78ca8-a422-429a-90cf-b85d0b36aa19",
+      "entity_id": "zealot.talent_modifier.zealot_channel_grants_toughness_damage_reduction",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_channel_grants_toughness_damage_reduction"
+      ],
+      "talent_internal_name": "zealot_channel_grants_toughness_damage_reduction",
+      "type": "ability_modifier",
+      "group_name": null,
+      "x": 935.0000274718752,
+      "y": 1775.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_channel_grants_toughness_damage_reduction",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [],
+      "parents": [
+        "node_c286494b-4e57-42a2-9c41-04809ee97c41"
+      ]
+    },
+    {
+      "widget_name": "node_72f07a65-a83f-4264-99fe-6d3551d135e1",
+      "entity_id": "zealot.talent.zealot_sprint_improvements",
+      "selection_ids": [
+        "zealot.talent.zealot_sprint_improvements"
+      ],
+      "talent_internal_name": "zealot_sprint_improvements",
+      "type": "default",
+      "group_name": null,
+      "x": 1445,
+      "y": 2135.0000060658176,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_improved_sprint",
+      "gradient_color": null,
+      "children": [
+        "node_86295aae-d8b7-4c66-9862-29d98ae57798",
+        "node_09a97b15-e79d-4953-a189-f24beac4a40d",
+        "node_324c71cf-ae7e-4441-acb6-203a35ae041d"
+      ],
+      "parents": [
+        "node_5321e553-acec-4b27-9d43-a5af507fa953",
+        "node_09a97b15-e79d-4953-a189-f24beac4a40d",
+        "node_324c71cf-ae7e-4441-acb6-203a35ae041d",
+        "node_df2f87b7-6abf-45d0-b9a7-bc99a34d5f82",
+        "node_1fbb7b5c-aac2-4489-9a39-9a9eab68f484"
+      ]
+    },
+    {
+      "widget_name": "node_7e007113-75ff-4081-af02-5512abe200dc",
+      "entity_id": "zealot.talent.zealot_toughness_on_dodge",
+      "selection_ids": [
+        "zealot.talent.zealot_toughness_on_dodge"
+      ],
+      "talent_internal_name": "zealot_toughness_on_dodge",
+      "type": "default",
+      "group_name": null,
+      "x": 1205,
+      "y": 545,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_toughness_on_dodge",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_664d1608-49a2-47bc-8aa6-b2c9b655e865",
+        "node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
+        "node_b71544c5-61d9-4c06-8de3-0b834357c0c9"
+      ],
+      "parents": [
+        "node_88dfd7e8-94f2-4d58-8bfa-06e53dca3286",
+        "node_36d9319a-e724-493d-baf1-efdbd77f736c",
+        "node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
+        "node_b71544c5-61d9-4c06-8de3-0b834357c0c9"
+      ]
+    },
+    {
+      "widget_name": "node_7ee3c5f1-cc73-412b-9e62-f013af339bc4",
+      "entity_id": "zealot.talent.zealot_reduced_damage_after_dodge",
+      "selection_ids": [
+        "zealot.talent.zealot_reduced_damage_after_dodge"
+      ],
+      "talent_internal_name": "zealot_reduced_damage_after_dodge",
+      "type": "default",
+      "group_name": null,
+      "x": 1355.0000274718752,
+      "y": 1324.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_reduced_damage_after_dodge",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_9c80efef-1de3-44ab-ab0c-44fb665ad925",
+        "node_a943bfdb-5117-4252-a3bb-ecaf704d5b9d",
+        "node_2aa8cb10-8d27-4716-b001-85aa3bf9cc41",
+        "node_b0817c40-bea3-4c97-b423-7645d970edbb"
+      ],
+      "parents": [
+        "node_b0817c40-bea3-4c97-b423-7645d970edbb",
+        "node_e35a5d28-2c2c-493c-a5bb-c5c107fccd07",
+        "node_d98a3747-d645-472e-8188-38903a86cf0e"
+      ]
+    },
+    {
+      "widget_name": "node_80eebf49-eccb-40ef-b6ca-5916f3f088b0",
+      "entity_id": "zealot.talent.zealot_increase_ranged_close_damage",
+      "selection_ids": [
+        "zealot.talent.zealot_increase_ranged_close_damage"
+      ],
+      "talent_internal_name": "zealot_increase_ranged_close_damage",
+      "type": "default",
+      "group_name": null,
+      "x": 845,
+      "y": 425,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_increase_ranged_close_damage",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_b5ef81ae-d72f-4e83-8fd4-077fad7f6fe0",
+        "node_019a38fd-8454-4e5c-961b-7e74d408f0af"
+      ],
+      "parents": [
+        "node_2e95d28a-ee00-43d3-8bff-5b2461aa8ecf"
+      ]
+    },
+    {
+      "widget_name": "node_81b042fd-5ffb-4317-917d-8ea465181053",
+      "entity_id": "zealot.talent.zealot_attack_speed",
+      "selection_ids": [
+        "zealot.talent.zealot_attack_speed"
+      ],
+      "talent_internal_name": "zealot_attack_speed",
+      "type": "default",
+      "group_name": null,
+      "x": 815.0000274718752,
+      "y": 1324.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_attack_speed",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_4411a1ae-e625-4cd6-9ae3-403b4a346801",
+        "node_b0817c40-bea3-4c97-b423-7645d970edbb",
+        "node_2a5c7e89-6bfb-4394-ad08-a7aa014c2cc5",
+        "node_d80353e9-c157-4d7d-b736-33b0666def5e"
+      ],
+      "parents": [
+        "node_6ab8617d-6ddd-4d56-a6c3-7ead4e4f1648",
+        "node_b0817c40-bea3-4c97-b423-7645d970edbb",
+        "node_cb819666-6781-499a-bb33-9a43ed61b4b3"
+      ]
+    },
+    {
+      "widget_name": "node_86295aae-d8b7-4c66-9862-29d98ae57798",
+      "entity_id": "zealot.keystone.zealot_quickness_passive",
+      "selection_ids": [
+        "zealot.keystone.zealot_quickness_passive"
+      ],
+      "talent_internal_name": "zealot_quickness_passive",
+      "type": "keystone",
+      "group_name": null,
+      "x": 1430.0000274718752,
+      "y": 2240.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_keystone_quickness",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_1473ca58-1a77-4543-b2e5-9c4491d240c8",
+        "node_4edf073e-7aa4-4234-9d90-c0551ccdfb32"
+      ],
+      "parents": [
+        "node_09a97b15-e79d-4953-a189-f24beac4a40d",
+        "node_72f07a65-a83f-4264-99fe-6d3551d135e1",
+        "node_324c71cf-ae7e-4441-acb6-203a35ae041d"
+      ]
+    },
+    {
+      "widget_name": "node_88dfd7e8-94f2-4d58-8bfa-06e53dca3286",
+      "entity_id": "zealot.talent.zealot_multi_hits_increase_damage",
+      "selection_ids": [
+        "zealot.talent.zealot_multi_hits_increase_damage"
+      ],
+      "talent_internal_name": "zealot_multi_hits_increase_damage",
+      "type": "default",
+      "group_name": null,
+      "x": 1085,
+      "y": 425,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_multi_hits_increase_damage",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_019a38fd-8454-4e5c-961b-7e74d408f0af",
+        "node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
+        "node_7e007113-75ff-4081-af02-5512abe200dc"
+      ],
+      "parents": [
+        "node_2e95d28a-ee00-43d3-8bff-5b2461aa8ecf"
+      ]
+    },
+    {
+      "widget_name": "node_8b72c79c-2b0f-4081-b919-f730aaee433d",
+      "entity_id": "zealot.talent_modifier.zealot_quickness_increased_duration",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_quickness_increased_duration"
+      ],
+      "talent_internal_name": "zealot_quickness_increased_duration",
+      "type": "keystone_modifier",
+      "group_name": null,
+      "x": 1445.0000514746073,
+      "y": 2435.0000216660683,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_always_in_coherency",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_1473ca58-1a77-4543-b2e5-9c4491d240c8",
+        "node_4edf073e-7aa4-4234-9d90-c0551ccdfb32"
+      ]
+    },
+    {
+      "widget_name": "node_94333107-ec28-44ca-b37e-2f714fc57ed5",
+      "entity_id": "zealot.talent.base_movement_speed_node_buff_low_4",
+      "selection_ids": [
+        "zealot.talent.base_movement_speed_node_buff_low_4",
+        "shared.stat_node.movement_speed_boost"
+      ],
+      "talent_internal_name": "base_movement_speed_node_buff_low_4",
+      "type": "stat",
+      "group_name": null,
+      "x": 1444.0000274718752,
+      "y": 1894.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": null,
+      "gradient_color": null,
+      "children": [
+        "node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
+        "node_5321e553-acec-4b27-9d43-a5af507fa953",
+        "node_1fbb7b5c-aac2-4489-9a39-9a9eab68f484",
+        "node_df2f87b7-6abf-45d0-b9a7-bc99a34d5f82"
+      ],
+      "parents": [
+        "node_f1b10508-b92d-45c4-8661-941d3eadac13",
+        "node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1"
+      ]
+    },
+    {
+      "widget_name": "node_998a79be-ed3f-4b78-acb5-cb788438a76c",
+      "entity_id": "zealot.ability.zealot_flame_grenade",
+      "selection_ids": [
+        "zealot.ability.zealot_flame_grenade"
+      ],
+      "talent_internal_name": "zealot_flame_grenade",
+      "type": "tactical",
+      "group_name": null,
+      "x": 1070.0000274718752,
+      "y": 889.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_blitz_fire_grenade",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_0581bad8-f8c0-4321-a90b-756013fd3981"
+      ],
+      "parents": [
+        "node_cf60d947-e174-49d8-881d-79aaa602cc4d"
+      ]
+    },
+    {
+      "widget_name": "node_9b7ccd7d-8eba-4b0e-9759-7e674c7dfde9",
+      "entity_id": "zealot.talent.zealot_damage_boosts_movement",
+      "selection_ids": [
+        "zealot.talent.zealot_damage_boosts_movement"
+      ],
+      "talent_internal_name": "zealot_damage_boosts_movement",
+      "type": "default",
+      "group_name": null,
+      "x": 1355.0000274718752,
+      "y": 1144.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_damage_boosts_movement",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_e35a5d28-2c2c-493c-a5bb-c5c107fccd07",
+        "node_d98a3747-d645-472e-8188-38903a86cf0e"
+      ],
+      "parents": [
+        "node_0581bad8-f8c0-4321-a90b-756013fd3981"
+      ]
+    },
+    {
+      "widget_name": "node_9c80efef-1de3-44ab-ab0c-44fb665ad925",
+      "entity_id": "zealot.talent.zealot_improved_weapon_handling_after_dodge",
+      "selection_ids": [
+        "zealot.talent.zealot_improved_weapon_handling_after_dodge"
+      ],
+      "talent_internal_name": "zealot_improved_weapon_handling_after_dodge",
+      "type": "default",
+      "group_name": null,
+      "x": 1265.0000274718752,
+      "y": 1414.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_improved_weapon_handling_after_dodge",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_7ee3c5f1-cc73-412b-9e62-f013af339bc4"
+      ]
+    },
+    {
+      "widget_name": "node_9d8273b3-4c5d-4317-b480-54a125376f0d",
+      "entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_attack_speed",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_martyrdom_grants_attack_speed"
+      ],
+      "talent_internal_name": "zealot_martyrdom_grants_attack_speed",
+      "type": "keystone_modifier",
+      "group_name": null,
+      "x": 1175,
+      "y": 2375,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_martyrdom_grants_attack_speed",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_4db4d1f1-d5b8-4d3f-a352-b50194ef96e4"
+      ],
+      "parents": [
+        "node_00de95af-259d-4c82-ae16-91fa3b533ed9"
+      ]
+    },
+    {
+      "widget_name": "node_9e19621f-a49c-46a1-837a-056d1ea935bb",
+      "entity_id": "zealot.keystone.zealot_fanatic_rage",
+      "selection_ids": [
+        "zealot.keystone.zealot_fanatic_rage"
+      ],
+      "talent_internal_name": "zealot_fanatic_rage",
+      "type": "keystone",
+      "group_name": null,
+      "x": 710.0000274718752,
+      "y": 2240.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_keystone_fanatic_rage",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_2a3a12a6-983c-4998-8541-83e9266b031d",
+        "node_23264a41-d011-4792-a45e-ea68c7d5b27f"
+      ],
+      "parents": [
+        "node_5f95669c-df41-4278-bbcb-01eb63cf1c85",
+        "node_5832cbce-960a-4303-b772-3f8813fde6d0",
+        "node_3f11f576-443e-42b0-b6f9-cedcafb6a224"
+      ]
+    },
+    {
+      "widget_name": "node_a5510705-1db7-4086-aa35-04833ebb8527",
+      "entity_id": "zealot.talent.zealot_reduced_damage_on_wound",
+      "selection_ids": [
+        "zealot.talent.zealot_reduced_damage_on_wound"
+      ],
+      "talent_internal_name": "zealot_reduced_damage_on_wound",
+      "type": "default",
+      "group_name": null,
+      "x": 1205.0000274718752,
+      "y": 2014.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_reduced_damage_on_wound",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_53add57a-526d-4fc6-b8b2-1899b30b37a8",
+        "node_5b313422-552e-4e6c-b89c-d35acad88fc9"
+      ],
+      "parents": [
+        "node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1"
+      ]
+    },
+    {
+      "widget_name": "node_a827f270-b198-4fa8-be77-59feaebb2fc1",
+      "entity_id": "zealot.talent.zealot_increased_damage_vs_resilient",
+      "selection_ids": [
+        "zealot.talent.zealot_increased_damage_vs_resilient"
+      ],
+      "talent_internal_name": "zealot_increased_damage_vs_resilient",
+      "type": "default",
+      "group_name": null,
+      "x": 965,
+      "y": 665,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_increased_damage_vs_resilient",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_cf60d947-e174-49d8-881d-79aaa602cc4d",
+        "node_664d1608-49a2-47bc-8aa6-b2c9b655e865"
+      ],
+      "parents": [
+        "node_64bdbaac-0e34-4440-812b-6ce9003ac0f9",
+        "node_019a38fd-8454-4e5c-961b-7e74d408f0af",
+        "node_b5ef81ae-d72f-4e83-8fd4-077fad7f6fe0",
+        "node_664d1608-49a2-47bc-8aa6-b2c9b655e865"
+      ]
+    },
+    {
+      "widget_name": "node_a943bfdb-5117-4252-a3bb-ecaf704d5b9d",
+      "entity_id": "zealot.aura.zealot_stamina_cost_multiplier_aura",
+      "selection_ids": [
+        "zealot.aura.zealot_stamina_cost_multiplier_aura"
+      ],
+      "talent_internal_name": "zealot_stamina_cost_multiplier_aura",
+      "type": "aura",
+      "group_name": null,
+      "x": 1340.0000274718752,
+      "y": 1519.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_default_general_talent",
+      "gradient_color": null,
+      "children": [
+        "node_624be7c0-5f2c-402d-81ba-f9d6de01897c",
+        "node_cadd181a-a8bc-4595-b335-a939925cbede"
+      ],
+      "parents": [
+        "node_7ee3c5f1-cc73-412b-9e62-f013af339bc4"
+      ]
+    },
+    {
+      "widget_name": "node_ac2f3e1c-641a-4132-98f5-5e13c199a21a",
+      "entity_id": "zealot.talent.base_melee_damage_node_buff_medium_1",
+      "selection_ids": [
+        "zealot.talent.base_melee_damage_node_buff_medium_1",
+        "shared.stat_node.melee_damage_boost"
+      ],
+      "talent_internal_name": "base_melee_damage_node_buff_medium_1",
+      "type": "stat",
+      "group_name": null,
+      "x": 724.0000274718752,
+      "y": 1894.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_default_general_talent",
+      "gradient_color": null,
+      "children": [
+        "node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
+        "node_0dbb9346-b495-40d9-81d2-3d69b24056f7",
+        "node_0e6bc32b-bdab-4856-94e7-f141355cc9a0",
+        "node_5e1591e1-f942-4d8d-9b53-0d11864a59ef"
+      ],
+      "parents": [
+        "node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
+        "node_5bf70f4d-96f3-446a-8a74-f4b4db160455"
+      ]
+    },
+    {
+      "widget_name": "node_b0817c40-bea3-4c97-b423-7645d970edbb",
+      "entity_id": "zealot.talent.zealot_revive_speed",
+      "selection_ids": [
+        "zealot.talent.zealot_revive_speed"
+      ],
+      "talent_internal_name": "zealot_revive_speed",
+      "type": "default",
+      "group_name": null,
+      "x": 1085.0000274718752,
+      "y": 1324.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_revive_speed",
+      "gradient_color": null,
+      "children": [
+        "node_69985978-58fd-4215-9404-5ebfe1869483",
+        "node_2593e8b0-8838-45fd-b0ff-ac8ea327fb14",
+        "node_81b042fd-5ffb-4317-917d-8ea465181053",
+        "node_7ee3c5f1-cc73-412b-9e62-f013af339bc4",
+        "node_16cdb92c-ed3f-48f6-9d30-bbe86d8eae5d"
+      ],
+      "parents": [
+        "node_101154ca-57f6-45a4-beea-41dcd21be41f",
+        "node_81b042fd-5ffb-4317-917d-8ea465181053",
+        "node_7ee3c5f1-cc73-412b-9e62-f013af339bc4",
+        "node_5f6902c3-f9af-4bbf-b4ad-68a0d7da94a1"
+      ]
+    },
+    {
+      "widget_name": "node_b5ef81ae-d72f-4e83-8fd4-077fad7f6fe0",
+      "entity_id": "zealot.talent.zealot_toughness_on_ranged_kill",
+      "selection_ids": [
+        "zealot.talent.zealot_toughness_on_ranged_kill"
+      ],
+      "talent_internal_name": "zealot_toughness_on_ranged_kill",
+      "type": "default",
+      "group_name": null,
+      "x": 845,
+      "y": 545,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_default_general_talent",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_a827f270-b198-4fa8-be77-59feaebb2fc1",
+        "node_019a38fd-8454-4e5c-961b-7e74d408f0af"
+      ],
+      "parents": [
+        "node_80eebf49-eccb-40ef-b6ca-5916f3f088b0",
+        "node_019a38fd-8454-4e5c-961b-7e74d408f0af"
+      ]
+    },
+    {
+      "widget_name": "node_b71544c5-61d9-4c06-8de3-0b834357c0c9",
+      "entity_id": "zealot.talent.zealot_toughness_on_heavy_kills",
+      "selection_ids": [
+        "zealot.talent.zealot_toughness_on_heavy_kills"
+      ],
+      "talent_internal_name": "zealot_toughness_on_heavy_kills",
+      "type": "default",
+      "group_name": null,
+      "x": 1325,
+      "y": 545,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_toughness_on_heavy_kills",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_664d1608-49a2-47bc-8aa6-b2c9b655e865",
+        "node_7e007113-75ff-4081-af02-5512abe200dc"
+      ],
+      "parents": [
+        "node_36d9319a-e724-493d-baf1-efdbd77f736c",
+        "node_7e007113-75ff-4081-af02-5512abe200dc"
+      ]
+    },
+    {
+      "widget_name": "node_c286494b-4e57-42a2-9c41-04809ee97c41",
+      "entity_id": "zealot.ability.zealot_bolstering_prayer",
+      "selection_ids": [
+        "zealot.ability.zealot_bolstering_prayer"
+      ],
+      "talent_internal_name": "zealot_bolstering_prayer",
+      "type": "ability",
+      "group_name": null,
+      "x": 1059.0000274718752,
+      "y": 1749.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_ability_bolstering_prayer",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [
+        "node_72c78ca8-a422-429a-90cf-b85d0b36aa19",
+        "node_518fc5ca-a334-46b2-9177-42cc04f43002",
+        "node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1"
+      ],
+      "parents": [
+        "node_624be7c0-5f2c-402d-81ba-f9d6de01897c"
+      ]
+    },
+    {
+      "widget_name": "node_cb819666-6781-499a-bb33-9a43ed61b4b3",
+      "entity_id": "zealot.talent.zealot_more_damage_when_low_on_stamina",
+      "selection_ids": [
+        "zealot.talent.zealot_more_damage_when_low_on_stamina"
+      ],
+      "talent_internal_name": "zealot_more_damage_when_low_on_stamina",
+      "type": "default",
+      "group_name": null,
+      "x": 725,
+      "y": 1235,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_more_damage_when_low_on_stamina",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_81b042fd-5ffb-4317-917d-8ea465181053"
+      ],
+      "parents": [
+        "node_18bd9f66-02ab-4d6b-93ef-c860bbdf62e4"
+      ]
+    },
+    {
+      "widget_name": "node_ccd0b423-3a44-4f74-8339-7c7b65ba2d63",
+      "entity_id": "zealot.talent_modifier.zealot_corruption_resistance_stacking",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_corruption_resistance_stacking"
+      ],
+      "talent_internal_name": "zealot_corruption_resistance_stacking",
+      "type": "keystone_modifier",
+      "group_name": null,
+      "x": 1085,
+      "y": 2375,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_reduced_corruption_damage_taken",
+      "gradient_color": null,
+      "children": [
+        "node_4db4d1f1-d5b8-4d3f-a352-b50194ef96e4"
+      ],
+      "parents": [
+        "node_00de95af-259d-4c82-ae16-91fa3b533ed9"
+      ]
+    },
+    {
+      "widget_name": "node_cf60d947-e174-49d8-881d-79aaa602cc4d",
+      "entity_id": "zealot.talent.base_melee_damage_node_buff_medium_4",
+      "selection_ids": [
+        "zealot.talent.base_melee_damage_node_buff_medium_4",
+        "shared.stat_node.melee_damage_boost"
+      ],
+      "talent_internal_name": "base_melee_damage_node_buff_medium_4",
+      "type": "stat",
+      "group_name": null,
+      "x": 1084.0000274718752,
+      "y": 784.0000239452716,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_resist_death",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_efeefa9a-f503-46e7-afae-a61d76ad3a7e",
+        "node_998a79be-ed3f-4b78-acb5-cb788438a76c",
+        "node_f830003e-bb99-448f-aac6-f8a4dbf61d50"
+      ],
+      "parents": [
+        "node_a827f270-b198-4fa8-be77-59feaebb2fc1",
+        "node_664d1608-49a2-47bc-8aa6-b2c9b655e865"
+      ]
+    },
+    {
+      "widget_name": "node_d4c52149-9efe-492d-947e-f4c9e1b4bef7",
+      "entity_id": "zealot.talent_modifier.zealot_leaving_stealth_restores_toughness",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_leaving_stealth_restores_toughness"
+      ],
+      "talent_internal_name": "zealot_leaving_stealth_restores_toughness",
+      "type": "ability_modifier",
+      "group_name": null,
+      "x": 1565,
+      "y": 1895,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_leaving_stealth_restores_toughness",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_de287eb8-d0e5-46ab-98c2-d71496a3bd4a"
+      ],
+      "parents": [
+        "node_f1b10508-b92d-45c4-8661-941d3eadac13"
+      ]
+    },
+    {
+      "widget_name": "node_d80353e9-c157-4d7d-b736-33b0666def5e",
+      "entity_id": "zealot.talent.zealot_stamina_on_block_break",
+      "selection_ids": [
+        "zealot.talent.zealot_stamina_on_block_break"
+      ],
+      "talent_internal_name": "zealot_stamina_on_block_break",
+      "type": "default",
+      "group_name": null,
+      "x": 905,
+      "y": 1415,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_multihits_restore_stamina",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_81b042fd-5ffb-4317-917d-8ea465181053"
+      ]
+    },
+    {
+      "widget_name": "node_d98a3747-d645-472e-8188-38903a86cf0e",
+      "entity_id": "zealot.talent.zealot_reload_from_backstab",
+      "selection_ids": [
+        "zealot.talent.zealot_reload_from_backstab"
+      ],
+      "talent_internal_name": "zealot_reload_from_backstab",
+      "type": "default",
+      "group_name": null,
+      "x": 1445,
+      "y": 1235,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_increased_reload_speed_on_melee_kills",
+      "gradient_color": null,
+      "children": [
+        "node_7ee3c5f1-cc73-412b-9e62-f013af339bc4"
+      ],
+      "parents": [
+        "node_9b7ccd7d-8eba-4b0e-9759-7e674c7dfde9"
+      ]
+    },
+    {
+      "widget_name": "node_de287eb8-d0e5-46ab-98c2-d71496a3bd4a",
+      "entity_id": "zealot.talent_modifier.zealot_stealth_cooldown_regeneration",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_stealth_cooldown_regeneration"
+      ],
+      "talent_internal_name": "zealot_stealth_cooldown_regeneration",
+      "type": "ability_modifier",
+      "group_name": null,
+      "x": 1715,
+      "y": 1895,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_stealth_more_cd_more_damage",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_d4c52149-9efe-492d-947e-f4c9e1b4bef7",
+        "node_374f4845-26ff-40f4-a893-75b4e4ac324d",
+        "node_748ebcf8-f38e-4ff1-badf-8f74f9b2efb7"
+      ]
+    },
+    {
+      "widget_name": "node_df2f87b7-6abf-45d0-b9a7-bc99a34d5f82",
+      "entity_id": "zealot.talent.zealot_weakspot_damage_reduction",
+      "selection_ids": [
+        "zealot.talent.zealot_weakspot_damage_reduction"
+      ],
+      "talent_internal_name": "zealot_weakspot_damage_reduction",
+      "type": "default",
+      "group_name": null,
+      "x": 1565,
+      "y": 2015.0000060658174,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_weakspot_damage_reduction",
+      "gradient_color": null,
+      "children": [
+        "node_324c71cf-ae7e-4441-acb6-203a35ae041d",
+        "node_72f07a65-a83f-4264-99fe-6d3551d135e1"
+      ],
+      "parents": [
+        "node_94333107-ec28-44ca-b37e-2f714fc57ed5"
+      ]
+    },
+    {
+      "widget_name": "node_e079e0d7-8d4b-45de-8e6b-5ed57f82c641",
+      "entity_id": "zealot.talent_modifier.zealot_fanatic_rage_toughness_on_max",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_fanatic_rage_toughness_on_max"
+      ],
+      "talent_internal_name": "zealot_fanatic_rage_toughness_on_max",
+      "type": "keystone_modifier",
+      "group_name": null,
+      "x": 725,
+      "y": 2435,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_fanatic_rage_toughness_on_max",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_01",
+      "children": [],
+      "parents": [
+        "node_2a3a12a6-983c-4998-8541-83e9266b031d",
+        "node_23264a41-d011-4792-a45e-ea68c7d5b27f"
+      ]
+    },
+    {
+      "widget_name": "node_e35a5d28-2c2c-493c-a5bb-c5c107fccd07",
+      "entity_id": "zealot.talent.zealot_damage_vs_nonthreat",
+      "selection_ids": [
+        "zealot.talent.zealot_damage_vs_nonthreat"
+      ],
+      "talent_internal_name": "zealot_damage_vs_nonthreat",
+      "type": "default",
+      "group_name": null,
+      "x": 1265,
+      "y": 1235,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_damage_vs_nonthreat",
+      "gradient_color": null,
+      "children": [
+        "node_7ee3c5f1-cc73-412b-9e62-f013af339bc4"
+      ],
+      "parents": [
+        "node_9b7ccd7d-8eba-4b0e-9759-7e674c7dfde9"
+      ]
+    },
+    {
+      "widget_name": "node_e6beb408-b6d9-4b1b-b30c-91e9a92d0590",
+      "entity_id": "zealot.talent.zealot_push_attacks_attack_speed",
+      "selection_ids": [
+        "zealot.talent.zealot_push_attacks_attack_speed"
+      ],
+      "talent_internal_name": "zealot_push_attacks_attack_speed",
+      "type": "default",
+      "group_name": null,
+      "x": 965.000004440097,
+      "y": 2014.9999877287837,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_cleave_impact_post_push",
+      "gradient_color": null,
+      "children": [
+        "node_4afa8c9e-b961-4078-8231-963c3c9cbeab",
+        "node_5b313422-552e-4e6c-b89c-d35acad88fc9"
+      ],
+      "parents": [
+        "node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1"
+      ]
+    },
+    {
+      "widget_name": "node_efeefa9a-f503-46e7-afae-a61d76ad3a7e",
+      "entity_id": "zealot.ability.zealot_improved_stun_grenade",
+      "selection_ids": [
+        "zealot.ability.zealot_improved_stun_grenade"
+      ],
+      "talent_internal_name": "zealot_improved_stun_grenade",
+      "type": "tactical",
+      "group_name": null,
+      "x": 830.0000274718752,
+      "y": 889.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_improved_stun_grenade",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_0581bad8-f8c0-4321-a90b-756013fd3981"
+      ],
+      "parents": [
+        "node_cf60d947-e174-49d8-881d-79aaa602cc4d"
+      ]
+    },
+    {
+      "widget_name": "node_f1b10508-b92d-45c4-8661-941d3eadac13",
+      "entity_id": "zealot.ability.zealot_stealth",
+      "selection_ids": [
+        "zealot.ability.zealot_stealth"
+      ],
+      "talent_internal_name": "zealot_stealth",
+      "type": "ability",
+      "group_name": null,
+      "x": 1419.0000274718752,
+      "y": 1748.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_ability_stealth",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_374f4845-26ff-40f4-a893-75b4e4ac324d",
+        "node_94333107-ec28-44ca-b37e-2f714fc57ed5",
+        "node_13a3b9c2-d919-4e05-9ec4-01ee813c01f1",
+        "node_d4c52149-9efe-492d-947e-f4c9e1b4bef7",
+        "node_748ebcf8-f38e-4ff1-badf-8f74f9b2efb7"
+      ],
+      "parents": [
+        "node_2a4793f6-24fb-4f75-b087-9e763d5cc694",
+        "node_cadd181a-a8bc-4595-b335-a939925cbede",
+        "node_624be7c0-5f2c-402d-81ba-f9d6de01897c"
+      ]
+    },
+    {
+      "widget_name": "node_f562ee33-5fec-4016-a312-d10e7af1cd32",
+      "entity_id": "zealot.talent_modifier.zealot_additional_charge_of_ability",
+      "selection_ids": [
+        "zealot.talent_modifier.zealot_additional_charge_of_ability"
+      ],
+      "talent_internal_name": "zealot_additional_charge_of_ability",
+      "type": "ability_modifier",
+      "group_name": null,
+      "x": 605.0000274718752,
+      "y": 1864.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_additional_charge_of_ability",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_02",
+      "children": [
+        "node_c2d4e355-cfd0-4ca6-8068-a5bc7335ffbd"
+      ],
+      "parents": [
+        "node_5bf70f4d-96f3-446a-8a74-f4b4db160455"
+      ]
+    },
+    {
+      "widget_name": "node_f830003e-bb99-448f-aac6-f8a4dbf61d50",
+      "entity_id": "zealot.ability.zealot_throwing_knives",
+      "selection_ids": [
+        "zealot.ability.zealot_throwing_knives"
+      ],
+      "talent_internal_name": "zealot_throwing_knives",
+      "type": "tactical",
+      "group_name": null,
+      "x": 1310.0000274718752,
+      "y": 889.9999934276934,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "zealot/zealot_blitz_throwing_knife",
+      "gradient_color": "content/ui/textures/color_ramps/class_node_colors/zealot_03",
+      "children": [
+        "node_0581bad8-f8c0-4321-a90b-756013fd3981"
+      ],
+      "parents": [
+        "node_cf60d947-e174-49d8-881d-79aaa602cc4d"
+      ]
+    }
+  ]
+}

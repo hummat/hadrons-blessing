@@ -21,6 +21,7 @@ const TREE_TYPE_TO_KIND: Record<string, string> = {
   keystone_modifier: "talent_modifier",
   default: "talent",
   stat: "talent",
+  broker_stimm: "talent",
 };
 
 interface Conditions {

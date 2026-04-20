@@ -34,6 +34,7 @@ Never hardcode the source root. The Makefile reads `.source-root` as a fallback;
 npm install
 npm test                                          # unit tests (no source root needed for most)
 npm run edges:build                               # regenerate tree edges from Lua source
+npm run trees:build                               # build class talent-tree DAG JSON from Lua source
 npm run check                                     # build + index:build + test + index:check
 make check                                        # full quality gate (edges:build + effects:build + breeds:build + profiles:build + check)
 npm run effects:build                             # populate calc fields from Lua buff templates
@@ -79,13 +80,15 @@ npm run stagger:freeze                                                          
 npm run cleave:freeze                                                           # regenerate golden cleave snapshots
 npm run toughness:freeze                                                        # regenerate golden toughness snapshots
 npm run stagger:build                                                             # extract stagger settings from Lua source
+npm run weapons:build                                                             # mirror website weapon art + emit static asset map
+npm run icons:build                                                               # mirror website talent icons + emit static asset map
 node dist/cli/extract-build.js <gl-url> --json    # live GL scrape → canonical (requires Playwright)
 node dist/cli/extract-build.js <gl-url> --raw-json # live GL scrape → pre-canonical raw shape
 # Website (run from website/)
 cd website && npm run dev                                                         # local dev server
 cd website && npm run build                                                       # production build → website/build/
 cd website && npm run test                                                        # website tests (filter-sort)
-cd website && npx tsx scripts/generate-data.ts                                    # regenerate build-summaries.json from library
+cd website && npx tsx scripts/generate-data.ts                                    # regenerate build summaries/details + copied tree DAGs + talent labels
 make website-build                                                                # full pipeline: compile library → generate data → build site
 make website-dev                                                                  # convenience: start dev server
 ```

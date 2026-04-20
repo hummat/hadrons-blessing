@@ -13,10 +13,13 @@ describe("hover card integration contract", () => {
   it("keeps the primitive self-contained and fact-driven", () => {
     const component = read("lib/HoverCard.svelte");
 
-    assert.match(component, /<details\b/);
+    assert.match(component, /<button\b/);
+    assert.match(component, /aria-haspopup="dialog"/);
+    assert.match(component, /role="dialog"/);
     assert.match(component, /card\.summary/);
     assert.match(component, /card\.facts/);
     assert.match(component, /card\.sourceLabel/);
+    assert.doesNotMatch(component, /card\.explanation/);
   });
 
   it("uses the hover-card adapter on the build detail score strip", () => {

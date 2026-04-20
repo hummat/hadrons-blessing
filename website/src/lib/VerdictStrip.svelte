@@ -20,76 +20,75 @@
   );
   const risks: RiskBullet[] = $derived(buildRiskBullets(detail, blessingMap));
 
-  function riskClass(kind: RiskBullet["kind"]): string {
-    switch (kind) {
-      case "low_dimension":
-      case "gaps":
-      case "anti_orphan":
-      case "low_calc_coverage":
-      case "scoring_unavailable":
-      case "calc_coverage_missing":
-        return "ds-risk-bullets__low";
-      case "clean":
-        return "ds-risk-bullets__clean";
-      case "calc_coverage":
-        return "ds-risk-bullets__calc";
-    }
+  function strengthBar(score: number): string {
+    const filled = Math.max(0, Math.min(5, Math.round(score)));
+    return "▰".repeat(filled) + "▱".repeat(5 - filled);
   }
 
-  function scoreClass(score: number): string {
-    if (score >= 5) return "ds-score--best";
-    if (score >= 4) return "ds-score--good";
-    if (score >= 3) return "ds-score--mid";
-    if (score >= 2) return "ds-score--low";
-    return "ds-score--worst";
+  function riskLiClass(kind: RiskBullet["kind"]): string {
+    if (kind === "clean") return "clean";
+    if (kind === "calc_coverage") return "info";
+    return "";
   }
 
   const identityLabel = $derived(
-    identity.length > 0 ? identity.map((family) => formatCoverageLabel(family)).join(" \u00b7 ") : "Undefined role",
+    identity.length > 0 ? identity.map((family) => formatCoverageLabel(family)).join(" · ") : "Undefined role",
   );
 </script>
 
-<div class="ds-verdict">
-  <article class="ds-parchment ds-verdict-tile">
-    <span class="ds-corner ds-corner--tl"></span>
-    <span class="ds-corner ds-corner--br"></span>
-    <span class="ds-label">Role Fingerprint</span>
-    <div class="ds-verdict-tile__primary">{identityLabel}</div>
-    <div class="ds-verdict-tile__secondary">
-      Melee {slotBalance.melee.strength} &middot; Ranged {slotBalance.ranged.strength}
+<div class="hb-verdict">
+  <article class="panel hb-verdict-tile">
+    <span class="hb-corner tl"></span>
+    <span class="hb-corner br"></span>
+    <div class="hb-verdict-head">
+      <h3>Identity</h3>
+      <span class="label label-amber">Role</span>
     </div>
-    <div class="ds-verdict-tile__caption">Concentration {concentration}</div>
+    <div class="hb-verdict-body">{identityLabel}</div>
+    <div class="hb-verdict-note">
+      Melee {slotBalance.melee.strength} · Ranged {slotBalance.ranged.strength} · concentration {concentration}
+    </div>
   </article>
 
-  <article class="ds-parchment ds-verdict-tile">
-    <span class="ds-corner ds-corner--tl"></span>
-    <span class="ds-corner ds-corner--br"></span>
-    <span class="ds-label">Signature Strengths</span>
+  <article class="panel hb-verdict-tile">
+    <span class="hb-corner tl"></span>
+    <span class="hb-corner br"></span>
+    <div class="hb-verdict-head">
+      <h3>Strengths</h3>
+      <span class="label" style="color: var(--hb-sanct)">{strengths.length} pillars</span>
+    </div>
     {#if strengths.length > 0}
-      {#each strengths as strength (strength.key)}
-        <div>
-          <div class="ds-verdict-tile__strength-line">
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        {#each strengths as strength (strength.key)}
+          <div class="hb-verdict-line">
             <span>{strength.label}</span>
-            <span class="ds-score {scoreClass(strength.score)}">{strength.score}/5</span>
+            <span class="val">{strengthBar(strength.score)}</span>
           </div>
           {#if strength.explanation}
-            <p class="ds-verdict-tile__strength-note">{strength.explanation}</p>
+            <div class="hb-verdict-note" style="margin: 2px 0 6px;">{strength.explanation}</div>
           {/if}
-        </div>
-      {/each}
+        {/each}
+      </div>
     {:else}
-      <p class="ds-verdict-tile__strength-note">No qualitative dimensions scored.</p>
+      <p class="hb-verdict-note">No qualitative dimensions scored.</p>
     {/if}
   </article>
 
-  <article class="ds-parchment ds-verdict-tile">
-    <span class="ds-corner ds-corner--tl"></span>
-    <span class="ds-corner ds-corner--br"></span>
-    <span class="ds-label">Noted Risks</span>
-    <ul class="ds-risk-bullets">
-      {#each risks as risk (risk.kind + risk.text)}
-        <li class={riskClass(risk.kind)}>{risk.text}</li>
-      {/each}
-    </ul>
+  <article class="panel hb-verdict-tile">
+    <span class="hb-corner tl"></span>
+    <span class="hb-corner br"></span>
+    <div class="hb-verdict-head">
+      <h3>Risks</h3>
+      <span class="label" style="color: var(--hb-blood)">{risks.length} flags</span>
+    </div>
+    {#if risks.length > 0}
+      <ul class="hb-risk-list">
+        {#each risks as risk (risk.kind + risk.text)}
+          <li class={riskLiClass(risk.kind)}>{risk.text}</li>
+        {/each}
+      </ul>
+    {:else}
+      <p class="hb-verdict-note">No risks flagged.</p>
+    {/if}
   </article>
 </div>

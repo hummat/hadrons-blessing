@@ -6,7 +6,7 @@ import {
   loadCalculatorData,
   loadSynergyIndex,
 } from "../../dist/lib/index.js";
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { copyFileSync, existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildSlugFromFile } from "../src/lib/builds.ts";
@@ -22,7 +22,10 @@ import type {
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_DIR = join(__dirname, "..", "static", "data");
 const BUILD_DETAILS_DIR = join(OUTPUT_DIR, "builds");
+const TREES_OUTPUT_DIR = join(OUTPUT_DIR, "trees");
 const BUILDS_DIR = join(__dirname, "..", "..", "data", "builds");
+const TREES_INPUT_DIR = join(__dirname, "..", "..", "data", "ground-truth", "generated", "trees");
+const GL_LABELS_PATH = join(__dirname, "..", "..", "data", "ground-truth", "generated", "gl-class-tree-labels.json");
 type AnyRecord = Record<string, unknown>;
 
 export function buildDetailRecord(
@@ -121,6 +124,45 @@ function extractStructure(build: AnyRecord): BuildStructure {
   };
 }
 
+/**
+ * Emit a compact talent-label map keyed by entity_id for client-side lookups
+ * (used by the TalentTree tooltip). Input source is the full GL tree label
+ * snapshot; output strips scraping metadata.
+ */
+function copyTalentLabels(): number {
+  if (!existsSync(GL_LABELS_PATH)) return 0;
+  const labels = JSON.parse(readFileSync(GL_LABELS_PATH, "utf8")) as Array<{
+    entity_id: string;
+    display_name: string | null;
+    normalized_text?: string | null;
+  }>;
+  const byId: Record<string, { display_name: string }> = {};
+  for (const label of labels) {
+    if (!label.entity_id || !label.display_name) continue;
+    byId[label.entity_id] = { display_name: label.display_name };
+  }
+  writeFileSync(
+    join(OUTPUT_DIR, "talent-labels.json"),
+    JSON.stringify(byId, null, 2),
+  );
+  return Object.keys(byId).length;
+}
+
+function copyTreeDags(): number {
+  if (!existsSync(TREES_INPUT_DIR)) {
+    console.warn(
+      `⚠ No tree DAGs found at ${TREES_INPUT_DIR} — run \`npm run trees:build\` in the library root first.`,
+    );
+    return 0;
+  }
+  mkdirSync(TREES_OUTPUT_DIR, { recursive: true });
+  const files = readdirSync(TREES_INPUT_DIR).filter((f) => f.endsWith(".json"));
+  for (const file of files) {
+    copyFileSync(join(TREES_INPUT_DIR, file), join(TREES_OUTPUT_DIR, file));
+  }
+  return files.length;
+}
+
 export function generateData(): { summaries: BuildSummary[]; details: BuildDetailData[] } {
   mkdirSync(OUTPUT_DIR, { recursive: true });
   mkdirSync(BUILD_DETAILS_DIR, { recursive: true });
@@ -164,8 +206,16 @@ export function generateData(): { summaries: BuildSummary[]; details: BuildDetai
 
 function main(): void {
   const { summaries, details } = generateData();
+  const treeCount = copyTreeDags();
+  const labelCount = copyTalentLabels();
   console.log(`Generated ${summaries.length} build summaries → static/data/build-summaries.json`);
   console.log(`Generated ${details.length} build details → static/data/builds/*.json`);
+  if (treeCount > 0) {
+    console.log(`Copied ${treeCount} talent tree DAGs → static/data/trees/*.json`);
+  }
+  if (labelCount > 0) {
+    console.log(`Emitted ${labelCount} talent labels → static/data/talent-labels.json`);
+  }
 }
 
 if (process.argv[1] && import.meta.url === new URL(process.argv[1], "file:").href) {

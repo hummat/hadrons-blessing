@@ -1,0 +1,659 @@
+{
+  "domain": "hive_scum",
+  "source_file": "scripts/ui/views/broker_stimm_builder_view/layouts/broker_stimm_tree.lua",
+  "source_snapshot_id": "darktide-source.fd8bcc4",
+  "archetype_name": "broker",
+  "version": 12,
+  "node_points": 30,
+  "talent_points": 30,
+  "canvas": {
+    "width": 1780,
+    "height": 1080
+  },
+  "nodes": [
+    {
+      "widget_name": "node_0b600a94-b5b8-44e6-a8bc-1f07f88229bd",
+      "entity_id": "hive_scum.talent.broker_stimm_durability_5a",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_durability_5a"
+      ],
+      "talent_internal_name": "broker_stimm_durability_5a",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 500,
+      "y": 320,
+      "cost": 5,
+      "max_points": 5,
+      "icon_key": "broker/stimm_tree/broker_stimm_durability_5a",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_d98eed0c-f566-4d14-a4fc-b2f1d4d45639"
+      ]
+    },
+    {
+      "widget_name": "node_1431c326-ad53-4c00-afc8-088f0ef8c197",
+      "entity_id": "hive_scum.talent.broker_stimm_celerity_2",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_celerity_2"
+      ],
+      "talent_internal_name": "broker_stimm_celerity_2",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 860,
+      "y": 770,
+      "cost": 2,
+      "max_points": 2,
+      "icon_key": "broker/stimm_tree/broker_stimm_celerity_2",
+      "gradient_color": null,
+      "children": [
+        "node_c1b0f29b-8968-44a3-bc1c-7580440db96c"
+      ],
+      "parents": [
+        "node_52ffe54b-abcd-469a-9376-64b387582546"
+      ]
+    },
+    {
+      "widget_name": "node_2d8bcc20-0d76-462f-bf28-a3d82ccd1c06",
+      "entity_id": "hive_scum.talent.broker_stimm_combat_5a",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_combat_5a"
+      ],
+      "talent_internal_name": "broker_stimm_combat_5a",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1580,
+      "y": 320,
+      "cost": 5,
+      "max_points": 5,
+      "icon_key": "broker/stimm_tree/broker_stimm_combat_5a",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_c4e14f52-1fd6-423f-bfdd-d3e19492d994"
+      ]
+    },
+    {
+      "widget_name": "node_3007e418-f9ee-4815-9241-36c0af334834",
+      "entity_id": "hive_scum.talent.broker_stimm_durability_3",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_durability_3"
+      ],
+      "talent_internal_name": "broker_stimm_durability_3",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 740,
+      "y": 320,
+      "cost": 3,
+      "max_points": 3,
+      "icon_key": "broker/stimm_tree/broker_stimm_durability_3",
+      "gradient_color": null,
+      "children": [
+        "node_d98eed0c-f566-4d14-a4fc-b2f1d4d45639"
+      ],
+      "parents": [
+        "node_57c21f09-03ee-4196-b2c8-c80d5c3aaa0b"
+      ]
+    },
+    {
+      "widget_name": "node_3266c405-04b4-405b-87e9-626b2c6abd2f",
+      "entity_id": "hive_scum.talent.broker_stimm_concentration_4",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_concentration_4"
+      ],
+      "talent_internal_name": "broker_stimm_concentration_4",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1460,
+      "y": 800,
+      "cost": 4,
+      "max_points": 4,
+      "icon_key": "broker/stimm_tree/broker_stimm_concentration_4",
+      "gradient_color": null,
+      "children": [
+        "node_9581f891-fa81-42cc-a455-9979fda53399",
+        "node_cfc646a9-648a-402d-bcb5-7656f2852309",
+        "node_a03d2d80-93e2-4d27-94b6-73c24692de2c"
+      ],
+      "parents": [
+        "node_a338737f-2230-48cc-a706-d209c7071451"
+      ]
+    },
+    {
+      "widget_name": "node_34ccae82-45bf-499e-99ba-93ed864f14c5",
+      "entity_id": "hive_scum.talent.broker_stimm_combat_2",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_combat_2"
+      ],
+      "talent_internal_name": "broker_stimm_combat_2",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1220,
+      "y": 350,
+      "cost": 2,
+      "max_points": 2,
+      "icon_key": "broker/stimm_tree/broker_stimm_combat_2",
+      "gradient_color": null,
+      "children": [
+        "node_b343d91d-888d-403d-a01f-e57449b09067"
+      ],
+      "parents": [
+        "node_69855bec-40f7-4a9c-9c39-4acc080aaeb8"
+      ]
+    },
+    {
+      "widget_name": "node_3ccea381-39a7-4411-b455-36d8fa65d30f",
+      "entity_id": "hive_scum.talent.broker_stimm_durability_5b",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_durability_5b"
+      ],
+      "talent_internal_name": "broker_stimm_durability_5b",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 620,
+      "y": 440,
+      "cost": 5,
+      "max_points": 5,
+      "icon_key": "broker/stimm_tree/broker_stimm_durability_5b",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_d98eed0c-f566-4d14-a4fc-b2f1d4d45639"
+      ]
+    },
+    {
+      "widget_name": "node_478577bd-fe37-433e-a7f9-b4277c88cac9",
+      "entity_id": "hive_scum.talent.broker_stimm_celerity_4",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_celerity_4"
+      ],
+      "talent_internal_name": "broker_stimm_celerity_4",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 620,
+      "y": 800,
+      "cost": 4,
+      "max_points": 4,
+      "icon_key": "broker/stimm_tree/broker_stimm_celerity_4",
+      "gradient_color": null,
+      "children": [
+        "node_c7743c1a-1eba-4c2c-b9ba-a1f865e92f0c",
+        "node_7cb667f6-6558-44b4-b47d-67abf6bdef36",
+        "node_8b44a279-b6fb-410a-9805-22f5e25d470c"
+      ],
+      "parents": [
+        "node_c1b0f29b-8968-44a3-bc1c-7580440db96c"
+      ]
+    },
+    {
+      "widget_name": "node_52ffe54b-abcd-469a-9376-64b387582546",
+      "entity_id": "hive_scum.talent.broker_stimm_celerity_1",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_celerity_1"
+      ],
+      "talent_internal_name": "broker_stimm_celerity_1",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 950,
+      "y": 680,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "broker/stimm_tree/broker_stimm_celerity_1",
+      "gradient_color": null,
+      "children": [
+        "node_1431c326-ad53-4c00-afc8-088f0ef8c197"
+      ],
+      "parents": [
+        "node_5c2139f8-0686-42f5-97fe-9b65e547e649"
+      ]
+    },
+    {
+      "widget_name": "node_57c21f09-03ee-4196-b2c8-c80d5c3aaa0b",
+      "entity_id": "hive_scum.talent.broker_stimm_durability_2",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_durability_2"
+      ],
+      "talent_internal_name": "broker_stimm_durability_2",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 860,
+      "y": 350,
+      "cost": 2,
+      "max_points": 2,
+      "icon_key": "broker/stimm_tree/broker_stimm_durability_2",
+      "gradient_color": null,
+      "children": [
+        "node_3007e418-f9ee-4815-9241-36c0af334834"
+      ],
+      "parents": [
+        "node_71791540-7dbc-4d3d-b931-630cab2a423a"
+      ]
+    },
+    {
+      "widget_name": "node_5c2139f8-0686-42f5-97fe-9b65e547e649",
+      "entity_id": null,
+      "selection_ids": [],
+      "talent_internal_name": "broker_stimm_activation_talent",
+      "type": "start",
+      "group_name": null,
+      "x": 1090,
+      "y": 610,
+      "cost": 0,
+      "max_points": 1,
+      "icon_key": "talents/circle_center_stimm_frame",
+      "gradient_color": null,
+      "children": [
+        "node_69855bec-40f7-4a9c-9c39-4acc080aaeb8",
+        "node_c23ee23e-1dc5-4a85-abb3-d0bd53d7b7bc",
+        "node_52ffe54b-abcd-469a-9376-64b387582546",
+        "node_71791540-7dbc-4d3d-b931-630cab2a423a"
+      ],
+      "parents": []
+    },
+    {
+      "widget_name": "node_69855bec-40f7-4a9c-9c39-4acc080aaeb8",
+      "entity_id": "hive_scum.talent.broker_stimm_combat_1",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_combat_1"
+      ],
+      "talent_internal_name": "broker_stimm_combat_1",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1130,
+      "y": 440,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "broker/stimm_tree/broker_stimm_combat_1",
+      "gradient_color": null,
+      "children": [
+        "node_34ccae82-45bf-499e-99ba-93ed864f14c5"
+      ],
+      "parents": [
+        "node_5c2139f8-0686-42f5-97fe-9b65e547e649"
+      ]
+    },
+    {
+      "widget_name": "node_71791540-7dbc-4d3d-b931-630cab2a423a",
+      "entity_id": "hive_scum.talent.broker_stimm_durability_1",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_durability_1"
+      ],
+      "talent_internal_name": "broker_stimm_durability_1",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 950,
+      "y": 440,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "broker/stimm_tree/broker_stimm_durability_1",
+      "gradient_color": null,
+      "children": [
+        "node_57c21f09-03ee-4196-b2c8-c80d5c3aaa0b"
+      ],
+      "parents": [
+        "node_5c2139f8-0686-42f5-97fe-9b65e547e649"
+      ]
+    },
+    {
+      "widget_name": "node_7cb667f6-6558-44b4-b47d-67abf6bdef36",
+      "entity_id": "hive_scum.talent.broker_stimm_celerity_5c",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_celerity_5c"
+      ],
+      "talent_internal_name": "broker_stimm_celerity_5c",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 620,
+      "y": 680,
+      "cost": 5,
+      "max_points": 5,
+      "icon_key": "broker/stimm_tree/broker_stimm_celerity_5c",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_478577bd-fe37-433e-a7f9-b4277c88cac9"
+      ]
+    },
+    {
+      "widget_name": "node_8b44a279-b6fb-410a-9805-22f5e25d470c",
+      "entity_id": "hive_scum.talent.broker_stimm_celerity_5b",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_celerity_5b"
+      ],
+      "talent_internal_name": "broker_stimm_celerity_5b",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 545,
+      "y": 725,
+      "cost": 5,
+      "max_points": 5,
+      "icon_key": "broker/stimm_tree/broker_stimm_celerity_5b",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_478577bd-fe37-433e-a7f9-b4277c88cac9"
+      ]
+    },
+    {
+      "widget_name": "node_8eaa3a96-6b14-4511-ab1a-5dcecc1f666d",
+      "entity_id": "hive_scum.talent.broker_stimm_combat_4b",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_combat_4b"
+      ],
+      "talent_internal_name": "broker_stimm_combat_4b",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1460,
+      "y": 200,
+      "cost": 4,
+      "max_points": 4,
+      "icon_key": "broker/stimm_tree/broker_stimm_combat_4b",
+      "gradient_color": null,
+      "children": [
+        "node_ba8e5f91-d471-416b-8273-7e0886ae4e03"
+      ],
+      "parents": [
+        "node_b343d91d-888d-403d-a01f-e57449b09067"
+      ]
+    },
+    {
+      "widget_name": "node_9581f891-fa81-42cc-a455-9979fda53399",
+      "entity_id": "hive_scum.talent.broker_stimm_concentration_5a",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_concentration_5a"
+      ],
+      "talent_internal_name": "broker_stimm_concentration_5a",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1580,
+      "y": 800,
+      "cost": 5,
+      "max_points": 5,
+      "icon_key": "broker/stimm_tree/broker_stimm_concentration_5a",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_3266c405-04b4-405b-87e9-626b2c6abd2f"
+      ]
+    },
+    {
+      "widget_name": "node_a03d2d80-93e2-4d27-94b6-73c24692de2c",
+      "entity_id": "hive_scum.talent.broker_stimm_concentration_5c",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_concentration_5c"
+      ],
+      "talent_internal_name": "broker_stimm_concentration_5c",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1550,
+      "y": 710,
+      "cost": 5,
+      "max_points": 5,
+      "icon_key": "broker/stimm_tree/broker_stimm_concentration_5c",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_3266c405-04b4-405b-87e9-626b2c6abd2f"
+      ]
+    },
+    {
+      "widget_name": "node_a338737f-2230-48cc-a706-d209c7071451",
+      "entity_id": "hive_scum.talent.broker_stimm_concentration_3",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_concentration_3"
+      ],
+      "talent_internal_name": "broker_stimm_concentration_3",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1340,
+      "y": 800,
+      "cost": 3,
+      "max_points": 3,
+      "icon_key": "broker/stimm_tree/broker_stimm_concentration_3",
+      "gradient_color": null,
+      "children": [
+        "node_3266c405-04b4-405b-87e9-626b2c6abd2f"
+      ],
+      "parents": [
+        "node_d2c5c6af-dc71-4f44-98de-be00ba3457b5"
+      ]
+    },
+    {
+      "widget_name": "node_b343d91d-888d-403d-a01f-e57449b09067",
+      "entity_id": "hive_scum.talent.broker_stimm_combat_3",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_combat_3"
+      ],
+      "talent_internal_name": "broker_stimm_combat_3",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1340,
+      "y": 320,
+      "cost": 3,
+      "max_points": 3,
+      "icon_key": "broker/stimm_tree/broker_stimm_combat_3",
+      "gradient_color": null,
+      "children": [
+        "node_e758ce7a-ab78-4046-8a5c-ad5068d81d6a",
+        "node_8eaa3a96-6b14-4511-ab1a-5dcecc1f666d",
+        "node_c4e14f52-1fd6-423f-bfdd-d3e19492d994"
+      ],
+      "parents": [
+        "node_34ccae82-45bf-499e-99ba-93ed864f14c5"
+      ]
+    },
+    {
+      "widget_name": "node_ba8e5f91-d471-416b-8273-7e0886ae4e03",
+      "entity_id": "hive_scum.talent.broker_stimm_combat_5b",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_combat_5b"
+      ],
+      "talent_internal_name": "broker_stimm_combat_5b",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1580,
+      "y": 200,
+      "cost": 5,
+      "max_points": 5,
+      "icon_key": "broker/stimm_tree/broker_stimm_combat_5b",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_8eaa3a96-6b14-4511-ab1a-5dcecc1f666d"
+      ]
+    },
+    {
+      "widget_name": "node_c1b0f29b-8968-44a3-bc1c-7580440db96c",
+      "entity_id": "hive_scum.talent.broker_stimm_celerity_3",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_celerity_3"
+      ],
+      "talent_internal_name": "broker_stimm_celerity_3",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 740,
+      "y": 800,
+      "cost": 3,
+      "max_points": 3,
+      "icon_key": "broker/stimm_tree/broker_stimm_celerity_3",
+      "gradient_color": null,
+      "children": [
+        "node_478577bd-fe37-433e-a7f9-b4277c88cac9"
+      ],
+      "parents": [
+        "node_1431c326-ad53-4c00-afc8-088f0ef8c197"
+      ]
+    },
+    {
+      "widget_name": "node_c23ee23e-1dc5-4a85-abb3-d0bd53d7b7bc",
+      "entity_id": "hive_scum.talent.broker_stimm_concentration_1",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_concentration_1"
+      ],
+      "talent_internal_name": "broker_stimm_concentration_1",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1130,
+      "y": 680,
+      "cost": 1,
+      "max_points": 1,
+      "icon_key": "broker/stimm_tree/broker_stimm_concentration_1",
+      "gradient_color": null,
+      "children": [
+        "node_d2c5c6af-dc71-4f44-98de-be00ba3457b5"
+      ],
+      "parents": [
+        "node_5c2139f8-0686-42f5-97fe-9b65e547e649"
+      ]
+    },
+    {
+      "widget_name": "node_c4e14f52-1fd6-423f-bfdd-d3e19492d994",
+      "entity_id": "hive_scum.talent.broker_stimm_combat_4a",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_combat_4a"
+      ],
+      "talent_internal_name": "broker_stimm_combat_4a",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1460,
+      "y": 320,
+      "cost": 4,
+      "max_points": 4,
+      "icon_key": "broker/stimm_tree/broker_stimm_combat_4a",
+      "gradient_color": null,
+      "children": [
+        "node_2d8bcc20-0d76-462f-bf28-a3d82ccd1c06"
+      ],
+      "parents": [
+        "node_b343d91d-888d-403d-a01f-e57449b09067"
+      ]
+    },
+    {
+      "widget_name": "node_c7743c1a-1eba-4c2c-b9ba-a1f865e92f0c",
+      "entity_id": "hive_scum.talent.broker_stimm_celerity_5a",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_celerity_5a"
+      ],
+      "talent_internal_name": "broker_stimm_celerity_5a",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 500,
+      "y": 800,
+      "cost": 5,
+      "max_points": 5,
+      "icon_key": "broker/stimm_tree/broker_stimm_celerity_5a",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_478577bd-fe37-433e-a7f9-b4277c88cac9"
+      ]
+    },
+    {
+      "widget_name": "node_cd8fcca5-ca27-4800-965d-f36fc8e3d140",
+      "entity_id": "hive_scum.talent.broker_stimm_combat_5c",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_combat_5c"
+      ],
+      "talent_internal_name": "broker_stimm_combat_5c",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1580,
+      "y": 440,
+      "cost": 5,
+      "max_points": 5,
+      "icon_key": "broker/stimm_tree/broker_stimm_combat_5c",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_e758ce7a-ab78-4046-8a5c-ad5068d81d6a"
+      ]
+    },
+    {
+      "widget_name": "node_cfc646a9-648a-402d-bcb5-7656f2852309",
+      "entity_id": "hive_scum.talent.broker_stimm_concentration_5b",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_concentration_5b"
+      ],
+      "talent_internal_name": "broker_stimm_concentration_5b",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1460,
+      "y": 680,
+      "cost": 5,
+      "max_points": 5,
+      "icon_key": "broker/stimm_tree/broker_stimm_concentration_5b",
+      "gradient_color": null,
+      "children": [],
+      "parents": [
+        "node_3266c405-04b4-405b-87e9-626b2c6abd2f"
+      ]
+    },
+    {
+      "widget_name": "node_d2c5c6af-dc71-4f44-98de-be00ba3457b5",
+      "entity_id": "hive_scum.talent.broker_stimm_concentration_2",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_concentration_2"
+      ],
+      "talent_internal_name": "broker_stimm_concentration_2",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1220,
+      "y": 770,
+      "cost": 2,
+      "max_points": 2,
+      "icon_key": "broker/stimm_tree/broker_stimm_concentration_2",
+      "gradient_color": null,
+      "children": [
+        "node_a338737f-2230-48cc-a706-d209c7071451"
+      ],
+      "parents": [
+        "node_c23ee23e-1dc5-4a85-abb3-d0bd53d7b7bc"
+      ]
+    },
+    {
+      "widget_name": "node_d98eed0c-f566-4d14-a4fc-b2f1d4d45639",
+      "entity_id": "hive_scum.talent.broker_stimm_durability_4",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_durability_4"
+      ],
+      "talent_internal_name": "broker_stimm_durability_4",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 620,
+      "y": 320,
+      "cost": 4,
+      "max_points": 4,
+      "icon_key": "broker/stimm_tree/broker_stimm_durability_4",
+      "gradient_color": null,
+      "children": [
+        "node_0b600a94-b5b8-44e6-a8bc-1f07f88229bd",
+        "node_3ccea381-39a7-4411-b455-36d8fa65d30f"
+      ],
+      "parents": [
+        "node_3007e418-f9ee-4815-9241-36c0af334834"
+      ]
+    },
+    {
+      "widget_name": "node_e758ce7a-ab78-4046-8a5c-ad5068d81d6a",
+      "entity_id": "hive_scum.talent.broker_stimm_combat_4c",
+      "selection_ids": [
+        "hive_scum.talent.broker_stimm_combat_4c"
+      ],
+      "talent_internal_name": "broker_stimm_combat_4c",
+      "type": "broker_stimm",
+      "group_name": null,
+      "x": 1460,
+      "y": 440,
+      "cost": 4,
+      "max_points": 4,
+      "icon_key": "broker/stimm_tree/broker_stimm_combat_4c",
+      "gradient_color": null,
+      "children": [
+        "node_cd8fcca5-ca27-4800-965d-f36fc8e3d140"
+      ],
+      "parents": [
+        "node_b343d91d-888d-403d-a01f-e57449b09067"
+      ]
+    }
+  ]
+}

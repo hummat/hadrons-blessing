@@ -13,6 +13,18 @@ export interface TreeNode {
   group_name: string | null;
   children: string[];
   parents: string[];
+  /** Canvas x position in source pixels. 0 when missing. */
+  x: number;
+  /** Canvas y position in source pixels. 0 when missing. */
+  y: number;
+  /** Point cost to select the node. Defaults to 0 (e.g. "start" nodes). */
+  cost: number;
+  /** Max points that can be spent on this node (1 except for a handful of modifier nodes). */
+  max_points: number;
+  /** Source path for the node icon asset, or null when absent. */
+  icon: string | null;
+  /** Source path for the node ring gradient, or null when absent. */
+  gradient_color: string | null;
   /** 1-indexed line number of widget_name */
   line: number;
 }
@@ -48,8 +60,14 @@ function parseLuaTree(luaSource: string): TreeNode[] {
     const talent = extractStringField(blockText, "talent");
     const type = extractStringField(blockText, "type");
     const groupName = extractStringField(blockText, "group_name");
+    const icon = extractStringField(blockText, "icon");
+    const gradientColor = extractStringField(blockText, "gradient_color");
     const children = extractStringArray(blockText, "children");
     const parents = extractStringArray(blockText, "parents");
+    const x = extractNumberField(blockText, "x") ?? 0;
+    const y = extractNumberField(blockText, "y") ?? 0;
+    const cost = extractNumberField(blockText, "cost") ?? 0;
+    const maxPoints = extractNumberField(blockText, "max_points") ?? 1;
 
     nodes.push({
       widget_name: widgetName,
@@ -58,6 +76,12 @@ function parseLuaTree(luaSource: string): TreeNode[] {
       group_name: groupName === "" ? null : (groupName ?? null),
       children,
       parents,
+      x,
+      y,
+      cost,
+      max_points: maxPoints,
+      icon: icon ?? null,
+      gradient_color: gradientColor ?? null,
       line: widgetLine,
     });
 
@@ -150,6 +174,22 @@ function extractStringArray(blockText: string, fieldName: string): string[] {
   }
 
   return items;
+}
+
+/**
+ * Extract a numeric field value from a Lua block.
+ * Handles integers and floats, including scientific notation.
+ * Returns the parsed number, or null if the field is missing or unparseable.
+ */
+function extractNumberField(blockText: string, fieldName: string): number | null {
+  const regex = new RegExp(
+    `(?:^|\\n)[\\t ]*${fieldName}\\s*=\\s*(-?[0-9]+(?:\\.[0-9]+)?(?:[eE][-+]?[0-9]+)?)`,
+    "m",
+  );
+  const match = blockText.match(regex);
+  if (!match) return null;
+  const value = Number(match[1]);
+  return Number.isFinite(value) ? value : null;
 }
 
 export { parseLuaTree };

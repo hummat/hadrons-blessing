@@ -3,7 +3,7 @@
   import { goto } from "$app/navigation";
   import { base } from "$app/paths";
   import { page } from "$app/state";
-  import { CLASS_COLORS, GRADE_STYLES, htkCellClass, scoreColor } from "$lib/builds";
+  import { htkCellClass } from "$lib/builds";
   import {
     computeBreakpointDiff,
     computeCurioPerkDiff,
@@ -24,12 +24,7 @@
   import { DIMENSIONS } from "$lib/dimensions";
   import type { BuildDetailData, BuildSummary } from "$lib/types";
 
-  type Props = {
-    data: {
-      builds: BuildSummary[];
-    };
-  };
-
+  type Props = { data: { builds: BuildSummary[] } };
   type TabKey = "overview" | "talents" | "weapons" | "synergy" | "breakpoints";
 
   const TABS: Array<{ key: TabKey; label: string }> = [
@@ -62,9 +57,7 @@
   const availableScenarios = $derived.by(() => {
     const values = new Set<string>();
     for (const detail of [buildA, buildB]) {
-      for (const scenario of detail?.breakpoints.metadata.scenarios ?? []) {
-        values.add(scenario);
-      }
+      for (const scenario of detail?.breakpoints.metadata.scenarios ?? []) values.add(scenario);
     }
     return [...values];
   });
@@ -129,15 +122,35 @@
       .join(" ");
   }
 
+  function classKey(cls: string): string {
+    return cls.replace(/\s+/g, "-").toLowerCase();
+  }
+
   function formatDelta(value: number | null): string {
-    if (value == null) return "\u2014";
+    if (value == null) return "—";
     if (value === 0) return "0";
     return value > 0 ? `+${value}` : `${value}`;
   }
 
-  function deltaColor(value: number | null): string {
-    if (value == null || value === 0) return "text-gray-500";
-    return value > 0 ? "text-emerald-400" : "text-red-400";
+  function deltaClass(value: number | null): string {
+    if (value == null || value === 0) return "hb-delta--zero";
+    return value > 0 ? "hb-delta--pos" : "hb-delta--neg";
+  }
+
+  function scoreCellClass(value: number | null): string {
+    if (value == null) return "hb-ledger-dim hb-ledger-dim--null";
+    if (value >= 4) return "hb-ledger-dim hb-ledger-dim--high";
+    if (value >= 3) return "hb-ledger-dim hb-ledger-dim--mid";
+    if (value >= 2) return "hb-ledger-dim hb-ledger-dim--warn";
+    return "hb-ledger-dim hb-ledger-dim--low";
+  }
+
+  function htkClass(value: number | null): string {
+    const raw = htkCellClass(value);
+    if (raw.includes("best")) return "hb-htk--best";
+    if (raw.includes("mid")) return "hb-htk--mid";
+    if (raw.includes("worst")) return "hb-htk--worst";
+    return "hb-htk--null";
   }
 
   function scoreValue(detail: BuildDetailData | null, key: string): number | null {
@@ -145,9 +158,7 @@
     return detail.summary.scores[key as keyof typeof detail.summary.scores] as number | null;
   }
 
-  function buildHref(slug: string): string {
-    return `${base}/builds/${slug}`;
-  }
+  function buildHref(slug: string): string { return `${base}/builds/${slug}`; }
 
   function sharedWeaponPeer(compareKey: string): ReturnType<typeof weaponEntries>[number] | null {
     if (!buildB) return null;
@@ -163,7 +174,7 @@
   }
 
   function coverageText(values: string[]): string {
-    return values.length > 0 ? values.map((value) => formatCoverageLabel(value)).join(", ") : "\u2014";
+    return values.length > 0 ? values.map((value) => formatCoverageLabel(value)).join(", ") : "—";
   }
 
   async function syncUrl(nextA: string, nextB: string): Promise<void> {
@@ -185,44 +196,27 @@
   async function fetchBuild(slot: "a" | "b", slug: string): Promise<void> {
     const current = slot === "a" ? ++requestA : ++requestB;
 
-    if (slot === "a") {
-      buildA = null;
-      errorA = null;
-      loadingA = slug.length > 0;
-    } else {
-      buildB = null;
-      errorB = null;
-      loadingB = slug.length > 0;
-    }
+    if (slot === "a") { buildA = null; errorA = null; loadingA = slug.length > 0; }
+    else { buildB = null; errorB = null; loadingB = slug.length > 0; }
 
     if (!slug) return;
 
     try {
       const res = await fetch(`${base}/data/builds/${slug}.json`);
-      if (!res.ok) {
-        throw new Error(res.status === 404 ? "Build not found" : `Failed to load build (${res.status})`);
-      }
-
+      if (!res.ok) throw new Error(res.status === 404 ? "Build not found" : `Failed to load build (${res.status})`);
       const detail = await res.json() as BuildDetailData;
 
       if (slot === "a") {
         if (current !== requestA) return;
-        buildA = detail;
-        errorA = null;
+        buildA = detail; errorA = null;
       } else {
         if (current !== requestB) return;
-        buildB = detail;
-        errorB = null;
+        buildB = detail; errorB = null;
       }
     } catch (error) {
       const message = error instanceof Error ? error.message : "Failed to load build";
-      if (slot === "a") {
-        if (current !== requestA) return;
-        errorA = message;
-      } else {
-        if (current !== requestB) return;
-        errorB = message;
-      }
+      if (slot === "a") { if (current !== requestA) return; errorA = message; }
+      else { if (current !== requestB) return; errorB = message; }
     } finally {
       if (slot === "a" && current === requestA) loadingA = false;
       if (slot === "b" && current === requestB) loadingB = false;
@@ -235,15 +229,8 @@
     if (buildBSlug !== nextB) buildBSlug = nextB;
   });
 
-  $effect(() => {
-    if (!browser) return;
-    void fetchBuild("a", buildASlug);
-  });
-
-  $effect(() => {
-    if (!browser) return;
-    void fetchBuild("b", buildBSlug);
-  });
+  $effect(() => { if (!browser) return; void fetchBuild("a", buildASlug); });
+  $effect(() => { if (!browser) return; void fetchBuild("b", buildBSlug); });
 
   $effect(() => {
     if (!availableScenarios.includes(selectedScenario)) {
@@ -257,34 +244,31 @@
 </svelte:head>
 
 <div class="page-stack page-stack--tight">
-  <div class="space-y-3">
-    <a href={`${base}/`} class="crumb-link inline-flex items-center gap-2">
-      <span aria-hidden="true">←</span>
-      Back to builds
-    </a>
-    <div class="flex flex-wrap items-center gap-3">
-      <h1 class="page-title">Compare Builds</h1>
-      {#if buildA && buildB && buildA.summary.class !== buildB.summary.class}
-        <span class="rounded-full border border-amber-800 bg-amber-950/40 px-3 py-1 text-xs uppercase tracking-[0.18em] text-amber-200">
+  <div class="hb-reveal">
+    <a href={`${base}/`} class="crumb-link">← Back to manifest</a>
+    <div class="section-heading" style="margin-top: 10px;">
+      <h2>Compare Builds</h2>
+      <div class="section-rule"></div>
+      <div class="section-meta">
+        {#if buildA && buildB && buildA.summary.class !== buildB.summary.class}
           Cross-class comparison
-        </span>
-      {/if}
-      {#if buildASlug && buildASlug === buildBSlug}
-        <span class="rounded-full border border-gray-700 bg-gray-900 px-3 py-1 text-xs text-gray-300">
-          Comparing build with itself — all deltas will be zero.
-        </span>
-      {/if}
+        {:else if buildASlug && buildASlug === buildBSlug}
+          Same build — deltas all zero
+        {:else}
+          side-by-side dossier delta
+        {/if}
+      </div>
     </div>
   </div>
 
-  <section class="panel-strong selection-tray p-5">
-    <div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-end">
+  <section class="panel-strong selection-tray hb-reveal d1">
+    <div style="display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: end;">
       <label class="field-stack">
         <span class="field-label">Build A</span>
         <select
           bind:value={buildASlug}
           onchange={() => void syncUrl(buildASlug, buildBSlug)}
-          class="form-control w-full"
+          class="form-control"
         >
           <option value="">Select build…</option>
           {#each data.builds as build}
@@ -293,11 +277,7 @@
         </select>
       </label>
 
-      <button
-        type="button"
-        onclick={() => void updateBuilds(buildBSlug, buildASlug)}
-        class="button-secondary"
-      >
+      <button type="button" class="button-secondary" onclick={() => void updateBuilds(buildBSlug, buildASlug)}>
         Swap A ↔ B
       </button>
 
@@ -306,7 +286,7 @@
         <select
           bind:value={buildBSlug}
           onchange={() => void syncUrl(buildASlug, buildBSlug)}
-          class="form-control w-full"
+          class="form-control"
         >
           <option value="">Select build…</option>
           {#each buildBOptions as build}
@@ -318,17 +298,16 @@
   </section>
 
   {#if loadingA && loadingB && !buildA && !buildB}
-    <div class="panel px-6 py-10 text-center text-gray-400">
-      Loading builds...
-    </div>
+    <div class="hb-loading">Loading builds…</div>
   {/if}
 
-  <div class="flex flex-wrap gap-2">
+  <div class="hb-tab-bar">
     {#each TABS as tab}
       <button
         type="button"
+        class="hb-tab"
+        class:hb-tab--active={activeTab === tab.key}
         onclick={() => (activeTab = tab.key)}
-        class="rounded-full border px-3 py-1.5 text-sm transition-colors {activeTab === tab.key ? 'border-amber-700 bg-amber-950/50 text-amber-200' : 'border-gray-800 bg-gray-900 text-gray-400 hover:text-gray-200'}"
       >
         {tab.label}
       </button>
@@ -336,95 +315,75 @@
   </div>
 
   {#if activeTab === "overview"}
-    <section class="panel space-y-4 p-5">
-      <div class="grid gap-4 md:grid-cols-[minmax(0,1fr)_120px_minmax(0,1fr)]">
-        <article class="panel-muted p-4">
+    <section class="panel-strong" style="padding: 20px; display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr) 120px minmax(0, 1fr);">
+        <article class="panel-muted" style="padding: 16px;">
           {#if buildA}
-            <div class="space-y-3">
-              <div class="flex flex-wrap items-center gap-3">
-                <span class="rounded-full border border-gray-800 bg-gray-900 px-3 py-1 text-xs uppercase tracking-[0.18em] {CLASS_COLORS[buildA.summary.class] ?? 'text-gray-300'}">
-                  {titleCase(buildA.summary.class)}
-                </span>
-                <span class="inline-block rounded border px-2 py-0.5 text-xs font-bold {GRADE_STYLES[buildA.summary.scores.grade] ?? ''}">
-                  {buildA.summary.scores.grade}
-                </span>
-              </div>
-              <div>
-                <a href={buildHref(buildA.slug)} class="text-lg font-semibold text-gray-100 hover:text-amber-300 transition-colors">
-                  {buildA.summary.title}
-                </a>
-                <p class="mt-1 text-sm text-gray-400">{buildA.summary.weapons.map((weapon) => weapon.name).join(" / ")}</p>
-              </div>
+            <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 10px;">
+              <span class={`class-chip ${classKey(buildA.summary.class)}`}>{titleCase(buildA.summary.class)}</span>
+              <span class={`grade grade--sm ${buildA.summary.scores.grade.toLowerCase()}`}>{buildA.summary.scores.grade}</span>
             </div>
+            <a href={buildHref(buildA.slug)} class="hb-ledger-title">{buildA.summary.title}</a>
+            <p class="hb-ledger-sub">{buildA.summary.weapons.map((weapon) => weapon.name).join(" / ")}</p>
           {:else if loadingA}
-            <p class="text-sm text-gray-400">Loading side A...</p>
+            <p class="hb-verdict-note">Loading side A…</p>
           {:else if errorA}
-            <p class="text-sm text-red-300">{errorA}</p>
+            <p class="hb-verdict-note" style="color: var(--hb-blood)">{errorA}</p>
           {:else}
-            <p class="text-sm text-gray-500">Select a build for side A.</p>
+            <p class="hb-verdict-note">Select a build for side A.</p>
           {/if}
         </article>
 
-        <div class="hidden md:block"></div>
+        <div style="display: grid; place-items: center;">
+          <span class="label label-amber">vs</span>
+        </div>
 
-        <article class="panel-muted p-4">
+        <article class="panel-muted" style="padding: 16px;">
           {#if buildB}
-            <div class="space-y-3">
-              <div class="flex flex-wrap items-center gap-3">
-                <span class="rounded-full border border-gray-800 bg-gray-900 px-3 py-1 text-xs uppercase tracking-[0.18em] {CLASS_COLORS[buildB.summary.class] ?? 'text-gray-300'}">
-                  {titleCase(buildB.summary.class)}
-                </span>
-                <span class="inline-block rounded border px-2 py-0.5 text-xs font-bold {GRADE_STYLES[buildB.summary.scores.grade] ?? ''}">
-                  {buildB.summary.scores.grade}
-                </span>
-              </div>
-              <div>
-                <a href={buildHref(buildB.slug)} class="text-lg font-semibold text-gray-100 hover:text-amber-300 transition-colors">
-                  {buildB.summary.title}
-                </a>
-                <p class="mt-1 text-sm text-gray-400">{buildB.summary.weapons.map((weapon) => weapon.name).join(" / ")}</p>
-              </div>
+            <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 10px;">
+              <span class={`class-chip ${classKey(buildB.summary.class)}`}>{titleCase(buildB.summary.class)}</span>
+              <span class={`grade grade--sm ${buildB.summary.scores.grade.toLowerCase()}`}>{buildB.summary.scores.grade}</span>
             </div>
+            <a href={buildHref(buildB.slug)} class="hb-ledger-title">{buildB.summary.title}</a>
+            <p class="hb-ledger-sub">{buildB.summary.weapons.map((weapon) => weapon.name).join(" / ")}</p>
           {:else if loadingB}
-            <p class="text-sm text-gray-400">Loading side B...</p>
+            <p class="hb-verdict-note">Loading side B…</p>
           {:else if errorB}
-            <p class="text-sm text-red-300">{errorB}</p>
+            <p class="hb-verdict-note" style="color: var(--hb-blood)">{errorB}</p>
           {:else}
-            <p class="text-sm text-gray-500">Select a build for side B.</p>
+            <p class="hb-verdict-note">Select a build for side B.</p>
           {/if}
         </article>
       </div>
 
-      <div class="space-y-2">
-        {#if scoredDeltas.length > 0}
-          <div class="panel-muted px-4 py-3 text-sm">
-            <span class="text-gray-500">Biggest swing:</span>
-            <span class="ml-2 text-gray-100">{scoredDeltas[0].label}</span>
-            <span class="ml-2 font-medium {deltaColor(scoredDeltas[0].delta)}">{formatDelta(scoredDeltas[0].delta)}</span>
-            {#if scoredDeltas.length > 1}
-              <span class="ml-4 text-gray-500">Next:</span>
-              <span class="ml-2 text-gray-100">{scoredDeltas[1].label}</span>
-              <span class="ml-2 font-medium {deltaColor(scoredDeltas[1].delta)}">{formatDelta(scoredDeltas[1].delta)}</span>
-            {/if}
-          </div>
-        {/if}
+      {#if scoredDeltas.length > 0}
+        <div class="panel-muted" style="padding: 10px 14px; display: flex; gap: 14px; flex-wrap: wrap; align-items: baseline; font-size: 13px;">
+          <span class="label">Biggest swing</span>
+          <span>{scoredDeltas[0].label}</span>
+          <span class={`mono-num ${deltaClass(scoredDeltas[0].delta)}`}>{formatDelta(scoredDeltas[0].delta)}</span>
+          {#if scoredDeltas.length > 1}
+            <span class="label">Next</span>
+            <span>{scoredDeltas[1].label}</span>
+            <span class={`mono-num ${deltaClass(scoredDeltas[1].delta)}`}>{formatDelta(scoredDeltas[1].delta)}</span>
+          {/if}
+        </div>
+      {/if}
 
+      <div style="display: flex; flex-direction: column; gap: 6px;">
         {#each DIMENSIONS as dimension}
           {@const delta = scoreDeltas.find((row) => row.dimension === dimension.scorecard_key)?.delta ?? null}
-          <div class="panel-muted grid gap-2 px-4 py-3 md:grid-cols-[minmax(0,1fr)_120px_minmax(0,1fr)] md:items-center">
-            <div class="flex items-center justify-between gap-3">
-              <span class="text-sm text-gray-400">{dimension.label}</span>
-              <span class="tabular-nums {scoreColor(scoreValue(buildA, dimension.summary_key))}">
-                {scoreValue(buildA, dimension.summary_key) ?? "\u2014"} / {dimension.max}
+          <div class="panel-muted" style="padding: 10px 14px; display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr) 120px minmax(0, 1fr); align-items: center;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 10px;">
+              <span class="label">{dimension.label}</span>
+              <span class={scoreCellClass(scoreValue(buildA, dimension.summary_key))}>
+                {scoreValue(buildA, dimension.summary_key) ?? "—"}/{dimension.max}
               </span>
             </div>
-            <div class="text-center text-sm font-medium tabular-nums {deltaColor(delta)}">
-              {formatDelta(delta)}
-            </div>
-            <div class="flex items-center justify-between gap-3">
-              <span class="text-sm text-gray-400 md:hidden">{dimension.label}</span>
-              <span class="tabular-nums {scoreColor(scoreValue(buildB, dimension.summary_key))}">
-                {scoreValue(buildB, dimension.summary_key) ?? "\u2014"} / {dimension.max}
+            <div class={`mono-num ${deltaClass(delta)}`} style="text-align: center; font-size: 14px;">{formatDelta(delta)}</div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 10px;">
+              <span class="label" style="color: var(--hb-ink-ghost)">{dimension.label}</span>
+              <span class={scoreCellClass(scoreValue(buildB, dimension.summary_key))}>
+                {scoreValue(buildB, dimension.summary_key) ?? "—"}/{dimension.max}
               </span>
             </div>
           </div>
@@ -432,12 +391,12 @@
       </div>
 
       {#if slotDiffs.length > 0}
-        <div class="panel-muted p-4">
-          <div class="mb-3 text-sm font-medium text-gray-200">Slot Diff Summary</div>
-          <div class="flex flex-wrap gap-2 text-sm">
-            {#each slotDiffs as slot}
-              <span class="rounded-full border px-3 py-1 {slot.changed ? 'border-amber-700 bg-amber-950/40 text-amber-200' : 'border-gray-800 bg-gray-900 text-gray-400'}">
-                {slot.label}: {slot.a.name ?? "\u2014"} → {slot.b.name ?? "\u2014"}
+        <div class="panel-muted" style="padding: 14px 16px;">
+          <div class="label" style="margin-bottom: 8px;">Slot Diff Summary</div>
+          <div class="hb-chip-cloud">
+            {#each slotDiffs as slot (slot.key)}
+              <span class={`hb-chip ${slot.changed ? 'hb-chip--amber' : ''}`}>
+                {slot.label}: {slot.a.name ?? "—"} → {slot.b.name ?? "—"}
               </span>
             {/each}
           </div>
@@ -445,38 +404,32 @@
       {/if}
 
       {#if curioDiff}
-        <div class="panel-muted p-4">
-          <div class="mb-3 text-sm font-medium text-gray-200">Curio Perk Diff</div>
-          <div class="grid gap-4 md:grid-cols-3">
+        <div class="panel-muted" style="padding: 14px 16px;">
+          <div class="label" style="margin-bottom: 8px;">Curio Perk Diff</div>
+          <div style="display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr);">
             <div>
-              <div class="mb-2 text-xs uppercase tracking-[0.18em] text-gray-500">Only in A</div>
-              <div class="space-y-2 text-sm text-gray-300">
-                {#each curioDiffCounts?.only_a ?? [] as entry}
-                  <div>{entry.name}{entry.count > 1 ? ` ×${entry.count}` : ""}</div>
-                {:else}
-                  <div class="text-gray-500">None</div>
-                {/each}
-              </div>
+              <div class="label" style="margin-bottom: 6px;">Only A</div>
+              {#each curioDiffCounts?.only_a ?? [] as entry (entry.name)}
+                <div style="font-size: 13px;">{entry.name}{entry.count > 1 ? ` ×${entry.count}` : ""}</div>
+              {:else}
+                <div class="hb-verdict-note">None</div>
+              {/each}
             </div>
             <div>
-              <div class="mb-2 text-xs uppercase tracking-[0.18em] text-gray-500">Shared</div>
-              <div class="space-y-2 text-sm text-gray-300">
-                {#each curioDiffCounts?.shared ?? [] as entry}
-                  <div>{entry.name}{entry.count > 1 ? ` ×${entry.count}` : ""}</div>
-                {:else}
-                  <div class="text-gray-500">None</div>
-                {/each}
-              </div>
+              <div class="label" style="margin-bottom: 6px;">Shared</div>
+              {#each curioDiffCounts?.shared ?? [] as entry (entry.name)}
+                <div style="font-size: 13px;">{entry.name}{entry.count > 1 ? ` ×${entry.count}` : ""}</div>
+              {:else}
+                <div class="hb-verdict-note">None</div>
+              {/each}
             </div>
             <div>
-              <div class="mb-2 text-xs uppercase tracking-[0.18em] text-gray-500">Only in B</div>
-              <div class="space-y-2 text-sm text-gray-300">
-                {#each curioDiffCounts?.only_b ?? [] as entry}
-                  <div>{entry.name}{entry.count > 1 ? ` ×${entry.count}` : ""}</div>
-                {:else}
-                  <div class="text-gray-500">None</div>
-                {/each}
-              </div>
+              <div class="label" style="margin-bottom: 6px;">Only B</div>
+              {#each curioDiffCounts?.only_b ?? [] as entry (entry.name)}
+                <div style="font-size: 13px;">{entry.name}{entry.count > 1 ? ` ×${entry.count}` : ""}</div>
+              {:else}
+                <div class="hb-verdict-note">None</div>
+              {/each}
             </div>
           </div>
         </div>
@@ -486,119 +439,105 @@
 
   {#if activeTab === "talents"}
     {#if talentDiff}
-      <section class="panel space-y-4 p-5">
-        <div class="grid gap-4 md:grid-cols-3">
-          <article class="panel-muted p-4">
-            <h2 class="mb-3 text-sm font-medium text-gray-200">Only in A</h2>
-            <div class="space-y-2 text-sm text-gray-300">
-              {#each talentDiff.only_a as entry}
-                <div>{entry.name}</div>
-              {:else}
-                <div class="text-gray-500">None</div>
-              {/each}
-            </div>
+      <section class="panel-strong" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr);">
+          <article class="panel-muted" style="padding: 14px 16px;">
+            <div class="label" style="margin-bottom: 10px;">Only A</div>
+            {#each talentDiff.only_a as entry, i (`${entry.id ?? entry.name}:${i}`)}
+              <div style="font-size: 13px;">{entry.name}</div>
+            {:else}
+              <div class="hb-verdict-note">None</div>
+            {/each}
           </article>
-          <article class="panel-muted p-4">
-            <h2 class="mb-3 text-sm font-medium text-gray-200">Shared</h2>
-            <div class="space-y-2 text-sm text-gray-300">
-              {#each talentDiff.shared as entry}
-                <div>{entry.name}</div>
-              {:else}
-                <div class="text-gray-500">None</div>
-              {/each}
-            </div>
+          <article class="panel-muted" style="padding: 14px 16px;">
+            <div class="label" style="margin-bottom: 10px;">Shared</div>
+            {#each talentDiff.shared as entry, i (`${entry.id ?? entry.name}:${i}`)}
+              <div style="font-size: 13px;">{entry.name}</div>
+            {:else}
+              <div class="hb-verdict-note">None</div>
+            {/each}
           </article>
-          <article class="panel-muted p-4">
-            <h2 class="mb-3 text-sm font-medium text-gray-200">Only in B</h2>
-            <div class="space-y-2 text-sm text-gray-300">
-              {#each talentDiff.only_b as entry}
-                <div>{entry.name}</div>
-              {:else}
-                <div class="text-gray-500">None</div>
-              {/each}
-            </div>
+          <article class="panel-muted" style="padding: 14px 16px;">
+            <div class="label" style="margin-bottom: 10px;">Only B</div>
+            {#each talentDiff.only_b as entry, i (`${entry.id ?? entry.name}:${i}`)}
+              <div style="font-size: 13px;">{entry.name}</div>
+            {:else}
+              <div class="hb-verdict-note">None</div>
+            {/each}
           </article>
         </div>
 
-        <div class="grid gap-2 md:grid-cols-2">
-          {#each slotDiffs as slot}
-            <div class="panel-muted px-4 py-3 text-sm">
-              <div class="font-medium text-gray-200">{slot.label}</div>
-              <div class="mt-1 text-gray-400">A: {slot.a.name ?? "\u2014"}</div>
-              <div class="text-gray-400">B: {slot.b.name ?? "\u2014"}</div>
+        <div style="display: grid; gap: 10px; grid-template-columns: repeat(2, 1fr);">
+          {#each slotDiffs as slot (slot.key)}
+            <div class="panel-muted" style="padding: 12px 14px;">
+              <div class="label">{slot.label}</div>
+              <div style="font-size: 13px; margin-top: 4px;"><span class="label-dim">A:</span> {slot.a.name ?? "—"}</div>
+              <div style="font-size: 13px;"><span class="label-dim">B:</span> {slot.b.name ?? "—"}</div>
             </div>
           {/each}
         </div>
       </section>
     {:else}
-      <div class="panel px-6 py-10 text-center text-gray-400">
-        Select two builds to compare talents.
-      </div>
+      <div class="hb-loading">Select two builds to compare talents.</div>
     {/if}
   {/if}
 
   {#if activeTab === "weapons"}
     {#if weaponDiff}
-      <section class="panel space-y-4 p-5">
-        <div class="grid gap-4 md:grid-cols-3">
-          <article class="panel-muted p-4">
-            <h2 class="mb-3 text-sm font-medium text-gray-200">Only in A</h2>
-            <div class="space-y-3">
-              {#each weaponDiff.only_a as weapon}
-                <div class="rounded-lg border border-gray-800 bg-gray-900 px-3 py-2 text-sm">
-                  <div class="font-medium text-gray-100">{weapon.name}</div>
-                  <div class="text-gray-400">{weapon.slot ?? "\u2014"} · {weapon.family ?? "\u2014"}</div>
-                </div>
-              {:else}
-                <div class="text-sm text-gray-500">None</div>
-              {/each}
-            </div>
+      <section class="panel-strong" style="padding: 20px;">
+        <div style="display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr);">
+          <article class="panel-muted" style="padding: 14px 16px;">
+            <div class="label" style="margin-bottom: 10px;">Only A</div>
+            {#each weaponDiff.only_a as weapon (weapon.compare_key)}
+              <div class="hb-trait-row" style="margin-bottom: 6px;">
+                <span>{weapon.name}</span>
+                <span class="hb-trait-tier">{titleCase(weapon.slot ?? "—")}</span>
+              </div>
+            {:else}
+              <div class="hb-verdict-note">None</div>
+            {/each}
           </article>
-          <article class="panel-muted p-4">
-            <h2 class="mb-3 text-sm font-medium text-gray-200">Shared</h2>
-            <div class="space-y-3">
-              {#each weaponDiff.shared as weapon}
-                {@const peer = sharedWeaponPeer(weapon.compare_key)}
-                {@const blessingDiff = peer ? computeSetDiff(weapon.blessings, peer.blessings) : null}
-                <div class="rounded-lg border border-gray-800 bg-gray-900 px-3 py-3 text-sm">
-                  <div class="font-medium text-gray-100">{weapon.name}</div>
-                  <div class="text-gray-400">{weapon.slot ?? "\u2014"} · {weapon.family ?? "\u2014"}</div>
-                  {#if blessingDiff}
-                    <div class="mt-2 text-xs text-gray-400">
-                      Only A: {blessingDiff.only_a.map((entry) => entry.name).join(", ") || "\u2014"}
-                    </div>
-                    <div class="text-xs text-gray-400">
-                      Shared: {blessingDiff.shared.map((entry) => entry.name).join(", ") || "\u2014"}
-                    </div>
-                    <div class="text-xs text-gray-400">
-                      Only B: {blessingDiff.only_b.map((entry) => entry.name).join(", ") || "\u2014"}
-                    </div>
-                  {/if}
+          <article class="panel-muted" style="padding: 14px 16px;">
+            <div class="label" style="margin-bottom: 10px;">Shared</div>
+            {#each weaponDiff.shared as weapon (weapon.compare_key)}
+              {@const peer = sharedWeaponPeer(weapon.compare_key)}
+              {@const blessingDiff = peer ? computeSetDiff(weapon.blessings, peer.blessings) : null}
+              <div class="hb-trait-row" style="display: flex; flex-direction: column; align-items: stretch; gap: 4px; margin-bottom: 8px;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span>{weapon.name}</span>
+                  <span class="hb-trait-tier">{titleCase(weapon.slot ?? "—")}</span>
                 </div>
-              {:else}
-                <div class="text-sm text-gray-500">None</div>
-              {/each}
-            </div>
+                {#if blessingDiff}
+                  <div style="font-size: 11px; color: var(--hb-ink-dim);">
+                    Only A: {blessingDiff.only_a.map((e) => e.name).join(", ") || "—"}
+                  </div>
+                  <div style="font-size: 11px; color: var(--hb-ink-dim);">
+                    Shared: {blessingDiff.shared.map((e) => e.name).join(", ") || "—"}
+                  </div>
+                  <div style="font-size: 11px; color: var(--hb-ink-dim);">
+                    Only B: {blessingDiff.only_b.map((e) => e.name).join(", ") || "—"}
+                  </div>
+                {/if}
+              </div>
+            {:else}
+              <div class="hb-verdict-note">None</div>
+            {/each}
           </article>
-          <article class="panel-muted p-4">
-            <h2 class="mb-3 text-sm font-medium text-gray-200">Only in B</h2>
-            <div class="space-y-3">
-              {#each weaponDiff.only_b as weapon}
-                <div class="rounded-lg border border-gray-800 bg-gray-900 px-3 py-2 text-sm">
-                  <div class="font-medium text-gray-100">{weapon.name}</div>
-                  <div class="text-gray-400">{weapon.slot ?? "\u2014"} · {weapon.family ?? "\u2014"}</div>
-                </div>
-              {:else}
-                <div class="text-sm text-gray-500">None</div>
-              {/each}
-            </div>
+          <article class="panel-muted" style="padding: 14px 16px;">
+            <div class="label" style="margin-bottom: 10px;">Only B</div>
+            {#each weaponDiff.only_b as weapon (weapon.compare_key)}
+              <div class="hb-trait-row" style="margin-bottom: 6px;">
+                <span>{weapon.name}</span>
+                <span class="hb-trait-tier">{titleCase(weapon.slot ?? "—")}</span>
+              </div>
+            {:else}
+              <div class="hb-verdict-note">None</div>
+            {/each}
           </article>
         </div>
       </section>
     {:else}
-      <div class="panel px-6 py-10 text-center text-gray-400">
-        Select two builds to compare weapons.
-      </div>
+      <div class="hb-loading">Select two builds to compare weapons.</div>
     {/if}
   {/if}
 
@@ -606,106 +545,107 @@
     {#if buildA && buildB && synergyDiff}
       {@const antiA = buildA.synergy.anti_synergies.filter((entry) => !buildB.synergy.anti_synergies.some((other) => antiSynergyKey(other) === antiSynergyKey(entry)))}
       {@const antiB = buildB.synergy.anti_synergies.filter((entry) => !buildA.synergy.anti_synergies.some((other) => antiSynergyKey(other) === antiSynergyKey(entry)))}
-      <section class="panel space-y-4 p-5">
-        <div class="grid gap-4 md:grid-cols-3">
-          <article class="panel-muted p-4">
-            <h2 class="mb-3 text-sm font-medium text-gray-200">Only in A</h2>
-            <div class="space-y-3">
-              {#each synergyDiff.only_a as edge}
-                <div class="rounded-lg border border-gray-800 bg-gray-900 px-3 py-2 text-sm">
-                  <div class="font-medium text-gray-100">{titleCase(edge.type)}</div>
-                  <div class="text-gray-400">{selectionText(edge.selections)}</div>
-                  <div class="text-xs text-gray-500">{coverageText(edge.families)}</div>
+      <section class="panel-strong" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr);">
+          <article class="panel-muted" style="padding: 14px 16px;">
+            <div class="label" style="margin-bottom: 10px;">Only A</div>
+            {#each synergyDiff.only_a as edge, i (i)}
+              <div class="hb-syn-row" style="margin-bottom: 6px;">
+                <span class="hb-syn-kind">{titleCase(edge.type)}</span>
+                <div class="hb-syn-body">
+                  <span class="sel">{selectionText(edge.selections)}</span>
+                  <span class="exp" style="color: var(--hb-ink-faint)">{coverageText(edge.families)}</span>
                 </div>
-              {:else}
-                <div class="text-sm text-gray-500">None</div>
-              {/each}
-            </div>
+                <span></span>
+              </div>
+            {:else}
+              <div class="hb-verdict-note">None</div>
+            {/each}
           </article>
-          <article class="panel-muted p-4">
-            <h2 class="mb-3 text-sm font-medium text-gray-200">Shared</h2>
-            <div class="space-y-3">
-              {#each synergyDiff.shared as edge}
-                <div class="rounded-lg border border-gray-800 bg-gray-900 px-3 py-2 text-sm">
-                  <div class="font-medium text-gray-100">{titleCase(edge.type)}</div>
-                  <div class="text-gray-400">{selectionText(edge.selections)}</div>
-                  <div class="text-xs text-gray-500">{coverageText(edge.families)}</div>
+          <article class="panel-muted" style="padding: 14px 16px;">
+            <div class="label" style="margin-bottom: 10px;">Shared</div>
+            {#each synergyDiff.shared as edge, i (i)}
+              <div class="hb-syn-row" style="margin-bottom: 6px;">
+                <span class="hb-syn-kind">{titleCase(edge.type)}</span>
+                <div class="hb-syn-body">
+                  <span class="sel">{selectionText(edge.selections)}</span>
+                  <span class="exp" style="color: var(--hb-ink-faint)">{coverageText(edge.families)}</span>
                 </div>
-              {:else}
-                <div class="text-sm text-gray-500">None</div>
-              {/each}
-            </div>
+                <span></span>
+              </div>
+            {:else}
+              <div class="hb-verdict-note">None</div>
+            {/each}
           </article>
-          <article class="panel-muted p-4">
-            <h2 class="mb-3 text-sm font-medium text-gray-200">Only in B</h2>
-            <div class="space-y-3">
-              {#each synergyDiff.only_b as edge}
-                <div class="rounded-lg border border-gray-800 bg-gray-900 px-3 py-2 text-sm">
-                  <div class="font-medium text-gray-100">{titleCase(edge.type)}</div>
-                  <div class="text-gray-400">{selectionText(edge.selections)}</div>
-                  <div class="text-xs text-gray-500">{coverageText(edge.families)}</div>
+          <article class="panel-muted" style="padding: 14px 16px;">
+            <div class="label" style="margin-bottom: 10px;">Only B</div>
+            {#each synergyDiff.only_b as edge, i (i)}
+              <div class="hb-syn-row" style="margin-bottom: 6px;">
+                <span class="hb-syn-kind">{titleCase(edge.type)}</span>
+                <div class="hb-syn-body">
+                  <span class="sel">{selectionText(edge.selections)}</span>
+                  <span class="exp" style="color: var(--hb-ink-faint)">{coverageText(edge.families)}</span>
                 </div>
-              {:else}
-                <div class="text-sm text-gray-500">None</div>
-              {/each}
-            </div>
+                <span></span>
+              </div>
+            {:else}
+              <div class="hb-verdict-note">None</div>
+            {/each}
           </article>
         </div>
 
-        <div class="grid gap-4 md:grid-cols-2">
-          <article class="panel-muted p-4">
-            <h2 class="mb-3 text-sm font-medium text-gray-200">Anti-Synergies Only in A</h2>
-            <div class="space-y-2 text-sm text-gray-300">
-              {#each antiA as entry}
-                <div>{entry.reason}</div>
-              {:else}
-                <div class="text-gray-500">None</div>
-              {/each}
-            </div>
+        <div style="display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr);">
+          <article class="panel-muted" style="padding: 14px 16px;">
+            <div class="label" style="margin-bottom: 10px; color: var(--hb-blood);">Anti-Synergies Only A</div>
+            {#each antiA as entry (antiSynergyKey(entry))}
+              <div style="font-size: 13px; margin-bottom: 4px;">{entry.reason}</div>
+            {:else}
+              <div class="hb-verdict-note">None</div>
+            {/each}
           </article>
-          <article class="panel-muted p-4">
-            <h2 class="mb-3 text-sm font-medium text-gray-200">Anti-Synergies Only in B</h2>
-            <div class="space-y-2 text-sm text-gray-300">
-              {#each antiB as entry}
-                <div>{entry.reason}</div>
-              {:else}
-                <div class="text-gray-500">None</div>
-              {/each}
-            </div>
+          <article class="panel-muted" style="padding: 14px 16px;">
+            <div class="label" style="margin-bottom: 10px; color: var(--hb-blood);">Anti-Synergies Only B</div>
+            {#each antiB as entry (antiSynergyKey(entry))}
+              <div style="font-size: 13px; margin-bottom: 4px;">{entry.reason}</div>
+            {:else}
+              <div class="hb-verdict-note">None</div>
+            {/each}
           </article>
         </div>
 
-        <div class="grid gap-4 md:grid-cols-2">
-          <article class="panel-muted p-4 text-sm">
-            <h2 class="mb-3 font-medium text-gray-200">Coverage A</h2>
-            <div class="text-gray-400">Effect-modeled coverage: {formatCoverageFraction(buildA.synergy.metadata.calc_coverage_pct)}</div>
-            <div class="text-gray-400">Source-linked coverage: {formatCoverageFraction(buildA.synergy.metadata.linked_coverage_pct)}</div>
-            <div class="text-gray-400">Entities analyzed: {buildA.synergy.metadata.entities_analyzed}</div>
-            <div class="text-gray-400">Build identity: {coverageText(buildA.synergy.coverage.build_identity)}</div>
-            <div class="text-gray-400">Coverage gaps: {coverageText(buildA.synergy.coverage.coverage_gaps)}</div>
+        <div style="display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr);">
+          <article class="panel-muted" style="padding: 14px 16px;">
+            <div class="label" style="margin-bottom: 10px;">Coverage A</div>
+            <div style="font-size: 13px; color: var(--hb-ink-dim); display: flex; flex-direction: column; gap: 3px;">
+              <span>Effect-modeled: <span class="mono-num">{formatCoverageFraction(buildA.synergy.metadata.calc_coverage_pct)}</span></span>
+              <span>Source-linked: <span class="mono-num">{formatCoverageFraction(buildA.synergy.metadata.linked_coverage_pct)}</span></span>
+              <span>Entities: <span class="mono-num">{buildA.synergy.metadata.entities_analyzed}</span></span>
+              <span>Identity: {coverageText(buildA.synergy.coverage.build_identity)}</span>
+              <span>Gaps: {coverageText(buildA.synergy.coverage.coverage_gaps)}</span>
+            </div>
           </article>
-          <article class="panel-muted p-4 text-sm">
-            <h2 class="mb-3 font-medium text-gray-200">Coverage B</h2>
-            <div class="text-gray-400">Effect-modeled coverage: {formatCoverageFraction(buildB.synergy.metadata.calc_coverage_pct)}</div>
-            <div class="text-gray-400">Source-linked coverage: {formatCoverageFraction(buildB.synergy.metadata.linked_coverage_pct)}</div>
-            <div class="text-gray-400">Entities analyzed: {buildB.synergy.metadata.entities_analyzed}</div>
-            <div class="text-gray-400">Build identity: {coverageText(buildB.synergy.coverage.build_identity)}</div>
-            <div class="text-gray-400">Coverage gaps: {coverageText(buildB.synergy.coverage.coverage_gaps)}</div>
+          <article class="panel-muted" style="padding: 14px 16px;">
+            <div class="label" style="margin-bottom: 10px;">Coverage B</div>
+            <div style="font-size: 13px; color: var(--hb-ink-dim); display: flex; flex-direction: column; gap: 3px;">
+              <span>Effect-modeled: <span class="mono-num">{formatCoverageFraction(buildB.synergy.metadata.calc_coverage_pct)}</span></span>
+              <span>Source-linked: <span class="mono-num">{formatCoverageFraction(buildB.synergy.metadata.linked_coverage_pct)}</span></span>
+              <span>Entities: <span class="mono-num">{buildB.synergy.metadata.entities_analyzed}</span></span>
+              <span>Identity: {coverageText(buildB.synergy.coverage.build_identity)}</span>
+              <span>Gaps: {coverageText(buildB.synergy.coverage.coverage_gaps)}</span>
+            </div>
           </article>
         </div>
       </section>
     {:else}
-      <div class="panel px-6 py-10 text-center text-gray-400">
-        Select two builds to compare synergy.
-      </div>
+      <div class="hb-loading">Select two builds to compare synergy.</div>
     {/if}
   {/if}
 
   {#if activeTab === "breakpoints"}
     {#if buildA && buildB}
-      <section class="panel space-y-4 p-5">
-        <div class="flex flex-wrap gap-3">
-          <label class="space-y-1">
+      <section class="panel-strong" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <label class="field-stack">
             <span class="field-label">Scenario</span>
             <select bind:value={selectedScenario} class="form-control">
               {#each availableScenarios as scenario}
@@ -713,7 +653,7 @@
               {/each}
             </select>
           </label>
-          <label class="space-y-1">
+          <label class="field-stack">
             <span class="field-label">Difficulty</span>
             <select bind:value={selectedDifficulty} class="form-control">
               {#each DIFFICULTIES as difficulty}
@@ -723,53 +663,43 @@
           </label>
         </div>
 
-        <div class="overflow-x-auto rounded-xl border border-gray-800">
-          <table class="w-full text-sm">
+        <div class="hb-cogitator-table-wrap">
+          <table class="hb-cogitator-table">
             <thead>
-              <tr class="bg-gray-950 text-left text-gray-400">
-                <th class="px-4 py-3 font-medium">Breed / Action</th>
-                <th class="px-4 py-3 font-medium">Build A</th>
-                <th class="px-4 py-3 font-medium">Delta</th>
-                <th class="px-4 py-3 font-medium">Build B</th>
+              <tr>
+                <th>Breed / Action</th>
+                <th>Build A</th>
+                <th>Delta</th>
+                <th>Build B</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-900">
-              {#each breakpointDiff as row}
+            <tbody>
+              {#each breakpointDiff as row, i (i)}
                 <tr>
-                  <td class="px-4 py-3 text-gray-200">
-                    {titleCase(row.breed_id)} / {titleCase(row.action_category)}
+                  <td>
+                    <span class="hb-action-label">{titleCase(row.breed_id)} · {titleCase(row.action_category)}</span>
                   </td>
-                  <td class="px-4 py-3">
-                    <span class="inline-flex rounded px-2 py-1 {htkCellClass(row.a_htk)}">
-                      {row.a_htk ?? "\u2014"}
-                    </span>
-                    <span class="ml-2 text-gray-400">{row.a_weapon ?? ""}</span>
+                  <td>
+                    <span class="hb-htk {htkClass(row.a_htk)}">{row.a_htk ?? "—"}</span>
+                    <span style="margin-left: 8px; color: var(--hb-ink-faint); font-family: 'Inter';">{row.a_weapon ?? ""}</span>
                   </td>
-                  <td class="px-4 py-3 font-medium tabular-nums {deltaColor(row.delta)}">
-                    {formatDelta(row.delta)}
-                  </td>
-                  <td class="px-4 py-3">
-                    <span class="inline-flex rounded px-2 py-1 {htkCellClass(row.b_htk)}">
-                      {row.b_htk ?? "\u2014"}
-                    </span>
-                    <span class="ml-2 text-gray-400">{row.b_weapon ?? ""}</span>
+                  <td class={`mono-num ${deltaClass(row.delta)}`}>{formatDelta(row.delta)}</td>
+                  <td>
+                    <span class="hb-htk {htkClass(row.b_htk)}">{row.b_htk ?? "—"}</span>
+                    <span style="margin-left: 8px; color: var(--hb-ink-faint); font-family: 'Inter';">{row.b_weapon ?? ""}</span>
                   </td>
                 </tr>
               {:else}
-                <tr>
-                  <td colspan="4" class="px-4 py-6 text-center text-gray-500">No breakpoint rows for this scenario/difficulty.</td>
-                </tr>
+                <tr><td colspan="4" class="hb-cogitator-empty">No breakpoint rows for this slice.</td></tr>
               {/each}
             </tbody>
           </table>
         </div>
 
-        <p class="text-sm text-gray-400">Lower HTK is better. Green delta = Build B kills faster.</p>
+        <p class="hb-verdict-note">Lower HTK is better. Green delta = Build B kills faster.</p>
       </section>
     {:else}
-      <div class="panel px-6 py-10 text-center text-gray-400">
-        Select two builds to compare breakpoints.
-      </div>
+      <div class="hb-loading">Select two builds to compare breakpoints.</div>
     {/if}
   {/if}
 </div>

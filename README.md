@@ -61,7 +61,7 @@ Current command requirements:
 - `canonicalize` — requires `GROUND_TRUTH_SOURCE_ROOT`
 - `reresolve` — requires `GROUND_TRUTH_SOURCE_ROOT`
 - `index:build` / `index:check` / `test` / `check` — require `GROUND_TRUTH_SOURCE_ROOT`
-- `breeds:build` / `profiles:build` — require `GROUND_TRUTH_SOURCE_ROOT`
+- `trees:build` / `breeds:build` / `profiles:build` — require `GROUND_TRUTH_SOURCE_ROOT`
 - `calc` — requires `GROUND_TRUTH_SOURCE_ROOT` (reads generated data from `breeds:build` + `profiles:build`)
 - `score` — does not require `GROUND_TRUTH_SOURCE_ROOT` (but includes breakpoint scoring when calc data available)
 
@@ -163,6 +163,19 @@ Regenerate tree edges from Lua source (requires source root):
 
 ```bash
 npm run edges:build
+```
+
+Build talent-tree DAGs from Lua source (requires source root):
+
+```bash
+npm run trees:build
+```
+
+Mirror website-facing art assets:
+
+```bash
+npm run icons:build
+npm run weapons:build
 ```
 
 Read-only coverage summary:

@@ -2,7 +2,7 @@
 # Create .source-root once: echo /path/to/Darktide-Source-Code > .source-root
 GROUND_TRUTH_SOURCE_ROOT ?= $(shell cat .source-root 2>/dev/null)
 
-.PHONY: require-source-root build test resolve audit class-side-build index-build index-check edges-build effects-build breeds-build profiles-build stagger-build check
+.PHONY: require-source-root build test resolve audit class-side-build index-build index-check edges-build trees-build effects-build breeds-build profiles-build stagger-build check
 
 require-source-root:
 	@if [ -z "$(GROUND_TRUTH_SOURCE_ROOT)" ]; then \
@@ -35,6 +35,9 @@ index-check: require-source-root
 edges-build: require-source-root
 	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run edges:build
 
+trees-build: require-source-root
+	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run trees:build
+
 effects-build: require-source-root
 	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run effects:build
 
@@ -47,7 +50,7 @@ profiles-build: require-source-root
 stagger-build: require-source-root
 	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run stagger:build
 
-check: require-source-root build class-side-build edges-build effects-build breeds-build profiles-build stagger-build
+check: require-source-root build class-side-build edges-build trees-build effects-build breeds-build profiles-build stagger-build
 	GROUND_TRUTH_SOURCE_ROOT="$(GROUND_TRUTH_SOURCE_ROOT)" npm run check
 
 # Website
