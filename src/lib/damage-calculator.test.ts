@@ -1603,6 +1603,27 @@ describe("assembleBuildBuffStack", () => {
     approx(stackOn.additive_sum, 1.1);
   });
 
+  it("does not implicitly apply ads_with_stamina gated effects", () => {
+    const mockIndex = {
+      entities: new Map([
+        ["t.talent.a", { calc: { effects: [
+          { stat: "damage", magnitude: 0.25, type: "conditional_stat_buff", condition: "ads_with_stamina" },
+        ] } }],
+      ]),
+      edges: [],
+    };
+    const build = {
+      talents: [
+        { canonical_entity_id: "t.talent.a", resolution_status: "resolved" },
+      ],
+      weapons: [],
+      curios: [],
+    };
+
+    const stack = assembleBuildBuffStack(build, mockIndex, { ads_active: true });
+    assert.equal(stack.additive_sum, 1);
+  });
+
   it("skips entities not found in index", () => {
     const mockIndex = {
       entities: new Map(), // empty — entity not found

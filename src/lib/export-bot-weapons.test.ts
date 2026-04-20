@@ -86,7 +86,9 @@ describe("export:bot-weapons CLI", () => {
         { encoding: "utf8", timeout: 10_000 },
       );
       assert.equal(result.status, 0, `CLI failed: ${result.stderr}`);
-      assert.ok(result.stdout.includes("Wrote"), `unexpected output: ${result.stdout}`);
+      const exported = JSON.parse(readFileSync(outPath, "utf8"));
+      assert.equal(exported.schema_version, 1);
+      assert.equal(exported.assumes, "betterbots");
     } finally {
       rmSync(tmp, { recursive: true, force: true });
     }
