@@ -8,6 +8,8 @@ Core analytical engine complete: entity resolution, synergy model, 7-dimension s
 
 Website: SvelteKit static site on GitHub Pages. Build list, detail page, and comparison page functional (Plans 1–3 merged). Imperial Dataslate aesthetic now covers the detail page and list route; compare page still on the original `panel-strong` theme pending its verdict-first IA pass.
 
+Product-level MVP blockers are documented separately in [docs/mvp.md](docs/mvp.md). The short version: the engine is ahead of the user surfaces; the missing work is website import flow plus CLI productization.
+
 ## Active sequence
 
 Ordered by dependency. Each step builds on the previous.
