@@ -132,12 +132,12 @@ Current entity coverage (1376 total: 768 non-tree + 608 tree_node):
 Tree edges are generated from Lua source via `npm run edges:build`. Skipped edges reference
 talent entities not yet in ground-truth — they appear automatically as entity coverage grows.
 
-All 33 build fixtures are stored in canonical build shape, including the
+All 36 build fixtures are stored in canonical build shape, including the
 original cross-class corpus plus three extra Zealot additions, three extra
-Veteran additions, and three extra Psyker additions re-extracted from live
-Games Lantern pages with full talent trees.
+Veteran additions, three extra Psyker additions, and three extra Ogryn
+additions re-extracted from live Games Lantern pages with full talent trees.
 
-Audit totals across all 33 fixtures: **1752 resolved / 2 unresolved / 99
+Audit totals across all 36 fixtures: **1911 resolved / 2 unresolved / 108
 non_canonical / 0 ambiguous**. The two unresolved selections are currently in
 `30-veteran-expedition-smoke-stealth.json` (`Unknown aura`, `Close and Kill`)
 and are intentionally kept in the corpus to expose resolver/index gaps rather

@@ -372,6 +372,37 @@
     }
   },
   {
+    "file": "35-ogryn-shovel-ogryn.json",
+    "title": "Shovel Ogryn",
+    "class": "ogryn",
+    "ability": "Indomitable",
+    "keystone": "Heavy Hitter",
+    "weapons": [
+      {
+        "name": "Brute-Brainer Mk III Latrine Shovel",
+        "slot": "melee",
+        "family": "ogryn_club"
+      },
+      {
+        "name": "Foe-Rend Mk V Ripper Gun",
+        "slot": "ranged",
+        "family": "ogryn_rippergun"
+      }
+    ],
+    "scores": {
+      "composite": 35,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 4,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 4,
+      "survivability": 3
+    }
+  },
+  {
     "file": "09-psyker-2026.json",
     "title": "Psyker Build 2026",
     "class": "psyker",
@@ -493,6 +524,37 @@
       "breakpoint_relevance": 5,
       "difficulty_scaling": 3,
       "survivability": 2
+    }
+  },
+  {
+    "file": "34-ogryn-speedy-stabby-rippy.json",
+    "title": "Speedy Stabby Rippy",
+    "class": "ogryn",
+    "ability": "Indomitable",
+    "keystone": "Heavy Hitter",
+    "weapons": [
+      {
+        "name": "Krourk Mk IV Cleaver",
+        "slot": "melee",
+        "family": "ogryn_combatblade_p1"
+      },
+      {
+        "name": "Foe-Rend Mk VI Ripper Gun",
+        "slot": "ranged",
+        "family": "ogryn_rippergun_p1"
+      }
+    ],
+    "scores": {
+      "composite": 34,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 2,
+      "survivability": 3
     }
   },
   {
@@ -709,6 +771,37 @@
       "role_coverage": 5,
       "breakpoint_relevance": 5,
       "difficulty_scaling": 5,
+      "survivability": 3
+    }
+  },
+  {
+    "file": "36-ogryn-shield-tank-liluns.json",
+    "title": "[Dec 2025] Havoc 40 Ogryn Shield Tank Build: For the Lil'uns",
+    "class": "ogryn",
+    "ability": "Loyal Protector",
+    "keystone": "Feel No Pain",
+    "weapons": [
+      {
+        "name": "Orox Mk II & Mk III Battle Maul & Slab Shield",
+        "slot": "melee",
+        "family": "ogryn_powermaul_slabshield"
+      },
+      {
+        "name": "Lorenz Mk VI Rumbler",
+        "slot": "ranged",
+        "family": "ogryn_thumper"
+      }
+    ],
+    "scores": {
+      "composite": 33,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 3,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 3,
       "survivability": 3
     }
   },
