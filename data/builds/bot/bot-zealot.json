@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Bot Zealot - Fury Of The Faithful + Martyrdom + Orestes Mk XII Assault Chainaxe + Agripinaa Mk XIV Quickdraw Stub Revolver",
+  "title": "Bot Zealot - Chorus Of Spiritual Fortitude + Blazing Piety + Tigrus Mk III Heavy Eviscerator + Locke Mk III Spearhead Boltgun",
   "class": {
     "raw_label": "zealot",
     "canonical_entity_id": "shared.class.zealot",
@@ -10,16 +10,16 @@
     "source_kind": "curated",
     "source_url": "https://github.com/hummat/BetterBots",
     "author": "BetterBots",
-    "scraped_at": "2026-04-22T17:15:43.431Z"
+    "scraped_at": "2026-04-22T17:35:46.026Z"
   },
   "ability": {
-    "raw_label": "Fury Of The Faithful",
-    "canonical_entity_id": "zealot.ability.zealot_attack_speed_post_ability",
+    "raw_label": "Chorus Of Spiritual Fortitude",
+    "canonical_entity_id": "zealot.ability.zealot_bolstering_prayer",
     "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Blades Of Faith",
-    "canonical_entity_id": "zealot.ability.zealot_throwing_knives",
+    "raw_label": "zealot_flame_grenade",
+    "canonical_entity_id": "zealot.ability.zealot_flame_grenade",
     "resolution_status": "resolved"
   },
   "aura": {
@@ -28,19 +28,19 @@
     "resolution_status": "resolved"
   },
   "keystone": {
-    "raw_label": "Martyrdom",
-    "canonical_entity_id": "zealot.keystone.zealot_martyrdom",
+    "raw_label": "Blazing Piety",
+    "canonical_entity_id": "zealot.keystone.zealot_fanatic_rage",
     "resolution_status": "resolved"
   },
   "talents": [
     {
-      "raw_label": "Disdain",
-      "canonical_entity_id": "zealot.talent.zealot_multi_hits_increase_damage",
+      "raw_label": "Scourge",
+      "canonical_entity_id": "zealot.talent.zealot_crits_apply_bleed",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Blood Redemption",
-      "canonical_entity_id": "zealot.talent.zealot_more_toughness_on_melee",
+      "raw_label": "Disdain",
+      "canonical_entity_id": "zealot.talent.zealot_multi_hits_increase_damage",
       "resolution_status": "resolved"
     },
     {
@@ -49,38 +49,8 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Until Death",
-      "canonical_entity_id": "zealot.talent.zealot_resist_death",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Holy Revenant",
-      "canonical_entity_id": "zealot.talent.zealot_resist_death_healing",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Sustained Assault",
-      "canonical_entity_id": "zealot.talent.zealot_hits_grant_stacking_damage",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Faithful Frenzy",
-      "canonical_entity_id": "zealot.talent.zealot_attack_speed",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Against The Odds",
-      "canonical_entity_id": "zealot.talent.zealot_offensive_vs_many",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Providence",
-      "canonical_entity_id": "zealot.talent.zealot_revive_speed",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Scourge",
-      "canonical_entity_id": "zealot.talent.zealot_crits_apply_bleed",
+      "raw_label": "Anoint In Blood",
+      "canonical_entity_id": "zealot.talent.zealot_increase_ranged_close_damage",
       "resolution_status": "resolved"
     },
     {
@@ -89,28 +59,48 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Bleed For The Emperor",
-      "canonical_entity_id": "zealot.talent.zealot_reduced_damage_on_wound",
+      "raw_label": "Second Wind",
+      "canonical_entity_id": "zealot.talent.zealot_toughness_on_dodge",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Blinded By Blood",
-      "canonical_entity_id": "zealot.talent.zealot_bled_enemies_take_more_damage",
+      "raw_label": "Duellist",
+      "canonical_entity_id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Prime Target",
-      "canonical_entity_id": "zealot.talent.zealot_elite_kills_empowers",
+      "raw_label": "Shield Of Contempt",
+      "canonical_entity_id": "zealot.talent.zealot_ally_damage_taken_reduced",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Faith's Fortitude",
-      "canonical_entity_id": "zealot.talent.zealot_additional_wounds",
+      "raw_label": "Until Death",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Abolish Blasphemers",
-      "canonical_entity_id": "zealot.talent.zealot_damage_vs_elites",
+      "raw_label": "Ecclesiarch's Call",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_channel_grants_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Holy Revenant",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death_healing",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Good Balance",
+      "canonical_entity_id": "zealot.talent.zealot_reduced_damage_after_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Enemies Within Enemies Without",
+      "canonical_entity_id": "zealot.talent.zealot_toughness_in_melee",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Faithful Frenzy",
+      "canonical_entity_id": "zealot.talent.zealot_attack_speed",
       "resolution_status": "resolved"
     },
     {
@@ -119,23 +109,33 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "zealot_martyrdom_grants_toughness",
-      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_toughness",
+      "raw_label": "zealot_fanatic_rage_toughness_on_max",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_fanatic_rage_toughness_on_max",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "zealot_martyrdom_grants_attack_speed",
-      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_attack_speed",
+      "raw_label": "zealot_fanatic_rage_improved",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_fanatic_rage_improved",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "zealot_martyrdom_toughness_modifier",
-      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_toughness_modifier",
+      "raw_label": "Blinded By Blood",
+      "canonical_entity_id": "zealot.talent.zealot_bled_enemies_take_more_damage",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "zealot_corruption_resistance_stacking",
-      "canonical_entity_id": "zealot.talent_modifier.zealot_corruption_resistance_stacking",
+      "raw_label": "Providence",
+      "canonical_entity_id": "zealot.talent.zealot_revive_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Prime Target",
+      "canonical_entity_id": "zealot.talent.zealot_elite_kills_empowers",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Abolish Blasphemers",
+      "canonical_entity_id": "zealot.talent.zealot_damage_vs_elites",
       "resolution_status": "resolved"
     },
     {
@@ -163,8 +163,8 @@
     {
       "slot": "melee",
       "name": {
-        "raw_label": "Orestes Mk XII Assault Chainaxe",
-        "canonical_entity_id": "shared.weapon.chainaxe_p1_m2",
+        "raw_label": "Tigrus Mk III Heavy Eviscerator",
+        "canonical_entity_id": "shared.weapon.chainsword_2h_p1_m1",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -179,8 +179,8 @@
           }
         },
         {
-          "raw_label": "+25% Damage (Carapace)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "raw_label": "+25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
           "resolution_status": "resolved",
           "value": {
             "min": 0.25,
@@ -191,13 +191,13 @@
       ],
       "blessings": [
         {
-          "raw_label": "Bloodletter",
-          "canonical_entity_id": "shared.name_family.blessing.bleed_on_activated_hit",
+          "raw_label": "Momentum",
+          "canonical_entity_id": "shared.name_family.blessing.momentum",
           "resolution_status": "resolved"
         },
         {
-          "raw_label": "Shattering Impact",
-          "canonical_entity_id": "shared.name_family.blessing.shattering_impact",
+          "raw_label": "Shred",
+          "canonical_entity_id": "shared.name_family.blessing.shred",
           "resolution_status": "resolved"
         }
       ]
@@ -205,21 +205,11 @@
     {
       "slot": "ranged",
       "name": {
-        "raw_label": "Agripinaa Mk XIV Quickdraw Stub Revolver",
-        "canonical_entity_id": "shared.weapon.stubrevolver_p1_m2",
+        "raw_label": "Locke Mk III Spearhead Boltgun",
+        "canonical_entity_id": "shared.weapon.bolter_p1_m2",
         "resolution_status": "resolved"
       },
       "perks": [
-        {
-          "raw_label": "+25% Damage (Flak Armoured)",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
-          "resolution_status": "resolved",
-          "value": {
-            "min": 0.25,
-            "max": 0.25,
-            "unit": "percent"
-          }
-        },
         {
           "raw_label": "+25% Damage (Carapace)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
@@ -229,17 +219,27 @@
             "max": 0.25,
             "unit": "percent"
           }
+        },
+        {
+          "raw_label": "+25% Damage (Unyielding)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.25,
+            "max": 0.25,
+            "unit": "percent"
+          }
         }
       ],
       "blessings": [
         {
-          "raw_label": "Hand-Cannon",
-          "canonical_entity_id": "shared.name_family.blessing.puncture",
+          "raw_label": "Shattering Impact",
+          "canonical_entity_id": "shared.name_family.blessing.shattering_impact",
           "resolution_status": "resolved"
         },
         {
-          "raw_label": "Surgical",
-          "canonical_entity_id": "shared.name_family.blessing.surgical",
+          "raw_label": "Puncture",
+          "canonical_entity_id": "shared.name_family.blessing.bleed_on_ranged",
           "resolution_status": "resolved"
         }
       ]

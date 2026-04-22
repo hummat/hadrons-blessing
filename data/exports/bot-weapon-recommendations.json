@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-04-22T17:15:43.431Z",
+  "generated_at": "2026-04-22T17:35:46.026Z",
   "schema_version": 1,
   "assumes": "betterbots",
   "classes": {
     "ogryn": {
       "melee": {
-        "template_id": "ogryn_club_p1_m3",
-        "display_name": "Brute-Brainer Mk V Latrine Shovel",
-        "canonical_entity_id": "shared.weapon.ogryn_club_p1_m3",
+        "template_id": "ogryn_club_p1_m1",
+        "display_name": "Brute-Brainer Mk III Latrine Shovel",
+        "canonical_entity_id": "shared.weapon.ogryn_club_p1_m1",
         "gestalt": "linesman",
         "source_builds": [
           "bot-ogryn"
@@ -15,9 +15,9 @@
         "bot_notes": "Synced from BetterBots DEFAULT_PROFILE_TEMPLATES for ogryn melee."
       },
       "ranged": {
-        "template_id": "ogryn_thumper_p1_m1",
-        "display_name": "Lorenz Mk V Kickback",
-        "canonical_entity_id": "shared.weapon.ogryn_thumper_p1_m1",
+        "template_id": "ogryn_rippergun_p1_m3",
+        "display_name": "Foe-Rend Mk VI Ripper Gun",
+        "canonical_entity_id": "shared.weapon.ogryn_rippergun_p1_m3",
         "gestalt": "killshot",
         "source_builds": [
           "bot-ogryn"
@@ -27,9 +27,9 @@
     },
     "psyker": {
       "melee": {
-        "template_id": "forcesword_p1_m1",
-        "display_name": "Obscurus Mk II Blaze Force Sword",
-        "canonical_entity_id": "shared.weapon.forcesword_p1_m1",
+        "template_id": "combatsword_p3_m2",
+        "display_name": "Maccabian Mk IV Duelling Sword",
+        "canonical_entity_id": "shared.weapon.combatsword_p3_m2",
         "gestalt": "linesman",
         "source_builds": [
           "bot-psyker"
@@ -37,9 +37,9 @@
         "bot_notes": "Synced from BetterBots DEFAULT_PROFILE_TEMPLATES for psyker melee."
       },
       "ranged": {
-        "template_id": "forcestaff_p3_m1",
-        "display_name": "Nomanus Mk VI Electrokinetic Force Staff",
-        "canonical_entity_id": "shared.weapon.forcestaff_p3_m1",
+        "template_id": "forcestaff_p1_m1",
+        "display_name": "Equinox Mk III Voidblast Force Staff",
+        "canonical_entity_id": "shared.weapon.forcestaff_p1_m1",
         "gestalt": "killshot",
         "source_builds": [
           "bot-psyker"
@@ -49,9 +49,9 @@
     },
     "veteran": {
       "melee": {
-        "template_id": "chainsword_p1_m1",
-        "display_name": "Cadia Mk IV Assault Chainsword",
-        "canonical_entity_id": "shared.weapon.chainsword_p1_m1",
+        "template_id": "powersword_p1_m2",
+        "display_name": "Achlys Mk VI Power Sword",
+        "canonical_entity_id": "shared.weapon.powersword_p1_m2",
         "gestalt": "linesman",
         "source_builds": [
           "bot-veteran"
@@ -59,9 +59,9 @@
         "bot_notes": "Synced from BetterBots DEFAULT_PROFILE_TEMPLATES for veteran melee."
       },
       "ranged": {
-        "template_id": "lasgun_p3_m2",
-        "display_name": "Accatran Mk XII Recon Lasgun",
-        "canonical_entity_id": "shared.weapon.lasgun_p3_m2",
+        "template_id": "plasmagun_p1_m1",
+        "display_name": "M35 Magnacore Mk II Plasma Gun",
+        "canonical_entity_id": "shared.weapon.plasmagun_p1_m1",
         "gestalt": "killshot",
         "source_builds": [
           "bot-veteran"
@@ -71,9 +71,9 @@
     },
     "zealot": {
       "melee": {
-        "template_id": "chainaxe_p1_m2",
-        "display_name": "Orestes Mk XII Assault Chainaxe",
-        "canonical_entity_id": "shared.weapon.chainaxe_p1_m2",
+        "template_id": "chainsword_2h_p1_m1",
+        "display_name": "Tigrus Mk III Heavy Eviscerator",
+        "canonical_entity_id": "shared.weapon.chainsword_2h_p1_m1",
         "gestalt": "linesman",
         "source_builds": [
           "bot-zealot"
@@ -81,9 +81,9 @@
         "bot_notes": "Synced from BetterBots DEFAULT_PROFILE_TEMPLATES for zealot melee."
       },
       "ranged": {
-        "template_id": "stubrevolver_p1_m2",
-        "display_name": "Agripinaa Mk XIV Quickdraw Stub Revolver",
-        "canonical_entity_id": "shared.weapon.stubrevolver_p1_m2",
+        "template_id": "bolter_p1_m2",
+        "display_name": "Locke Mk III Spearhead Boltgun",
+        "canonical_entity_id": "shared.weapon.bolter_p1_m2",
         "gestalt": "killshot",
         "source_builds": [
           "bot-zealot"

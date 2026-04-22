@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Bot Psyker - Scrier's Gaze + Disrupt Destiny + Obscurus Mk II Blaze Force Sword + Nomanus Mk VI Electrokinetic Force Staff",
+  "title": "Bot Psyker - Venting Shriek + Warp Siphon + Maccabian Mk IV Duelling Sword + Equinox Mk III Voidblast Force Staff",
   "class": {
     "raw_label": "psyker",
     "canonical_entity_id": "shared.class.psyker",
@@ -10,16 +10,16 @@
     "source_kind": "curated",
     "source_url": "https://github.com/hummat/BetterBots",
     "author": "BetterBots",
-    "scraped_at": "2026-04-22T17:15:43.431Z"
+    "scraped_at": "2026-04-22T17:35:46.026Z"
   },
   "ability": {
-    "raw_label": "Scrier's Gaze",
-    "canonical_entity_id": "psyker.ability.psyker_combat_ability_stance",
+    "raw_label": "Venting Shriek",
+    "canonical_entity_id": "psyker.ability.psyker_shout_vent_warp_charge",
     "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Brain Rupture",
-    "canonical_entity_id": "psyker.ability.psyker_brain_burst_improved",
+    "raw_label": "Assail",
+    "canonical_entity_id": "psyker.ability.psyker_grenade_throwing_knives",
     "resolution_status": "resolved"
   },
   "aura": {
@@ -28,16 +28,11 @@
     "resolution_status": "resolved"
   },
   "keystone": {
-    "raw_label": "Disrupt Destiny",
-    "canonical_entity_id": "psyker.keystone.psyker_new_mark_passive",
+    "raw_label": "Warp Siphon",
+    "canonical_entity_id": "psyker.keystone.psyker_passive_souls_from_elite_kills",
     "resolution_status": "resolved"
   },
   "talents": [
-    {
-      "raw_label": "Quietude",
-      "canonical_entity_id": "psyker.talent.psyker_toughness_on_vent",
-      "resolution_status": "resolved"
-    },
     {
       "raw_label": "Soulstealer",
       "canonical_entity_id": "psyker.talent.psyker_toughness_on_warp_kill",
@@ -49,8 +44,43 @@
       "resolution_status": "resolved"
     },
     {
+      "raw_label": "Perilous Combustion",
+      "canonical_entity_id": "psyker.talent.psyker_elite_kills_add_warpfire",
+      "resolution_status": "resolved"
+    },
+    {
       "raw_label": "Perfect Timing",
       "canonical_entity_id": "psyker.talent.psyker_crits_empower_next_attack",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ethereal Shards",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_throwing_knives_piercing",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Becalming Eruption",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_shout_reduces_warp_charge_generation",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Creeping Flames",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_warpfire_on_shout",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Quick Shards",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_throwing_knives_cast_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Wildfire",
+      "canonical_entity_id": "psyker.talent.psyker_spread_warpfire_on_kill",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Psykinetic's Aura",
+      "canonical_entity_id": "psyker.talent.psyker_2_tier_3_name_2",
       "resolution_status": "resolved"
     },
     {
@@ -59,13 +89,28 @@
       "resolution_status": "resolved"
     },
     {
+      "raw_label": "Solidity",
+      "canonical_entity_id": "psyker.talent.psyker_increased_vent_speed",
+      "resolution_status": "resolved"
+    },
+    {
       "raw_label": "Warp Rider",
       "canonical_entity_id": "psyker.talent.psyker_damage_based_on_warp_charge",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Solidity",
-      "canonical_entity_id": "psyker.talent.psyker_increased_vent_speed",
+      "raw_label": "In Fire Reborn",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_warpfire_generate_souls",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Battery",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_increased_max_souls",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Souldrinker",
+      "canonical_entity_id": "psyker.talent.psyker_killing_enemy_with_warpfire_boosts",
       "resolution_status": "resolved"
     },
     {
@@ -81,26 +126,6 @@
     {
       "raw_label": "Vulnerable Minds",
       "canonical_entity_id": "psyker.talent.psyker_damage_vs_ogryns_and_monsters",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Kinetic Flayer",
-      "canonical_entity_id": "psyker.talent_modifier.psyker_smite_on_hit",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Precognition",
-      "canonical_entity_id": "psyker.talent_modifier.psyker_overcharge_weakspot_kill_bonuses",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Reality Anchor",
-      "canonical_entity_id": "psyker.talent_modifier.psyker_overcharge_reduced_warp_charge",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Warp Unbound",
-      "canonical_entity_id": "psyker.talent_modifier.psyker_overcharge_stance_infinite_casting",
       "resolution_status": "resolved"
     },
     {
@@ -143,11 +168,21 @@
     {
       "slot": "melee",
       "name": {
-        "raw_label": "Obscurus Mk II Blaze Force Sword",
-        "canonical_entity_id": "shared.weapon.forcesword_p1_m1",
+        "raw_label": "Maccabian Mk IV Duelling Sword",
+        "canonical_entity_id": "shared.weapon.combatsword_p3_m2",
         "resolution_status": "resolved"
       },
       "perks": [
+        {
+          "raw_label": "+25% Damage (Carapace)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.25,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
         {
           "raw_label": "+25% Damage (Maniacs)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
@@ -157,22 +192,12 @@
             "max": 0.25,
             "unit": "percent"
           }
-        },
-        {
-          "raw_label": "+80% Block Efficiency",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_reduced_block_cost",
-          "resolution_status": "resolved",
-          "value": {
-            "min": 0.8,
-            "max": 0.8,
-            "unit": "percent"
-          }
         }
       ],
       "blessings": [
         {
-          "raw_label": "Deflector",
-          "canonical_entity_id": "shared.name_family.blessing.deflector",
+          "raw_label": "Thunderous",
+          "canonical_entity_id": "shared.name_family.blessing.thunderous",
           "resolution_status": "resolved"
         },
         {
@@ -185,8 +210,8 @@
     {
       "slot": "ranged",
       "name": {
-        "raw_label": "Nomanus Mk VI Electrokinetic Force Staff",
-        "canonical_entity_id": "shared.weapon.forcestaff_p3_m1",
+        "raw_label": "Equinox Mk III Voidblast Force Staff",
+        "canonical_entity_id": "shared.weapon.forcestaff_p1_m1",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -201,25 +226,25 @@
           }
         },
         {
-          "raw_label": "+25% Damage (Unyielding)",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+          "raw_label": "+5% Critical Hit Chance",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_crit_chance",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.25,
-            "max": 0.25,
+            "min": 0.05,
+            "max": 0.05,
             "unit": "percent"
           }
         }
       ],
       "blessings": [
         {
-          "raw_label": "Warp Flurry",
-          "canonical_entity_id": "shared.name_family.blessing.warp_flurry",
+          "raw_label": "Warp Nexus",
+          "canonical_entity_id": "shared.name_family.blessing.warp_nexus",
           "resolution_status": "resolved"
         },
         {
-          "raw_label": "Warp Nexus",
-          "canonical_entity_id": "shared.name_family.blessing.warp_nexus",
+          "raw_label": "Surge",
+          "canonical_entity_id": "shared.name_family.blessing.double_shot_on_crit",
           "resolution_status": "resolved"
         }
       ]

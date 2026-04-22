@@ -185,23 +185,23 @@ describe("generateBetterBotsArtifacts", () => {
     const profiles = loadBetterBotsProfileTemplates(DEFAULT_BETTERBOTS_PROFILE_PATH);
     const artifacts = generateBetterBotsArtifacts(profiles, { generatedAt: FIXED_GENERATED_AT });
 
-    assert.equal(artifacts.weaponExport.classes.veteran.ranged.template_id, "lasgun_p3_m2");
-    assert.equal(artifacts.weaponExport.classes.zealot.melee.template_id, "chainaxe_p1_m2");
-    assert.equal(artifacts.weaponExport.classes.psyker.ranged.template_id, "forcestaff_p3_m1");
-    assert.equal(artifacts.weaponExport.classes.ogryn.melee.template_id, "ogryn_club_p1_m3");
-    assert.equal(artifacts.weaponExport.classes.ogryn.ranged.template_id, "ogryn_thumper_p1_m1");
+    assert.equal(artifacts.weaponExport.classes.veteran.ranged.template_id, "plasmagun_p1_m1");
+    assert.equal(artifacts.weaponExport.classes.zealot.melee.template_id, "chainsword_2h_p1_m1");
+    assert.equal(artifacts.weaponExport.classes.psyker.ranged.template_id, "forcestaff_p1_m1");
+    assert.equal(artifacts.weaponExport.classes.ogryn.melee.template_id, "ogryn_club_p1_m1");
+    assert.equal(artifacts.weaponExport.classes.ogryn.ranged.template_id, "ogryn_rippergun_p1_m3");
 
     assert.equal(
       artifacts.builds["bot-veteran"].weapons.find((weapon) => weapon.slot === "ranged")?.name.canonical_entity_id,
-      "shared.weapon.lasgun_p3_m2",
+      "shared.weapon.plasmagun_p1_m1",
     );
     assert.equal(
       artifacts.builds["bot-zealot"].weapons.find((weapon) => weapon.slot === "ranged")?.name.canonical_entity_id,
-      "shared.weapon.stubrevolver_p1_m2",
+      "shared.weapon.bolter_p1_m2",
     );
     assert.equal(
       artifacts.builds["bot-psyker"].ability.canonical_entity_id,
-      "psyker.ability.psyker_combat_ability_stance",
+      "psyker.ability.psyker_shout_vent_warp_charge",
     );
     assert.equal(
       artifacts.builds["bot-ogryn"].keystone?.canonical_entity_id,
@@ -219,11 +219,11 @@ describe("generateBetterBotsArtifacts", () => {
     );
     assert.equal(
       artifacts.builds["bot-veteran"].weapons.find((weapon) => weapon.slot === "melee")?.perks[0]?.canonical_entity_id,
-      "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+      "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
     );
     assert.equal(
       artifacts.builds["bot-veteran"].weapons.find((weapon) => weapon.slot === "ranged")?.blessings[0]?.canonical_entity_id,
-      "shared.name_family.blessing.burninating_on_crit",
+      "shared.name_family.blessing.rising_heat",
     );
   });
 

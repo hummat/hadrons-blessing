@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Bot Ogryn - Point Blank Barrage + Heavy Hitter + Brute-Brainer Mk V Latrine Shovel + Lorenz Mk V Kickback",
+  "title": "Bot Ogryn - Indomitable + Heavy Hitter + Brute-Brainer Mk III Latrine Shovel + Foe-Rend Mk VI Ripper Gun",
   "class": {
     "raw_label": "ogryn",
     "canonical_entity_id": "shared.class.ogryn",
@@ -10,16 +10,16 @@
     "source_kind": "curated",
     "source_url": "https://github.com/hummat/BetterBots",
     "author": "BetterBots",
-    "scraped_at": "2026-04-22T17:15:43.431Z"
+    "scraped_at": "2026-04-22T17:35:46.026Z"
   },
   "ability": {
-    "raw_label": "Point Blank Barrage",
-    "canonical_entity_id": "ogryn.ability.ogryn_special_ammo",
+    "raw_label": "Indomitable",
+    "canonical_entity_id": "ogryn.ability.ogryn_longer_charge",
     "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Frag Bomb",
-    "canonical_entity_id": "ogryn.ability.ogryn_grenade_frag",
+    "raw_label": "Big Friendly Rock",
+    "canonical_entity_id": "ogryn.ability.ogryn_grenade_friend_rock",
     "resolution_status": "resolved"
   },
   "aura": {
@@ -34,16 +34,6 @@
   },
   "talents": [
     {
-      "raw_label": "Heavyweight",
-      "canonical_entity_id": "ogryn.talent.ogryn_ogryn_killer",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Steady Grip",
-      "canonical_entity_id": "ogryn.talent.ogryn_toughness_while_bracing",
-      "resolution_status": "resolved"
-    },
-    {
       "raw_label": "The Best Defence",
       "canonical_entity_id": "ogryn.talent.ogryn_multi_heavy_toughness",
       "resolution_status": "resolved"
@@ -54,23 +44,18 @@
       "resolution_status": "resolved"
     },
     {
+      "raw_label": "Heavyweight",
+      "canonical_entity_id": "ogryn.talent.ogryn_ogryn_killer",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Slam",
+      "canonical_entity_id": "ogryn.talent.ogryn_melee_stagger",
+      "resolution_status": "resolved"
+    },
+    {
       "raw_label": "Soften Them Up",
       "canonical_entity_id": "ogryn.talent.ogryn_targets_recieve_damage_taken_increase_debuff",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Payback Time",
-      "canonical_entity_id": "ogryn.talent.ogryn_revenge_damage",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Pumped Up 2",
-      "canonical_entity_id": "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Strike True 2",
-      "canonical_entity_id": "ogryn.talent.ogryn_weakspot_damage",
       "resolution_status": "resolved"
     },
     {
@@ -84,18 +69,38 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Too Stubborn To Die",
-      "canonical_entity_id": "ogryn.talent.ogryn_toughness_on_low_health",
+      "raw_label": "Bruiser",
+      "canonical_entity_id": "ogryn.talent.ogryn_ally_elite_kills_grant_cooldown",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Implacable",
-      "canonical_entity_id": "ogryn.talent.ogryn_windup_reduces_damage_taken",
+      "raw_label": "Stomping Boots",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_charge_toughness",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Dominate",
-      "canonical_entity_id": "ogryn.talent.ogryn_rending_on_elite_kills",
+      "raw_label": "No Pushover",
+      "canonical_entity_id": "ogryn.talent.ogryn_blocking_reduces_push_cost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "No Hurting Friends 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_damage_taken_by_all_increases_strength_tdr",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "That One Didnt Count 2",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_replenish_rock_on_miss",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "For The Liluns 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_protect_allies",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Pumped Up 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
       "resolution_status": "resolved"
     },
     {
@@ -104,23 +109,23 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Strongman 2",
-      "canonical_entity_id": "ogryn.talent.ogryn_damage_reduction_after_elite_kill",
+      "raw_label": "Beat Them Back 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_melee_damage_after_heavy",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Hail Of Fire",
-      "canonical_entity_id": "ogryn.talent_modifier.ogryn_special_ammo_armor_pen",
+      "raw_label": "Dedicated Practice 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_wield_speed_increase",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Strike True 2",
+      "canonical_entity_id": "ogryn.talent.ogryn_weakspot_damage",
       "resolution_status": "resolved"
     },
     {
       "raw_label": "Just Getting Started 2",
       "canonical_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_attack_speed",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Dont Feel A Thing 2",
-      "canonical_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_tdr",
       "resolution_status": "resolved"
     },
     {
@@ -163,14 +168,14 @@
     {
       "slot": "melee",
       "name": {
-        "raw_label": "Brute-Brainer Mk V Latrine Shovel",
-        "canonical_entity_id": "shared.weapon.ogryn_club_p1_m3",
+        "raw_label": "Brute-Brainer Mk III Latrine Shovel",
+        "canonical_entity_id": "shared.weapon.ogryn_club_p1_m1",
         "resolution_status": "resolved"
       },
       "perks": [
         {
-          "raw_label": "+25% Damage (Carapace)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "raw_label": "+25% Damage (Flak Armoured)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
             "min": 0.25,
@@ -191,13 +196,13 @@
       ],
       "blessings": [
         {
-          "raw_label": "Shattering Impact",
-          "canonical_entity_id": "shared.name_family.blessing.shattering_impact",
+          "raw_label": "Skullcrusher",
+          "canonical_entity_id": "shared.name_family.blessing.skullcrusher",
           "resolution_status": "resolved"
         },
         {
-          "raw_label": "Confident Strike",
-          "canonical_entity_id": "shared.name_family.blessing.confident_strike",
+          "raw_label": "Thunderous",
+          "canonical_entity_id": "shared.name_family.blessing.thunderous",
           "resolution_status": "resolved"
         }
       ]
@@ -205,8 +210,8 @@
     {
       "slot": "ranged",
       "name": {
-        "raw_label": "Lorenz Mk V Kickback",
-        "canonical_entity_id": "shared.weapon.ogryn_thumper_p1_m1",
+        "raw_label": "Foe-Rend Mk VI Ripper Gun",
+        "canonical_entity_id": "shared.weapon.ogryn_rippergun_p1_m3",
         "resolution_status": "resolved"
       },
       "perks": [

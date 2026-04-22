@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Bot Veteran - Voice of Command + Focus Target + Cadia Mk IV Assault Chainsword + Accatran Mk XII Recon Lasgun",
+  "title": "Bot Veteran - Voice of Command + Focus Target + Achlys Mk VI Power Sword + M35 Magnacore Mk II Plasma Gun",
   "class": {
     "raw_label": "veteran",
     "canonical_entity_id": "shared.class.veteran",
@@ -10,7 +10,7 @@
     "source_kind": "curated",
     "source_url": "https://github.com/hummat/BetterBots",
     "author": "BetterBots",
-    "scraped_at": "2026-04-22T17:15:43.431Z"
+    "scraped_at": "2026-04-22T17:35:46.026Z"
   },
   "ability": {
     "raw_label": "Voice of Command",
@@ -18,8 +18,8 @@
     "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Shredder Frag Grenade",
-    "canonical_entity_id": "veteran.ability.veteran_grenade_apply_bleed",
+    "raw_label": "veteran_krak_grenade",
+    "canonical_entity_id": "veteran.ability.veteran_krak_grenade",
     "resolution_status": "resolved"
   },
   "aura": {
@@ -39,18 +39,43 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Confirmed Kill",
-      "canonical_entity_id": "veteran.talent.veteran_elite_kills_replenish_toughness",
+      "raw_label": "Demolition Team",
+      "canonical_entity_id": "veteran.talent.veteran_aura_elite_kills_restore_grenade",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "One Motion",
-      "canonical_entity_id": "veteran.talent.veteran_reduce_swap_time",
+      "raw_label": "Exploit Weakness",
+      "canonical_entity_id": "veteran.talent.veteran_crits_apply_rending",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Covering Fire",
-      "canonical_entity_id": "veteran.talent.veteran_replenish_toughness_and_boost_allies",
+      "raw_label": "Skirmisher",
+      "canonical_entity_id": "veteran.talent.veteran_increase_damage_after_sprinting",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Desperado",
+      "canonical_entity_id": "veteran.talent.veteran_increased_melee_crit_chance_and_melee_finesse",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Grenadier",
+      "canonical_entity_id": "veteran.talent.veteran_extra_grenade",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Reciprocity",
+      "canonical_entity_id": "veteran.talent.veteran_dodging_grants_crit",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Agile Engagement",
+      "canonical_entity_id": "veteran.talent.veteran_kill_grants_damage_to_other_slot",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Trench Fighter Drill",
+      "canonical_entity_id": "veteran.talent.veteran_attack_speed",
       "resolution_status": "resolved"
     },
     {
@@ -64,11 +89,6 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Trench Fighter Drill",
-      "canonical_entity_id": "veteran.talent.veteran_attack_speed",
-      "resolution_status": "resolved"
-    },
-    {
       "raw_label": "Superiority Complex",
       "canonical_entity_id": "veteran.talent.veteran_increase_damage_vs_elites",
       "resolution_status": "resolved"
@@ -76,21 +96,6 @@
     {
       "raw_label": "Field Improvisation",
       "canonical_entity_id": "veteran.talent.veteran_better_deployables",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Serrated Blade",
-      "canonical_entity_id": "veteran.talent.veteran_hits_cause_bleed",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Withering Fire 2",
-      "canonical_entity_id": "veteran.talent.veteran_increased_ranged_cleave",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Covert Operative",
-      "canonical_entity_id": "veteran.talent.veteran_increased_damage_when_flanking",
       "resolution_status": "resolved"
     },
     {
@@ -109,18 +114,8 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Born Leader",
-      "canonical_entity_id": "veteran.talent.veteran_allies_in_coherency_share_toughness_gain",
-      "resolution_status": "resolved"
-    },
-    {
       "raw_label": "Tactical Awareness",
       "canonical_entity_id": "veteran.talent.veteran_elite_kills_reduce_cooldown",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Rending Strikes",
-      "canonical_entity_id": "veteran.talent.veteran_rending_bonus",
       "resolution_status": "resolved"
     },
     {
@@ -129,8 +124,18 @@
       "resolution_status": "resolved"
     },
     {
+      "raw_label": "One Motion",
+      "canonical_entity_id": "veteran.talent.veteran_reduce_swap_time",
+      "resolution_status": "resolved"
+    },
+    {
       "raw_label": "veteran_combat_ability_increase_and_restore_toughness_to_coherency",
       "canonical_entity_id": "veteran.talent_modifier.veteran_combat_ability_increase_and_restore_toughness_to_coherency",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "veteran_improved_tag_more_damage",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_improved_tag_more_damage",
       "resolution_status": "resolved"
     },
     {
@@ -159,8 +164,8 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "base_ranged_damage_node_buff_medium_1",
-      "canonical_entity_id": "veteran.talent.base_ranged_damage_node_buff_medium_1",
+      "raw_label": "base_melee_damage_node_buff_high_1",
+      "canonical_entity_id": "veteran.talent.base_melee_damage_node_buff_high_1",
       "resolution_status": "resolved"
     }
   ],
@@ -168,14 +173,14 @@
     {
       "slot": "melee",
       "name": {
-        "raw_label": "Cadia Mk IV Assault Chainsword",
-        "canonical_entity_id": "shared.weapon.chainsword_p1_m1",
+        "raw_label": "Achlys Mk VI Power Sword",
+        "canonical_entity_id": "shared.weapon.powersword_p1_m2",
         "resolution_status": "resolved"
       },
       "perks": [
         {
-          "raw_label": "+25% Damage (Flak Armoured)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+          "raw_label": "+25% Damage (Carapace)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
           "resolution_status": "resolved",
           "value": {
             "min": 0.25,
@@ -184,8 +189,8 @@
           }
         },
         {
-          "raw_label": "+25% Damage (Maniacs)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
+          "raw_label": "+25% Damage (Unyielding)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
           "resolution_status": "resolved",
           "value": {
             "min": 0.25,
@@ -196,13 +201,13 @@
       ],
       "blessings": [
         {
-          "raw_label": "Rampage",
-          "canonical_entity_id": "shared.name_family.blessing.rampage",
+          "raw_label": "Cycler",
+          "canonical_entity_id": "shared.name_family.blessing.extended_activation_duration_on_chained_attacks",
           "resolution_status": "resolved"
         },
         {
-          "raw_label": "Bloodletter",
-          "canonical_entity_id": "shared.name_family.blessing.bleed_on_activated_hit",
+          "raw_label": "Slaughterer",
+          "canonical_entity_id": "shared.name_family.blessing.increase_power_on_kill",
           "resolution_status": "resolved"
         }
       ]
@@ -210,8 +215,8 @@
     {
       "slot": "ranged",
       "name": {
-        "raw_label": "Accatran Mk XII Recon Lasgun",
-        "canonical_entity_id": "shared.weapon.lasgun_p3_m2",
+        "raw_label": "M35 Magnacore Mk II Plasma Gun",
+        "canonical_entity_id": "shared.weapon.plasmagun_p1_m1",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -226,25 +231,25 @@
           }
         },
         {
-          "raw_label": "+5% Critical Hit Chance",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_crit_chance",
+          "raw_label": "+25% Damage (Unyielding)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.05,
-            "max": 0.05,
+            "min": 0.25,
+            "max": 0.25,
             "unit": "percent"
           }
         }
       ],
       "blessings": [
         {
-          "raw_label": "Infernus",
-          "canonical_entity_id": "shared.name_family.blessing.burninating_on_crit",
+          "raw_label": "Rising Heat",
+          "canonical_entity_id": "shared.name_family.blessing.rising_heat",
           "resolution_status": "resolved"
         },
         {
-          "raw_label": "Sustained Fire",
-          "canonical_entity_id": "shared.name_family.blessing.sustained_fire",
+          "raw_label": "Focused Cooling",
+          "canonical_entity_id": "shared.name_family.blessing.gets_hot",
           "resolution_status": "resolved"
         }
       ]
