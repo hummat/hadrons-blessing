@@ -651,6 +651,37 @@
     }
   },
   {
+    "file": "40-hivescum-john-wick.json",
+    "title": "Crackhead John Wick build",
+    "class": "hive scum",
+    "ability": "Enhanced Desperado",
+    "keystone": "Vulture's Mark",
+    "weapons": [
+      {
+        "name": "Improvised Mk I Shivs",
+        "slot": "melee",
+        "family": "dual_shivs"
+      },
+      {
+        "name": "Branx MkVIII Dual Stub Pistols",
+        "slot": "ranged",
+        "family": "dual_stubpistols"
+      }
+    ],
+    "scores": {
+      "composite": 34,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 4,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 4,
+      "survivability": 2
+    }
+  },
+  {
     "file": "13-ogryn-bonktide.json",
     "title": "BONKtide Havoc 40 by NRGaa",
     "class": "ogryn",
@@ -1023,6 +1054,37 @@
     }
   },
   {
+    "file": "41-hivescum-doom-slayer.json",
+    "title": "Doom Slayer (Double Barrel Build) [Beyond the Hive Updated]",
+    "class": "hive scum",
+    "ability": "Enhanced Desperado",
+    "keystone": "Chemical Dependency",
+    "weapons": [
+      {
+        "name": "Orestes Mk IV Assault Chainaxe",
+        "slot": "melee",
+        "family": "chainaxe_p1"
+      },
+      {
+        "name": "Crucis Mk XI Double-Barrelled Shotgun",
+        "slot": "ranged",
+        "family": "shotgun_p2"
+      }
+    ],
+    "scores": {
+      "composite": 31,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 3,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 2,
+      "survivability": 2
+    }
+  },
+  {
     "file": "12-psyker-trauma-voidblast.json",
     "title": "Meta Trauma/Voidblast Havoc 40",
     "class": "psyker",
@@ -1172,6 +1234,37 @@
       "talent_coherence": 5,
       "blessing_synergy": 5,
       "role_coverage": 4,
+      "breakpoint_relevance": 3,
+      "difficulty_scaling": 1,
+      "survivability": 1
+    }
+  },
+  {
+    "file": "42-hivescum-reginald-melee.json",
+    "title": "Reginald's Melee Build (v2 update)",
+    "class": "hive scum",
+    "ability": "Rampage",
+    "keystone": "Chemical Dependency",
+    "weapons": [
+      {
+        "name": "Chirurgeon's Mk IV Bone Saw",
+        "slot": "melee",
+        "family": "saw"
+      },
+      {
+        "name": "Branx MkVIII Dual Stub Pistols",
+        "slot": "ranged",
+        "family": "dual_stubpistols"
+      }
+    ],
+    "scores": {
+      "composite": 28,
+      "grade": "B",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 4,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
       "breakpoint_relevance": 3,
       "difficulty_scaling": 1,
       "survivability": 1
