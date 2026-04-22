@@ -1,96 +1,94 @@
 {
-  "generated_at": "2026-03-31T23:50:48.930Z",
+  "generated_at": "2026-04-22T12:18:42.720Z",
   "schema_version": 1,
   "assumes": "betterbots",
   "classes": {
-    "veteran": {
+    "ogryn": {
       "melee": {
-        "template_id": "combatsword_p2_m1",
-        "display_name": "Catachan Mk VII \"Devil's Claw\" Sword",
-        "canonical_entity_id": "shared.weapon.combatsword_p2_m1",
+        "template_id": "ogryn_club_p2_m3",
+        "display_name": "\"Brunt's Basher\" Mk IIIb Bully Club",
+        "canonical_entity_id": "shared.weapon.ogryn_club_p2_m3",
         "gestalt": "linesman",
         "source_builds": [
-          "03-veteran-sharpshooter-2026"
+          "bot-ogryn"
         ],
-        "bot_notes": "Simple melee with wide cleave, no dodge/block/weakspot dependency"
+        "bot_notes": "Synced from BetterBots DEFAULT_PROFILE_TEMPLATES for ogryn melee."
       },
       "ranged": {
-        "template_id": "plasmagun_p1_m1",
-        "display_name": "M35 Magnacore Mk II Plasma Gun",
-        "canonical_entity_id": "shared.weapon.plasmagun_p1_m1",
+        "template_id": "ogryn_rippergun_p1_m2",
+        "display_name": "Foe-Rend Mk VI Ripper Gun",
+        "canonical_entity_id": "shared.weapon.ogryn_rippergun_p1_m2",
         "gestalt": "killshot",
         "source_builds": [
-          "01-veteran-havoc40-2026",
-          "02-veteran-meta-plasma"
+          "bot-ogryn"
         ],
-        "bot_notes": "High damage charged shots, no weakspot dependency — used in 2 of 3 meta builds, peril managed by BetterBots"
-      }
-    },
-    "zealot": {
-      "melee": {
-        "template_id": "powersword_2h_p1_m2",
-        "display_name": "Munitorum Mk X Relic Blade",
-        "canonical_entity_id": "shared.weapon.powersword_2h_p1_m2",
-        "gestalt": "linesman",
-        "source_builds": [
-          "05-zealot-meta-havoc40"
-        ],
-        "bot_notes": "Best cleave melee from S-rank build, no dodge/block dependency"
-      },
-      "ranged": {
-        "template_id": "flamer_p1_m1",
-        "display_name": "Artemia Mk III Purgation Flamer",
-        "canonical_entity_id": "shared.weapon.flamer_p1_m1",
-        "gestalt": "killshot",
-        "source_builds": [
-          "05-zealot-meta-havoc40"
-        ],
-        "bot_notes": "Area denial spray, no aim/dodge/block dependency — S-rank build choice"
+        "bot_notes": "Synced from BetterBots DEFAULT_PROFILE_TEMPLATES for ogryn ranged."
       }
     },
     "psyker": {
       "melee": {
-        "template_id": "forcesword_2h_p1_m1",
-        "display_name": "Covenant Mk VI Blaze Force Greatsword",
-        "canonical_entity_id": "shared.weapon.forcesword_2h_p1_m1",
+        "template_id": "forcesword_p1_m1",
+        "display_name": "Deimos Mk IV Blaze Force Sword",
+        "canonical_entity_id": "shared.weapon.forcesword_p1_m1",
         "gestalt": "linesman",
         "source_builds": [
-          "09-psyker-2026"
+          "bot-psyker"
         ],
-        "bot_notes": "Wide cleave force melee, no dodge/block dependency"
+        "bot_notes": "Synced from BetterBots DEFAULT_PROFILE_TEMPLATES for psyker melee."
       },
       "ranged": {
-        "template_id": "forcestaff_p4_m1",
-        "display_name": "Equinox Mk III Voidblast Force Staff",
-        "canonical_entity_id": "shared.weapon.forcestaff_p4_m1",
+        "template_id": "forcestaff_p3_m1",
+        "display_name": "Nomanus Mk VI Electrokinetic Force Staff",
+        "canonical_entity_id": "shared.weapon.forcestaff_p3_m1",
         "gestalt": "killshot",
         "source_builds": [
-          "09-psyker-2026"
+          "bot-psyker"
         ],
-        "bot_notes": "AoE blast staff, no weakspot dependency — peril managed by BetterBots"
+        "bot_notes": "Synced from BetterBots DEFAULT_PROFILE_TEMPLATES for psyker ranged."
       }
     },
-    "ogryn": {
+    "veteran": {
       "melee": {
-        "template_id": "ogryn_powermaul_p1_m1",
-        "display_name": "Achlys Mk I Power Maul",
-        "canonical_entity_id": "shared.weapon.ogryn_powermaul_p1_m1",
+        "template_id": "chainsword_p1_m1",
+        "display_name": "Cadia Mk IV Assault Chainsword",
+        "canonical_entity_id": "shared.weapon.chainsword_p1_m1",
         "gestalt": "linesman",
         "source_builds": [
-          "13-ogryn-bonktide"
+          "bot-veteran"
         ],
-        "bot_notes": "High stagger melee, simple attack pattern, no dodge/block dependency"
+        "bot_notes": "Synced from BetterBots DEFAULT_PROFILE_TEMPLATES for veteran melee."
       },
       "ranged": {
-        "template_id": "ogryn_thumper_p1_m2",
-        "display_name": "Lorenz Mk VI Rumbler",
-        "canonical_entity_id": "shared.weapon.ogryn_thumper_p1_m2",
+        "template_id": "lasgun_p3_m2",
+        "display_name": "Accatran Mk XII Recon Lasgun",
+        "canonical_entity_id": "shared.weapon.lasgun_p3_m2",
         "gestalt": "killshot",
         "source_builds": [
-          "13-ogryn-bonktide",
-          "15-ogryn-shield-tank"
+          "bot-veteran"
         ],
-        "bot_notes": "Grenade launcher, area damage, no aim dependency — appears in 2 of 3 ogryn builds"
+        "bot_notes": "Synced from BetterBots DEFAULT_PROFILE_TEMPLATES for veteran ranged."
+      }
+    },
+    "zealot": {
+      "melee": {
+        "template_id": "chainaxe_p1_m2",
+        "display_name": "Orestes Mk XII Assault Chainaxe",
+        "canonical_entity_id": "shared.weapon.chainaxe_p1_m2",
+        "gestalt": "linesman",
+        "source_builds": [
+          "bot-zealot"
+        ],
+        "bot_notes": "Synced from BetterBots DEFAULT_PROFILE_TEMPLATES for zealot melee."
+      },
+      "ranged": {
+        "template_id": "stubrevolver_p1_m2",
+        "display_name": "Zarona Mk IIa Quickdraw Stub Revolver",
+        "canonical_entity_id": "shared.weapon.stubrevolver_p1_m2",
+        "gestalt": "killshot",
+        "source_builds": [
+          "bot-zealot"
+        ],
+        "bot_notes": "Synced from BetterBots DEFAULT_PROFILE_TEMPLATES for zealot ranged."
       }
     }
   }

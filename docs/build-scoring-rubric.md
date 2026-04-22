@@ -1,6 +1,6 @@
 # Build Scoring Rubric
 
-Mod version baseline: v0.4.0
+BetterBots capability baseline: shipped status as of 2026-04-22
 
 7 dimensions, each scored 1-5, total /35. Mechanical dimensions (1, 4, 5) can be automated; qualitative dimensions (2, 3, 6, 7) require human judgment.
 
@@ -113,18 +113,18 @@ Dimensions are weighted equally in the raw score, but class context shifts which
 
 ## Bot-Awareness Flags
 
-Appended to each scorecard. Track where build assumptions break for bots. Flag set reflects BetterBots capabilities as of v0.4.0.
+Appended to each scorecard. Track where build assumptions break for bots. These are conservative automated heuristics based on resolved canonical IDs, weapon metadata, blessing internals, and current BetterBots support as of 2026-04-22. They are decision signals, not score penalties.
 
 | Flag | Trigger | Example Talents/Mechanics |
 |------|---------|---------------------------|
 | `BOT:NO_DODGE` | Build relies on dodge for damage or survival | Quickness, dodge-crit blessings, dodge-count talents |
-| `BOT:NO_WEAKSPOT` | Build relies on weakspot hits | Sniper's Focus, weakspot-kill regen, Deadeye |
-| `BOT:NO_PERIL_MGT` | Build requires manual peril management | Overcharge stance, Warp Siphon glass cannon, Brain Burst spam |
-| `BOT:NO_POSITIONING` | Build requires deliberate positioning | Backstab talents, flanking bonuses, cover-dependent ranged |
+| `BOT:NO_WEAKSPOT` | Build strongly depends on weakspot-hit or weakspot-kill chains | Sniper's Focus, weakspot-kill reset chains |
+| `BOT:NO_PERIL_MGT` | Build depends on unsupported manual peril control | Reserved for manual vent/quell-sensitive mechanics outside current BetterBots support |
+| `BOT:NO_POSITIONING` | Build relies on backstab/flanking positioning | Backstab talents, stacked flanking bonuses |
 | `BOT:NO_BLOCK_TIMING` | Build relies on perfect blocks | Arbites perfect-block synergies, Riposte |
-| `BOT:AIM_DEPENDENT` | Effectiveness scales with aim precision | Helbore sniper builds, plasma charged shots, head-popping |
-| `BOT:ABILITY_OK` | BetterBots can trigger the ability correctly | Most shouts, charges, stances (Tiers 1-3 supported) |
-| `BOT:ABILITY_MISSING` | BetterBots cannot trigger this mechanic | Blitz/grenade, weapon specials, parry, manual combos |
+| `BOT:AIM_DEPENDENT` | Effectiveness scales with precision ADS / weakspot execution | Sniper's Focus, Deadshot, precision weakspot buffs |
+| `BOT:ABILITY_OK` | The build's active ability/blitz path is inside current BetterBots support | Current shout/charge/stance/blitz shipped paths, including Scrier's, Martyrdom, Focus Target, and Point-Blank Barrage support work |
+| `BOT:ABILITY_MISSING` | The build depends on an unresolved or unsupported active-mechanic path | Missing active ability/blitz resolution, mechanics outside current BetterBots support surface |
 
 A build with 3+ negative bot flags is poorly suited for bot use without BetterBots improvements targeting those gaps.
 

@@ -48,6 +48,7 @@ npm run reresolve -- --write data/builds          # batch re-resolve unresolved 
 npm run coverage                                  # domain/kind coverage summary
 npm run inspect -- --id psyker.talent.psyker_damage_based_on_warp_charge
 npm run export:bot-weapons                        # regenerate data/exports/bot-weapon-recommendations.json
+npm run betterbots:sync                          # regenerate data/builds/bot/*.json and data/exports/bot-weapon-recommendations.json from ../BetterBots
 npm run report -- data/builds/08-zealot-chorus-swiss-knife.json           # human-readable text report
 npm run report -- data/builds/08-zealot-chorus-swiss-knife.json --format md  # markdown report
 npm run report -- data/builds/                                       # batch report (all builds)
@@ -346,7 +347,7 @@ See [`docs/roadmap.md`](docs/roadmap.md) for the current implementation sequence
 
 ## BetterBots Integration
 
-Issue `#4` resolved. `data/exports/` is the cross-repo handoff surface. BetterBots agents read exports via `../hadrons-blessing/data/exports/` or regenerate via CLI (`npm run export:bot-weapons`). See `data/exports/README.md` for the contract and `docs/superpowers/specs/2026-03-15-betterBots-integration-contract-design.md` for the design spec.
+Issue `#4` resolved. `data/exports/` is the cross-repo handoff surface, and `data/builds/bot/` contains the checked-in canonical bot fixtures. BetterBots agents read exports via `../hadrons-blessing/data/exports/` or regenerate from BetterBots source via CLI (`npm run betterbots:sync`; `npm run export:bot-weapons` for export-only refreshes). The source of truth is `../BetterBots/scripts/mods/BetterBots/bot_profiles.lua` (`DEFAULT_PROFILE_TEMPLATES`). See `data/exports/README.md` for the contract and `docs/superpowers/specs/2026-03-15-betterBots-integration-contract-design.md` for the original design spec.
 
 **Weapon export scoring:** Picks are evaluated against 4 bot-incompatibility criteria: dodge-dependent, block-timing-dependent, weapon-special-dependent (until BetterBots #33), and weakspot-aim-dependent. The export declares `"assumes": "betterbots"` — ADS, peril, force staves, and melee selection are handled by BetterBots and are not exclusion criteria.
 

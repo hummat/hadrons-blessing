@@ -304,5 +304,10 @@
       ]
     }
   },
-  "bot_flags": []
+  "bot_flags": [
+    "BOT:NO_DODGE",
+    "BOT:NO_BLOCK_TIMING",
+    "BOT:AIM_DEPENDENT",
+    "BOT:ABILITY_OK"
+  ]
 }

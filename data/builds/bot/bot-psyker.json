@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Bot Psyker - Venting Shriek + Warp Siphon + Voidblast Staff",
+  "title": "Bot Psyker - Scrier's Gaze + Disrupt Destiny + Deimos Mk IV Blaze Force Sword + Nomanus Mk VI Electrokinetic Force Staff",
   "class": {
     "raw_label": "psyker",
     "canonical_entity_id": "shared.class.psyker",
@@ -10,42 +10,37 @@
     "source_kind": "curated",
     "source_url": "https://github.com/hummat/BetterBots",
     "author": "BetterBots",
-    "scraped_at": "2026-04-07T12:00:00.000Z"
+    "scraped_at": "2026-04-22T12:18:42.720Z"
   },
   "ability": {
-    "raw_label": "Venting Shriek",
-    "canonical_entity_id": "psyker.ability.psyker_shout_vent_warp_charge",
+    "raw_label": "Scrier's Gaze",
+    "canonical_entity_id": "psyker.ability.psyker_combat_ability_stance",
     "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Brain Burst",
+    "raw_label": "Brain Rupture",
     "canonical_entity_id": "psyker.ability.psyker_brain_burst_improved",
     "resolution_status": "resolved"
   },
   "aura": {
-    "raw_label": "Seer's Presence",
+    "raw_label": "Seers Presence",
     "canonical_entity_id": "psyker.aura.psyker_cooldown_aura_improved",
     "resolution_status": "resolved"
   },
   "keystone": {
-    "raw_label": "Warp Siphon",
-    "canonical_entity_id": "psyker.keystone.psyker_passive_souls_from_elite_kills",
+    "raw_label": "Disrupt Destiny",
+    "canonical_entity_id": "psyker.keystone.psyker_new_mark_passive",
     "resolution_status": "resolved"
   },
   "talents": [
     {
-      "raw_label": "Inner Tranquility",
+      "raw_label": "Quietude",
       "canonical_entity_id": "psyker.talent.psyker_toughness_on_vent",
       "resolution_status": "resolved"
     },
     {
       "raw_label": "Soulstealer",
       "canonical_entity_id": "psyker.talent.psyker_toughness_on_warp_kill",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Perilous Combustion",
-      "canonical_entity_id": "psyker.talent.psyker_elite_kills_add_warpfire",
       "resolution_status": "resolved"
     },
     {
@@ -59,38 +54,8 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Kinetic Flayer",
-      "canonical_entity_id": "psyker.talent_modifier.psyker_smite_on_hit",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Souldrinker",
-      "canonical_entity_id": "psyker.talent.psyker_killing_enemy_with_warpfire_boosts",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Wildfire",
-      "canonical_entity_id": "psyker.talent.psyker_spread_warpfire_on_kill",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Psykinetic's Aura",
-      "canonical_entity_id": "psyker.talent.psyker_2_tier_3_name_2",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "One With the Warp",
+      "raw_label": "One With The Warp",
       "canonical_entity_id": "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Quietude",
-      "canonical_entity_id": "psyker.talent_modifier.psyker_shout_reduces_warp_charge_generation",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Purge Warpfire",
-      "canonical_entity_id": "psyker.talent_modifier.psyker_warpfire_on_shout",
       "resolution_status": "resolved"
     },
     {
@@ -104,12 +69,12 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Warp Unleashed",
+      "raw_label": "Empyric Resolve",
       "canonical_entity_id": "psyker.talent.psyker_warp_glass_cannon",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Penetration of the Soul",
+      "raw_label": "Penetration Of The Soul",
       "canonical_entity_id": "psyker.talent.psyker_warp_attacks_rending",
       "resolution_status": "resolved"
     },
@@ -119,48 +84,58 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Essence Harvest",
-      "canonical_entity_id": "psyker.talent_modifier.psyker_toughness_on_soul",
+      "raw_label": "Kinetic Flayer",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_smite_on_hit",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Warp Battery",
-      "canonical_entity_id": "psyker.talent_modifier.psyker_increased_max_souls",
+      "raw_label": "Precognition",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_overcharge_weakspot_kill_bonuses",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Toughness Boost 1",
-      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "raw_label": "Reality Anchor",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_overcharge_reduced_warp_charge",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Toughness Boost 2",
-      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "raw_label": "Warp Unbound",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_overcharge_stance_infinite_casting",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Toughness Damage Reduction 1",
-      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "raw_label": "base_toughness_node_buff_medium_5",
+      "canonical_entity_id": "psyker.talent.base_toughness_node_buff_medium_5",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Toughness Damage Reduction 2",
-      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "raw_label": "base_toughness_damage_reduction_node_buff_medium_1",
+      "canonical_entity_id": "psyker.talent.base_toughness_damage_reduction_node_buff_medium_1",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Ranged Damage Boost",
-      "canonical_entity_id": "shared.stat_node.ranged_damage_boost",
+      "raw_label": "base_crit_chance_node_buff_low_1",
+      "canonical_entity_id": "psyker.talent.base_crit_chance_node_buff_low_1",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Stamina Boost",
-      "canonical_entity_id": "shared.stat_node.stamina_boost",
+      "raw_label": "base_toughness_node_buff_medium_4",
+      "canonical_entity_id": "psyker.talent.base_toughness_node_buff_medium_4",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Critical Chance Boost",
-      "canonical_entity_id": "shared.stat_node.critical_chance_boost",
+      "raw_label": "base_ranged_damage_node_buff_medium_4",
+      "canonical_entity_id": "psyker.talent.base_ranged_damage_node_buff_medium_4",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "base_stamina_node_buff_low_1",
+      "canonical_entity_id": "psyker.talent.base_stamina_node_buff_low_1",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "base_toughness_damage_reduction_node_buff_low_4",
+      "canonical_entity_id": "psyker.talent.base_toughness_damage_reduction_node_buff_low_4",
       "resolution_status": "resolved"
     }
   ],
@@ -168,41 +143,41 @@
     {
       "slot": "melee",
       "name": {
-        "raw_label": "Covenant Mk VI Blaze Force Greatsword",
-        "canonical_entity_id": "shared.weapon.forcesword_2h_p1_m1",
+        "raw_label": "Deimos Mk IV Blaze Force Sword",
+        "canonical_entity_id": "shared.weapon.forcesword_p1_m1",
         "resolution_status": "resolved"
       },
       "perks": [
         {
-          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "raw_label": "+25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.25,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
-          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+          "raw_label": "+80% Block Efficiency",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_reduced_block_cost",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
-            "max": 0.25,
+            "min": 0.8,
+            "max": 0.8,
             "unit": "percent"
           }
         }
       ],
       "blessings": [
         {
-          "raw_label": "Wrath",
-          "canonical_entity_id": "shared.name_family.blessing.chained_hits_increases_melee_cleave",
+          "raw_label": "Deflector",
+          "canonical_entity_id": "shared.name_family.blessing.deflector",
           "resolution_status": "resolved"
         },
         {
-          "raw_label": "Rampage",
-          "canonical_entity_id": "shared.name_family.blessing.rampage",
+          "raw_label": "Uncanny Strike",
+          "canonical_entity_id": "shared.name_family.blessing.uncanny_strike",
           "resolution_status": "resolved"
         }
       ]
@@ -210,27 +185,27 @@
     {
       "slot": "ranged",
       "name": {
-        "raw_label": "Equinox Mk III Voidblast Force Staff",
-        "canonical_entity_id": "shared.weapon.forcestaff_p4_m1",
+        "raw_label": "Nomanus Mk VI Electrokinetic Force Staff",
+        "canonical_entity_id": "shared.weapon.forcestaff_p3_m1",
         "resolution_status": "resolved"
       },
       "perks": [
         {
-          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "raw_label": "+25% Damage (Carapace)",
           "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.25,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+          "raw_label": "+25% Damage (Unyielding)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.25,
             "max": 0.25,
             "unit": "percent"
           }
@@ -250,5 +225,93 @@
       ]
     }
   ],
-  "curios": []
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet (Reliquary)",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_innate_toughness_increase",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet (Reliquary)",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_innate_toughness_increase",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet (Reliquary)",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_innate_toughness_increase",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ]
 }

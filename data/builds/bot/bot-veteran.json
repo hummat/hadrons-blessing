@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Bot Veteran - Voice of Command + Focus Target + Plasma",
+  "title": "Bot Veteran - Voice of Command + Focus Target + Cadia Mk IV Assault Chainsword + Accatran Mk XII Recon Lasgun",
   "class": {
     "raw_label": "veteran",
     "canonical_entity_id": "shared.class.veteran",
@@ -10,7 +10,7 @@
     "source_kind": "curated",
     "source_url": "https://github.com/hummat/BetterBots",
     "author": "BetterBots",
-    "scraped_at": "2026-04-07T12:00:00.000Z"
+    "scraped_at": "2026-04-22T12:18:42.720Z"
   },
   "ability": {
     "raw_label": "Voice of Command",
@@ -18,7 +18,7 @@
     "resolution_status": "resolved"
   },
   "blitz": {
-    "raw_label": "Frag Grenade",
+    "raw_label": "veteran_grenade_apply_bleed",
     "canonical_entity_id": "veteran.ability.veteran_grenade_apply_bleed",
     "resolution_status": "resolved"
   },
@@ -34,7 +34,7 @@
   },
   "talents": [
     {
-      "raw_label": "Out for Blood",
+      "raw_label": "Out For Blood",
       "canonical_entity_id": "veteran.talent.veteran_all_kills_replenish_toughness",
       "resolution_status": "resolved"
     },
@@ -79,17 +79,17 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Bloody Mess",
+      "raw_label": "Serrated Blade",
       "canonical_entity_id": "veteran.talent.veteran_hits_cause_bleed",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Ranged Fusilade",
+      "raw_label": "Withering Fire 2",
       "canonical_entity_id": "veteran.talent.veteran_increased_ranged_cleave",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Flanking",
+      "raw_label": "Covert Operative",
       "canonical_entity_id": "veteran.talent.veteran_increased_damage_when_flanking",
       "resolution_status": "resolved"
     },
@@ -99,22 +99,17 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Demolition Stockpile",
-      "canonical_entity_id": "veteran.talent.veteran_replenish_grenades",
-      "resolution_status": "resolved"
-    },
-    {
       "raw_label": "Grenade Tinkerer",
       "canonical_entity_id": "veteran.talent.veteran_improved_grenades",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Duty and Honour",
-      "canonical_entity_id": "veteran.talent_modifier.veteran_combat_ability_increase_and_restore_toughness_to_coherency",
+      "raw_label": "Demolition Stockpile",
+      "canonical_entity_id": "veteran.talent.veteran_replenish_grenades",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Brothers in Arms",
+      "raw_label": "Born Leader",
       "canonical_entity_id": "veteran.talent.veteran_allies_in_coherency_share_toughness_gain",
       "resolution_status": "resolved"
     },
@@ -134,33 +129,38 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Redirect Fire",
+      "raw_label": "veteran_combat_ability_increase_and_restore_toughness_to_coherency",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_combat_ability_increase_and_restore_toughness_to_coherency",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "veteran_improved_tag_dead_coherency_bonus",
       "canonical_entity_id": "veteran.talent_modifier.veteran_improved_tag_dead_coherency_bonus",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Toughness Boost 1",
-      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "raw_label": "base_toughness_node_buff_low_5",
+      "canonical_entity_id": "veteran.talent.base_toughness_node_buff_low_5",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Toughness Boost 2",
-      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "raw_label": "base_stamina_node_buff_low_2",
+      "canonical_entity_id": "veteran.talent.base_stamina_node_buff_low_2",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Toughness Boost 3",
-      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "raw_label": "base_toughness_node_buff_medium_1",
+      "canonical_entity_id": "veteran.talent.base_toughness_node_buff_medium_1",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Stamina Boost",
-      "canonical_entity_id": "shared.stat_node.stamina_boost",
+      "raw_label": "base_toughness_node_buff_medium_2",
+      "canonical_entity_id": "veteran.talent.base_toughness_node_buff_medium_2",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Ranged Damage Boost",
-      "canonical_entity_id": "shared.stat_node.ranged_damage_boost",
+      "raw_label": "base_ranged_damage_node_buff_medium_1",
+      "canonical_entity_id": "veteran.talent.base_ranged_damage_node_buff_medium_1",
       "resolution_status": "resolved"
     }
   ],
@@ -168,27 +168,27 @@
     {
       "slot": "melee",
       "name": {
-        "raw_label": "Catachan Mk VII Devil's Claw Sword",
-        "canonical_entity_id": "shared.weapon.combatsword_p2_m1",
+        "raw_label": "Cadia Mk IV Assault Chainsword",
+        "canonical_entity_id": "shared.weapon.chainsword_p1_m1",
         "resolution_status": "resolved"
       },
       "perks": [
         {
-          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
+          "raw_label": "+25% Damage (Flak Armoured)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.25,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "10-25% Damage (Maniacs)",
+          "raw_label": "+25% Damage (Maniacs)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.25,
             "max": 0.25,
             "unit": "percent"
           }
@@ -201,8 +201,8 @@
           "resolution_status": "resolved"
         },
         {
-          "raw_label": "Skullcrusher",
-          "canonical_entity_id": "shared.name_family.blessing.skullcrusher",
+          "raw_label": "Bloodletter",
+          "canonical_entity_id": "shared.name_family.blessing.bleed_on_activated_hit",
           "resolution_status": "resolved"
         }
       ]
@@ -210,45 +210,133 @@
     {
       "slot": "ranged",
       "name": {
-        "raw_label": "M35 Magnacore Mk II Plasma Gun",
-        "canonical_entity_id": "shared.weapon.plasmagun_p1_m1",
+        "raw_label": "Accatran Mk XII Recon Lasgun",
+        "canonical_entity_id": "shared.weapon.lasgun_p3_m2",
         "resolution_status": "resolved"
       },
       "perks": [
         {
-          "raw_label": "10-25% Damage (Maniacs)",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+          "raw_label": "+25% Damage (Flak Armoured)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.25,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "10-25% Damage (Unyielding Enemies)",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+          "raw_label": "+5% Critical Hit Chance",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_increase_crit_chance",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
-            "max": 0.25,
+            "min": 0.05,
+            "max": 0.05,
             "unit": "percent"
           }
         }
       ],
       "blessings": [
         {
-          "raw_label": "Rising Heat",
-          "canonical_entity_id": "shared.name_family.blessing.rising_heat",
+          "raw_label": "Infernus",
+          "canonical_entity_id": "shared.name_family.blessing.burninating_on_crit",
           "resolution_status": "resolved"
         },
         {
-          "raw_label": "Gets Hot!",
-          "canonical_entity_id": "shared.name_family.blessing.gets_hot",
+          "raw_label": "Sustained Fire",
+          "canonical_entity_id": "shared.name_family.blessing.sustained_fire",
           "resolution_status": "resolved"
         }
       ]
     }
   ],
-  "curios": []
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet (Reliquary)",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_innate_toughness_increase",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet (Reliquary)",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_innate_toughness_increase",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet (Reliquary)",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_innate_toughness_increase",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ]
 }

@@ -561,6 +561,123 @@ describe("generateScorecard", () => {
     assert.deepEqual(card.bot_flags, []);
   });
 
+  it("marks shipped BetterBots bot builds as ability-capable", () => {
+    const veteranBuild = JSON.parse(readFileSync("data/builds/bot/bot-veteran.json", "utf-8"));
+    const psykerBuild = JSON.parse(readFileSync("data/builds/bot/bot-psyker.json", "utf-8"));
+
+    const veteranCard = generateScorecard(veteranBuild);
+    const psykerCard = generateScorecard(psykerBuild);
+
+    assert.ok(veteranCard.bot_flags.includes("BOT:ABILITY_OK"));
+    assert.ok(!veteranCard.bot_flags.includes("BOT:ABILITY_MISSING"));
+    assert.ok(veteranCard.curio_efficiency >= 4);
+    assert.ok(veteranCard.curios.perks.length > 0);
+    assert.ok(psykerCard.bot_flags.includes("BOT:ABILITY_OK"));
+    assert.ok(!psykerCard.bot_flags.includes("BOT:ABILITY_MISSING"));
+    assert.ok(!psykerCard.bot_flags.includes("BOT:NO_PERIL_MGT"));
+  });
+
+  it("keeps non-BetterBots empty curios at the punitive baseline", () => {
+    const build = {
+      title: "No Curios",
+      class: "veteran",
+      weapons: [],
+      curios: [],
+      talents: [],
+    };
+
+    const card = generateScorecard(build);
+
+    assert.equal(card.curio_efficiency, 1);
+  });
+
+  it("flags weakspot- and aim-dependent sharpshooter builds", () => {
+    const build = JSON.parse(readFileSync("data/builds/03-veteran-sharpshooter-2026.json", "utf-8"));
+    const card = generateScorecard(build);
+
+    assert.ok(card.bot_flags.includes("BOT:NO_WEAKSPOT"));
+    assert.ok(card.bot_flags.includes("BOT:AIM_DEPENDENT"));
+  });
+
+  it("flags dodge-dependent mechanics from canonical ids", () => {
+    const build = {
+      title: "Dodge Dependency",
+      class: "zealot",
+      ability: { raw_label: "Fury Of The Faithful", canonical_entity_id: "zealot.ability.zealot_dash", resolution_status: "resolved" },
+      blitz: { raw_label: "Throwing Knives", canonical_entity_id: "zealot.ability.zealot_throwing_knives", resolution_status: "resolved" },
+      aura: { raw_label: "Benediction", canonical_entity_id: "zealot.aura.zealot_toughness_damage_reduction_coherency_improved", resolution_status: "resolved" },
+      keystone: null,
+      talents: [
+        {
+          raw_label: "Dance Of Death",
+          canonical_entity_id: "zealot.talent.zealot_stacking_melee_damage_after_dodge",
+          resolution_status: "resolved",
+        },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const card = generateScorecard(build);
+
+    assert.ok(card.bot_flags.includes("BOT:NO_DODGE"));
+  });
+
+  it("flags positioning-dependent mechanics from canonical ids", () => {
+    const build = {
+      title: "Backstab Dependency",
+      class: "zealot",
+      ability: { raw_label: "Fury Of The Faithful", canonical_entity_id: "zealot.ability.zealot_dash", resolution_status: "resolved" },
+      blitz: { raw_label: "Throwing Knives", canonical_entity_id: "zealot.ability.zealot_throwing_knives", resolution_status: "resolved" },
+      aura: { raw_label: "Benediction", canonical_entity_id: "zealot.aura.zealot_toughness_damage_reduction_coherency_improved", resolution_status: "resolved" },
+      keystone: null,
+      talents: [
+        {
+          raw_label: "Backstabber",
+          canonical_entity_id: "zealot.talent.zealot_backstab_damage",
+          resolution_status: "resolved",
+        },
+      ],
+      weapons: [],
+      curios: [],
+    };
+    const card = generateScorecard(build);
+
+    assert.ok(card.bot_flags.includes("BOT:NO_POSITIONING"));
+  });
+
+  it("flags block-timing-dependent blessings", () => {
+    const build = {
+      title: "Riposte Dependency",
+      class: "psyker",
+      ability: { raw_label: "Scrier's Gaze", canonical_entity_id: "psyker.ability.psyker_combat_ability_stance", resolution_status: "resolved" },
+      blitz: { raw_label: "Brain Rupture", canonical_entity_id: "psyker.ability.psyker_brain_burst_improved", resolution_status: "resolved" },
+      aura: { raw_label: "Seers Presence", canonical_entity_id: "psyker.aura.psyker_cooldown_aura_improved", resolution_status: "resolved" },
+      keystone: null,
+      talents: [],
+      weapons: [
+        {
+          name: {
+            raw_label: "Deimos Mk IV Blaze Force Sword",
+            canonical_entity_id: "shared.weapon.forcesword_p1_m1",
+            resolution_status: "resolved",
+          },
+          perks: [],
+          blessings: [
+            {
+              raw_label: "Riposte",
+              canonical_entity_id: "shared.name_family.blessing.riposte",
+              resolution_status: "resolved",
+            },
+          ],
+        },
+      ],
+      curios: [],
+    };
+    const card = generateScorecard(build);
+
+    assert.ok(card.bot_flags.includes("BOT:NO_BLOCK_TIMING"));
+  });
+
   it("includes canonical weapon metadata from ground-truth resolution", () => {
     const build = {
       title: "Canonical Metadata Test",

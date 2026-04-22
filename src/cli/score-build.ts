@@ -68,41 +68,30 @@ function formatScorecardText(card: AnyRecord): string {
   }
 
   lines.push("");
-  const hasQualitative = card.qualitative.talent_coherence != null || card.qualitative.blessing_synergy != null || card.qualitative.role_coverage != null;
-  const hasCalc = card.qualitative.breakpoint_relevance != null || card.qualitative.difficulty_scaling != null;
-  if (hasQualitative || hasCalc) {
-    lines.push("QUALITATIVE SCORES:");
-    const tc = card.qualitative.talent_coherence;
-    const bs = card.qualitative.blessing_synergy;
-    const rc = card.qualitative.role_coverage;
-    const br = card.qualitative.breakpoint_relevance;
-    const ds = card.qualitative.difficulty_scaling;
-    lines.push(`  Talent Coherence:     ${tc ? tc.score + "/5" : "-/5"}`);
-    lines.push(`  Blessing Synergy:     ${bs ? bs.score + "/5" : "-/5"}`);
-    lines.push(`  Role Coverage:        ${rc ? rc.score + "/5" : "-/5"}`);
-    lines.push(`  Breakpoint Relevance: ${br ? br.score + "/5" : "-/5  (requires calculator)"}`);
-    lines.push(`  Difficulty Scaling:   ${ds ? ds.score + "/5" : "-/5  (requires calculator)"}`);
-  } else {
-    lines.push("QUALITATIVE (fill manually):");
-    lines.push("  Blessing Synergy:     _/5");
-    lines.push("  Talent Coherence:     _/5");
-    lines.push("  Role Coverage:        _/5");
-    lines.push("  Difficulty Scaling:   _/5");
-  }
+  lines.push("QUALITATIVE SCORES:");
+  const tc = card.qualitative.talent_coherence;
+  const bs = card.qualitative.blessing_synergy;
+  const rc = card.qualitative.role_coverage;
+  const br = card.qualitative.breakpoint_relevance;
+  const ds = card.qualitative.difficulty_scaling;
+  lines.push(`  Talent Coherence:     ${tc ? tc.score + "/5" : "-/5"}`);
+  lines.push(`  Blessing Synergy:     ${bs ? bs.score + "/5" : "-/5"}`);
+  lines.push(`  Role Coverage:        ${rc ? rc.score + "/5" : "-/5"}`);
+  lines.push(`  Breakpoint Relevance: ${br ? br.score + "/5" : "-/5  (requires calculator)"}`);
+  lines.push(`  Difficulty Scaling:   ${ds ? ds.score + "/5" : "-/5  (requires calculator)"}`);
 
   lines.push("");
   lines.push(`COMPOSITE: ${card.composite_score}/35 (${card.letter_grade})`);
 
   lines.push("");
-  lines.push("BOT FLAGS: (fill manually)");
-  lines.push("  [ ] BOT:NO_DODGE");
-  lines.push("  [ ] BOT:NO_WEAKSPOT");
-  lines.push("  [ ] BOT:NO_PERIL_MGT");
-  lines.push("  [ ] BOT:NO_POSITIONING");
-  lines.push("  [ ] BOT:NO_BLOCK_TIMING");
-  lines.push("  [ ] BOT:AIM_DEPENDENT");
-  lines.push("  [ ] BOT:ABILITY_OK");
-  lines.push("  [ ] BOT:ABILITY_MISSING");
+  lines.push("BOT FLAGS:");
+  if (Array.isArray(card.bot_flags) && card.bot_flags.length > 0) {
+    for (const flag of card.bot_flags) {
+      lines.push(`  - ${flag}`);
+    }
+  } else {
+    lines.push("  - none");
+  }
 
   return lines.join("\n");
 }

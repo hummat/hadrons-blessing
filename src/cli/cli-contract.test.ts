@@ -168,6 +168,19 @@ describe("CLI contract — score and calc output modes", () => {
     assert.notEqual(result.status, 0);
   });
 
+  it("score --text prints computed bot flags instead of manual placeholders", () => {
+    const result = runCli("src/cli/score-build.ts", [
+      "data/builds/03-veteran-sharpshooter-2026.json",
+      "--text",
+    ]);
+
+    assert.equal(result.status, 0, `stderr: ${result.stderr}`);
+    assert.equal(result.stdout.includes("BOT FLAGS: (fill manually)"), false);
+    assert.equal(result.stdout.includes("QUALITATIVE (fill manually):"), false);
+    assert.match(result.stdout, /BOT:NO_WEAKSPOT/);
+    assert.match(result.stdout, /BOT:AIM_DEPENDENT/);
+  });
+
   it("calc rejects mutually exclusive --json and --text", () => {
     const result = runCli("src/cli/calc-build.ts", [
       "data/builds/09-psyker-2026.json",

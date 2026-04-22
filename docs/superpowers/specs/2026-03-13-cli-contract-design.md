@@ -312,15 +312,15 @@ Current `score` output in `scripts/score-build.mjs` mixes:
 
 - mechanical scores
 - inferred slot identity
-- placeholder qualitative fields
-- empty `bot_flags`
+- optional qualitative fields that depend on synergy/calculator availability
+- conservative automated `bot_flags`
 
 That is valuable, but not clean enough for a stable contract.
 
 Specific reasons not to freeze it yet:
 
-- qualitative placeholders are not real computed outputs
-- `bot_flags` are not implemented
+- qualitative dimensions still depend on optional upstream analysis rather than one stable mandatory pipeline
+- `bot_flags` are conservative heuristics tied to current BetterBots support, not a complete runtime proof
 - weapon family is not exposed as a first-class signal
 - weapon-name matching is implemented through a parallel scoring-specific path rather than the ground-truth resolver, so score can drift from resolver/audit semantics
 - some downstream-facing semantics still need design

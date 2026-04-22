@@ -304,5 +304,9 @@
       ]
     }
   },
-  "bot_flags": []
+  "bot_flags": [
+    "BOT:NO_WEAKSPOT",
+    "BOT:AIM_DEPENDENT",
+    "BOT:ABILITY_OK"
+  ]
 }

@@ -305,5 +305,9 @@
       ]
     }
   },
-  "bot_flags": []
+  "bot_flags": [
+    "BOT:NO_DODGE",
+    "BOT:NO_POSITIONING",
+    "BOT:ABILITY_OK"
+  ]
 }

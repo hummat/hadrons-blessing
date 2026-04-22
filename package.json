@@ -34,6 +34,7 @@
     "stagger:build": "node dist/cli/extract-stagger-settings.js",
     "report": "node dist/cli/report-build.js",
     "export:bot-weapons": "node dist/cli/export-bot-weapons.js",
+    "betterbots:sync": "node dist/cli/sync-betterbots.js",
     "synergy": "node dist/cli/analyze-synergy.js",
     "list": "node dist/cli/list-builds.js",
     "score": "node dist/cli/score-build.js",

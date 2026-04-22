@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Bot Ogryn - Indomitable + Heavy Hitter + Bully Club + Rumbler",
+  "title": "Bot Ogryn - Point Blank Barrage + Heavy Hitter + \"Brunt's Basher\" Mk IIIb Bully Club + Foe-Rend Mk VI Ripper Gun",
   "class": {
     "raw_label": "ogryn",
     "canonical_entity_id": "shared.class.ogryn",
@@ -10,11 +10,11 @@
     "source_kind": "curated",
     "source_url": "https://github.com/hummat/BetterBots",
     "author": "BetterBots",
-    "scraped_at": "2026-04-07T12:00:00.000Z"
+    "scraped_at": "2026-04-22T12:18:42.720Z"
   },
   "ability": {
-    "raw_label": "Indomitable",
-    "canonical_entity_id": "ogryn.ability.ogryn_longer_charge",
+    "raw_label": "Point Blank Barrage",
+    "canonical_entity_id": "ogryn.ability.ogryn_special_ammo",
     "resolution_status": "resolved"
   },
   "blitz": {
@@ -23,7 +23,7 @@
     "resolution_status": "resolved"
   },
   "aura": {
-    "raw_label": "Bonebreaker's Aura",
+    "raw_label": "Bonebreakers Aura",
     "canonical_entity_id": "ogryn.aura.ogryn_melee_damage_coherency_improved",
     "resolution_status": "resolved"
   },
@@ -39,7 +39,7 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Trench Brace",
+      "raw_label": "Steady Grip",
       "canonical_entity_id": "ogryn.talent.ogryn_toughness_while_bracing",
       "resolution_status": "resolved"
     },
@@ -64,22 +64,12 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Pumped Up",
+      "raw_label": "Pumped Up 2",
       "canonical_entity_id": "ogryn.talent.ogryn_damage_reduction_on_high_stamina",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Stomping Boots",
-      "canonical_entity_id": "ogryn.talent_modifier.ogryn_charge_toughness",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Trample",
-      "canonical_entity_id": "ogryn.talent_modifier.ogryn_charge_trample",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Strike True",
+      "raw_label": "Strike True 2",
       "canonical_entity_id": "ogryn.talent.ogryn_weakspot_damage",
       "resolution_status": "resolved"
     },
@@ -89,78 +79,83 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Delight in Destruction",
+      "raw_label": "Delight In Destruction",
       "canonical_entity_id": "ogryn.talent.ogryn_nearby_bleeds_reduce_damage_taken",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Toughness Regen at Low Health",
+      "raw_label": "Too Stubborn To Die",
       "canonical_entity_id": "ogryn.talent.ogryn_toughness_on_low_health",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Wind-Up DR",
+      "raw_label": "Implacable",
       "canonical_entity_id": "ogryn.talent.ogryn_windup_reduces_damage_taken",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Just Getting Started",
-      "canonical_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_attack_speed",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Don't Feel a Thing",
-      "canonical_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_tdr",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Impactful",
-      "canonical_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_stagger",
-      "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Rending on Elite Kills",
+      "raw_label": "Dominate",
       "canonical_entity_id": "ogryn.talent.ogryn_rending_on_elite_kills",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Frenzied Blows",
+      "raw_label": "Frenzied Blows 2",
       "canonical_entity_id": "ogryn.talent.ogryn_stacking_attack_speed",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "DR After Elite Kill",
+      "raw_label": "Strongman 2",
       "canonical_entity_id": "ogryn.talent.ogryn_damage_reduction_after_elite_kill",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Toughness Boost 1",
-      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "raw_label": "Hail Of Fire",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_special_ammo_armor_pen",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Toughness Damage Reduction 1",
-      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "raw_label": "Just Getting Started 2",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_max_stacks_improves_attack_speed",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Toughness Damage Reduction 2",
-      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "raw_label": "Dont Feel A Thing 2",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_tdr",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Rending Boost",
-      "canonical_entity_id": "shared.stat_node.rending_boost",
+      "raw_label": "Impactful 2",
+      "canonical_entity_id": "ogryn.talent_modifier.ogryn_heavy_hitter_stagger",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Melee Damage Boost",
-      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "raw_label": "base_toughness_node_buff_medium_2",
+      "canonical_entity_id": "ogryn.talent.base_toughness_node_buff_medium_2",
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Toughness Boost 2",
-      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "raw_label": "base_toughness_damage_reduction_node_buff_medium_1",
+      "canonical_entity_id": "ogryn.talent.base_toughness_damage_reduction_node_buff_medium_1",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "base_toughness_damage_reduction_node_buff_low_5",
+      "canonical_entity_id": "ogryn.talent.base_toughness_damage_reduction_node_buff_low_5",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "base_armor_pen_node_buff_low_1",
+      "canonical_entity_id": "ogryn.talent.base_armor_pen_node_buff_low_1",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "base_melee_damage_node_buff_medium_2",
+      "canonical_entity_id": "ogryn.talent.base_melee_damage_node_buff_medium_2",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "base_toughness_node_buff_low_2",
+      "canonical_entity_id": "ogryn.talent.base_toughness_node_buff_low_2",
       "resolution_status": "resolved"
     }
   ],
@@ -174,21 +169,21 @@
       },
       "perks": [
         {
-          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "raw_label": "+25% Damage (Carapace)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.25,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "raw_label": "+25% Damage (Unyielding)",
           "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.25,
             "max": 0.25,
             "unit": "percent"
           }
@@ -201,8 +196,8 @@
           "resolution_status": "resolved"
         },
         {
-          "raw_label": "Thunderous",
-          "canonical_entity_id": "shared.name_family.blessing.thunderous",
+          "raw_label": "Momentum",
+          "canonical_entity_id": "shared.name_family.blessing.momentum",
           "resolution_status": "resolved"
         }
       ]
@@ -210,27 +205,27 @@
     {
       "slot": "ranged",
       "name": {
-        "raw_label": "Lorenz Mk VI Rumbler",
-        "canonical_entity_id": "shared.weapon.ogryn_thumper_p1_m2",
+        "raw_label": "Foe-Rend Mk VI Ripper Gun",
+        "canonical_entity_id": "shared.weapon.ogryn_rippergun_p1_m2",
         "resolution_status": "resolved"
       },
       "perks": [
         {
-          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+          "raw_label": "+25% Damage (Flak Armoured)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.25,
             "max": 0.25,
             "unit": "percent"
           }
         },
         {
-          "raw_label": "10-25% Damage (Unyielding Enemies)",
-          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+          "raw_label": "+25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
           "resolution_status": "resolved",
           "value": {
-            "min": 0.1,
+            "min": 0.25,
             "max": 0.25,
             "unit": "percent"
           }
@@ -238,17 +233,105 @@
       ],
       "blessings": [
         {
-          "raw_label": "Adhesive Charge",
-          "canonical_entity_id": "shared.name_family.blessing.adhesive_charge",
+          "raw_label": "Inspiring Barrage",
+          "canonical_entity_id": "shared.name_family.blessing.inspiring_barrage",
           "resolution_status": "resolved"
         },
         {
-          "raw_label": "Shattering Impact",
-          "canonical_entity_id": "shared.name_family.blessing.shattering_impact",
+          "raw_label": "Blaze Away",
+          "canonical_entity_id": "shared.name_family.blessing.blaze_away",
           "resolution_status": "resolved"
         }
       ]
     }
   ],
-  "curios": []
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet (Reliquary)",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_innate_toughness_increase",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet (Reliquary)",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_innate_toughness_increase",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet (Reliquary)",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_innate_toughness_increase",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "+6-12% Stamina Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_regeneration",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ]
 }

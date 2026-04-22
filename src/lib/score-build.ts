@@ -156,6 +156,64 @@ interface Scorecard {
   bot_flags: string[];
 }
 
+const BOT_FLAG_ORDER = [
+  "BOT:NO_DODGE",
+  "BOT:NO_WEAKSPOT",
+  "BOT:NO_PERIL_MGT",
+  "BOT:NO_POSITIONING",
+  "BOT:NO_BLOCK_TIMING",
+  "BOT:AIM_DEPENDENT",
+  "BOT:ABILITY_OK",
+  "BOT:ABILITY_MISSING",
+] as const;
+
+const DODGE_SIGNAL_PATTERNS = [
+  "dodge",
+  "slide",
+  "riposte",
+  "count_as_dodge",
+  "quickness",
+];
+
+const STRONG_WEAKSPOT_SIGNAL_PATTERNS = [
+  "snipers_focus",
+  "mark_weakspot",
+  "weakspot_kill",
+  "count_as_dodge_vs_ranged_on_weakspot",
+  "weakspot_hit_resets_dodge_count",
+];
+
+const AIM_SIGNAL_PATTERNS = [
+  "snipers_focus",
+  "ads_drain_stamina",
+  "weakspot_damage",
+  "weakspot_power",
+  "weakspot_kill",
+  "precision",
+  "headhunter",
+  "deadshot",
+];
+
+const POSITIONING_SIGNAL_PATTERNS = [
+  "backstab",
+  "flanking",
+  "allow_backstabbing",
+  "allow_flanking",
+];
+
+const BLOCK_SIGNAL_PATTERNS = [
+  "perfect_block",
+  "riposte",
+  "parry",
+  "counterattack",
+];
+
+const PERIL_SIGNAL_PATTERNS = [
+  "manual_quell",
+  "manual_vent",
+  "uncontrolled_peril",
+];
+
 // ---------------------------------------------------------------------------
 // State
 // ---------------------------------------------------------------------------
@@ -185,6 +243,118 @@ function selectionCanonicalEntityId(value: unknown): string | null {
   }
 
   return null;
+}
+
+function countMatchingSignals(signals: string[], patterns: string[]): number {
+  let count = 0;
+  for (const signal of signals) {
+    if (patterns.some((pattern) => signal.includes(normalizeText(pattern)))) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+function normalizedSignalValues(values: Array<string | null | undefined>): string[] {
+  return [...new Set(
+    values
+      .filter((value): value is string => typeof value === "string" && value.length > 0)
+      .map((value) => normalizeText(value)),
+  )];
+}
+
+function normalizedTalentSelections(value: unknown): unknown[] {
+  if (Array.isArray(value)) {
+    return value;
+  }
+
+  if (value != null && typeof value === "object" && Array.isArray((value as { active?: unknown[] }).active)) {
+    return (value as { active: unknown[] }).active;
+  }
+
+  return [];
+}
+
+function computeBotFlags(
+  build: Record<string, unknown>,
+  weaponResults: ScorecardWeapon[],
+): string[] {
+  const weapons = ((build.weapons as Array<Record<string, unknown>>) || []).map(normalizedWeaponInput);
+  const talents = normalizedTalentSelections(build.talents);
+  const activeAbilityId = selectionCanonicalEntityId(build.ability);
+  const activeBlitzId = selectionCanonicalEntityId(build.blitz);
+  const activeAuraId = selectionCanonicalEntityId(build.aura);
+  const activeKeystoneId = selectionCanonicalEntityId(build.keystone);
+
+  const signalValues = normalizedSignalValues([
+    activeAbilityId,
+    activeBlitzId,
+    activeAuraId,
+    activeKeystoneId,
+    selectionLabel(build.ability),
+    selectionLabel(build.blitz),
+    selectionLabel(build.aura),
+    selectionLabel(build.keystone),
+    ...talents.map(selectionCanonicalEntityId),
+    ...talents.map(selectionLabel),
+    ...weapons.map((weapon) => weapon.canonical_entity_id ?? null),
+    ...weapons.map((weapon) => weapon.name),
+    ...weapons.flatMap((weapon) => weapon.blessings.map((blessing) => blessing.canonical_entity_id ?? null)),
+    ...weapons.flatMap((weapon) => weapon.blessings.map((blessing) => blessing.name)),
+    ...weaponResults.map((weapon) => weapon.internal_name),
+    ...weaponResults.map((weapon) => weapon.weapon_family),
+    ...weaponResults.flatMap((weapon) => weapon.blessings.blessings.map((blessing) => blessing.internal)),
+    ...weaponResults.flatMap((weapon) => weapon.blessings.blessings.map((blessing) => blessing.name)),
+  ]);
+
+  const flags = new Set<string>();
+  const dodgeSignalCount = countMatchingSignals(signalValues, DODGE_SIGNAL_PATTERNS);
+  const strongWeakspotSignalCount = countMatchingSignals(signalValues, STRONG_WEAKSPOT_SIGNAL_PATTERNS);
+  const aimSignalCount = countMatchingSignals(signalValues, AIM_SIGNAL_PATTERNS);
+  const positioningSignalCount = countMatchingSignals(signalValues, POSITIONING_SIGNAL_PATTERNS);
+  const blockSignalCount = countMatchingSignals(signalValues, BLOCK_SIGNAL_PATTERNS);
+  const perilSignalCount = countMatchingSignals(signalValues, PERIL_SIGNAL_PATTERNS);
+
+  if (dodgeSignalCount > 0) {
+    flags.add("BOT:NO_DODGE");
+  }
+
+  if (strongWeakspotSignalCount >= 2 || signalValues.some((signal) => signal.includes(normalizeText("snipers_focus")))) {
+    flags.add("BOT:NO_WEAKSPOT");
+  }
+
+  if (perilSignalCount > 0) {
+    flags.add("BOT:NO_PERIL_MGT");
+  }
+
+  if (
+    signalValues.some((signal) => signal.includes("backstab"))
+    || positioningSignalCount >= 2
+  ) {
+    flags.add("BOT:NO_POSITIONING");
+  }
+
+  if (blockSignalCount > 0) {
+    flags.add("BOT:NO_BLOCK_TIMING");
+  }
+
+  if (
+    aimSignalCount >= 2
+    || signalValues.some((signal) => signal.includes(normalizeText("snipers_focus")))
+    || signalValues.some((signal) => signal.includes(normalizeText("ads_drain_stamina")))
+  ) {
+    flags.add("BOT:AIM_DEPENDENT");
+  }
+
+  const hasActiveMechanics = activeAbilityId != null || activeBlitzId != null;
+  const hasSupportedAbilityKit = activeAbilityId != null && activeBlitzId != null;
+  if (hasActiveMechanics && hasSupportedAbilityKit) {
+    flags.add("BOT:ABILITY_OK");
+  } else if (hasActiveMechanics) {
+    flags.add("BOT:ABILITY_MISSING");
+  }
+
+  return BOT_FLAG_ORDER.filter((flag) => flags.has(flag));
 }
 
 function normalizedWeaponInput(weapon: Record<string, unknown>): WeaponInput {
@@ -871,6 +1041,6 @@ export function generateScorecard(
     weapons: weaponResults,
     curios: curioResult,
     qualitative,
-    bot_flags: [],
+    bot_flags: computeBotFlags(build, weaponResults),
   };
 }

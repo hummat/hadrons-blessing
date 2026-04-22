@@ -1,14 +1,16 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
-import { readFileSync, mkdtempSync, rmSync } from "node:fs";
+import { existsSync, readFileSync, mkdtempSync, rmSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { tmpdir } from "node:os";
+import { DEFAULT_BETTERBOTS_PROFILE_PATH } from "./betterbots-sync.js";
 import { loadGroundTruthRegistry } from "./registry.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const EXPORT_PATH = join(__dirname, "..", "..", "data", "exports", "bot-weapon-recommendations.json");
+const HAS_BETTERBOTS = existsSync(DEFAULT_BETTERBOTS_PROFILE_PATH);
 
 describe("bot-weapon-recommendations export", () => {
   it("checked-in artifact is valid JSON with expected schema", () => {
@@ -76,13 +78,13 @@ describe("bot-weapon-recommendations export", () => {
 });
 
 describe("export:bot-weapons CLI", () => {
-  it("runs without error", () => {
+  it("runs without error", { skip: !HAS_BETTERBOTS }, () => {
     const tmp = mkdtempSync(join(tmpdir(), "bot-weapons-"));
     const outPath = join(tmp, "bot-weapon-recommendations.json");
     try {
       const result = spawnSync(
-        "tsx",
-        ["src/cli/export-bot-weapons.ts", outPath],
+        process.execPath,
+        ["--import", "tsx", "src/cli/export-bot-weapons.ts", outPath],
         { encoding: "utf8", timeout: 10_000 },
       );
       assert.equal(result.status, 0, `CLI failed: ${result.stderr}`);
