@@ -124,6 +124,68 @@
     }
   },
   {
+    "file": "25-zealot-sister-of-battle.json",
+    "title": "Sister of Battle | Immolation Grenade | Chorus of Spiritual Fortitude | Blazing Piety",
+    "class": "zealot",
+    "ability": "Chorus of Spiritual Fortitude",
+    "keystone": "Blazing Piety",
+    "weapons": [
+      {
+        "name": "Tigrus Mk III Heavy Eviscerator",
+        "slot": "melee",
+        "family": "chainsword_2h_p1"
+      },
+      {
+        "name": "Locke Mk IIb Spearhead Boltgun",
+        "slot": "ranged",
+        "family": "bolter_p1"
+      }
+    ],
+    "scores": {
+      "composite": 37,
+      "grade": "S",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 4,
+      "role_coverage": 4,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 5,
+      "survivability": 5
+    }
+  },
+  {
+    "file": "27-zealot-ultimate-support.json",
+    "title": "Ultimate Support Zealot H-40",
+    "class": "zealot",
+    "ability": "Chorus of Spiritual Fortitude",
+    "keystone": "Blazing Piety",
+    "weapons": [
+      {
+        "name": "Maccabian Mk IV Duelling Sword",
+        "slot": "melee",
+        "family": "combatsword_p1"
+      },
+      {
+        "name": "Artemia Mk III Purgation Flamer",
+        "slot": "ranged",
+        "family": "flamer"
+      }
+    ],
+    "scores": {
+      "composite": 37,
+      "grade": "S",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 4,
+      "survivability": 4
+    }
+  },
+  {
     "file": "17-arbites-busted.json",
     "title": "BUSTED - Havoc 40",
     "class": "arbites",
@@ -183,6 +245,37 @@
       "breakpoint_relevance": 5,
       "difficulty_scaling": 5,
       "survivability": 3
+    }
+  },
+  {
+    "file": "26-zealot-go-go-gadget.json",
+    "title": "Go go gadget daemonhost impregnator kneecap remover",
+    "class": "zealot",
+    "ability": "Shroudfield",
+    "keystone": "Martyrdom",
+    "weapons": [
+      {
+        "name": "Crucis Mk II Thunder Hammer",
+        "slot": "melee",
+        "family": "thunderhammer_2h"
+      },
+      {
+        "name": "Locke Mk IIb Spearhead Boltgun",
+        "slot": "ranged",
+        "family": "bolter_p1"
+      }
+    ],
+    "scores": {
+      "composite": 36,
+      "grade": "S",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 3,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 4,
+      "survivability": 5
     }
   },
   {

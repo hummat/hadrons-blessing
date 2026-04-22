@@ -1,6 +1,6 @@
 /**
  * Calculator validation tests — smoke tests, data audits, and known-bug
- * characterization for the damage pipeline across all 24 builds.
+ * characterization for the damage pipeline across all 27 builds.
  *
  * Tasks 2-4 from the calculator validation plan.
  */
@@ -55,8 +55,8 @@ describe("Task 2: Damage Pipeline Sanity", { skip: !hasGeneratedData && "no gene
     }
   }
 
-  it("runs computeBreakpoints on all 24 builds (capturing errors)", () => {
-    assert.equal(builds.length, 24, `expected 24 builds, found ${builds.length}`);
+  it("runs computeBreakpoints on all 27 builds (capturing errors)", () => {
+    assert.equal(builds.length, 27, `expected 27 builds, found ${builds.length}`);
     // Build 14 may crash — that's OK. Others should succeed.
     const unexpectedErrors = [...errors.entries()].filter(
       ([f]) => !f.startsWith("14-"),

@@ -7,9 +7,9 @@ const BUILDS_DIR = "data/builds";
 
 describe("build-list", () => {
   describe("listBuilds", () => {
-    it("loads all 24 builds with valid summaries", () => {
+    it("loads all 27 builds with valid summaries", () => {
       const results = listBuilds(BUILDS_DIR);
-      assert.equal(results.length, 24);
+      assert.equal(results.length, 27);
 
       for (const r of results) {
         assert.ok(r.file.endsWith(".json"), `file should end with .json: ${r.file}`);

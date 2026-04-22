@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "title": "Go go gadget daemonhost impregnator kneecap remover",
+  "class": {
+    "raw_label": "zealot",
+    "canonical_entity_id": "shared.class.zealot",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "https://darktide.gameslantern.com/builds/9eff0d65-4131-41e5-b6f9-c47996588c14/go-go-gadget-daemonhost-impregnator-kneecap-remover",
+    "author": "Harelike abhuman",
+    "scraped_at": "2026-04-22T15:51:48.767Z"
+  },
+  "ability": {
+    "raw_label": "Shroudfield",
+    "canonical_entity_id": "zealot.ability.zealot_stealth",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Immolation Grenade",
+    "canonical_entity_id": "zealot.ability.zealot_flame_grenade",
+    "resolution_status": "resolved"
+  },
+  "aura": {
+    "raw_label": "Beacon of Purity",
+    "canonical_entity_id": "zealot.aura.zealot_corruption_healing_coherency_improved",
+    "resolution_status": "resolved"
+  },
+  "keystone": {
+    "raw_label": "Martyrdom",
+    "canonical_entity_id": "zealot.keystone.zealot_martyrdom",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Backstabber",
+      "canonical_entity_id": "zealot.talent.zealot_backstab_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Purge the Unclean",
+      "canonical_entity_id": "zealot.talent.zealot_increased_damage_vs_resilient",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Vicious Offering",
+      "canonical_entity_id": "zealot.talent.zealot_toughness_on_heavy_kills",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Duellist",
+      "canonical_entity_id": "zealot.talent.zealot_increased_crit_and_weakspot_damage_after_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Until Death",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Holy Revenant",
+      "canonical_entity_id": "zealot.talent.zealot_resist_death_healing",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Thy Wrath Be Swift",
+      "canonical_entity_id": "zealot.talent.zealot_damage_boosts_movement",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Master Crafted Shroudfield",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_increased_duration",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Good Balance",
+      "canonical_entity_id": "zealot.talent.zealot_reduced_damage_after_dodge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Invigorating Revelation",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_leaving_stealth_restores_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Martyrs Purpose",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_restore_stealth_cd_on_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Faiths Fortitude",
+      "canonical_entity_id": "zealot.talent.zealot_additional_wounds",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "I Shall Not Fall",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Maniac",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_martyrdom_grants_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 2",
+      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 8",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Unfaltering",
+      "canonical_entity_id": "zealot.talent.zealot_uninterruptible_no_slow_heavies",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Unseen Blade",
+      "canonical_entity_id": "zealot.talent.zealot_damage_vs_nonthreat",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Providence",
+      "canonical_entity_id": "zealot.talent.zealot_revive_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Abolish Blasphemers",
+      "canonical_entity_id": "zealot.talent.zealot_damage_vs_elites",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Hubris",
+      "canonical_entity_id": "zealot.talent.zealot_weakspot_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Movement Speed Boost 5",
+      "canonical_entity_id": "shared.stat_node.movement_speed_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Perfectionist 2",
+      "canonical_entity_id": "zealot.talent_modifier.zealot_stealth_cooldown_regeneration",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Time to Kill",
+      "canonical_entity_id": "zealot.talent.zealot_backstab_periodic_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Against the Odds",
+      "canonical_entity_id": "zealot.talent.zealot_offensive_vs_many",
+      "resolution_status": "resolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "Crucis Mk II Thunder Hammer",
+        "canonical_entity_id": "shared.weapon.thunderhammer_2h_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Thrust",
+          "canonical_entity_id": "shared.name_family.blessing.thunderous",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Slaughterer",
+          "canonical_entity_id": "shared.name_family.blessing.increase_power_on_kill",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Locke Mk IIb Spearhead Boltgun",
+        "canonical_entity_id": "shared.weapon.bolter_p1_m2",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Pinning Fire",
+          "canonical_entity_id": "shared.name_family.blessing.pinning_fire",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Shattering Impact",
+          "canonical_entity_id": "shared.name_family.blessing.shattering_impact",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ],
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+1 Wound(s)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_innate_max_wounds_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 1,
+            "max": 1,
+            "unit": "flat"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+1 Wound(s)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_innate_max_wounds_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 1,
+            "max": 1,
+            "unit": "flat"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+5-20% Damage Resistance (Gunners)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.05,
+            "max": 0.2,
+            "unit": "percent"
+          }
+        }
+      ]
+    }
+  ]
+}

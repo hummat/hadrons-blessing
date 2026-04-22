@@ -132,10 +132,11 @@ Current entity coverage (1376 total: 768 non-tree + 608 tree_node):
 Tree edges are generated from Lua source via `npm run edges:build`. Skipped edges reference
 talent entities not yet in ground-truth — they appear automatically as entity coverage grows.
 
-All 24 build fixtures (all 6 classes) are stored in canonical build shape,
-re-extracted from live Games Lantern pages with full talent trees.
+All 27 build fixtures are stored in canonical build shape, including the
+original cross-class corpus plus three extra Zealot additions re-extracted
+from live Games Lantern pages with full talent trees.
 
-Audit totals across all 24 fixtures: **1275 resolved / 0 unresolved / 72
+Audit totals across all 27 fixtures: **1438 resolved / 0 unresolved / 81
 non_canonical / 0 ambiguous**. The `non_canonical` bucket in the fixtures is
 the four curio cosmetic base labels whose concrete runtime variants are
 collapsed by the Games Lantern scrape; the live dump helper in

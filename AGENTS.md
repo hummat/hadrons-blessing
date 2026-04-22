@@ -112,7 +112,7 @@ data/ground-truth/
                      #   damage-profiles.json — damage profiles, action maps, pipeline constants
                      #   stagger-settings.json — global stagger thresholds, categories, scalars
 data/exports/        # checked-in JSON artifacts for downstream consumers (BetterBots)
-data/builds/         # 24 canonical build fixtures (all 6 classes, 4 per class)
+data/builds/         # 27 canonical build fixtures (core 24 cross-class set + 3 Zealot additions)
 src/
   lib/               # typed library modules (.ts)
                      # resolve.ts, validate.ts, load.ts, normalize.ts,
@@ -153,9 +153,9 @@ Shared cross-class entities use `shared` as domain: `shared.weapon.autogun_p1_m1
 
 ## Known Coverage Gaps
 
-**Curio cosmetic base labels** (72 `non_canonical` selections across the 24 build fixtures; 4 unique labels in the fixtures, 21 unique base labels confirmed by the runtime dump): the live runtime item catalog shows these as concrete variants like `Blessed Bullet (Caged|Casket|Reliquary)`. Games Lantern drops that suffix, so the scraped base label is structurally ambiguous rather than unresolved. Curio *perks* still resolve (`shared.gadget_trait.*`). A DMF helper mod for a one-shot live dump lives in `tools/darktide-mods/curio_dump/`.
+**Curio cosmetic base labels** (81 `non_canonical` selections across the 27 build fixtures; 4 unique labels in the fixtures, 21 unique base labels confirmed by the runtime dump): the live runtime item catalog shows these as concrete variants like `Blessed Bullet (Caged|Casket|Reliquary)`. Games Lantern drops that suffix, so the scraped base label is structurally ambiguous rather than unresolved. Curio *perks* still resolve (`shared.gadget_trait.*`). A DMF helper mod for a one-shot live dump lives in `tools/darktide-mods/curio_dump/`.
 
-**Residual fixture unresolveds:** none in the canonical 24-build fixture set. The last three unresolved entries were scrape-parser mistakes where the GL weapon perk string `Increase Ranged Critical Strike Chance by 2-5%` was misfiled into blessing slots; that extractor bug is fixed.
+**Residual fixture unresolveds:** none in the canonical 27-build fixture set. The last three unresolved entries were scrape-parser mistakes where the GL weapon perk string `Increase Ranged Critical Strike Chance by 2-5%` was misfiled into blessing slots; that extractor bug is fixed.
 
 **Weapons with a single scraped perk (5 fixtures):** builds 03, 08, 11, 16 (ranged) and 21 (melee) each carry only one weapon perk, even though the live GL pages list two. The surviving perks are well-formed and resolve cleanly; the second row was dropped during scraping. The scoring pipeline handles missing perks correctly — it just understates perk coverage for these builds. Requires a re-scrape to confirm whether the extractor mis-classified the second row or GL itself omitted it.
 
@@ -195,9 +195,9 @@ All records are validated against JSON schemas in `data/ground-truth/schemas/`. 
 
 ## Build Fixtures
 
-`data/builds/` contains 24 representative build JSON files (builds 01–24, 4 per class, all 6 classes) in canonical build shape. Each build stores `schema_version`, `title`, `class`, `provenance`, `ability`, `blitz`, `aura`, `keystone`, `talents[]`, `weapons[]`, and `curios[]`. Every selection carries `raw_label`, `canonical_entity_id`, and `resolution_status` (`resolved` / `unresolved` / `non_canonical`).
+`data/builds/` contains 27 representative build JSON files (builds 01–27: the original 24-build cross-class set plus 3 additional Zealot fixtures) in canonical build shape. Each build stores `schema_version`, `title`, `class`, `provenance`, `ability`, `blitz`, `aura`, `keystone`, `talents[]`, `weapons[]`, and `curios[]`. Every selection carries `raw_label`, `canonical_entity_id`, and `resolution_status` (`resolved` / `unresolved` / `non_canonical`).
 
-All 24 builds have been extracted from live GL pages with full talent trees, targeting Havoc 40 meta builds with diversity across keystones, weapons, and playstyles. Current fixture totals: 1275 resolved, 0 unresolved, 72 non_canonical. Every previously unresolved blessing-family display name in the fixtures is now covered, and the last three mis-slotted ranged perk strings were fixed in the GL extractor. The `non_canonical` bucket in the fixtures is four curio cosmetic base labels whose concrete runtime variants are collapsed by the scrape; the runtime dump confirms 21 such ambiguous base labels in the full curio catalog.
+All 27 builds have been extracted from live GL pages with full talent trees, targeting Havoc 40 meta builds with diversity across keystones, weapons, and playstyles. Current fixture totals: 1438 resolved, 0 unresolved, 81 non_canonical. Every previously unresolved blessing-family display name in the fixtures is now covered, and the last three mis-slotted ranged perk strings were fixed in the GL extractor. The `non_canonical` bucket in the fixtures is four curio cosmetic base labels whose concrete runtime variants are collapsed by the scrape; the runtime dump confirms 21 such ambiguous base labels in the full curio catalog.
 
 Frozen audit snapshots live in `tests/fixtures/ground-truth/audits/`. When the index or audit logic changes, re-freeze all snapshots with `npm run audit:freeze`. Do NOT use `npm run audit -- <file> > snapshot.json` — npm's stderr banner contaminates the JSON output.
 
@@ -223,7 +223,7 @@ The canonical build format is the single shared shape consumed by `audit`, `scor
 - `synergy-rules.ts` — 5 pure-function rules: stat-family alignment, slot coverage, trigger-target chains, resource flow, orphan detection
 - `synergy-model.ts` — orchestrator: selection resolution (direct calc, stat_node prefix match, blessing tier-4 traversal), stat aggregation (NHHI concentration, build identity, coverage gaps), output assembly. The stat_node prefix-match resolution path is mirrored in `damage-calculator.ts:assembleBuildBuffStack` for breakpoint accuracy.
 
-**Coverage:** Effect-modeled coverage averages ~71.7% per build (56% min, 82% max) across the 24-build fixture set. Source-linked coverage averages ~89.1% (65% min, 97% max). Blessing synergy remains partial because family-level blessing traversal still depends on `instance_of` → weapon_trait tier paths rather than full per-weapon runtime context.
+**Coverage:** Effect-modeled coverage averages ~71.7% per build (56% min, 82% max) across the original 24-build baseline fixture set. Source-linked coverage averages ~89.1% (65% min, 97% max) on that same baseline. Blessing synergy remains partial because family-level blessing traversal still depends on `instance_of` → weapon_trait tier paths rather than full per-weapon runtime context.
 
 **Output consumed by:** #9 (scoring) and #10 (recommendations). Design spec: `docs/superpowers/specs/2026-03-16-synergy-model-design.md`.
 
