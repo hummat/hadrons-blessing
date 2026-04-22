@@ -138,15 +138,14 @@ Veteran additions, three extra Psyker additions, three extra Ogryn additions,
 three extra Arbites additions, and three extra Hive Scum additions
 re-extracted from live Games Lantern pages with full talent trees.
 
-Audit totals across all 42 fixtures: **2254 resolved / 2 unresolved / 126
-non_canonical / 0 ambiguous**. The two unresolved selections are currently in
-`30-veteran-expedition-smoke-stealth.json` (`Unknown aura`, `Close and Kill`)
-and are intentionally kept in the corpus to expose resolver/index gaps rather
-than being filtered away. The `non_canonical` bucket in the fixtures is the
-four curio cosmetic base labels whose concrete runtime variants are collapsed
-by the Games Lantern scrape; the live dump helper in
-`tools/darktide-mods/curio_dump/` confirms 21 such ambiguous base labels in
-the full curio catalog.
+Audit totals across all 42 fixtures: **2255 resolved / 0 unresolved / 126
+non_canonical / 0 ambiguous**. The checked-in fixture set no longer has any
+`unresolved` selections. The `non_canonical` bucket in the fixtures is now six
+curio cosmetic base labels whose concrete runtime variants are collapsed by the
+Games Lantern scrape: `Blessed Bullet`, `Gilded Inquisitorial Rosette`,
+`Gilded Mandible`, `Guardian Nocturnus`, `Laurel of the Righteous`, and
+`Scrap of Scripture`. The live dump helper in `tools/darktide-mods/curio_dump/`
+confirms 21 such ambiguous base labels in the full curio catalog.
 
 ## Roadmap
 

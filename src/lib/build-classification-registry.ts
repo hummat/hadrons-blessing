@@ -81,6 +81,7 @@ const BUILD_CLASSIFICATION_REGISTRY: Record<string, ClassRegistry> = {
     // Auras (source type: aura)
     "survivalist": { slot: "aura", kind: "aura" },
     "fire-team": { slot: "aura", kind: "aura" },
+    "close-and-kill": { slot: "aura", kind: "aura" },
     "close-quarters": { slot: "aura", kind: "aura" },
     // Keystones (source type: keystone)
     "marksmans-focus": { slot: "keystone", kind: "keystone" },

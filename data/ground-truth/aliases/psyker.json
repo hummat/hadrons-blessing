@@ -225,6 +225,31 @@
     "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
+    "text": "Brain Burst",
+    "normalized_text": "brain burst",
+    "candidate_entity_id": "psyker.ability.psyker_brain_burst_improved",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "blitz"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime localized label from build_dump uses Brain Burst instead of the Games Lantern Brain Rupture label."
+  },
+  {
     "text": "Charged Strike",
     "normalized_text": "charged strike",
     "candidate_entity_id": "psyker.talent_modifier.psyker_chain_lightning_heavy_attacks",
@@ -423,6 +448,31 @@
     },
     "rank_weight": 90,
     "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Seer's Presence",
+    "normalized_text": "seer s presence",
+    "candidate_entity_id": "psyker.aura.psyker_cooldown_aura_improved",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "psyker"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime localized label from build_dump includes the apostrophe variant."
   },
   {
     "text": "Perfect Timing",

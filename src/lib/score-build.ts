@@ -486,6 +486,8 @@ function normalizePerkName(name: string): string {
     .replace(/^(?:Melee|Ranged) /, "")
     .replace(/^Damage Resistance \((.+)\)$/, (_, t: string) => `DR vs ${t.replace("Tox ", "")}`)
     .replace(/^Combat Ability Regeneration$/, "Combat Ability Regen")
+    .replace(/^Maximum Toughness$/, "Toughness")
+    .replace(/^Maximum Health$/, "Health")
     .replace(/^Revive Speed \(Ally\)$/, "Revive Speed")
     .replace(/^Max Health$/, "Health")
     .replace(/^Critical Strike Chance$/, "Critical Hit Chance")
@@ -732,8 +734,6 @@ function normalizeName(name: unknown): string {
   return selectionLabel(name).toLowerCase().replace(/\s+/g, " ").trim();
 }
 
-/**
- * Find a weapon in the data by name, using fuzzy matching.
 function weaponLookupTarget(value: unknown): {
   canonicalEntityId: string | null;
   label: string;
@@ -748,6 +748,8 @@ function weaponLookupTarget(value: unknown): {
   };
 }
 
+/**
+ * Find a weapon in the data by name, using fuzzy matching.
  */
 function findWeapon(weaponName: unknown): WeaponMatch | null {
   const { canonicalEntityId, label } = weaponLookupTarget(weaponName);

@@ -1634,6 +1634,26 @@
     "notes": "GL curio perk label for stamina increase."
   },
   {
+    "text": "+2 Maximum Stamina",
+    "normalized_text": "2 maximum stamina",
+    "candidate_entity_id": "shared.gadget_trait.gadget_stamina_increase",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "kind",
+          "value": "gadget_trait"
+        }
+      ],
+      "prefer": []
+    },
+    "rank_weight": 100,
+    "notes": "Runtime build_dump curio perk label for stamina increase."
+  },
+  {
     "text": "+1 Wound(s)",
     "normalized_text": "1 wound s",
     "candidate_entity_id": "shared.gadget_trait.gadget_innate_max_wounds_increase",
@@ -5300,7 +5320,7 @@
   {
     "text": "Tenderiser",
     "normalized_text": "tenderiser",
-    "candidate_entity_id": "shared.name_family.blessing.increase_power_on_weapon_special_hit",
+    "candidate_entity_id": "shared.name_family.blessing.increased_power_on_weapon_special_follow_up_hits",
     "alias_kind": "gameslantern_name",
     "match_mode": "fuzzy_allowed",
     "provenance": "gl-blessing",
@@ -5315,7 +5335,7 @@
       "prefer": []
     },
     "rank_weight": 140,
-    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits"
+    "notes": "Generated from https://darktide.gameslantern.com/weapon-blessing-traits (Cleaver blessing: strength on the next 3 attacks after a weapon special hit)."
   },
   {
     "text": "Terrifying Barrage",

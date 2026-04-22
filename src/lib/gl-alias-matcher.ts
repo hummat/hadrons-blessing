@@ -196,7 +196,7 @@ const CURATED_GL_BLESSING_LABELS = new Map<string, string>([
   ["surge", "shared.name_family.blessing.double_shot_on_crit"],
   ["syphon", "shared.name_family.blessing.weapon_trait_bespoke_powersword_2h_p1_regain_toughness_on_multiple_hits_by_weapon_special"],
   ["take a swing", "shared.name_family.blessing.increased_weakspot_damage_on_push"],
-  ["tenderiser", "shared.name_family.blessing.increase_power_on_weapon_special_hit"],
+  ["tenderiser", "shared.name_family.blessing.increased_power_on_weapon_special_follow_up_hits"],
   ["terrifying barrage", "shared.name_family.blessing.suppression_on_close_kill"],
   ["thunderstrike", "shared.name_family.blessing.staggered_targets_receive_increased_stagger_debuff"],
   ["torment", "shared.name_family.blessing.increase_power_on_weapon_special_hit"],

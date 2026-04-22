@@ -17,9 +17,12 @@ raw runtime JSON shaped for Hadron's Blessing canonicalization.
 
 ## Output
 
-The mod writes one file under the game's `binaries/` working directory:
+The mod writes one file under the game's `binaries/` working directory. The
+filename is unique per dump:
 
-- `binaries/build_dump_output.json`
+- `binaries/build_dump_<class>_<melee>_<ranged>_<utc-timestamp>.json`
+
+If that exact name already exists, the mod appends `_2`, `_3`, and so on.
 
 The payload includes:
 

@@ -293,6 +293,31 @@
     "notes": "Generated from https://darktide.gameslantern.com/builds/9ede2ba5-850b-41d0-9325-4f42cddf9836/spicys-meta-havoc-40-zealot"
   },
   {
+    "text": "Ecclesiarch's Call",
+    "normalized_text": "ecclesiarch s call",
+    "candidate_entity_id": "zealot.talent_modifier.zealot_channel_grants_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime localized label from build_dump includes the apostrophe variant."
+  },
+  {
     "text": "Holy Revenant",
     "normalized_text": "holy revenant",
     "candidate_entity_id": "zealot.talent.zealot_resist_death_healing",
@@ -729,6 +754,31 @@
     "notes": "Generated from https://darktide.gameslantern.com/builds/9ede2ba5-850b-41d0-9325-4f42cddf9836/spicys-meta-havoc-40-zealot"
   },
   {
+    "text": "Shroudfield",
+    "normalized_text": "shroudfield",
+    "candidate_entity_id": "zealot.ability.zealot_stealth",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime build_dump can surface the base stealth node in talents.active instead of the top-level ability slot."
+  },
+  {
     "text": "Master Crafted Shroudfield",
     "normalized_text": "master crafted shroudfield",
     "candidate_entity_id": "zealot.talent_modifier.zealot_increased_duration",
@@ -751,6 +801,56 @@
     },
     "rank_weight": 140,
     "notes": "Generated from https://darktide.gameslantern.com/builds/9ede2ba5-850b-41d0-9325-4f42cddf9836/spicys-meta-havoc-40-zealot"
+  },
+  {
+    "text": "Master Crafted Shroudfield",
+    "normalized_text": "master crafted shroudfield",
+    "candidate_entity_id": "zealot.talent_modifier.zealot_increased_duration",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime build_dump surfaces this ability modifier in the top-level ability slot."
+  },
+  {
+    "text": "Master-Crafted Shroudfield",
+    "normalized_text": "master crafted shroudfield",
+    "candidate_entity_id": "zealot.talent_modifier.zealot_increased_duration",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime localized label from build_dump includes the hyphenated variant."
   },
   {
     "text": "Invigorating Revelation",
@@ -799,6 +899,31 @@
     },
     "rank_weight": 140,
     "notes": "Generated from https://darktide.gameslantern.com/builds/9ede2ba5-850b-41d0-9325-4f42cddf9836/spicys-meta-havoc-40-zealot"
+  },
+  {
+    "text": "Faith's Fortitude",
+    "normalized_text": "faith s fortitude",
+    "candidate_entity_id": "zealot.talent.zealot_additional_wounds",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime localized label from build_dump includes the apostrophe variant."
   },
   {
     "text": "Pious Cut Throat",
@@ -871,6 +996,31 @@
     },
     "rank_weight": 140,
     "notes": "Generated from https://darktide.gameslantern.com/builds/9ede2ba5-850b-41d0-9325-4f42cddf9836/spicys-meta-havoc-40-zealot"
+  },
+  {
+    "text": "Inebriate's Poise",
+    "normalized_text": "inebriate s poise",
+    "candidate_entity_id": "zealot.talent_modifier.zealot_quickness_passive_dodge_stacks",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime localized label from build_dump includes the apostrophe variant."
   },
   {
     "text": "The Masters Retribution",
@@ -1067,6 +1217,31 @@
     "notes": "Generated from https://darktide.gameslantern.com/builds/9ede2ba5-850b-41d0-9325-4f42cddf9836/spicys-meta-havoc-40-zealot"
   },
   {
+    "text": "Redoubled Zeal",
+    "normalized_text": "redoubled zeal",
+    "candidate_entity_id": "zealot.talent_modifier.zealot_additional_charge_of_ability",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime build_dump surfaces this ability modifier in the top-level ability slot."
+  },
+  {
     "text": "Enemies Within Enemies Without",
     "normalized_text": "enemies within enemies without",
     "candidate_entity_id": "zealot.talent.zealot_toughness_in_melee",
@@ -1113,6 +1288,31 @@
     },
     "rank_weight": 140,
     "notes": "Generated from https://darktide.gameslantern.com/builds/9ede2ba5-850b-41d0-9325-4f42cddf9836/spicys-meta-havoc-40-zealot"
+  },
+  {
+    "text": "Martyr's Purpose",
+    "normalized_text": "martyr s purpose",
+    "candidate_entity_id": "zealot.talent_modifier.zealot_restore_stealth_cd_on_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime localized label from build_dump includes the apostrophe variant."
   },
   {
     "text": "Martyrdom",
@@ -1209,6 +1409,56 @@
     },
     "rank_weight": 140,
     "notes": "Generated from https://darktide.gameslantern.com/builds/9ede2ba5-850b-41d0-9325-4f42cddf9836/spicys-meta-havoc-40-zealot"
+  },
+  {
+    "text": "Stunstorm Grenade",
+    "normalized_text": "stunstorm grenade",
+    "candidate_entity_id": "zealot.ability.zealot_improved_stun_grenade",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "blitz"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime build_dump can surface the upgraded blitz node in talents.active."
+  },
+  {
+    "text": "Stun Grenade",
+    "normalized_text": "stun grenade",
+    "candidate_entity_id": "zealot.ability.zealot_improved_stun_grenade",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "blitz"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime build_dump uses the shorter localized blitz label for zealot_improved_stun_grenade."
   },
   {
     "text": "Unrelenting Fury",
@@ -2147,5 +2397,31 @@
     },
     "rank_weight": 140,
     "notes": "Generated from https://darktide.gameslantern.com/builds/9ede2ba5-850b-41d0-9325-4f42cddf9836/spicys-meta-havoc-40-zealot"
+  }
+  ,
+  {
+    "text": "Retributor's Stance",
+    "normalized_text": "retributor s stance",
+    "candidate_entity_id": "zealot.talent_modifier.zealot_momentum_toughness_replenish",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "zealot"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime localized label from build_dump drops the numeric suffix and includes the apostrophe variant."
   }
 ]

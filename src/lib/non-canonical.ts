@@ -8,6 +8,7 @@ import { assertAllowedQueryContext, contextValueMatches, normalizeText } from ".
 import { validateKnownUnresolvedRecord } from "./validate.js";
 
 let _knownUnresolvedRecords: KnownUnresolvedSchemaJson[] | undefined;
+const CURIO_VARIANT_SUFFIX_RE = /\s*\((?:caged|casket|reliquary)\)$/i;
 
 function contextMatches(record: KnownUnresolvedSchemaJson, queryContext: QueryContextSchemaJson): boolean {
   for (const requirement of record.context_constraints.require_all) {
@@ -63,11 +64,26 @@ function loadKnownUnresolvedRecords(): KnownUnresolvedSchemaJson[] {
   return _knownUnresolvedRecords;
 }
 
+function candidateNormalizedTexts(text: string, queryContext: QueryContextSchemaJson): string[] {
+  const candidates = [normalizeText(text)];
+
+  if (queryContext.kind === "gadget_item" && queryContext.slot === "curio") {
+    const stripped = text.replace(CURIO_VARIANT_SUFFIX_RE, "");
+    const normalizedStripped = normalizeText(stripped);
+
+    if (normalizedStripped.length > 0 && normalizedStripped !== candidates[0]) {
+      candidates.push(normalizedStripped);
+    }
+  }
+
+  return candidates;
+}
+
 function classifyKnownUnresolved(text: string, queryContext: unknown): KnownUnresolvedSchemaJson | null {
   const safeQueryContext = assertAllowedQueryContext(queryContext);
-  const normalizedText = normalizeText(text);
+  const normalizedTexts = candidateNormalizedTexts(text, safeQueryContext);
   const candidates = loadKnownUnresolvedRecords()
-    .filter((record) => record.normalized_text === normalizedText)
+    .filter((record) => normalizedTexts.includes(record.normalized_text))
     .filter((record) => contextMatches(record, safeQueryContext))
     .sort(
       (left, right) =>

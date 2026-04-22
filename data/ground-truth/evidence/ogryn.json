@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ogryn.evidence.entity.ogryn_melee_damage_coherency_improved",
+    "subject_type": "entity",
+    "subject_id": "ogryn.aura.ogryn_melee_damage_coherency_improved",
+    "predicate": "display_name_loc_key",
+    "value": "loc_talent_ogryn_melee_damage_coherency_improved",
+    "value_type": "loc_key",
+    "source_snapshot_id": "darktide-source.fd8bcc4",
+    "refs": [
+      {
+        "path": "scripts/settings/ability/archetype_talents/talents/ogryn_talents.lua",
+        "line": 662
+      }
+    ],
+    "confidence": "high",
+    "source_kind": "decompiled_source"
+  }
+]

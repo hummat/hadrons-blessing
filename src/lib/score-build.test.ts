@@ -270,6 +270,30 @@ describe("scoreBlessings", () => {
     assert.equal(result.blessings[0].known, true);
   });
 
+  it("validates Tenderiser on the Ogryn combat blade via the edge-derived family pool", () => {
+    const weapon = {
+      name: "Branx Pattern Battle Cleaver",
+      blessings: [{ name: "Tenderiser", description: "..." }],
+    };
+    const result = scoreBlessings(weapon, {
+      key: null,
+      entry: null,
+      canonical_entity_id: "shared.weapon.ogryn_combatblade_p1_m3",
+      internal_name: "ogryn_combatblade_p1_m3",
+      weapon_family: "ogryn_combatblade_p1",
+      slot: "melee",
+      resolution_source: "ground_truth",
+    });
+    assert.equal(result.valid, true);
+    assert.deepEqual(result.blessings, [
+      {
+        name: "Tenderiser",
+        known: true,
+        internal: "shared.weapon_trait.weapon_trait_bespoke_ogryn_combatblade_p1_increased_power_on_weapon_special_follow_up_hits",
+      },
+    ]);
+  });
+
   it("validates blessings by canonical_entity_id when available", () => {
     const weapon = {
       name: {
@@ -491,30 +515,6 @@ describe("generateScorecard", () => {
     assert.equal(result.weapons[0].blessings.valid, true);
     assert.equal(result.curios.perks[0].name, "Toughness");
   });
-});
-
-describe("generateScorecard", () => {
-  it("produces scorecard from sample build", () => {
-    const build = {
-      title: "Test Build",
-      class: "veteran",
-      weapons: [
-        { name: "M35 Magnacore Mk II Plasma Gun", perks: ["20-25% Damage (Unyielding)", "8-10% Damage (Elites)"], blessings: [{ name: "Rising Heat" }, { name: "Gets Hot!" }] },
-        { name: "Lawbringer Mk IIb Power Falchion", perks: ["20-25% Damage (Flak Armoured)", "20-25% Damage (Maniacs)"], blessings: [{ name: "Cranial Grounding" }, { name: "Heatsink" }] },
-      ],
-      curios: [
-        { name: "Blessed Bullet", perks: ["+15-20% DR vs Gunners", "+4-5% Toughness"] },
-        { name: "Blessed Bullet", perks: ["+15-20% DR vs Snipers", "+4-5% Toughness"] },
-        { name: "Blessed Bullet", perks: ["+2-5% Health", "+3-4% Combat Ability Regen"] },
-      ],
-      talents: { active: [], inactive: [] },
-    };
-    const card = generateScorecard(build);
-    assert.ok(card.title === "Test Build");
-    assert.ok(card.perk_optimality >= 1 && card.perk_optimality <= 5);
-    assert.ok(card.curio_efficiency >= 1 && card.curio_efficiency <= 5);
-    assert.ok(card.weapons.length === 2);
-    assert.ok(card.curios);
 
   it("preserves canonical weapon metadata for runtime-style selection labels", () => {
     const result = generateScorecard({
@@ -559,6 +559,30 @@ describe("generateScorecard", () => {
     assert.equal(result.weapons[0].resolution_source, "ground_truth");
     assert.equal(result.weapons[0].blessings.valid, true);
   });
+});
+
+describe("generateScorecard", () => {
+  it("produces scorecard from sample build", () => {
+    const build = {
+      title: "Test Build",
+      class: "veteran",
+      weapons: [
+        { name: "M35 Magnacore Mk II Plasma Gun", perks: ["20-25% Damage (Unyielding)", "8-10% Damage (Elites)"], blessings: [{ name: "Rising Heat" }, { name: "Gets Hot!" }] },
+        { name: "Lawbringer Mk IIb Power Falchion", perks: ["20-25% Damage (Flak Armoured)", "20-25% Damage (Maniacs)"], blessings: [{ name: "Cranial Grounding" }, { name: "Heatsink" }] },
+      ],
+      curios: [
+        { name: "Blessed Bullet", perks: ["+15-20% DR vs Gunners", "+4-5% Toughness"] },
+        { name: "Blessed Bullet", perks: ["+15-20% DR vs Snipers", "+4-5% Toughness"] },
+        { name: "Blessed Bullet", perks: ["+2-5% Health", "+3-4% Combat Ability Regen"] },
+      ],
+      talents: { active: [], inactive: [] },
+    };
+    const card = generateScorecard(build);
+    assert.ok(card.title === "Test Build");
+    assert.ok(card.perk_optimality >= 1 && card.perk_optimality <= 5);
+    assert.ok(card.curio_efficiency >= 1 && card.curio_efficiency <= 5);
+    assert.ok(card.weapons.length === 2);
+    assert.ok(card.curios);
   });
 
   it("includes weapon slot from data lookup", () => {

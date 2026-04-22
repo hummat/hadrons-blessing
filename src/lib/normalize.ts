@@ -21,13 +21,27 @@ function normalizeText(input: string): string {
     .trim();
 }
 
+function normalizeClassContextValue(input: string): string {
+  const normalized = normalizeText(input);
+
+  if (normalized === "adamant" || normalized === "arbites") {
+    return "arbites";
+  }
+
+  if (normalized === "broker" || normalized === "hive scum" || normalized === "hive") {
+    return "hive scum";
+  }
+
+  return normalized;
+}
+
 function contextValueMatches(key: string, actual: unknown, expected: string): boolean {
   if (typeof actual !== "string") {
     return false;
   }
 
   if (key === "class") {
-    return normalizeText(actual) === normalizeText(expected);
+    return normalizeClassContextValue(actual) === normalizeClassContextValue(expected);
   }
 
   return actual === expected;

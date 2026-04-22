@@ -48,6 +48,31 @@
     "notes": "Generated from https://darktide.gameslantern.com/builds/a1209123-2ebc-4e80-8ca9-1bf14b580ac3/the-havoc40-vet-build-2026"
   },
   {
+    "text": "Shredder Frag Grenade",
+    "normalized_text": "shredder frag grenade",
+    "candidate_entity_id": "veteran.ability.veteran_grenade_apply_bleed",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "blitz"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Runtime build_dump includes this class-side node in talents.active, so resolution cannot require blitz-only context."
+  },
+  {
     "text": "Survivalist",
     "normalized_text": "survivalist",
     "candidate_entity_id": "veteran.aura.veteran_aura_gain_ammo_on_elite_kill_improved",
@@ -696,6 +721,31 @@
     },
     "rank_weight": 140,
     "notes": "Generated from https://darktide.gameslantern.com/builds/a1209123-2ebc-4e80-8ca9-1bf14b580ac3/the-havoc40-vet-build-2026"
+  },
+  {
+    "text": "Executioner's Stance",
+    "normalized_text": "executioner s stance",
+    "candidate_entity_id": "veteran.ability.veteran_combat_ability_elite_and_special_outlines",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "veteran"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 100,
+    "notes": "Runtime localized label from build_dump includes the apostrophe variant."
   },
   {
     "text": "Marksman's Focus",

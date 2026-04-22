@@ -275,6 +275,31 @@
     "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
+    "text": "Castigator's Stance",
+    "normalized_text": "castigator s stance",
+    "candidate_entity_id": "arbites.ability.adamant_stance",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "ability"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime localized label from build_dump includes the apostrophe variant."
+  },
+  {
     "text": "Voltaic Shock Mine",
     "normalized_text": "voltaic shock mine",
     "candidate_entity_id": "arbites.ability.adamant_shock_mine",
@@ -1723,6 +1748,31 @@
     },
     "rank_weight": 90,
     "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "The Emperor's Fist",
+    "normalized_text": "the emperor s fist",
+    "candidate_entity_id": "arbites.talent.adamant_first_melee_hit_increased_damage",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "arbites"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime localized label from build_dump includes the apostrophe variant."
   },
   {
     "text": "Target Selection",

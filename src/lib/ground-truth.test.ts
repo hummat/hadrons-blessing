@@ -733,6 +733,26 @@ describe("resolveQuery", () => {
     }
   });
 
+  it("resolves runtime Veteran class-side labels that differ from the Games Lantern corpus", async () => {
+    for (const [query, queryContext, expectedEntityId] of [
+      [
+        "Executioner's Stance",
+        { kind: "ability", class: "veteran" },
+        "veteran.ability.veteran_combat_ability_elite_and_special_outlines",
+      ],
+      [
+        "Shredder Frag Grenade",
+        { kind: "talent", class: "veteran" },
+        "veteran.ability.veteran_grenade_apply_bleed",
+      ],
+    ]) {
+      const result = await resolveQuery(query, queryContext);
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, expectedEntityId);
+    }
+  });
+
   it("resolves the first source-backed veteran talent batch from the live sample build", async () => {
     for (const [query, expectedEntityId] of [
       ["Grenade Tinkerer", "veteran.talent.veteran_improved_grenades"],
@@ -775,7 +795,119 @@ describe("resolveQuery", () => {
     }
   });
 
-  it("treats spaced and underscored class context values as equivalent", async () => {
+  it("resolves runtime Ogryn talent labels that differ from the malformed GL corpus", async () => {
+    for (const [query, expectedEntityId] of [
+      ["Won't Give In", "ogryn.talent.ogryn_knocked_allies_grant_damage_reduction"],
+      ["Can't Hit Me...Again", "ogryn.talent.ogryn_ranged_damage_immunity"],
+    ]) {
+      const result = await resolveQuery(query, { kind: "talent", class: "ogryn" });
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, expectedEntityId);
+    }
+  });
+
+  it("resolves runtime Psyker class-side labels that differ from the Games Lantern corpus", async () => {
+    for (const [query, queryContext, expectedEntityId] of [
+      [
+        "Brain Burst",
+        { kind: "blitz", class: "psyker" },
+        "psyker.ability.psyker_brain_burst_improved",
+      ],
+      [
+        "Seer's Presence",
+        { kind: "aura", class: "psyker" },
+        "psyker.aura.psyker_cooldown_aura_improved",
+      ],
+    ]) {
+      const result = await resolveQuery(query, queryContext);
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, expectedEntityId);
+    }
+  });
+
+  it("resolves runtime Zealot class-side labels that differ from the Games Lantern corpus", async () => {
+    for (const [query, queryContext, expectedEntityId] of [
+      [
+        "Master-Crafted Shroudfield",
+        { kind: "ability", class: "zealot" },
+        "zealot.talent_modifier.zealot_increased_duration",
+      ],
+      [
+        "Shroudfield",
+        { kind: "talent", class: "zealot" },
+        "zealot.ability.zealot_stealth",
+      ],
+      [
+        "Redoubled Zeal",
+        { kind: "ability", class: "zealot" },
+        "zealot.talent_modifier.zealot_additional_charge_of_ability",
+      ],
+      [
+        "Stun Grenade",
+        { kind: "blitz", class: "zealot" },
+        "zealot.ability.zealot_improved_stun_grenade",
+      ],
+      [
+        "Stunstorm Grenade",
+        { kind: "talent", class: "zealot" },
+        "zealot.ability.zealot_improved_stun_grenade",
+      ],
+      [
+        "Ecclesiarch's Call",
+        { kind: "talent", class: "zealot" },
+        "zealot.talent_modifier.zealot_channel_grants_damage",
+      ],
+      [
+        "Retributor's Stance",
+        { kind: "talent", class: "zealot" },
+        "zealot.talent_modifier.zealot_momentum_toughness_replenish",
+      ],
+      [
+        "Inebriate's Poise",
+        { kind: "talent", class: "zealot" },
+        "zealot.talent_modifier.zealot_quickness_passive_dodge_stacks",
+      ],
+      [
+        "Martyr's Purpose",
+        { kind: "talent", class: "zealot" },
+        "zealot.talent_modifier.zealot_restore_stealth_cd_on_damage",
+      ],
+      [
+        "Faith's Fortitude",
+        { kind: "talent", class: "zealot" },
+        "zealot.talent.zealot_additional_wounds",
+      ],
+    ]) {
+      const result = await resolveQuery(query, queryContext);
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, expectedEntityId);
+    }
+  });
+
+  it("distinguishes Tenderiser from Torment by blessing family", async () => {
+    for (const [query, queryContext, expectedEntityId] of [
+      [
+        "Tenderiser",
+        { kind: "weapon_trait", weapon_family: "ogryn_combatblade_p1" },
+        "shared.name_family.blessing.increased_power_on_weapon_special_follow_up_hits",
+      ],
+      [
+        "Torment",
+        { kind: "weapon_trait", weapon_family: "ogryn_pickaxe_2h_p1" },
+        "shared.name_family.blessing.increase_power_on_weapon_special_hit",
+      ],
+    ]) {
+      const result = await resolveQuery(query, queryContext);
+
+      assert.equal(result.resolution_state, "resolved");
+      assert.equal(result.resolved_entity_id, expectedEntityId);
+    }
+  });
+
+  it("treats class context aliases as equivalent", async () => {
     for (const [query, queryContext, expectedEntityId] of [
       [
         "Street Tough",
@@ -786,6 +918,26 @@ describe("resolveQuery", () => {
         "Regained Posture",
         { kind: "talent", class: "hive_scum" },
         "hive_scum.talent.broker_passive_stamina_on_successful_dodge",
+      ],
+      [
+        "Ruthless Efficiency",
+        { kind: "aura", class: "adamant" },
+        "arbites.aura.adamant_reload_speed_aura",
+      ],
+      [
+        "Target Neutralised",
+        { kind: "talent", class: "adamant" },
+        "arbites.talent.adamant_elite_special_kills_replenish_toughness",
+      ],
+      [
+        "Castigator's Stance",
+        { kind: "ability", class: "adamant" },
+        "arbites.ability.adamant_stance",
+      ],
+      [
+        "The Emperor's Fist",
+        { kind: "talent", class: "adamant" },
+        "arbites.talent.adamant_first_melee_hit_increased_damage",
       ],
     ]) {
       const result = await resolveQuery(query, queryContext);
@@ -811,6 +963,11 @@ describe("resolveQuery", () => {
         "+5-20% Damage Resistance (Gunners)",
         { kind: "gadget_trait", slot: "curio" },
         "shared.gadget_trait.gadget_damage_reduction_vs_gunners",
+      ],
+      [
+        "+2 Maximum Stamina",
+        { kind: "gadget_trait", slot: "curio" },
+        "shared.gadget_trait.gadget_stamina_increase",
       ],
     ]) {
       const result = await resolveQuery(query, queryContext);

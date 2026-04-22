@@ -3,7 +3,6 @@ local CharacterSheet = require("scripts/utilities/character_sheet")
 local Items = require("scripts/utilities/items")
 local MasterItems = require("scripts/backend/master_items")
 
-local OUTPUT_PATH = "build_dump_output.json"
 local TALENT_LAYOUT_KEYS = {
 	"talent_layout_file_path",
 	"specialization_talent_layout_file_path",
@@ -157,8 +156,8 @@ local function json_encode(value, indent)
 	return "{\n" .. table.concat(encoded_items, ",\n") .. "\n" .. padding .. "}"
 end
 
-local function write_dump_file(contents)
-	local handle, err = Mods.lua.io.open(OUTPUT_PATH, "w")
+local function write_dump_file(path, contents)
+	local handle, err = Mods.lua.io.open(path, "w")
 
 	if not handle then
 		return nil, err
@@ -186,6 +185,70 @@ local function now_iso8601()
 	return ""
 end
 
+local function safe_timestamp()
+	if os and os.date then
+		return os.date("!%Y%m%d_%H%M%S")
+	end
+
+	return "unknown_time"
+end
+
+local function slugify(value)
+	local text = tostring(value or "unknown"):lower()
+
+	text = text:gsub("[^%w_]+", "_")
+	text = text:gsub("_+", "_")
+	text = text:gsub("^_+", "")
+	text = text:gsub("_+$", "")
+
+	if text == "" then
+		return "unknown"
+	end
+
+	return text
+end
+
+local function file_exists(path)
+	local handle = Mods.lua.io.open(path, "r")
+
+	if not handle then
+		return false
+	end
+
+	handle:close()
+
+	return true
+end
+
+local function weapon_name_for_filename(weapons, slot_name)
+	for index = 1, #weapons do
+		local weapon = weapons[index]
+
+		if weapon.slot == slot_name then
+			return slugify(weapon.name)
+		end
+	end
+
+	return "unknown_" .. slot_name
+end
+
+local function unique_output_path(payload)
+	local class_name = slugify(payload.class)
+	local melee_name = weapon_name_for_filename(payload.weapons or {}, "melee")
+	local ranged_name = weapon_name_for_filename(payload.weapons or {}, "ranged")
+	local timestamp = safe_timestamp()
+	local base_name = string.format("build_dump_%s_%s_%s_%s", class_name, melee_name, ranged_name, timestamp)
+	local candidate = base_name .. ".json"
+	local suffix = 2
+
+	while file_exists(candidate) do
+		candidate = string.format("%s_%d.json", base_name, suffix)
+		suffix = suffix + 1
+	end
+
+	return candidate
+end
+
 local function master_item_id(item)
 	local gear = item and item.gear
 	local master_data = gear and gear.masterDataInstance
@@ -201,6 +264,20 @@ local function localized_talent_name(talent, fallback)
 	end
 
 	return fallback or "Unknown"
+end
+
+local function sanitize_display_text(text)
+	text = tostring(text or "")
+	text = text:gsub("{#.-}", "")
+	text = text:gsub("%s+", " ")
+	text = text:gsub("^%s+", "")
+	text = text:gsub("%s+$", "")
+
+	return text
+end
+
+local function normalized_talent_name(talent, fallback)
+	return sanitize_display_text(localized_talent_name(talent, fallback))
 end
 
 local function weapon_slot_name(item)
@@ -241,20 +318,20 @@ local function traitlike_description(traitlike)
 	local trait_item = lookup_trait_item(traitlike)
 
 	if not trait_item then
-		return tostring(traitlike and traitlike.id or "unknown")
+		return sanitize_display_text(tostring(traitlike and traitlike.id or "unknown"))
 	end
 
-	return Items.trait_description(trait_item, traitlike.rarity, traitlike.value) or Items.display_name(trait_item)
+	return sanitize_display_text(Items.trait_description(trait_item, traitlike.rarity, traitlike.value) or Items.display_name(trait_item))
 end
 
 local function traitlike_name(traitlike)
 	local trait_item = lookup_trait_item(traitlike)
 
 	if not trait_item then
-		return tostring(traitlike and traitlike.id or "unknown")
+		return sanitize_display_text(tostring(traitlike and traitlike.id or "unknown"))
 	end
 
-	return Items.display_name(trait_item)
+	return sanitize_display_text(Items.display_name(trait_item))
 end
 
 local function collect_traitlike_details(traitlikes, source)
@@ -346,7 +423,7 @@ local function collect_selected_talents(profile)
 					local talent_definition = talent_definitions[talent_id]
 
 					entries[#entries + 1] = {
-						name = localized_talent_name(talent_definition, talent_id),
+						name = normalized_talent_name(talent_definition, talent_id),
 						node_type = node.type or "default",
 						points_spent = points_spent,
 						talent_id = talent_id,
@@ -379,7 +456,7 @@ local function collect_class_selections(profile, selected_talents)
 		aura = {},
 	}
 
-	CharacterSheet.class_loadout(profile, class_loadout, false, nil, true)
+	CharacterSheet.class_loadout(profile, class_loadout, false, profile.talents, true)
 
 	local selections = {
 		keystone = selected_keystone_name(selected_talents),
@@ -389,7 +466,7 @@ local function collect_class_selections(profile, selected_talents)
 		local slot_data = class_loadout[slot_name]
 		local talent = slot_data and slot_data.talent
 
-		selections[slot_name] = talent and localized_talent_name(talent) or nil
+		selections[slot_name] = talent and normalized_talent_name(talent) or nil
 	end
 
 	return selections
@@ -407,7 +484,7 @@ local function collect_weapon_entries(profile)
 
 			entries[#entries + 1] = {
 				blessings = collect_weapon_blessings(item),
-				display_name = Items.display_name(item),
+				display_name = sanitize_display_text(Items.display_name(item)),
 				gear_id = item.gear_id,
 				item_type = item.item_type,
 				master_item_id = master_item_id(item),
@@ -445,10 +522,11 @@ local function collect_curio_entries(profile)
 			local perks, runtime_traits, runtime_perks = collect_curio_perks(item)
 
 			entries[#entries + 1] = {
+				display_name = sanitize_display_text(Items.display_name(item)),
 				gear_id = item.gear_id,
 				item_type = item.item_type,
 				master_item_id = master_item_id(item),
-				name = Items.display_name(item),
+				name = sanitize_display_text(Items.display_name(item)),
 				perks = perks,
 				runtime_perks = runtime_perks,
 				runtime_slot = runtime_slot,
@@ -484,7 +562,7 @@ local function collect_build_dump()
 	local class_selections = collect_class_selections(profile, selected_talents)
 	local character_name = profile.name or profile.archetype and profile.archetype.name or "unknown"
 
-	return {
+	local payload = {
 		author = character_name,
 		character_id = profile.character_id,
 		class = profile.archetype and profile.archetype.name or "unknown",
@@ -500,22 +578,25 @@ local function collect_build_dump()
 		url = "darktide://runtime/equipped",
 		weapons = collect_weapon_entries(profile),
 	}
+
+	return payload, unique_output_path(payload)
 end
 
 mod:command("build_dump", "Dump the current operative's equipped build to raw runtime JSON.", function()
-	local payload, err = collect_build_dump()
+	local payload, output_path_or_err = collect_build_dump()
 
 	if not payload then
-		mod:echo("build_dump: " .. err)
+		mod:echo("build_dump: " .. output_path_or_err)
 		return
 	end
 
-	local ok, write_err = write_dump_file(json_encode(payload))
+	local output_path = output_path_or_err
+	local ok, write_err = write_dump_file(output_path, json_encode(payload))
 
 	if not ok then
-		mod:echo("build_dump: failed to write " .. OUTPUT_PATH .. ": " .. tostring(write_err))
+		mod:echo("build_dump: failed to write " .. output_path .. ": " .. tostring(write_err))
 		return
 	end
 
-	mod:echo(string.format("build_dump: wrote equipped build to %s", OUTPUT_PATH))
+	mod:echo(string.format("build_dump: wrote equipped build to %s", output_path))
 end)

@@ -10,7 +10,7 @@
     "source_kind": "gameslantern",
     "source_url": "https://darktide.gameslantern.com/builds/a152d63f-19f9-470c-a6cb-983a4c0c3410/expedition-smokestealth-vet",
     "author": "Dizzy",
-    "scraped_at": "2026-04-22T16:01:13.514Z"
+    "scraped_at": "2026-04-22T16:40:38.510Z"
   },
   "ability": {
     "raw_label": "Infiltrate",
@@ -23,9 +23,9 @@
     "resolution_status": "resolved"
   },
   "aura": {
-    "raw_label": "Unknown aura",
-    "canonical_entity_id": null,
-    "resolution_status": "unresolved"
+    "raw_label": "Close and Kill",
+    "canonical_entity_id": "veteran.aura.veteran_movement_speed_coherency",
+    "resolution_status": "resolved"
   },
   "keystone": {
     "raw_label": "Marksman's Focus",
@@ -42,11 +42,6 @@
       "raw_label": "Out for Blood",
       "canonical_entity_id": "veteran.talent.veteran_all_kills_replenish_toughness",
       "resolution_status": "resolved"
-    },
-    {
-      "raw_label": "Close and Kill",
-      "canonical_entity_id": null,
-      "resolution_status": "unresolved"
     },
     {
       "raw_label": "Serrated Blade",

@@ -27,6 +27,15 @@
     "expected_warnings": []
   },
   {
+    "query": "Bonebreaker's Aura",
+    "query_context": { "class": "ogryn", "kind": "aura" },
+    "expected_state": "resolved",
+    "expected_entity_id": "ogryn.aura.ogryn_melee_damage_coherency_improved",
+    "expected_match_type": "exact_alias",
+    "expected_confidence": "high",
+    "expected_warnings": []
+  },
+  {
     "query": "Kinetic Deflection",
     "query_context": { "class": "psyker", "kind": "talent" },
     "expected_state": "resolved",

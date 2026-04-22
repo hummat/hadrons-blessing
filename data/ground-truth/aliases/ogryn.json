@@ -200,6 +200,31 @@
     "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
   },
   {
+    "text": "Bonebreaker's Aura",
+    "normalized_text": "bonebreaker s aura",
+    "candidate_entity_id": "ogryn.aura.ogryn_melee_damage_coherency_improved",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "aura"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime localized label from the build_dump mod includes the apostrophe variant."
+  },
+  {
     "text": "Coward Culling",
     "normalized_text": "coward culling",
     "candidate_entity_id": "ogryn.aura.ogryn_damage_vs_suppressed_coherency",
@@ -573,6 +598,31 @@
     },
     "rank_weight": 80,
     "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Won't Give In",
+    "normalized_text": "won t give in",
+    "candidate_entity_id": "ogryn.talent.ogryn_knocked_allies_grant_damage_reduction",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime localized label from build_dump preserves the apostrophe."
   },
   {
     "text": "Feel No Pain",
@@ -1498,6 +1548,31 @@
     },
     "rank_weight": 80,
     "notes": "Display name from GamesLantern build scrape (verified against GL talent tree)."
+  },
+  {
+    "text": "Can't Hit Me...Again",
+    "normalized_text": "can t hit me again",
+    "candidate_entity_id": "ogryn.talent.ogryn_ranged_damage_immunity",
+    "alias_kind": "community_name",
+    "match_mode": "fuzzy_allowed",
+    "provenance": "manual",
+    "confidence": "high",
+    "context_constraints": {
+      "require_all": [
+        {
+          "key": "class",
+          "value": "ogryn"
+        }
+      ],
+      "prefer": [
+        {
+          "key": "kind",
+          "value": "talent"
+        }
+      ]
+    },
+    "rank_weight": 90,
+    "notes": "Runtime localized label from build_dump expands the malformed Games Lantern corpus text."
   },
   {
     "text": "Focused Fighter 2",
