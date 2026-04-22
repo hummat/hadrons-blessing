@@ -38,6 +38,7 @@ interface AnalyzeResult {
   gap_analysis: {
     gaps: Array<{ type: string; reason: string; suggested_families: string[] }>;
     underinvested_families: string[];
+    available: boolean;
   };
 }
 
@@ -59,9 +60,25 @@ function isGamesLanternBuildUrl(target: string): boolean {
 }
 
 function looksLikeCanonicalBuild(value: unknown): value is CanonicalBuild {
-  return value != null
-    && typeof value === "object"
-    && Number.isInteger((value as { schema_version?: unknown }).schema_version);
+  if (value == null || typeof value !== "object") {
+    return false;
+  }
+  const candidate = value as {
+    schema_version?: unknown;
+    talents?: unknown;
+    class?: unknown;
+  };
+  if (!Number.isInteger(candidate.schema_version)) {
+    return false;
+  }
+  // Canonical builds always carry a flat talents[] and a class selection.
+  // Raw scrape output lacks these at the top level, which distinguishes them
+  // cleanly from coincidentally-integer schema_version values.
+  return (
+    Array.isArray(candidate.talents)
+    && candidate.class != null
+    && typeof candidate.class === "object"
+  );
 }
 
 function isSelection(value: unknown): value is SelectionLike {
@@ -159,7 +176,14 @@ export async function loadAnalyzeTarget(
   if (looksLikeCanonicalBuild(payload)) {
     const validation = validateCanonicalBuild(payload);
     if (!validation.ok) {
-      throw new Error(`Invalid canonical build: ${validation.errors[0]?.message ?? "unknown validation error"}`);
+      const detail = validation.errors
+        .map((err) => {
+          const where = err.instancePath || err.schemaPath || "<root>";
+          const message = err.message ?? "validation error";
+          return `${where}: ${message}`;
+        })
+        .join("; ");
+      throw new Error(`Invalid canonical build: ${detail || "unknown validation error"}`);
     }
 
     return {
@@ -202,6 +226,7 @@ export async function analyzeTarget(
     gap_analysis: {
       gaps: gapAnalysis.gaps,
       underinvested_families: gapAnalysis.underinvested_families,
+      available: scorecardDeps.index != null,
     },
   };
 }
@@ -250,7 +275,9 @@ export function formatAnalyzeText(result: AnalyzeResult): string {
     lines.push("");
   }
 
-  if (result.gap_analysis.underinvested_families.length > 0) {
+  if (!result.gap_analysis.available) {
+    lines.push("Underinvested Families: unavailable (ground-truth index missing)");
+  } else if (result.gap_analysis.underinvested_families.length > 0) {
     lines.push(`Underinvested Families: ${result.gap_analysis.underinvested_families.join(", ")}`);
   } else {
     lines.push("Underinvested Families: none");

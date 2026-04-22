@@ -2,6 +2,8 @@
 // Writes canonical bot build fixtures and the bot weapon export from
 // BetterBots DEFAULT_PROFILE_TEMPLATES.
 
+import { fileURLToPath } from "node:url";
+import { runCliMain } from "../lib/cli.js";
 import {
   DEFAULT_BETTERBOTS_PROFILE_PATH,
   DEFAULT_BOT_BUILD_DIR,
@@ -9,15 +11,23 @@ import {
   syncBetterBotsArtifacts,
 } from "../lib/betterbots-sync.js";
 
-const BUILD_DIR = process.argv[2] || DEFAULT_BOT_BUILD_DIR;
-const EXPORT_PATH = process.argv[3] || DEFAULT_BOT_WEAPON_EXPORT_PATH;
-const PROFILE_PATH = process.argv[4] || DEFAULT_BETTERBOTS_PROFILE_PATH;
+export function main(argv: string[] = process.argv.slice(2)): void {
+  const buildDir = argv[0] || DEFAULT_BOT_BUILD_DIR;
+  const exportPath = argv[1] || DEFAULT_BOT_WEAPON_EXPORT_PATH;
+  const profilePath = argv[2] || DEFAULT_BETTERBOTS_PROFILE_PATH;
 
-const artifacts = syncBetterBotsArtifacts(PROFILE_PATH, {
-  buildDir: BUILD_DIR,
-  exportPath: EXPORT_PATH,
-});
+  const artifacts = syncBetterBotsArtifacts(profilePath, {
+    buildDir,
+    exportPath,
+  });
 
-console.log(
-  `Wrote ${Object.keys(artifacts.builds).length} bot builds to ${BUILD_DIR} and export to ${EXPORT_PATH}`,
-);
+  process.stderr.write(
+    `Wrote ${Object.keys(artifacts.builds).length} bot builds to ${buildDir} and export to ${exportPath}\n`,
+  );
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  await runCliMain("sync-betterbots", async () => {
+    main();
+  });
+}

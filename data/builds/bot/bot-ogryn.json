@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Bot Ogryn - Point Blank Barrage + Heavy Hitter + \"Brunt's Basher\" Mk IIIb Bully Club + Foe-Rend Mk VI Ripper Gun",
+  "title": "Bot Ogryn - Point Blank Barrage + Heavy Hitter + Brute-Brainer Mk XIX Latrine Shovel + Lorenz Mk V Kickback",
   "class": {
     "raw_label": "ogryn",
     "canonical_entity_id": "shared.class.ogryn",
@@ -10,7 +10,7 @@
     "source_kind": "curated",
     "source_url": "https://github.com/hummat/BetterBots",
     "author": "BetterBots",
-    "scraped_at": "2026-04-22T12:18:42.720Z"
+    "scraped_at": "2026-04-22T14:18:41.863Z"
   },
   "ability": {
     "raw_label": "Point Blank Barrage",
@@ -163,8 +163,8 @@
     {
       "slot": "melee",
       "name": {
-        "raw_label": "\"Brunt's Basher\" Mk IIIb Bully Club",
-        "canonical_entity_id": "shared.weapon.ogryn_club_p2_m3",
+        "raw_label": "Brute-Brainer Mk XIX Latrine Shovel",
+        "canonical_entity_id": "shared.weapon.ogryn_club_p1_m3",
         "resolution_status": "resolved"
       },
       "perks": [
@@ -191,13 +191,13 @@
       ],
       "blessings": [
         {
-          "raw_label": "Skullcrusher",
-          "canonical_entity_id": "shared.name_family.blessing.skullcrusher",
+          "raw_label": "Shattering Impact",
+          "canonical_entity_id": "shared.name_family.blessing.shattering_impact",
           "resolution_status": "resolved"
         },
         {
-          "raw_label": "Momentum",
-          "canonical_entity_id": "shared.name_family.blessing.momentum",
+          "raw_label": "Confident Strike",
+          "canonical_entity_id": "shared.name_family.blessing.confident_strike",
           "resolution_status": "resolved"
         }
       ]
@@ -205,8 +205,8 @@
     {
       "slot": "ranged",
       "name": {
-        "raw_label": "Foe-Rend Mk VI Ripper Gun",
-        "canonical_entity_id": "shared.weapon.ogryn_rippergun_p1_m2",
+        "raw_label": "Lorenz Mk V Kickback",
+        "canonical_entity_id": "shared.weapon.ogryn_thumper_p1_m1",
         "resolution_status": "resolved"
       },
       "perks": [

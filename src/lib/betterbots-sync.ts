@@ -9,6 +9,7 @@ import {
   type LuaValue,
 } from "./lua-data-reader.js";
 import { contextValueMatches, normalizeText } from "./normalize.js";
+import { classifyKnownUnresolved } from "./non-canonical.js";
 import { loadGroundTruthRegistry } from "./registry.js";
 import type {
   AliasSchemaJson,
@@ -281,7 +282,7 @@ function findStringEnd(source: string, start: number, quote: string): number {
     }
   }
 
-  return source.length - 1;
+  throw new Error(`Unterminated Lua string literal at offset ${start}`);
 }
 
 function extractLocalStringConstants(source: string): Map<string, string> {
@@ -923,10 +924,6 @@ function buildPerkSelection(
     return selectionFromEntity(entity, context, registryContext);
   }
 
-  const rawMagnitude = resolvedValue.unit === "percent"
-    ? resolvedValue.magnitude * 100
-    : resolvedValue.magnitude;
-  const numeric = formatNumericValue(rawMagnitude);
   return selectionFromEntity(
     entity,
     context,
@@ -975,6 +972,42 @@ function buildBlessingSelection(
     { slot, kind: "weapon_trait" },
     registryContext,
   );
+}
+
+function stripCurioVariantSuffix(name: string): string {
+  return name.replace(/\s*\([^()]*\)\s*$/, "").trim();
+}
+
+// Curio items are modeled only as non_canonical display labels today
+// (see data/ground-truth/non-canonical/known-unresolved.json — all entries
+// are `display_label` kind). BetterBots emits the full variant label, e.g.
+// "Blessed Bullet (Reliquary)"; the bare label "Blessed Bullet" is the one
+// registered as non_canonical. If neither matches, the selection is unresolved —
+// never silently stamped non_canonical.
+function resolveCurioNameSelection(
+  rawLabel: string,
+): BuildSelectionSchemaJson {
+  const queryContext = { kind: "gadget_item", slot: "curio" } as const;
+  const bareLabel = stripCurioVariantSuffix(rawLabel);
+  const candidates = bareLabel && bareLabel !== rawLabel
+    ? [rawLabel, bareLabel]
+    : [rawLabel];
+
+  for (const candidate of candidates) {
+    if (classifyKnownUnresolved(candidate, queryContext)) {
+      return {
+        raw_label: rawLabel,
+        canonical_entity_id: null,
+        resolution_status: "non_canonical",
+      };
+    }
+  }
+
+  return {
+    raw_label: rawLabel,
+    canonical_entity_id: null,
+    resolution_status: "unresolved",
+  };
 }
 
 function buildCurioTraitSelection(
@@ -1062,11 +1095,7 @@ function buildBotBuild(
   ];
 
   const curios: CanonicalBuildSchemaJson["curios"] = profile.curios.map((curio) => ({
-    name: {
-      raw_label: curio.name,
-      canonical_entity_id: null,
-      resolution_status: "non_canonical" as const,
-    },
+    name: resolveCurioNameSelection(curio.name),
     perks: curio.traits.map((trait) => buildCurioTraitSelection(trait, registryContext)),
   }));
 

@@ -483,5 +483,93 @@ describe("build-recommendations", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
       assert.equal(result.valid, true);
       assert.deepEqual(result.bot_flag_delta, botFlagDelta(buildScorecard(build), buildScorecard(modifiedBuild)));
     });
+
+    // --- Ranged parity -------------------------------------------------------
+    // Mirrors the melee swap suite. The branch name `feat/ranged-recommend-parity`
+    // asserts that ranged swaps produce identically-shaped output. See review H8.
+    it("ranged: preserves same-family blessings on a ranged weapon swap", () => {
+      const build = JSON.parse(readFileSync("data/builds/03-veteran-sharpshooter-2026.json", "utf-8"));
+      const result = swapWeapon(
+        build, getIndex(),
+        "shared.weapon.lasgun_p1_m3",
+        "shared.weapon.lasgun_p1_m2",
+      );
+      assert.equal(result.valid, true);
+      assert.ok(Array.isArray(result.blessing_impact.retained));
+      assert.ok(Array.isArray(result.blessing_impact.removed));
+      assert.ok(Array.isArray(result.blessing_impact.available));
+      // Same family (lasgun_p1) — blessings are retained.
+      assert.equal(result.blessing_impact.removed.length, 0);
+      assert.equal(result.blessing_impact.retained.length, 2);
+    });
+
+    it("ranged: removes blessings for a cross-family ranged swap", () => {
+      const build = JSON.parse(readFileSync("data/builds/03-veteran-sharpshooter-2026.json", "utf-8"));
+      // lasgun_p1 → lasgun_p3 is a different weapon family.
+      const result = swapWeapon(
+        build, getIndex(),
+        "shared.weapon.lasgun_p1_m3",
+        "shared.weapon.lasgun_p3_m1",
+      );
+      assert.equal(result.valid, true);
+      assert.ok(result.blessing_impact.removed.length > 0);
+    });
+
+    it("ranged: returns shape-identical score delta for a ranged swap", () => {
+      const build = JSON.parse(readFileSync("data/builds/03-veteran-sharpshooter-2026.json", "utf-8"));
+      const result = swapWeapon(
+        build, getIndex(),
+        "shared.weapon.lasgun_p1_m3",
+        "shared.weapon.lasgun_p1_m2",
+      );
+      assert.ok(typeof result.score_delta.blessing_synergy === "number");
+      assert.ok(typeof result.score_delta.talent_coherence === "number");
+      assert.ok(typeof result.score_delta.role_coverage === "number");
+      assert.ok(typeof result.score_delta.survivability === "number");
+      assert.ok(typeof result.score_delta.composite === "number");
+    });
+
+    it("ranged: score delta matches an independently computed scorecard diff", () => {
+      const build = JSON.parse(readFileSync("data/builds/03-veteran-sharpshooter-2026.json", "utf-8"));
+      const modifiedBuild = JSON.parse(JSON.stringify(build));
+      const weapon = modifiedBuild.weapons.find(
+        (entry) => entry.name.canonical_entity_id === "shared.weapon.lasgun_p1_m3",
+      );
+      weapon.name.canonical_entity_id = "shared.weapon.lasgun_p1_m2";
+      weapon.name.raw_label = "shared.weapon.lasgun_p1_m2";
+
+      const result = swapWeapon(
+        build, getIndex(),
+        "shared.weapon.lasgun_p1_m3",
+        "shared.weapon.lasgun_p1_m2",
+      );
+      assert.deepEqual(
+        result.score_delta,
+        scoreDeltaVector(buildScorecard(build), buildScorecard(modifiedBuild)),
+      );
+    });
+
+    it("ranged: populates available blessings for new ranged weapon", () => {
+      const build = JSON.parse(readFileSync("data/builds/03-veteran-sharpshooter-2026.json", "utf-8"));
+      const result = swapWeapon(
+        build, getIndex(),
+        "shared.weapon.lasgun_p1_m3",
+        "shared.weapon.lasgun_p1_m2",
+      );
+      assert.equal(result.valid, true);
+      assert.ok(result.blessing_impact.available.length > 0);
+    });
+
+    it("ranged: returns gained/lost synergy edges for a cross-family ranged swap", () => {
+      const build = JSON.parse(readFileSync("data/builds/03-veteran-sharpshooter-2026.json", "utf-8"));
+      const result = swapWeapon(
+        build, getIndex(),
+        "shared.weapon.lasgun_p1_m3",
+        "shared.weapon.lasgun_p3_m1",
+      );
+      assert.equal(result.valid, true);
+      assert.ok(Array.isArray(result.gained_edges));
+      assert.ok(Array.isArray(result.lost_edges));
+    });
   });
 });

@@ -10,6 +10,7 @@
 
 import { readFileSync, writeFileSync, readdirSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { validateSourceSnapshot } from "../lib/validate.js";
 import { runCliMain } from "../lib/cli.js";
 
@@ -60,92 +61,92 @@ const STAGGER_TYPE_NAMES = [
   "explosion", "wall_collision", "blinding", "companion_push",
 ];
 
-if (import.meta.main) {
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
   await runCliMain("breeds:build", async () => {
-  const snapshot = validateSourceSnapshot();
-  const sourceRoot = snapshot.source_root;
-  const snapshotId = snapshot.id;
+    const snapshot = validateSourceSnapshot();
+    const sourceRoot = snapshot.source_root;
+    const snapshotId = snapshot.id;
 
-  // -- Phase 1: Parse health from minion_difficulty_settings.lua ----------------
-  const healthMap = parseDifficultyHealth(sourceRoot);
-  console.log(`Parsed health for ${healthMap.size} breeds`);
+    // -- Phase 1: Parse health from minion_difficulty_settings.lua --------------
+    const healthMap = parseDifficultyHealth(sourceRoot);
+    console.log(`Parsed health for ${healthMap.size} breeds`);
 
-  // -- Phase 1b: Parse hit_mass from minion_difficulty_settings.lua -------------
-  const hitMassMap = parseDifficultyHitMass(sourceRoot);
-  console.log(`Parsed hit_mass for ${hitMassMap.size} breeds`);
+    // -- Phase 1b: Parse hit_mass from minion_difficulty_settings.lua -----------
+    const hitMassMap = parseDifficultyHitMass(sourceRoot);
+    console.log(`Parsed hit_mass for ${hitMassMap.size} breeds`);
 
-  // -- Phase 2: Parse breed files -----------------------------------------------
-  const breedFiles = collectBreedFiles(sourceRoot);
-  console.log(`Found ${breedFiles.length} breed files`);
+    // -- Phase 2: Parse breed files ---------------------------------------------
+    const breedFiles = collectBreedFiles(sourceRoot);
+    console.log(`Found ${breedFiles.length} breed files`);
 
-  const breeds = [];
-  for (const filePath of breedFiles) {
-    const luaSource = readFileSync(filePath, "utf8");
-    let breed;
-    try {
-      breed = parseBreedFile(luaSource);
-    } catch (err: unknown) {
-      console.warn(`Warning: skipping ${filePath} — ${(err as Error).message}`);
-      continue;
-    }
-    if (!breed) continue;
-
-    // -- Phase 3: Attach difficulty health ------------------------------------
-    const healthSteps = healthMap.get(breed.id);
-    if (!healthSteps) {
-      console.warn(`Warning: no health data for ${breed.id}, skipping`);
-      continue;
-    }
-    const difficultyHealth: AnyRecord = {};
-    for (let i = 0; i < DIFFICULTY_NAMES.length; i++) {
-      difficultyHealth[DIFFICULTY_NAMES[i]] = healthSteps[i];
-    }
-
-    // -- Phase 4: Attach difficulty hit_mass -----------------------------------
-    const hitMassSteps = hitMassMap.get(breed.id);
-    let difficultyHitMass: AnyRecord | undefined;
-    if (hitMassSteps) {
-      difficultyHitMass = {} as AnyRecord;
-      for (let i = 0; i < DIFFICULTY_NAMES.length; i++) {
-        difficultyHitMass[DIFFICULTY_NAMES[i]] = hitMassSteps[i];
+    const breeds = [];
+    for (const filePath of breedFiles) {
+      const luaSource = readFileSync(filePath, "utf8");
+      let breed;
+      try {
+        breed = parseBreedFile(luaSource);
+      } catch (err: unknown) {
+        console.warn(`Warning: skipping ${filePath} — ${(err as Error).message}`);
+        continue;
       }
+      if (!breed) continue;
+
+      // -- Phase 3: Attach difficulty health ------------------------------------
+      const healthSteps = healthMap.get(breed.id);
+      if (!healthSteps) {
+        console.warn(`Warning: no health data for ${breed.id}, skipping`);
+        continue;
+      }
+      const difficultyHealth: AnyRecord = {};
+      for (let i = 0; i < DIFFICULTY_NAMES.length; i++) {
+        difficultyHealth[DIFFICULTY_NAMES[i]] = healthSteps[i];
+      }
+
+      // -- Phase 4: Attach difficulty hit_mass ----------------------------------
+      const hitMassSteps = hitMassMap.get(breed.id);
+      let difficultyHitMass: AnyRecord | undefined;
+      if (hitMassSteps) {
+        difficultyHitMass = {} as AnyRecord;
+        for (let i = 0; i < DIFFICULTY_NAMES.length; i++) {
+          difficultyHitMass[DIFFICULTY_NAMES[i]] = hitMassSteps[i];
+        }
+      }
+
+      // -- Phase 5: Assemble final record with stable field order ---------------
+      const communityArmorName =
+        COMMUNITY_ARMOR_NAMES[breed.base_armor_type] || breed.base_armor_type;
+
+      const record: AnyRecord = {
+        id: breed.id,
+        display_name: breed.display_name,
+        faction: breed.faction,
+        base_armor_type: breed.base_armor_type,
+        community_armor_name: communityArmorName,
+        tags: breed.tags,
+        difficulty_health: difficultyHealth,
+        hit_zones: breed.hit_zones,
+        stagger: breed.stagger,
+      };
+      if (difficultyHitMass) {
+        record.hit_mass = difficultyHitMass;
+      }
+
+      breeds.push(record);
     }
 
-    // -- Phase 5: Assemble final record with stable field order ---------------
-    const communityArmorName =
-      COMMUNITY_ARMOR_NAMES[breed.base_armor_type] || breed.base_armor_type;
+    breeds.sort((a, b) => a.id.localeCompare(b.id));
 
-    const record: AnyRecord = {
-      id: breed.id,
-      display_name: breed.display_name,
-      faction: breed.faction,
-      base_armor_type: breed.base_armor_type,
-      community_armor_name: communityArmorName,
-      tags: breed.tags,
-      difficulty_health: difficultyHealth,
-      hit_zones: breed.hit_zones,
-      stagger: breed.stagger,
+    // -- Phase 6: Write breed-data.json -----------------------------------------
+    const output = {
+      breeds,
+      source_snapshot_id: snapshotId,
+      generated_at: new Date().toISOString(),
     };
-    if (difficultyHitMass) {
-      record.hit_mass = difficultyHitMass;
-    }
-
-    breeds.push(record);
-  }
-
-  breeds.sort((a, b) => a.id.localeCompare(b.id));
-
-  // -- Phase 6: Write breed-data.json -------------------------------------------
-  const output = {
-    breeds,
-    source_snapshot_id: snapshotId,
-    generated_at: new Date().toISOString(),
-  };
-  mkdirSync(GENERATED_DIR, { recursive: true });
-  writeFileSync(
-    join(GENERATED_DIR, "breed-data.json"),
-    JSON.stringify(output, null, 2) + "\n",
-  );
+    mkdirSync(GENERATED_DIR, { recursive: true });
+    writeFileSync(
+      join(GENERATED_DIR, "breed-data.json"),
+      JSON.stringify(output, null, 2) + "\n",
+    );
     console.log(`Wrote ${breeds.length} breeds to breed-data.json`);
   });
 }

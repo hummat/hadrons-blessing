@@ -403,6 +403,9 @@ describe("golden score snapshots", { skip: !HAS_SOURCE && "requires GROUND_TRUTH
       // Mechanical scores unchanged
       assert.equal(actual.perk_optimality, expected.perk_optimality);
       assert.equal(actual.curio_efficiency, expected.curio_efficiency);
+
+      // Bot flags (locks the classifier against drift — see PR review H1/H6)
+      assert.deepEqual(actual.bot_flags, expected.bot_flags);
     });
   }
 });

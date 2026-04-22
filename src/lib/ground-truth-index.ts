@@ -20,7 +20,7 @@ import {
   validateEvidenceRecord,
   validateSourceSnapshot,
 } from "./validate.js";
-import type { ValidationResult, SourceSnapshotInfo } from "./validate.js";
+import type { ValidationResult, SourceSnapshotInfo, SourceSnapshotManifest } from "./validate.js";
 import type {
   AliasSchemaJson,
   EdgeSchemaJson,
@@ -553,7 +553,7 @@ function injectBadFixture(index: GroundTruthIndex, fixtureName: string): void {
 
 function buildMeta({ shardFiles, sourceSnapshot }: {
   shardFiles: ShardFiles;
-  sourceSnapshot: SourceSnapshotInfo;
+  sourceSnapshot: SourceSnapshotManifest;
 }): IndexMeta {
   const hasher = createHash("sha256");
 
@@ -669,7 +669,11 @@ async function buildIndex(options: BuildIndexOptions = {}): Promise<GroundTruthI
 }
 
 function buildRuntimeIndex(): GroundTruthIndex {
-  const sourceSnapshot = loadSourceSnapshotManifest() as SourceSnapshotInfo;
+  const manifest = loadSourceSnapshotManifest() as Record<string, unknown>;
+  if (typeof manifest?.id !== "string" || manifest.id.length === 0) {
+    throw new Error("Runtime source-snapshot manifest is missing required 'id' field");
+  }
+  const sourceSnapshot: SourceSnapshotManifest = manifest as SourceSnapshotManifest;
 
   const entityShards = readShardDirectory<EntityBaseSchemaJson>(ENTITIES_ROOT);
   const aliasShards = readShardDirectory<AliasSchemaJson>(ALIASES_ROOT);

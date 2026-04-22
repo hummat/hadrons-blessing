@@ -170,28 +170,30 @@ const BOT_FLAG_ORDER = [
   "BOT:ABILITY_MISSING",
 ] as const;
 
+// Pattern lists below are word-start STEMS. `stemPattern()` anchors each at `\b`
+// and allows trailing characters, so "dodg" matches dodge/dodging/dodges,
+// "slid" matches slide/sliding, "ripost" matches riposte/riposting, etc.
 const DODGE_SIGNAL_PATTERNS = [
-  "dodge",
-  "slide",
-  "riposte",
-  "count_as_dodge",
+  "dodg",
+  "slid",
+  "ripost",
   "quickness",
 ];
 
 const STRONG_WEAKSPOT_SIGNAL_PATTERNS = [
-  "snipers_focus",
-  "mark_weakspot",
-  "weakspot_kill",
-  "count_as_dodge_vs_ranged_on_weakspot",
-  "weakspot_hit_resets_dodge_count",
+  "snipers focus",
+  "mark weakspot",
+  "weakspot kill",
+  "count as dodg",
+  "weakspot hit resets dodge",
 ];
 
 const AIM_SIGNAL_PATTERNS = [
-  "snipers_focus",
-  "ads_drain_stamina",
-  "weakspot_damage",
-  "weakspot_power",
-  "weakspot_kill",
+  "snipers focus",
+  "ads drain stamina",
+  "weakspot damag",
+  "weakspot power",
+  "weakspot kill",
   "precision",
   "headhunter",
   "deadshot",
@@ -199,22 +201,20 @@ const AIM_SIGNAL_PATTERNS = [
 
 const POSITIONING_SIGNAL_PATTERNS = [
   "backstab",
-  "flanking",
-  "allow_backstabbing",
-  "allow_flanking",
+  "flank",
 ];
 
 const BLOCK_SIGNAL_PATTERNS = [
-  "perfect_block",
-  "riposte",
+  "perfect block",
+  "ripost",
   "parry",
   "counterattack",
 ];
 
 const PERIL_SIGNAL_PATTERNS = [
-  "manual_quell",
-  "manual_vent",
-  "uncontrolled_peril",
+  "manual quell",
+  "manual vent",
+  "uncontrolled peril",
 ];
 
 // ---------------------------------------------------------------------------
@@ -248,10 +248,21 @@ function selectionCanonicalEntityId(value: unknown): string | null {
   return null;
 }
 
-function countMatchingSignals(signals: string[], patterns: string[]): number {
+function stemPattern(stem: string): RegExp {
+  const normalized = normalizeText(stem).replace(/\s+/g, "\\s+");
+  return new RegExp(`\\b${normalized}`, "u");
+}
+
+function signalsMatchAnyStem(signals: string[], stems: string[]): boolean {
+  const regexes = stems.map(stemPattern);
+  return signals.some((signal) => regexes.some((r) => r.test(signal)));
+}
+
+function countMatchingSignals(signals: string[], stems: string[]): number {
+  const regexes = stems.map(stemPattern);
   let count = 0;
   for (const signal of signals) {
-    if (patterns.some((pattern) => signal.includes(normalizeText(pattern)))) {
+    if (regexes.some((r) => r.test(signal))) {
       count += 1;
     }
   }
@@ -322,7 +333,7 @@ function computeBotFlags(
     flags.add("BOT:NO_DODGE");
   }
 
-  if (strongWeakspotSignalCount >= 2 || signalValues.some((signal) => signal.includes(normalizeText("snipers_focus")))) {
+  if (strongWeakspotSignalCount >= 2 || signalsMatchAnyStem(signalValues, ["snipers focus"])) {
     flags.add("BOT:NO_WEAKSPOT");
   }
 
@@ -331,7 +342,7 @@ function computeBotFlags(
   }
 
   if (
-    signalValues.some((signal) => signal.includes("backstab"))
+    signalsMatchAnyStem(signalValues, ["backstab"])
     || positioningSignalCount >= 2
   ) {
     flags.add("BOT:NO_POSITIONING");
@@ -343,8 +354,7 @@ function computeBotFlags(
 
   if (
     aimSignalCount >= 2
-    || signalValues.some((signal) => signal.includes(normalizeText("snipers_focus")))
-    || signalValues.some((signal) => signal.includes(normalizeText("ads_drain_stamina")))
+    || signalsMatchAnyStem(signalValues, ["snipers focus", "ads drain stamina"])
   ) {
     flags.add("BOT:AIM_DEPENDENT");
   }

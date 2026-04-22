@@ -10,6 +10,7 @@
 
 import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from "node:fs";
 import { join, basename } from "node:path";
+import { fileURLToPath } from "node:url";
 import { validateSourceSnapshot } from "../lib/validate.js";
 import { runCliMain } from "../lib/cli.js";
 
@@ -75,7 +76,7 @@ const WEAPON_FAMILIES = [
   "thunder_hammers_2h",
 ];
 
-if (import.meta.main) {
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
   await runCliMain("profiles:build", async () => {
     const snapshot = validateSourceSnapshot();
     const sourceRoot = snapshot.source_root;
@@ -383,8 +384,11 @@ function collectDamageProfileFiles(dir: string): string[] {
   let entries;
   try {
     entries = readdirSync(dir, { withFileTypes: true });
-  } catch {
-    return files;
+  } catch (err: unknown) {
+    if ((err as NodeJS.ErrnoException).code === "ENOENT") {
+      return files;
+    }
+    throw err;
   }
 
   for (const entry of entries) {
@@ -1928,7 +1932,9 @@ export function extractProfilesFromAction(
  * @returns {string}
  */
 function classifyAction(actionName: string, actionBlock = "") {
-  const kind = actionBlock.match(/\bkind\s*=\s*"([^"]+)"/)?.[1] ?? "";
+  // Anchor to line-start so we pick the action's top-level kind, not nested
+  // table keys (e.g. sub-blocks inside allowed_chain_actions / buff_keywords).
+  const kind = actionBlock.match(/^[\s\t]*kind\s*=\s*"([^"]+)"/m)?.[1] ?? "";
 
   // Ranged shoot actions
   if (actionName.includes("shoot_hip") || actionName === "action_shoot") return "shoot_hip";

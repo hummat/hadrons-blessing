@@ -6,10 +6,15 @@ export type { CanonicalBuildSchemaJson as CanonicalBuild } from "../generated/sc
 export type { BuildSelectionSchemaJson as BuildSelection } from "../generated/schema-types.js";
 
 // Resolution
-export { resolveQuery } from "./resolve.js";
-export { buildIndex } from "./ground-truth-index.js";
+export { resolveQuery, resolveQueryWithIndex } from "./resolve.js";
+export { buildIndex, buildRuntimeIndex } from "./ground-truth-index.js";
 export type { GroundTruthIndex } from "./ground-truth-index.js";
 export type { ResolveResult } from "./resolve.js";
+export {
+  getRuntimeIndex,
+  invalidateRuntimeIndex,
+  resolveQueryFromShippedData,
+} from "./runtime-resolve.js";
 
 // Calculators
 export { computeHit, computeBreakpoints, assembleBuildBuffStack, loadCalculatorData } from "./damage-calculator.js";
@@ -28,3 +33,18 @@ export { listBuilds } from "./build-list.js";
 export type { BuildSummary, ListOptions, BuildScores, WeaponSummary } from "./build-list.js";
 export { diffBuilds } from "./build-diff.js";
 export type { BuildDiff, DiffOptions, ScoreDelta, StructuralDiff, AnalyticalDiff, BreakpointDelta } from "./build-diff.js";
+
+// Analyze pipeline
+export {
+  analyzeTarget,
+  formatAnalyzeJson,
+  formatAnalyzeText,
+  loadAnalyzeTarget,
+} from "./hb-analyze.js";
+export {
+  analyzeScorecard,
+  buildScorecard,
+  loadScorecardDeps,
+  resetScorecardDepsCache,
+} from "./scorecard-deps.js";
+export type { ScorecardAnalysis, ScorecardDeps } from "./scorecard-deps.js";

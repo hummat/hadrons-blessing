@@ -29,11 +29,14 @@ interface Validators {
   queryContext: ValidateFunction;
 }
 
-export interface SourceSnapshotInfo {
+export interface SourceSnapshotManifest {
   id: string;
+  [key: string]: unknown;
+}
+
+export interface SourceSnapshotInfo extends SourceSnapshotManifest {
   git_revision: string;
   source_root: string;
-  [key: string]: unknown;
 }
 
 let _validators: Validators | undefined;

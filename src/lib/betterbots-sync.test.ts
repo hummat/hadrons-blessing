@@ -188,8 +188,8 @@ describe("generateBetterBotsArtifacts", () => {
     assert.equal(artifacts.weaponExport.classes.veteran.ranged.template_id, "lasgun_p3_m2");
     assert.equal(artifacts.weaponExport.classes.zealot.melee.template_id, "chainaxe_p1_m2");
     assert.equal(artifacts.weaponExport.classes.psyker.ranged.template_id, "forcestaff_p3_m1");
-    assert.equal(artifacts.weaponExport.classes.ogryn.melee.template_id, "ogryn_club_p2_m3");
-    assert.equal(artifacts.weaponExport.classes.ogryn.ranged.template_id, "ogryn_rippergun_p1_m2");
+    assert.equal(artifacts.weaponExport.classes.ogryn.melee.template_id, "ogryn_club_p1_m3");
+    assert.equal(artifacts.weaponExport.classes.ogryn.ranged.template_id, "ogryn_thumper_p1_m1");
 
     assert.equal(
       artifacts.builds["bot-veteran"].weapons.find((weapon) => weapon.slot === "ranged")?.name.canonical_entity_id,
