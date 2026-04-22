@@ -203,7 +203,7 @@ async function extractBuild(url: string) {
       console.error("Warning: talent tree not found, extracting other data");
     }
 
-    return await page.evaluate((): AnyRecord => {
+    const rawBuild = await page.evaluate((): AnyRecord => {
       function parseItemCardLinesInPage(lines: string[]) {
         if (lines.length < 2) return null;
 
@@ -525,6 +525,9 @@ async function extractBuild(url: string) {
 
       return result;
     });
+    rawBuild.talents.active = postProcessTalentNodes(rawBuild.talents.active);
+    rawBuild.talents.inactive = postProcessTalentNodes(rawBuild.talents.inactive);
+    return rawBuild;
   } finally {
     await browser.close();
   }
@@ -648,9 +651,6 @@ async function main(argv: string[] = process.argv.slice(2)) {
   if (diagnostics?.weaponCardStrategy === "fallback") {
     console.error("Warning: primary weapon card selector missed — used fallback");
   }
-
-  rawBuild.talents.active = postProcessTalentNodes(rawBuild.talents.active);
-  rawBuild.talents.inactive = postProcessTalentNodes(rawBuild.talents.inactive);
 
   // Only derive class_selections from description when the talent tree is empty.
   // When active nodes exist, the talent tree classification is more reliable than
