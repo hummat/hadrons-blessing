@@ -10,9 +10,8 @@
 
 import { readFileSync, writeFileSync, readdirSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { validateSourceSnapshot } from "../lib/validate.js";
-import { runCliMain } from "../lib/cli.js";
+import { isCliEntryPoint, runCliMain } from "../lib/cli.js";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyRecord = Record<string, any>;
@@ -61,7 +60,7 @@ const STAGGER_TYPE_NAMES = [
   "explosion", "wall_collision", "blinding", "companion_push",
 ];
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (isCliEntryPoint(import.meta.url)) {
   await runCliMain("breeds:build", async () => {
     const snapshot = validateSourceSnapshot();
     const sourceRoot = snapshot.source_root;

@@ -1,7 +1,6 @@
 import { parseArgs } from "node:util";
 import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { runCliMain } from "../lib/cli.js";
+import { isCliEntryPoint, runCliMain } from "../lib/cli.js";
 import { analyzeGaps, swapTalent, swapWeapon } from "../lib/build-recommendations.js";
 import { loadIndex } from "../lib/synergy-model.js";
 import {
@@ -11,7 +10,7 @@ import {
   formatSwapJson,
 } from "../lib/recommend-formatter.js";
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (isCliEntryPoint(import.meta.url)) {
   await runCliMain("recommend", async () => {
     const { values, positionals } = parseArgs({
       allowPositionals: true,

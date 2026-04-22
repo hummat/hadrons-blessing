@@ -1,9 +1,8 @@
 // src/cli/diff-builds.ts
 // CLI entry point for diffing two canonical build files.
 
-import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
-import { runCliMain } from "../lib/cli.js";
+import { isCliEntryPoint, runCliMain } from "../lib/cli.js";
 import { diffBuilds, BuildDiff, ScoreDelta, BreakpointDelta } from "../lib/build-diff.js";
 
 // ---------------------------------------------------------------------------
@@ -150,7 +149,7 @@ function formatDiff(diff: BuildDiff): string {
 // CLI entry point
 // ---------------------------------------------------------------------------
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (isCliEntryPoint(import.meta.url)) {
   await runCliMain("diff", async () => {
     const { values, positionals } = parseArgs({
       options: {

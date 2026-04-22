@@ -1,10 +1,9 @@
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { buildClassSideManifest, type ClassSideManifestEntry } from "../lib/class-side-manifest.js";
 import { validateSourceSnapshot } from "../lib/validate.js";
 import { ENTITIES_ROOT, EDGES_ROOT, listJsonFiles } from "../lib/load.js";
-import { runCliMain } from "../lib/cli.js";
+import { isCliEntryPoint, runCliMain } from "../lib/cli.js";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyRecord = Record<string, any>;
@@ -513,7 +512,7 @@ export async function expandEntityCoverage() {
 }
 
 // --- CLI (guarded so importing for tests doesn't trigger main) ---
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (isCliEntryPoint(import.meta.url)) {
   runCliMain("entities:expand", async () => {
     await expandEntityCoverage();
   });

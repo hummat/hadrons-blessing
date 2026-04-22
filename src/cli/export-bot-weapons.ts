@@ -2,8 +2,7 @@
 // Reads BetterBots DEFAULT_PROFILE_TEMPLATES and writes the export artifact.
 
 import { writeFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { runCliMain } from "../lib/cli.js";
+import { isCliEntryPoint, runCliMain } from "../lib/cli.js";
 import {
   DEFAULT_BETTERBOTS_PROFILE_PATH,
   DEFAULT_BOT_WEAPON_EXPORT_PATH,
@@ -22,7 +21,7 @@ export function main(argv: string[] = process.argv.slice(2)): void {
   process.stderr.write(`Wrote ${outputPath}\n`);
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (isCliEntryPoint(import.meta.url)) {
   await runCliMain("export-bot-weapons", async () => {
     main();
   });

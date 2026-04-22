@@ -2,10 +2,9 @@
 // CLI entry point — library functions live in ../lib/score-build.ts.
 
 import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync } from "node:fs";
-import { fileURLToPath } from "node:url";
 import { join, basename } from "node:path";
 import { parseArgs } from "node:util";
-import { runCliMain } from "../lib/cli.js";
+import { isCliEntryPoint, runCliMain } from "../lib/cli.js";
 import {
   parsePerkString,
   scorePerk,
@@ -100,7 +99,7 @@ function formatScorecardText(card: AnyRecord): string {
 }
 
 // CLI entry point — only when executed directly
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (isCliEntryPoint(import.meta.url)) {
   await runCliMain("score", async () => {
     const { values, positionals } = parseArgs({
       options: {

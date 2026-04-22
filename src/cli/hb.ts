@@ -1,6 +1,6 @@
+#!/usr/bin/env node
 import { parseArgs } from "node:util";
-import { fileURLToPath } from "node:url";
-import { runCliMain } from "../lib/cli.js";
+import { isCliEntryPoint, runCliMain } from "../lib/cli.js";
 import { analyzeTarget, formatAnalyzeJson, formatAnalyzeText } from "../lib/hb-analyze.js";
 
 function usage(): string {
@@ -49,7 +49,7 @@ export async function main(argv: string[] = process.argv.slice(2)): Promise<void
   }
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (isCliEntryPoint(import.meta.url)) {
   await runCliMain("hb", async () => {
     await main();
   });

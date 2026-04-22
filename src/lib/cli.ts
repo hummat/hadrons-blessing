@@ -1,3 +1,19 @@
+import { realpathSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+
+function isCliEntryPoint(metaUrl: string): boolean {
+  const invoked = process.argv[1];
+  if (!invoked) {
+    return false;
+  }
+  const entry = fileURLToPath(metaUrl);
+  try {
+    return realpathSync(invoked) === realpathSync(entry);
+  } catch {
+    return invoked === entry;
+  }
+}
+
 const SETUP_HINTS: Record<string, string> = {
   resolve:
     'GROUND_TRUTH_SOURCE_ROOT=/path/to/Darktide-Source-Code npm run resolve -- --query "Warp Rider" --context \'{"kind":"talent","class":"psyker"}\'',
@@ -63,4 +79,4 @@ async function runCliMain(commandName: string, fn: () => Promise<void>): Promise
   }
 }
 
-export { formatCliError, runCliMain };
+export { formatCliError, isCliEntryPoint, runCliMain };
