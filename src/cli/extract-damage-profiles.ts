@@ -75,66 +75,68 @@ const WEAPON_FAMILIES = [
   "thunder_hammers_2h",
 ];
 
-await runCliMain("profiles:build", async () => {
-  const snapshot = validateSourceSnapshot();
-  const sourceRoot = snapshot.source_root;
-  const snapshotId = snapshot.id;
+if (import.meta.main) {
+  await runCliMain("profiles:build", async () => {
+    const snapshot = validateSourceSnapshot();
+    const sourceRoot = snapshot.source_root;
+    const snapshotId = snapshot.id;
 
-  // -- Phase 1: Parse lerp lookup table from damage_profile_settings.lua ------
-  const { lerpValues, cleavePresets } = parseLerpValues(sourceRoot);
-  console.log(`Parsed ${Object.keys(lerpValues).length} lerp values, ${Object.keys(cleavePresets).length} cleave presets`);
+    // -- Phase 1: Parse lerp lookup table from damage_profile_settings.lua ------
+    const { lerpValues, cleavePresets } = parseLerpValues(sourceRoot);
+    console.log(`Parsed ${Object.keys(lerpValues).length} lerp values, ${Object.keys(cleavePresets).length} cleave presets`);
 
-  // -- Phase 2: Parse pipeline constants from power_level_settings + armor_settings
-  const constants = parseConstants(sourceRoot);
-  console.log(`Parsed pipeline constants`);
+    // -- Phase 2: Parse pipeline constants from power_level_settings + armor_settings
+    const constants = parseConstants(sourceRoot);
+    console.log(`Parsed pipeline constants`);
 
-  // -- Phase 2b: Parse preset ADM variables from damage_profile_settings.lua --
-  const presetAdmVars = parsePresetAdmVariables(sourceRoot, lerpValues);
-  console.log(`Parsed ${presetAdmVars.size} preset ADM variables`);
+    // -- Phase 2b: Parse preset ADM variables from damage_profile_settings.lua --
+    const presetAdmVars = parsePresetAdmVariables(sourceRoot, lerpValues);
+    console.log(`Parsed ${presetAdmVars.size} preset ADM variables`);
 
-  // -- Phase 3: Parse all damage profile template files -----------------------
-  const profiles = parseAllDamageProfiles(sourceRoot, lerpValues, cleavePresets, presetAdmVars);
-  profiles.sort((a, b) => a.id.localeCompare(b.id));
-  console.log(`Parsed ${profiles.length} damage profiles`);
+    // -- Phase 3: Parse all damage profile template files -----------------------
+    const profiles = parseAllDamageProfiles(sourceRoot, lerpValues, cleavePresets, presetAdmVars);
+    profiles.sort((a, b) => a.id.localeCompare(b.id));
+    console.log(`Parsed ${profiles.length} damage profiles`);
 
-  // -- Phase 4: Parse projectile templates for ranged profile resolution ------
-  const hitscanMap = parseAllHitscanTemplates(sourceRoot);
-  const shotshellMap = parseAllShotshellTemplates(sourceRoot);
-  const flamerGasMap = parseAllFlamerGasTemplates(sourceRoot);
-  const projectileMap = parseAllProjectileTemplates(sourceRoot);
-  console.log(`Parsed ${hitscanMap.size} hitscan templates`);
-  console.log(`Parsed ${shotshellMap.size} shotshell templates`);
-  console.log(`Parsed ${flamerGasMap.size} flamer gas templates`);
-  console.log(`Parsed ${projectileMap.size} projectile templates`);
+    // -- Phase 4: Parse projectile templates for ranged profile resolution ------
+    const hitscanMap = parseAllHitscanTemplates(sourceRoot);
+    const shotshellMap = parseAllShotshellTemplates(sourceRoot);
+    const flamerGasMap = parseAllFlamerGasTemplates(sourceRoot);
+    const projectileMap = parseAllProjectileTemplates(sourceRoot);
+    console.log(`Parsed ${hitscanMap.size} hitscan templates`);
+    console.log(`Parsed ${shotshellMap.size} shotshell templates`);
+    console.log(`Parsed ${flamerGasMap.size} flamer gas templates`);
+    console.log(`Parsed ${projectileMap.size} projectile templates`);
 
-  // -- Phase 5: Parse weapon templates for action -> profile mapping -----------
-  const profileIds = new Set(profiles.map((p) => p.id));
-  const actionMaps = parseAllWeaponTemplates(
-    sourceRoot,
-    hitscanMap,
-    shotshellMap,
-    flamerGasMap,
-    projectileMap,
-    profileIds,
-  );
-  actionMaps.sort((a, b) => a.weapon_template.localeCompare(b.weapon_template));
-  console.log(`Parsed ${actionMaps.length} weapon action maps`);
+    // -- Phase 5: Parse weapon templates for action -> profile mapping -----------
+    const profileIds = new Set(profiles.map((p) => p.id));
+    const actionMaps = parseAllWeaponTemplates(
+      sourceRoot,
+      hitscanMap,
+      shotshellMap,
+      flamerGasMap,
+      projectileMap,
+      profileIds,
+    );
+    actionMaps.sort((a, b) => a.weapon_template.localeCompare(b.weapon_template));
+    console.log(`Parsed ${actionMaps.length} weapon action maps`);
 
-  // -- Phase 6: Write damage-profiles.json ------------------------------------
-  const output = {
-    profiles,
-    action_maps: actionMaps,
-    constants,
-    source_snapshot_id: snapshotId,
-    generated_at: new Date().toISOString(),
-  };
-  mkdirSync(GENERATED_DIR, { recursive: true });
-  writeFileSync(
-    join(GENERATED_DIR, "damage-profiles.json"),
-    JSON.stringify(output, null, 2) + "\n",
-  );
-  console.log(`Wrote damage-profiles.json`);
-});
+    // -- Phase 6: Write damage-profiles.json ------------------------------------
+    const output = {
+      profiles,
+      action_maps: actionMaps,
+      constants,
+      source_snapshot_id: snapshotId,
+      generated_at: new Date().toISOString(),
+    };
+    mkdirSync(GENERATED_DIR, { recursive: true });
+    writeFileSync(
+      join(GENERATED_DIR, "damage-profiles.json"),
+      JSON.stringify(output, null, 2) + "\n",
+    );
+    console.log(`Wrote damage-profiles.json`);
+  });
+}
 
 // -- Phase 1: Lerp values ----------------------------------------------------
 

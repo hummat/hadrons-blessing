@@ -36,6 +36,36 @@ function runCli(scriptPath, args = []) {
   };
 }
 
+function importCliModule(modulePath: string) {
+  const captureDir = mkdtempSync(join(tmpdir(), "hb-cli-import-"));
+  const stdoutPath = join(captureDir, "stdout.txt");
+  const stderrPath = join(captureDir, "stderr.txt");
+  const stdoutFd = openSync(stdoutPath, "w");
+  const stderrFd = openSync(stderrPath, "w");
+  const result = spawnSync(process.execPath, [
+    "--import",
+    "tsx",
+    "--input-type=module",
+    "--eval",
+    `await import(${JSON.stringify(modulePath)});`,
+  ], {
+    cwd: REPO_ROOT,
+    env: {
+      ...process.env,
+      GROUND_TRUTH_SOURCE_ROOT: "/nonexistent/source-root",
+    },
+    stdio: ["ignore", stdoutFd, stderrFd],
+  });
+  closeSync(stdoutFd);
+  closeSync(stderrFd);
+
+  return {
+    ...result,
+    stdout: readFileSync(stdoutPath, "utf8"),
+    stderr: readFileSync(stderrPath, "utf8"),
+  };
+}
+
 describe("CLI setup errors", () => {
   it("formats resolve setup errors clearly", () => {
     const output = formatCliError(
@@ -221,5 +251,23 @@ describe("CLI contract — hb analyze", () => {
   it("rejects unknown hb subcommands", () => {
     const result = runCli("src/cli/hb.ts", ["bogus"]);
     assert.notEqual(result.status, 0);
+  });
+});
+
+describe("CLI modules are safe to import", () => {
+  it("importing extract-damage-profiles does not execute the build pipeline", () => {
+    const result = importCliModule("./src/cli/extract-damage-profiles.ts");
+
+    assert.equal(result.status, 0, `stderr: ${result.stderr}`);
+    assert.equal(result.stdout.includes("Parsed"), false);
+    assert.equal(result.stderr.includes("Setup error:"), false);
+  });
+
+  it("importing extract-breed-data does not execute the build pipeline", () => {
+    const result = importCliModule("./src/cli/extract-breed-data.ts");
+
+    assert.equal(result.status, 0, `stderr: ${result.stderr}`);
+    assert.equal(result.stdout.includes("Parsed"), false);
+    assert.equal(result.stderr.includes("Setup error:"), false);
   });
 });

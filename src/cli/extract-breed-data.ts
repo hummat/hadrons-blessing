@@ -60,7 +60,8 @@ const STAGGER_TYPE_NAMES = [
   "explosion", "wall_collision", "blinding", "companion_push",
 ];
 
-await runCliMain("breeds:build", async () => {
+if (import.meta.main) {
+  await runCliMain("breeds:build", async () => {
   const snapshot = validateSourceSnapshot();
   const sourceRoot = snapshot.source_root;
   const snapshotId = snapshot.id;
@@ -145,8 +146,9 @@ await runCliMain("breeds:build", async () => {
     join(GENERATED_DIR, "breed-data.json"),
     JSON.stringify(output, null, 2) + "\n",
   );
-  console.log(`Wrote ${breeds.length} breeds to breed-data.json`);
-});
+    console.log(`Wrote ${breeds.length} breeds to breed-data.json`);
+  });
+}
 
 // -- Parsers ------------------------------------------------------------------
 
