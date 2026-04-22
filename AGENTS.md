@@ -245,7 +245,7 @@ Frozen synergy snapshots in `tests/fixtures/ground-truth/synergy/`. Re-freeze wi
 
 **Composite:** Sum of all 8 dimensions, scaled to /40 when survivability is present. Letter grades: S (36+), A (31+), B (25+), C (19+), D (<19). Legacy /35 thresholds still apply only when survivability is absent.
 
-**Perk normalization:** GL-scraped perk labels (e.g. `"Damage (Flak Armoured Enemies)"`, `"Damage Resistance (Gunners)"`) are normalized to match scoring catalog keys via `normalizePerkName()` in `score-build.ts`. Integration tests in `score-build.test.ts` verify every distinct GL perk format resolves correctly.
+**Perk normalization:** Both GL-scraped perk labels and in-game runtime dump labels (e.g. `"Damage (Flak Armoured Enemies)"`, `"Damage vs Flak Armoured Enemies"`, `"Damage Resistance (Gunners)"`, `"Damage Resistance vs Gunners"`) are normalized to match scoring catalog keys via `normalizePerkName()` in `score-build.ts`. Integration tests in `score-build.test.ts` verify every distinct supported format resolves correctly.
 
 Module: `src/lib/score-build.ts`. Frozen score snapshots in `tests/fixtures/ground-truth/scores/`. Re-freeze with `npm run score:freeze`.
 

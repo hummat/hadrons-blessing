@@ -967,6 +967,43 @@ describe("real build perk normalization (integration)", () => {
       assert.ok(scored.tier >= 1 && scored.tier <= 4, `tier ${scored.tier} out of range`);
     });
   }
+
+  const RUNTIME_WEAPON_PERK_EXPECTATIONS = [
+    ["+25% Damage vs Flak Armoured Enemies", "Damage (Flak Armoured)", "melee"],
+    ["+25% Damage vs Carapace Enemies", "Damage (Carapace)", "melee"],
+    ["+25% Damage vs Unarmoured Enemies", "Damage (Unarmoured)", "melee"],
+    ["+25% Damage vs Unyielding Enemies", "Damage (Unyielding)", "melee"],
+    ["+25% Damage vs Maniacs", "Damage (Maniacs)", "melee"],
+  ];
+
+  for (const [raw, expectedName, slot] of RUNTIME_WEAPON_PERK_EXPECTATIONS) {
+    it(`runtime weapon perk "${raw}" → scorePerk match`, () => {
+      const parsed = parsePerkString(raw);
+      assert.ok(parsed, `parsePerkString failed for "${raw}"`);
+      assert.equal(parsed.name, expectedName);
+      const scored = scorePerk(parsed.name, parsed.max, slot);
+      assert.ok(scored, `scorePerk returned null for "${expectedName}" in ${slot} catalog`);
+      assert.ok(scored.tier >= 1 && scored.tier <= 4, `tier ${scored.tier} out of range`);
+    });
+  }
+
+  const RUNTIME_CURIO_PERK_EXPECTATIONS = [
+    ["+20% Damage Resistance vs Gunners", "DR vs Gunners"],
+    ["+20% Damage Resistance vs Snipers", "DR vs Snipers"],
+    ["+20% Damage Resistance vs Bombers", "DR vs Bombers"],
+    ["+20% Damage Resistance vs Tox Flamers", "DR vs Flamers"],
+  ];
+
+  for (const [raw, expectedName] of RUNTIME_CURIO_PERK_EXPECTATIONS) {
+    it(`runtime curio perk "${raw}" → scorePerk match`, () => {
+      const parsed = parsePerkString(raw);
+      assert.ok(parsed, `parsePerkString failed for "${raw}"`);
+      assert.equal(parsed.name, expectedName);
+      const scored = scorePerk(parsed.name, parsed.max, "curio");
+      assert.ok(scored, `scorePerk returned null for "${expectedName}" in curio catalog`);
+      assert.ok(scored.tier >= 1 && scored.tier <= 4, `tier ${scored.tier} out of range`);
+    });
+  }
 });
 
 describe("scoring data coverage", () => {
