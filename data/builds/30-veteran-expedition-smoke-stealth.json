@@ -1,0 +1,377 @@
+{
+  "schema_version": 1,
+  "title": "Expedition Smoke/Stealth Vet",
+  "class": {
+    "raw_label": "veteran",
+    "canonical_entity_id": "shared.class.veteran",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "https://darktide.gameslantern.com/builds/a152d63f-19f9-470c-a6cb-983a4c0c3410/expedition-smokestealth-vet",
+    "author": "Dizzy",
+    "scraped_at": "2026-04-22T16:01:13.514Z"
+  },
+  "ability": {
+    "raw_label": "Infiltrate",
+    "canonical_entity_id": "veteran.ability.veteran_invisibility_on_combat_ability",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Smoke Grenade",
+    "canonical_entity_id": "veteran.ability.veteran_smoke_grenade",
+    "resolution_status": "resolved"
+  },
+  "aura": {
+    "raw_label": "Unknown aura",
+    "canonical_entity_id": null,
+    "resolution_status": "unresolved"
+  },
+  "keystone": {
+    "raw_label": "Marksman's Focus",
+    "canonical_entity_id": "veteran.keystone.veteran_snipers_focus",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Demolition Team",
+      "canonical_entity_id": "veteran.talent.veteran_aura_elite_kills_restore_grenade",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Out for Blood",
+      "canonical_entity_id": "veteran.talent.veteran_all_kills_replenish_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Close and Kill",
+      "canonical_entity_id": null,
+      "resolution_status": "unresolved"
+    },
+    {
+      "raw_label": "Serrated Blade",
+      "canonical_entity_id": "veteran.talent.veteran_hits_cause_bleed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Low Profile",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_reduced_threat_after_combat_ability",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Catch a Breath",
+      "canonical_entity_id": "veteran.talent.veteran_replenish_toughness_outside_melee",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Shock Trooper",
+      "canonical_entity_id": "veteran.talent.veteran_no_ammo_consumption_on_lasweapon_crit",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Grenade Tinkerer",
+      "canonical_entity_id": "veteran.talent.veteran_improved_grenades",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Demolition Stockpile",
+      "canonical_entity_id": "veteran.talent.veteran_replenish_grenades",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Field Improvisation",
+      "canonical_entity_id": "veteran.talent.veteran_better_deployables",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Superiority Complex",
+      "canonical_entity_id": "veteran.talent.veteran_increase_damage_vs_elites",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Tactical Awareness",
+      "canonical_entity_id": "veteran.talent.veteran_elite_kills_reduce_cooldown",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Confirmed Kill",
+      "canonical_entity_id": "veteran.talent.veteran_elite_kills_replenish_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Overwatch",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_combat_ability_extra_charge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Close Order Drill",
+      "canonical_entity_id": "veteran.talent.veteran_reduced_toughness_damage_in_coherency",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Longshot",
+      "canonical_entity_id": "veteran.talent.veteran_increased_damage_based_on_range",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Precision Strikes",
+      "canonical_entity_id": "veteran.talent.veteran_increased_weakspot_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Bring It Down",
+      "canonical_entity_id": "veteran.talent.veteran_big_game_hunter",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Fully Loaded",
+      "canonical_entity_id": "veteran.talent.veteran_ammo_increase",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Iron Will",
+      "canonical_entity_id": "veteran.talent.veteran_tdr_on_high_toughness",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 22",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Stamina Regeneration Boost",
+      "canonical_entity_id": "shared.stat_node.stamina_regeneration_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 24",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Stamina Boost 3",
+      "canonical_entity_id": "shared.stat_node.stamina_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Long Range Assassin",
+      "canonical_entity_id": "veteran.talent_modifier.veteran_snipers_focus_increased_stacks",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 9",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Ranged Damage Boost 2",
+      "canonical_entity_id": "shared.stat_node.ranged_damage_boost",
+      "resolution_status": "resolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "Catachan Mk VI Combat Blade",
+        "canonical_entity_id": "shared.weapon.combatknife_p1_m2",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "2-5% Melee Critical Hit Chance",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_increase_crit_chance",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Mercy Killer",
+          "canonical_entity_id": "shared.name_family.blessing.increased_weakspot_damage_against_bleeding",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Uncanny Strike",
+          "canonical_entity_id": "shared.name_family.blessing.uncanny_strike",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Lucius MK IIIa Helbore Lasgun",
+        "canonical_entity_id": "shared.weapon.lasgun_p2_m3",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Carapace Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_super_armor_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Unyielding Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_resistant_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Armourbane",
+          "canonical_entity_id": "shared.name_family.blessing.targets_receive_rending_debuff_on_charged_shots",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Surgical",
+          "canonical_entity_id": "shared.name_family.blessing.surgical",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ],
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+1-3 Max Stamina",
+          "canonical_entity_id": "shared.gadget_trait.gadget_stamina_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 1,
+            "max": 3,
+            "unit": "flat"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+1-4% Combat Ability Regeneration",
+          "canonical_entity_id": "shared.gadget_trait.gadget_cooldown_reduction",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.01,
+            "max": 0.04,
+            "unit": "percent"
+          }
+        }
+      ]
+    }
+  ]
+}

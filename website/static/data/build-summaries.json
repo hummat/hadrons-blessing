@@ -589,6 +589,37 @@
     }
   },
   {
+    "file": "30-veteran-expedition-smoke-stealth.json",
+    "title": "Expedition Smoke/Stealth Vet",
+    "class": "veteran",
+    "ability": "Infiltrate",
+    "keystone": "Marksman's Focus",
+    "weapons": [
+      {
+        "name": "Catachan Mk VI Combat Blade",
+        "slot": "melee",
+        "family": "combatknife_p1"
+      },
+      {
+        "name": "Lucius MK IIIa Helbore Lasgun",
+        "slot": "ranged",
+        "family": "lasgun_p2"
+      }
+    ],
+    "scores": {
+      "composite": 33,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 4,
+      "difficulty_scaling": 1,
+      "survivability": 4
+    }
+  },
+  {
     "file": "04-veteran-stealth-shotgun.json",
     "title": "havoc stealth",
     "class": "veteran",
@@ -635,6 +666,37 @@
         "name": "Artemia Mk III Purgation Flamer",
         "slot": "ranged",
         "family": "flamer"
+      }
+    ],
+    "scores": {
+      "composite": 32,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 3,
+      "difficulty_scaling": 1,
+      "survivability": 4
+    }
+  },
+  {
+    "file": "29-veteran-invincible-vet.json",
+    "title": "Invincible Vet",
+    "class": "veteran",
+    "ability": "Infiltrate",
+    "keystone": "Weapons Specialist",
+    "weapons": [
+      {
+        "name": "Catachan Mk III Combat Blade",
+        "slot": "melee",
+        "family": "combatknife_p1"
+      },
+      {
+        "name": "Zarona Mk IIa Quickdraw Stub Revolver",
+        "slot": "ranged",
+        "family": "stubrevolver_p1"
       }
     ],
     "scores": {
@@ -709,6 +771,37 @@
       "role_coverage": 4,
       "breakpoint_relevance": 5,
       "difficulty_scaling": 2,
+      "survivability": 2
+    }
+  },
+  {
+    "file": "28-veteran-squad-leader.json",
+    "title": "Veteran: Squad Leader",
+    "class": "veteran",
+    "ability": "Voice of Command",
+    "keystone": "Focus Target",
+    "weapons": [
+      {
+        "name": "Lawbringer Mk IIb Power Falchion",
+        "slot": "melee",
+        "family": "powersword_p2"
+      },
+      {
+        "name": "M35 Magnacore Mk II Plasma Gun",
+        "slot": "ranged",
+        "family": "plasmagun"
+      }
+    ],
+    "scores": {
+      "composite": 29,
+      "grade": "B",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 4,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 3,
+      "difficulty_scaling": 1,
       "survivability": 2
     }
   },

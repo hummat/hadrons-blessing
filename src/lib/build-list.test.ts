@@ -1,4 +1,5 @@
 // src/lib/build-list.test.ts
+import { readdirSync } from "node:fs";
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { listBuilds } from "./build-list.js";
@@ -7,9 +8,10 @@ const BUILDS_DIR = "data/builds";
 
 describe("build-list", () => {
   describe("listBuilds", () => {
-    it("loads all 27 builds with valid summaries", () => {
+    it("loads all build fixtures with valid summaries", () => {
       const results = listBuilds(BUILDS_DIR);
-      assert.equal(results.length, 27);
+      const expectedCount = readdirSync(BUILDS_DIR).filter((name) => name.endsWith(".json")).length;
+      assert.equal(results.length, expectedCount);
 
       for (const r of results) {
         assert.ok(r.file.endsWith(".json"), `file should end with .json: ${r.file}`);
