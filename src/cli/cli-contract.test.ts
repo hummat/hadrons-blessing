@@ -1,7 +1,7 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { spawnSync } from "node:child_process";
-import { closeSync, mkdtempSync, openSync, readFileSync } from "node:fs";
+import { closeSync, mkdtempSync, openSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { REPO_ROOT } from "../lib/load.js";
@@ -137,8 +137,9 @@ describe("CLI contract — list and diff", () => {
     const result = runCli("src/cli/list-builds.ts", ["data/builds", "--json"]);
     assert.equal(result.status, 0, `stderr: ${result.stderr}`);
     const parsed = JSON.parse(result.stdout);
+    const expectedCount = readdirSync("data/builds").filter((name) => name.endsWith(".json")).length;
     assert.ok(Array.isArray(parsed), "should produce an array");
-    assert.equal(parsed.length, 24);
+    assert.equal(parsed.length, expectedCount);
   });
 
   it("list rejects invalid grade filters", () => {
