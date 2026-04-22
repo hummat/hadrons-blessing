@@ -173,6 +173,10 @@ Shared cross-class entities use `shared` as domain: `shared.weapon.autogun_p1_m1
 
 **Survivability scoring policy:** The toughness calculator now feeds a class-relative `survivability` dimension. The score compares build profile vs baseline class profile at Damnation using effective HP, movement-state toughness, and recovery. It is still a scoring policy layer, not a direct source-backed combat truth.
 
+**Bot-flag signal matching:** `score-build.ts` flags builds for bot-compat via word-start STEM matching on normalized signal strings (e.g. `"dodg"` matches dodge/dodging/dodges; `"slid"` matches slide/sliding). `stemPattern()` anchors each stem at `\b` and allows trailing characters. Snapshots at `tests/fixtures/ground-truth/scores/` assert `bot_flags` deepEqual to lock the classifier against drift. When adding a new signal pattern, pick the stem that covers all morphological variants — never a literal substring that misses one.
+
+**Scorecard-deps degradation contract:** `loadScorecardDeps` warns (`console.warn`) and returns a partial deps object only when generated ground-truth/calc data is missing (ENOENT-class). Any other exception propagates. `analyzeScorecard` does the same per-dimension and records per-dimension failures in `ScorecardAnalysis.errors` (`synergy` / `calc` / `survivability`). Use `resetScorecardDepsCache()` in tests that need a clean singleton. Missing-data warnings exist so "data said no" and "no data loaded" are never confused.
+
 ## Adding New Entity Coverage
 
 1. Add entity records to `data/ground-truth/entities/{domain}.json`
