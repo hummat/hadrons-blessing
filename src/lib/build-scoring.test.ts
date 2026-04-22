@@ -257,6 +257,29 @@ describe("build-scoring", () => {
       assert.ok(resultWith.blessing_synergy.score >= resultWithout.blessing_synergy.score);
     });
 
+    it("prefers raw build blessing labels over family slugs in explanations", () => {
+      const synergy = makeSynergyOutput({
+        talentIds: ["t.talent.a"],
+        blessingIds: ["shared.name_family.blessing.thunderous"],
+        talentEdges: 0,
+        blessingEdges: 2,
+        blessingBlessingEdges: 0,
+        orphans: [],
+        concentration: 0.05,
+        familyCount: 8,
+        coverageGaps: [],
+        slotBalance: { melee: 5, ranged: 5 },
+      });
+      synergy._selectionLabelsById = {
+        "shared.name_family.blessing.thunderous": ["Thrust"],
+      };
+
+      const result = scoreFromSynergy(synergy);
+
+      assert.match(result.blessing_synergy.explanations[0], /Thrust/);
+      assert.doesNotMatch(result.blessing_synergy.explanations[0], /thunderous/);
+    });
+
     it("scores 1 when no blessings present", () => {
       const synergy = makeSynergyOutput({
         talentIds: ["t.talent.a"],

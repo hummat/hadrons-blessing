@@ -376,19 +376,34 @@ describe("enrichWeaponNames", () => {
     assert.equal(entities[0].ui_name, "Catachan Mk I Combat Blade");
   });
 
-  it("preserves existing ui_name", () => {
+  it("updates stale existing ui_name when mapping differs", () => {
     const entities = [
       {
         id: "shared.weapon.combatknife_p1_m1",
         kind: "weapon",
         internal_name: "combatknife_p1_m1",
-        ui_name: "Already Set",
+        ui_name: "Wrong Name",
+        attributes: { slot: "melee" },
+      },
+    ];
+    const count = enrichWeaponNames(entities, mapping);
+    assert.equal(count, 1);
+    assert.equal(entities[0].ui_name, "Catachan Mk I Combat Blade");
+  });
+
+  it("leaves matching existing ui_name unchanged", () => {
+    const entities = [
+      {
+        id: "shared.weapon.combatknife_p1_m1",
+        kind: "weapon",
+        internal_name: "combatknife_p1_m1",
+        ui_name: "Catachan Mk I Combat Blade",
         attributes: { slot: "melee" },
       },
     ];
     const count = enrichWeaponNames(entities, mapping);
     assert.equal(count, 0);
-    assert.equal(entities[0].ui_name, "Already Set");
+    assert.equal(entities[0].ui_name, "Catachan Mk I Combat Blade");
   });
 
   it("skips non-weapon entities", () => {
@@ -557,8 +572,10 @@ const __test_dirname = dirname(fileURLToPath(import.meta.url));
 
 describe("integration: real data coverage", () => {
   const ENTITIES_ROOT = resolve(__test_dirname, "..", "..", "data", "ground-truth", "entities");
+  const DATA_ROOT = resolve(__test_dirname, "..", "..", "data", "ground-truth");
   const weaponEntities = JSON.parse(readFileSync(resolve(ENTITIES_ROOT, "shared-weapons.json"), "utf8"));
   const nameEntities = JSON.parse(readFileSync(resolve(ENTITIES_ROOT, "shared-names.json"), "utf8"));
+  const weaponMapping = JSON.parse(readFileSync(resolve(DATA_ROOT, "weapon-name-mapping.json"), "utf8"));
 
   it("generatePerkAliases produces 36 alias records from real entities", () => {
     const aliases = generatePerkAliases(weaponEntities);
@@ -607,5 +624,23 @@ describe("integration: real data coverage", () => {
     }
     const count = enrichBlessingNamesFromSlugs(copy, catalog.blessings);
     assert.ok(count >= 40, `Expected at least 40 slug-enriched name families, got ${count}`);
+  });
+
+  it("weapon ui_names stay aligned with checked-in weapon-name mapping", () => {
+    const uiNameByInternalName = new Map(
+      weaponEntities
+        .filter((entity: { kind: string }) => entity.kind === "weapon")
+        .map((entity: { internal_name: string; ui_name: string | null }) => [entity.internal_name, entity.ui_name]),
+    );
+
+    const mismatches = weaponMapping
+      .map((entry: { template_id: string; gl_name: string }) => ({
+        template_id: entry.template_id,
+        mapping: entry.gl_name,
+        entity: uiNameByInternalName.get(entry.template_id) ?? null,
+      }))
+      .filter((entry: { entity: string | null; mapping: string }) => entry.entity != null && entry.entity !== entry.mapping);
+
+    assert.deepEqual(mismatches, []);
   });
 });

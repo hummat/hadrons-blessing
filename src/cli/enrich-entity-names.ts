@@ -204,9 +204,9 @@ function enrichWeaponNames(entities: AnyRecord[], mapping: AnyRecord[]) {
   let count = 0;
   for (const entity of entities) {
     if (entity.kind !== "weapon") continue;
-    if (entity.ui_name != null) continue;
     const displayName = nameByTemplateId.get(entity.internal_name);
     if (!displayName) continue;
+    if (entity.ui_name === displayName) continue;
     entity.ui_name = displayName;
     count++;
   }

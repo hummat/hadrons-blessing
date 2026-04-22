@@ -90,26 +90,32 @@ export interface AnalyzeBuildResult {
   coverage: CoverageResult;
   _resolvedIds: string[];
   _entitiesWithCalcIds: string[];
+  _selectionLabelsById: Record<string, string[]>;
   metadata: SynergyMetadata;
 }
 
 // Canonical build shape — partial, just the fields we access
+interface CanonicalSelectionInput {
+  canonical_entity_id?: string;
+  raw_label?: string;
+}
+
 interface CanonicalBuildInput {
   title?: string;
-  class?: { canonical_entity_id?: string; raw_label?: string };
-  ability?: { canonical_entity_id?: string };
-  blitz?: { canonical_entity_id?: string };
-  aura?: { canonical_entity_id?: string };
-  keystone?: { canonical_entity_id?: string };
-  talents?: Array<{ canonical_entity_id?: string }>;
+  class?: CanonicalSelectionInput;
+  ability?: CanonicalSelectionInput;
+  blitz?: CanonicalSelectionInput;
+  aura?: CanonicalSelectionInput;
+  keystone?: CanonicalSelectionInput;
+  talents?: CanonicalSelectionInput[];
   weapons?: Array<{
-    name?: { canonical_entity_id?: string };
-    blessings?: Array<{ canonical_entity_id?: string }>;
-    perks?: Array<{ canonical_entity_id?: string }>;
+    name?: CanonicalSelectionInput;
+    blessings?: CanonicalSelectionInput[];
+    perks?: CanonicalSelectionInput[];
   }>;
   curios?: Array<{
-    name?: { canonical_entity_id?: string };
-    perks?: Array<{ canonical_entity_id?: string }>;
+    name?: CanonicalSelectionInput;
+    perks?: CanonicalSelectionInput[];
   }>;
 }
 
@@ -408,6 +414,53 @@ export function resolveSelections(
   return resolved;
 }
 
+function collectSelectionLabels(build: CanonicalBuildInput): Record<string, string[]> {
+  const labelsById = new Map<string, string[]>();
+
+  function add(selection: CanonicalSelectionInput | undefined): void {
+    const id = selection?.canonical_entity_id?.trim();
+    const rawLabel = selection?.raw_label?.trim();
+    if (!id || !rawLabel) {
+      return;
+    }
+
+    const labels = labelsById.get(id) ?? [];
+    if (!labels.includes(rawLabel)) {
+      labels.push(rawLabel);
+      labelsById.set(id, labels);
+    }
+  }
+
+  add(build.class);
+  add(build.ability);
+  add(build.blitz);
+  add(build.aura);
+  add(build.keystone);
+
+  for (const talent of build.talents ?? []) {
+    add(talent);
+  }
+
+  for (const weapon of build.weapons ?? []) {
+    add(weapon.name);
+    for (const blessing of weapon.blessings ?? []) {
+      add(blessing);
+    }
+    for (const perk of weapon.perks ?? []) {
+      add(perk);
+    }
+  }
+
+  for (const curio of build.curios ?? []) {
+    add(curio.name);
+    for (const perk of curio.perks ?? []) {
+      add(perk);
+    }
+  }
+
+  return Object.fromEntries(labelsById);
+}
+
 // ---------------------------------------------------------------------------
 // analyzeBuild — orchestrator
 // ---------------------------------------------------------------------------
@@ -537,6 +590,7 @@ export function analyzeBuild(build: CanonicalBuildInput, index: SynergyIndex): A
     coverage,
     _resolvedIds: allResolved.map((s) => s.id),
     _entitiesWithCalcIds: withEffects.map((s) => s.id),
+    _selectionLabelsById: collectSelectionLabels(build),
     metadata: {
       entities_analyzed: totalSelections,
       unique_entities_with_calc: withEffects.length,

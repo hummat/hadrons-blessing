@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Bot Ogryn - Point Blank Barrage + Heavy Hitter + Brute-Brainer Mk XIX Latrine Shovel + Lorenz Mk V Kickback",
+  "title": "Bot Ogryn - Point Blank Barrage + Heavy Hitter + Brute-Brainer Mk V Latrine Shovel + Lorenz Mk V Kickback",
   "class": {
     "raw_label": "ogryn",
     "canonical_entity_id": "shared.class.ogryn",
@@ -10,7 +10,7 @@
     "source_kind": "curated",
     "source_url": "https://github.com/hummat/BetterBots",
     "author": "BetterBots",
-    "scraped_at": "2026-04-22T14:18:41.863Z"
+    "scraped_at": "2026-04-22T17:15:43.431Z"
   },
   "ability": {
     "raw_label": "Point Blank Barrage",
@@ -23,7 +23,7 @@
     "resolution_status": "resolved"
   },
   "aura": {
-    "raw_label": "Bonebreakers Aura",
+    "raw_label": "Bonebreaker's Aura",
     "canonical_entity_id": "ogryn.aura.ogryn_melee_damage_coherency_improved",
     "resolution_status": "resolved"
   },
@@ -163,7 +163,7 @@
     {
       "slot": "melee",
       "name": {
-        "raw_label": "Brute-Brainer Mk XIX Latrine Shovel",
+        "raw_label": "Brute-Brainer Mk V Latrine Shovel",
         "canonical_entity_id": "shared.weapon.ogryn_club_p1_m3",
         "resolution_status": "resolved"
       },

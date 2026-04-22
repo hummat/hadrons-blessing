@@ -29,6 +29,7 @@ interface SynergyOutput {
   _resolvedIds?: string[];
   _talentSideIds?: string[];
   _entitiesWithCalcIds?: string[];
+  _selectionLabelsById?: Record<string, string[]>;
 }
 
 interface BreakpointMatrix {
@@ -225,7 +226,7 @@ function scoreTalentCoherence(synergyOutput: SynergyOutput): DimensionScore {
  * Score blessing-to-talent and blessing-to-blessing synergy.
  */
 function scoreBlessingSynergy(synergyOutput: SynergyOutput): DimensionScore {
-  const { synergy_edges = [], _resolvedIds } = synergyOutput;
+  const { synergy_edges = [], _resolvedIds, _selectionLabelsById } = synergyOutput;
 
   // --- Collect blessing population ---
   let blessingPopulation: Set<string>;
@@ -314,7 +315,15 @@ function scoreBlessingSynergy(synergyOutput: SynergyOutput): DimensionScore {
   const explanations: string[] = [];
   const connectedBlessings = [...blessingsInAnyEdge];
   if (connectedBlessings.length > 0) {
-    const names = connectedBlessings.map((id) => id.split(".").at(-1)).join(", ");
+    const names = [
+      ...new Set(
+        connectedBlessings.flatMap((id) => {
+          const labels = _selectionLabelsById?.[id] ?? [];
+          const deduped = [...new Set(labels.map((label) => label.trim()).filter((label) => label.length > 0))];
+          return deduped.length > 0 ? deduped : [id.split(".").at(-1) ?? id];
+        }),
+      ),
+    ].join(", ");
     explanations.push(`Blessings with synergy edges: ${names}`);
   }
   if (blessing_blessing_edges > 0) {

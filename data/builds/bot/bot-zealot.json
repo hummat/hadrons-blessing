@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "title": "Bot Zealot - Fury Of The Faithful + Martyrdom + Orestes Mk XII Assault Chainaxe + Zarona Mk IIa Quickdraw Stub Revolver",
+  "title": "Bot Zealot - Fury Of The Faithful + Martyrdom + Orestes Mk XII Assault Chainaxe + Agripinaa Mk XIV Quickdraw Stub Revolver",
   "class": {
     "raw_label": "zealot",
     "canonical_entity_id": "shared.class.zealot",
@@ -10,7 +10,7 @@
     "source_kind": "curated",
     "source_url": "https://github.com/hummat/BetterBots",
     "author": "BetterBots",
-    "scraped_at": "2026-04-22T14:18:41.863Z"
+    "scraped_at": "2026-04-22T17:15:43.431Z"
   },
   "ability": {
     "raw_label": "Fury Of The Faithful",
@@ -104,7 +104,7 @@
       "resolution_status": "resolved"
     },
     {
-      "raw_label": "Faiths Fortitude",
+      "raw_label": "Faith's Fortitude",
       "canonical_entity_id": "zealot.talent.zealot_additional_wounds",
       "resolution_status": "resolved"
     },
@@ -205,7 +205,7 @@
     {
       "slot": "ranged",
       "name": {
-        "raw_label": "Zarona Mk IIa Quickdraw Stub Revolver",
+        "raw_label": "Agripinaa Mk XIV Quickdraw Stub Revolver",
         "canonical_entity_id": "shared.weapon.stubrevolver_p1_m2",
         "resolution_status": "resolved"
       },

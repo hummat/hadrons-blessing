@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-04-22T14:18:41.863Z",
+  "generated_at": "2026-04-22T17:15:43.431Z",
   "schema_version": 1,
   "assumes": "betterbots",
   "classes": {
     "ogryn": {
       "melee": {
         "template_id": "ogryn_club_p1_m3",
-        "display_name": "Brute-Brainer Mk XIX Latrine Shovel",
+        "display_name": "Brute-Brainer Mk V Latrine Shovel",
         "canonical_entity_id": "shared.weapon.ogryn_club_p1_m3",
         "gestalt": "linesman",
         "source_builds": [
@@ -28,7 +28,7 @@
     "psyker": {
       "melee": {
         "template_id": "forcesword_p1_m1",
-        "display_name": "Deimos Mk IV Blaze Force Sword",
+        "display_name": "Obscurus Mk II Blaze Force Sword",
         "canonical_entity_id": "shared.weapon.forcesword_p1_m1",
         "gestalt": "linesman",
         "source_builds": [
@@ -82,7 +82,7 @@
       },
       "ranged": {
         "template_id": "stubrevolver_p1_m2",
-        "display_name": "Zarona Mk IIa Quickdraw Stub Revolver",
+        "display_name": "Agripinaa Mk XIV Quickdraw Stub Revolver",
         "canonical_entity_id": "shared.weapon.stubrevolver_p1_m2",
         "gestalt": "killshot",
         "source_builds": [

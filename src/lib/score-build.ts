@@ -734,17 +734,31 @@ function normalizeName(name: unknown): string {
 
 /**
  * Find a weapon in the data by name, using fuzzy matching.
+function weaponLookupTarget(value: unknown): {
+  canonicalEntityId: string | null;
+  label: string;
+} {
+  const candidate = value != null && typeof value === "object" && Object.hasOwn(value as object, "name")
+    ? (value as { name?: unknown }).name
+    : value;
+
+  return {
+    canonicalEntityId: selectionCanonicalEntityId(value) ?? selectionCanonicalEntityId(candidate),
+    label: selectionLabel(candidate),
+  };
+}
+
  */
 function findWeapon(weaponName: unknown): WeaponMatch | null {
-  const canonicalEntityId = selectionCanonicalEntityId(weaponName);
+  const { canonicalEntityId, label } = weaponLookupTarget(weaponName);
   if (canonicalEntityId) {
     const directMatch = resolveGroundTruthWeapon(canonicalEntityId);
-    if (directMatch?.entry) {
+    if (directMatch) {
       return directMatch;
     }
   }
 
-  const normalizedName = selectionLabel(weaponName);
+  const normalizedName = label;
   const groundTruthMatch = resolveGroundTruthWeapon(normalizedName);
   if (groundTruthMatch?.entry) {
     return groundTruthMatch;
@@ -819,7 +833,7 @@ export function scoreBlessings(
   weaponMatch?: WeaponMatch | null,
 ): BlessingValidation {
   const normalizedWeapon = normalizedWeaponInput(weapon as unknown as Record<string, unknown>);
-  const found = weaponMatch !== undefined ? weaponMatch : findWeapon(weapon.name);
+  const found = weaponMatch !== undefined ? weaponMatch : findWeapon(weapon);
 
   if (!found) {
     return { valid: null, blessings: [] };
@@ -961,7 +975,7 @@ export function generateScorecard(
 
   for (const weapon of (build.weapons as Array<Record<string, unknown>>) || []) {
     const normalizedWeapon = normalizedWeaponInput(weapon);
-    const found = findWeapon(weapon.name);
+    const found = findWeapon(weapon);
     const slot = found ? found.slot : null;
 
     let perkResult: WeaponPerkResult;

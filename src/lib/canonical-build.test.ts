@@ -4,7 +4,7 @@ import { mkdtempSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { assertValidCanonicalBuild, validateCanonicalBuild } from "./build-shape.js";
-import { canonicalizeScrapedBuild } from "./build-canonicalize.js";
+import { canonicalizeScrapedBuild, toSelection } from "./build-canonicalize.js";
 import { canonicalizeBuildFile } from "../cli/canonicalize-build.js";
 
 function makeSelection(overrides = {}) {
@@ -597,9 +597,40 @@ describe("canonicalizeScrapedBuild", () => {
       ["Warp Rider"],
     );
     assert.equal(build.weapons[0].slot, "melee");
+    assert.equal(build.weapons[0].name.raw_label, "Tigrus Mk II Heavy Eviscerator");
+    assert.equal(build.weapons[0].name.canonical_entity_id, "shared.weapon.chainsword_p1_m1");
     assert.equal(build.weapons[1].slot, "ranged");
+    assert.equal(build.weapons[1].name.raw_label, "Accatran Mk VId Recon Lasgun");
+    assert.equal(build.weapons[1].name.canonical_entity_id, "shared.weapon.bot_lasgun_killshot");
     assert.equal(build.curios[0].name.raw_label, "Blessed Bullet (Caged)");
     assert.equal(validateCanonicalBuild(build).ok, true);
+  });
+
+  it("strips presentation markup and falls back to parsed perk names during resolution", async () => {
+    const seenQueries: string[] = [];
+    const selection = await toSelection(
+      "{#color(255,0,0)}+16%{#reset()} {#color(0,255,0)}Maximum Toughness{#reset()}",
+      { kind: "gadget_trait", slot: "curio" },
+      {
+        resolveQuery: async (query) => {
+          seenQueries.push(query);
+          return query === "Toughness"
+            ? {
+              resolution_state: "resolved",
+              resolved_entity_id: "shared.gadget_trait.gadget_toughness_increase",
+            }
+            : {
+              resolution_state: "unresolved",
+              resolved_entity_id: null,
+            };
+        },
+      },
+    );
+
+    assert.deepEqual(seenQueries, ["+16% Maximum Toughness", "Toughness"]);
+    assert.equal(selection.raw_label, "+16% Maximum Toughness");
+    assert.equal(selection.canonical_entity_id, "shared.gadget_trait.gadget_toughness_increase");
+    assert.equal(selection.resolution_status, "resolved");
   });
 
   it("falls back to explicit scraped class-side selections when class registry coverage is absent", async () => {

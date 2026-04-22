@@ -102,6 +102,8 @@ interface RawBuild {
 // Helpers
 // ---------------------------------------------------------------------------
 
+const PRESENTATION_MARKUP_RE = /\{#.*?\}/g;
+
 function inferredWeaponFamily(entityId: string | null | undefined): string | null {
   const internalName = entityId?.split(".").pop() ?? null;
   if (internalName == null) {
@@ -123,37 +125,56 @@ function placeholderSelection(rawLabel: string): Selection {
   };
 }
 
-async function toSelection(
-  rawLabel: unknown,
+function sanitizeRawLabel(rawLabel: unknown): string {
+  return String(rawLabel ?? "")
+    .replace(PRESENTATION_MARKUP_RE, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function fallbackResolveQueries(text: string, queryContext: Record<string, unknown>): string[] {
+  const queries = [text];
+  const kind = typeof queryContext.kind === "string" ? queryContext.kind : "";
+
+  if (kind === "weapon_perk" || kind === "gadget_trait") {
+    const parsed = parsePerkString(text);
+    if (parsed?.name && parsed.name !== text) {
+      queries.push(parsed.name);
+    }
+  }
+
+  return [...new Set(queries.filter((query) => query.length > 0))];
+}
+
+async function resolveSelectionFromQueries(
+  rawLabel: string,
+  queries: string[],
   queryContext: Record<string, unknown>,
   deps: CanonicalizeDeps = {},
 ): Promise<Selection> {
-  const text = String(rawLabel ?? "").trim();
   const {
     resolveQuery = defaultResolveQuery,
     classifyKnownUnresolved = defaultClassifyKnownUnresolved,
     value = null,
   } = deps;
 
-  if (text.length === 0) {
-    return placeholderSelection("Unknown");
+  for (const query of [...new Set(queries.map(sanitizeRawLabel).filter((entry) => entry.length > 0))]) {
+    const result = await resolveQuery(query, queryContext);
+
+    if (result.resolution_state === "resolved" && result.resolved_entity_id) {
+      return {
+        raw_label: rawLabel,
+        canonical_entity_id: result.resolved_entity_id,
+        resolution_status: "resolved",
+        ...(value == null ? {} : { value }),
+      };
+    }
   }
 
-  const result = await resolveQuery(text, queryContext);
-
-  if (result.resolution_state === "resolved" && result.resolved_entity_id) {
-    return {
-      raw_label: text,
-      canonical_entity_id: result.resolved_entity_id,
-      resolution_status: "resolved",
-      ...(value == null ? {} : { value }),
-    };
-  }
-
-  const nonCanonicalRecord = classifyKnownUnresolved(text, queryContext);
+  const nonCanonicalRecord = classifyKnownUnresolved(rawLabel, queryContext);
   if (nonCanonicalRecord) {
     return {
-      raw_label: text,
+      raw_label: rawLabel,
       canonical_entity_id: null,
       resolution_status: "non_canonical",
       ...(value == null ? {} : { value }),
@@ -161,11 +182,25 @@ async function toSelection(
   }
 
   return {
-    raw_label: text,
+    raw_label: rawLabel,
     canonical_entity_id: null,
     resolution_status: "unresolved",
     ...(value == null ? {} : { value }),
   };
+}
+
+async function toSelection(
+  rawLabel: unknown,
+  queryContext: Record<string, unknown>,
+  deps: CanonicalizeDeps = {},
+): Promise<Selection> {
+  const text = sanitizeRawLabel(rawLabel);
+
+  if (text.length === 0) {
+    return placeholderSelection("Unknown");
+  }
+
+  return resolveSelectionFromQueries(text, fallbackResolveQueries(text, queryContext), queryContext, deps);
 }
 
 async function canonicalizeBlessings(
@@ -199,13 +234,14 @@ async function canonicalizePerks(
   const selections: Selection[] = [];
 
   for (const perk of rawPerks ?? []) {
-    const parsed = parsePerkString(perk);
+    const cleanPerk = sanitizeRawLabel(perk);
+    const parsed = parsePerkString(cleanPerk);
     const value: PerkValue | null = parsed == null
       ? null
       : {
         min: parsed.min,
         max: parsed.max,
-        unit: valueUnitFromRawLabel(perk),
+        unit: valueUnitFromRawLabel(cleanPerk),
       };
 
     selections.push(await toSelection(perk, queryContext, {
@@ -218,11 +254,24 @@ async function canonicalizePerks(
 }
 
 async function canonicalizeWeapon(
-  rawWeapon: { name?: string; perks?: string[]; blessings?: Array<string | { name?: string; description?: string }> },
+  rawWeapon: { name?: string; display_name?: string; perks?: string[]; blessings?: Array<string | { name?: string; description?: string }> },
   slot: string,
   deps: CanonicalizeDeps = {},
 ): Promise<CanonicalWeapon> {
-  const nameSelection = await toSelection(rawWeapon.name, { kind: "weapon", slot }, deps);
+  const displayName = sanitizeRawLabel(rawWeapon.display_name);
+  const internalName = sanitizeRawLabel(rawWeapon.name);
+  const rawLabel = displayName || internalName;
+  const nameSelection = rawLabel.length === 0
+    ? placeholderSelection("Unknown")
+    : await resolveSelectionFromQueries(
+      rawLabel,
+      [
+        ...fallbackResolveQueries(rawLabel, { kind: "weapon", slot }),
+        ...(internalName.length > 0 && internalName !== rawLabel ? [internalName] : []),
+      ],
+      { kind: "weapon", slot },
+      deps,
+    );
   const weaponFamily = inferredWeaponFamily(nameSelection.canonical_entity_id);
 
   return {

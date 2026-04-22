@@ -515,6 +515,50 @@ describe("generateScorecard", () => {
     assert.ok(card.curio_efficiency >= 1 && card.curio_efficiency <= 5);
     assert.ok(card.weapons.length === 2);
     assert.ok(card.curios);
+
+  it("preserves canonical weapon metadata for runtime-style selection labels", () => {
+    const result = generateScorecard({
+      title: "Runtime canonical sample",
+      class: {
+        raw_label: "zealot",
+        canonical_entity_id: "shared.class.zealot",
+        resolution_status: "resolved",
+      },
+      weapons: [
+        {
+          slot: "melee",
+          name: {
+            raw_label: "Combat Blade Catachan Mk VI",
+            canonical_entity_id: "shared.weapon.combatknife_p1_m2",
+            resolution_status: "resolved",
+          },
+          perks: [],
+          blessings: [
+            {
+              raw_label: "Lacerate",
+              canonical_entity_id: "shared.name_family.blessing.bleed_on_non_weakspot_hit",
+              resolution_status: "resolved",
+            },
+            {
+              raw_label: "Uncanny Strike",
+              canonical_entity_id: "shared.name_family.blessing.uncanny_strike",
+              resolution_status: "resolved",
+            },
+          ],
+        },
+      ],
+      curios: [],
+      talents: [],
+    });
+
+    assert.equal(result.weapons[0].name, "Combat Blade Catachan Mk VI");
+    assert.equal(result.weapons[0].canonical_entity_id, "shared.weapon.combatknife_p1_m2");
+    assert.equal(result.weapons[0].internal_name, "combatknife_p1_m2");
+    assert.equal(result.weapons[0].weapon_family, "combatknife_p1");
+    assert.equal(result.weapons[0].slot, "melee");
+    assert.equal(result.weapons[0].resolution_source, "ground_truth");
+    assert.equal(result.weapons[0].blessings.valid, true);
+  });
   });
 
   it("includes weapon slot from data lookup", () => {
