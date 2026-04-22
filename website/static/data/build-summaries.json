@@ -186,6 +186,37 @@
     }
   },
   {
+    "file": "33-psyker-ep-brain-burst-gun.json",
+    "title": "EP Brain Burst Gun Psyker",
+    "class": "psyker",
+    "ability": "Scrier's Gaze",
+    "keystone": "Empowered Psionics",
+    "weapons": [
+      {
+        "name": "Turtolsky Mk VI Heavy Sword",
+        "slot": "melee",
+        "family": "combatsword_p3"
+      },
+      {
+        "name": "Ius Mk IV Shredder Autopistol",
+        "slot": "ranged",
+        "family": "autopistol_p1"
+      }
+    ],
+    "scores": {
+      "composite": 37,
+      "grade": "S",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 4,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 5,
+      "survivability": 4
+    }
+  },
+  {
     "file": "17-arbites-busted.json",
     "title": "BUSTED - Havoc 40",
     "class": "arbites",
@@ -276,6 +307,37 @@
       "breakpoint_relevance": 5,
       "difficulty_scaling": 4,
       "survivability": 5
+    }
+  },
+  {
+    "file": "31-psyker-rats-trauma.json",
+    "title": "The BEST Psyker Build | Rat's Trauma Psyker",
+    "class": "psyker",
+    "ability": "Telekine Shield",
+    "keystone": "Warp Siphon",
+    "weapons": [
+      {
+        "name": "Maccabian Mk IV Duelling Sword",
+        "slot": "melee",
+        "family": "combatsword_p1"
+      },
+      {
+        "name": "Equinox Mk III Voidblast Force Staff",
+        "slot": "ranged",
+        "family": "forcestaff_p4"
+      }
+    ],
+    "scores": {
+      "composite": 36,
+      "grade": "S",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 4,
+      "blessing_synergy": 5,
+      "role_coverage": 5,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 5,
+      "survivability": 3
     }
   },
   {
@@ -617,6 +679,37 @@
       "breakpoint_relevance": 4,
       "difficulty_scaling": 1,
       "survivability": 4
+    }
+  },
+  {
+    "file": "32-psyker-electrodominance.json",
+    "title": "\"Electrodominance\" | Havoc 40 Scrier Smiter",
+    "class": "psyker",
+    "ability": "Scrier's Gaze",
+    "keystone": "Empowered Psionics",
+    "weapons": [
+      {
+        "name": "Covenant Mk VIII Blaze Force Greatsword",
+        "slot": "melee",
+        "family": "forcesword_2h"
+      },
+      {
+        "name": "Nomanus Mk VI Electrokinetic Force Staff",
+        "slot": "ranged",
+        "family": "forcestaff_p3"
+      }
+    ],
+    "scores": {
+      "composite": 33,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 2,
+      "blessing_synergy": 4,
+      "role_coverage": 5,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 5,
+      "survivability": 3
     }
   },
   {

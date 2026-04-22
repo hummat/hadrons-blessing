@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "title": "EP Brain Burst Gun Psyker",
+  "class": {
+    "raw_label": "psyker",
+    "canonical_entity_id": "shared.class.psyker",
+    "resolution_status": "resolved"
+  },
+  "provenance": {
+    "source_kind": "gameslantern",
+    "source_url": "https://darktide.gameslantern.com/builds/a0d305e9-3fb2-4179-b298-3b170bfdba76/ep-brain-burst-gun-psyker",
+    "author": "dopeslinker",
+    "scraped_at": "2026-04-22T16:12:06.398Z"
+  },
+  "ability": {
+    "raw_label": "Scrier's Gaze",
+    "canonical_entity_id": "psyker.ability.psyker_combat_ability_stance",
+    "resolution_status": "resolved"
+  },
+  "blitz": {
+    "raw_label": "Brain Rupture",
+    "canonical_entity_id": "psyker.ability.psyker_brain_burst_improved",
+    "resolution_status": "resolved"
+  },
+  "aura": {
+    "raw_label": "Kinetic Presence",
+    "canonical_entity_id": "psyker.aura.psyker_aura_damage_vs_elites",
+    "resolution_status": "resolved"
+  },
+  "keystone": {
+    "raw_label": "Empowered Psionics",
+    "canonical_entity_id": "psyker.keystone.psyker_empowered_ability",
+    "resolution_status": "resolved"
+  },
+  "talents": [
+    {
+      "raw_label": "Perfect Timing",
+      "canonical_entity_id": "psyker.talent.psyker_crits_empower_next_attack",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Kinetic Flayer",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_smite_on_hit",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Kinetic Resonance",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_ability_increase_brain_burst_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Precognition",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_overcharge_weakspot_kill_bonuses",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Psykinetic's Aura",
+      "canonical_entity_id": "psyker.talent.psyker_2_tier_3_name_2",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Malefic Momentum",
+      "canonical_entity_id": "psyker.talent.psyker_kills_stack_other_weapon_damage",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "One With the Warp",
+      "canonical_entity_id": "psyker.talent.psyker_warp_charge_reduces_toughness_damage_taken",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Empathic Evasion",
+      "canonical_entity_id": "psyker.talent.psyker_dodge_after_crits",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Rider",
+      "canonical_entity_id": "psyker.talent.psyker_damage_based_on_warp_charge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Kinetic Deflection",
+      "canonical_entity_id": "psyker.talent.psyker_block_costs_warp_charge",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Overpowering Souls",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_empowered_ability_on_elite_kills",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Charged Up",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_empowered_grenades_increased_max_stacks",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Unbound",
+      "canonical_entity_id": "psyker.talent_modifier.psyker_overcharge_stance_infinite_casting",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Lightning Speed",
+      "canonical_entity_id": "psyker.talent.psyker_melee_attack_speed",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "By Crack of Bone",
+      "canonical_entity_id": "psyker.talent.psyker_melee_weaving",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Expenditure 2",
+      "canonical_entity_id": "psyker.talent.psyker_toughness_on_melee",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 4",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Melee Damage Boost 10",
+      "canonical_entity_id": "shared.stat_node.melee_damage_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Stamina Boost",
+      "canonical_entity_id": "shared.stat_node.stamina_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Boost 5",
+      "canonical_entity_id": "shared.stat_node.toughness_boost",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Toughness Damage Reduction 4",
+      "canonical_entity_id": "shared.stat_node.toughness_damage_reduction",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Peril Resistance 4",
+      "canonical_entity_id": "shared.stat_node.peril_resistance",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Immaterial Focus",
+      "canonical_entity_id": "psyker.talent.psyker_damage_resistance_stun_immunity",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Vulnerable Minds",
+      "canonical_entity_id": "psyker.talent.psyker_damage_vs_ogryns_and_monsters",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Warp Ghost",
+      "canonical_entity_id": "psyker.talent.psyker_stat_mix",
+      "resolution_status": "resolved"
+    },
+    {
+      "raw_label": "Critical Chance Boost 3",
+      "canonical_entity_id": "shared.stat_node.critical_chance_boost",
+      "resolution_status": "resolved"
+    }
+  ],
+  "weapons": [
+    {
+      "slot": "melee",
+      "name": {
+        "raw_label": "Turtolsky Mk VI Heavy Sword",
+        "canonical_entity_id": "shared.weapon.combatsword_p3_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_berserker_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Deathblow",
+          "canonical_entity_id": "shared.name_family.blessing.brutal_momentum",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Headtaker",
+          "canonical_entity_id": "shared.name_family.blessing.increase_power_on_hit",
+          "resolution_status": "resolved"
+        }
+      ]
+    },
+    {
+      "slot": "ranged",
+      "name": {
+        "raw_label": "Ius Mk IV Shredder Autopistol",
+        "canonical_entity_id": "shared.weapon.autopistol_p1_m1",
+        "resolution_status": "resolved"
+      },
+      "perks": [
+        {
+          "raw_label": "10-25% Damage (Flak Armoured Enemies)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_armored_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "10-25% Damage (Maniacs)",
+          "canonical_entity_id": "shared.weapon_perk.ranged.weapon_trait_ranged_common_wield_increased_berserker_damage",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.1,
+            "max": 0.25,
+            "unit": "percent"
+          }
+        }
+      ],
+      "blessings": [
+        {
+          "raw_label": "Cavalcade",
+          "canonical_entity_id": "shared.name_family.blessing.stacking_crit_bonus_on_continuous_fire",
+          "resolution_status": "resolved"
+        },
+        {
+          "raw_label": "Inspiring Barrage",
+          "canonical_entity_id": "shared.name_family.blessing.inspiring_barrage",
+          "resolution_status": "resolved"
+        }
+      ]
+    }
+  ],
+  "curios": [
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+13-17% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.13,
+            "max": 0.17,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "raw_label": "Blessed Bullet",
+        "canonical_entity_id": null,
+        "resolution_status": "non_canonical"
+      },
+      "perks": [
+        {
+          "raw_label": "+17-21% Max Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.17,
+            "max": 0.21,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+4-10% Revive Speed (Ally)",
+          "canonical_entity_id": "shared.gadget_trait.gadget_revive_speed_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.04,
+            "max": 0.1,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Toughness",
+          "canonical_entity_id": "shared.gadget_trait.gadget_toughness_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        },
+        {
+          "raw_label": "+2-5% Health",
+          "canonical_entity_id": "shared.gadget_trait.gadget_health_increase",
+          "resolution_status": "resolved",
+          "value": {
+            "min": 0.02,
+            "max": 0.05,
+            "unit": "percent"
+          }
+        }
+      ]
+    }
+  ]
+}
