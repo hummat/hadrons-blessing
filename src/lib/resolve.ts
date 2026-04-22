@@ -303,8 +303,15 @@ async function resolveQuery(
   queryContext: unknown,
   _options: Record<string, unknown> = {},
 ): Promise<ResolveResult> {
+  return resolveQueryWithIndex(query, queryContext, await getIndex());
+}
+
+async function resolveQueryWithIndex(
+  query: string,
+  queryContext: unknown,
+  index: GroundTruthIndex,
+): Promise<ResolveResult> {
   const safeQueryContext = assertAllowedQueryContext(queryContext);
-  const index = await getIndex();
   const entitiesById = new Map<string, EntityBaseSchemaJson>(
     index.entities.map((entity) => [entity.id, entity]),
   );
@@ -450,4 +457,4 @@ async function resolveQuery(
   };
 }
 
-export { resolveQuery };
+export { resolveQuery, resolveQueryWithIndex };

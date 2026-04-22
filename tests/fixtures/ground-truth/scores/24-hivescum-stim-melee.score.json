@@ -3,8 +3,8 @@
   "class": "hive scum",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 27,
-  "letter_grade": "A",
+  "composite_score": 28,
+  "letter_grade": "B",
   "weapons": [
     {
       "name": "Catachan Mk VII \"Devil's Claw\" Sword",
@@ -301,6 +301,24 @@
       },
       "explanations": [
         "High-priority: 0/3 at damnation, 0/3 at auric"
+      ]
+    },
+    "survivability": {
+      "score": 1,
+      "breakdown": {
+        "score_index": 1.12,
+        "effective_hp_ratio": 1.04,
+        "state_toughness_ratio": 1.2,
+        "recovery_ratio": 1.2,
+        "effective_hp": 390,
+        "baseline_effective_hp": 375,
+        "coherency_one_ally_ratio": 1,
+        "melee_kill_recovery_ratio": 1.2
+      },
+      "explanations": [
+        "Effective HP x1.04 vs class baseline",
+        "Movement toughness x1.20 from dodge/slide states",
+        "Recovery x1.20 from coherency or melee-kill sustain"
       ]
     }
   },

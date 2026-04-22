@@ -17,6 +17,10 @@ export interface Scorecard {
   title?: string;
   letter_grade: string;
   composite_score: number;
+  bot_flags?: string[];
+  qualitative?: {
+    survivability?: unknown;
+  };
 }
 
 export interface GapAnalysisResult {
@@ -26,10 +30,20 @@ export interface GapAnalysisResult {
 }
 
 export interface ScoreDelta {
+  perk_optimality?: number | null;
+  curio_efficiency?: number | null;
   talent_coherence?: number | null;
   blessing_synergy?: number | null;
   role_coverage?: number | null;
+  breakpoint_relevance?: number | null;
+  difficulty_scaling?: number | null;
+  survivability?: number | null;
   composite?: number | null;
+}
+
+export interface BotFlagDelta {
+  added: string[];
+  removed: string[];
 }
 
 export interface SynergyEdge {
@@ -48,6 +62,7 @@ export interface SwapDeltaResult {
   valid: boolean;
   reason?: string;
   score_delta?: ScoreDelta;
+  bot_flag_delta?: BotFlagDelta;
   gained_edges?: SynergyEdge[];
   lost_edges?: SynergyEdge[];
   resolved_orphans?: string[];
@@ -71,11 +86,15 @@ export interface SwapMeta {
 export function formatGapsText(result: GapAnalysisResult): string {
   const lines: string[] = [];
   const sc = result.scorecard;
+  const compositeMax = sc.qualitative?.survivability != null ? 40 : 35;
 
   lines.push(`=== Gap Analysis: ${sc.title ?? "(unknown)"} ===`);
   lines.push("");
 
-  lines.push(`Grade: ${sc.letter_grade} (${sc.composite_score}/35)`);
+  lines.push(`Grade: ${sc.letter_grade} (${sc.composite_score}/${compositeMax})`);
+  if ((sc.bot_flags ?? []).length > 0) {
+    lines.push(`Bot Flags: ${(sc.bot_flags ?? []).join(", ")}`);
+  }
   lines.push("");
 
   if (result.gaps.length > 0) {
@@ -139,11 +158,28 @@ export function formatSwapText(result: SwapDeltaResult, meta: SwapMeta = {}): st
   // Score delta
   const d = result.score_delta ?? {};
   lines.push("Score Delta:");
+  lines.push(`  Perk Optimality:   ${formatDelta(d.perk_optimality)}`);
+  lines.push(`  Curio Efficiency:  ${formatDelta(d.curio_efficiency)}`);
   lines.push(`  Talent Coherence:  ${formatDelta(d.talent_coherence)}`);
   lines.push(`  Blessing Synergy:  ${formatDelta(d.blessing_synergy)}`);
   lines.push(`  Role Coverage:     ${formatDelta(d.role_coverage)}`);
+  lines.push(`  Breakpoints:       ${formatDelta(d.breakpoint_relevance)}`);
+  lines.push(`  Difficulty Scale:  ${formatDelta(d.difficulty_scaling)}`);
+  lines.push(`  Survivability:     ${formatDelta(d.survivability)}`);
   lines.push(`  Composite:         ${formatDelta(d.composite)}`);
   lines.push("");
+
+  const botDelta = result.bot_flag_delta;
+  if (botDelta && (botDelta.added.length > 0 || botDelta.removed.length > 0)) {
+    lines.push("Bot Flag Delta:");
+    if (botDelta.added.length > 0) {
+      lines.push(`  Added: ${botDelta.added.join(", ")}`);
+    }
+    if (botDelta.removed.length > 0) {
+      lines.push(`  Removed: ${botDelta.removed.join(", ")}`);
+    }
+    lines.push("");
+  }
 
   // Gained edges
   const gained = result.gained_edges ?? [];

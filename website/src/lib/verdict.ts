@@ -19,6 +19,7 @@ const QUALITATIVE_LABELS: Record<keyof ScorecardQualitative, string> = {
   role_coverage: "Role Coverage",
   breakpoint_relevance: "Breakpoint Relevance",
   difficulty_scaling: "Difficulty Scaling",
+  survivability: "Survivability",
 };
 
 // Below this fraction, the calc pipeline has simulated too few selections for

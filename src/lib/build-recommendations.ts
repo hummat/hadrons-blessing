@@ -3,8 +3,7 @@
 import { analyzeBuild } from "./synergy-model.js";
 import type { SynergyIndex, AnalyzeBuildResult, CoverageResult } from "./synergy-model.js";
 import type { SynergyEdge, OrphanEntry } from "./synergy-rules.js";
-import { scoreFromSynergy } from "./build-scoring.js";
-import { generateScorecard } from "./score-build.js";
+import { loadScorecardDeps, analyzeScorecard } from "./scorecard-deps.js";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -33,16 +32,27 @@ interface ReachabilityResult {
 }
 
 interface ScoreDelta {
-  talent_coherence: number;
-  blessing_synergy: number;
-  role_coverage: number;
-  composite: number;
+  perk_optimality: number | null;
+  curio_efficiency: number | null;
+  talent_coherence: number | null;
+  blessing_synergy: number | null;
+  role_coverage: number | null;
+  breakpoint_relevance: number | null;
+  difficulty_scaling: number | null;
+  survivability: number | null;
+  composite: number | null;
+}
+
+interface BotFlagDelta {
+  added: string[];
+  removed: string[];
 }
 
 interface SwapTalentResult {
   valid: boolean;
   reason?: string;
   score_delta?: ScoreDelta;
+  bot_flag_delta?: BotFlagDelta;
   gained_edges?: SynergyEdge[];
   lost_edges?: SynergyEdge[];
   resolved_orphans?: OrphanEntry[];
@@ -59,6 +69,7 @@ interface SwapWeaponResult {
   valid: boolean;
   reason?: string;
   score_delta?: ScoreDelta;
+  bot_flag_delta?: BotFlagDelta;
   blessing_impact?: BlessingImpact;
   gained_edges?: SynergyEdge[];
   lost_edges?: SynergyEdge[];
@@ -99,6 +110,8 @@ interface EdgeBase {
   [key: string]: unknown;
 }
 
+type ScorecardRecord = Record<string, unknown>;
+
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
@@ -118,6 +131,103 @@ const GAP_DESCRIPTORS: Record<string, GapDescriptor> = {
   },
 };
 
+const SCORE_DIMENSIONS = [
+  "perk_optimality",
+  "curio_efficiency",
+  "talent_coherence",
+  "blessing_synergy",
+  "role_coverage",
+  "breakpoint_relevance",
+  "difficulty_scaling",
+  "survivability",
+  "composite",
+] as const;
+
+function qualitativeScore(scorecard: ScorecardRecord, key: string): number | null {
+  const qualitative = scorecard.qualitative;
+  if (qualitative == null || typeof qualitative !== "object") {
+    return null;
+  }
+
+  const dimension = (qualitative as ScorecardRecord)[key];
+  if (dimension == null || typeof dimension !== "object") {
+    return null;
+  }
+
+  const score = (dimension as ScorecardRecord).score;
+  return typeof score === "number" ? score : null;
+}
+
+function scorecardDimensionScore(
+  scorecard: ScorecardRecord,
+  dimension: typeof SCORE_DIMENSIONS[number],
+): number | null {
+  switch (dimension) {
+    case "perk_optimality":
+    case "curio_efficiency": {
+      const value = scorecard[dimension];
+      return typeof value === "number" ? value : null;
+    }
+    case "composite": {
+      const value = scorecard.composite_score;
+      return typeof value === "number" ? value : null;
+    }
+    default:
+      return qualitativeScore(scorecard, dimension);
+  }
+}
+
+function computeScoreDelta(
+  before: ScorecardRecord,
+  after: ScorecardRecord,
+): ScoreDelta {
+  return {
+    perk_optimality: deltaForDimension(before, after, "perk_optimality"),
+    curio_efficiency: deltaForDimension(before, after, "curio_efficiency"),
+    talent_coherence: deltaForDimension(before, after, "talent_coherence"),
+    blessing_synergy: deltaForDimension(before, after, "blessing_synergy"),
+    role_coverage: deltaForDimension(before, after, "role_coverage"),
+    breakpoint_relevance: deltaForDimension(before, after, "breakpoint_relevance"),
+    difficulty_scaling: deltaForDimension(before, after, "difficulty_scaling"),
+    survivability: deltaForDimension(before, after, "survivability"),
+    composite: deltaForDimension(before, after, "composite"),
+  };
+}
+
+function deltaForDimension(
+  before: ScorecardRecord,
+  after: ScorecardRecord,
+  dimension: typeof SCORE_DIMENSIONS[number],
+): number | null {
+  const beforeScore = scorecardDimensionScore(before, dimension);
+  const afterScore = scorecardDimensionScore(after, dimension);
+  if (beforeScore == null || afterScore == null) {
+    return null;
+  }
+  return afterScore - beforeScore;
+}
+
+function computeBotFlagDelta(
+  before: ScorecardRecord,
+  after: ScorecardRecord,
+): BotFlagDelta {
+  const beforeFlags = new Set(
+    Array.isArray(before.bot_flags)
+      ? before.bot_flags.filter((flag): flag is string => typeof flag === "string")
+      : [],
+  );
+  const afterFlags = new Set(
+    Array.isArray(after.bot_flags)
+      ? after.bot_flags.filter((flag): flag is string => typeof flag === "string")
+      : [],
+  );
+
+  return {
+    added: [...afterFlags].filter((flag) => !beforeFlags.has(flag)),
+    removed: [...beforeFlags].filter((flag) => !afterFlags.has(flag)),
+  };
+}
+
 // ---------------------------------------------------------------------------
 // Gap analysis
 // ---------------------------------------------------------------------------
@@ -128,7 +238,14 @@ export function analyzeGaps(
   precomputed: Precomputed | null = null,
 ): GapAnalysisResult {
   const synergy = precomputed?.synergy ?? analyzeBuild(build as any, index);
-  const scorecard = precomputed?.scorecard ?? generateScorecard(build as Record<string, unknown>, synergy as any);
+  const scorecard = precomputed?.scorecard ?? analyzeScorecard(
+    build as ScorecardRecord,
+    loadScorecardDeps(),
+    {
+      index: index as unknown as ScorecardRecord,
+      synergyOutput: synergy as unknown as ScorecardRecord,
+    },
+  ).scorecard;
 
   const family_profile = synergy.coverage?.family_profile ?? {};
   const coverage_gaps = synergy.coverage?.coverage_gaps ?? [];
@@ -357,20 +474,23 @@ export function swapTalent(
 
   const originalSynergy = analyzeBuild(build as any, index);
   const modifiedSynergy = analyzeBuild(modifiedBuild as any, index);
-
-  const originalScores = scoreFromSynergy(originalSynergy as any);
-  const modifiedScores = scoreFromSynergy(modifiedSynergy as any);
-
-  const tcDelta = modifiedScores.talent_coherence.score - originalScores.talent_coherence.score;
-  const bsDelta = modifiedScores.blessing_synergy.score - originalScores.blessing_synergy.score;
-  const rcDelta = modifiedScores.role_coverage.score - originalScores.role_coverage.score;
-
-  const score_delta: ScoreDelta = {
-    talent_coherence: tcDelta,
-    blessing_synergy: bsDelta,
-    role_coverage: rcDelta,
-    composite: tcDelta + bsDelta + rcDelta,
-  };
+  const deps = loadScorecardDeps();
+  const originalScorecard = analyzeScorecard(
+    build as ScorecardRecord,
+    deps,
+    {
+      index: index as unknown as ScorecardRecord,
+      synergyOutput: originalSynergy as unknown as ScorecardRecord,
+    },
+  ).scorecard;
+  const modifiedScorecard = analyzeScorecard(
+    modifiedBuild as ScorecardRecord,
+    deps,
+    {
+      index: index as unknown as ScorecardRecord,
+      synergyOutput: modifiedSynergy as unknown as ScorecardRecord,
+    },
+  ).scorecard;
 
   const originalEdgeKeys = new Set(originalSynergy.synergy_edges.map(edgeKey));
   const modifiedEdgeKeys = new Set(modifiedSynergy.synergy_edges.map(edgeKey));
@@ -398,7 +518,8 @@ export function swapTalent(
 
   return {
     valid: true,
-    score_delta,
+    score_delta: computeScoreDelta(originalScorecard, modifiedScorecard),
+    bot_flag_delta: computeBotFlagDelta(originalScorecard, modifiedScorecard),
     gained_edges,
     lost_edges,
     resolved_orphans,
@@ -479,20 +600,23 @@ export function swapWeapon(
 
   const originalSynergy = analyzeBuild(build as any, index);
   const modifiedSynergy = analyzeBuild(modifiedBuild as any, index);
-
-  const originalScores = scoreFromSynergy(originalSynergy as any);
-  const modifiedScores = scoreFromSynergy(modifiedSynergy as any);
-
-  const tcDelta = modifiedScores.talent_coherence.score - originalScores.talent_coherence.score;
-  const bsDelta = modifiedScores.blessing_synergy.score - originalScores.blessing_synergy.score;
-  const rcDelta = modifiedScores.role_coverage.score - originalScores.role_coverage.score;
-
-  const score_delta: ScoreDelta = {
-    talent_coherence: tcDelta,
-    blessing_synergy: bsDelta,
-    role_coverage: rcDelta,
-    composite: tcDelta + bsDelta + rcDelta,
-  };
+  const deps = loadScorecardDeps();
+  const originalScorecard = analyzeScorecard(
+    build as ScorecardRecord,
+    deps,
+    {
+      index: index as unknown as ScorecardRecord,
+      synergyOutput: originalSynergy as unknown as ScorecardRecord,
+    },
+  ).scorecard;
+  const modifiedScorecard = analyzeScorecard(
+    modifiedBuild as ScorecardRecord,
+    deps,
+    {
+      index: index as unknown as ScorecardRecord,
+      synergyOutput: modifiedSynergy as unknown as ScorecardRecord,
+    },
+  ).scorecard;
 
   const originalEdgeKeys = new Set(originalSynergy.synergy_edges.map(edgeKey));
   const modifiedEdgeKeys = new Set(modifiedSynergy.synergy_edges.map(edgeKey));
@@ -506,7 +630,8 @@ export function swapWeapon(
 
   return {
     valid: true,
-    score_delta,
+    score_delta: computeScoreDelta(originalScorecard, modifiedScorecard),
+    bot_flag_delta: computeBotFlagDelta(originalScorecard, modifiedScorecard),
     blessing_impact,
     gained_edges,
     lost_edges,

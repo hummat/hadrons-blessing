@@ -3,7 +3,7 @@
   "class": "psyker",
   "perk_optimality": 5,
   "curio_efficiency": 3,
-  "composite_score": 31,
+  "composite_score": 34,
   "letter_grade": "A",
   "weapons": [
     {
@@ -301,6 +301,24 @@
       },
       "explanations": [
         "High-priority: 3/3 at damnation, 3/3 at auric"
+      ]
+    },
+    "survivability": {
+      "score": 3,
+      "breakdown": {
+        "score_index": 1.76,
+        "effective_hp_ratio": 1.306,
+        "state_toughness_ratio": 2.528,
+        "recovery_ratio": 1.9,
+        "effective_hp": 489.58,
+        "baseline_effective_hp": 375,
+        "coherency_one_ally_ratio": 1.9,
+        "melee_kill_recovery_ratio": 1.821
+      },
+      "explanations": [
+        "Effective HP x1.31 vs class baseline",
+        "Movement toughness x2.53 from dodge/slide states",
+        "Recovery x1.90 from coherency or melee-kill sustain"
       ]
     }
   },

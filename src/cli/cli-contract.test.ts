@@ -190,3 +190,36 @@ describe("CLI contract — score and calc output modes", () => {
     assert.notEqual(result.status, 0);
   });
 });
+
+describe("CLI contract — hb analyze", () => {
+  it("analyzes canonical build files without a source checkout", () => {
+    const result = runCli("src/cli/hb.ts", [
+      "analyze",
+      "data/builds/09-psyker-2026.json",
+    ]);
+
+    assert.equal(result.status, 0, `stderr: ${result.stderr}`);
+    assert.match(result.stdout, /Psyker Build 2026/);
+    assert.match(result.stdout, /Grade:/);
+    assert.match(result.stdout, /Input:/);
+  });
+
+  it("analyzes raw build files without a source checkout", () => {
+    const result = runCli("src/cli/hb.ts", [
+      "analyze",
+      "data/sample-build.json",
+      "--json",
+    ]);
+
+    assert.equal(result.status, 0, `stderr: ${result.stderr}`);
+    const parsed = JSON.parse(result.stdout);
+    assert.equal(parsed.input.kind, "raw_build");
+    assert.equal(parsed.build.schema_version, 1);
+    assert.equal(typeof parsed.scorecard.letter_grade, "string");
+  });
+
+  it("rejects unknown hb subcommands", () => {
+    const result = runCli("src/cli/hb.ts", ["bogus"]);
+    assert.notEqual(result.status, 0);
+  });
+});

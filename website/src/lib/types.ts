@@ -44,6 +44,7 @@ export interface BuildScores {
   role_coverage: number | null;
   breakpoint_relevance: number | null;
   difficulty_scaling: number | null;
+  survivability?: number | null;
 }
 
 export interface BuildSummary {
@@ -113,6 +114,7 @@ export interface ScorecardQualitative {
   breakpoint_relevance: DimensionScoreDetail | null;
   role_coverage: DimensionScoreDetail | null;
   difficulty_scaling: DimensionScoreDetail | null;
+  survivability?: DimensionScoreDetail | null;
 }
 
 export interface ScorecardDetail {

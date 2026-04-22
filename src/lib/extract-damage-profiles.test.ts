@@ -164,6 +164,47 @@ describe("profiles:build output", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_
     assert.ok(c.rending_boost_amount, "missing rending_boost_amount");
     assert.ok(c.default_armor_damage_modifier, "missing default_armor_damage_modifier");
   });
+
+  it("flamers expose a ranged action map", () => {
+    const flamer = data.action_maps.find(m => m.weapon_template === "flamer_p1_m1");
+    assert.ok(flamer, "missing flamer_p1_m1 action map");
+    assert.ok(Array.isArray(flamer.actions.shoot_hip), "flamer_p1_m1 missing shoot_hip action profiles");
+    assert.ok(flamer.actions.shoot_hip.length > 0, "flamer_p1_m1 shoot_hip should have at least one profile");
+  });
+
+  it("voidstrike staff exposes ranged projectile action maps", () => {
+    const staff = data.action_maps.find(m => m.weapon_template === "forcestaff_p4_m1");
+    assert.ok(staff, "missing forcestaff_p4_m1 action map");
+    assert.ok(Array.isArray(staff.actions.shoot_hip), "forcestaff_p4_m1 missing shoot_hip action profiles");
+    assert.ok(staff.actions.shoot_hip.length > 0, "forcestaff_p4_m1 shoot_hip should have at least one profile");
+    assert.ok(Array.isArray(staff.actions.shoot_charged), "forcestaff_p4_m1 missing shoot_charged action profiles");
+    assert.ok(staff.actions.shoot_charged.length > 0, "forcestaff_p4_m1 shoot_charged should have at least one profile");
+  });
+
+  it("grenadier gauntlet exposes ranged grenade action maps", () => {
+    const gauntlet = data.action_maps.find(m => m.weapon_template === "ogryn_gauntlet_p1_m1");
+    assert.ok(gauntlet, "missing ogryn_gauntlet_p1_m1 action map");
+    assert.ok(Array.isArray(gauntlet.actions.shoot_zoomed), "ogryn_gauntlet_p1_m1 missing shoot_zoomed action profiles");
+    assert.ok(gauntlet.actions.shoot_zoomed.length > 0, "ogryn_gauntlet_p1_m1 shoot_zoomed should have at least one profile");
+  });
+
+  it("rumbler exposes ranged grenade action maps", () => {
+    const rumbler = data.action_maps.find(m => m.weapon_template === "ogryn_thumper_p1_m2");
+    assert.ok(rumbler, "missing ogryn_thumper_p1_m2 action map");
+    assert.ok(Array.isArray(rumbler.actions.shoot_hip), "ogryn_thumper_p1_m2 missing shoot_hip action profiles");
+    assert.ok(rumbler.actions.shoot_hip.length > 0, "ogryn_thumper_p1_m2 shoot_hip should have at least one profile");
+    assert.ok(Array.isArray(rumbler.actions.shoot_zoomed), "ogryn_thumper_p1_m2 missing shoot_zoomed action profiles");
+    assert.ok(rumbler.actions.shoot_zoomed.length > 0, "ogryn_thumper_p1_m2 shoot_zoomed should have at least one profile");
+  });
+
+  it("ripperguns expose ranged shotshell action maps from family-local templates", () => {
+    const ripper = data.action_maps.find(m => m.weapon_template === "ogryn_rippergun_p1_m2");
+    assert.ok(ripper, "missing ogryn_rippergun_p1_m2 action map");
+    assert.ok(Array.isArray(ripper.actions.shoot_hip), "ogryn_rippergun_p1_m2 missing shoot_hip action profiles");
+    assert.ok(ripper.actions.shoot_hip.length > 0, "ogryn_rippergun_p1_m2 shoot_hip should have at least one profile");
+    assert.ok(Array.isArray(ripper.actions.shoot_zoomed), "ogryn_rippergun_p1_m2 missing shoot_zoomed action profiles");
+    assert.ok(ripper.actions.shoot_zoomed.length > 0, "ogryn_rippergun_p1_m2 shoot_zoomed should have at least one profile");
+  });
 });
 
 // ── Lua parser unit tests ─────────────────────────────────────────────
@@ -323,9 +364,71 @@ describe("extractProfilesFromAction", () => {
       actionBlock,
       new Map<string, string>(),
       shotshellMap,
+      new Map<string, string>(),
+      new Map<string, string>(),
       new Set(["shotgun_p4_m1"]),
     );
 
     assert.deepEqual(profiles, ["shotgun_p4_m1"]);
+  });
+
+  it("resolves flamer gas template references to damage profiles", () => {
+    const actionBlock = `{
+      kind = "flamer_gas_burst",
+      flamer_gas_template = FlamerGasTemplates.default_flamer_burst,
+    }`;
+
+    const profiles = extractProfilesFromAction(
+      actionBlock,
+      new Map<string, string>(),
+      new Map<string, string>(),
+      new Map<string, string>([
+        ["default_flamer_burst", "default_flamer_assault_burst"],
+      ]),
+      new Map<string, string>(),
+      new Set(["default_flamer_assault_burst"]),
+    );
+
+    assert.deepEqual(profiles, ["default_flamer_assault_burst"]);
+  });
+
+  it("resolves spawn_projectile charge templates to damage profiles", () => {
+    const actionBlock = `{
+      kind = "spawn_projectile",
+      charge_template = "forcestaff_p4_m1_projectile",
+    }`;
+
+    const profiles = extractProfilesFromAction(
+      actionBlock,
+      new Map<string, string>(),
+      new Map<string, string>(),
+      new Map<string, string>(),
+      new Map<string, string>([
+        ["forcestaff_p4_m1_projectile", "default_voidstrike_blast"],
+      ]),
+      new Set(["default_voidstrike_blast"]),
+    );
+
+    assert.deepEqual(profiles, ["default_voidstrike_blast"]);
+  });
+
+  it("resolves projectile template references to damage profiles", () => {
+    const actionBlock = `{
+      kind = "spawn_projectile",
+      projectile_template = ProjectileTemplates.force_staff_ball,
+    }`;
+
+    const profiles = extractProfilesFromAction(
+      actionBlock,
+      new Map<string, string>(),
+      new Map<string, string>(),
+      new Map<string, string>(),
+      new Map<string, string>([
+        ["force_staff_ball", "force_staff_ball"],
+      ]),
+      new Set(["force_staff_ball"]),
+    );
+
+    assert.deepEqual(profiles, ["force_staff_ball"]);
   });
 });

@@ -10,6 +10,7 @@ import {
   REPO_ROOT,
   listJsonFiles,
   loadJsonFile,
+  loadSourceSnapshotManifest,
 } from "./load.js";
 import { normalizeText } from "./normalize.js";
 import {
@@ -667,4 +668,51 @@ async function buildIndex(options: BuildIndexOptions = {}): Promise<GroundTruthI
   return index;
 }
 
-export { buildIndex };
+function buildRuntimeIndex(): GroundTruthIndex {
+  const sourceSnapshot = loadSourceSnapshotManifest() as SourceSnapshotInfo;
+
+  const entityShards = readShardDirectory<EntityBaseSchemaJson>(ENTITIES_ROOT);
+  const aliasShards = readShardDirectory<AliasSchemaJson>(ALIASES_ROOT);
+  const edgeShards = readShardDirectory<EdgeSchemaJson>(EDGES_ROOT);
+  const evidenceShards = readShardDirectory<EvidenceSchemaJson>(EVIDENCE_ROOT);
+
+  validateRecords(entityShards.records as any, validateEntityRecord, "entity");
+  validateRecords(edgeShards.records as any, validateEdgeRecord, "edge");
+  validateRecords(evidenceShards.records as any, validateEvidenceRecord, "evidence");
+
+  const aliases: AliasSchemaJson[] = [
+    ...aliasShards.records.map(normalizeAliasRecord),
+    ...materializeSyntheticAliases(entityShards.records),
+  ];
+  validateRecords(aliases as unknown as any, validateAliasRecord, "alias");
+
+  ensureUniqueIds(entityShards.records as any, "entity");
+  ensureUniqueIds(edgeShards.records as any, "edge");
+  ensureUniqueIds(evidenceShards.records as any, "evidence");
+
+  const index: GroundTruthIndex = {
+    meta: buildMeta({
+      shardFiles: {
+        entities: entityShards.files,
+        aliases: aliasShards.files,
+        edges: edgeShards.files,
+        evidence: evidenceShards.files,
+      },
+      sourceSnapshot,
+    }),
+    entities: entityShards.records,
+    aliases,
+    edges: edgeShards.records,
+    evidence: evidenceShards.records,
+  };
+
+  ensureRecordSnapshotIds(index.entities as any, "entity", sourceSnapshot.id);
+  ensureRecordSnapshotIds(index.edges as any, "edge", sourceSnapshot.id);
+  ensureRecordSnapshotIds(index.evidence as any, "evidence", sourceSnapshot.id);
+  ensureReferentialIntegrity(index);
+  detectUnsafeAliasCollisions(index.aliases);
+
+  return index;
+}
+
+export { buildIndex, buildRuntimeIndex };

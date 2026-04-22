@@ -3,8 +3,8 @@
   "class": "veteran",
   "perk_optimality": 5,
   "curio_efficiency": 3,
-  "composite_score": 27,
-  "letter_grade": "A",
+  "composite_score": 28,
+  "letter_grade": "B",
   "weapons": [
     {
       "name": "Catachan Mk VII \"Devil's Claw\" Sword",
@@ -301,6 +301,24 @@
       },
       "explanations": [
         "High-priority: 0/3 at damnation, 0/3 at auric"
+      ]
+    },
+    "survivability": {
+      "score": 1,
+      "breakdown": {
+        "score_index": 1.08,
+        "effective_hp_ratio": 1.032,
+        "state_toughness_ratio": 1.129,
+        "recovery_ratio": 1.128,
+        "effective_hp": 412.88,
+        "baseline_effective_hp": 400,
+        "coherency_one_ally_ratio": 1,
+        "melee_kill_recovery_ratio": 1.128
+      },
+      "explanations": [
+        "Effective HP x1.03 vs class baseline",
+        "Movement toughness x1.13 from dodge/slide states",
+        "Recovery x1.13 from coherency or melee-kill sustain"
       ]
     }
   },

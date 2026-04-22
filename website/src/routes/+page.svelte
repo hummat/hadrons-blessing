@@ -25,6 +25,7 @@
     role_coverage: "Rol",
     breakpoint_relevance: "BP",
     difficulty_scaling: "Scl",
+    survivability: "Sur",
   };
 
   const DIM_COLUMNS = DIMENSIONS.filter((d) => d.summary_key !== "composite").map((dimension) => ({
@@ -242,7 +243,7 @@
               </td>
               <td>
                 <span class="hb-ledger-score mono-num">
-                  {build.scores.composite}<span class="hb-ledger-score__max">/35</span>
+                  {build.scores.composite}<span class="hb-ledger-score__max">/40</span>
                 </span>
               </td>
               <td>

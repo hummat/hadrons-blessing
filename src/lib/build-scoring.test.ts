@@ -2,7 +2,7 @@
 import { describe, it } from "node:test";
 import { strict as assert } from "node:assert";
 import { readdirSync, readFileSync } from "node:fs";
-import { scoreFromSynergy, scoreFromCalculator } from "./build-scoring.js";
+import { scoreFromSynergy, scoreFromCalculator, scoreFromSurvivability } from "./build-scoring.js";
 import {
   scoreBreakpointRelevance,
   scoreCleaveRelevance,
@@ -11,6 +11,7 @@ import {
 import { generateScorecard } from "./score-build.js";
 import { analyzeBuild, loadIndex } from "./synergy-model.js";
 import { loadCalculatorData, computeBreakpoints } from "./damage-calculator.js";
+import { computeSurvivability } from "./toughness-calculator.js";
 
 const HAS_SOURCE = !!process.env.GROUND_TRUTH_SOURCE_ROOT;
 
@@ -372,12 +373,30 @@ describe("golden score snapshots", { skip: !HAS_SOURCE && "requires GROUND_TRUTH
       const build = JSON.parse(readFileSync(`data/builds/${buildFile}`, "utf-8"));
       const synergy = analyzeBuild(build, index);
       const calcOutput = { matrix: computeBreakpoints(build, index, calcData) };
-      const actual = generateScorecard(build, synergy, calcOutput);
+      const survivabilityOutput = {
+        profile: computeSurvivability(build, index, { difficulty: "damnation" }),
+        baseline: computeSurvivability(
+          {
+            class: build.class,
+            ability: null,
+            blitz: null,
+            aura: null,
+            keystone: null,
+            talents: [],
+            weapons: [],
+            curios: [],
+          },
+          index,
+          { difficulty: "damnation" },
+        ),
+      };
+      const actual = generateScorecard(build, synergy, calcOutput, survivabilityOutput);
 
       // Compare qualitative scores
       assert.equal(actual.qualitative.talent_coherence.score, expected.qualitative.talent_coherence.score);
       assert.equal(actual.qualitative.blessing_synergy.score, expected.qualitative.blessing_synergy.score);
       assert.equal(actual.qualitative.role_coverage.score, expected.qualitative.role_coverage.score);
+      assert.equal(actual.qualitative.survivability.score, expected.qualitative.survivability.score);
       assert.equal(actual.composite_score, expected.composite_score);
       assert.equal(actual.letter_grade, expected.letter_grade);
 
@@ -553,6 +572,67 @@ describe("scoreFromCalculator", () => {
   });
 });
 
+describe("scoreFromSurvivability", () => {
+  it("scores low for near-baseline survivability", () => {
+    const result = scoreFromSurvivability(makeSurvivabilityOutput({
+      profile: {
+        effective_hp: 420,
+        state_effective_toughness: { dodging: 210, sliding: 210 },
+        coherency_one_ally: 2.5,
+        melee_kill_recovery: 5.5,
+      },
+      baseline: {
+        effective_hp: 400,
+        state_effective_toughness: { dodging: 200, sliding: 200 },
+        coherency_one_ally: 2.5,
+        melee_kill_recovery: 5,
+      },
+    }));
+
+    assert.equal(result.score, 1);
+    assert.ok(result.breakdown.effective_hp_ratio < 1.1);
+  });
+
+  it("scores high for strong class-relative durability, mobility, and recovery", () => {
+    const result = scoreFromSurvivability(makeSurvivabilityOutput({
+      profile: {
+        effective_hp: 1200,
+        state_effective_toughness: { dodging: 700, sliding: 650 },
+        coherency_one_ally: 5,
+        melee_kill_recovery: 18,
+      },
+      baseline: {
+        effective_hp: 400,
+        state_effective_toughness: { dodging: 200, sliding: 200 },
+        coherency_one_ally: 2.5,
+        melee_kill_recovery: 5,
+      },
+    }));
+
+    assert.equal(result.score, 5);
+    assert.ok(result.breakdown.score_index >= 2.3);
+  });
+
+  it("returns null when survivability baseline is unusable", () => {
+    const result = scoreFromSurvivability(makeSurvivabilityOutput({
+      profile: {
+        effective_hp: 500,
+        state_effective_toughness: { dodging: 250, sliding: 250 },
+        coherency_one_ally: 3,
+        melee_kill_recovery: 6,
+      },
+      baseline: {
+        effective_hp: 0,
+        state_effective_toughness: { dodging: 0, sliding: 0 },
+        coherency_one_ally: 0,
+        melee_kill_recovery: 0,
+      },
+    }));
+
+    assert.equal(result, null);
+  });
+});
+
 // ── Matrix test helpers ────────────────────────────────────────────
 
 function makeMinimalBuild() {
@@ -652,6 +732,67 @@ function makeMatrixWithDifficulties({ breeds, damnationHTK, auricHTK }) {
       summary: { bestLight: null, bestHeavy: null, bestSpecial: null },
     }],
     metadata: { quality: 0.8, scenarios, timestamp: "2026-01-01T00:00:00Z" },
+  };
+}
+
+function makeSurvivabilityOutput({
+  profile,
+  baseline,
+}: {
+  profile: {
+    effective_hp: number;
+    state_effective_toughness: Record<string, number>;
+    coherency_one_ally: number;
+    melee_kill_recovery: number;
+  };
+  baseline: {
+    effective_hp: number;
+    state_effective_toughness: Record<string, number>;
+    coherency_one_ally: number;
+    melee_kill_recovery: number;
+  };
+}) {
+  const buildProfile = (
+    effective_hp: number,
+    state_effective_toughness: Record<string, number>,
+    coherency_one_ally: number,
+    melee_kill_recovery: number,
+  ) => ({
+    effective_hp,
+    state_modifiers: Object.fromEntries(
+      Object.entries(state_effective_toughness).map(([state, toughness]) => [
+        state,
+        { tdr: 0, damage_multiplier: 1, effective_toughness: toughness },
+      ]),
+    ),
+    toughness_regen: {
+      base_rate: 5,
+      modified_rate: 5,
+      delay_seconds: 1.5,
+      coherency: {
+        solo: 0,
+        one_ally: coherency_one_ally,
+        two_allies: coherency_one_ally * 1.5,
+        three_allies: coherency_one_ally * 2,
+      },
+      melee_kill_recovery_percent: 0.05,
+      melee_kill_recovery,
+    },
+  });
+
+  return {
+    profile: buildProfile(
+      profile.effective_hp,
+      profile.state_effective_toughness,
+      profile.coherency_one_ally,
+      profile.melee_kill_recovery,
+    ),
+    baseline: buildProfile(
+      baseline.effective_hp,
+      baseline.state_effective_toughness,
+      baseline.coherency_one_ally,
+      baseline.melee_kill_recovery,
+    ),
   };
 }
 

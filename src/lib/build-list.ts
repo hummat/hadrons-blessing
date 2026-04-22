@@ -25,6 +25,7 @@ export interface BuildScores {
   role_coverage: number | null;
   breakpoint_relevance: number | null;
   difficulty_scaling: number | null;
+  survivability: number | null;
 }
 
 export interface BuildSummary {
@@ -60,6 +61,7 @@ const VALID_SORT_KEYS = new Set([
   "role_coverage",
   "breakpoint_relevance",
   "difficulty_scaling",
+  "survivability",
 ]);
 
 // ---------------------------------------------------------------------------
@@ -100,6 +102,7 @@ function buildSummaryFromScorecard(file: string, build: AnyRecord, scorecard: An
     role_coverage: dimensionScore(qualitative, "role_coverage"),
     breakpoint_relevance: dimensionScore(qualitative, "breakpoint_relevance"),
     difficulty_scaling: dimensionScore(qualitative, "difficulty_scaling"),
+    survivability: dimensionScore(qualitative, "survivability"),
   };
 
   const weapons: WeaponSummary[] = ((scorecard.weapons as AnyRecord[]) ?? []).map((w) => ({
@@ -129,6 +132,7 @@ function scoreSortValue(summary: BuildSummary, key: string): number | null {
     case "role_coverage": return summary.scores.role_coverage;
     case "breakpoint_relevance": return summary.scores.breakpoint_relevance;
     case "difficulty_scaling": return summary.scores.difficulty_scaling;
+    case "survivability": return summary.scores.survivability;
     default: return null;
   }
 }

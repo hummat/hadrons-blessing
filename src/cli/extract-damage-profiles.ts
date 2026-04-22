@@ -100,12 +100,23 @@ await runCliMain("profiles:build", async () => {
   // -- Phase 4: Parse projectile templates for ranged profile resolution ------
   const hitscanMap = parseAllHitscanTemplates(sourceRoot);
   const shotshellMap = parseAllShotshellTemplates(sourceRoot);
+  const flamerGasMap = parseAllFlamerGasTemplates(sourceRoot);
+  const projectileMap = parseAllProjectileTemplates(sourceRoot);
   console.log(`Parsed ${hitscanMap.size} hitscan templates`);
   console.log(`Parsed ${shotshellMap.size} shotshell templates`);
+  console.log(`Parsed ${flamerGasMap.size} flamer gas templates`);
+  console.log(`Parsed ${projectileMap.size} projectile templates`);
 
   // -- Phase 5: Parse weapon templates for action -> profile mapping -----------
   const profileIds = new Set(profiles.map((p) => p.id));
-  const actionMaps = parseAllWeaponTemplates(sourceRoot, hitscanMap, shotshellMap, profileIds);
+  const actionMaps = parseAllWeaponTemplates(
+    sourceRoot,
+    hitscanMap,
+    shotshellMap,
+    flamerGasMap,
+    projectileMap,
+    profileIds,
+  );
   actionMaps.sort((a, b) => a.weapon_template.localeCompare(b.weapon_template));
   console.log(`Parsed ${actionMaps.length} weapon action maps`);
 
@@ -1538,6 +1549,25 @@ function parseHitscanFile(lua: string, map: AnyRecord) {
  */
 function parseAllShotshellTemplates(sourceRoot: string) {
   const map = new Map();
+  const weaponBaseDir = join(sourceRoot, "scripts", "settings", "equipment", "weapon_templates");
+  for (const family of WEAPON_FAMILIES) {
+    const settingsDir = join(weaponBaseDir, family, "settings_templates");
+    if (!existsSync(settingsDir)) continue;
+    try {
+      const files = readdirSync(settingsDir)
+        .filter((f) => f.endsWith("_shotshell_templates.lua"))
+        .sort();
+      for (const f of files) {
+        const lua = readFileSync(join(settingsDir, f), "utf8");
+        parseShotshellFile(lua, map);
+      }
+    } catch (err: unknown) {
+      if ((err as NodeJS.ErrnoException).code !== "ENOENT") {
+        console.warn(`Warning: failed to read shotshell dir ${settingsDir}: ${(err as Error).message}`);
+      }
+    }
+  }
+
   const mainPath = join(sourceRoot, "scripts", "settings", "projectile", "shotshell_templates.lua");
   if (!existsSync(mainPath)) {
     return map;
@@ -1571,6 +1601,100 @@ function parseShotshellFile(lua: string, map: AnyRecord) {
   }
 }
 
+/**
+ * Parse flamer gas template files to build a map of template name -> damage profile name.
+ *
+ * @param {string} sourceRoot
+ * @returns {Map<string, string>} flamerGasName -> damageProfileName
+ */
+function parseAllFlamerGasTemplates(sourceRoot: string) {
+  const map = new Map();
+  const path = join(sourceRoot, "scripts", "settings", "projectile", "flamer_gas_templates.lua");
+  if (!existsSync(path)) {
+    return map;
+  }
+
+  const lua = readFileSync(path, "utf8");
+  const directRe = /flamer_gas_templates\.(\w+)\s*=\s*\{/g;
+  let m;
+  while ((m = directRe.exec(lua)) !== null) {
+    const name = m[1];
+    const braceStart = m.index + m[0].length - 1;
+    const braceEnd = findBalancedBrace(lua, braceStart);
+    if (braceEnd === -1) continue;
+
+    const block = lua.slice(braceStart, braceEnd + 1);
+    const profileMatch = block.match(/damage_profile\s*=\s*DamageProfileTemplates\.(\w+)/);
+    if (profileMatch) {
+      map.set(name, profileMatch[1]);
+    }
+  }
+
+  return map;
+}
+
+/**
+ * Parse projectile template files to build a map of projectile name -> damage profile name.
+ *
+ * @param {string} sourceRoot
+ * @returns {Map<string, string>} projectileName -> damageProfileName
+ */
+function parseAllProjectileTemplates(sourceRoot: string) {
+  const map = new Map();
+  const projectileDir = join(sourceRoot, "scripts", "settings", "projectile");
+  const candidateFiles = [
+    "player_projectile_templates.lua",
+    "minion_projectile_templates.lua",
+  ];
+
+  for (const filename of candidateFiles) {
+    const path = join(projectileDir, filename);
+    if (!existsSync(path)) continue;
+    const lua = readFileSync(path, "utf8");
+    parseProjectileFile(lua, map);
+  }
+
+  return map;
+}
+
+/**
+ * Parse a single projectile template file.
+ *
+ * @param {string} lua
+ * @param {Map<string, string>} map
+ */
+function parseProjectileFile(lua: string, map: AnyRecord) {
+  const directRe = /projectile_templates\.(\w+)\s*=\s*\{/g;
+  let m;
+  while ((m = directRe.exec(lua)) !== null) {
+    const name = m[1];
+    const braceStart = m.index + m[0].length - 1;
+    const braceEnd = findBalancedBrace(lua, braceStart);
+    if (braceEnd === -1) continue;
+
+    const block = lua.slice(braceStart, braceEnd + 1);
+    const profileMatch = block.match(/damage_profile\s*=\s*DamageProfileTemplates\.(\w+)/);
+    if (profileMatch) {
+      map.set(name, profileMatch[1]);
+    }
+  }
+
+  const cloneRe = /projectile_templates\.(\w+)\s*=\s*table\.clone_instance\(projectile_templates\.(\w+)\)/g;
+  while ((m = cloneRe.exec(lua)) !== null) {
+    const name = m[1];
+    const parent = m[2];
+    if (map.has(parent) && !map.has(name)) {
+      map.set(name, map.get(parent));
+    }
+  }
+
+  const assignmentRe =
+    /^projectile_templates\.(\w+)\.damage\.impact\.damage_profile\s*=\s*DamageProfileTemplates\.(\w+)/gm;
+  while ((m = assignmentRe.exec(lua)) !== null) {
+    map.set(m[1], m[2]);
+  }
+}
+
 // -- Phase 5: Weapon action maps ----------------------------------------------
 
 /**
@@ -1582,7 +1706,14 @@ function parseShotshellFile(lua: string, map: AnyRecord) {
  * @param {Set<string>} profileIds
  * @returns {object[]}
  */
-function parseAllWeaponTemplates(sourceRoot: string, hitscanMap: AnyRecord, shotshellMap: AnyRecord, profileIds: Set<string>) {
+function parseAllWeaponTemplates(
+  sourceRoot: string,
+  hitscanMap: AnyRecord,
+  shotshellMap: AnyRecord,
+  flamerGasMap: AnyRecord,
+  projectileMap: AnyRecord,
+  profileIds: Set<string>,
+) {
   const actionMaps = [];
   const weaponBaseDir = join(sourceRoot, "scripts", "settings", "equipment", "weapon_templates");
 
@@ -1607,7 +1738,14 @@ function parseAllWeaponTemplates(sourceRoot: string, hitscanMap: AnyRecord, shot
     for (const f of weaponFiles) {
       const lua = readFileSync(join(familyDir, f), "utf8");
       const weaponName = f.replace(".lua", "");
-      const actions = parseWeaponActions(lua, hitscanMap, shotshellMap, profileIds);
+      const actions = parseWeaponActions(
+        lua,
+        hitscanMap,
+        shotshellMap,
+        flamerGasMap,
+        projectileMap,
+        profileIds,
+      );
       if (Object.keys(actions).length > 0) {
         actionMaps.push({
           weapon_template: weaponName,
@@ -1632,7 +1770,14 @@ function parseAllWeaponTemplates(sourceRoot: string, hitscanMap: AnyRecord, shot
  * @param {Set<string>} profileIds
  * @returns {Record<string, string[]>}
  */
-function parseWeaponActions(lua: string, hitscanMap: AnyRecord, shotshellMap: AnyRecord, profileIds: Set<string>) {
+function parseWeaponActions(
+  lua: string,
+  hitscanMap: AnyRecord,
+  shotshellMap: AnyRecord,
+  flamerGasMap: AnyRecord,
+  projectileMap: AnyRecord,
+  profileIds: Set<string>,
+) {
   const result: AnyRecord = {};
 
   // Find weapon_template.actions block
@@ -1660,10 +1805,17 @@ function parseWeaponActions(lua: string, hitscanMap: AnyRecord, shotshellMap: An
     if (actionBraceEnd === -1) continue;
 
     const actionBlock = actionsBlock.slice(actionBraceStart, actionBraceEnd + 1);
-    const profiles = extractProfilesFromAction(actionBlock, hitscanMap, shotshellMap, profileIds);
+    const profiles = extractProfilesFromAction(
+      actionBlock,
+      hitscanMap,
+      shotshellMap,
+      flamerGasMap,
+      projectileMap,
+      profileIds,
+    );
 
     if (profiles.length > 0) {
-      const category = classifyAction(actionName);
+      const category = classifyAction(actionName, actionBlock);
       if (!result[category]) {
         result[category] = [];
       }
@@ -1691,6 +1843,8 @@ export function extractProfilesFromAction(
   actionBlock: string,
   hitscanMap: AnyRecord,
   shotshellMap: AnyRecord,
+  flamerGasMap: AnyRecord,
+  projectileMap: AnyRecord,
   profileIds: Set<string>,
 ) {
   const profiles: string[] = [];
@@ -1736,6 +1890,32 @@ export function extractProfilesFromAction(
     }
   }
 
+  // Flamer gas template reference (flamers, inferno staff)
+  const flamerGasRe = /flamer_gas_template\s*=\s*FlamerGasTemplates\.(\w+)/g;
+  while ((m = flamerGasRe.exec(actionBlock)) !== null) {
+    const profileName = flamerGasMap.get(m[1]);
+    if (profileName && profileIds.has(profileName) && !profiles.includes(profileName)) {
+      profiles.push(profileName);
+    }
+  }
+
+  // Projectile charge template reference (force staves, grenade launchers)
+  const chargeTemplateRe = /charge_template\s*=\s*"([\w_]+)"/g;
+  while ((m = chargeTemplateRe.exec(actionBlock)) !== null) {
+    const profileName = projectileMap.get(m[1]);
+    if (profileName && profileIds.has(profileName) && !profiles.includes(profileName)) {
+      profiles.push(profileName);
+    }
+  }
+
+  const projectileTemplateRe = /projectile(?:_template)?\s*=\s*ProjectileTemplates\.(\w+)/g;
+  while ((m = projectileTemplateRe.exec(actionBlock)) !== null) {
+    const profileName = projectileMap.get(m[1]);
+    if (profileName && profileIds.has(profileName) && !profiles.includes(profileName)) {
+      profiles.push(profileName);
+    }
+  }
+
   return profiles;
 }
 
@@ -1745,12 +1925,25 @@ export function extractProfilesFromAction(
  * @param {string} actionName
  * @returns {string}
  */
-function classifyAction(actionName: string) {
+function classifyAction(actionName: string, actionBlock = "") {
+  const kind = actionBlock.match(/\bkind\s*=\s*"([^"]+)"/)?.[1] ?? "";
+
   // Ranged shoot actions
   if (actionName.includes("shoot_hip") || actionName === "action_shoot") return "shoot_hip";
   if (actionName.includes("shoot_zoomed") || actionName.includes("zoom_shoot")) return "shoot_zoomed";
   if (actionName.includes("shoot_braced") || actionName.includes("braced_shoot")) return "shoot_braced";
   if (actionName.includes("charge_shoot") || actionName.includes("shoot_charged") || actionName.includes("charged_shoot")) return "shoot_charged";
+  if (kind === "shoot_pellets") {
+    return actionName.includes("zoomed") ? "shoot_zoomed" : "shoot_hip";
+  }
+  if (kind === "spawn_projectile") {
+    if (actionName.includes("charge") || actionName.includes("charged") || actionName.includes("heavy")) {
+      return "shoot_charged";
+    }
+    if (actionName.includes("zoomed")) return "shoot_zoomed";
+    return "shoot_hip";
+  }
+  if (kind === "flamer_gas" || kind === "flamer_gas_burst") return "shoot_hip";
 
   // Push followup (must check before "light" — action_pushfollow_light would match "light" first)
   if (actionName.includes("pushfollow")) return "push_followup";

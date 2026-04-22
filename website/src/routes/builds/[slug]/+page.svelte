@@ -325,6 +325,7 @@
         use:compositePortal
         class="hover-card ready hover-card--arrow-top"
         role="dialog"
+        tabindex="-1"
         aria-label={compositeHoverCard.title}
         style={`top: ${compositeTop}px; left: ${compositeLeft}px;`}
         onmouseenter={() => { if (compositeLeaveTimer) { clearTimeout(compositeLeaveTimer); compositeLeaveTimer = null; } }}
@@ -768,7 +769,7 @@
   <section class="hb-reveal d6">
     <div class="hb-provenance">
       <span><span class="k">class:</span>{data.detail.summary.class}</span>
-      <span><span class="k">grade:</span>{data.detail.summary.scores.grade} · {composite}/35</span>
+      <span><span class="k">grade:</span>{data.detail.summary.scores.grade} · {composite}/40</span>
       <span><span class="k">entities:</span>{data.detail.synergy.metadata.entities_analyzed}</span>
       <span><span class="k">coverage:</span>{formatCoverageFraction(data.detail.synergy.metadata.calc_coverage_pct)}</span>
       <span><span class="k">resolver:</span>Aussiemon/Darktide-Source-Code</span>

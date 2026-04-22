@@ -3,7 +3,7 @@
   "class": "arbites",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 33,
+  "composite_score": 36,
   "letter_grade": "S",
   "weapons": [
     {
@@ -300,6 +300,24 @@
       },
       "explanations": [
         "High-priority: 3/3 at damnation, 3/3 at auric"
+      ]
+    },
+    "survivability": {
+      "score": 3,
+      "breakdown": {
+        "score_index": 1.578,
+        "effective_hp_ratio": 1.18,
+        "state_toughness_ratio": 2.083,
+        "recovery_ratio": 1.87,
+        "effective_hp": 566.61,
+        "baseline_effective_hp": 480,
+        "coherency_one_ally_ratio": 1,
+        "melee_kill_recovery_ratio": 1.87
+      },
+      "explanations": [
+        "Effective HP x1.18 vs class baseline",
+        "Movement toughness x2.08 from dodge/slide states",
+        "Recovery x1.87 from coherency or melee-kill sustain"
       ]
     }
   },

@@ -1,8 +1,17 @@
 {
   "name": "hadrons-blessing",
   "version": "0.1.0",
-  "description": "Source-backed Darktide entity resolution and build audit CLI.",
-  "main": "index.js",
+  "description": "Darktide build analysis CLI and library.",
+  "main": "dist/lib/index.js",
+  "bin": {
+    "hb": "dist/cli/hb.js"
+  },
+  "files": [
+    "dist",
+    "data",
+    "README.md",
+    "LICENSE"
+  ],
   "directories": {
     "doc": "docs",
     "test": "tests"
@@ -33,6 +42,7 @@
     "profiles:build": "node dist/cli/extract-damage-profiles.js",
     "stagger:build": "node dist/cli/extract-stagger-settings.js",
     "report": "node dist/cli/report-build.js",
+    "analyze": "node dist/cli/hb.js analyze",
     "export:bot-weapons": "node dist/cli/export-bot-weapons.js",
     "betterbots:sync": "node dist/cli/sync-betterbots.js",
     "synergy": "node dist/cli/analyze-synergy.js",
@@ -71,11 +81,13 @@
     "url": "https://github.com/hummat/hadrons-blessing/issues"
   },
   "homepage": "https://github.com/hummat/hadrons-blessing#readme",
+  "dependencies": {
+    "ajv": "^8.18.0",
+    "playwright": "^1.58.2"
+  },
   "devDependencies": {
     "@types/node": "^25.5.0",
-    "ajv": "^8.18.0",
     "json-schema-to-typescript": "^15.0.4",
-    "playwright": "^1.58.2",
     "tsx": "^4.21.0",
     "typescript": "^6.0.2"
   }

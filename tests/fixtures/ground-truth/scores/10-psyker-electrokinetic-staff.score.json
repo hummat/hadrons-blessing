@@ -3,8 +3,8 @@
   "class": "psyker",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 32,
-  "letter_grade": "S",
+  "composite_score": 35,
+  "letter_grade": "A",
   "weapons": [
     {
       "name": "Catachan Mk VI Combat Blade",
@@ -301,6 +301,24 @@
       "explanations": [
         "High-priority: 3/3 at damnation, 2/3 at auric",
         "Degrades at auric: Two-hit Crusher"
+      ]
+    },
+    "survivability": {
+      "score": 3,
+      "breakdown": {
+        "score_index": 1.672,
+        "effective_hp_ratio": 1.297,
+        "state_toughness_ratio": 2.485,
+        "recovery_ratio": 1.611,
+        "effective_hp": 486.34,
+        "baseline_effective_hp": 375,
+        "coherency_one_ally_ratio": 1,
+        "melee_kill_recovery_ratio": 1.611
+      },
+      "explanations": [
+        "Effective HP x1.30 vs class baseline",
+        "Movement toughness x2.48 from dodge/slide states",
+        "Recovery x1.61 from coherency or melee-kill sustain"
       ]
     }
   },
