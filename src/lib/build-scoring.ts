@@ -40,6 +40,20 @@ interface CalcOutput {
   matrix: BreakpointMatrix;
 }
 
+interface SurvivabilityProfile {
+  effective_hp: number;
+  state_modifiers: Record<string, { effective_toughness: number }>;
+  toughness_regen: {
+    coherency: Record<string, number>;
+    melee_kill_recovery: number;
+  };
+}
+
+interface SurvivabilityOutput {
+  profile: SurvivabilityProfile;
+  baseline: SurvivabilityProfile;
+}
+
 // ---------------------------------------------------------------------------
 // classifySelection
 // ---------------------------------------------------------------------------
@@ -418,5 +432,101 @@ export function scoreFromCalculator(calcOutput: CalcOutput): {
   return {
     breakpoint_relevance: scoreBreakpointRelevance(calcOutput.matrix as any),
     difficulty_scaling: scoreDifficultyScaling(calcOutput.matrix as any),
+  };
+}
+
+function safeRatio(value: number, baseline: number): number | null {
+  if (!Number.isFinite(value) || !Number.isFinite(baseline) || baseline <= 0) {
+    return null;
+  }
+  return value / baseline;
+}
+
+function cappedRatio(value: number | null): number {
+  if (value == null || !Number.isFinite(value)) {
+    return 1;
+  }
+  return Math.min(Math.max(value, 0), 3);
+}
+
+function average(values: number[]): number {
+  if (values.length === 0) {
+    return 1;
+  }
+  return values.reduce((sum, value) => sum + value, 0) / values.length;
+}
+
+export function scoreFromSurvivability(
+  survivabilityOutput: SurvivabilityOutput,
+): DimensionScore | null {
+  const { profile, baseline } = survivabilityOutput;
+
+  const effectiveHpRatio = safeRatio(profile.effective_hp, baseline.effective_hp);
+  const dodgeRatio = safeRatio(
+    profile.state_modifiers.dodging?.effective_toughness ?? 0,
+    baseline.state_modifiers.dodging?.effective_toughness ?? 0,
+  );
+  const slideRatio = safeRatio(
+    profile.state_modifiers.sliding?.effective_toughness ?? 0,
+    baseline.state_modifiers.sliding?.effective_toughness ?? 0,
+  );
+  const movementRatios = [dodgeRatio, slideRatio].filter((value): value is number => value != null);
+  const stateToughnessRatio = average(movementRatios);
+  const coherencyRatio = safeRatio(
+    profile.toughness_regen.coherency.one_ally ?? 0,
+    baseline.toughness_regen.coherency.one_ally ?? 0,
+  );
+  const meleeRecoveryRatio = safeRatio(
+    profile.toughness_regen.melee_kill_recovery,
+    baseline.toughness_regen.melee_kill_recovery,
+  );
+  const recoveryRatio = Math.max(
+    coherencyRatio ?? 0,
+    meleeRecoveryRatio ?? 0,
+  );
+
+  if (effectiveHpRatio == null) {
+    return null;
+  }
+
+  const scoreIndex =
+    0.5 * cappedRatio(effectiveHpRatio)
+    + 0.25 * cappedRatio(stateToughnessRatio)
+    + 0.25 * cappedRatio(recoveryRatio);
+
+  let score: number;
+  if (scoreIndex >= 2.3) {
+    score = 5;
+  } else if (scoreIndex >= 1.8) {
+    score = 4;
+  } else if (scoreIndex >= 1.45) {
+    score = 3;
+  } else if (scoreIndex >= 1.15) {
+    score = 2;
+  } else {
+    score = 1;
+  }
+
+  const explanations = [
+    `Effective HP x${effectiveHpRatio.toFixed(2)} vs class baseline`,
+    `Movement toughness x${stateToughnessRatio.toFixed(2)} from dodge/slide states`,
+    `Recovery x${recoveryRatio.toFixed(2)} from coherency or melee-kill sustain`,
+  ];
+
+  return {
+    score,
+    breakdown: {
+      score_index: Math.round(scoreIndex * 1000) / 1000,
+      effective_hp_ratio: Math.round(effectiveHpRatio * 1000) / 1000,
+      state_toughness_ratio: Math.round(stateToughnessRatio * 1000) / 1000,
+      recovery_ratio: Math.round(recoveryRatio * 1000) / 1000,
+      effective_hp: profile.effective_hp,
+      baseline_effective_hp: baseline.effective_hp,
+      coherency_one_ally_ratio:
+        coherencyRatio != null ? Math.round(coherencyRatio * 1000) / 1000 : null,
+      melee_kill_recovery_ratio:
+        meleeRecoveryRatio != null ? Math.round(meleeRecoveryRatio * 1000) / 1000 : null,
+    },
+    explanations,
   };
 }

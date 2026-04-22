@@ -2,7 +2,7 @@
 
 BetterBots capability baseline: shipped status as of 2026-04-22
 
-7 dimensions, each scored 1-5, total /35. Mechanical dimensions (1, 4, 5) can be automated; qualitative dimensions (2, 3, 6, 7) require human judgment.
+8 dimensions, each scored 1-5, total /40. Mechanical and calculator-backed dimensions are automated; qualitative dimensions remain judgment calls where source data is incomplete.
 
 ## Dimension Scales
 
@@ -90,15 +90,27 @@ How well does the build perform as difficulty increases?
 | 4 | Comfortable at Havoc 30, viable at 40 with competent play. Most modifiers manageable. |
 | 5 | Proven Havoc 40, handles all modifiers. Sustain and damage scale with enemy density rather than against it. |
 
+### 8. Survivability (Calculator-Derived)
+
+How durable is the build relative to the class baseline at Damnation?
+
+| Score | Description |
+|-------|-------------|
+| 1 | Near-baseline durability. Little extra effective HP, recovery, or movement-state toughness. |
+| 2 | Some added sustain, but one major defensive lane is still weak. |
+| 3 | Clear defensive investment. Better-than-baseline EHP or recovery, but not exceptional. |
+| 4 | Strong class-relative durability with meaningful sustain and mobility-state protection. |
+| 5 | Exceptional class-relative durability. EHP, recovery, and movement-state toughness all materially exceed baseline. |
+
 ## Letter Grades
 
 | Grade | Score Range | Meaning |
 |-------|-------------|---------|
-| S | 32-35 | Meta-defining, no meaningful weakness |
-| A | 27-31 | Strong, minor optimization gaps |
-| B | 22-26 | Functional, clear room for improvement |
-| C | 17-21 | Underperforming, multiple weak dimensions |
-| D | <17 | Fundamentally flawed or incoherent |
+| S | 36-40 | Meta-defining, no meaningful weakness |
+| A | 31-35 | Strong, minor optimization gaps |
+| B | 25-30 | Functional, clear room for improvement |
+| C | 19-24 | Underperforming, multiple weak dimensions |
+| D | <19 | Fundamentally flawed or incoherent |
 
 ## Per-Class Weights
 
@@ -147,7 +159,8 @@ Difficulty target: Havoc [N]
 | Curio Efficiency | /5 | |
 | Role Coverage | /5 | |
 | Difficulty Scaling | /5 | |
-| **Total** | **/35** | |
+| Survivability | /5 | |
+| **Total** | **/40** | |
 
 Grade: [ ]
 

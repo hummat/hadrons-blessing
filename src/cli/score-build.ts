@@ -23,6 +23,7 @@ type AnyRecord = Record<string, any>;
  */
 function formatScorecardText(card: AnyRecord): string {
   const lines: string[] = [];
+  const compositeMax = card.qualitative?.survivability ? 40 : 35;
   lines.push(`=== ${card.title} (${card.class}) ===`);
   lines.push("");
   lines.push("MECHANICAL SCORES:");
@@ -74,14 +75,16 @@ function formatScorecardText(card: AnyRecord): string {
   const rc = card.qualitative.role_coverage;
   const br = card.qualitative.breakpoint_relevance;
   const ds = card.qualitative.difficulty_scaling;
+  const sv = card.qualitative.survivability;
   lines.push(`  Talent Coherence:     ${tc ? tc.score + "/5" : "-/5"}`);
   lines.push(`  Blessing Synergy:     ${bs ? bs.score + "/5" : "-/5"}`);
   lines.push(`  Role Coverage:        ${rc ? rc.score + "/5" : "-/5"}`);
   lines.push(`  Breakpoint Relevance: ${br ? br.score + "/5" : "-/5  (requires calculator)"}`);
   lines.push(`  Difficulty Scaling:   ${ds ? ds.score + "/5" : "-/5  (requires calculator)"}`);
+  lines.push(`  Survivability:        ${sv ? sv.score + "/5" : "-/5  (requires toughness profile)"}`);
 
   lines.push("");
-  lines.push(`COMPOSITE: ${card.composite_score}/35 (${card.letter_grade})`);
+  lines.push(`COMPOSITE: ${card.composite_score}/${compositeMax} (${card.letter_grade})`);
 
   lines.push("");
   lines.push("BOT FLAGS:");
@@ -125,6 +128,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let computeBreakpointsFn: ((build: AnyRecord, idx: AnyRecord, calcData: AnyRecord) => AnyRecord) | null = null;
     let calcData: AnyRecord | null = null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let computeSurvivabilityFn: ((build: AnyRecord, idx: AnyRecord, options?: AnyRecord) => AnyRecord) | null = null;
 
     try {
       const synMod = await import("../lib/synergy-model.js");
@@ -136,12 +141,14 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 
     try {
       const calcMod = await import("../lib/damage-calculator.js");
+      const toughnessMod = await import("../lib/toughness-calculator.js");
       if (!index) {
         const synMod = await import("../lib/synergy-model.js");
         index = synMod.loadIndex() as AnyRecord;
       }
       calcData = calcMod.loadCalculatorData() as AnyRecord;
       computeBreakpointsFn = calcMod.computeBreakpoints as unknown as (build: AnyRecord, idx: AnyRecord, calcData: AnyRecord) => AnyRecord;
+      computeSurvivabilityFn = toughnessMod.computeSurvivability as unknown as (build: AnyRecord, idx: AnyRecord, options?: AnyRecord) => AnyRecord;
     } catch {
       // Calculator data not available — proceed without breakpoint scores
     }
@@ -168,7 +175,31 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         }
       }
 
-      return generateScorecard(build, synergyOutput, calcOutput) as AnyRecord;
+      let survivabilityOutput: { profile: AnyRecord; baseline: AnyRecord } | null = null;
+      if (computeSurvivabilityFn && index && build.class && typeof build.class === "object") {
+        try {
+          const profile = computeSurvivabilityFn(build, index, { difficulty: "damnation" });
+          const baseline = computeSurvivabilityFn(
+            {
+              class: build.class,
+              ability: null,
+              blitz: null,
+              aura: null,
+              keystone: null,
+              talents: [],
+              weapons: [],
+              curios: [],
+            },
+            index,
+            { difficulty: "damnation" },
+          );
+          survivabilityOutput = { profile, baseline };
+        } catch {
+          // Build-level survivability failure — skip survivability score for this build
+        }
+      }
+
+      return generateScorecard(build, synergyOutput, calcOutput, survivabilityOutput) as AnyRecord;
     }
 
     const FREEZE_DIR = "tests/fixtures/ground-truth/scores";

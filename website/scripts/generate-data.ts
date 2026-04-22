@@ -1,6 +1,7 @@
 import {
   analyzeBuild,
   computeBreakpoints,
+  computeSurvivability,
   generateScorecard,
   listBuilds,
   loadCalculatorData,
@@ -190,7 +191,26 @@ export function generateData(): { summaries: BuildSummary[]; details: BuildDetai
 
     const synergy = analyzeBuild(build, synergyIndex) as AnyRecord;
     const breakpoints = computeBreakpoints(build, synergyIndex, calcData) as AnyRecord;
-    const scorecard = generateScorecard(build, synergy, { matrix: breakpoints }) as AnyRecord;
+    const survivability = build.class && typeof build.class === "object"
+      ? {
+          profile: computeSurvivability(build, synergyIndex, { difficulty: "damnation" }) as AnyRecord,
+          baseline: computeSurvivability(
+            {
+              class: build.class,
+              ability: null,
+              blitz: null,
+              aura: null,
+              keystone: null,
+              talents: [],
+              weapons: [],
+              curios: [],
+            },
+            synergyIndex,
+            { difficulty: "damnation" },
+          ) as AnyRecord,
+        }
+      : null;
+    const scorecard = generateScorecard(build, synergy, { matrix: breakpoints }, survivability) as AnyRecord;
     const structure = extractStructure(build);
     const detail = buildDetailRecord(summaryForBuild, scorecard, synergy, breakpoints, structure);
     details.push(detail);

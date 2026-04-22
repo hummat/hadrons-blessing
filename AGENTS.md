@@ -41,6 +41,7 @@ npm run effects:build                             # populate calc fields from Lu
 npm run synergy -- data/builds/08-zealot-chorus-swiss-knife.json          # synergy analysis (text)
 npm run synergy -- data/builds/08-zealot-chorus-swiss-knife.json --json   # synergy analysis (JSON)
 npm run synergy -- data/builds/                                       # batch synergy (all builds)
+npm run analyze -- data/sample-build.json                            # end-to-end user CLI surface (same as hb analyze)
 npm run resolve -- --query "Warp Rider" --context '{"kind":"talent","class":"psyker"}'
 npm run audit -- data/builds/08-zealot-chorus-swiss-knife.json
 npm run canonicalize -- data/sample-build.json    # raw scrape → canonical build JSON
@@ -170,7 +171,7 @@ Shared cross-class entities use `shared` as domain: `shared.weapon.autogun_p1_m1
 
 **Ranged breakpoint distance policy:** Breakpoint matrices no longer use one hidden `20m` default. Ranged entries now evaluate `sustained` at `ranged_close` (default 12.5m) and `aimed` / `burst` at the midpoint between `ranged_close` and `ranged_far` (default 21.25m). This is still a scoring policy assumption, not a source-backed combat-context fact.
 
-**Toughness scoring deferred:** The toughness calculator produces full survivability profiles but does not feed into the scorecard. A `survivability` dimension needs its own design — it is qualitatively different from attacker-side dimensions (no breakpoint checklist analog).
+**Survivability scoring policy:** The toughness calculator now feeds a class-relative `survivability` dimension. The score compares build profile vs baseline class profile at Damnation using effective HP, movement-state toughness, and recovery. It is still a scoring policy layer, not a direct source-backed combat truth.
 
 ## Adding New Entity Coverage
 
@@ -236,7 +237,9 @@ Frozen synergy snapshots in `tests/fixtures/ground-truth/synergy/`. Re-freeze wi
 
 **Calculator-derived (from breakpoint matrix):** `breakpoint_relevance` (weighted checklist of community-standard breakpoints), `difficulty_scaling` (damnation→auric degradation on high-priority breakpoints). Scored via `breakpoint-checklist.ts` against `data/ground-truth/breakpoint-checklist.json`.
 
-**Composite:** Sum of all 7 dimensions, scaled to /35. Letter grades: S (32+), A (27+), B (22+), C (17+), D (<17).
+**Survivability:** class-relative durability from the toughness calculator (effective HP, movement-state toughness, and recovery) at Damnation.
+
+**Composite:** Sum of all 8 dimensions, scaled to /40 when survivability is present. Letter grades: S (36+), A (31+), B (25+), C (19+), D (<19). Legacy /35 thresholds still apply only when survivability is absent.
 
 **Perk normalization:** GL-scraped perk labels (e.g. `"Damage (Flak Armoured Enemies)"`, `"Damage Resistance (Gunners)"`) are normalized to match scoring catalog keys via `normalizePerkName()` in `score-build.ts`. Integration tests in `score-build.test.ts` verify every distinct GL perk format resolves correctly.
 
@@ -291,7 +294,7 @@ Module: `src/lib/cleave-calculator.ts`. CLI: `src/cli/cleave-build.ts`. Frozen s
 
 **Data sources:** Per-class base stats (health, toughness, wounds per difficulty, state damage modifiers, regen rates) from `data/ground-truth/class-base-stats.json`. Build buff effects from the entity index.
 
-**Scoring:** Deferred. The computation exists and is callable via CLI, but does not feed the scorecard. A `survivability` dimension needs its own design.
+**Scoring:** Feeds the `survivability` scorecard dimension via class-relative comparison against a stripped baseline build at Damnation.
 
 Module: `src/lib/toughness-calculator.ts`. CLI: `src/cli/toughness-build.ts`. Frozen snapshots in `tests/fixtures/ground-truth/toughness/`. Re-freeze with `npm run toughness:freeze`.
 
@@ -301,7 +304,7 @@ Module: `src/lib/toughness-calculator.ts`. CLI: `src/cli/toughness-build.ts`. Fr
 
 **Architecture:** Two library modules (`build-list.ts`, `build-diff.ts`) backed by a shared `scorecard-deps.ts` helper for graceful degradation of synergy/calc data. Both modules exported from `index.ts` for #6 website consumption.
 
-**`BuildSummary`** (from `build-list.ts`): flat table-row shape with file, title, class, ability, keystone, weapons, and all 7 scoring dimensions + composite + letter grade. Filtering: class (exact), weapon (substring on name/family), minGrade. Sorting: any dimension, descending default, nulls last.
+**`BuildSummary`** (from `build-list.ts`): flat table-row shape with file, title, class, ability, keystone, weapons, and all 8 scoring dimensions + composite + letter grade. Filtering: class (exact), weapon (substring on name/family), minGrade. Sorting: any dimension, descending default, nulls last.
 
 **`BuildDiff`** (from `build-diff.ts`): score deltas (b - a for all 8 dimensions), structural diff (set operations on entity IDs for talents/weapons/blessings/curio_perks + slot diffs for ability/blitz/aura/keystone), and optional analytical diff (synergy edge set diff + breakpoint checklist HTK comparison).
 
@@ -313,7 +316,7 @@ Design spec: `docs/superpowers/specs/2026-03-31-build-browse-and-compare-design.
 
 ## Tech Stack
 
-TypeScript (strict), Node.js ESM (`"type": "module"`). Compiled with `tsc` to `dist/`; CLI commands run via `node dist/cli/`. Tests run via `tsx --test` (not compiled). No runtime dependencies. Dev dependencies: `typescript`, `tsx`, `ajv` for schema validation, `playwright` for GL scraping.
+TypeScript (strict), Node.js ESM (`"type": "module"`). Compiled with `tsc` to `dist/`; CLI commands run via `node dist/cli/`. Tests run via `tsx --test` (not compiled). Runtime dependencies: `ajv`, `playwright`. Dev dependencies: `typescript`, `tsx`, and build/test tooling.
 
 Library entry point: `src/lib/index.ts` (compiled to `dist/lib/index.js`) — public API for the website and downstream consumers.
 

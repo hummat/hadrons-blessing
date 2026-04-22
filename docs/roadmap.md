@@ -1,10 +1,10 @@
 # Roadmap
 
-Last updated: 2026-04-19
+Last updated: 2026-04-22
 
 ## Current state
 
-Core analytical engine complete: entity resolution, synergy model, 7-dimension scoring, damage/stagger/cleave/toughness calculators, build browse/compare. 24 canonical build fixtures, full test suite green, all 6 classes covered.
+Core analytical engine complete: entity resolution, synergy model, 8-dimension scoring, damage/stagger/cleave/toughness calculators, build browse/compare, and `hb analyze` for end-to-end CLI analysis. 24 canonical build fixtures, full test suite green, all 6 classes covered.
 
 Website: SvelteKit static site on GitHub Pages. Build list, detail page, and comparison page functional (Plans 1–3 merged). Imperial Dataslate aesthetic now covers the detail page and list route; compare page still on the original `panel-strong` theme pending its verdict-first IA pass.
 
@@ -18,16 +18,6 @@ Ordered by dependency. Each step builds on the previous.
 |----------|-------|---------|------------|--------|
 | 1 | #26 | Website IA redesign — compare page verdict-first overview, route-wide progressive disclosure (detail + list tranches already shipped) | — | Medium |
 | 2 | #25 | Hover detail cards — shared primitive + content adapters for compressed/opaque items | #26 | Medium |
-
-## Independent tracks
-
-Can interleave with the active sequence at any point.
-
-| Issue | Summary | Effort |
-|-------|---------|--------|
-| #28 | Survivability scoring dimension on top of the toughness calculator (breaks composite grade scale, regrades all 24 fixtures) | High |
-| #22 | Breakpoint support for unsupported ranged families (flamers, force staves, projectile weapons — 8 builds affected) | Medium-high |
-| #24 | Damage-profile extraction for non-fixture template variants (rippergun etc.) | Medium |
 
 ## After the active sequence
 
@@ -62,7 +52,7 @@ Per CLAUDE.md and design specs:
 | #5 | Calculator and dataflow layer | 2026-03 |
 | #7 | Buff semantic extraction | 2026-03 |
 | #8 | Synergy model | 2026-03 |
-| #9 | Build quality scoring (7 dimensions) | 2026-03 |
+| #9 | Build quality scoring | 2026-03 |
 | #10 | Modification recommendations v1 | 2026-03 |
 | #11 | Toughness calculator | 2026-03 |
 | #12 | Stagger calculator | 2026-03 |
@@ -77,3 +67,7 @@ Per CLAUDE.md and design specs:
 | #27 | Website design system foundation | 2026-04 |
 | #26 detail tranche | Detail page verdict-first IA | 2026-04 |
 | #26 list tranche | List page as Commander's Manifest (Dataslate theme) | 2026-04 |
+| #22 | Breakpoint support for unsupported ranged families | 2026-04 |
+| #24 | Damage-profile extraction for non-fixture template variants | 2026-04 |
+| #28 | Survivability scoring dimension | 2026-04 |
+| #29 | Productized CLI with `hb analyze` | 2026-04 |

@@ -21,10 +21,11 @@ function formatTable(summaries: BuildSummary[]): string {
     "RC".padEnd(4),
     "BR".padEnd(4),
     "DS".padEnd(4),
+    "SV".padEnd(4),
     "Title",
   ];
   lines.push(hdr.join(""));
-  lines.push("-".repeat(72));
+  lines.push("-".repeat(76));
 
   for (const s of summaries) {
     const dim = (v: number | null) => v != null ? String(v).padEnd(4) : "-".padEnd(4);
@@ -39,6 +40,7 @@ function formatTable(summaries: BuildSummary[]): string {
       dim(s.scores.role_coverage),
       dim(s.scores.breakpoint_relevance),
       dim(s.scores.difficulty_scaling),
+      dim(s.scores.survivability),
       s.title.length > 40 ? s.title.slice(0, 37) + "..." : s.title,
     ];
     lines.push(row.join(""));

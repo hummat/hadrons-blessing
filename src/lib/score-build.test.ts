@@ -3,6 +3,8 @@ import { strict as assert } from "node:assert";
 import { readFileSync, readdirSync } from "node:fs";
 import { parsePerkString, scorePerk, scoreWeaponPerks, scoreBlessings, scoreCurios, generateScorecard } from "./score-build.js";
 import { analyzeBuild, loadIndex } from "./synergy-model.js";
+import { loadCalculatorData, computeBreakpoints } from "./damage-calculator.js";
+import { computeSurvivability } from "./toughness-calculator.js";
 
 describe("parsePerkString", () => {
   it("parses percentage range perk", () => {
@@ -558,6 +560,7 @@ describe("generateScorecard", () => {
     assert.equal(card.qualitative.breakpoint_relevance, null);
     assert.equal(card.qualitative.role_coverage, null);
     assert.equal(card.qualitative.difficulty_scaling, null);
+    assert.equal(card.qualitative.survivability, null);
     assert.deepEqual(card.bot_flags, []);
   });
 
@@ -751,9 +754,38 @@ const HAS_SOURCE = !!process.env.GROUND_TRUTH_SOURCE_ROOT;
 
 describe("generateScorecard qualitative scores", { skip: !HAS_SOURCE && "requires GROUND_TRUTH_SOURCE_ROOT" }, () => {
   let index;
+  let calcData;
   function getSynergy(build) {
     if (!index) index = loadIndex();
     return analyzeBuild(build, index);
+  }
+  function getIndex() {
+    if (!index) index = loadIndex();
+    return index;
+  }
+  function getCalcData() {
+    if (!calcData) calcData = loadCalculatorData();
+    return calcData;
+  }
+  function getSurvivability(build) {
+    const idx = getIndex();
+    return {
+      profile: computeSurvivability(build, idx, { difficulty: "damnation" }),
+      baseline: computeSurvivability(
+        {
+          class: build.class,
+          ability: null,
+          blitz: null,
+          aura: null,
+          keystone: null,
+          talents: [],
+          weapons: [],
+          curios: [],
+        },
+        idx,
+        { difficulty: "damnation" },
+      ),
+    };
   }
 
   it("populates talent_coherence, blessing_synergy, role_coverage when synergy passed", () => {
@@ -780,6 +812,18 @@ describe("generateScorecard qualitative scores", { skip: !HAS_SOURCE && "require
     const card = generateScorecard(build, synergy);
     assert.equal(card.qualitative.breakpoint_relevance, null);
     assert.equal(card.qualitative.difficulty_scaling, null);
+  });
+
+  it("populates survivability when survivability output is passed", () => {
+    const build = JSON.parse(readFileSync("data/builds/05-zealot-meta-havoc40.json", "utf-8"));
+    const idx = getIndex();
+    const synergy = getSynergy(build);
+    const matrix = computeBreakpoints(build, idx, getCalcData());
+    const card = generateScorecard(build, synergy, { matrix }, getSurvivability(build));
+
+    assert.notEqual(card.qualitative.survivability, null);
+    assert.ok(card.qualitative.survivability.score >= 1);
+    assert.ok(card.qualitative.survivability.score <= 5);
   });
 
   it("includes composite score and letter grade", () => {

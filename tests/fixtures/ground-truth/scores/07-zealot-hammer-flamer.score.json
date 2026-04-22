@@ -3,7 +3,7 @@
   "class": "zealot",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 27,
+  "composite_score": 31,
   "letter_grade": "A",
   "weapons": [
     {
@@ -302,6 +302,24 @@
       },
       "explanations": [
         "High-priority: 0/3 at damnation, 0/3 at auric"
+      ]
+    },
+    "survivability": {
+      "score": 4,
+      "breakdown": {
+        "score_index": 2.155,
+        "effective_hp_ratio": 2.851,
+        "state_toughness_ratio": 1.654,
+        "recovery_ratio": 1.266,
+        "effective_hp": 1425.36,
+        "baseline_effective_hp": 500,
+        "coherency_one_ally_ratio": 1,
+        "melee_kill_recovery_ratio": 1.266
+      },
+      "explanations": [
+        "Effective HP x2.85 vs class baseline",
+        "Movement toughness x1.65 from dodge/slide states",
+        "Recovery x1.27 from coherency or melee-kill sustain"
       ]
     }
   },

@@ -3,8 +3,8 @@
   "class": "ogryn",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 32,
-  "letter_grade": "S",
+  "composite_score": 34,
+  "letter_grade": "A",
   "weapons": [
     {
       "name": "Achlys Mk I Power Maul",
@@ -301,6 +301,24 @@
       "explanations": [
         "High-priority: 3/3 at damnation, 2/3 at auric",
         "Degrades at auric: Two-hit Crusher"
+      ]
+    },
+    "survivability": {
+      "score": 2,
+      "breakdown": {
+        "score_index": 1.446,
+        "effective_hp_ratio": 1.086,
+        "state_toughness_ratio": 2.116,
+        "recovery_ratio": 1.496,
+        "effective_hp": 1058.68,
+        "baseline_effective_hp": 975,
+        "coherency_one_ally_ratio": 1,
+        "melee_kill_recovery_ratio": 1.496
+      },
+      "explanations": [
+        "Effective HP x1.09 vs class baseline",
+        "Movement toughness x2.12 from dodge/slide states",
+        "Recovery x1.50 from coherency or melee-kill sustain"
       ]
     }
   },

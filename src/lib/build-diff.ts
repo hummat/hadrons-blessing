@@ -181,6 +181,7 @@ const SCORE_DIMENSIONS = [
   "role_coverage",
   "breakpoint_relevance",
   "difficulty_scaling",
+  "survivability",
 ] as const;
 
 function computeScoreDeltas(

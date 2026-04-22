@@ -164,6 +164,7 @@
     class="hover-card {panelToneCls} hover-card--arrow-{arrow}"
     class:ready
     role="dialog"
+    tabindex="-1"
     aria-label={card.title}
     style="top: {top}px; left: {left}px;"
     onmouseenter={() => { if (leaveTimer) { clearTimeout(leaveTimer); leaveTimer = null; } }}

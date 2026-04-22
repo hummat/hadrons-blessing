@@ -5,7 +5,7 @@ import { readFileSync } from "node:fs";
 import { SCORING_DATA_PATH } from "./paths.js";
 import { ALIASES_ROOT, EDGES_ROOT, ENTITIES_ROOT, listJsonFiles, loadJsonFile } from "./load.js";
 import { normalizeText } from "./normalize.js";
-import { scoreFromSynergy, scoreFromCalculator } from "./build-scoring.js";
+import { scoreFromSynergy, scoreFromCalculator, scoreFromSurvivability } from "./build-scoring.js";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -141,6 +141,7 @@ interface Qualitative {
   breakpoint_relevance: { score: number; breakdown: unknown; explanations: string[] } | null;
   role_coverage: DimensionScore | null;
   difficulty_scaling: { score: number; breakdown: unknown; explanations: string[] } | null;
+  survivability: DimensionScore | null;
 }
 
 interface Scorecard {
@@ -155,6 +156,8 @@ interface Scorecard {
   qualitative: Qualitative;
   bot_flags: string[];
 }
+
+type SurvivabilityOutput = Record<string, unknown>;
 
 const BOT_FLAG_ORDER = [
   "BOT:NO_DODGE",
@@ -940,6 +943,7 @@ export function generateScorecard(
   build: Record<string, unknown>,
   synergyOutput: Record<string, unknown> | null = null,
   calcOutput: { matrix: unknown } | null = null,
+  survivabilityOutput: SurvivabilityOutput | null = null,
 ): Scorecard {
   const weaponResults: ScorecardWeapon[] = [];
   const perkScores: number[] = [];
@@ -995,6 +999,7 @@ export function generateScorecard(
     breakpoint_relevance: null,
     role_coverage: null,
     difficulty_scaling: null,
+    survivability: null,
   };
 
   if (synergyOutput != null) {
@@ -1010,6 +1015,10 @@ export function generateScorecard(
     qualitative.difficulty_scaling = calcScores.difficulty_scaling;
   }
 
+  if (survivabilityOutput != null) {
+    qualitative.survivability = scoreFromSurvivability(survivabilityOutput as any);
+  }
+
   const dimensionScores = [
     perkOptimality,
     curioResult.score,
@@ -1018,18 +1027,28 @@ export function generateScorecard(
     qualitative.role_coverage?.score,
     qualitative.breakpoint_relevance?.score,
     qualitative.difficulty_scaling?.score,
+    qualitative.survivability?.score,
   ].filter((s): s is number => s != null);
 
   const scoredCount = dimensionScores.length;
   const rawSum = dimensionScores.reduce((a, b) => a + b, 0);
-  const compositeScore = Math.round(rawSum * 7 / scoredCount);
+  const totalDimensions = qualitative.survivability != null ? 8 : 7;
+  const compositeScore = Math.round(rawSum * totalDimensions / scoredCount);
 
   let letterGrade: string;
-  if (compositeScore >= 32) letterGrade = "S";
-  else if (compositeScore >= 27) letterGrade = "A";
-  else if (compositeScore >= 22) letterGrade = "B";
-  else if (compositeScore >= 17) letterGrade = "C";
-  else letterGrade = "D";
+  if (totalDimensions === 8) {
+    if (compositeScore >= 36) letterGrade = "S";
+    else if (compositeScore >= 31) letterGrade = "A";
+    else if (compositeScore >= 25) letterGrade = "B";
+    else if (compositeScore >= 19) letterGrade = "C";
+    else letterGrade = "D";
+  } else {
+    if (compositeScore >= 32) letterGrade = "S";
+    else if (compositeScore >= 27) letterGrade = "A";
+    else if (compositeScore >= 22) letterGrade = "B";
+    else if (compositeScore >= 17) letterGrade = "C";
+    else letterGrade = "D";
+  }
 
   return {
     title: build.title as string,

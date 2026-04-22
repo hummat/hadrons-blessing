@@ -1,6 +1,6 @@
 # Real MVP Scope
 
-Last updated: 2026-04-20
+Last updated: 2026-04-22
 
 ## What "real MVP" means here
 
@@ -22,6 +22,7 @@ What already exists:
 - source-backed entity resolution
 - canonical build shape
 - scoring, synergy, and calculator layers
+- `hb analyze` for URL/raw/canonical input
 - CLI browse / compare / score / calc commands
 - website list, detail, and compare pages for pre-generated fixture builds
 
@@ -57,38 +58,13 @@ Without that, the site still assumes the user can interpret the raw analysis una
 
 ### CLI
 
-1. **One stable end-to-end command**
-
-The CLI still exposes the internal pipeline directly: extract, canonicalize, audit, score, calc, recommend. That is fine for contributors, but not for users.
-
-A real MVP needs one stable opinionated entry point:
+The CLI-side MVP path now exists:
 
 - `hb analyze <gameslantern-url>`
 - `hb analyze <canonical-build.json>`
 - `hb analyze <raw-build.json>`
 
-That command can still call the existing pipeline internally. The point is to hide the pipeline from users.
-
-2. **Install and invocation story**
-
-The current CLI is still `npm run ...` driven. That is not a real product surface.
-
-A real MVP needs:
-
-- a published package or release artifact
-- a `bin` entry point
-- one documented install path
-- one documented command namespace
-
-3. **No mandatory local source checkout for normal usage**
-
-Most meaningful flows still require a pinned, clean `Darktide-Source-Code` checkout via `GROUND_TRUTH_SOURCE_ROOT`. That is a maintainer contract, not a user contract.
-
-For MVP, normal analysis flows should work from shipped generated data. Source-root requirements should be limited to:
-
-- maintainers refreshing source-backed artifacts
-- deep validation / rebuild commands
-- contributor workflows
+Normal analyze flows run from shipped repo data and do not require `GROUND_TRUTH_SOURCE_ROOT`. Lower-level `npm run ...` commands still exist for maintainers.
 
 ## Not MVP blockers
 
@@ -96,8 +72,6 @@ These are real improvements, but they are not the thing currently preventing a r
 
 - compare-page IA cleanup
 - more hover-card coverage
-- a survivability score dimension
-- broader calculator support for unsupported ranged families
 - optimizer / editor / what-if tooling
 
 Those are v1.1+ quality and capability expansions.

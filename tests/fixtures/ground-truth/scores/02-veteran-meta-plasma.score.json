@@ -3,7 +3,7 @@
   "class": "veteran",
   "perk_optimality": 5,
   "curio_efficiency": 4,
-  "composite_score": 26,
+  "composite_score": 27,
   "letter_grade": "B",
   "weapons": [
     {
@@ -300,6 +300,24 @@
       },
       "explanations": [
         "High-priority: 0/3 at damnation, 0/3 at auric"
+      ]
+    },
+    "survivability": {
+      "score": 1,
+      "breakdown": {
+        "score_index": 1.148,
+        "effective_hp_ratio": 1.059,
+        "state_toughness_ratio": 1.236,
+        "recovery_ratio": 1.236,
+        "effective_hp": 423.63,
+        "baseline_effective_hp": 400,
+        "coherency_one_ally_ratio": 1,
+        "melee_kill_recovery_ratio": 1.236
+      },
+      "explanations": [
+        "Effective HP x1.06 vs class baseline",
+        "Movement toughness x1.24 from dodge/slide states",
+        "Recovery x1.24 from coherency or melee-kill sustain"
       ]
     }
   },

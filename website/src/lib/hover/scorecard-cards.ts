@@ -80,6 +80,7 @@ function activeScoreCount(detail: BuildDetailData): number {
     detail.summary.scores.role_coverage,
     detail.summary.scores.breakpoint_relevance,
     detail.summary.scores.difficulty_scaling,
+    detail.summary.scores.survivability,
   ].filter((value) => value != null).length;
 }
 
@@ -476,16 +477,70 @@ function difficultyCard(detail: BuildDetailData): PhaseAScoreHoverCard {
   );
 }
 
+function survivabilityCard(detail: BuildDetailData): PhaseAScoreHoverCard {
+  const score = summaryScore(detail, "survivability");
+  const dimension = qualitativeDetail(detail, "survivability");
+  const breakdown = (dimension?.breakdown ?? {}) as Record<string, unknown>;
+  const ehpRatio = Number(breakdown.effective_hp_ratio ?? 0);
+  const stateRatio = Number(breakdown.state_toughness_ratio ?? 0);
+  const recoveryRatio = Number(breakdown.recovery_ratio ?? 0);
+  const facts: HoverCardFact[] = [
+    { label: "Score", value: `${score ?? "—"}/5 — ${tierLabelForScore(score)}` },
+    { label: "Range", value: "1 (near baseline) to 5 (stacked durability and recovery)" },
+    {
+      label: "Derivation",
+      value: "Compares your effective HP, dodge/slide toughness, and sustain loops against a class-baseline build at Damnation.",
+    },
+    {
+      label: "This build",
+      value: `EHP x${formatAverage(ehpRatio, 2)} · movement toughness x${formatAverage(stateRatio, 2)} · recovery x${formatAverage(recoveryRatio, 2)}`,
+    },
+    {
+      label: "Implies",
+      value:
+        score === 5
+          ? "Durability is a core strength — the build invests heavily in staying power."
+          : score != null && score >= 3
+            ? "Defensive investment is real, but not carrying the whole build."
+            : "You are close to baseline durability for this class — mistakes get punished quickly.",
+    },
+    {
+      label: "Caveat",
+      value:
+        "This is class-relative, not raw HP worship. Ogryn bulk does not auto-win, and niche enemy-specific DR lines are still under-modeled here.",
+    },
+  ];
+
+  return createCard(
+    detail,
+    "survivability",
+    "calculator",
+    "How much tougher this build is than the same class stripped back to baseline stats and default sustain.",
+    "Survivability",
+    `${score ?? "—"}/5 ${tierLabelForScore(score)}`,
+    facts,
+  );
+}
+
 function compositeCard(detail: BuildDetailData): PhaseAScoreHoverCard {
   const composite = detail.summary.scores.composite;
   const coverage = detail.synergy.metadata.calc_coverage_pct;
+  const hasSurvivability = detail.summary.scores.survivability != null;
+  const compositeMax = hasSurvivability ? 40 : 35;
   const facts: HoverCardFact[] = [
-    { label: "Score", value: `${composite}/35 · Grade ${detail.summary.scores.grade}` },
-    { label: "Dimensions contributing", value: `${activeScoreCount(detail)}/7` },
-    { label: "Grading bands", value: "S ≥32 · A ≥27 · B ≥22 · C ≥17 · D <17" },
+    { label: "Score", value: `${composite}/${compositeMax} · Grade ${detail.summary.scores.grade}` },
+    { label: "Dimensions contributing", value: `${activeScoreCount(detail)}/${hasSurvivability ? 8 : 7}` },
+    {
+      label: "Grading bands",
+      value: hasSurvivability
+        ? "S ≥36 · A ≥31 · B ≥25 · C ≥19 · D <19"
+        : "S ≥32 · A ≥27 · B ≥22 · C ≥17 · D <17",
+    },
     {
       label: "Dimensions",
-      value: "Perk Optimality · Curio Efficiency · Talent Coherence · Blessing Synergy · Role Coverage · Breakpoint Relevance · Difficulty Scaling",
+      value: hasSurvivability
+        ? "Perk Optimality · Curio Efficiency · Talent Coherence · Blessing Synergy · Role Coverage · Breakpoint Relevance · Difficulty Scaling · Survivability"
+        : "Perk Optimality · Curio Efficiency · Talent Coherence · Blessing Synergy · Role Coverage · Breakpoint Relevance · Difficulty Scaling",
     },
     {
       label: "Scaling rule",
@@ -514,8 +569,8 @@ function compositeCard(detail: BuildDetailData): PhaseAScoreHoverCard {
     detail,
     "composite",
     "scorecard",
-    "Overall score from the seven dimensions, plus the letter bucket it lands in.",
-    `Grade ${detail.summary.scores.grade} · ${composite}/35`,
+    `Overall score from the ${hasSurvivability ? "eight" : "seven"} dimensions, plus the letter bucket it lands in.`,
+    `Grade ${detail.summary.scores.grade} · ${composite}/${compositeMax}`,
     "Our grading",
     facts,
     coverage < EFFECT_MODELED_GRADE_WARN_THRESHOLD ? "warn" : "default",
@@ -532,5 +587,6 @@ export function buildPhaseAScoreHoverCards(detail: BuildDetailData): PhaseAScore
     roleCoverageCard(detail),
     breakpointCard(detail),
     difficultyCard(detail),
+    survivabilityCard(detail),
   ];
 }
