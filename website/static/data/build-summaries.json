@@ -341,6 +341,68 @@
     }
   },
   {
+    "file": "37-arbites-nuncio-aquila.json",
+    "title": "[EXECUTION ORDER] Nuncio-Aquila Arbites",
+    "class": "arbites",
+    "ability": "Nuncio Aquila",
+    "keystone": "Execution Order",
+    "weapons": [
+      {
+        "name": "Branx Mk VI Shock Maul and Suppression Shield",
+        "slot": "melee",
+        "family": "powermaul_shield"
+      },
+      {
+        "name": "Judgement Mk IV Subductor Shotpistol and Riot Shield",
+        "slot": "ranged",
+        "family": "shotpistol_shield"
+      }
+    ],
+    "scores": {
+      "composite": 36,
+      "grade": "S",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 4,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 5,
+      "survivability": 3
+    }
+  },
+  {
+    "file": "38-arbites-allrounder-cc.json",
+    "title": "Allrounder massive CC High-Havoc build",
+    "class": "arbites",
+    "ability": "Break the Line",
+    "keystone": "Execution Order",
+    "weapons": [
+      {
+        "name": "Branx Mk VI Shock Maul and Suppression Shield",
+        "slot": "melee",
+        "family": "powermaul_shield"
+      },
+      {
+        "name": "Agripinaa Mk VII Combat Shotgun",
+        "slot": "ranged",
+        "family": "shotgun_p1"
+      }
+    ],
+    "scores": {
+      "composite": 36,
+      "grade": "S",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 4,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 5,
+      "survivability": 3
+    }
+  },
+  {
     "file": "10-psyker-electrokinetic-staff.json",
     "title": "[UPDATED] Havoc 40 Staff Psyker Meta Electrokinetic Staff Type Build",
     "class": "psyker",
@@ -387,6 +449,37 @@
         "name": "Foe-Rend Mk V Ripper Gun",
         "slot": "ranged",
         "family": "ogryn_rippergun"
+      }
+    ],
+    "scores": {
+      "composite": 35,
+      "grade": "A",
+      "perk_optimality": 5,
+      "curio_efficiency": 4,
+      "talent_coherence": 5,
+      "blessing_synergy": 5,
+      "role_coverage": 4,
+      "breakpoint_relevance": 5,
+      "difficulty_scaling": 4,
+      "survivability": 3
+    }
+  },
+  {
+    "file": "39-arbites-crusher-forceful.json",
+    "title": "H40 - Crusher BTL + Forceful",
+    "class": "arbites",
+    "ability": "Break the Line",
+    "keystone": "Forceful",
+    "weapons": [
+      {
+        "name": "Indignatus Mk IVe Crusher",
+        "slot": "melee",
+        "family": "powermaul_2h_p1"
+      },
+      {
+        "name": "Godwyn-Branx Mk IV Bolt Pistol",
+        "slot": "ranged",
+        "family": "boltpistol_p1"
       }
     ],
     "scores": {
