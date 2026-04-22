@@ -151,6 +151,71 @@ function makeRawBuild(overrides = {}) {
   };
 }
 
+function makeRuntimeRawBuild(overrides = {}) {
+  return {
+    source_kind: "darktide_runtime_equipped",
+    dumped_at: "2026-04-22T12:00:00Z",
+    url: "darktide://runtime/equipped",
+    title: "Severa equipped build",
+    author: "Severa",
+    class: "psyker",
+    weapons: [
+      {
+        slot: "melee",
+        runtime_slot: "slot_primary",
+        gear_id: "gear-melee-1",
+        master_item_id: "content/items/weapons/player/melee/chainsword_p1_m1",
+        name: "chainsword_p1_m1",
+        display_name: "Tigrus Mk II Heavy Eviscerator",
+        perks: ["20-25% Damage (Carapace)"],
+        blessings: [
+          {
+            id: "content/items/traits/weapon_traits/blazing_spirit",
+            name: "Blazing Spirit",
+            description: "Ignite on soulblaze crit",
+          },
+        ],
+      },
+      {
+        slot: "ranged",
+        runtime_slot: "slot_secondary",
+        gear_id: "gear-ranged-1",
+        master_item_id: "content/items/weapons/player/ranged/bot_lasgun_killshot",
+        name: "bot_lasgun_killshot",
+        display_name: "Accatran Mk VId Recon Lasgun",
+        perks: [],
+        blessings: [],
+      },
+    ],
+    curios: [
+      {
+        runtime_slot: "slot_attachment_1",
+        gear_id: "gear-curio-1",
+        master_item_id: "content/items/gadgets/blessed_bullet_caged",
+        name: "Blessed Bullet (Caged)",
+        perks: ["+4-5% Toughness"],
+      },
+    ],
+    talents: {
+      active: [
+        { widget_name: "node-ability", talent_id: "psyker_shout_vent_warp_charge", node_type: "ability", points_spent: 1, name: "Venting Shriek" },
+        { widget_name: "node-blitz", talent_id: "psyker_smite_target", node_type: "blitz", points_spent: 1, name: "Brain Rupture" },
+        { widget_name: "node-aura", talent_id: "psyker_aura_crit_chance_aura", node_type: "aura", points_spent: 1, name: "Psykinetic's Aura" },
+        { widget_name: "node-keystone", talent_id: "psyker_passive_souls_from_elite_kills", node_type: "keystone", points_spent: 1, name: "Warp Siphon" },
+        { widget_name: "node-talent", talent_id: "psyker_damage_based_on_warp_charge", node_type: "default", points_spent: 1, name: "Warp Rider" },
+      ],
+      inactive: [],
+    },
+    class_selections: {
+      ability: "Venting Shriek",
+      blitz: "Brain Rupture",
+      aura: "Psykinetic's Aura",
+      keystone: "Warp Siphon",
+    },
+    ...overrides,
+  };
+}
+
 function makeStubCanonicalizerDeps(overrides = {}) {
   const resolvedIds = new Map([
     ["psyker", "shared.class.psyker"],
@@ -512,6 +577,29 @@ describe("canonicalizeScrapedBuild", () => {
     assert.equal(build.blitz.raw_label, "Frag Grenade");
     assert.equal(build.aura.raw_label, "Survivalist");
     assert.equal(build.keystone?.raw_label, "Duty and Honour");
+  });
+
+  it("canonicalizes runtime build dumps with explicit class-side selections and preserved provenance", async () => {
+    const build = await canonicalizeScrapedBuild(
+      makeRuntimeRawBuild(),
+      makeStubCanonicalizerDeps(),
+    );
+
+    assert.equal(build.provenance.source_kind, "darktide_runtime_equipped");
+    assert.equal(build.provenance.source_url, "darktide://runtime/equipped");
+    assert.equal(build.provenance.scraped_at, "2026-04-22T12:00:00Z");
+    assert.equal(build.ability.raw_label, "Venting Shriek");
+    assert.equal(build.blitz.raw_label, "Brain Rupture");
+    assert.equal(build.aura.raw_label, "Psykinetic's Aura");
+    assert.equal(build.keystone?.raw_label, "Warp Siphon");
+    assert.deepEqual(
+      build.talents.map((selection) => selection.raw_label),
+      ["Warp Rider"],
+    );
+    assert.equal(build.weapons[0].slot, "melee");
+    assert.equal(build.weapons[1].slot, "ranged");
+    assert.equal(build.curios[0].name.raw_label, "Blessed Bullet (Caged)");
+    assert.equal(validateCanonicalBuild(build).ok, true);
   });
 
   it("falls back to explicit scraped class-side selections when class registry coverage is absent", async () => {

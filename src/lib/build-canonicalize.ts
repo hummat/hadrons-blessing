@@ -80,6 +80,8 @@ interface RawBuild {
   url?: string;
   author?: string;
   description?: string;
+  source_kind?: string;
+  dumped_at?: string;
   class_selections?: Record<string, string | null>;
   talents?: { active?: Array<{ slug?: string; name?: string; [key: string]: unknown }> };
   weapons?: Array<{
@@ -283,11 +285,15 @@ async function canonicalizeScrapedBuild(rawBuild: RawBuild, deps: CanonicalizeDe
     talents: Array<{ name: string }>;
   };
   const className = String(rawBuild.class ?? "").trim().toLowerCase();
+  const rawSourceKind = String(rawBuild.source_kind ?? "").trim();
+  const rawDumpedAt = String(rawBuild.dumped_at ?? "").trim();
+  const sourceKind = deps.provenance?.source_kind ?? (rawSourceKind || "gameslantern");
+  const scrapedAt = deps.provenance?.scraped_at ?? (rawDumpedAt || deps.scrapedAt || new Date().toISOString());
   const provenance: Provenance = {
-    source_kind: deps.provenance?.source_kind ?? "gameslantern",
+    source_kind: sourceKind,
     source_url: deps.provenance?.source_url ?? String(rawBuild.url ?? "").trim(),
     author: deps.provenance?.author ?? (String(rawBuild.author ?? "").trim() || "unknown"),
-    scraped_at: deps.provenance?.scraped_at ?? deps.scrapedAt ?? new Date().toISOString(),
+    scraped_at: scrapedAt,
   };
 
   const build: CanonicalBuild = {
