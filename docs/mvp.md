@@ -1,8 +1,12 @@
-# Real MVP Scope
+# MVP gap analysis
 
-Last updated: 2026-04-22
+Last updated: 2026-04-23
 
-## What "real MVP" means here
+**Status note:** development is paused. This document is preserved as the
+record of where the user-facing surfaces stood versus the "real MVP" bar at
+pause time. It is no longer an active spec.
+
+## What "real MVP" meant here
 
 The analytical engine is already beyond MVP. The missing part is productization.
 

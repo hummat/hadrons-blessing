@@ -4,6 +4,38 @@ Darktide build intelligence. Maps community names to canonical game entities,
 computes damage breakpoints via a 13-stage calculator, and scores builds
 across 8 dimensions including survivability.
 
+## Status: paused (2026-04-23)
+
+Active development is paused at this boundary. The shipped surface is usable
+as-is:
+
+- **Engine:** entity resolution, synergy model, 8-dimension scoring,
+  damage / stagger / cleave / toughness calculators, build audit / browse /
+  compare. Full test suite green (~1115 tests, 0 failures).
+- **Data:** 42 canonical build fixtures (all 6 classes), 2255 resolved /
+  0 unresolved / 126 non_canonical selections. Entity corpus and generated
+  artifacts are pinned to the `Aussiemon/Darktide-Source-Code` snapshot in
+  `.source-root`.
+- **CLI:** `hb analyze` installed from the release tarball runs the full
+  pipeline on a Games Lantern URL, a canonical build JSON, or a raw scrape.
+  Normal flows do not require `GROUND_TRUTH_SOURCE_ROOT`.
+- **Website:** SvelteKit static site on GitHub Pages. List, detail, and
+  compare pages render the checked-in fixture corpus. Detail + list routes
+  use the "Imperial Dataslate" theme; the compare page is still on the
+  original `panel-strong` theme.
+- **BetterBots:** `data/exports/bot-weapon-recommendations.json` and
+  `data/builds/bot/*.json` are in sync with `../BetterBots`'s
+  `bot_profiles.lua` as of the last commit.
+
+What's open and parked: see [`docs/roadmap.md`](docs/roadmap.md). The main
+gaps are website bring-your-own-build import (`#6 Plan 4`), the compare-page
+IA pass (`#26`), and the hover-card rollout (`#25`). None block use of the
+existing tooling.
+
+If you're picking this up again later, start with this README and
+[`docs/roadmap.md`](docs/roadmap.md). `AGENTS.md` / `CLAUDE.md` still apply
+for agent sessions.
+
 ## User CLI
 
 The public CLI surface is one command:
@@ -115,7 +147,7 @@ Notes:
 - the Playwright CLI wrapper must exist and be executable at `~/.codex/skills/playwright/scripts/playwright_cli.sh`
 - under Codex, browser launch and local port binding usually require sandbox escape; run these commands outside sandbox if you hit Chromium or `listen EPERM` errors
 
-## Status
+## Coverage snapshot
 
 Current entity coverage (1376 total: 768 non-tree + 608 tree_node):
 
@@ -149,12 +181,8 @@ confirms 21 such ambiguous base labels in the full curio catalog.
 
 ## Roadmap
 
-- `#1` TypeScript migration
-- `#2` Human-readable audit/report layer
-- `#3` Build-oriented CLI (browse, compare)
-- ~~`#4` BetterBots integration contract~~ (resolved)
-- ~~`#5` Calculator and dataflow layer~~ (resolved)
-- `#6` Website (SvelteKit + Svelte Flow talent tree)
+Full roadmap (completed + parked) lives in [`docs/roadmap.md`](docs/roadmap.md).
+MVP-level gap analysis is in [`docs/mvp.md`](docs/mvp.md).
 
 ## License
 

@@ -1,30 +1,32 @@
 # Roadmap
 
-Last updated: 2026-04-22
+Last updated: 2026-04-23
+
+**Status: paused.** Active development is stopped at this boundary. The
+existing engine, CLI, and static website remain functional. The items below
+are preserved so the parked work is discoverable if development resumes.
 
 ## Current state
 
-Core analytical engine complete: entity resolution, synergy model, 8-dimension scoring, damage/stagger/cleave/toughness calculators, build browse/compare, and `hb analyze` for end-to-end CLI analysis. 24 canonical build fixtures, full test suite green, all 6 classes covered.
+Core analytical engine complete: entity resolution, synergy model, 8-dimension scoring, damage/stagger/cleave/toughness calculators, build browse/compare, and `hb analyze` for end-to-end CLI analysis. 42 canonical build fixtures, full test suite green (~1115 tests), all 6 classes covered.
 
-Website: SvelteKit static site on GitHub Pages. Build list, detail page, and comparison page functional (Plans 1–3 merged). Imperial Dataslate aesthetic now covers the detail page and list route; compare page still on the original `panel-strong` theme pending its verdict-first IA pass.
+Website: SvelteKit static site on GitHub Pages. Build list, detail page, and comparison page functional (Plans 1–3 merged). Imperial Dataslate aesthetic covers the detail page and list route; compare page is still on the original `panel-strong` theme (its verdict-first IA pass was not done before the pause).
 
-Product-level MVP blockers are documented separately in [docs/mvp.md](docs/mvp.md). The short version: the engine is ahead of the user surfaces; the missing work is website import flow plus CLI productization.
+Product-level gap analysis lives in [docs/mvp.md](docs/mvp.md). The short version: the engine is ahead of the user surfaces; the missing work is website bring-your-own-build import plus deeper recommendation surfacing.
 
-## Active sequence
+## Open, paused
 
-Ordered by dependency. Each step builds on the previous.
+The work below was parked mid-planning when development paused. Issue numbers
+are kept so the tracker stays authoritative.
 
-| Priority | Issue | Summary | Blocked by | Effort |
-|----------|-------|---------|------------|--------|
-| 1 | #26 | Website IA redesign — compare page verdict-first overview, route-wide progressive disclosure (detail + list tranches already shipped) | — | Medium |
-| 2 | #25 | Hover detail cards — shared primitive + content adapters for compressed/opaque items | #26 | Medium |
+| Issue | Summary | Blocked by |
+|-------|---------|------------|
+| #26 | Website IA redesign — compare page verdict-first overview, route-wide progressive disclosure (detail + list tranches already shipped) | — |
+| #25 | Hover detail cards — shared primitive + content adapters for compressed/opaque items | #26 |
+| #6 Plan 4 | GL import + interactive features (paste a GL URL, scrape → canonicalize → display in-browser) | — |
+| #6 umbrella | Close or narrow once Plan 4 scope is defined as its own issue | — |
 
-## After the active sequence
-
-- **#6 Plan 4:** GL import + interactive features (paste a GL URL, scrape → canonicalize → display in-browser)
-- **#6 umbrella cleanup:** Close or narrow #6 once Plan 4 scope is defined as its own issue
-
-## v1.1 (deferred)
+## v1.1 (deferred, never started)
 
 Per CLAUDE.md and design specs:
 
@@ -33,7 +35,7 @@ Per CLAUDE.md and design specs:
 - What-if swap analysis with live scoring
 - Damage pipeline storyboard
 
-## v2+ horizon
+## v2+ horizon (ideas only)
 
 - Goal-first optimizer
 - Encounter lenses
