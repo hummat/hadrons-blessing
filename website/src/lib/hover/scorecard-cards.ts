@@ -1,4 +1,5 @@
 import { DIMENSIONS } from "../dimensions.ts";
+import { scoreAxisMeta } from "../score-meta.ts";
 import type {
   BuildDetailData,
   DimensionScoreDetail,
@@ -525,20 +526,19 @@ function survivabilityCard(detail: BuildDetailData): PhaseAScoreHoverCard {
 function compositeCard(detail: BuildDetailData): PhaseAScoreHoverCard {
   const composite = detail.summary.scores.composite;
   const coverage = detail.synergy.metadata.calc_coverage_pct;
-  const hasSurvivability = detail.summary.scores.survivability != null;
-  const compositeMax = hasSurvivability ? 40 : 35;
+  const { hasSurvivabilityAxis, compositeMax, dimensionCount } = scoreAxisMeta(detail.summary.scores);
   const facts: HoverCardFact[] = [
     { label: "Score", value: `${composite}/${compositeMax} · Grade ${detail.summary.scores.grade}` },
-    { label: "Dimensions contributing", value: `${activeScoreCount(detail)}/${hasSurvivability ? 8 : 7}` },
+    { label: "Dimensions contributing", value: `${activeScoreCount(detail)}/${dimensionCount}` },
     {
       label: "Grading bands",
-      value: hasSurvivability
+      value: hasSurvivabilityAxis
         ? "S ≥36 · A ≥31 · B ≥25 · C ≥19 · D <19"
         : "S ≥32 · A ≥27 · B ≥22 · C ≥17 · D <17",
     },
     {
       label: "Dimensions",
-      value: hasSurvivability
+      value: hasSurvivabilityAxis
         ? "Perk Optimality · Curio Efficiency · Talent Coherence · Blessing Synergy · Role Coverage · Breakpoint Relevance · Difficulty Scaling · Survivability"
         : "Perk Optimality · Curio Efficiency · Talent Coherence · Blessing Synergy · Role Coverage · Breakpoint Relevance · Difficulty Scaling",
     },
@@ -569,7 +569,7 @@ function compositeCard(detail: BuildDetailData): PhaseAScoreHoverCard {
     detail,
     "composite",
     "scorecard",
-    `Overall score from the ${hasSurvivability ? "eight" : "seven"} dimensions, plus the letter bucket it lands in.`,
+    `Overall score from the ${dimensionCount === 8 ? "eight" : "seven"} dimensions, plus the letter bucket it lands in.`,
     `Grade ${detail.summary.scores.grade} · ${composite}/${compositeMax}`,
     "Our grading",
     facts,

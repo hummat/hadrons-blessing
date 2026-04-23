@@ -2,29 +2,29 @@
   {
     "key": "composite",
     "label": "Overall",
-    "score": 32,
-    "max": 35,
-    "tierLabel": "S",
-    "triggerNote": "Grade S",
-    "title": "Grade S · 32/35",
+    "score": 35,
+    "max": 40,
+    "tierLabel": "A",
+    "triggerNote": "Grade A",
+    "title": "Grade A · 35/40",
     "subtitle": "Our grading",
-    "summary": "Overall score from the seven dimensions, plus the letter bucket it lands in.",
+    "summary": "Overall score from the eight dimensions, plus the letter bucket it lands in.",
     "facts": [
       {
         "label": "Score",
-        "value": "32/35 · Grade S"
+        "value": "35/40 · Grade A"
       },
       {
         "label": "Dimensions contributing",
-        "value": "7/7"
+        "value": "8/8"
       },
       {
         "label": "Grading bands",
-        "value": "S ≥32 · A ≥27 · B ≥22 · C ≥17 · D <17"
+        "value": "S ≥36 · A ≥31 · B ≥25 · C ≥19 · D <19"
       },
       {
         "label": "Dimensions",
-        "value": "Perk Optimality · Curio Efficiency · Talent Coherence · Blessing Synergy · Role Coverage · Breakpoint Relevance · Difficulty Scaling"
+        "value": "Perk Optimality · Curio Efficiency · Talent Coherence · Blessing Synergy · Role Coverage · Breakpoint Relevance · Difficulty Scaling · Survivability"
       },
       {
         "label": "Scaling rule",
@@ -310,6 +310,45 @@
       {
         "label": "Important caveat",
         "value": "Auric is our proxy for high-intensity play. Havoc layers extra resistance modifiers we do not model — holding at Auric is a good sign, not a guarantee."
+      }
+    ],
+    "sourceLabel": "calculator",
+    "tone": "default"
+  },
+  {
+    "key": "survivability",
+    "label": "Survivability",
+    "score": 3,
+    "max": 5,
+    "tierLabel": "Solid",
+    "triggerNote": "Solid",
+    "title": "Survivability",
+    "subtitle": "3/5 Solid",
+    "summary": "How much tougher this build is than the same class stripped back to baseline stats and default sustain.",
+    "facts": [
+      {
+        "label": "Score",
+        "value": "3/5 — Solid"
+      },
+      {
+        "label": "Range",
+        "value": "1 (near baseline) to 5 (stacked durability and recovery)"
+      },
+      {
+        "label": "Derivation",
+        "value": "Compares your effective HP, dodge/slide toughness, and sustain loops against a class-baseline build at Damnation."
+      },
+      {
+        "label": "This build",
+        "value": "EHP x1.30 · movement toughness x2.48 · recovery x1.61"
+      },
+      {
+        "label": "Implies",
+        "value": "Defensive investment is real, but not carrying the whole build."
+      },
+      {
+        "label": "Caveat",
+        "value": "This is class-relative, not raw HP worship. Ogryn bulk does not auto-win, and niche enemy-specific DR lines are still under-modeled here."
       }
     ],
     "sourceLabel": "calculator",

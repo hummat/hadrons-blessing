@@ -15,6 +15,7 @@
   } from "$lib/detail-format";
   import HoverCard from "$lib/HoverCard.svelte";
   import { buildPhaseAScoreHoverCards } from "$lib/hover/scorecard-cards";
+  import { scoreAxisMeta } from "$lib/score-meta";
   import TalentTree from "$lib/TalentTree.svelte";
   import { buildTalentTreeSpecs } from "$lib/talent-tree";
   import type {
@@ -206,6 +207,7 @@
   // so we show the grade plate without a hover panel for now and let users
   // scroll to the dimension strip for detail.
   const composite = $derived(data.detail.summary.scores.composite);
+  const scoreMeta = $derived(scoreAxisMeta(data.detail.summary.scores));
 </script>
 
 <svelte:head>
@@ -310,7 +312,7 @@
         >
           <span class="label">Composite</span>
           <span class="hb-hero-score-num mono-num">{composite}</span>
-          <span class="hb-hero-score-max">of 35</span>
+          <span class="hb-hero-score-max">of {scoreMeta.compositeMax}</span>
           <div class="hb-hero-score-grade">
             <span class={`grade ${gradeLower}`}>{data.detail.summary.scores.grade}</span>
           </div>
@@ -367,7 +369,7 @@
 
   <section class="hb-reveal d2">
     <div class="section-heading">
-      <h2>Scorecard — seven dimensions</h2>
+      <h2>Scorecard — {scoreMeta.dimensionCount === 8 ? "eight" : "seven"} dimensions</h2>
       <div class="section-rule"></div>
       <div class="section-meta">hover or focus any tile</div>
     </div>
@@ -769,7 +771,7 @@
   <section class="hb-reveal d6">
     <div class="hb-provenance">
       <span><span class="k">class:</span>{data.detail.summary.class}</span>
-      <span><span class="k">grade:</span>{data.detail.summary.scores.grade} · {composite}/40</span>
+      <span><span class="k">grade:</span>{data.detail.summary.scores.grade} · {composite}/{scoreMeta.compositeMax}</span>
       <span><span class="k">entities:</span>{data.detail.synergy.metadata.entities_analyzed}</span>
       <span><span class="k">coverage:</span>{formatCoverageFraction(data.detail.synergy.metadata.calc_coverage_pct)}</span>
       <span><span class="k">resolver:</span>Aussiemon/Darktide-Source-Code</span>
