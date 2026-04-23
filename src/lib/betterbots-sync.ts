@@ -663,7 +663,7 @@ const BETTERBOTS_WEAPON_MODIFIER_ID_ALIASES: Partial<
   Record<"weapon_perk" | "weapon_trait", Record<string, string[]>>
 > = {
   weapon_perk: {
-    wield_increase_elite_enemy_damage: ["wield_increase_armored_damage"],
+    wield_increase_elite_enemy_damage: ["increase_damage_elites", "ranged_increase_damage_elites"],
   },
   weapon_trait: {
     armor_rending_from_dot_burning: ["burned_targets_receive_rending_debuff"],

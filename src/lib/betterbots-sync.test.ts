@@ -221,7 +221,7 @@ describe("generateBetterBotsArtifacts", () => {
               },
               perks = {
                 {
-                  id = "content/items/perks/ranged_common/wield_increase_armored_damage",
+                  id = "content/items/perks/ranged_common/wield_increase_elite_enemy_damage",
                   rarity = 4,
                   value = 1,
                 },
@@ -243,7 +243,11 @@ describe("generateBetterBotsArtifacts", () => {
 
     assert.equal(
       zealotBuild.weapons.find((weapon) => weapon.slot === "melee")?.perks[0]?.canonical_entity_id,
-      "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+      "shared.weapon_perk.melee.weapon_trait_increase_damage_elites",
+    );
+    assert.equal(
+      zealotBuild.weapons.find((weapon) => weapon.slot === "ranged")?.perks[0]?.canonical_entity_id,
+      "shared.weapon_perk.ranged.weapon_trait_ranged_increase_damage_elites",
     );
     assert.equal(
       zealotBuild.weapons.find((weapon) => weapon.slot === "ranged")?.blessings[0]?.canonical_entity_id,
