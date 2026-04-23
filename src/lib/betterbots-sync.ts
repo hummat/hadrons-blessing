@@ -659,6 +659,17 @@ const TOKEN_NORMALIZATION: Record<string, string> = {
   targets: "target",
 };
 
+const BETTERBOTS_WEAPON_MODIFIER_ID_ALIASES: Partial<
+  Record<"weapon_perk" | "weapon_trait", Record<string, string[]>>
+> = {
+  weapon_perk: {
+    wield_increase_elite_enemy_damage: ["wield_increase_armored_damage"],
+  },
+  weapon_trait: {
+    armor_rending_from_dot_burning: ["burned_targets_receive_rending_debuff"],
+  },
+};
+
 const BETTERBOTS_INTERNAL_NAME_ALIASES: Record<string, Record<string, string>> = {
   zealot: {
     zealot_dash: "zealot_attack_speed_post_ability",
@@ -846,11 +857,15 @@ function resolveSharedWeaponModifierEntity(
     ? registryContext.weaponPerksBySlotAndNormalizedKey
     : registryContext.weaponTraitsBySlotAndNormalizedKey;
   const trimmedFolder = folder.endsWith("_common") ? folder.slice(0, -"_common".length) : folder;
+  const suffixes = kind === "weapon_trait" ? ["", "_parent"] : [""];
+  const modifierNames = [name, ...(BETTERBOTS_WEAPON_MODIFIER_ID_ALIASES[kind]?.[name] ?? [])];
 
   const candidateInternalNames = [
-    `weapon_trait_${folder}_${name}`,
-    ...(trimmedFolder !== folder ? [`weapon_trait_${trimmedFolder}_${name}`] : []),
-    `weapon_trait_${name}`,
+    ...modifierNames.flatMap((modifierName) => suffixes.map((suffix) => `weapon_trait_${folder}_${modifierName}${suffix}`)),
+    ...(trimmedFolder !== folder
+      ? modifierNames.flatMap((modifierName) => suffixes.map((suffix) => `weapon_trait_${trimmedFolder}_${modifierName}${suffix}`))
+      : []),
+    ...modifierNames.flatMap((modifierName) => suffixes.map((suffix) => `weapon_trait_${modifierName}${suffix}`)),
   ];
   const candidateKeys = [
     ...candidateInternalNames.flatMap((internalName) => [

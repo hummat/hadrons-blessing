@@ -181,6 +181,76 @@ describe("parseBetterBotsProfileTemplates", () => {
 });
 
 describe("generateBetterBotsArtifacts", () => {
+  it("resolves legacy BetterBots modifier ids through canonical aliases", () => {
+    const profiles = parseBetterBotsProfileTemplates(`
+      local DEFAULT_PROFILE_TEMPLATES = {
+        zealot = {
+          archetype = "zealot",
+          loadout = {
+            slot_primary = "content/items/weapons/player/melee/powersword_2h_p1_m2",
+            slot_secondary = "content/items/weapons/player/ranged/flamer_p1_m1",
+          },
+          bot_gestalts = {
+            melee = "linesman",
+            ranged = "killshot",
+          },
+          weapon_overrides = {
+            slot_primary = {
+              traits = {
+                {
+                  id = "content/items/traits/bespoke_powersword_2h_p1/reduce_fixed_overheat_amount",
+                  rarity = 4,
+                  value = 1,
+                },
+              },
+              perks = {
+                {
+                  id = "content/items/perks/melee_common/wield_increase_elite_enemy_damage",
+                  rarity = 4,
+                  value = 1,
+                },
+              },
+            },
+            slot_secondary = {
+              traits = {
+                {
+                  id = "content/items/traits/bespoke_flamer_p1/armor_rending_from_dot_burning",
+                  rarity = 4,
+                  value = 1,
+                },
+              },
+              perks = {
+                {
+                  id = "content/items/perks/ranged_common/wield_increase_armored_damage",
+                  rarity = 4,
+                  value = 1,
+                },
+              },
+            },
+          },
+          talents = {
+            zealot_bolstering_prayer = 1,
+            zealot_throwing_knives = 1,
+            zealot_toughness_damage_reduction_coherency_improved = 1,
+            zealot_martyrdom = 1,
+          },
+        },
+      }
+    `);
+
+    const artifacts = generateBetterBotsArtifacts(profiles, { generatedAt: FIXED_GENERATED_AT });
+    const zealotBuild = artifacts.builds["bot-zealot"];
+
+    assert.equal(
+      zealotBuild.weapons.find((weapon) => weapon.slot === "melee")?.perks[0]?.canonical_entity_id,
+      "shared.weapon_perk.melee.weapon_trait_melee_common_wield_increased_armored_damage",
+    );
+    assert.equal(
+      zealotBuild.weapons.find((weapon) => weapon.slot === "ranged")?.blessings[0]?.canonical_entity_id,
+      "shared.name_family.blessing.penetrating_flame",
+    );
+  });
+
   it("reflects the current shipped BetterBots lineup", { skip: !HAS_BETTERBOTS }, () => {
     const profiles = loadBetterBotsProfileTemplates(DEFAULT_BETTERBOTS_PROFILE_PATH);
     const artifacts = generateBetterBotsArtifacts(profiles, { generatedAt: FIXED_GENERATED_AT });
