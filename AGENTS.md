@@ -12,6 +12,10 @@ Source-backed Darktide entity resolution and build audit tooling. Maps community
 
 This is a standalone project extracted from BetterBots. The long-term vision is a build intelligence platform: CLI + static web app for build ideation, creation, optimization, and debugging.
 
+**Name etymology.** Hadron Thawn is the in-game Mechanicus tech-priest NPC who handles all weapon crafting in Darktide — naming the project after her positions it as the crafting/build-planning counterpart to her in-fiction role. Fallback name was "Omnissiah's Blessing".
+
+**UX reference.** The build planner web app is modeled after [ranalds.gift](https://ranalds.gift) for Vermintide 2 — the closest existing community tool for the Fatshark *-tide* franchise. No equivalent exists for Darktide, which is the gap this project fills.
+
 ## Source Root Contract
 
 All index builds and most tests require a pinned Darktide source checkout:
